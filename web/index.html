@@ -8,10 +8,13 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Drive Western">
-  <meta name="theme-color" content="#c9d5d4">
+  <meta name="theme-color" content="#12082a">
   <meta name="campus-entry" content="map">
   <meta name="campus-course" content="sprint">
   <link rel="stylesheet" href="./drive.css">
+  <link rel="icon" type="image/png" href="./ui/favicon.png">
+  <link rel="preload" href="./ui/fonts/press-start-2p.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./ui/fonts/vt323.woff2" as="font" type="font/woff2" crossorigin>
   <script>
     const manifest=document.getElementById('campus-assets');
     if(manifest) globalThis.campusAssetUrls=JSON.parse(manifest.textContent);
@@ -147,15 +150,26 @@
     @media (max-width: 1100px) { #credits { left: auto; right: max(12px, env(safe-area-inset-right)); transform: none; bottom: 92px; max-width: 260px; text-align: right; } }
     @media (max-width: 700px) { #credits { display: none; } }
   </style>
+  <link rel="stylesheet" href="./ui/components.css">
   <script type="importmap">
     {"imports":{"three":"./three.module.js","three-mesh-bvh":"./mesh-bvh.module.js","campus-buildings":"./campus-buildings.mjs","building-kernel":"./building-kernel.mjs","parking-decks":"./parking-decks.mjs","building-contacts":"./building-contacts.mjs","building-materials":"./building-materials.mjs","campus-drive":"./drive.js","drive-sim":"./drive-sim.mjs","drive-art":"./drive-art.js","drive-road":"./drive-road.js","drive-trees":"./drive-trees.js","campus-scene":"./campus-scene.js","campus-region":"./campus-region.js","street-detail":"./street-detail.js","drive-network":"./drive-network.mjs","campus-roads":"./campus-roads.js","region-detail":"./region-detail.js","survey-canopy":"./survey-canopy.js","leaf-sprays":"./leaf-sprays.js","driving-horizon":"./driving-horizon.js","campus-clip":"./campus-clip.js","streetview-facades":"./streetview-facades.js","campus-terrain":"./campus-terrain.mjs","campus-architecture":"./architecture.js","municipal-detail":"./municipal-detail.js","frame-pacing":"./frame-pacing.mjs","campus-daylight":"./look/daylight.mjs","drive-finish":"./look/finish.mjs","look-quality":"./look/quality.mjs","look-materials":"./look/materials.mjs","grove-lod":"./grove-lod.js","core-volume":"./core-volume.mjs","scene-pack":"./scene-pack.mjs"}}
   </script>
 </head>
 <body>
+  <div id="loader">
+    <div class="loader-panel">
+      <img class="loader-logo" src="./ui/logo-pixel.png" alt="Formula Western" width="176" height="73">
+      <div class="loader-road" aria-hidden="true"><i class="loader-car"></i></div>
+      <div class="loader-meter" aria-hidden="true"><div class="loader-bar"><span class="loader-fill"></span></div><span class="loader-percent">  0%</span></div>
+      <p id="status" role="status">Loading campus…</p>
+      <p class="loader-tip"></p>
+    </div>
+  </div>
   <canvas id="view" aria-label="Interactive 3D model of Western University"></canvas>
   <div id="map-ui">
   <div id="labels" aria-label="Buildings"></div>
   <header class="hud">
+    <img class="map-logo" src="./ui/logo-pixel.png" alt="" width="176" height="73">
     <h1>Western University</h1>
     <p class="location">Campus map · London, Ontario</p>
   </header>
@@ -174,7 +188,7 @@
   </div>
   <section id="drive-ui" aria-label="Driving controls and instruments">
     <div class="course-card">
-      <div class="course-title"><span class="course-mark" aria-hidden="true">W</span><div><small>WESTERN UNIVERSITY</small><select id="drive-course" aria-label="Driving mode or race course"><option value="sprint">UC Hill Sprint</option></select></div></div>
+      <div class="course-title"><img class="course-mark" src="./ui/mark-pixel.png" alt="" width="72" height="24"><div><small>FORMULA WESTERN</small><select id="drive-course" aria-label="Driving mode or race course"><option value="sprint">UC Hill Sprint</option></select></div></div>
       <label id="roam-start" hidden>Start near <select id="spawn" aria-label="Free roam starting location"></select></label>
       <div id="drive-graphics"></div>
       <details id="driving-settings"><summary>Settings</summary><label><input type="checkbox" id="driving-assists" checked> Driving assists<span id="assists-pending" hidden> (next start)</span></label></details>
@@ -190,9 +204,9 @@
     <output id="race-countdown" hidden aria-live="assertive"></output>
     <div id="drive-message" role="status"></div>
     <div id="touch-drive"><button id="tilt" type="button" aria-pressed="false">Enable tilt steering</button><div><button data-key="ArrowLeft" aria-label="Steer left">←</button><button data-key="ArrowRight" aria-label="Steer right">→</button></div><div><button data-key="ArrowDown">Brake</button><button data-key="ArrowUp">Gas</button></div></div>
-    <div id="finish" hidden><div><small>UC HILL SPRINT</small><h2>Finish</h2><output id="result"></output><button id="again" type="button">Drive again ↗</button></div></div>
+    <div id="finish" hidden><div><img class="finish-logo" src="./ui/logo-pixel.png" alt="Formula Western" width="176" height="73"><small>UC HILL SPRINT</small><h2>Finish</h2><output id="result"></output><button id="again" type="button">Drive again ↗</button></div></div>
   </section>
-  <p id="status" role="status">Loading campus…</p>
+  <script type="module" src="./ui/components.mjs"></script>
   <script type="module" src="./main.js"></script>
   <details id="map-sources">
     <summary>Map credits</summary>

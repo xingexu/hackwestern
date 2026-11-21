@@ -11,6 +11,7 @@ import {installAudio} from './audio/settings.mjs';
 import {installCountdown} from './race/countdown.mjs';
 import {zoneHalfWidth} from './race/zones.mjs';
 import {installTrial} from './race/trial.mjs';
+import {installLandmarkFlash} from './landmark-flash.mjs';
 import {adaptiveResolution,createCameraRig,interpolatePose,snapshotPose} from 'frame-pacing';
 import * as THREE from 'three';
 import { createDriveSim, readGamepad } from 'drive-sim';
@@ -291,6 +292,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   let padConnected = false, padRestartDown = false;
   const phone=installPhoneControls(byId('touch-drive'),useProfile);
   const mobileHud=installMobileHud();
+  const landmarks=installLandmarkFlash({parent:byId('drive-ui'),labels:[...world.labels,...campus.labels],ways:campus.roadData.ways});
   let online;
   const audio=installAudio(byId('driving-settings'),campus);
   const countdown=installCountdown(byId('race-countdown'),audio.cue);
@@ -323,6 +325,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     finish.hidden = true;
     lastHud = -Infinity;
     paused = false;
+    landmarks.hide();
     document.activeElement?.blur();
   }
   function changeCourse(id) {
@@ -486,6 +489,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     }
     trial.hud(car);
     mobileHud(car,online?.padConnected,padConnected,timestamp);
+    landmarks.update(car,{quiet:paused || !finish.hidden || car.phase==='finished' || Boolean(online?.waiting) || byId('pixel-countdown')?.hidden===false});
   }
   changeCourse(params.get('course')||(photoStart?'roam':document.querySelector('meta[name=campus-course]')?.content));
   online=await onlineMenu;
