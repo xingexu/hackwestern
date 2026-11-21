@@ -40,6 +40,8 @@ export function lines(s: CaseState): Line[] {
         .join(" · "),
       f.sourceTurn,
     );
+  for (const allergy of s.allergyEvidence ?? [])
+    line("Reported allergy", allergy.name, allergy.sourceTurn);
   for (const m of s.medications)
     if (m.sourceTurn !== undefined)
       line(

@@ -119,6 +119,12 @@ export const caseSchema = z.object({
     )
     .max(30),
   allergies: z.array(short).max(30),
+  allergyEvidence: z
+    .array(
+      z.object({ name: short, sourceTurn: z.number().int().nonnegative() }),
+    )
+    .max(30)
+    .optional(),
   transcript: z.array(turnSchema).max(160),
   confirmed: z.boolean(),
   redFlag: z.object({ code: z.enum(codes) }).nullable(),

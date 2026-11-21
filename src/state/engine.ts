@@ -82,7 +82,14 @@ function applyInBatch(s: CaseState, c: ToolCall): CaseState {
       ],
     };
   else if (c.name === "add_allergy" && patientAt(s, Number(a.sourceTurn)))
-    n = { ...s, allergies: [...new Set([...s.allergies, String(a.name)])] };
+    n = {
+      ...s,
+      allergies: [...new Set([...s.allergies, String(a.name)])],
+      allergyEvidence: [
+        ...(s.allergyEvidence ?? []).filter((e) => e.name !== a.name),
+        { name: String(a.name), sourceTurn: Number(a.sourceTurn) },
+      ],
+    };
   else if (c.name === "finish_intake") n = { ...s, review: true };
   const observed = route(n);
   if (observed === "er" || observed === "walk_in")

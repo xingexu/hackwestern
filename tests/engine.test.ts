@@ -13,6 +13,20 @@ import { cards, route } from "../src/rules";
 import { lines } from "../src/note/lines";
 import { saveNote, getNote, TTL } from "../src/note/store";
 import { readback } from "../src/note/lines";
+test("an allergy sharing a symptom turn has its own cited note line", () => {
+  const s = applyBatch(sample(), [
+    f("rash"),
+    { name: "add_allergy", args: { name: "DemoMint", sourceTurn: 0 } },
+  ]);
+  assert.deepEqual(
+    lines(s).map((l) => [l.title, l.sourceTurn]),
+    [
+      ["Reported", 0],
+      ["Reported allergy", 0],
+    ],
+  );
+  assert.equal(lines(s)[1].text, "DemoMint");
+});
 import { applyExtraction } from "../src/state/engine";
 test("first-turn fallback handles urgent disclosures with no watchdog or Live tool", () => {
   const s = sample();
