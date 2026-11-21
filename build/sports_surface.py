@@ -169,6 +169,10 @@ if __name__=='__main__':
     data=surveyed_sports()
     data['laneBasis'],data['lanes']=stadium_lanes(data)
     data['practice']=practice_areas(data)
+    from gridiron_survey import surveyed_gridiron
+    data['gridiron']=surveyed_gridiron()
+    from field_edge_survey import measured_borders
+    data['fieldEdgeMarks']=measured_borders()
     import shapely
     track=Polygon(data['track'][0],data['track'][1:])
     triangles=shapely.get_parts(shapely.constrained_delaunay_triangles(track))

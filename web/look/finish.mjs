@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {motionFilter,protectMotionDetails} from './motion-blur.mjs';
 
 const vertexShader=`
   varying vec2 uvScreen;
@@ -15,6 +16,7 @@ const fragmentShader=`
   uniform float focalLength,ao,bloom;
   uniform bool orthographic;
   varying vec2 uvScreen;
+  ${motionFilter}
   float viewDistance(float d){
     if(orthographic)return mix(planes.x,planes.y,d);
     return planes.x*planes.y/(planes.y-d*(planes.y-planes.x));
@@ -28,7 +30,8 @@ const fragmentShader=`
     return smoothstep(.06,.55,diff)*(1.-smoothstep(.75,2.4,abs(sampleZ-z)));
   }
   void main(){
-    vec3 c=texture2D(sceneColor,uvScreen).rgb;
+    vec4 center=texture2D(sceneColor,uvScreen);
+    vec3 c=center.rgb;
     if(sampleScale>1.01){
       vec2 footprint=texel*sampleScale*.25;
       c=.25*(texture2D(sceneColor,uvScreen+footprint).rgb+texture2D(sceneColor,uvScreen-footprint).rgb+
@@ -47,6 +50,7 @@ const fragmentShader=`
     }
     float depth=texture2D(sceneDepth,uvScreen).r;
     float z=viewDistance(depth);
+    c=motionColor(c,center.a,z);
     vec2 pixel=floor(uvScreen/texel);
     vec2 gradient=vec2(dFdx(depth),dFdy(depth))/max(vec2(dFdx(pixel.x),dFdy(pixel.y)),vec2(1.));
     vec2 discontinuity=abs(vec2(dFdx(z),dFdy(z)));
@@ -71,7 +75,7 @@ const fragmentShader=`
   }
 `;
 
-export function driveFinish(renderer,scene,camera,quality){
+export function driveFinish(renderer,scene,camera,quality,sharpObjects){
   const size=new THREE.Vector2();
   const gpu=renderer.extensions.has('EXT_color_buffer_float');
   const target=new THREE.WebGLRenderTarget(1,1,{
@@ -79,7 +83,9 @@ export function driveFinish(renderer,scene,camera,quality){
     samples:Math.min(4,renderer.capabilities.maxSamples),
     depthTexture:new THREE.DepthTexture(1,1,THREE.UnsignedIntType)
   });
+  protectMotionDetails(renderer,target,sharpObjects);
   const uniforms={
+    shutterTravel:{value:new THREE.Vector3()},focal:{value:new THREE.Vector2()},
     sceneColor:{value:target.texture},sceneDepth:{value:target.depthTexture},
     texel:{value:new THREE.Vector2()},planes:{value:new THREE.Vector2(camera.near,camera.far)},
     sampleScale:{value:1},orthographic:{value:false},focalLength:{value:1},ao:{value:0},bloom:{value:0}
@@ -91,7 +97,7 @@ export function driveFinish(renderer,scene,camera,quality){
   screen.frustumCulled=false;
   const screenCamera=new THREE.Camera();
   renderer.info.autoReset=false;
-  return function render(activeCamera=camera){
+  return function render(activeCamera=camera,travel){
     renderer.info.reset();
     const {ao,bloom}=quality.current;
     if(!gpu || !ao){
@@ -107,6 +113,9 @@ export function driveFinish(renderer,scene,camera,quality){
     uniforms.orthographic.value=Boolean(activeCamera.isOrthographicCamera);
     uniforms.planes.value.set(activeCamera.near,activeCamera.far);
     uniforms.focalLength.value=size.y*.5*activeCamera.projectionMatrix.elements[5];
+    if(travel && quality.motionBlur && activeCamera.isPerspectiveCamera)uniforms.shutterTravel.value.copy(travel);
+    else uniforms.shutterTravel.value.set(0,0,0);
+    uniforms.focal.value.set(activeCamera.projectionMatrix.elements[0],activeCamera.projectionMatrix.elements[5]);
     uniforms.ao.value=ao;
     uniforms.bloom.value=bloom;
     renderer.setRenderTarget(target);

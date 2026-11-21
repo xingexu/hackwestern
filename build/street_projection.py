@@ -372,8 +372,8 @@ def generate(manifest,cache_only=False,scan_only=False,workers=4,shard=(0,1)):
     tmp.replace(OUT)
 
 
-def reproject():
-    pack=json.loads(OUT.read_bytes())
+def reproject(pack=None):
+    if pack is None:pack=json.loads(OUT.read_bytes())
     survey=Survey()
     cache=defaultdict(list)
     for file in (CORPUS/'ground-registrations').glob('*.npz'):

@@ -84,7 +84,11 @@ def mapped_network(network,registered_crossings=True):
     paint=json.loads(region.OUT.parents[1].joinpath('build/survey_road_paint.json').read_bytes()) if registered_crossings else {}
     crossings=[]
     travel=road.buffer(1)
-    for stripes in paint.get('crosswalks',{}).values():
+    extra=json.loads(region.OUT.parents[1].joinpath('build/survey_pavement.json').read_bytes())['crossings'] if registered_crossings else []
+    if registered_crossings:
+        from ladder_crossings import registered
+        extra=[*extra,*[row['bars']+row['rails'] for row in registered()]]
+    for stripes in [*paint.get('crosswalks',{}).values(),*extra]:
         if len(stripes)<4:continue
         bars=unary_union([Polygon(np.asarray(p).reshape(-1,2)) for p in stripes])
         if not travel.intersects(bars):continue
@@ -92,13 +96,17 @@ def mapped_network(network,registered_crossings=True):
     if crossings:road=road.union(unary_union(crossings).intersection(extent))
 
     road=road.difference(unary_union([Polygon(ring) for ring in observed['islands']]))
+    from kerb_islands import observed as observed_islands
+    islands=unary_union([poly for poly,_ in observed_islands()])
+    from parking_bays import bay_floors
+    road=road.difference(islands.union(bay_floors().difference(city.buffer(.12))))
     floors=solid_ground_floors(network)
     index=STRtree(floors)
     adjacent=index.query(road,predicate='intersects')
     road=road.difference(unary_union([floors[i] for i in adjacent]).buffer(.025,quad_segs=2))
     parts=road.geoms if road.geom_type=='MultiPolygon' else [road]
     rings=[[np.round(np.asarray(ring.coords)[:-1],2).ravel().tolist() for ring in [poly.exterior,*poly.interiors]] for poly in parts if poly.area>1]
-    city_edges=city.boundary.intersection(road.boundary.buffer(.32)).intersection(extent.buffer(-.5))
+    city_edges=city.boundary.difference(islands.boundary.buffer(.42)).intersection(road.boundary.buffer(.32)).intersection(extent.buffer(-.5))
     lines=[line for line in getattr(city_edges,'geoms',[city_edges]) if line.geom_type=='LineString' and line.length>1]
     curbs=[np.round(np.asarray(line.simplify(.2).coords),2).ravel().tolist() for line in lines]
     return rings,curbs

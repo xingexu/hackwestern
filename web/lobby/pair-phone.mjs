@@ -1,3 +1,4 @@
+import {changedInput} from '../race/input.mjs'
 import qr from 'qrcode-generator'
 import {reserve,Session} from '../net/session.mjs'
 
@@ -13,9 +14,9 @@ export function pairPhone(onAction) {
   const button=document.createElement('button')
   button.textContent='Phone controller'
   document.querySelector('.course-card nav').append(button)
-  let session,pending=false,connected=false,input,lastInput=0
+  let session,pending=false,connected=false,input,lastInput=0,activity=-1,previous=null
   function status(message){field('pad-state').textContent=message}
-  function release(){input=null;connected=false}
+  function release(){input=previous=null;connected=false;activity=-1}
   function end(){
     release()
     session?.close()
@@ -37,7 +38,12 @@ export function pairPhone(onAction) {
     field('pad-code').textContent=ticket.code
     field('pad-info').hidden=field('end-pad').hidden=false
     session=new Session(ticket,m=>{
-      if(m.type==='pad' && connected){input=m.input;lastInput=performance.now()}
+      if(m.type==='pad' && connected){
+        input=m.input;lastInput=performance.now()
+        if(changedInput(previous,input) || (previous && input.profile!==previous.profile)){
+          activity=lastInput;previous=input
+        }
+      }
       if(m.type==='pad-action' && connected)onAction(m.action)
       if(m.type==='room'){
         const phone=m.players.some(p=>p.id!==ticket.id && p.connected)
@@ -67,8 +73,15 @@ export function pairPhone(onAction) {
   if(saved)connect(JSON.parse(saved))
   button.onclick=open
   field('end-pad').onclick=end
-  return {open,get connected(){return connected},controls(local){
+  let nextFeedback=0
+  return {open,get connected(){return connected},controls(local,car){
     if(!connected || !input || performance.now()-lastInput>230)return local
-    return {...local,steer:Math.max(-1,Math.min(1,local.steer+input.steer)),brake:Math.max(local.brake,input.brake),throttle:Math.max(local.throttle,input.throttle)}
+    if(car && input.profile==='wheel' && performance.now()>=nextFeedback){
+      const straight=Math.abs(car.yawRate)<.06 && Math.abs(car.steer)<.035 && Math.abs(car.lateralSpeed)<.4
+      session.send({type:'pad-straight',straight})
+      nextFeedback=performance.now()+200
+    }
+    const profile=activity>local.activity?input.profile:local.profile
+    return {...local,profile,digitalSteer:profile==='buttons' || profile==='keyboard',steer:Math.max(-1,Math.min(1,local.steer+input.steer)),brake:Math.max(local.brake,input.brake),throttle:Math.max(local.throttle,input.throttle)}
   }}
 }

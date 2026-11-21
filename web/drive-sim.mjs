@@ -1,3 +1,5 @@
+import {advanceZones,circuitGates,zoneProgress} from './race/zones.mjs'
+import {inputProfile} from './race/input.mjs'
 import * as dm from './race/math.mjs'
 const DT = 1 / 120
 const MASS = 1515
@@ -10,8 +12,8 @@ const YAW_INERTIA = 2240
 const WHEEL_RADIUS = 0.337
 const WHEEL_INERTIA = 1.85
 const GRAVITY = 9.81
-const FINAL_DRIVE = 3.44
-const RATIOS = [3.78, 2.28, 1.65, 1.30, 1.04, 0.84]
+const FINAL_DRIVE = 3.94
+const RATIOS = [3.72, 2.16, 1.50, 1.15, .92, .76]
 const WHEELS = [
   { arm: FRONT_ARM, left: TRACK / 2, front: true },
   { arm: FRONT_ARM, left: -TRACK / 2, front: true },
@@ -77,26 +79,46 @@ function project(samples, index, x, z) {
 }
 
 function engineTorque(rpm) {
-  if (rpm < 2200) return 245 + 205 * (rpm - 850) / 1350
-  if (rpm < 5000) return 450
-  return Math.max(0, 450 - (rpm - 5000) * 0.049)
+  if (rpm < 2000) return 155 + 125 * (rpm - 850) / 1150
+  if (rpm < 4400) return 280
+  return Math.max(0, 280 - (rpm - 4400) * .031)
 }
 
 function tyreCurve(slip) {
   return dm.sin(1.44 * dm.atan(1.55 * slip))
 }
 
+const handling={
+  keyboard:{digital:true,turnIn:1.85,unwind:4,stability:1.15,pedal:6.5,brake:10,curve:0},
+  buttons:{digital:true,turnIn:1.65,unwind:3.6,stability:1.08,pedal:7.5,brake:11,curve:0},
+  tilt:{digital:false,turnIn:3.4,unwind:3.4,stability:.90,pedal:8,brake:12,curve:.28},
+  wheel:{digital:false,turnIn:3.4,unwind:3.4,stability:.90,pedal:8,brake:12,curve:0},
+  gamepad:{digital:false,turnIn:3.4,unwind:3.4,stability:.72,pedal:10,brake:15,curve:.12}
+}
+
 function integrateCar(car, wheels, input, road, contacts) {
-  const throttle = control(input.throttle, 0, 1)
-  const brake = control(input.brake, 0, 1)
-  const command = control(input.steer, -1, 1)
+  const assisted = car.assists
+  const profile=car.profile=inputProfile(input), tune=handling[profile]
+  const throttleTarget = control(input.throttle, 0, 1)
+  const brakeTarget = control(input.brake, 0, 1)
+  const throttle = car.gasPedal = assisted ? approach(car.gasPedal, throttleTarget, DT*(throttleTarget>car.gasPedal?tune.pedal:18)) : throttleTarget
+  const brake = car.brakePedal = assisted ? approach(car.brakePedal, brakeTarget, DT*(brakeTarget>car.brakePedal?tune.brake:18)) : brakeTarget
+  const raw = control(input.steer, -1, 1)
+  const curve=assisted?tune.curve:0
+  const response=raw*(1-curve+curve*Math.abs(raw))
+  car.filteredSteer=assisted && profile==='tilt' ? car.filteredSteer+(response-car.filteredSteer)*.34 : response
+  const command=car.filteredSteer
   const speed = Math.abs(car.speed)
   const mechanicalRange = .55 / (1 + dm.steeringPower(speed))
   const gripAngle = dm.atan(WHEELBASE * 11.7 / Math.max(1, speed * speed)) + .06
-  const range = input.digitalSteer ? Math.min(mechanicalRange, gripAngle) : mechanicalRange
+  const digital = assisted && tune.digital
+  const range = digital ? Math.min(mechanicalRange, gripAngle) : assisted ? Math.min(mechanicalRange,gripAngle+.035) : .55
+  const slipAngle = dm.atan2(car.lateralSpeed,Math.max(4,speed))
+  const countersteer = assisted ? clamp(Math.sign(slipAngle)*Math.max(0,Math.abs(slipAngle)-.018)*.36,-.08,.08)*tune.stability*clamp((speed-9)/6,0,1) : 0
+  const targetSteer = clamp(command*range+countersteer,-range,range)
   const unwind = Math.sign(command) !== Math.sign(car.steer) || Math.abs(command * range) < Math.abs(car.steer)
-  const rackRate = input.digitalSteer && !unwind ? 1.85 / (1 + speed / 18) : 3.4
-  car.steer = approach(car.steer, command * range, rackRate * DT)
+  const rackRate = digital ? (unwind?tune.unwind:tune.turnIn)/(1+speed/(unwind?42:18)) : 3.4
+  car.steer = approach(car.steer, targetSteer, rackRate * DT)
 
   if (speed < 0.22 && Math.abs(car.lateralSpeed) < 0.3) {
     if (throttle > 0.01) car.gear = Math.max(1, car.gear)
@@ -115,22 +137,24 @@ function integrateCar(car, wheels, input, road, contacts) {
   }
 
   const rearWheelSpeed = Math.abs((wheels[2] + wheels[3]) / 2)
+  const shiftRpm=3100+3400*gas
   const shaftRpm = rearWheelSpeed * FINAL_DRIVE * 60 / (2 * Math.PI)
   if (!reverse && car.shiftRemaining <= 0) {
-    if (car.gear < RATIOS.length && shaftRpm * RATIOS[car.gear - 1] > 6800) {
+    if (car.gear < RATIOS.length && shaftRpm * RATIOS[car.gear - 1] > shiftRpm) {
       car.gear++
       car.shiftRemaining = .095
-    } else if (car.gear > 1 && shaftRpm * RATIOS[car.gear - 2] < 4750) {
+    } else if (car.gear > 1 && shaftRpm * RATIOS[car.gear - 2] < shiftRpm*.65) {
       car.gear--
       car.shiftRemaining = .085
     }
   }
   car.shiftRemaining = Math.max(0, car.shiftRemaining - DT)
   const ratio = reverse ? 3.35 : RATIOS[car.gear - 1]
-  car.rpm = Math.max(850 + gas * (reverse ? 1100 : 800), shaftRpm * ratio)
+  car.rpm = Math.min(6750,Math.max(850 + gas * (reverse ? 1100 : 950), shaftRpm * ratio))
   const engineBrake = Math.min(1, speed / 3) * (1 - gas) * (12 + .004 * car.rpm)
-  car.throttlePlate = approach(car.throttlePlate, gas, DT * (gas > car.throttlePlate && !reverse ? 1.85 : 12))
-  const combustion = (braking > 0.05 ? 0 : car.throttlePlate) * engineTorque(car.rpm) * (car.shiftRemaining > 0 || car.rpm > 7200 ? 0 : 1)
+  const requestedPlate=gas+.12*gas*(1-gas)
+  car.throttlePlate = approach(car.throttlePlate, requestedPlate, DT * (requestedPlate > car.throttlePlate && !reverse ? 2 : 12))
+  const combustion = (braking > 0.05 ? 0 : car.throttlePlate) * engineTorque(car.rpm) * (car.shiftRemaining > 0 || car.rpm >= 6750 ? 0 : 1) * clamp((54.2-speed)/2.2,0,1)
   const torque = (combustion * (reverse ? -.62 : 1) - Math.sign(car.speed) * engineBrake) * ratio * FINAL_DRIVE * .9 / 2
   const sin = dm.sin(car.heading), cos = dm.cos(car.heading)
   const roadNormalForward = sin * road.tangentZ - cos * road.tangentX
@@ -171,21 +195,21 @@ function integrateCar(car, wheels, input, road, contacts) {
       fx += wheelFx
       fy += wheelFy
       moment += arm * wheelFy - left * wheelFx
-      const tractionControl = clamp(1 - (Math.sign(torque) * slipRatio - .09) * 10, .05, 1)
-      const cornerThrottle = car.speed > 7 && torque > 0 ? 1 - .65 * clamp((Math.abs(lateral) - .65) / 1.10, 0, 1) : 1
+      const tractionControl = !assisted ? 1 : clamp(1 - (Math.sign(torque) * slipRatio - .09) * 10, .05, 1)
+      const cornerThrottle = assisted && car.speed > 7 && torque > 0 ? 1 - .65 * clamp((Math.abs(lateral) - .65) / 1.10, 0, 1) : 1
       const driveTorque = front ? 0 : torque * tractionControl * cornerThrottle
-      const abs = clamp(1 + (Math.sign(forward) * slipRatio + .09) * 12, .05, 1)
+      const abs = !assisted ? 1 : clamp(1 + (Math.sign(forward) * slipRatio + .09) * 12, .05, 1)
       const brakeTorque = braking * (front ? 2090 : 1390) * abs + (front ? 0 : control(input.handbrake, 0, 1) * 1850)
       wheels[i] = approach(wheels[i] + (driveTorque - traction * WHEEL_RADIUS) * substep / WHEEL_INERTIA, 0, brakeTorque * substep / WHEEL_INERTIA)
     }
-    if (car.speed > 8) {
+    if (assisted && car.speed > 8) {
       const sideslip = dm.atan2(car.lateralSpeed, car.speed)
       const yawDemand = clamp(car.speed * dm.tan(car.steer) / WHEELBASE, -11.3 / car.speed, 11.3 / car.speed)
       const excessYaw = car.yawRate - yawDemand
       const counterYaw = excessYaw * car.yawRate > 0 ? Math.sign(excessYaw) * Math.max(0, Math.abs(excessYaw) - .075) : 0
       const slide = Math.sign(sideslip) * Math.max(0, Math.abs(sideslip) - .024)
       const authority = clamp((car.speed - 8) / 8, 0, 1) * clamp((Math.abs(sideslip) - .018) / .035, 0, 1)
-      const stabilityMoment = YAW_INERTIA * authority * clamp(9.5 * slide - 3.5 * counterYaw, -1.85, 1.85)
+      const stabilityMoment = YAW_INERTIA * tune.stability * authority * clamp(9.5 * slide - 3.5 * counterYaw, -1.85, 1.85)
       moment += stabilityMoment
       fx -= Math.abs(stabilityMoment) / (TRACK * .5)
     }
@@ -197,14 +221,16 @@ function integrateCar(car, wheels, input, road, contacts) {
     car.yawRate += moment * substep / YAW_INERTIA
   }
   car.bodyPitch = car.ax * .004
-  car.roll = car.ay * .007
+  const lean = car.ay*.007
+  car.roll = assisted ? approach(car.roll,clamp(lean,-.16,.16),DT*.9) : lean
 }
 
-function resetCar(state, start, grade) {
+function resetCar(state, start, grade, assisted) {
   Object.assign(state, {
     x: start.x, y: start.y, z: start.z, heading: start.heading, speed: 0,
     distance: start.distance, elapsed: 0, phase: 'ready', surface: 'road', steer: 0,
     pitch: dm.atan(grade), lateralSpeed: 0, yawRate: 0, ax: 0, ay: 0,
+    assists: assisted, profile:'gamepad', filteredSteer:0, gasPedal: 0, brakePedal: 0, lift: 0, liftSpeed: 0, roadX:start.x, roadZ:start.z, vergeTime:0,
     bodyPitch: 0, roll: 0, gear: 1, rpm: 850, shiftRemaining: 0, throttlePlate: 0,
   })
 }
@@ -301,37 +327,43 @@ function moveThroughWorld(network, state) {
   return hit
 }
 
-function crossedGate(fromX, fromZ, car, gate, halfWidth) {
-  const sin = dm.sin(gate.heading), cos = dm.cos(gate.heading)
-  const before = (fromX - gate.x) * sin + (fromZ - gate.z) * cos
-  const after = (car.x - gate.x) * sin + (car.z - gate.z) * cos
-  if (before >= 0 || after < 0 || Math.abs(car.y - gate.y) > 2.2) return false
-  const t = -before / (after - before)
-  const x = fromX + (car.x - fromX) * t - gate.x
-  const z = fromZ + (car.z - fromZ) * t - gate.z
-  return Math.abs(x * cos - z * sin) <= halfWidth + .6
+function settleBody(car,rise) {
+  const previous=car.lift
+  const damper=car.assists?9:3
+  car.liftSpeed-=(GRAVITY+damper*Math.max(0,car.liftSpeed))*DT
+  car.lift=Math.max(0,previous+car.liftSpeed*DT-rise)
+  if (!car.lift) car.liftSpeed=clamp(rise/DT,-6,car.assists?1.4:2.2)
+  if (car.lift>.06 && car.assists) {
+    car.roll*=.96
+    car.bodyPitch*=.96
+    car.yawRate*=.995
+  }
 }
 
-function createNetworkDrive(samples, network, mode) {
+function guideFromVerge(car) {
+  if (car.surface==='road') {
+    car.roadX=car.x
+    car.roadZ=car.z
+    car.vergeTime=0
+    return
+  }
+  car.vergeTime+=DT
+  if (!car.assists || car.vergeTime>.55 || car.speed<3 || car.contact) return
+  const side=(car.roadX-car.x)*dm.cos(car.heading)-(car.roadZ-car.z)*dm.sin(car.heading)
+  car.lateralSpeed+=clamp(side*2,-1.9,1.9)*(1-car.vergeTime/.55)*DT
+}
+
+function createNetworkDrive(samples, network, mode, assisted) {
   const racing = mode === 'circuit'
   const last = samples.length - 1
-  const gates = []
-  if (racing) {
-    let spacingFrom = 0
-    for (let i = 1; i < last; i++) {
-      if (samples[i].distance - spacingFrom >= 24 && samples[last].distance - samples[i].distance >= 12) {
-        gates.push(i)
-        spacingFrom = samples[i].distance
-      }
-    }
-    gates.push(last)
-  }
+  const gates = racing ? circuitGates(samples) : []
+  let progress
   const state = {}
   const wheels = new Float64Array(4)
   let ground
   function spawn(sample) {
     ground = network.sample(sample.x, sample.z, sample.y)
-    resetCar(state, sample, ground.grade)
+    resetCar(state, sample, ground.grade, state.assists??assisted)
     state.y = ground.y
     state.surface = ground.surface
     state.offCourse = false
@@ -340,7 +372,9 @@ function createNetworkDrive(samples, network, mode) {
   }
   function reset() {
     spawn(samples[0])
+    progress = zoneProgress()
     state.checkpointsPassed = 0
+    state.lastGateDistance = 0
     state.checkpointCount = gates.length
     state.nextGate = racing ? samples[gates[0]] : null
   }
@@ -352,12 +386,13 @@ function createNetworkDrive(samples, network, mode) {
     const elapsed = state.elapsed
     const checkpoint = state.checkpointsPassed > 0 ? gates[state.checkpointsPassed - 1] : 0
     spawn(samples[checkpoint])
+    progress=zoneProgress(state.checkpointsPassed)
     state.elapsed = elapsed
     state.phase = 'driving'
   }
   function sectorPosition() {
-    const start = state.checkpointsPassed === 0 ? 0 : gates[state.checkpointsPassed - 1]
-    const end = gates[state.checkpointsPassed]
+    const start = Math.max(0,(gates[state.checkpointsPassed-1] ?? 0)-5)
+    const end = gates[state.checkpointsPassed + Number(progress.missed)] ?? last
     let nearest = project(samples, start, state.x, state.z)
     for (let i = start + 1; i < end; i++) {
       const candidate = project(samples, i, state.x, state.z)
@@ -369,12 +404,14 @@ function createNetworkDrive(samples, network, mode) {
   }
   function step(input = {}) {
     if (state.phase === 'finished') return
-    const oldX = state.x, oldZ = state.z
+    const oldX = state.x, oldZ = state.z, oldY = state.y, oldLift = state.lift
     integrateCar(state, wheels, input, ground, wheelSurfaces(network, state))
     state.contact = moveThroughWorld(network, state)
     ground = network.sample(state.x, state.z, state.y)
+    settleBody(state,ground.y-oldY)
     state.y = ground.y
     state.surface = ground.surface
+    guideFromVerge(state)
     const forwardGrade = ground.grade * (dm.sin(state.heading) * ground.tangentX + dm.cos(state.heading) * ground.tangentZ)
     state.pitch = approach(state.pitch, dm.atan(forwardGrade), 1.5 * DT)
     if (state.phase === 'ready' && dm.hypot(state.x - samples[0].x, state.z - samples[0].z) >= START_DISTANCE) {
@@ -386,9 +423,9 @@ function createNetworkDrive(samples, network, mode) {
     if (state.phase !== 'driving') return
     state.elapsed += DT
     if (!racing) return
-    const gate = state.nextGate
-    if (crossedGate(oldX, oldZ, state, gate, gate.halfWidth ?? ground.halfWidth)) {
-      state.checkpointsPassed++
+    if (advanceZones(samples,gates,progress,{x:oldX,y:oldY+oldLift,z:oldZ},{x:state.x,y:state.y+state.lift,z:state.z})) {
+      state.checkpointsPassed=progress.passed
+      state.lastGateDistance=samples[gates[progress.passed-1]].distance
       if (state.checkpointsPassed === gates.length) {
         state.nextGate = null
         state.distance = samples[last].distance
@@ -406,7 +443,7 @@ function createNetworkDrive(samples, network, mode) {
 
 export function createDriveSim(samples, options = {}) {
   if (options.mode === 'roam' || options.mode === 'circuit') {
-    return createNetworkDrive(samples, options.network, options.mode)
+    return createNetworkDrive(samples, options.network, options.mode, options.assists !== false)
   }
   const start = samples[0]
   const finish = samples.at(-1)
@@ -427,7 +464,7 @@ export function createDriveSim(samples, options = {}) {
     road = project(samples, 0, start.x, start.z)
     road=terrain?.sample(start.x,start.z,start.y) ?? road
     const grade=road.grade*(dm.sin(start.heading)*road.tangentX+dm.cos(start.heading)*road.tangentZ)
-    resetCar(state,start,grade)
+    resetCar(state,start,grade,options.assists !== false)
     state.y=road.y
     state.surface=road.surface ?? 'road'
   }
@@ -502,10 +539,12 @@ export function createDriveSim(samples, options = {}) {
     road=terrain?.sample(nextX,nextZ,state.y) ?? route
     segmentIndex = route.index
     state.x = nextX
+    settleBody(state,road.y-state.y)
     state.y = road.y
     state.z = nextZ
     state.distance = route.distance
     state.surface = road.surface ?? (Math.abs(bounded)<=ROAD_HALF_WIDTH ? 'road' : 'grass')
+    guideFromVerge(state)
     const pitch = dm.atan(road.grade * (dm.sin(state.heading) * road.tangentX + dm.cos(state.heading) * road.tangentZ))
     state.pitch = approach(state.pitch, pitch, 1.5 * DT)
   }

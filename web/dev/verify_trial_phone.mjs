@@ -1,3 +1,4 @@
+import {drivingMenu} from './mobile_menu.mjs'
 import assert from 'node:assert/strict'
 import {mkdir,readFile} from 'node:fs/promises'
 import {engines,serve} from './race_browser.mjs'
@@ -46,6 +47,7 @@ try {
       const tilt=page.locator('#tilt'),gas=page.locator('[data-key=ArrowUp]'),brake=page.locator('[data-key=ArrowDown]')
       assert.match(await page.locator('link[rel=manifest]').getAttribute('href'),/app.webmanifest$/)
       assert.equal(await page.locator('meta[name=apple-mobile-web-app-capable]').getAttribute('content'),'yes')
+      await drivingMenu(page)
       await tilt.tap()
       assert.equal(await tilt.getAttribute('aria-pressed'),'false')
       await page.evaluate(()=>{window.grant='granted'})
@@ -66,16 +68,18 @@ try {
         await page.mouse.move(b.x+b.width/2,b.y+b.height/2)
         await page.mouse.down()
       }
+      await drivingMenu(page,false)
       await press(gas)
-      await page.waitForFunction(()=>driveMetrics.car.speed>3)
+      await page.waitForFunction(()=>driveMetrics.car.speed>3 && driveMetrics.car.profile==='tilt')
       await page.mouse.up()
       await press(brake)
       await page.waitForFunction(()=>driveMetrics.car.speed<1)
       await page.mouse.up()
       await page.screenshot({path:new URL(engine+'-phone-steering.png',shots).pathname})
+      await drivingMenu(page)
       await page.locator('#trial-open').tap()
       await page.locator('#trial-start').tap()
-      await page.waitForFunction(()=>/^[123]$/.test(document.querySelector('#drive-message').textContent))
+      await page.waitForFunction(()=>/^[123]$/.test(document.querySelector('#race-countdown').textContent))
       await page.evaluate(async url=>{
         const {driveInput}=await import(url)
         const samples=driveMetrics.network.circuits.find(c=>c.id==='stadium').samples
@@ -112,9 +116,11 @@ try {
       await page.locator('#again').tap()
       await page.waitForFunction(()=>driveMetrics.ghostVisible===true && /^0:0[2-9]\./.test(document.querySelector('#time').textContent))
       await page.screenshot({path:new URL(engine+'-pb-ghost.png',shots).pathname})
+      await drivingMenu(page)
       await page.getByRole('button',{name:'Ghost on',exact:true}).tap()
       await page.waitForFunction(()=>driveMetrics.ghostVisible===false)
       await page.reload()
+      await drivingMenu(page)
       await page.locator('#trial-open').tap()
       assert.match(await page.locator('#trial-opponent').textContent(),/Personal best/)
       assert.deepEqual(errors,[])

@@ -1,8 +1,8 @@
 import {contact} from '../net/motion.mjs'
 
-export function createFleet(THREE,scene,coupe){
+export function createFleet(THREE,scene,coupe,audio){
   const cars=new Map(),localPaint=coupe.children[0].material,originalColor=localPaint.color.clone()
-  let clearing=true
+  let clearing=true, poses=[]
   function add(p){
     const model=new THREE.Group(),materials=new Map()
     const clone=m=>{
@@ -29,6 +29,7 @@ export function createFleet(THREE,scene,coupe){
     row.rename(p.nickname);cars.set(p.id,row)
   }
   return {
+    get poses(){return poses},
     respawn(){clearing=true},
     roster(players,me){
       for(const [id,row] of cars)if(!players.some(p=>p.id===id && p.connected)){row.dispose();cars.delete(id)}
@@ -56,11 +57,19 @@ export function createFleet(THREE,scene,coupe){
         }
         drawn.push({track,pose})
       }
-      const poses=drawn.map(v=>v.pose)
+      poses=drawn.map(v=>v.pose)
       if(clearing && poses.length && poses.every(p=>Math.hypot(p.x-car.x,p.z-car.z)>2.3 || Math.abs(p.y-car.y)>1.5))clearing=false
       for(const {track,pose} of drawn){
         track.clearIfSeparated(pose,[car,...poses.filter(o=>o!==pose)])
-        if(collide && !clearing)contact(car,pose,dt)
+        if(collide && !clearing){
+          const speed=car.speed
+          if(contact(car,pose,dt)){
+            const sin=Math.sin(car.heading),cos=Math.cos(car.heading)
+            const dx=pose.x-car.x,dz=pose.z-car.z
+            const closing=((speed*sin+car.lateralSpeed*cos-pose.vx)*dx+(speed*cos-car.lateralSpeed*sin-pose.vz)*dz)/Math.max(.01,Math.hypot(dx,dz))
+            audio.mix?.impact('car',closing)
+          }
+        }
       }
     }
   }

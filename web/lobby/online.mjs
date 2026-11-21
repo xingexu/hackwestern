@@ -28,7 +28,7 @@ export function mountOnline(health){
   const q=new URLSearchParams(location.search),invite=q.get('room')?.toUpperCase()
   const debug=q.has('netdebug')?document.createElement('pre'):null
   if(debug){debug.id='net-debug';by('drive-ui').append(debug)}
-  let game,fleet,session,room,loaded=false,positioned=null,reportedLap=0,stuck=0,connection=''
+  let game,fleet,session,room,loaded=false,positioned=null,reportAt=0,stuck=0,connection=''
   const phone=pairPhone(action=>{
     if(action==='recover' && !by('recover').hidden)by('recover').click()
     else by('restart').click()
@@ -37,7 +37,7 @@ export function mountOnline(health){
   const status=value=>{by('online-status').value=value}
   const send=m=>session?.send(m)
   function clear(){
-    room=null;session=null;loaded=false;positioned=null;reportedLap=0
+    room=null;session=null;loaded=false;positioned=null;reportAt=0
     sessionStorage.removeItem('western-room')
     fleet?.roster([],null)
     by('online-entry').hidden=false;by('online-room').hidden=true
@@ -91,13 +91,14 @@ export function mountOnline(health){
       const car=game.carState(),side=(p.slot%2?1:-1)*1.25,back=Math.floor(p.slot/2)*4.8
       car.x+=Math.cos(car.heading)*side-Math.sin(car.heading)*back
       car.z-=Math.sin(car.heading)*side+Math.cos(car.heading)*back
-      positioned=room.race;reportedLap=p.lap;session.reset();fleet.respawn()
+      positioned=room.race;reportAt=0;session.reset();fleet.respawn()
       menu.close()
     }
     if(room.phase==='positioning' && !p.placed && !placementSent){placementSent=true;send({type:'placed',race:room.race})}
     if(before?.race===room.race && room.race && !p.finish && p.lap>(before.players.find(v=>v.id===p.id)?.lap??0)){
-      game.reset();session.reset();fleet.respawn()
+      game.audio.cue('lap');game.reset();session.reset();fleet.respawn()
     }
+    if(before?.race===room.race && room.race && p.finish && !before.players.find(v=>v.id===p.id)?.finish)game.audio.cue('finish')
     if(!room.race){positioned=null;placementSent=false}
     if(room.phase==='results' && before?.phase!=='results' && !menu.open)menu.showModal()
   }
@@ -106,7 +107,7 @@ export function mountOnline(health){
     sessionStorage.setItem('western-room',JSON.stringify({ticket,profile}))
     session=new RaceSession(ticket,profile,m=>{const before=room;room=m;apply(before)},s=>{
       connection=s
-      if(s==='Connected'){loaded=false;placementSent=false;reportedLap=state()?.lap||0}
+      if(s==='Connected'){loaded=false;placementSent=false;reportAt=0}
       if(session?.closed)clear()
       render();status(s)
     })
@@ -156,12 +157,18 @@ export function mountOnline(health){
   if(health.multiplayer && prev?.ticket && (!invite || prev.ticket.code===invite))connect(prev.ticket,prev.profile)
   else if(invite && health.multiplayer){by('room-code').value=invite;menu.showModal()}
   return {
-    attach(deps){game=deps;fleet=createFleet(deps.THREE,deps.scene,deps.coupe);apply(null)},
+    attach(deps){game=deps;fleet=createFleet(deps.THREE,deps.scene,deps.coupe,deps.audio);apply(null)},
     get racing(){return !!room?.race},
     get active(){return !!room},
+    get opponents(){return room?fleet?.poses:undefined},
+    get cue(){
+      if(!session?.clock.synced || !['countdown','playing'].includes(room?.phase))return null
+      const left=room.start-session.clock.server(performance.now())
+      return left>0?String(Math.min(3,Math.ceil(left/1000))):left> -800?'GO':null
+    },
     get waiting(){return room?.race && (room.phase==='positioning' || (room.phase==='countdown' && (!session.clock.synced || session.clock.server(performance.now())<room.start)) || room.phase==='results' || state()?.dnf || !!state()?.finish)},
     get padConnected(){return phone.connected},
-    controls:phone.controls,
+    controls(local){return phone.controls(local,game?.carState())},
     recoverySpot(car){
       session?.reset();fleet?.respawn();stuck=0
       return room && safeSpot?.car===car && safeSpot.gates===car.checkpointsPassed?safeSpot.pose:null
@@ -181,8 +188,8 @@ export function mountOnline(health){
       const label=!session.connected?connection:room.drain?'Server updating':room.phase==='positioning'?'Taking starting positions…':room.phase==='countdown' && seconds>0?'Starting in '+seconds:stuck>2?'Stuck? '+(phone.connected || matchMedia('(pointer:coarse)').matches?'Tap Recover':pad?'Press Menu to recover':'Press R to recover'):p.finish?'Finished':room.phase==='playing'?'Lap '+(p.lap+1)+' / '+room.settings.laps+(left<=30?' · '+left+' s left':''):''
       banner.hidden=!label
       if(banner.textContent!==label)banner.textContent=label
-      if(session.connected && room.phase==='playing' && !p.finish && !p.dnf && car.phase==='finished' && reportedLap===p.lap){
-        reportedLap++;send({type:'lap',race:room.race,lap:reportedLap})
+      if(session.connected && room.phase==='playing' && !p.finish && !p.dnf && car.phase==='finished' && stamp>=reportAt){
+        reportAt=stamp+350;send({type:'lap',race:room.race,lap:p.lap+1})
       }
       if(debug && stamp>(this.debugDue||0)){
         this.debugDue=stamp+250

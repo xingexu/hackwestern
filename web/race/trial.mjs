@@ -10,7 +10,7 @@ function lap(ms) {
 }
 function delta(ms) {return (ms<0?'−':'+')+(Math.abs(ms)/1000).toFixed(3)}
 
-export function installTrial({scene,ghostModel,reset,visualHeight,vibrate}) {
+export function installTrial({scene,ghostModel,reset,sound,visualHeight,vibrate}) {
   const byId=id=>document.getElementById(id)
   const start=document.createElement('button')
   start.id='trial-open'
@@ -75,7 +75,7 @@ export function installTrial({scene,ghostModel,reset,visualHeight,vibrate}) {
     } catch {if (epoch===request) notice.textContent='Leaderboard unavailable · race locally'}
   }
   start.onclick=choose
-  function begin() {
+  function begin(assists=true) {
     if (!active) return
     lastGateDistance=0
     tick=0
@@ -83,7 +83,7 @@ export function installTrial({scene,ghostModel,reset,visualHeight,vibrate}) {
     finishedReplay=null
     expired=false
     countdown=360
-    recorder=createRecorder({course:context.id})
+    recorder=createRecorder({course:context.id,setup:assists?'stock':'expert'})
     ghost=source?createPlayback(source,context):null
     if (ghost) {
       if (!model) {model=ghostModel();scene.add(model)}
@@ -119,7 +119,7 @@ export function installTrial({scene,ghostModel,reset,visualHeight,vibrate}) {
     finishedReplay=recorder.finish({timeMs:milliseconds(tick),checkpointsMs:times,stateHash:stateHash(sim)})
     const before=personalBest(context.id)
     const improved=!before || finishedReplay.timeMs<before.timeMs
-    if (improved) saveBest(finishedReplay)
+    if (improved) {saveBest(finishedReplay);sound?.('best')}
     const pb=improved?finishedReplay:before
     best=pb
     if (opponent.value==='pb') source=pb
@@ -159,22 +159,21 @@ export function installTrial({scene,ghostModel,reset,visualHeight,vibrate}) {
     if (panel.open || expired || finishedReplay) return
     if (countdown>0) {countdown--;if (!countdown) vibrate(30);return}
     if (tick===MAX_STEPS) {expired=true;return}
-    const gateDistance=sim.state.nextGate?.distance
     sim.step(recorder.record(input))
     tick++
     if (ghost) {
       snapshotPose(previous,ghost.sim.state)
       if (ghost.tick<source.steps) ghost.step()
     }
-    if (times.length<sim.state.checkpointsPassed) {times.push(milliseconds(tick));lastGateDistance=gateDistance}
+    while (times.length<sim.state.checkpointsPassed) times.push(milliseconds(tick))
+    lastGateDistance=sim.state.lastGateDistance
     if (sim.state.phase==='finished') finish(sim)
   }
   function hud(car) {
     if (!active) return
     byId('time').textContent=lap(milliseconds(tick))
-    if (countdown) byId('drive-message').textContent=String(Math.ceil(countdown/120))
+    if (countdown || tick<96) byId('drive-message').textContent=''
     else if (expired) byId('drive-message').textContent='Time limit · restart to try again'
-    else if (tick<120) byId('drive-message').textContent='Go!'
     if (finishedReplay) {byId('result').textContent=lap(finishedReplay.timeMs);return}
     const ends=sectors(car.checkpointCount)
     const sector=ends.findIndex(end=>end>times.length)
@@ -196,8 +195,8 @@ export function installTrial({scene,ghostModel,reset,visualHeight,vibrate}) {
     model.visible=Boolean(active && ghost && check.checked && !finishedReplay)
     if (!model.visible) return
     const pose=interpolatePose(rendered,previous,ghost.sim.state,alpha)
-    model.position.set(pose.x,visualHeight(pose)+.035,pose.z)
+    model.position.set(pose.x,visualHeight(pose)+pose.lift+.035,pose.z)
     model.rotation.set(-pose.pitch-pose.bodyPitch,pose.heading,pose.roll,'YXZ')
   }
-  return {course,begin,step,hud,render,get active(){return active},get context(){return context}}
+  return {course,begin,step,hud,render,get cue(){return active && !expired && !finishedReplay ? countdown?String(Math.ceil(countdown/120)):tick<96?'GO':null : null},get active(){return active},get context(){return context}}
 }

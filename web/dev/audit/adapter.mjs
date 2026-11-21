@@ -65,6 +65,8 @@ function classify(mesh,campus) {
 const deckSwatches=new Map(Object.entries({road:[0x677077,0x717777],path:[0xc3bfb1,0xa29a84,0x988568],kerb:[0xbcb8ac],gutter:[0x999d99],paint:[0xd3b26a,0xe0dfcf],prop:[0x777f7d,0x555e5b,0x99958c,0x999789]}).flatMap(([name,colors])=>colors.map(color=>[color,name])))
 export function traversableKerb(item,tri,vertex,groundAt) {
   if(item.kind!=='deck' || item.mesh.name) return false
+  const finish=item.geometry.attributes.paving?.getZ(vertex)??0
+  if(finish===11||finish===12)return tri.every(p=>Math.abs(p.y-groundAt(p.x,p.z)-.105)<.012)
   const rgb=new THREE.Color().fromBufferAttribute(item.geometry.attributes.color,vertex).getHex()
   if(![0xbcb8ac,0x999789,0x999d99].includes(rgb)) return false
   return tri.every(p=>p.y-groundAt(p.x,p.z)<=.16)
@@ -79,7 +81,10 @@ function surface(hit,x,z) {
     const hex=color.getHex(),paint=deckSwatches.get(hex)??'road'
     if(hex===0xa29a84 && mesh.name==='Bridge decks and approaches' && Math.abs(hit.face.normal.y)<.96) return 'bank'
     if(paint==='kerb' && mesh.name==='Bridge decks and approaches') return 'rail'
-    if(mesh.geometry.attributes.paving.getZ(hit.face.a)>.5) {
+    const profile=mesh.geometry.attributes.paving?.getZ(hit.face.a)??0
+    if(profile>10.5)return profile>11.5?'path':'grass'
+    if(profile>=4.5)return profile===9?'road':'inlay'
+    if(profile>.5) {
       const u=uniforms(mesh.material)
       if(u.streetCoverage && sample(u.streetCoverage,u.streetBounds,x,z,true)>.52*255) return 'discard'
     }
@@ -92,7 +97,7 @@ function surface(hit,x,z) {
   }
   if(kind!=='terrain') return kind
   const u=uniforms(mesh.material)
-  const code=sample(u.coverMap,u.coverBounds,x,z)
+  const code=sample(u.landTransitions,u.coverBounds,x,z)>>4
   
   if(code===6) return 'water'
   if(sample(u.pavementMap,u.surveyBounds,x,z,true)>=127.5) return 'road'
@@ -106,7 +111,7 @@ function surface(hit,x,z) {
   const className=n=>({3:'path',6:'water',7:'field',8:'field',9:'field',5:'road'})[n]??'grass'
   for(let dz=0;dz<2;dz++) for(let dx=0;dx<2;dx++){
     const px=(ix+dx+.5)/width,pz=(iz+dz+.5)/height
-    const first=textureAt(tex,px,pz,0),second=textureAt(tex,px,pz,1),mix=textureAt(tex,px,pz,2)/255
+    const first=textureAt(tex,px,pz,0)&15,second=textureAt(tex,px,pz,1),mix=textureAt(tex,px,pz,2)/255
     const weight=(dx?tx-ix:1-tx+ix)*(dz?tz-iz:1-tz+iz)
     for(const [id,w] of [[first===5?second:first,mix],[second===5?first:second,1-mix]]){
       const k=className(id)

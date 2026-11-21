@@ -28,6 +28,7 @@ def grass_vigor():
 
 
 def game_cover(domain,network):
+    from pavement_texture import pavement_detail
     from rasterio import Affine
     from rasterio.features import geometry_mask
     left,top,right,bottom=domain.bounds
@@ -76,6 +77,7 @@ def game_cover(domain,network):
             kind=7
         elif t.get('leisure')=='pitch':
             kind=9 if t.get('sport') in ('tennis','basketball') else 8
+            if t.get('surface')=='grass' or (not t.get('sport') and t.get('surface') not in ('artificial_turf','tartan')):kind=1
         elif t.get('amenity')=='parking':
             kind=5
         elif t.get('landuse') in ('construction','brownfield') or t.get('surface') in ('gravel','sand','compacted'):
@@ -111,16 +113,30 @@ def game_cover(domain,network):
     revisable=inside&np.isin(classes,[0,1,2,3,4,5,11])
     classes[revisable&(measured==5)]=5
     classes[revisable&np.isin(measured,[1,3])&np.isin(classes,[3,4,5])]=0
+    courts=surfaces.sample((left,top,right,bottom),(width,height),confirmed_concrete=True)
+    classes[revisable&courts]=3
     clusters,_=ndimage.label(classes==5)
     areas=np.bincount(clusters.ravel())*((right-left)/width)*((bottom-top)/height)
     verge=ndimage.maximum_filter(np.where(classes==5,0,classes),size=3)<=2
     classes[(clusters>0)&(areas[clusters]<1.6)&verge]=0
+    from frontage_survey import material_grid
+    frontage=material_grid((left,top,right,bottom),(width,height))
+    certified=(frontage==5)|(np.isin(frontage,[1,2])&(measured==3))
+    classes[revisable&certified]=3
+    from sidewalk_ribbons import masks as sidewalk_ribbons
+    ribbon=sidewalk_ribbons((left,top,right,bottom),(width,height))
+    if ribbon is not None:classes[revisable&(ribbon==1)]=3
     for patch in ground_survey['patches']:
         shell,*holes=patch['rings']
         surveyed=geometry_mask([Polygon(shell,holes)],out_shape=classes.shape,transform=transform,invert=True)
         classes[surveyed&inside]=patch['class']
     for island in ground_survey['islands']:
         classes[geometry_mask([Polygon(island)],out_shape=classes.shape,transform=transform,invert=True)&inside]=1
+    from kerb_islands import observed as kerbed_islands
+    from rasterio.features import rasterize
+    island_kind=rasterize(kerbed_islands(),out_shape=classes.shape,transform=transform,dtype='uint8')
+    classes[inside&(island_kind>0)]=island_kind[inside&(island_kind>0)]
+    revisable&=island_kind==0
     track=Polygon(sport['track'][0],sport['track'][1:])
     surround=geometry_mask([track.envelope.buffer(5)],out_shape=classes.shape,transform=transform,invert=True)
     classes[surround&(classes==7)]=3
@@ -141,6 +157,8 @@ def game_cover(domain,network):
     beds=ndimage.binary_closing(beds,iterations=1)&garden&(classes<=2)
     classes[beds]=11
     shrubs=[[round(px,2),round(pz,2),round(float(h),2)] for px,pz,h,keep,row,col in zip(x,z,canopy,shrub,rr,cc) if keep and row%2==0 and col%4==0]
+    from river_banks import exposed_shore
+    exposed_shore(classes,(left,top,right,bottom))
     best=np.zeros(classes.shape,np.float32)
     runner=np.zeros_like(best)
     primary=np.zeros(classes.shape,np.uint8)
@@ -173,7 +191,7 @@ def game_cover(domain,network):
         coverage+=np.where(known,subsample==5,parking)
     parking_edge=np.rint(ndimage.gaussian_filter(coverage/16,.37)*255).astype(np.uint8)
     blends=np.stack([primary,secondary,np.rint(weight*255).astype(np.uint8),parking_edge],axis=-1)
-    return {'pavingTone':paving_tone([left,top,right,bottom],network),'observations':observations(domain,classes,[left,top,right,bottom]),'context':context(),'shrubs':shrubs,'vigor':vigor,'bounds':[left,top,right,bottom],'width':width,'height':height,'samples':base64.b64encode(zlib.compress(classes.tobytes(),8)).decode(),
+    return {'pavementDetail':pavement_detail([left,top,right,bottom],network),'pavingTone':paving_tone([left,top,right,bottom],network,classes,courts),'observations':observations(domain,classes,[left,top,right,bottom]),'context':context(),'shrubs':shrubs,'vigor':vigor,'bounds':[left,top,right,bottom],'width':width,'height':height,'samples':base64.b64encode(zlib.compress(classes.tobytes(),8)).decode(),
             'transitions':base64.b64encode(zlib.compress(blends.tobytes(),8)).decode()}
 
 

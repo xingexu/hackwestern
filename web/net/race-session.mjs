@@ -70,7 +70,10 @@ export class RaceSession{
       if(typeof data!=='string')return this.state(data,'relay')
       const m=JSON.parse(data)
       if(m.type==='pong')this.clock.observe(m.sent,performance.now(),m.now)
-      else if(m.type==='room'){this.roster(m.players);this.receive(m)}
+      else if(m.type==='room' && m.revision>(this.revision??-1)){
+        this.revision=m.revision
+        this.roster(m.players);this.receive(m)
+      }
       else if(m.type==='signal')this.signal(m.from,m.data)
     },typeof data==='string')
     ws.onclose=e=>{

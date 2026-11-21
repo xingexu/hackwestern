@@ -6,6 +6,7 @@ import {createServer} from 'node:net'
 import {fileURLToPath} from 'node:url'
 import {setTimeout as sleep} from 'node:timers/promises'
 import {chromium,webkit,devices} from 'playwright'
+import './verify-wheel.mjs'
 
 const root=fileURLToPath(new URL('../',import.meta.url))
 const shots=new URL('../web/dev/shots/controller/',import.meta.url)
@@ -60,8 +61,14 @@ try{
   assert.equal(qrURL.searchParams.get('code'),code)
   for(const [engine,profile,shot] of [[webkit,'iPhone 15','iphone'],[chromium,'Pixel 7','pixel']]){
     phoneBrowser=await engine.launch()
-    const context=await phoneBrowser.newContext({...devices[profile+' landscape'],deviceScaleFactor:1})
+    const context=await phoneBrowser.newContext({...devices[profile],deviceScaleFactor:1})
     await context.addInitScript(()=>{
+      if(/iPhone/.test(navigator.userAgent)){
+        for(const name of ['DeviceOrientationEvent','DeviceMotionEvent']){
+          if(!window[name])window[name]=class extends Event{}
+          Object.defineProperty(window[name],'requestPermission',{configurable:true,value:async()=>'denied'})
+        }
+      }
       const send=WebSocket.prototype.send
       WebSocket.prototype.send=function(data){
         if(JSON.parse(data).type==='pad'){
@@ -79,13 +86,34 @@ try{
     if(shot==='iphone')await phone.getByLabel('Desktop join code').fill(code)
     else assert.equal(await phone.locator('#code').inputValue(),code)
     await phone.getByRole('button',{name:'Pair controller'}).tap()
+    await phone.getByRole('heading',{name:'Lock rotation first'}).waitFor()
+    assert.ok(await phone.getByText(/Control Centre.*Portrait Orientation Lock/).isVisible())
+    assert.ok(await phone.getByText(/Quick Settings.*Auto-rotate/).isVisible())
+    assert.equal(await phone.locator('#controls').isVisible(),false)
+    await phone.screenshot({path:fileURLToPath(new URL(shot+'-portrait-setup.png',shots))})
+    await phone.getByRole('button',{name:'Start driving'}).tap()
     await phone.locator('#controls').waitFor()
     await host.waitForFunction(()=>document.querySelector('#pad-state').textContent==='Phone connected')
     await phone.waitForFunction(()=>window.controllerSocket?.readyState===1)
     assert.equal(new URL(await phone.evaluate(()=>window.controllerSocket.url)).origin,manual.origin.replace(/^http/,'ws'))
     assert.equal(await phone.locator('canvas,nav').count(),0)
     assert.equal(await phone.locator('#pair').isVisible(),false)
-    await phone.screenshot({path:fileURLToPath(new URL(shot+'-landscape.png',shots))})
+    assert.ok(await phone.getByRole('button',{name:'Steer right'}).isVisible())
+    if(!await phone.evaluate(()=>isSecureContext))assert.ok(await phone.getByRole('button',{name:'Tilt needs HTTPS'}).isDisabled())
+    else if(engine===webkit)await phone.getByText('Tilt unavailable · use the arrows').waitFor()
+    const gasY=async page=>(await page.locator('#gas').boundingBox()).y
+    const brakeY=async page=>(await page.locator('#brake').boundingBox()).y
+    assert.ok(await gasY(phone)>await brakeY(phone))
+    await phone.locator('#flip').tap()
+    assert.ok(await gasY(phone)<await brakeY(phone))
+    await phone.locator('#flip').tap()
+    async function captureSideways(page,name,topEdge){
+      const raw=fileURLToPath(new URL(shot+'-'+name+'-portrait.png',shots))
+      const sideways=fileURLToPath(new URL(shot+'-'+name+'.png',shots))
+      await page.screenshot({path:raw})
+      execFileSync('.venv/bin/python',['-c','from PIL import Image; import sys; Image.open(sys.argv[1]).transpose(Image.Transpose.ROTATE_90 if sys.argv[3]=="left" else Image.Transpose.ROTATE_270).save(sys.argv[2])',raw,sideways,topEdge],{cwd:root})
+    }
+    await captureSideways(phone,'buttons','left')
     if(engine===chromium){
       const touch=await context.newCDPSession(phone)
       const buttons=await Promise.all(['gas','right'].map(key=>phone.locator('#'+key).boundingBox()))
@@ -125,17 +153,11 @@ try{
     await phone.mouse.up()
     await hold(phone,'gas')
     await host.waitForFunction(()=>window.driveMetrics.car.throttlePlate>.3)
-    await phone.evaluate(async()=>{
-      if(document.fullscreenElement)await document.exitFullscreen()
-      try{screen.orientation?.unlock?.()}catch{}
-    })
-    await phone.setViewportSize({width:390,height:844})
-    await phone.getByRole('heading',{name:'Rotate your phone'}).waitFor()
-    assert.equal(await phone.locator('#controls').isVisible(),false)
-    await host.waitForFunction(()=>window.driveMetrics.car.throttlePlate<.01)
-    if(shot==='iphone')await phone.screenshot({path:fileURLToPath(new URL('portrait.png',shots))})
-    await phone.mouse.up()
     await phone.setViewportSize(devices[profile+' landscape'].viewport)
+    await phone.locator('#lock-hint').waitFor()
+    assert.equal(await phone.locator('#controls').isVisible(),true)
+    await host.waitForFunction(()=>window.driveMetrics.car.throttlePlate<.01)
+    await phone.mouse.up()
     await hold(phone,'gas')
     await host.waitForFunction(()=>window.driveMetrics.car.throttlePlate>.3)
     await phone.close()
@@ -144,11 +166,21 @@ try{
     {
       await context.addInitScript(()=>{
         window.grants=[]
-        window.padAngle=90
-        if(screen.orientation)Object.defineProperty(screen.orientation,'angle',{configurable:true,get:()=>window.padAngle})
-        Object.defineProperty(window,'orientation',{configurable:true,get:()=>window.padAngle})
         const send=WebSocket.prototype.send
-        WebSocket.prototype.send=function(data){const m=JSON.parse(data);if(m.type==='pad')window.lastInput=m.input;return send.call(this,data)}
+        WebSocket.prototype.send=function(data){
+          const m=JSON.parse(data)
+          if(m.type==='pad'){
+            window.lastInput=m.input
+            if(!this.observingStraight){
+              this.observingStraight=true
+              this.addEventListener('message',event=>{
+                const feedback=JSON.parse(event.data)
+                if(feedback.type==='pad-straight')window.carStraight=feedback.straight
+              })
+            }
+          }
+          return send.call(this,data)
+        }
         for(const name of ['DeviceOrientationEvent','DeviceMotionEvent']){
           if(!window[name])window[name]=class extends Event{}
           if(!/iPhone/.test(navigator.userAgent))continue
@@ -161,8 +193,13 @@ try{
       const sensors=await context.newPage()
       await sensors.goto(base+'/pad?code='+code)
       await sensors.getByRole('button',{name:'Pair controller'}).tap()
+      await sensors.getByRole('button',{name:'Start driving'}).tap()
       await sensors.locator('#controls').waitFor()
-      assert.equal(await sensors.locator('#tilt').getAttribute('aria-pressed'),'true')
+      const orient=(beta,gamma)=>sensors.evaluate(({beta,gamma})=>window.dispatchEvent(Object.assign(new Event('deviceorientation'),{beta,gamma})),{beta,gamma})
+      await sensors.waitForFunction(()=>{
+        window.dispatchEvent(Object.assign(new Event('deviceorientation'),{beta:0,gamma:-85}))
+        return document.querySelector('#tilt').getAttribute('aria-pressed')==='true'
+      })
       const grants=await sensors.evaluate(()=>window.grants)
       assert.equal(grants.length,engine===webkit?2:0)
       assert.ok(grants.every(g=>g.gesture))
@@ -171,6 +208,7 @@ try{
       assert.equal(await sensors.locator('#controls').evaluate(el=>getComputedStyle(el).touchAction),'none')
       assert.equal(await sensors.locator('body').evaluate(el=>getComputedStyle(el).overscrollBehavior),'none')
       const original=await view()
+      await sensors.waitForFunction(()=>window.carStraight===true)
       const cancelled=await sensors.evaluate(()=>['gesturestart','gesturechange','gestureend'].map((type,i)=>{
         const event=new Event(type,{bubbles:true,cancelable:true})
         Object.defineProperty(event,'scale',{value:i?1.8:1})
@@ -198,28 +236,92 @@ try{
       await sensors.touchscreen.tap(240,140)
       await sleep(375)
       assert.deepEqual(await view(),original)
-      const orient=(beta,gamma=0)=>sensors.evaluate(({beta,gamma})=>window.dispatchEvent(Object.assign(new Event('deviceorientation'),{beta,gamma})),{beta,gamma})
-      for(const direction of [90,270]){
-        await sensors.evaluate(a=>{window.padAngle=a;window.dispatchEvent(new Event('orientationchange'))},direction)
-        await orient(10)
-        await orient(11,35)
-        await sleep(150)
-        assert.equal(await sensors.evaluate(()=>window.lastInput.steer),0)
-        await orient(30)
-        await sensors.waitForFunction(sign=>sign*window.lastInput.steer>.5,direction===90?-1:1)
-        await sensors.locator('#center').tap()
-        await sensors.waitForFunction(()=>document.querySelector('#notice').value==='Tilt centred',null,{timeout:3500})
-        await orient(31,-45)
+      for(const side of [1,-1]){
+        const gamma=-85*side
+        await orient(0,gamma)
+        await orient(1,gamma)
         await sensors.waitForFunction(()=>window.lastInput.steer===0)
+        assert.equal(await sensors.evaluate(()=>window.lastInput.steer),0)
+        assert.ok(await sensors.locator('#left').isHidden() && await sensors.locator('#right').isHidden())
+        assert.ok(side*(await gasY(sensors)-await brakeY(sensors))>30)
+        assert.ok(await sensors.locator('#lock-hint').isHidden())
+        const latency=await sensors.evaluate(async side=>{
+          const rad=Math.PI/180
+          function tilt(roll,pitch){
+            const x=side*Math.cos(roll*rad)*Math.cos(pitch*rad)
+            const y=side*Math.sin(roll*rad)*Math.cos(pitch*rad)
+            window.dispatchEvent(Object.assign(new Event('deviceorientation'),{beta:Math.asin(y)/rad,gamma:Math.atan2(-x,Math.sin(pitch*rad))/rad}))
+          }
+          const wait=()=>new Promise(resolve=>setTimeout(resolve,16))
+          tilt(0,30)
+          await wait()
+          const start=performance.now()
+          tilt(32,30)
+          let tick=0
+          while(window.lastInput.steer>-.5 && ++tick<10){await wait();tilt(32,30)}
+          const response=performance.now()-start
+          for(const pitch of [10,45,75]){
+            for(let i=0;i<10;i++){tilt(32,pitch);await wait()}
+            if(window.lastInput.steer>-.9)throw Error('Steering changed with pitch '+pitch)
+          }
+          return response
+        },side)
+        assert.ok(latency<85,profile+' sensor-to-packet latency '+latency+' ms')
+        console.log(profile,'side',side,'sensor-to-packet 50% response',Math.round(latency),'ms')
+        await sensors.waitForFunction(()=>window.carStraight===false)
+        for(const direction of [-1,1]){
+          await orient(-24*direction*side,gamma)
+          await sensors.waitForFunction(sign=>sign*window.lastInput.steer>.5,direction)
+          await host.waitForFunction(sign=>sign*window.driveMetrics.car.steer>.04 && window.driveMetrics.car.profile==='wheel',direction)
+        }
+        await orient(0,gamma)
+        await sensors.waitForFunction(()=>window.lastInput.steer===0)
+        assert.equal(await sensors.getByRole('button',{name:/cent(re|er) tilt/i}).count(),0)
+        if(side===-1){
+          await sensors.locator('#tilt').tap()
+          assert.ok(await sensors.locator('#left').isVisible() && await sensors.locator('#right').isVisible())
+          await sensors.locator('#tilt').tap()
+          await orient(0,gamma)
+          await sensors.locator('#wheel').waitFor()
+          await captureSideways(sensors,'tilt','right')
+        }
       }
+      await sleep(520)
+      const gravity=(x,y)=>sensors.evaluate(({x,y})=>window.dispatchEvent(Object.assign(new Event('devicemotion'),{accelerationIncludingGravity:{x,y,z:1}})),{x,y})
+      await gravity(9.6,0)
+      await gravity(9,3.5)
+      await sensors.waitForFunction(()=>window.lastInput.steer<-.5)
+      assert.ok(await gasY(sensors)>await brakeY(sensors))
+      await sensors.setViewportSize(devices[profile+' landscape'].viewport)
+      await sensors.locator('#lock-hint').waitFor()
+      assert.ok(await sensors.locator('#gas').isVisible() && await sensors.locator('#wheel').isVisible())
+      await sensors.locator('#restart').tap()
+      await host.waitForFunction(()=>window.driveMetrics.car.phase==='ready' && window.driveMetrics.car.distance===0)
       const before=await host.evaluate(()=>window.driveMetrics.car.heading)
-      await sensors.evaluate(()=>{
-        for(const degrees of [0,20])window.dispatchEvent(Object.assign(new Event('deviceorientation'),{gamma:degrees,beta:degrees}))
-      })
+      await orient(0,-85)
+      await sensors.waitForFunction(()=>window.lastInput.steer===0)
+      await orient(24,-85)
+      await sensors.waitForFunction(()=>window.lastInput.steer<-.5)
       await hold(sensors,'gas')
-      await host.waitForFunction(h=>Math.abs(window.driveMetrics.car.heading-h)>.06,before)
+      try{
+        await host.waitForFunction(h=>window.driveMetrics.car.speed>1 && Math.abs(window.driveMetrics.car.heading-h)>.06,before,{timeout:12000})
+      }catch(error){
+        console.error('Desktop steering',await sensors.evaluate(()=>window.lastInput),await host.evaluate(()=>window.driveMetrics.car))
+        throw error
+      }
+      await sensors.mouse.up()
+      await sensors.locator('#options summary').tap()
+      const sensitivity=sensors.getByRole('slider',{name:/Steering sensitivity/})
+      await sensitivity.press('Home')
+      assert.equal(await sensors.locator('#degrees').textContent(),'±44°')
+      await orient(26,-85)
+      await sensors.waitForFunction(()=>window.lastInput.steer<-.4 && window.lastInput.steer>-.7)
+      await sensitivity.press('End')
+      assert.equal(await sensors.locator('#degrees').textContent(),'±20°')
+      await orient(26,-85)
+      await sensors.waitForFunction(()=>window.lastInput.steer===-1)
       await sensors.close()
-      console.log(profile+' passed default tilt, both landscape directions, recalibration, dead zone, viewport scale, double-tap and pinch handling')
+      console.log(profile+' passed portrait setup, both sideways layouts and steering directions, gravity fallback, tilt/buttons switching, automatic centring, unlocked driving, dead zone, double-tap and pinch handling')
     }
     await phoneBrowser.close()
     phoneBrowser=null

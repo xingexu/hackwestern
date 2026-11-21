@@ -389,6 +389,8 @@ def make_network():
                     wet = wet.difference(Polygon([nodes[k] for k in g]).buffer(0))
             for poly in components(wet.intersection(EXTENT),"Polygon"):
                 water.append(rings(poly.simplify(.3, preserve_topology=True)))
+    from river_banks import waterlines
+    water=waterlines(water,ways,EXTENT)
     barriers = []
     for e in elements:
         t = e.get("tags",{}).get("barrier")

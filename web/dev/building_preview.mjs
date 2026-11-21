@@ -115,10 +115,6 @@ async function render(state,job,config){
     await page.goto(state.url);
     state.page=page;
     }
-    const calibrated=JSON.parse((await promisify(execFile)(join(root,'.venv/bin/python'),['build/building_camera.py',...frames.map(f=>f.id)])).stdout);
-    for(const f of frames)Object.assign(f,calibrated[f.id]);
-    const obliqueReference=existsSync('data/buildings/preview-poses.json')?(await json('data/buildings/preview-poses.json'))[id]:undefined;
-    const config={building,neighbors,frames,obliqueReference,aerial:inv.aerial,surveyBounds:[Math.min(...inv.footprint.map(p=>p[0])),Math.min(...inv.footprint.map(p=>p[1])),Math.max(...inv.footprint.map(p=>p[0])),Math.max(...inv.footprint.map(p=>p[1]))],shadowReference:job.shadowReference};
     const result=await page.evaluate(async encoded=>(await import('/web/dev/building_preview_scene.mjs')).renderBuilding(JSON.parse(encoded)),JSON.stringify(config));
     if(state.errors.length)throw new Error(state.errors.splice(0).join('\n').slice(0,7000));
     await mkdir(out,{recursive:true});

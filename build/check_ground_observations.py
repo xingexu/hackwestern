@@ -39,6 +39,16 @@ assert (survey.classes(*drive_samples.T)==1).all() and land_at(-325,727.5)<=2
 absent=np.array([[-245,660],[-307,720]])
 assert not survey.classes(*absent.T).any() and all(land_at(*p)<=2 for p in absent)
 assert land_at(232.5,1450)==8 and land_at(12,-58)==5
+shaded_verges=np.array([(-230.7,917.5),(-232.5,912.7),(-139.3,122.7)])
+assert not survey.classes(*shaded_verges.T).any() and all(land_at(*p)<=2 for p in shaded_verges)
+forecourts=np.array([(305.9,1322.7),(312.7,135.1),(324.3,121.7),(127.7,159.9)])
+assert (survey.classes(*forecourts.T)==2).all() and all(land_at(*p)==3 for p in forecourts)
+tone=land['pavingTone']
+court_mask=decode(tone['courts'],'uint8').reshape(tone['height'],tone['width'])
+for x,z in forecourts:
+    column=int((x-left)/(right-left)*tone['width'])
+    row=int((z-top)/(bottom-top)*tone['height'])
+    assert court_mask[row,column]>127,(x,z)
 carriage=data['carriageway']
 asphalt=decode(carriage['samples'],'uint8').reshape(carriage['height'],carriage['width'])
 for x,z in [(-254,849.5),(-289,863.6)]:
@@ -70,7 +80,11 @@ assert any(800<p.area<2700 and p.covers(shapely.Point(277,1372)) for p in practi
 runways=[p for p in practice_surfaces if 45<p.area<110 and p.minimum_rotated_rectangle.length>85]
 assert len(runways)==2 and 4<runways[0].distance(runways[1])<10
 assert land_at(-245,1245)==5 and land_at(-325,1115)<=2
-assert all(land_at(x,z)==5 for x,z in [(-528.5,913.5),(-208.5,71.5),(416.5,-412.5),(380.5,-459.5),(-482.5,885.5)])
+assert all(land_at(x,z)==5 for x,z in [(-528.5,913.5),(-208.5,71.5),(416.5,-412.5),(375.5,-460),(384.6,-464),(375.4,-457.2),(385,-458.8),(-482.5,885.5)])
+from kerb_islands import observed as kerbed_islands
+median=shapely.Point(380.5,-459.5)
+assert land_at(median.x,median.y)==1 and survey.classes(np.array([median.x]),np.array([median.y]))[0]==0
+assert any(g.contains(median) and 32<g.area<42 and material==1 for g,material in kerbed_islands())
 shed=shapely.Point(-173.41,763.92)
 hedges=[shapely.LineString(np.reshape(line,(-1,2))) for t in load('municipal-detail')['tiles'].values() for line,height in t.get('hedge',[])]
 assert min(shed.distance(line) for line in hedges)>2

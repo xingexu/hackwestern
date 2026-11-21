@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import {kerbProfile} from './pavement-profile.mjs';
+import {placePavementFinishes,pavementMaterial} from './pavement-finish.mjs';
 
 const colors = Object.fromEntries(Object.entries({
   asphalt: 0x677077, service: 0x717777, path: 0xc3bfb1, gravel: 0xa29a84, dirt: 0x988568,
@@ -29,13 +31,13 @@ function roadMaterial(carriageway) {
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nroadPoint = position; pavementUV=paving;');
     shader.fragmentShader = shader.fragmentShader.replace('#include <common>', '#include <common>\nvarying vec3 roadPoint; varying vec3 pavementUV; uniform sampler2D streetCoverage; uniform vec4 streetBounds;')
       .replace('#include <color_fragment>', `#include <color_fragment>
-        ${carriageway ? 'if(pavementUV.z>0.5 && texture2D(streetCoverage,(roadPoint.xz-streetBounds.xy)/(streetBounds.zw-streetBounds.xy)).r>.52) discard;' : ''}
+        ${carriageway ? 'if(pavementUV.z>0.5 && pavementUV.z<4. && texture2D(streetCoverage,(roadPoint.xz-streetBounds.xy)/(streetBounds.zw-streetBounds.xy)).r>.52) discard;' : ''}
         vec2 cell = floor(roadPoint.xz * 16.);
         float grain = fract(sin(dot(mod(cell, 317.),vec2(12.9898,78.233))) * 43758.54);
         float close=1.-smoothstep(.035,.21,length(fwidth(roadPoint.xz)));
         float coarse=fract(sin(dot(mod(floor(roadPoint.xz*2.),317.),vec2(33.7,12.1)))*14435.);
         diffuseColor.rgb*=1.+(grain-.5)*.27*close+(coarse-.5)*.030*close;
-        if(pavementUV.z>1.5) {
+        if(pavementUV.z>1.5 && pavementUV.z<4.) {
           vec2 uv=pavementUV.xy/(pavementUV.z>2.5?vec2(.23,.46):vec2(1.75,2.18));
           if(pavementUV.z>2.5) uv.x+=.5*mod(floor(uv.y),2.);
           vec2 edge=min(fract(uv),1.-fract(uv));
@@ -43,6 +45,7 @@ function roadMaterial(carriageway) {
           float joint=max(joints.x,joints.y);
           diffuseColor.rgb*=1.-.31*joint*(1.-smoothstep(.1,.7,max(fwidth(uv).x,fwidth(uv).y)));
         }`);
+    pavementMaterial(shader);
   };
   return material;
 }
@@ -234,7 +237,8 @@ export function createCampusRoads(data, network, carriageway) {
       const x=border[i],z=border[i+1],ex=border[i+2],ez=border[i+3];
       const len=Math.hypot(ex-x,ez-z);
       if(len<.04) continue;
-      const count=Math.max(1,Math.ceil(len/1.1));
+      const step=network.nearOpening(x,z)||network.nearOpening(ex,ez)||len>20?1.1:3.2;
+      const count=Math.max(1,Math.ceil(len/step));
       const nx=(ez-z)/len, nz=(x-ex)/len;
       for(let k=0;k<count;k++){
         const t=k/count,u=(k+1)/count, ax=x+(ex-x)*t,az=z+(ez-z)*t,bx=x+(ex-x)*u,bz=z+(ez-z)*u;
@@ -243,20 +247,22 @@ export function createCampusRoads(data, network, carriageway) {
         const leftPaved=carriageway.contains(mx+nx*.85,mz+nz*.85),rightPaved=carriageway.contains(mx-nx*.85,mz-nz*.85);
         if(leftPaved===rightPaved) continue;
         const inward=leftPaved?1:-1;
-        network.addKerb(ax,az,bx,bz,nx*inward,nz*inward);
+        const lo=network.kerbFactor(ax,az),hi=network.kerbFactor(bx,bz);
+        network.addKerb(ax,az,bx,bz,nx*inward,nz*inward,lo,hi);
         tileAt(mx,mz).parts.push(batch=>{
           const edge=(px,pz,width,rise)=>{
             const vx=px+nx*width*inward,vz=pz+nz*width*inward;
             return [vx,network.groundAt(vx,vz)+rise,vz];
           };
-          const a=edge(ax,az,.02,.095),b=edge(bx,bz,.02,.095);
-          quad(batch,a,b,edge(bx,bz,-.16,.105),edge(ax,az,-.16,.105),colors.curb);
-          quad(batch,edge(ax,az,.04,-.04),edge(bx,bz,.04,-.04),b,a,colors.curbSide);
-          quad(batch,edge(ax,az,.04,.027),edge(bx,bz,.04,.027),edge(bx,bz,.26,.017),edge(ax,az,.26,.017),colors.gutter);
+          for(const [outer,inner,material] of [[-.16,.005,colors.curb],[.005,.031,colors.curb],[.031,.055,colors.curbSide],[.055,.26,colors.gutter]]){
+            quad(batch,edge(ax,az,outer,kerbProfile(outer,lo)),edge(bx,bz,outer,kerbProfile(outer,hi)),
+              edge(bx,bz,inner,kerbProfile(inner,hi)),edge(ax,az,inner,kerbProfile(inner,lo)),material);
+          }
         });
       }
     }
   }
+  placePavementFinishes(data.pavementSurvey,network,tileAt,quad,colors);
   const decks={positions:[],colors:[],indices:[],paving:[]};
   for(const way of data.ways) {
     if(way.onDeck) continue;

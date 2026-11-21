@@ -1,0 +1,8 @@
+Drive Western audio credits
+
+All sounds are synthesized for Drive Western in the browser using Web Audio.
+The engine, tyres, road surfaces, brakes, wind, suspension, impacts, campus
+ambience, remote cars and interface cues use generated waveforms and noise.
+
+External audio samples: none.
+Sample source URLs and sample licences: none applicable.

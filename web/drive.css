@@ -108,7 +108,9 @@ html[data-mode="drive"] body { background: linear-gradient(#2f6fd0, #5d9ae6 38%,
 #graphics-control select { font:inherit;color:inherit;background:transparent;border:1px solid currentColor;border-radius:3px;cursor:pointer; }
 #graphics-control option { color:#24332c;background:white; }
 #drive-graphics { padding:0 12px 6px;color:#dae2da;font-size:10px; }
-#drive-graphics select { pointer-events:auto; }
+#drive-graphics select, #blur-control { pointer-events:auto; }
+#blur-control { cursor:pointer; white-space:nowrap; }
+#motion-blur { vertical-align:middle; accent-color:var(--gold); }
 html[data-mode="drive"],html[data-mode="drive"] body { overscroll-behavior:none; touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
 #trial-setup { background:#172822; color:#fcf7e6; border:1px solid #809081; border-top:4px solid #f9c35c; padding:20px; border-radius:4px; }
 #trial-setup::backdrop { background:#101e1bb0; }
@@ -145,3 +147,69 @@ html[data-mode="drive"],html[data-mode="drive"] body { overscroll-behavior:none;
 }
 
 @media (pointer:coarse) { #trial-nickname { font-size:16px; } }
+
+#driving-settings { padding:0 12px 5px; width:fit-content; font-size:11px; pointer-events:auto; }
+#driving-settings summary, #driving-settings label { cursor:pointer; }
+#driving-settings label { display:block; padding:5px 0; }
+#race-countdown:not([hidden]) { position:absolute; left:50%; top:50%; translate:-50% -50%; display:grid; place-items:center; min-width:1.12em; height:1.12em; border:3px solid #ffe3a6; border-radius:15%; background:#14231ff2; color:white; box-shadow:0 4px 20px #0007; font:900 clamp(78px,19vmin,160px)/1 system-ui,sans-serif; font-variant-numeric:tabular-nums; }
+#race-countdown[data-go="true"] { color:#ffe18e; padding:0 .17em; }
+#checkpoint-direction:not([hidden]) { position:absolute; top:max(12px,env(safe-area-inset-top)); left:50%; translate:-50% 0; display:flex; align-items:center; gap:6px; padding:4px 9px; border-radius:4px; background:#14231ff2; color:#fff4d4; font-weight:700; font-variant-numeric:tabular-nums; }
+#checkpoint-direction b { display:block; color:#ffcf70; font:900 24px/1 system-ui,sans-serif; }
+@media (max-width:720px) { #checkpoint-direction:not([hidden]) { top:auto; bottom:calc(6px + env(safe-area-inset-bottom)); } }
+
+#audio-settings { margin:4px 0 5px; padding:5px 0 0; border:0; border-top:1px solid #63746a; }
+#audio-settings legend { padding:0 7px 0 0; font:600 13px system-ui,sans-serif; color:#f9d78e; }
+#driving-settings #audio-settings label { display:grid; grid-template-columns:5.3em minmax(68px,1fr) 3.2em; align-items:center; gap:7px; padding:3px 0; }
+#audio-settings input { accent-color:var(--gold); margin:0; }
+#audio-settings input[type=range] { width:100%; min-width:0; }
+#audio-settings output { text-align:right; font-variant-numeric:tabular-nums; color:#dbddcc; }
+#driving-settings #audio-settings label:has([type=checkbox]) { display:flex; gap:7px; }
+.course-card:has(#driving-settings[open]) { z-index:4; max-height:calc(100dvh - 24px); overflow-y:auto; pointer-events:auto; }
+
+#mobile-menu-toggle,#mobile-map-toggle,#mobile-drive-hint { display:none; }
+@media (pointer:coarse) {
+  #mobile-menu-toggle { display:grid; place-items:center; position:absolute; top:max(8px,env(safe-area-inset-top)); left:max(8px,env(safe-area-inset-left)); width:44px; height:44px; border:1px solid #8a978a; border-radius:12px; color:var(--cream); background:#172822dc; pointer-events:auto; }
+  #mobile-menu-toggle::before { content:""; width:17px; height:2px; background:currentColor; box-shadow:0 -5px currentColor,0 5px currentColor; }
+  #mobile-drive-menu { box-sizing:border-box; inset:0; width:min(365px,calc(100vw - 32px - env(safe-area-inset-left) - env(safe-area-inset-right))); max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); padding:0; margin:auto; color:var(--cream); background:#172822; border:1px solid #718274; border-radius:12px; touch-action:pan-y; pointer-events:auto; }
+  #mobile-drive-menu::backdrop { background:#101c17aa; }
+  #mobile-drive-menu .course-card { position:static; max-width:none; border-radius:0; background:transparent; box-shadow:none; }
+  #mobile-drive-menu .course-title { padding:12px 48px 10px 12px; }
+  #mobile-drive-menu #drive-course { max-width:100%; font-size:19px; }
+  .close-drive-menu { position:absolute; right:6px; top:6px; width:40px; height:40px; border:0; background:transparent; color:inherit; font:26px/1 system-ui,sans-serif; }
+  #mobile-drive-menu nav { display:grid; grid-template-columns:repeat(2,1fr); }
+  #mobile-drive-menu nav > * { padding:9px; min-height:40px; box-sizing:border-box; border:1px solid #516557; font-size:12px; align-content:center; }
+  .mobile-steering { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; padding:5px 12px 10px; }
+  .mobile-steering #tilt,.mobile-steering #phone-settings summary { padding:7px 9px; border:1px solid #789080; border-radius:6px; background:#294035; color:var(--cream); font:600 12px system-ui,sans-serif; }
+  .mobile-steering #phone-settings,.mobile-steering #phone-settings section { position:static; }
+  .mobile-steering #phone-settings section { margin-top:4px; }
+  .mobile-steering #phone-settings[open] { width:100%; }
+  .route-card { top:max(8px,env(safe-area-inset-top)); right:max(8px,env(safe-area-inset-right)); box-sizing:border-box; }
+  .route-card[data-expanded="false"] { width:64px; height:48px; padding:3px; border-radius:9px; overflow:hidden; }
+  .route-card[data-expanded="false"] #route-plan { height:100%; object-fit:contain; }
+  .route-card[data-expanded="false"] > :is(div,progress,output) { display:none; }
+  .route-card[data-expanded="true"] { width:min(200px,48vw); border-radius:9px; }
+  #mobile-map-toggle { display:block; position:absolute; inset:0; width:100%; height:100%; padding:0; border:0; border-radius:inherit; background:transparent; pointer-events:auto; }
+  .instruments { left:max(8px,env(safe-area-inset-left)); right:auto; top:calc(max(8px,env(safe-area-inset-top)) + 48px); bottom:auto; gap:5px; padding:3px 8px; border-radius:6px; white-space:nowrap; font-size:12px; line-height:18px; }
+  .instruments > div,.instruments > div + div { display:flex; align-items:baseline; gap:3px; border:0; padding:0; }
+  .instruments > div + div::before { content:"·"; color:#c4cdb9; margin-right:2px; }
+  .instruments strong { font:700 16px/18px ui-monospace,monospace; }
+  .instruments span { margin:0; }
+  .instruments small,.instruments #surface { display:none; }
+  #touch-drive { inset:auto max(8px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left)); }
+  #touch-drive [data-key],#touch-drive #thumb-wheel { box-sizing:border-box; min-width:44px; min-height:44px; padding:5px; height:44px; border-color:#c2d1c38c; border-radius:12px; background:#172c23aa; font-size:12px; }
+  #touch-drive #thumb-wheel { width:86px; }
+  #touch-drive [data-key=ArrowLeft],#touch-drive [data-key=ArrowRight] { font-size:19px; }
+  #touch-drive [data-key=ArrowUp] { background:#2c583bba; }
+  #touch-drive [data-key]:active { background:#697e48ed; }
+  #drive-ui.phone-paired #touch-drive { display:none; }
+  #mobile-drive-hint { display:block; position:absolute; top:calc(max(8px,env(safe-area-inset-top)) + 45px); left:50%; translate:-50% 0; padding:3px 7px; border-radius:5px; white-space:nowrap; background:#172822dc; font:11px/17px system-ui,sans-serif; opacity:0; visibility:hidden; transition:opacity .3s,visibility 0s .3s; }
+  #mobile-drive-hint.visible { opacity:1; visibility:visible; transition-delay:0s; }
+  #drive-ui:not(.show-drive-warning) #drive-message { display:none; }
+  #drive-message { bottom:calc(56px + env(safe-area-inset-bottom)); }
+  #checkpoint-direction:not([hidden]) { top:max(8px,env(safe-area-inset-top)); bottom:auto; padding:3px 7px; font-size:11px; }
+  #checkpoint-direction b { font-size:20px; }
+  #race-countdown:not([hidden]) { font-size:clamp(64px,18vmin,100px); }
+}
+@media (pointer:coarse) and (min-width:640px) {
+  .instruments { left:calc(max(8px,env(safe-area-inset-left)) + 50px); top:calc(max(8px,env(safe-area-inset-top)) + 10px); }
+}

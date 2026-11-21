@@ -192,7 +192,8 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
   function rectOnGround(x,z,yaw,w,l,rise,color){
     const c=Math.cos(yaw),s=Math.sin(yaw);
     const width=Math.min(w,l),paint=width<.23&&Math.max(w,l)>width*4;
-    const coordinate=paint?(px,pz)=>[w<l?(px-x)*c-(pz-z)*s:(px-x)*s+(pz-z)*c,width*.5]:null;
+    const alongWidth=w<l;
+    const coordinate=paint?(px,pz)=>[alongWidth?(px-x)*c-(pz-z)*s:(px-x)*s+(pz-z)*c,width*.5]:null;
     if(paint){if(w<l)w+=1.6;else l+=1.6;}
     groundStrip([[-1,-1],[-1,1],[1,1],[1,-1]].map(([u,v])=>[x+c*u*w*.5+s*v*l*.5,z-s*u*w*.5+c*v*l*.5]),rise,color,coordinate,paint?markings:field);
   }
@@ -388,8 +389,6 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
           at(u,.26+h/2,t,.27,h,.30,0x76766a,0,0,lean);
         break;
       }
-      case 'kerb':
-        at(0,.06,0,.46,.1,1.05,stone); break;
       case 'traffic_signals':
         post(6.1,.19); at(-side*width*.22,5.89,0,width*.47,.13,.14,steel);
         for (const [u,h] of [[-side*width*.44,5.2],[0,3.55]]) {
@@ -584,6 +583,7 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
     } else if(kind==='platform_edge') {
       beam(x,y+.075,z,X,Y+.075,Z,.15,stone,1.25);
     } else if(kind==='field_edge') {
+      if(data.sports?.fieldEdgeMarks)return;
       if(landscape)rectOnGround((x+X)*.5,(z+Z)*.5,yaw,.11,length,.029,white);
       else beam(x,y+.072,z,X,Y+.072,Z,.035,white,.11);
     } else {
@@ -634,17 +634,23 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
     }
     switch(kind) {
       case 'canadian_football': {
-        const field=l*.72, yards=field/110, end=(l-field)/2;
-        for(let band=0;band<22;band++)at(0,.08,(band+.5)*5*yards-field/2,w,.10,5*yards,band%2?0x416f46:0x47764b);
-        for (const s of [-1,1]) at(0,.14,s*(l/2-end/2),w*.985,.05,end,purple);
+        const surveyed=landscape&&data.sports?.gridiron?.[id];
+        const goals=surveyed?.goals??[-l*.36,l*.36], sides=surveyed?.sides??[-w*.5,w*.5];
+        const field=goals[1]-goals[0], yards=field/110, end=(l-field)/2;
+        const midpoint=(goals[1]+goals[0])*.5, center=(sides[1]+sides[0])*.5, span=sides[1]-sides[0];
+        for(let band=0;band<22;band++)at(center,.08,goals[0]+(band+.5)*5*yards,span,.10,5*yards,band%2?0x416f46:0x47764b);
+        if(surveyed){
+          for(const zone of surveyed.ends){groundStrip(zone.rim,.018,white);groundStrip(zone.fill,.024,purple);}
+        }else for(const sign of [-1,1])at(0,.14,sign*(l/2-end/2),w*.985,.05,end,purple);
         for (let n=-55;n<=55;n+=5) {
-          stripe(0,n*yards,w*.97,.15);
+          stripe(center,midpoint+n*yards,span*.988,.15);
           if(n===55) break;
-          for(let a=1;a<5;a++) for(const u of [-.28,.28]) stripe(u*w,(n+a)*yards,1,.10);
+          if(!surveyed)for(let a=1;a<5;a++) for(const u of [-.28,.28])stripe(center+u*span,midpoint+(n+a)*yards,1,.10);
         }
-        boundary();
+        if(surveyed){for(const u of sides)stripe(u,midpoint,.64,field);}
+        else boundary();
         for (const s of [-1,1]) {
-          const t=s*field*.5;
+          const t=midpoint+s*field*.5;
           at(0,1.53,t,.18,3.06,.18,0xe4bb43);
           at(0,3.08,t,5.65,.15,.15,0xe4bb43);
           for (const u of [-2.75,2.75]) at(u,5.5,t,.14,4.95,.14,0xe4bb43);
@@ -657,10 +663,24 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
           const corners=[[-1,-1],[-1,1],[1,1],[1,-1]].map(([u,v])=>[x+c*u*width*.5+s*(mid+v*height*.5),z-s*u*width*.5+c*(mid+v*height*.5)]);
           groundStrip(corners,.032,purple,(px,pz)=>[.5+flip*((px-x)*c-(pz-z)*s)/width,-2.-.5*(i+.5+flip*((px-x)*s+(pz-z)*c-mid)/height)]);
         }
-        lettering(at,'W',0,.221,0,1.37,1,purple);
-        for(let n=-45;n<=45;n+=10) for(const side of [-1,1]) {
-          const number=String(55-Math.abs(n));
-          lettering(at,number,w*side*.345,.192,n*yards,.22,side,white);
+        if(surveyed){
+          if(!register){
+            for(const [u,t,length] of surveyed.ticks)stripe(u,t,length,.105);
+            for(const line of surveyed.soccer){
+              for(let i=1;i<line.length;i++){
+                const [a,b]=line[i-1],[c,d]=line[i],length=Math.hypot(c-a,d-b);
+                at((a+c)*.5,.228,(b+d)*.5,.11,.044,length+.015,0xcbb65c,Math.atan2(c-a,d-b));
+              }
+            }
+            for(const triangle of surveyed.crest)groundStrip(triangle,.039,purple);
+            for(const triangle of surveyed.light)groundStrip(triangle,.045,white);
+            for(const triangle of surveyed.numbers)groundStrip(triangle,.035,white);
+          }
+        }else{
+          lettering(at,'W',0,.221,0,1.37,1,purple);
+          for(let n=-45;n<=45;n+=10)for(const side of [-1,1]){
+            lettering(at,String(55-Math.abs(n)),w*side*.345,.192,n*yards,.22,side,white);
+          }
         }
         for(const s of [-1,1]) for(const e of [-1,1]) {
           let u=s*(w/2+22);
@@ -1040,6 +1060,7 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
       groundStrip(outline,.017,0xc4c0b3);
     }
     if(!landscape||!data.sports)return;
+    for(const [x,z,X,Z] of data.sports.fieldEdgeMarks??[])rectOnGround((x+X)*.5,(z+Z)*.5,Math.atan2(X-x,Z-z),.11,Math.hypot(X-x,Z-z),.029,white);
     const lanes=laneBasis?()=>[0,1]:null;
     for(const triangle of data.sports.rubber)groundStrip(triangle,.004,0x714672,lanes);
     for(const ring of data.sports.synthetic)groundStrip(ring,.004,0x57744f,()=>[0,-5]);

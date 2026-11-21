@@ -47,9 +47,9 @@ export function createMunicipalDetail(THREE,data,region,network) {
     mesh.colors.push(tint.r,tint.g,tint.b);
     return mesh.positions.length/3-1;
   }
-  function shaft(mesh,a,b,rA,rB,hex,sides=7,matchFaces=false) {
+  function shaft(mesh,a,b,rA,rB,hex,sides=7,matchFaces=false,owner='municipal wood or mast') {
     if(!mesh&&!matchFaces){
-      network.addBranch(a.toArray(),b.toArray(),rA,rB,'municipal wood or mast');
+      network.addBranch(a.toArray(),b.toArray(),rA,rB,owner);
       return;
     }
     const axis=new THREE.Vector3().subVectors(b,a).normalize();
@@ -76,7 +76,7 @@ export function createMunicipalDetail(THREE,data,region,network) {
         if(i>0&&i<sides-1)faces.push([points[1],points[k+1],points[l+1]]);
       }
     }
-    if(!mesh)network.addShell(points,faces,'municipal wood or mast');
+    if(!mesh)network.addShell(points,faces,owner);
   }
   function crown(mesh,x,y,z,rx,ry,rz,yaw,hex,foliage=false) {
     if(foliage){
@@ -154,7 +154,7 @@ export function createMunicipalDetail(THREE,data,region,network) {
     const splay=family===5?1.15:family===11?.79:family===8?.84:family===12?.70:1;
     const forkRatio=form===2?.63:form===6?.32:form===7?.55:.43;
     const fork=new THREE.Vector3(x,y+h*forkRatio,z);
-    shaft(mesh,origin,fork,Math.max(.07,dbh),Math.max(.05,dbh*.65),barkTint);
+    shaft(mesh,origin,fork,Math.max(.07,dbh),Math.max(.05,dbh*.65),barkTint,7,false,'municipal tree');
     if(form===10){
       const leader=new THREE.Vector3(x+.06*r,y+h*.93,z-.05*r);
 

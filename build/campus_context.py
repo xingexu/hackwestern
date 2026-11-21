@@ -51,7 +51,9 @@ def context():
         if len(coords)>3 and coords[0]==coords[-1]:
             kind=2 if t.get('natural') in ('wood','scrub') or t.get('landuse')=='forest' else 4 if t.get('natural')=='water' or 'water' in t or t.get('waterway')=='riverbank' else 1 if t.get('amenity')=='parking' else 3 if t.get('surface') in ('concrete','paving_stones') else 0
             if kind:
-                land.append((Polygon(coords).buffer(0),kind))
+                polygon=Polygon(coords).buffer(0)
+                if kind==4:polygon=polygon.difference(box(region.X0,region.Z0,region.X1,region.Z1))
+                if not polygon.is_empty:land.append((polygon,kind))
         road=t.get('highway')
         if road and road not in ('construction','proposed'):
             walk=road in ('path','footway','pedestrian','steps','cycleway','track')
@@ -103,6 +105,8 @@ def context():
         forest=masks[row:row+len(zz),:,1]
         density=np.rint(np.clip((sampled-.35)/.40,0,1)*255).astype(np.uint8)
         forest[exposed]=np.maximum(forest[exposed],density[exposed])
+    from boundary_surfaces import assign as survey_belt
+    survey_belt(cover,masks,(left,top,right,bottom),site,canopy,net)
     tree_faces=shapely.STRtree(faces)
     ys=height[idx].reshape(-1,3)
     tree_corners=corners.reshape(-1,3,2)

@@ -13,7 +13,7 @@ import {decodeReplay} from '../web/race/replay.mjs'
 
 const root=fileURLToPath(new URL('../',import.meta.url))
 const controllerSource=(await readFile(new URL('../web/dev/circuit_driver.mjs',import.meta.url),'utf8')).replace('export function','function')
-const processes=[]
+const processes=[],diagnostics=[]
 let browser
 const baseDir=join(root,'.wrangler')
 await mkdir(baseDir,{recursive:true})
@@ -30,7 +30,7 @@ async function launch(script,args){
   const p=spawn(process.execPath,[script,...args,'--port',String(port)],{cwd:root,detached:true,stdio:['ignore','pipe','pipe']})
   processes.push(p)
   let logs=''
-  for(const stream of [p.stdout,p.stderr])stream.on('data',s=>{logs=(logs+s).slice(-8000)})
+  for(const stream of [p.stdout,p.stderr])stream.on('data',s=>{logs=(logs+s).slice(-8000);if(s.includes('pending checkpoints'))diagnostics.push(s.toString().trim())})
   const base='http://127.0.0.1:'+port
   for(let i=0;i<200;i++){
     if(p.exitCode!==null)throw Error(logs)
@@ -138,13 +138,17 @@ try{
   await phone.goto(padLink)
   await phone.locator('#code').fill(await host.locator('#pad-code').innerText())
   await phone.getByRole('button',{name:'Pair controller'}).click()
-  await phone.waitForFunction(()=>document.querySelector('#tilt').getAttribute('aria-pressed')==='true')
+  await phone.getByRole('button',{name:'Start driving'}).click()
+  await phone.waitForFunction(()=>{
+    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:-85}))
+    return document.querySelector('#tilt').getAttribute('aria-pressed')==='true'
+  })
   await host.waitForFunction(()=>document.getElementById('pad-state').textContent==='Phone connected')
   await host.locator('#drive-course').selectOption('stadium')
   const initial=await host.evaluate(()=>window.driveMetrics.car.heading)
   await phone.evaluate(()=>{
-    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:0}))
-    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:18,gamma:18}))
+    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:-85}))
+    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:20,gamma:-85}))
   })
   const gas=await phone.locator('#gas').boundingBox()
   await phone.mouse.move(gas.x+gas.width/2,gas.y+gas.height/2)
@@ -200,7 +204,11 @@ try{
   await host.locator('#race-start').click()
   for(const p of [host,guest]) await p.waitForFunction(()=>window.driveMetrics.course==='stadium' && !document.querySelector('#race-banner').hidden)
   for(const p of [host,guest]) assert.ok(await p.locator('#trial-open').isDisabled())
-  await phone.mouse.move(gas.x+gas.width/2,gas.y+gas.height/2)
+  await Promise.all([host,guest].map(p=>p.waitForFunction(()=>document.querySelector('#race-countdown').textContent==='2' && !document.querySelector('#race-countdown').hidden,null,{timeout:10000})))
+  const cues=await Promise.all([host,guest].map(p=>p.locator('#race-countdown').innerText()))
+  assert.deepEqual(cues,['2','2'])
+  const raceGas=await phone.locator('#gas').boundingBox()
+  await phone.mouse.move(raceGas.x+raceGas.width/2,raceGas.y+raceGas.height/2)
   await phone.mouse.down()
   await host.waitForFunction(()=>window.driveMetrics.car.speed>1,null,{timeout:20000})
   await phone.mouse.up()
@@ -238,6 +246,10 @@ try{
   await mobile.close()
   assert.deepEqual(errors,[])
   console.log('Both clients completed a circuit with gamepad inputs and displayed identical finish order and times')
+} catch(error){
+  console.error(diagnostics)
+  if(browser)for(const c of browser.contexts())for(const page of c.pages())console.error(await page.locator('#room-roster').allInnerTexts())
+  throw error
 } finally {
   await browser?.close()
   for(const p of processes)try{process.kill(-p.pid,'SIGTERM')}catch{}

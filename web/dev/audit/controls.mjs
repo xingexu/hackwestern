@@ -41,6 +41,9 @@ function trials(yAt,drawAt){
   return measure({...game,simulate,column:()=>[hit('road',drawAt,'terrain')]},index,cell,[],['drive']).counts
 }
 assert.deepEqual(trials(()=>0,0),{})
+const clipped={...cell,samples:[[11.5,13.5,.14]]}
+const sparse={...game,roadStarts:()=>[],simulate:(point,heading)=>({state:{...point,heading},step(){}})}
+assert.equal(measure(sparse,index,clipped,[],['drive']).driveRuns,4)
 assert.equal(trials(()=>NaN,0)['fall-through'],4)
 assert.equal(trials(step=>step*.51,0).launch,4)
 assert.equal(trials(()=>-1,0).sinking,4)
@@ -76,3 +79,8 @@ const kerbFace=[{x:0,y:.105,z:0},{x:1,y:.905,z:.15},{x:1,y:.905,z:0}]
 assert.equal(traversableKerb(roadway,kerbFace,0,slope),true)
 assert.equal(traversableKerb(roadway,kerbFace,0,()=>0),false)
 assert.equal(traversableKerb({...roadway,mesh:{name:'Bridge decks and approaches'}},kerbFace,0,slope),false)
+for(const code of [11,12]) {
+  const profile={...roadway,geometry:{attributes:{color:new Float32BufferAttribute([0,0,0],3),paving:new Float32BufferAttribute([0,0,code],3)}}}
+  assert.equal(traversableKerb(profile,kerbFace,0,slope),true)
+  assert.equal(traversableKerb(profile,kerbFace,0,()=>0),false)
+}

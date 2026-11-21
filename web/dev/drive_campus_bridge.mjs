@@ -14,15 +14,15 @@ export async function driveCampusBridge(page,out){
   await page.waitForTimeout(650);
   await page.screenshot({path:join(out,'campus-bridge-approach.png')});
   await page.keyboard.down('ArrowUp');
+  let end;
   try{
     await page.waitForFunction(()=>window.driveMetrics.car.x>717,null,{timeout:15000});
     await page.screenshot({path:join(out,'campus-bridge-on-deck.png')});
-    await page.waitForFunction(()=>window.driveMetrics.car.x>767,null,{timeout:12000});
+    end=await (await page.waitForFunction(()=>{
+      const {car,network}=window.driveMetrics;
+      if(car.x>767)return {x:car.x,z:car.z,speed:car.speed,surface:network.sample(car.x,car.z,car.y).surface};
+    },null,{timeout:12000})).jsonValue();
   }finally{await page.keyboard.up('ArrowUp');}
-  const end=await page.evaluate(()=>{
-    const {car,network}=window.driveMetrics;
-    return {x:car.x,z:car.z,speed:car.speed,surface:network.sample(car.x,car.z,car.y).surface};
-  });
   const lateral=(end.x-start.x)*Math.cos(start.heading)-(end.z-start.z)*Math.sin(start.heading);
   assert.equal(end.surface,'road');
   assert.ok(Math.abs(lateral)<3.6 && end.speed>5,JSON.stringify(end));

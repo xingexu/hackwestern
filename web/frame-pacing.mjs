@@ -1,13 +1,13 @@
-const poseFields=['x','y','z','heading','pitch','roll','bodyPitch'];
+const poseFields=['x','y','z','heading','pitch','roll','bodyPitch','lift'];
 
 export function snapshotPose(out,car){
-  for(const key of poseFields) out[key]=car[key];
+  for(const key of poseFields) out[key]=car[key]??0;
   return out;
 }
 
 export function interpolatePose(out,before,after,alpha){
   for(const key of poseFields){
-    const delta=after[key]-before[key];
+    const delta=(after[key]??0)-before[key];
     out[key]=before[key]+(key==='heading'?Math.atan2(Math.sin(delta),Math.cos(delta)):delta)*alpha;
   }
   return out;

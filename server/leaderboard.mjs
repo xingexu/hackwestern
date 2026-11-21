@@ -9,7 +9,7 @@ function inspect(bytes,course,timeMs) {
   const gates = replay.checkpointsMs
   if (course !== replay.course || timeMs !== replay.timeMs || timeMs !== milliseconds(replay.steps) ||
       timeMs < 10000 || !gates.length || gates.at(-1) !== timeMs ||
-      gates.some((ms,i)=> ms <= (gates[i-1] || 0))) throw Error('Invalid course, time or checkpoint splits')
+      gates.some((ms,i)=> ms < 1 || ms < gates[i-1])) throw Error('Invalid course, time or checkpoint splits')
   return replay
 }
 function verify(replay) {

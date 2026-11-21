@@ -1,3 +1,4 @@
+import {drivingMenu} from './mobile_menu.mjs';
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {once} from 'node:events';
@@ -38,6 +39,7 @@ try {
       assert.equal(pipeline.shadow,phone?1024:2048);
       assert.equal(pipeline.ao===0,phone);
       if(phone) assert.ok(pipeline.width<=Math.ceil(844*.8));
+      await drivingMenu(page);
       for(const quality of ['medium','ultra','auto']){
         await page.selectOption('#look-quality',quality);
         await page.waitForFunction(size=>driveMetrics.inspectLook().sun.shadow.map?.width===size,
@@ -98,6 +100,7 @@ try {
       await page.selectOption('#spawn','University Drive');
       await ready();
     }
+    await drivingMenu(page,false);
     await page.waitForTimeout(3500);
     await page.keyboard.down('ArrowUp');
     const perf=await page.evaluate(async()=>{

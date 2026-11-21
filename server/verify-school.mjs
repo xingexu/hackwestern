@@ -63,14 +63,21 @@ try{
   await pad.goto(base+'/pad')
   await pad.locator('#code').fill(code)
   await pad.getByRole('button',{name:'Pair controller'}).tap()
+  await pad.getByRole('button',{name:'Start driving'}).tap()
   await page.waitForFunction(()=>document.querySelector('#pad-state').textContent==='Phone connected')
-  await pad.waitForFunction(()=>document.querySelector('#tilt').getAttribute('aria-pressed')==='true')
-  await pad.evaluate(()=>{
-    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:0}))
-    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:20,gamma:20}))
+  await pad.waitForFunction(()=>{
+    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:-85}))
+    return document.querySelector('#tilt').getAttribute('aria-pressed')==='true'
   })
+  await pad.locator('#restart').tap()
+  await page.waitForFunction(()=>window.driveMetrics.car.distance===0 && window.driveMetrics.car.phase==='ready')
   const at=await page.evaluate(()=>window.driveMetrics.car.heading),gas=await pad.locator('#gas').boundingBox()
   await pad.mouse.move(gas.x+gas.width/2,gas.y+gas.height/2);await pad.mouse.down()
+  await page.waitForFunction(()=>window.driveMetrics.car.speed>1)
+  await pad.evaluate(()=>{
+    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:-85}))
+    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:20,gamma:-85}))
+  })
   await page.waitForFunction(h=>window.driveMetrics.car.speed>1 && Math.abs(window.driveMetrics.car.heading-h)>.04,at,{timeout:12000})
   assert.ok(sockets.length && sockets.every(s=>s.startsWith(base.replace('https:','wss:')+'/api/pads/')))
   await pad.close()

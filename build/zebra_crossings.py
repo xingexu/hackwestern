@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 from shapely.geometry import Polygon
 
-from ortho_road_paint import pigment
+from ortho_road_paint import rgb_tile
 
 
 def detect(center):
@@ -12,8 +12,14 @@ def detect(center):
     grid=np.arange(-radius,radius,.1)
     left=center[0]-radius
     top=center[1]-radius
-    x,z=np.meshgrid(center[0]+grid,center[1]+grid)
-    rgb=pigment(np.column_stack((x.ravel(),z.ravel()))).reshape(*x.shape,3).astype('uint8')
+    u=np.floor((center[0]+grid)*10).astype(int)
+    v=np.floor((center[1]+grid)*10).astype(int)
+    rgb=np.empty((len(v),len(u),3),np.uint8)
+    for i in np.unique(u//1500):
+        cols=np.flatnonzero(u//1500==i)
+        for j in np.unique(v//1500):
+            rows=np.flatnonzero(v//1500==j)
+            rgb[np.ix_(rows,cols)]=rgb_tile(int(i)*150,int(j)*150)[np.ix_(v[rows]%1500,u[cols]%1500)]
     gray=cv2.cvtColor(rgb,cv2.COLOR_RGB2GRAY)
     opening=cv2.morphologyEx(gray,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(15,15)))
     ink=gray.astype('float32')-opening

@@ -1,3 +1,4 @@
+import {drivingMenu} from './mobile_menu.mjs';
 import assert from 'node:assert/strict';
 import { existsSync,realpathSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
@@ -25,6 +26,7 @@ try{
   await page.waitForFunction(()=>window.driveMetrics?.frames>3);
   assert.equal(await page.locator('#drive-course option').count(),5);
   assert.ok(await page.locator('#spawn option').count()>=10);
+  await drivingMenu(page);
   await page.selectOption('#spawn','Western Alumni Stadium');
   await page.waitForFunction(()=>window.driveMetrics.car.z>1000);
   await page.screenshot({path:new URL('./shots/drive-stadium-roam.png',import.meta.url).pathname});
@@ -37,6 +39,7 @@ try{
   await page.evaluate(()=>window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:0})));
   const tilt=await page.locator('#tilt').getAttribute('aria-pressed');
   assert.equal(tilt,'true');
+  await drivingMenu(page,false);
   await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:box.x+box.width/2,y:box.y+box.height/2}]});
   await page.waitForFunction(()=>window.driveMetrics.car.distance>4);
   await page.evaluate(()=>window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:15,gamma:15})));
@@ -45,6 +48,7 @@ try{
   await page.waitForFunction(deadline=>performance.now()>deadline,heldUntil);
   assert.ok(await page.evaluate(()=>Math.abs(window.driveMetrics.car.steer)>.025),'Holding the phone at the same angle must keep steering.');
   await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+  await drivingMenu(page);
   await page.getByRole('button',{name:'Tilt on'}).tap();
   for(const name of ['University Drive Bridge','North Campus Building','Brescia University College']){
     await page.selectOption('#spawn',name);
@@ -56,7 +60,11 @@ try{
     await page.selectOption('#drive-course',id);
     await page.waitForFunction(id=>window.driveMetrics.course===id && window.driveMetrics.frames>2,id);
     assert.equal(await page.locator('#recover').isVisible(),true);
+    await drivingMenu(page,false);
+    await page.getByRole('button',{name:'Expand minimap'}).click();
     assert.equal(await page.locator('#progress').isVisible(),true);
+    await page.getByRole('button',{name:'Shrink minimap'}).click();
+    await drivingMenu(page);
     assert.ok(await page.evaluate(()=>window.driveMetrics.car.nextGate.distance>20));
     const lap=await page.evaluate(async ({id,driverModule})=>{
       const {createDriveSim}=await import('drive-sim'),{driveInput}=await import(driverModule);

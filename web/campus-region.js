@@ -63,15 +63,15 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     if(conditions) material.userData.conditionStrength={value:1};
     material.onBeforeCompile=shader=>{
       shader.uniforms.groundGrain={value:landscape.groundGrain};
+      shader.uniforms.pavementDetail={value:landscape.pavementDetail};
       shader.uniforms.pavingTone={value:landscape.pavingTone};
       bindGroundEdge(shader,landscape);
       shader.uniforms.surfaceCoverage={value:landscape.surfaceCoverage};
       shader.uniforms.grassVigor={value:landscape.grassVigor};
       shader.uniforms.pavementMap={value:landscape.pavement};
-      shader.uniforms.coverMap={value:landscape.landClasses};
       shader.uniforms.landTransitions={value:landscape.landTransitions};
-      shader.uniforms.coverSize={value:new THREE.Vector2(landscape.landClasses.image.width,landscape.landClasses.image.height)};
-      shader.uniforms.coverBounds={value:new THREE.Vector4(...landscape.landClasses.userData.bounds)};
+      shader.uniforms.coverSize={value:new THREE.Vector2(landscape.landTransitions.image.width,landscape.landTransitions.image.height)};
+      shader.uniforms.coverBounds={value:new THREE.Vector4(...landscape.landTransitions.userData.bounds)};
       shader.uniforms.finishMap={value:finish};
       shader.uniforms.walkGuide={value:guide};
       if(conditions){
@@ -87,9 +87,10 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
         .replace('#include <common>',`#include <common>
           ${groundDetailGLSL}
           varying vec2 surveyPoint;
-          uniform sampler2D grassVigor,pavingTone,surfaceCoverage,walkGuide;
+          uniform sampler2D grassVigor,pavementDetail,surfaceCoverage,walkGuide;
+          uniform highp sampler2DArray pavingTone;
           ${edgeGLSL}
-          uniform sampler2D pavementMap,coverMap,finishMap,conditionMap,landTransitions;
+          uniform sampler2D pavementMap,finishMap,conditionMap,landTransitions;
           uniform vec2 coverSize;
           uniform vec4 surveyBounds,conditionBounds,coverBounds;
           uniform float conditionStrength;
@@ -108,7 +109,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           }
           vec4 surfaceColor(vec2 pixel){
             vec4 c=texture2D(landTransitions,(pixel+.5)/coverSize);
-            float a=floor(c.r*255.+.5),b=floor(c.g*255.+.5);
+            float a=mod(floor(c.r*255.+.5),16.),b=floor(c.g*255.+.5);
             vec3 under=mix(groundTint(b==5.?a:b),groundTint(a==5.?b:a),c.b);
             return vec4(under,c.a);
           }
@@ -130,7 +131,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           }`)
         .replace('#include <map_fragment>',gameGround?`vec2 uv=(surveyPoint-surveyBounds.xy)/(surveyBounds.zw-surveyBounds.xy);
           vec2 coverUV=(surveyPoint-coverBounds.xy)/(coverBounds.zw-coverBounds.xy);
-          float cover=floor(texture2D(coverMap,coverUV).r*255.+.5);
+          float cover=floor((texture2D(landTransitions,coverUV).r*255.+.5)/16.);
 
           float raw=texture2D(pavementMap,uv).r,aa=clamp(fwidth(raw),.025,.45);
           float road=smoothstep(.5-aa,.5+aa,raw);
@@ -145,7 +146,8 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
                         mix(surfaceColor(low+vec2(0.,1.)),surfaceColor(low+vec2(1.)),part.x),part.y);
           vec2 profileUv=coverUV*coverSize/(2.*vec2(textureSize(surfaceCoverage,0)));
           vec4 profile=texture2D(surfaceCoverage,profileUv);
-          vec3 pavingSurvey=texture2D(pavingTone,coverUV).rgb;
+          vec4 pavingSurvey=texture(pavingTone,vec3(coverUV,0.));
+          vec4 mappedMaterials=texture(pavingTone,vec3(coverUV,1.));
           float mappedLot=coverageEdge(pavingSurvey.g);
           float lot=mappedLot;
           float pavedLot=max(coverageEdge(ground.a),mappedLot*max(carriage,smoothstep(.025,.24,textureLod(surfaceCoverage,profileUv,2.).a)));
@@ -155,17 +157,20 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           float turf=1.-smoothstep(.045,.12,distance(ground.rgb,groundTint(0.)));
           vec2 surveyTone=texture2D(grassVigor,uv).rg;
           vec3 blades=summerLawn(surveyPoint,surveyTone.r,particle.r);
-          land=mix(land,blades,turf);
+          blades*=mix(vec3(1.),vec3(.86,1.32,1.02),pavingSurvey.a);
+          land=mix(land,blades,turf*(1.-ground.a));
           float woodland=textureLod(surfaceCoverage,profileUv,3.8).b;
           float forest=smoothstep(.18,.74,woodland)*textureLod(surfaceCoverage,profileUv,2.4).b,waterCoverage=profile.g;
           vec3 litter=forestFloor(surveyPoint,particle);
-          land=mix(land,litter,.55*smoothstep(.02,.98,forest));
+          float duff=${landscape.pavingTone?.userData.woodlandEdges?'smoothstep(.05,.94,mappedMaterials.a+.13*growth+.045*particle.r)':'1.'};
+          land=mix(land,litter,.55*smoothstep(.02,.98,forest)*duff);
           land=groundEdge(land,blades,litter,surveyPoint,(cover<=2. || cover==11.)?1.:0.);
           float sport=1.-smoothstep(.012,.078,distance(ground.rgb,groundTint(8.)));
           float fieldCut=cos(dot(surveyPoint,vec2(-.099,.680))+.35*growth);
           vec3 fieldGrass=vec3(.055,.129,.054)*(1.+.029*fieldCut+particle.r*.65+growth*.08);
           land=mix(land,fieldGrass,sport);
           if(cover==4.) land*=1.+particle.b*.72;
+          if(cover==10.) land=mix(land,vec3(.18,.16,.112)*(1.+particle.b*.74+.15*grainCoarse),mappedMaterials.b);
           land*=1.+growth*.07+nearDetail*(grainFine*(.10+.11*lawn)+grainCoarse*.12*lawn);
           float waterAA=clamp(fwidth(waterCoverage),.04,.42);
           float waterWeight=smoothstep(.5-waterAA,.5+waterAA,waterCoverage);
@@ -185,6 +190,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           float paleLot=smoothstep(.83,.92,pale)*lot;
           bitumen*=.86+.32*smoothstep(.08,.74,pale);
           bitumen=mix(bitumen,vec3(.286,.268,.226),paleLot);
+          bitumen=mix(bitumen,vec3(.523,.501,.341),mappedMaterials.g*.89*road);
           float repairs=broadNoise(surveyPoint*.048+vec2(growth,-growth)*.26);
           bitumen*=1.+.55*(surveyTone.g-.502)+ground.a*(repairs*.14+.035*broadNoise(surveyPoint*.19));
           bitumen*=1.+particle.g*.52+nearDetail*(grainFine*(.17+coarse*.21)+grainCoarse*(.068+coarse*.08))+.03*broadNoise(surveyPoint*.72);
@@ -192,8 +198,11 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           float seal=texture2D(groundGrain,lotUV).a;
           bitumen*=1.-seal*lot*(.025+.05*coarse)*smoothstep(-.14,.29,repairs);
           bitumen*=1.-.39*paleLot*slabJoint(mat2(.961,-.276,.276,.961)*surveyPoint,vec2(5.7,6.2));
+          vec4 measured=texture2D(pavementDetail,coverUV);
+          bitumen*=1.-.13*measured.r-.23*measured.g;
           vec3 surface=mix(land,bitumen,road);
           ${finish?`vec4 finish=texture2D(finishMap,vMapUv);
+            surface*=1.-.40*(1.-finish.a)*road*(1.-finish.b);
             float pedal=finish.b;
             ${guide?`vec2 rim=min(vMapUv,1.-vMapUv);
               pedal=mix(pedal,texture2D(walkGuide,vMapUv).r,smoothstep(.0005,.008,min(rim.x,rim.y)));`:''}
@@ -207,7 +216,15 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
             vec2 footprintJoint=max(fwidth(jointCoord),.0001);
             vec2 jointDist=abs(fract(jointCoord+.5)-.5);
             vec2 slabSeam=clamp((.0024+footprintJoint*.5-jointDist)/footprintJoint,vec2(0.),min(vec2(1.),.0048/footprintJoint));
-            slab*=1.-.25*max(slabSeam.x,slabSeam.y)*(1.-smoothstep(.15,.55,max(footprintJoint.x,footprintJoint.y)));
+            vec2 walkPhase=measured.ba*2.-1.;
+            float jointDepth=max(slabSeam.x,slabSeam.y)*(1.-smoothstep(.15,.55,max(footprintJoint.x,footprintJoint.y)));
+            if(dot(walkPhase,walkPhase)>.80){
+              float station=atan(walkPhase.y,walkPhase.x)*1.27323954;
+              float width=max(.001,length(fwidth(surveyPoint))/1.72);
+              float delta=abs(fract(station+.5)-.5);
+              jointDepth=clamp((.0035+width*.5-delta)/width,0.,min(1.,.007/width));
+            }
+            slab*=1.-.36*jointDepth;
             vec2 paving=vec2(0.);
             if(pedestrian>.001 && finish.a<.995)paving=walkwayWeights(vMapUv);
             vec2 block=surveyPoint/vec2(.22,.40);
@@ -247,7 +264,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     return mesh;
   }
   const paintMaterial=new THREE.MeshStandardMaterial({roughness:.78,side:THREE.DoubleSide,vertexColors:true,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-1});
-  const swatches=[new THREE.Color(0xe1e0d4),new THREE.Color(0xe1be65),new THREE.Color(0xe1e0d4),new THREE.Color(0xd7bd79),new THREE.Color(0x5b96ab)];
+  const swatches=[new THREE.Color(0xe1e0d4),new THREE.Color(0xe1be65),new THREE.Color(0xf5f4e9),new THREE.Color(0xecc453),new THREE.Color(0x5b96ab)];
   function observedPaint(condition){
     const material=paintMaterial.clone();
     material.customProgramCacheKey=()=>'modeled-line-wear';

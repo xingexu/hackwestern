@@ -41,6 +41,7 @@ try {
     page.on('requestfailed',r=>pending.delete(r))
     const errors=[]
     page.on('pageerror',e=>errors.push(e.message))
+    page.on('console',message=>{if(message.type()==='error')errors.push(message.text())})
     page.on('response',r=>{if(r.status()>=400) errors.push(r.status()+' '+r.url())})
     await page.goto(base+'/?audit')
     await page.waitForFunction(()=>window.campusAudit||document.querySelector('#status[role=alert]'),null,{timeout:120000})

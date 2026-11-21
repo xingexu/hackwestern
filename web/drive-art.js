@@ -1,3 +1,4 @@
+import {speedKph} from './race/input.mjs';
 import {carFinishes,colorTexture} from 'look-materials';
 
 export function shapeBatch(THREE, geometry) {
@@ -249,7 +250,7 @@ export function createDriverInterior(THREE, shell) {
   }
   function instruments(car) {
     wheel.rotation.set(-.25, 0, car.steer * 9.2);
-    needles[0].rotation.z = -Math.PI * (.77 + 1.46 * Math.min(1, Math.abs(car.speed) * 3.6 / 220));
+    needles[0].rotation.z = -Math.PI * (.77 + 1.46 * Math.min(1, speedKph(car) / 220));
     needles[1].rotation.z = -Math.PI * (.77 + 1.46 * Math.min(1, car.rpm / 7500));
   }
   return { interior, instruments };

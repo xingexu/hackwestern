@@ -14,7 +14,7 @@ const staging=join(web,'dist','.building-'+process.pid);
 const page=await readFile(join(web,'index.html'),'utf8');
 const imports=JSON.parse(page.match(/<script type="importmap">([\s\S]*?)<\/script>/)[1]).imports;
 const aliases=Object.entries(imports).filter(([name])=>name!=='three').map(([name,location])=>({find:name,replacement:join(web,location)}));
-const phoneAssets=['app.webmanifest','drive-192.png','drive-512.png','apple-touch-icon.png'];
+const phoneAssets=['app.webmanifest','drive-192.png','drive-512.png','apple-touch-icon.png','pad-wheel.js'];
 const datasets=['campus-buildings.json','world.json','street-signs.json','campus-boundary.json','driving-horizon.json','world.bin','campus-ground.json','campus-region.json','drive-network.json','drive-route.json','drive-trees.json','street-detail.json','region-detail.json','municipal-detail.json','mesh-worker.js'];
 const tileSources=['ground-materials.json','surface-tiles.json','canopy-survey.json','region-detail.json','streetview-facades.json'];
 
@@ -35,7 +35,9 @@ function mappedAssets(file,source) {
     delete data.frames;
     delete data.rejected;
     data.landcover.transitions=unpack(data.landcover.transitions,'bin');
-    if(data.landcover.pavingTone)data.landcover.pavingTone.samples=unpack(data.landcover.pavingTone.samples,'bin');
+    for(const section of [data.landcover.pavingTone,data.landcover.pavementDetail]){
+      if(section)for(const key of ['samples','aggregate','shadedLawn'])if(section[key])section[key]=unpack(section[key],'bin');
+    }
     const context=data.landcover.context;
     if(context){
       for(const key of ['vertices','indices','cover','coverage','trees'])if(context[key])context[key]=unpack(context[key],'bin');
@@ -81,7 +83,7 @@ function gameContent() {
         try{
           const name=new URL(req.url,'http://localhost').pathname.slice(1);
           if(phoneAssets.includes(name)){
-            res.setHeader('Content-Type',name.endsWith('.webmanifest')?'application/manifest+json':'image/png');
+            res.setHeader('Content-Type',name.endsWith('.js')?'text/javascript':name.endsWith('.webmanifest')?'application/manifest+json':'image/png');
             res.end(await readFile(join(web,'phone',name)));
             return;
           }

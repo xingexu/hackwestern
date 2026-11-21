@@ -1,4 +1,4 @@
-export function installPhoneControls(root) {
+export function installPhoneControls(root,useProfile) {
   const tilt=root.querySelector('#tilt')
   const settings=document.createElement('details')
   settings.id='phone-settings'
@@ -12,7 +12,7 @@ export function installPhoneControls(root) {
   wheel.setAttribute('aria-label','Drag to steer')
   wheel.hidden=true
   steering.append(wheel)
-  let wheelInput=0, active=false, enabled=false, neutral=null, target=0, filtered=0, reading=null, timeout, generation=0
+  let wheelInput=0, active=false, enabled=false, neutral=null, target=0, marked=0, reading=null, timeout, generation=0
   let lease=null, waiting=false
   async function wake() {
     if (waiting || lease || !active || document.hidden || !navigator.wakeLock) return
@@ -40,7 +40,7 @@ export function installPhoneControls(root) {
   }
   function center() {
     neutral=reading
-    target=filtered=0
+    target=marked=0
   }
   settings.querySelector('[data-center]').onclick=center
   function clear() {
@@ -63,6 +63,7 @@ export function installPhoneControls(root) {
     neutral??=reading
     const delta=(reading-neutral+540)%360-180
     target=-Math.sign(delta)*Math.min(1,Math.max(0,Math.abs(delta)-Number(deadzone.value))/Number(range.value))
+    if(Math.abs(target-marked)>.025){useProfile('tilt');marked=target}
     clearTimeout(timeout)
   }
   window.addEventListener('deviceorientation',orientation)
@@ -98,12 +99,12 @@ export function installPhoneControls(root) {
   }
   wheel.onpointermove=event=>{
     if (!wheel.hasPointerCapture(event.pointerId)) return
+    useProfile('tilt')
     wheelInput=Math.max(-1,Math.min(1,(originX-event.clientX)/46))
     wheel.style.setProperty('--angle',(-wheelInput*80)+'deg')
   }
   wheel.onlostpointercapture=()=>{wheelInput=0;wheel.style.removeProperty('--angle')}
-  return {clear,driving,steer(dt){
-    filtered+=(target-filtered)*(1-Math.exp(-Math.max(0,dt)*18))
-    return wheelInput+(enabled?filtered:0)
+  return {clear,driving,get tilting(){return enabled || !wheel.hidden},steer(){
+    return wheelInput+(enabled?target:0)
   },vibrate(ms){if (matchMedia('(pointer:coarse)').matches) navigator.vibrate?.(ms)}}
 }

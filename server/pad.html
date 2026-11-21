@@ -10,69 +10,100 @@
 :root{color-scheme:dark;font:16px/1.4 system-ui,sans-serif;color:#faf7e9;background:#111e1a}
 html,body{width:100%;height:100%;margin:0;overflow:hidden;overscroll-behavior:none;touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 #controls{touch-action:none}
-main,#rotate{height:100svh;height:100dvh;padding:max(14px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left))}
-main{display:grid;place-items:center}
-[hidden],#rotate{display:none!important}
-#pair{width:min(100%,370px);display:grid;gap:10px}
-h1{margin:0;font:30px/1.1 Georgia,serif}
+main{height:100svh;height:100dvh;display:grid;place-items:center;padding:20px max(22px,env(safe-area-inset-right)) 20px max(22px,env(safe-area-inset-left))}
+[hidden]{display:none!important}
+#pair,#setup{width:min(100%,370px);display:grid;gap:16px}
+h1{margin:0;font:normal clamp(36px,8vw,48px)/1.05 Georgia,serif;letter-spacing:-.035em;text-wrap:balance}
+#setup p{margin:0;color:#d1dace}
+#setup ul{list-style:none;margin:0;padding:0;border-block:1px solid #405348}
+#setup li{padding:11px 0;color:#d1dace}
+#setup li+li{border-top:1px solid #34483c}
+#setup strong{display:block;color:#fff8ed}
 label{font-weight:600;color:#dae1d2}
 input,button{font:inherit;border-radius:8px}
 button{cursor:pointer;color:inherit;border:1px solid #71857a;background:#25382f;font-weight:600;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 #pair input{min-width:0;width:100%;border:1px solid #71857a;background:#1c3027;padding:8px 14px;color:inherit;font:600 24px monospace;letter-spacing:.16em;text-transform:uppercase}
-#pair button{padding:10px;background:#ffce79;color:#30250f;border-color:#efbd66}
+#pair button,#start-drive{min-height:48px;padding:10px;background:#ffce79;color:#30250f;border-color:#efbd66}
 #play{color:#cddacb;text-align:center;font-size:13px}
-#controls{width:100%;height:100%;max-width:1050px;display:grid;grid-template-rows:auto 1fr;gap:12px}
-.tools{display:flex;justify-content:space-between;align-items:center;gap:8px}
+#controls{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:100vw;height:100dvh;padding:14px max(22px,env(safe-area-inset-right)) 16px max(22px,env(safe-area-inset-left));display:flex;flex-direction:column;gap:10px}
+.tools{display:flex;align-items:center;gap:8px}
+.tools>div:last-child{margin-left:auto}
 .tools>div{display:flex;gap:8px}
 .tools button{min-height:42px;padding:6px 14px;font-size:14px}
 #tilt[aria-pressed=true]{border-color:#a8cdb5;color:#c5f0d2}
 #tilt:disabled{opacity:.65}
-#deck{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,8vw,110px);min-height:0;align-items:stretch;padding-top:clamp(0px,5vh,35px)}
+#wheel{display:inline-grid;place-items:center;width:30px;height:30px;flex:none;border:2px solid #aec5b5;border-radius:50%;color:#aec5b5;transform:rotate(var(--steer,0deg))}
+#wheel::before{content:'';width:100%;height:55%;border-top:2px solid;border-radius:50%;background:linear-gradient(90deg,transparent 46%,currentColor 46% 54%,transparent 54%) center bottom/100% 80% no-repeat;transform:translateY(22%)}
+#options{position:relative;font-size:14px}
+#options summary{cursor:pointer;padding:8px;color:#d3ddce}
+#options section{position:absolute;z-index:1;top:100%;left:0;min-width:200px;padding:12px;background:#203429;border:1px solid #71857a;border-radius:8px}
+#options label{display:block}
+#sensitivity{width:100%}
+#deck{display:grid;flex:1;grid-template-columns:1fr 1fr;gap:clamp(20px,7vmax,80px);min-height:0;align-items:stretch}
+#deck:has(#arrows[hidden]){grid-template-columns:1fr}
+#deck:has(#arrows[hidden]) #pedals{gap:clamp(18px,3vmax,32px)}
 .group{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:stretch}
-.group button{min-width:0;display:grid;place-content:center;justify-items:center;gap:6px;border-radius:18px;font-weight:650;font-size:clamp(15px,2.3vw,23px)}
-.group button b{font:500 clamp(30px,6vw,70px)/1 system-ui}
+.group button{min-width:0;display:grid;place-content:center;justify-items:center;gap:6px;border-radius:18px;font-weight:650;font-size:clamp(18px,3vmax,30px)}
+.group button b{font:500 clamp(30px,6vmax,70px)/1 system-ui}
 .group button small{font-size:12px}
 #gas{color:#173221;background:#b9d9ad;border-color:#b9d9ad}
 #brake{color:#40251c;background:#dbad92;border-color:#dbad92}
 .group button[data-held]{box-shadow:inset 0 0 0 4px #fff6;filter:brightness(1.18);transform:translateY(1px)}
-#notice{position:fixed;top:14%;left:50%;transform:translateX(-50%);padding:5px 12px;border-radius:6px;background:#17271f;color:#ffdc94;pointer-events:none;text-align:center;font-size:13px}
-#notice:empty{display:none}
-#rotate{align-content:center;justify-items:center;text-align:center;gap:18px;background:#14261e;position:fixed;inset:0}
-#rotate i{display:block;width:84px;height:46px;border:3px solid #eacc86;border-radius:9px;transform:rotate(-12deg)}
-#rotate p{margin:0;color:#cbd6ca}
-@media(orientation:portrait){main,#notice{display:none!important}#rotate{display:grid!important}}
-@media(max-height:340px){main{padding-block:8px}#pair{gap:4px}#pair h1{font-size:22px}}
+#notice{position:fixed;bottom:max(8px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);color:#ffdc94;text-align:center;font-size:13px;pointer-events:none}
+#controls #notice{position:static;transform:none;order:-1}
+#notice:empty,#lock-hint{display:none}
+#lock-hint{margin:0;color:#ffdc94;font-size:13px;text-align:center}
+@media(orientation:portrait){
+ #controls{width:100dvh;height:100vw;transform:translate(-50%,-50%) rotate(var(--turn,90deg));padding:14px max(20px,env(safe-area-inset-top),env(safe-area-inset-bottom)) 16px}
+}
+@media(orientation:landscape){
+ #lock-hint{display:block}
+ #flip{display:none}
+ #setup{width:min(100%,640px);gap:8px}
+ #setup ul{display:flex;gap:20px}
+ #setup li{flex:1}
+ #setup li+li{border:0}
+}
+@media(max-height:340px){main{padding-block:8px}#pair,#setup{gap:4px}#pair h1,#setup h1{font-size:24px}}
 </style>
 </head>
 <body>
-<aside id="rotate"><i aria-hidden="true"></i><h1>Rotate your phone</h1><p>Turn to landscape to use the controller.</p></aside>
 <main>
 <form id="pair"><h1>Phone controller</h1><label for="code">Desktop join code</label><input id="code" required maxlength="6" pattern="[A-Za-z2-9]{6}" autocapitalize="characters" autocomplete="off" spellcheck="false"><button>Pair controller</button><a id="play" href="/?mode=drive">Drive on this device instead</a></form>
+<section id="setup" hidden aria-labelledby="setup-title">
+<h1 id="setup-title">Lock rotation first</h1>
+<p>Hold your phone upright and lock the screen in portrait.</p>
+<ul><li><strong>iPhone</strong>Open Control Centre and turn on Portrait Orientation Lock.</li><li><strong>Android</strong>Open Quick Settings and turn off Auto-rotate.</li></ul>
+<p>Tap Start driving, then hold your phone sideways. Keep the ends level to drive straight and turn it like a steering wheel.</p>
+<button id="start-drive">Start driving</button>
+</section>
 <section id="controls" hidden aria-label="Driving controls">
-<div class="tools"><button id="tilt" aria-pressed="false">Enable tilt steering</button><button id="center" hidden>Centre tilt</button><div><button id="recover">Recover</button><button id="restart">Restart</button></div></div>
-<div id="deck"><div class="group"><button id="left" aria-label="Steer left"><b aria-hidden="true">←</b>Left</button><button id="right" aria-label="Steer right"><b aria-hidden="true">→</b>Right</button></div><div class="group"><button id="brake" aria-label="Brake or reverse">Brake<small>Reverse</small></button><button id="gas">Gas</button></div></div>
+<p id="lock-hint">For a steady layout, hold the phone upright, lock rotation, then turn it sideways again.</p>
+<div class="tools"><button id="tilt" aria-pressed="false">Enable tilt steering</button><span id="wheel" hidden aria-label="Steering wheel"></span><details id="options" hidden><summary>Settings</summary><section><label for="sensitivity">Steering sensitivity <output id="degrees">±32°</output><input id="sensitivity" type="range" min="0" max="24" value="12"></label><label><input id="haptics" type="checkbox"> Vibrate at full lock</label></section></details><button id="flip">Flip layout</button><div><button id="recover">Recover</button><button id="restart">Restart</button></div></div>
+<div id="deck"><div class="group" id="arrows"><button id="left" aria-label="Steer left"><b aria-hidden="true">←</b>Left</button><button id="right" aria-label="Steer right"><b aria-hidden="true">→</b>Right</button></div><div class="group" id="pedals"><button id="brake" aria-label="Brake or reverse">Brake<small>Reverse</small></button><button id="gas">Gas</button></div></div>
 </section>
 </main><output id="notice" role="status"></output>
 <script type="module">
+import {createWheel} from '/pad-wheel.js'
 const by=id=>document.getElementById(id)
 const landscape=matchMedia('(orientation: landscape)')
 const held=new Map()
-let socket,ticket,heartbeat,retry,delay=250,disconnectedAt=0,tilt=0,target=0,reading=null,neutral=null,angle=null,sensors=false,sensorTimeout,suspended=false
+let socket,ticket,heartbeat,retry,delay=250,disconnectedAt=0,suspended=false,driving=false
+let tilt=0,side=1,sensors=false,wantTilt=false,permitted=false
+let orientedAt=-Infinity,orientedX=0,orientedY=0,motionPolarity=1,wheel=createWheel(),lastVector,straightUntil=0,lastSent=-Infinity,atLock=false
 const notice=text=>{by('notice').value=text}
 const send=packet=>{if(socket?.readyState===1 && socket.bufferedAmount<1024)socket.send(JSON.stringify(packet))}
-let filteredAt=performance.now()
 function snapshot(){
-  const now=performance.now()
-  tilt+=(target-tilt)*(1-Math.exp(-Math.max(0,now-filteredAt)/55))
-  filteredAt=now
+  lastSent=performance.now()
   const keys=new Set(held.values())
   const steer=keys.has('left') || keys.has('right') ? Number(keys.has('left'))-Number(keys.has('right')) : tilt
-  send({type:'pad',input:{steer,throttle:Number(keys.has('gas')),brake:Number(keys.has('brake'))}})
+  const profile=sensors && !keys.has('left') && !keys.has('right')?'wheel':'buttons'
+  send({type:'pad',input:{steer,profile,throttle:Number(keys.has('gas')),brake:Number(keys.has('brake'))}})
 }
 function clear(){
   held.clear()
-  neutral=reading=null
-  tilt=target=0
+  lastVector=null;straightUntil=0;tilt=0;atLock=false
+  by('wheel').style.setProperty('--steer','0deg')
   for(const b of document.querySelectorAll('[data-held]'))b.removeAttribute('data-held')
   snapshot()
 }
@@ -80,7 +111,7 @@ for(const key of ['left','right','brake','gas']){
   const b=by(key)
   b.onpointerdown=e=>{
     e.preventDefault()
-    if(!landscape.matches || socket?.readyState!==1)return
+    if(!driving || socket?.readyState!==1)return
     b.setPointerCapture(e.pointerId)
     held.set(e.pointerId,key)
     b.toggleAttribute('data-held',true)
@@ -93,10 +124,6 @@ for(const key of ['left','right','brake','gas']){
   }
 }
 for(const action of ['recover','restart'])by(action).onclick=()=>{clear();send({type:'pad-action',action})}
-async function immersive(){
-  try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen?.()}catch{}
-  try{await screen.orientation?.lock?.('landscape')}catch{}
-}
 for(const event of ['gesturestart','gesturechange','gestureend','contextmenu','selectstart']){
   document.addEventListener(event,e=>e.preventDefault(),{passive:false})
 }
@@ -115,44 +142,79 @@ document.addEventListener('touchend',e=>{
 if(!isSecureContext){by('tilt').disabled=true;by('tilt').textContent='Tilt needs HTTPS'}
 function showTilt(enabled){
   sensors=enabled
-  by('tilt').textContent=enabled?'Tilt on':'Enable tilt steering'
+  by('tilt').textContent=!isSecureContext?'Tilt needs HTTPS':enabled?'Tilt on':'Enable tilt steering'
   by('tilt').setAttribute('aria-pressed',String(enabled))
-  by('center').hidden=!enabled
+  by('wheel').hidden=by('options').hidden=!enabled
+  if(!enabled)by('options').open=false
+  by('arrows').hidden=enabled
+  by('flip').hidden=enabled
 }
 async function enableTilt(){
-  if(!isSecureContext || sensors)return
+  if(!isSecureContext)return
+  wantTilt=true
+  if(permitted)return
   try{
-    if(!window.DeviceOrientationEvent)throw Error()
-    const orientation=window.DeviceOrientationEvent.requestPermission?.()
-    const motion=window.DeviceMotionEvent?.requestPermission?.()
-    if(motion)motion.catch(()=>{})
-    if(orientation && await orientation==='denied')throw Error()
-    clear()
-    showTilt(true)
-    sensorTimeout=setTimeout(()=>{if(sensors && reading===null)notice('Waiting for tilt · arrows always work')},3000)
-  }catch{notice('Tilt unavailable · use the arrows')}
+    const available=[window.DeviceOrientationEvent,window.DeviceMotionEvent].filter(Boolean)
+    const grants=await Promise.allSettled(available.map(sensor=>sensor.requestPermission?.()))
+    permitted=grants.some(result=>result.status==='fulfilled' && result.value!=='denied')
+    if(!permitted)throw Error()
+  }catch{wantTilt=false;notice('Tilt unavailable · use the arrows')}
 }
 by('tilt').onclick=()=>{
-  if(!sensors){void enableTilt();return}
-  clearTimeout(sensorTimeout);showTilt(false);clear();notice('')
+  if(!sensors){void enableTilt();notice('Hold sideways to steer');return}
+  wantTilt=false;showTilt(false);clear();notice('')
 }
-by('center').onclick=()=>{neutral=reading;target=tilt=0;snapshot();notice('Tilt centred')}
-function screenAngle(){
-  const orientation=screen.orientation
-  const degrees=orientation?.angle ?? window.orientation
-  if(Number.isFinite(degrees))return (degrees%360+360)%360
-  return orientation?.type==='landscape-secondary'?270:90
+function settings(){
+  by('degrees').value='±'+(44-by('sensitivity').valueAsNumber)+'°'
+  by('sensitivity').setAttribute('aria-valuetext',by('degrees').value+' to full lock')
+  try{localStorage.setItem('pad-wheel-settings',JSON.stringify([by('sensitivity').valueAsNumber,by('haptics').checked]))}catch{}
+}
+try{
+  const [level,haptic]=JSON.parse(localStorage.getItem('pad-wheel-settings')||'[]')
+  if(Number.isFinite(level))by('sensitivity').value=level
+  by('haptics').checked=haptic===true
+}catch{}
+settings()
+by('sensitivity').oninput=by('haptics').onchange=settings
+by('haptics').parentElement.hidden=!navigator.vibrate
+function turnLayout(next){
+  side=next
+  by('controls').style.setProperty('--turn',side*90+'deg')
+}
+by('flip').onclick=()=>turnLayout(-side)
+function sense(x,y){
+  if(!driving || !permitted || document.hidden)return
+  const now=performance.now()
+  const steer=wheel.sample(x,y,now,now<straightUntil,44-by('sensitivity').valueAsNumber)
+  if(steer===null){lastVector=null;return}
+  lastVector=[x,y]
+  if(wheel.side!==side)turnLayout(wheel.side)
+  if(!wantTilt)return
+  if(!sensors){showTilt(true);notice('')}
+  tilt=steer
+  by('wheel').style.setProperty('--steer',(-steer*105).toFixed(1)+'deg')
+  if(!atLock && Math.abs(steer)>=.999){atLock=true;if(by('haptics').checked)navigator.vibrate?.(10)}
+  if(Math.abs(steer)<.85)atLock=false
+  snapshot()
 }
 addEventListener('deviceorientation',e=>{
-  if(!sensors || !landscape.matches || document.hidden)return
-  const next=screenAngle()
-  const value=next===90?e.beta:next===270?-e.beta:next===180?-e.gamma:e.gamma
-  if((next%180===90?e.beta:e.gamma)==null || !Number.isFinite(value))return
-  clearTimeout(sensorTimeout)
-  if(angle!==next || reading===null){neutral=value;target=tilt=0;notice('')}
-  angle=next;reading=value
-  const delta=(value-neutral+540)%360-180
-  target=-Math.sign(delta)*Math.min(1,Math.max(0,Math.abs(delta)-2)/25)
+  if(!Number.isFinite(e.beta) || !Number.isFinite(e.gamma))return
+  orientedAt=performance.now()
+  const beta=e.beta*Math.PI/180,gamma=e.gamma*Math.PI/180
+  orientedX=-Math.cos(beta)*Math.sin(gamma);orientedY=Math.sin(beta)
+  sense(orientedX,orientedY)
+})
+addEventListener('devicemotion',e=>{
+  const g=e.accelerationIncludingGravity
+  if(!Number.isFinite(g?.x) || !Number.isFinite(g.y) || !Number.isFinite(g.z))return
+  if(Math.abs(g.y)>7 && Math.abs(g.x)<2 && !wheel.side)motionPolarity=Math.sign(g.y)
+  if(performance.now()-orientedAt<500){
+    const alignment=g.x*orientedX+g.y*orientedY
+    if(Math.abs(alignment)>4)motionPolarity=Math.sign(alignment)
+    return
+  }
+  const magnitude=Math.hypot(g.x,g.y,g.z)
+  if(magnitude>5 && magnitude<15)sense(g.x/magnitude*motionPolarity,g.y/magnitude*motionPolarity)
 })
 landscape.addEventListener('change',clear)
 screen.orientation?.addEventListener('change',clear)
@@ -161,8 +223,10 @@ addEventListener('blur',clear)
 document.addEventListener('visibilitychange',()=>{if(document.hidden)clear()})
 function unpair(text){
   ticket=null
+  driving=wantTilt=false;showTilt(false);clear()
   sessionStorage.removeItem('pad-ticket')
-  by('controls').hidden=true;by('pair').hidden=false
+  document.body.append(by('notice'))
+  by('controls').hidden=by('setup').hidden=true;by('pair').hidden=false
   by('pair').querySelector('button').disabled=false
   notice(text)
 }
@@ -175,13 +239,18 @@ function open(){
   ws.onopen=()=>{
     if(socket!==ws)return
     disconnectedAt=0;delay=250
-    by('pair').hidden=true;by('controls').hidden=false
+    by('pair').hidden=true;by('setup').hidden=driving;by('controls').hidden=!driving
     clear();notice('')
-    heartbeat=setInterval(snapshot,40)
+    heartbeat=setInterval(()=>{
+      if(performance.now()-lastSent<35)return
+      if(lastVector && sensors)sense(...lastVector)
+      else snapshot()
+    },40)
   }
   ws.onmessage=({data})=>{
     if(socket!==ws)return
     const m=JSON.parse(data)
+    if(m.type==='pad-straight')straightUntil=m.straight?performance.now()+500:0
     if(m.type==='room')notice(m.players.find(p=>p.id===m.host)?.connected?'':'Reconnecting to desktop…')
   }
   ws.onclose=e=>{
@@ -202,11 +271,15 @@ addEventListener('pageshow',()=>{suspended=false;if(ticket)open()})
 addEventListener('online',open)
 const code=new URLSearchParams(location.search).get('code')?.toUpperCase() || ''
 by('code').value=code
+by('start-drive').onclick=()=>{
+  driving=true
+  wheel=createWheel()
+  by('setup').hidden=true;by('controls').hidden=false
+  by('controls').append(by('notice'))
+  void enableTilt()
+}
 by('pair').onsubmit=async e=>{
   e.preventDefault()
-  if(!landscape.matches)return
-  void enableTilt()
-  void immersive()
   const code=by('code').value.toUpperCase().trim()
   const button=by('pair').querySelector('button')
   button.disabled=true;notice('Connecting…')

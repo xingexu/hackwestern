@@ -156,9 +156,21 @@ export function measure(game,index,cell,buildings,stages) {
       const key=Math.floor(x/3)+','+Math.floor(z/3)
       if(!starts.has(key) && game.inside(x,z)) starts.set(key,game.sample(x,z))
     }
-    for(const p of starts.values()) for(const heading of [0,Math.PI/2,Math.PI,3*Math.PI/2]) {
+    const headings=[0,Math.PI/2,Math.PI,3*Math.PI/2]
+    function canStart(p,heading) {
       const sin=Math.sin(heading),cos=Math.cos(heading)
-      if([-1.34,0,1.34].some(d=>game.blocked(p.x+sin*d,p.z+cos*d,p.y,.90))) continue
+      return ![-1.34,0,1.34].some(d=>game.blocked(p.x+sin*d,p.z+cos*d,p.y,.90))
+    }
+    if(![...starts.values()].some(p=>headings.some(heading=>canStart(p,heading)))) {
+      for(const [x,z] of samples(cell)) {
+        const point=game.sample(x,z)
+        if(point.blocked || !game.inside(x,z) || !headings.some(heading=>canStart(point,heading))) continue
+        starts.set('interior',point)
+        break
+      }
+    }
+    for(const p of starts.values()) for(const heading of headings) {
+      if(!canStart(p,heading)) continue
       const sim=game.simulate(p,heading),car=sim.state
       const camera=game.cameraRig(car)
       car.speed=12

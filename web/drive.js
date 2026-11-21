@@ -1,9 +1,15 @@
 import {cameraGeometry} from './look/camera-collision.mjs';
 import {createCameraPlacement,nearPlaneClearance} from './look/drive-camera.mjs';
 import {carContact,daylight,followShadows} from 'campus-daylight';
+import {cameraTravel} from './look/motion-blur.mjs';
 import {driveFinish} from 'drive-finish';
 import {qualityControl} from 'look-quality';
+import {installMobileHud} from './phone/hud.mjs';
 import {installPhoneControls} from './phone/controls.mjs';
+import {changedInput,speedKph} from './race/input.mjs';
+import {installAudio} from './audio/settings.mjs';
+import {installCountdown} from './race/countdown.mjs';
+import {zoneHalfWidth} from './race/zones.mjs';
 import {installTrial} from './race/trial.mjs';
 import {adaptiveResolution,createCameraRig,interpolatePose,snapshotPose} from 'frame-pacing';
 import * as THREE from 'three';
@@ -171,12 +177,44 @@ function circuitGuidance() {
   ],3));
   const material=new THREE.MeshBasicMaterial({color:0xffcf71,side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:-3});
   for(let i=0;i<6;i++) group.add(new THREE.Mesh(geometry,material));
+  const arrows=group.children.slice();
+  const arch=new THREE.Group();
+  arch.name='Next checkpoint arch';
+  const block=new THREE.BoxGeometry(1,1,1);
+  const amber=new THREE.MeshBasicMaterial({color:0xffc43f});
+  const dark=new THREE.MeshBasicMaterial({color:0x253132});
+  const posts=[];
+  for(const side of [-1,1]){
+    const post=new THREE.Group();
+    for(let stripe=0;stripe<7;stripe++){
+      const band=new THREE.Mesh(block,stripe%2?dark:amber);
+      band.scale.set(.35,.72,.35);
+      band.position.y=.72*(stripe+.5);
+      post.add(band);
+    }
+    arch.add(post);
+    posts.push(post);
+  }
+  const lintel=new THREE.Mesh(block,amber);
+  arch.add(lintel);
+  group.add(arch);
   function update(samples,gate,network) {
     group.visible=Boolean(gate);
     if(!gate) return;
     const spacing=samples.at(-1).distance/(samples.length-1);
     const index=Math.min(samples.length-1,Math.round(gate.distance/spacing));
-    group.children.forEach((marker,i)=>{
+    arch.position.set(gate.x,gate.y,gate.z);
+    arch.rotation.y=gate.heading;
+    const width=zoneHalfWidth(gate);
+    for(let i=0;i<2;i++){
+      const offset=(i*2-1)*width;
+      const base=network.sample(gate.x+offset*Math.cos(gate.heading),gate.z-offset*Math.sin(gate.heading),gate.y).y-gate.y;
+      posts[i].position.set(offset,base,0);
+      posts[i].scale.y=Math.max(.2,(5-base)/5.04);
+    }
+    lintel.position.y=5;
+    lintel.scale.set(2*width+.35,.2,.35);
+    arrows.forEach((marker,i)=>{
       const s=samples[Math.min(samples.length-1,index+Math.round(i*7/spacing))];
       const contact=network.sample(s.x,s.z,s.y);
       marker.position.set(s.x,s.y+.115,s.z);
@@ -226,19 +264,23 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   const { interior, instruments } = createDriverInterior(THREE, coupe.children[0]);
   scene.add(coupe, interior);
   byId('drive-graphics').append(byId('graphics-control'));
-  const graphics=qualityControl();
+  const graphics=qualityControl(true);
+  const motion=cameraTravel();
   const renderer=new THREE.WebGLRenderer({canvas:byId('view'),antialias:true,powerPreference:'high-performance'});
   const sun=daylight(renderer,scene,true);
   const camera=new THREE.PerspectiveCamera(55,1,.12,870);
   camera.layers.enable(1);
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
   const updateShadow=followShadows(renderer,sun,graphics);
-  const renderView=driveFinish(renderer,scene,camera,graphics);
+  const renderView=driveFinish(renderer,scene,camera,graphics,[coupe,interior,guidance.group,sprintProps]);
   graphics.onChange(()=>{lastWidth=0;});
 
   const meters = byId('meters'), speed = byId('speed'), time = byId('time'), surface = byId('surface');
   const progress = byId('progress'), message = byId('drive-message'), finish = byId('finish');
   const hint=byId('input-hint');
-  const keys = new Set();
+  const keys = new Set(), touchKeys=new Set();
+  let activeProfile='keyboard',activity=0,previousPad=null;
+  function useProfile(profile){activeProfile=profile;activity=performance.now();}
   const commands = new Set(['KeyW', 'KeyS', 'KeyA', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space']);
   let remaining = 0, previous = null, lastHud = -Infinity, finished = false, paused = false;
   const previousPose={},visiblePose={},quality=adaptiveResolution(),rig=createCameraRig();
@@ -247,10 +289,19 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   const placement=createCameraPlacement(collision,network,rig);
   let lastWidth = 0, lastHeight = 0,lastScale=1;
   let padConnected = false, padRestartDown = false;
-  const phone=installPhoneControls(byId('touch-drive'));
+  const phone=installPhoneControls(byId('touch-drive'),useProfile);
+  const mobileHud=installMobileHud();
   let online;
+  const audio=installAudio(byId('driving-settings'),campus);
+  const countdown=installCountdown(byId('race-countdown'),audio.cue);
+  const assists=byId('driving-assists'),direction=byId('checkpoint-direction');
+  try {assists.checked=localStorage.getItem('western-driving-assists')!=='off';} catch {}
+  assists.onchange=()=>{
+    try {localStorage.setItem('western-driving-assists',assists.checked?'on':'off');} catch {}
+    if(!trial.active && !online?.racing)car.assists=assists.checked;
+  };
   const visualHeight=pose=>network.sample(pose.x,pose.z,pose.y).y;
-  const trial=installTrial({scene,reset,visualHeight,vibrate:phone.vibrate,ghostModel(){
+  const trial=installTrial({scene,reset,sound:audio.cue,visualHeight,vibrate:phone.vibrate,ghostModel(){
     const ghost=createCoupe(THREE);
     ghost.name='Time trial ghost';
     const material=new THREE.MeshBasicMaterial({color:0x96eadd,transparent:true,opacity:.31,depthWrite:false});
@@ -258,11 +309,13 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     return ghost;
   }});
   function reset() {
+    audio.drive?.reset();
     sim.reset();
-    trial.begin();
+    car.assists=assists.checked;
+    trial.begin(car.assists);
     phone.driving(false);
     snapshotPose(previousPose,car);
-    keys.clear();
+    keys.clear();touchKeys.clear();
     remaining = 0;
     previous = null;
     rig.reset(car);placement.reset();
@@ -278,7 +331,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     trial.course(course.id);
     samples=trial.context?.samples??course.samples??[starts.get(spawn.value)];
     length=samples.at(-1).distance;
-    sim=createDriveSim(samples,{mode,network:trial.context?.network??network});
+    sim=createDriveSim(samples,{mode,network:trial.context?.network??network,assists:assists.checked});
     car=sim.state;
     routeMap=createRouteMap(samples,atlas,mode);
     byId('length').textContent=mode==='roam'?'Travelled':Math.round(length)+' m';
@@ -304,7 +357,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
       },
       inspectLook:()=>({THREE,renderer,scene,camera,sun,graphics}),
       renderCanvas(){
-        renderView();
+        renderView(camera,motion.displacement);
         return renderer.domElement;
       }
     };
@@ -315,14 +368,18 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   select.onchange=()=>changeCourse(select.value);
   spawn.onchange=()=>changeCourse('roam');
   byId('recover').onclick=()=>{
+    audio.drive?.reset();
     const spot=online?.recoverySpot(car),elapsed=car.elapsed;
     if(sim.recover)sim.recover();else sim.reset();
     if(spot)Object.assign(car,spot,{elapsed});
     snapshotPose(previousPose,car);remaining=0;rig.reset(car);placement.reset();
   };
   for(const button of document.querySelectorAll('[data-key]')){
-    button.onpointerdown=e=>{e.preventDefault();button.setPointerCapture(e.pointerId);keys.add(button.dataset.key);};
-    button.onlostpointercapture=()=>keys.delete(button.dataset.key);
+    button.onpointerdown=e=>{
+      e.preventDefault();button.setPointerCapture(e.pointerId);touchKeys.add(button.dataset.key);
+      useProfile(phone.tilting && !touchKeys.has('ArrowLeft') && !touchKeys.has('ArrowRight')?'tilt':'buttons');
+    };
+    button.onlostpointercapture=()=>touchKeys.delete(button.dataset.key);
   }
   let driverView = false;
   const viewToggle = byId('view-toggle');
@@ -340,13 +397,14 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     if (event.code === 'KeyR' && !event.repeat) byId('restart').click();
     if (!commands.has(event.code)) return;
     event.preventDefault();
+    if(!event.repeat)useProfile('keyboard');
     keys.add(event.code);
   });
   window.addEventListener('keyup', event => keys.delete(event.code));
   function suspend() {
     phone.clear();
     phone.driving(false);
-    keys.clear();
+    keys.clear();touchKeys.clear();
     previous = null;
     remaining = 0;
     snapshotPose(previousPose,car);
@@ -376,10 +434,16 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     if (restart && !padRestartDown) byId('restart').click();
     padRestartDown = restart;
     const input = readGamepad(pad);
-    const down = (a, b) => keys.has(a) || keys.has(b);
+    input.handbrake=Number(Boolean(pad?.buttons[0]?.pressed));
+    if(changedInput(previousPad,input)){
+      if(pad)useProfile('gamepad');
+      previousPad=input;
+    }
+    const down = (a, b) => keys.has(a) || keys.has(b) || touchKeys.has(b);
     return {
       handbrake: Number(keys.has('Space') || pad?.buttons[0]?.pressed || false),
-      digitalSteer: down('KeyA', 'ArrowLeft') || down('KeyD', 'ArrowRight'),
+      profile:activeProfile,activity,
+      digitalSteer:activeProfile==='keyboard' || activeProfile==='buttons',
       throttle: Math.max(input.throttle, Number(down('KeyW', 'ArrowUp'))),
       brake: Math.max(input.brake, Number(down('KeyS', 'ArrowDown'))),
       steer: THREE.MathUtils.clamp(input.steer + phone.steer(dt) + Number(down('KeyA', 'ArrowLeft')) - Number(down('KeyD', 'ArrowRight')), -1, 1)
@@ -388,7 +452,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   function updateHud(timestamp) {
     if (timestamp - lastHud < 60) return;
     lastHud = timestamp;
-    speed.textContent = Math.round(Math.abs(car.speed) * 3.6);
+    speed.textContent = Math.round(speedKph(car));
     byId('powertrain').textContent = (car.gear === -1 ? 'R' : 'D' + car.gear) + ' · ' + Math.round(car.rpm / 50) * 50 + ' RPM';
     time.textContent = clockTime(car.elapsed);
     meters.textContent = Math.round(car.distance) + ' m';
@@ -404,6 +468,13 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     else if(mode==='circuit' && car.nextGate) message.textContent='Checkpoint '+(car.checkpointsPassed+1)+' / '+car.checkpointCount;
     else message.textContent = '';
     hint.textContent = padConnected ? 'RT gas · LT brake / reverse · Left stick steer · Menu restart' : '↑ Gas · ↓ Brake / reverse · ← → Steer · WASD';
+    byId('assists-pending').hidden=car.assists===assists.checked;
+    direction.hidden=!car.nextGate;
+    if(car.nextGate){
+      const dx=car.nextGate.x-car.x,dz=car.nextGate.z-car.z;
+      direction.firstElementChild.style.transform='rotate('+(car.heading-Math.atan2(dx,dz))+'rad)';
+      direction.lastElementChild.textContent=Math.round(Math.hypot(dx,dz))+' m';
+    }
     guidance.update(samples,car.nextGate,network);
     routeMap(car);
     phone.driving(!paused && car.phase==='driving');
@@ -414,10 +485,11 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
       byId('again').focus();
     }
     trial.hud(car);
+    mobileHud(car,online?.padConnected,padConnected,timestamp);
   }
   changeCourse(params.get('course')||(photoStart?'roam':document.querySelector('meta[name=campus-course]')?.content));
   online=await onlineMenu;
-  online?.attach({THREE,scene,coupe,changeCourse,reset,carState:()=>car});
+  online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car});
   const look = new THREE.Vector3();
   function frame(timestamp) {
     const elapsed = previous === null ? 0 : Math.min(.12, (timestamp - previous) / 1000);
@@ -430,11 +502,17 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
       remaining += elapsed;
       while (remaining >= 1 / 120) {
         snapshotPose(previousPose,car);
+        const beforeSpeed=car.speed,beforeSide=car.lateralSpeed,beforeLift=car.lift,beforeFall=car.liftSpeed;
         trial.step(sim,input);
+        audio.drive?.collision(car,beforeSpeed,beforeSide,timestamp/1000);
+        if(beforeLift>0 && car.lift===0 && beforeFall<-.8)audio.mix?.impact('landing',-beforeFall*1.4);
         remaining -= 1 / 120;
       }
     }
     online?.update(timestamp,elapsed,input,padConnected);
+    audio.drive?.update(car,sim.wheels,input,timestamp/1000,elapsed,online?.racing,mode);
+    audio.mix?.fleet(car,online?.opponents??[]);
+    countdown(online?.racing?online.cue:trial.cue);
     const width = renderer.domElement.clientWidth, height = renderer.domElement.clientHeight;
     const renderScale=paused ? lastScale : quality.sample(interval);
     if (width !== lastWidth || height !== lastHeight || renderScale!==lastScale) {
@@ -446,8 +524,12 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
     }
+    const targetFov=55+(reducedMotion.matches?0:7*THREE.MathUtils.smoothstep(speedKph(car),45,175));
+    const fov=camera.fov+(targetFov-camera.fov)*(1-Math.exp(-elapsed*4));
+    if(Math.abs(fov-camera.fov)>.001){camera.fov=fov;camera.updateProjectionMatrix();}
     const pose=interpolatePose(visiblePose,previousPose,car,remaining*120);
     if (trial.context) pose.y=visualHeight(pose);
+    pose.y+=pose.lift;
     trial.render(remaining*120);
     const view=rig.update(pose,elapsed);
     const sin=Math.sin(view.chaseYaw),cos=Math.cos(view.chaseYaw);
@@ -476,7 +558,8 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     }
     camera.lookAt(look);
     updateShadow(pose,detailChanged);
-    renderView();
+    motion.update(camera,interval,paused?0:car.speed,driverView);
+    renderView(camera,motion.displacement);
     updateHud(timestamp);
     if (window.driveMetrics) {
       const metrics=window.driveMetrics;

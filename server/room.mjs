@@ -84,9 +84,14 @@ export class Room {
     if (r.kind==='pads' && id!==r.host) {
       if (m.type==='pad' && controlOK(m.input)) {
         const {steer,throttle,brake}=m.input
-        this.broadcast({type:'pad',input:{steer,throttle,brake}},ws)
+        const profile=['wheel','tilt'].includes(m.input.profile)?m.input.profile:'buttons'
+        this.broadcast({type:'pad',input:{steer,throttle,brake,profile}},ws)
       }
       if (m.type==='pad-action' && ['recover','restart'].includes(m.action)) this.broadcast({type:m.type,action:m.action},ws)
+      return
+    }
+    if(r.kind==='pads' && id===r.host && m.type==='pad-straight' && typeof m.straight==='boolean'){
+      this.broadcast({type:'pad-straight',straight:m.straight},ws)
       return
     }
     if (m.type === 'state') {

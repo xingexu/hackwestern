@@ -1,3 +1,4 @@
+import {kerbProfile,streetProfiles} from './pavement-profile.mjs'
 import {groundObstacles} from './ground-obstacles.mjs'
 const CELL = 32
 const clamp = (n, low, high) => Math.max(low, Math.min(high, n))
@@ -414,21 +415,35 @@ export function createRoadNetwork(data,region,ground,pavement,landClass) {
   }
 
   const kerbs=bins()
-  function addKerb(ax,az,bx,bz,inwardX,inwardZ){
+  const streetFinish=streetProfiles(data.pavementSurvey)
+  const kerbWidths=[-.16,.005,.031,.055,.26]
+  function addKerb(ax,az,bx,bz,inwardX,inwardZ,lo=1,hi=1,lift=0){
     const edge=segment(ax,az,bx,bz)
+    edge.levels=new Float32Array(10)
+    for(let i=0;i<kerbWidths.length;i++){
+      const w=kerbWidths[i],x=inwardX*w,z=inwardZ*w
+      edge.levels[2*i]=groundAt(ax+x,az+z)+kerbProfile(w,lo)+lift
+      edge.levels[2*i+1]=groundAt(bx+x,bz+z)+kerbProfile(w,hi)+lift
+    }
     edge.inwardX=inwardX
     edge.inwardZ=inwardZ
     bucketSegment(kerbs,edge,.27)
   }
   function kerbHeight(x,z){
+    let level=-Infinity
     for(const edge of kerbs.at(x,z)){
       const t=((x-edge.x)*edge.dx+(z-edge.z)*edge.dz)/(edge.length*edge.length)
       if(t<0||t>1)continue
       const offset=(x-edge.x)*edge.inwardX+(z-edge.z)*edge.inwardZ
-      if(offset>=-.16&&offset<=.02)return .095+(.02-offset)/.18*.01
-      if(offset>=.04&&offset<=.26)return .027-(offset-.04)/.22*.01
+      if(offset<-.16||offset>.26)continue
+      let i=0
+      while(offset>kerbWidths[i+1])i++
+      const v=(offset-kerbWidths[i])/(kerbWidths[i+1]-kerbWidths[i])
+      const h=edge.levels,j=2*i
+      const y=t>=v?h[j]*(1-t)+h[j+1]*(t-v)+h[j+3]*v:h[j]*(1-v)+h[j+3]*t+h[j+2]*(v-t)
+      level=Math.max(level,y)
     }
-    return 0
+    return level===-Infinity?0:Math.max(0,level-groundAt(x,z))
   }
 
   function locate(x,z,previousY) {
@@ -520,7 +535,7 @@ export function createRoadNetwork(data,region,ground,pavement,landClass) {
   }
 
   function vehicleSolid(x,z,y,r,hit){
-    const support=hit?.layer?.y??(groundAt(x,z)+kerbHeight(x,z));
+    const support=hit?.layer?.y??(groundAt(x,z)+Math.max(kerbHeight(x,z),streetFinish.tableAt(x,z),streetFinish.islandAt(x,z) ? .105 : 0));
     const drop=y-support;
     const bodyY=drop>-.8 && drop<=.12?support:y;
     return solidAt(x,z,y,r,1.5,true,bodyY);
@@ -555,6 +570,7 @@ export function createRoadNetwork(data,region,ground,pavement,landClass) {
 
   function sample(x,z,previousY) {
     const hit = locate(x,z,previousY)
+    let material=hit?.s.way.material
     let y, grade, tangentX, tangentZ, lateral=0, halfWidth=0, surface='grass', curb=0, street=hit?.s.way.name ?? ''
     if (hit) {
       const {s,t,r} = hit
@@ -577,6 +593,7 @@ export function createRoadNetwork(data,region,ground,pavement,landClass) {
       y = groundAt(x,z)
       for (const p of areas.at(x,z)) {
         if (!touchesPolygon(p,x,z,0)) continue
+        material=p.area.material
         const driving = p.area.kind==='parking' || p.area.kind==='road'
         surface = driving && !['gravel','dirt','ground','compacted','unpaved','fine_gravel'].includes(p.area.material) ? 'road' : 'path'
         let edge = Infinity
@@ -595,11 +612,15 @@ export function createRoadNetwork(data,region,ground,pavement,landClass) {
     }
     if(pavement && !hit?.s.elevated && !(hit?.s.way.level)) {
       const material=landClass?.(x,z)
-      curb=kerbHeight(x,z)
+      const edgeHeight=kerbHeight(x,z)
+      const island=streetFinish.islandAt(x,z)
+      const table=streetFinish.tableAt(x,z)
+      curb=Math.max(edgeHeight,table,island ? .105 : 0)
       y=groundAt(x,z)+curb
-      if((curb>0&&curb<.03)||pavement(x,z)||material===5||material===12) surface='road'
-      else if(curb||material===3||material===13||(!landClass&&hit?.s.way.kind==='path'))surface='path'
+      if(table>0||(edgeHeight>0&&edgeHeight<.03)||pavement(x,z)||material===5||material===12) surface='road'
+      else if(edgeHeight||material===3||material===13||(!landClass&&hit?.s.way.kind==='path'))surface='path'
       else if(hit?.s.way.kind==='road'||landClass)surface='grass'
+      if(island && !edgeHeight)surface=island===3?'path':'grass'
       if(surface!=='grass' && fieldPaint.at(x,z).some(p=>touchesPolygon(p,x,z,0)))surface='grass'
       const dx=(groundAt(x+.6,z)-groundAt(x-.6,z))/1.2
       const dz=(groundAt(x,z+.6)-groundAt(x,z-.6))/1.2
@@ -616,7 +637,7 @@ export function createRoadNetwork(data,region,ground,pavement,landClass) {
       tangentX=grade?parking.gx/grade:0;tangentZ=grade?parking.gz/grade:1;
       surface='road';street='Parking deck';curb=0;
     }
-    return {x,y,z,grade,tangentX,tangentZ,lateral,halfWidth,surface,street,curb,blocked:Boolean(obstructed(x,z,y,0,hit))}
+    return {x,y,z,grade,tangentX,tangentZ,lateral,halfWidth,surface,street,material,curb,blocked:Boolean(obstructed(x,z,y,0,hit))}
   }
 
   const circuits = data.circuits.map(({id,name,points,streets}) => {
@@ -658,6 +679,6 @@ export function createRoadNetwork(data,region,ground,pavement,landClass) {
     if(p.min)return {owner:p.owner,bounds:[p.min[0],p.min[2],p.max[0],p.max[2]],low:p.min[1],high:p.max[1]};
     return {owner:p.owner,x:p.x,z:p.z,low:p.y,high:p.y+p.height};
   }
-  const network={solidSource,addShell:obstacles.addShell,addBranch:obstacles.addBranch,addBox:obstacles.addBox,addFace:obstacles.addFace,addField,groundAt,frames,addKerb,withinCampus,approach:bridge.approach,deckPanel:(way,i)=>deckPanels.get(way)?.get(i),isDeck:(x,z)=>roads.at(x,z).some(s=>s.elevated && s.deckAt(x,z)) || Boolean(region.buildingSolids?.parkingSurface?.covers(x,z)),addPost,plantable,crownClear,sample,blocked,blockerKind,solidAt,solidNormal,chaseDistance,circuits,bounds}
+  const network={nearOpening:streetFinish.nearOpening,kerbFactor:streetFinish.kerbFactor,solidSource,addShell:obstacles.addShell,addBranch:obstacles.addBranch,addBox:obstacles.addBox,addFace:obstacles.addFace,addField,groundAt,frames,addKerb,withinCampus,approach:bridge.approach,deckPanel:(way,i)=>deckPanels.get(way)?.get(i),isDeck:(x,z)=>roads.at(x,z).some(s=>s.elevated && s.deckAt(x,z)) || Boolean(region.buildingSolids?.parkingSurface?.covers(x,z)),addPost,plantable,crownClear,sample,blocked,blockerKind,solidAt,solidNormal,chaseDistance,circuits,bounds}
   return network
 }

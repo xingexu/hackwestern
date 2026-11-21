@@ -71,11 +71,12 @@ def accessible_parking(parking,registry):
         side=np.array([math.cos(angle),math.sin(angle)])
         forward=np.array([-side[1],side[0]])
         centers=np.asarray(row['centers'])
+        scale=row.get('width',1.26)/1.26
         for center in centers:
             def point(x,y):
-                return center+x*side+y*forward
+                return center+scale*(x*side+y*forward)
             def stroke(coords,width):
-                return LineString([point(x,y) for x,y in coords]).buffer(width,cap_style='round',join_style='round')
+                return LineString([point(x,y) for x,y in coords]).buffer(width*scale,cap_style='round',join_style='round')
             panel=Polygon([point(x,y) for x,y in [(-.63,-.63),(.63,-.63),(.63,.63),(-.63,.63)]])
             arc=[(-.09+.26*math.cos(t),-.13+.26*math.sin(t)) for t in np.linspace(.59*math.pi,1.97*math.pi,22)]
             icon=shapely.union_all([stroke(arc,.043),stroke([(-.14,.27),(-.08,-.005),(.163,-.014),(.28,-.26),(.35,-.23)],.050),
@@ -248,6 +249,9 @@ def source_layers(network,municipal,region_detail,core,road,control_layout=None,
                     dash=substring(piece,float(start),min(start+3,piece.length))
                     if dash.length>.10:
                         paint.add(dash.buffer(.074,cap_style='flat',quad_segs=2),WHITE)
+    from carriageway_ink import measured_tracks
+    measured_lanes,replaced=measured_tracks()
+    paint.geometry=[g.difference(replaced[int(ink==YELLOW)]) for g,ink in zip(paint.geometry,paint.ink)]
     stripe_index=STRtree(paint.geometry)
     for i,guide in enumerate(paint.geometry):
         for j in stripe_index.query(guide,predicate='overlaps'):
@@ -280,7 +284,25 @@ def source_layers(network,municipal,region_detail,core,road,control_layout=None,
                 fraction=v/length
                 seam=LineString([a+along*fraction,d+(c-d)*fraction])
                 slabs.add(seam.buffer(.022,cap_style='flat'),JOINT)
+    pavement=json.loads((region.OUT.parents[1]/'build/survey_pavement.json').read_bytes())
     cross=Features()
+    from ladder_crossings import registered
+    measured=[]
+    for group in registered():
+        stripes=[Polygon(xy(ring)) for ring in group['bars']+group['rails']]
+        belt=shapely.union_all(stripes).convex_hull.buffer(.32)
+        measured.append(belt)
+        junctions.add(belt)
+        for stripe in stripes:cross.add(stripe,WHITE)
+    ladder_area=shapely.union_all(measured)
+    for group in pavement['crossings']:
+        stripes=[Polygon(xy(ring)) for ring in group]
+        belt=shapely.union_all(stripes).convex_hull.buffer(.42)
+        measured.append(belt)
+        junctions.add(belt)
+        for stripe in stripes:
+            if not ladder_area.intersects(stripe):cross.add(stripe,WHITE)
+    measured=shapely.union_all(measured)
     crossings={p[1]:p for tile in region_detail['tiles'].values() for p in tile.get('p',[]) if p[0] in ('crossing','parallel_crossing')}
     for f in core['features']:
         if f['kind']=='crossing' and f['id'] not in crossings:
@@ -288,6 +310,15 @@ def source_layers(network,municipal,region_detail,core,road,control_layout=None,
     for kind,oid,x,y,z,yaw,width,*_ in crossings.values():
         t=nodes.get(oid,{})
         photographed=road_survey.get('crosswalks',{}).get(str(oid))
+        p=Point(x,z)
+        if measured.distance(p)<2:
+            if photographed and ladder_area.distance(p)<2:
+                for ring in photographed:
+                    stripe=Polygon(xy(ring))
+                    if not measured.intersects(stripe):
+                        cross.add(stripe,WHITE)
+                        junctions.add(stripe.buffer(.25))
+            continue
         if photographed is None and t.get('crossing:markings','') in ('','no') and t.get('crossing') not in ('traffic_signals','zebra','marked'):
             continue
         c,s=math.cos(yaw),math.sin(yaw)
@@ -305,6 +336,11 @@ def source_layers(network,municipal,region_detail,core,road,control_layout=None,
         for mark in marks:
             cross.add(mark,WHITE)
             junctions.add(mark.buffer(.25))
+    for ring in pavement['arrows']:
+        arrow=Polygon(xy(ring)).buffer(0)
+        if not any(arrow.distance(other)<.22 for other in cross.geometry):
+            cross.add(arrow,WHITE)
+            junctions.add(arrow.buffer(.42))
     registered=[g for i,geom in enumerate(controls.geometry) for g in control_layout('approach-'+str(i),[geom])]
     for mark in registered:
         if not any(mark.intersects(other) for other in cross.geometry):
@@ -318,20 +354,56 @@ def source_layers(network,municipal,region_detail,core,road,control_layout=None,
             elif ink==1 and not any(mark.distance(other)<.35 for other in cross.geometry):
                 cross.add(mark,WHITE)
                 junctions.add(mark.buffer(.40))
+    for line,amber in measured_lanes:
+        paint.add(line.buffer(.061 if amber else .069,cap_style='flat',join_style='round'),YELLOW if amber else WHITE)
     parking=Features()
+    arrow_registry=json.loads((region.OUT.parents[1]/'build/survey_traffic_arrows.json').read_bytes())
+    for flat,amber,lot in arrow_registry:
+        arrow=Polygon(xy(flat)).buffer(0)
+        if lot:parking.add(arrow,YELLOW if amber else WHITE)
+        elif not amber and not any(arrow.distance(other)<.22 for other in cross.geometry):
+            cross.add(arrow,WHITE)
+            junctions.add(arrow.buffer(.40))
     stalls={p[1] for tile in region_detail['tiles'].values() for p in tile.get('a',[]) if p[0]=='parking_space'}
     geo_nodes={e['id']:geo.to_grid(e['lat'],e['lon']) for e in elements if e['type']=='node'}
     for item in elements:
         if item['type']=='way' and item['id'] in stalls and all(i in geo_nodes for i in item['nodes']):
             outline=LineString([geo_nodes[i] for i in item['nodes']])
-            parking.add(outline.buffer(.060,join_style='mitre'),WHITE)
+            from parking_bays import measured_edge
+            for a,b in zip(outline.coords,list(outline.coords)[1:]):
+                if measured_edge(a,b):
+                    parking.add(LineString([a,b]).buffer(.060,cap_style='flat'),WHITE)
     dividers=json.loads(region.OUT.parents[1].joinpath('build/survey_parking.json').read_bytes())
     for key,color in [('lines',WHITE),('amber',YELLOW)]:
         for ax,az,bx,bz in dividers.get(key,[]):
             parking.add(LineString([(ax,az),(bx,bz)]).buffer(.054,cap_style='flat'),color)
     registry=json.loads(region.OUT.parents[1].joinpath('build/survey_parking_rows.json').read_bytes())
     accessible_parking(parking,registry['accessible'])
+    bays=json.loads((region.OUT.parents[1]/'build/survey_bays.json').read_bytes())
+    observed_lots=json.loads((region.OUT.parents[1]/'build/survey_lot_markings.json').read_bytes())
+    for shell,*holes in observed_lots['hatching']:
+        parking.add(Polygon(shell,holes).buffer(0),YELLOW)
+    registered=[p for row in registry['accessible'] for p in row['centers']]
+    accessible_parking(parking,[dict(centers=[p['center']],heading=p['heading'],width=p['width']) for p in observed_lots['accessible'] if not any(math.dist(q,p['center'])<.9 for q in registered)])
+    observed_ranks=json.loads((region.OUT.parents[1]/'build/survey_parking_ink.json').read_bytes())
+    seasonal=json.loads((region.OUT.parents[1]/'build/survey_parking_archive.json').read_bytes())
+    continuations=json.loads((region.OUT.parents[1]/'build/survey_retained_parking.json').read_bytes())
+    for flat,amber,_ in [*seasonal['dividers'],*continuations]:
+        parking.add(LineString(xy(flat)).buffer(.054,cap_style='flat'),YELLOW if amber else WHITE)
+    for flat,amber in [*observed_lots['dividers'],*observed_ranks]:
+        parking.add(LineString(xy(flat)).buffer(.054,cap_style='flat'),YELLOW if amber else WHITE)
+    for flat,amber,_ in bays['rows']:
+        parking.add(LineString(xy(flat)).buffer(.058,cap_style='flat'),YELLOW if amber else WHITE)
+    for ax,az,bx,bz,amber in [*pavement['hatches'],*[[*flat,ink] for flat,ink in bays['borders']]]:
+        stripe=LineString([(ax,az),(bx,bz)]).buffer(.058,cap_style='flat')
+        ink=YELLOW if amber else WHITE
+        parking.add(stripe,ink)
+        if not any(stripe.distance(other)<.3 for other in cross.geometry):
+            paint.add(stripe,ink)
     survey=json.loads(region.OUT.parents[1].joinpath('build/survey_ground.json').read_bytes())
+    from kerb_islands import observed as islands
+    for poly,kind in islands():
+        overhead.add(poly.buffer(.32,quad_segs=3))
     for island in survey['islands']:
         overhead.add(Polygon(island))
     for patch in survey['patches']:
@@ -436,6 +508,9 @@ def compile_tiles(terrain,network,carriageway):
     paved=shapely.union_all([shape(geometry) for geometry,value in shapes(cells.astype(np.uint8),mask=cells,transform=pixels_to_world)])
     allowed=allowed.intersection(paved.buffer(-.32,quad_segs=2))
     exclusions=shapely.union_all([shapely.make_valid(g) for g in overhead.geometry])
+    frontage=json.loads((region.OUT.parents[1]/'build/survey_frontages.json').read_bytes())
+    kerbs=shapely.union_all([LineString(xy(flat)).buffer(.36,quad_segs=3) for flat,_ in frontage['kerbs']])
+    exclusions=exclusions.union(kerbs)
     allowed=allowed.difference(exclusions)
     no_lines=shapely.union_all(junctions.geometry)
     white=shapely.union_all([g for g,i in zip(lanes.geometry,lanes.ink) if i==WHITE]).difference(no_lines)
@@ -460,6 +535,10 @@ def compile_tiles(terrain,network,carriageway):
         interior=shapely.union_all([shape(g) for g,value in shapes(safe.astype(np.uint8),mask=safe,transform=paint_grid)])
         lot_paint=lot_paint.intersection(interior.buffer(-.34,quad_segs=2))
     white=white.union(shapely.union_all(cross.geometry)).intersection(allowed)
+    from ladder_crossings import registered
+    registered_stripes=shapely.union_all([Polygon(xy(ring)) for group in registered() for ring in group['bars']+group['rails']])
+    crossing_floor=surveyed_street.buffer(-.24).intersection(paved).difference(exclusions)
+    white=white.union(registered_stripes.intersection(crossing_floor))
     amber=amber.intersection(allowed)
     conflicts=white.intersection(amber)
     if not conflicts.is_empty:
@@ -473,6 +552,24 @@ def compile_tiles(terrain,network,carriageway):
     white_stalls=white_stalls.difference(yellow_stalls.buffer(.16,quad_segs=2)).difference(accessible)
     global_paint=[white,amber,white_stalls,yellow_stalls,accessible]
     trees=[STRtree(list(shapely.get_parts(p))) for p in global_paint]
+    seams=Features()
+    for coords,contrast in json.loads((region.OUT.parents[1]/'build/survey_seams.json').read_bytes()):
+        points=xy(coords)
+        axis=points[1]-points[0]
+        length=np.linalg.norm(axis)
+        normal=np.array([-axis[1],axis[0]])/length
+        d=np.linspace(0,1,max(3,round(length/.29)))
+        guide=points[0]+d[:,None]*axis
+        from ortho_road_paint import pigment
+        probes=guide[:,None,:]+np.linspace(-.17,.17,5)[None,:,None]*normal
+        colors=pigment(probes.reshape(-1,2)).reshape(len(guide),5,3)
+        gray=(colors*[.28,.54,.18]).sum(axis=2)
+        drift=ndimage.median_filter(np.linspace(-.17,.17,5)[gray.argmin(axis=1)],size=3)
+        center=guide+drift[:,None]*normal
+        width=(.046+.00085*contrast)*np.minimum(1,np.minimum(d,1-d)*length/.26)
+        profile=Polygon(np.vstack([center+width[:,None]*normal,(center-width[:,None]*normal)[::-1]])).buffer(0)
+        seams.add(profile,int(np.clip(contrast*7,35,205)))
+    seams.seal()
     tiles={}
     precision={}
     for key,frame in patches(terrain['xs'],terrain['zs']):
@@ -504,10 +601,17 @@ def compile_tiles(terrain,network,carriageway):
         labels[visible]=markings[visible]
         labels[overhead.draw(frame,high)>0]=0
         channels=[Image.fromarray(COLORS[:,i][labels]).resize(size,Image.Resampling.BOX) for i in range(4)]
+        seal=np.where((labels==0)&(pavement>196),seams.draw(frame,high),0).astype('uint8')
+        if seal.any():
+            alpha=np.asarray(channels[3]).astype('int16')-np.asarray(Image.fromarray(seal).resize(size,Image.Resampling.BOX))
+            channels[3]=Image.fromarray(alpha.clip(0,255).astype('uint8'))
         out=io.BytesIO()
         Image.merge('RGBA',channels).save(out,format='PNG',compress_level=6)
         tiles[key]=base64.b64encode(out.getvalue()).decode()
-    return dict(finishes=tiles,strokes=precision,walkways=walkway_spans(tiles,terrain))
+    observed=json.loads((region.OUT.parents[1]/'build/survey_pavement.json').read_bytes())
+    from kerb_islands import runtime as kerbed_islands
+    return dict(finishes=tiles,strokes=precision,walkways=walkway_spans(tiles,terrain),
+                pavementSurvey=dict(islands=kerbed_islands(),kerbs=frontage['kerbs'],seams=json.loads((region.OUT.parents[1]/'build/survey_seams.json').read_bytes()),**{k:observed[k] for k in ('ramps','pads','tables','covers')}))
 
 
 def walkway_spans(tiles,terrain):

@@ -45,6 +45,14 @@ def survey_tile(x,z):
         return img.convert('RGB').resize((600,600),Image.Resampling.BOX)
 
 
+def survey_coordinates(area):
+    left,top,right,bottom=area.bounds
+    for i in range(math.floor(left/150),math.ceil(right/150)):
+        for j in range(math.floor(top/150),math.ceil(bottom/150)):
+            x,z=i*150,j*150
+            if area.intersects(box(x,z,x+150,z+150)):yield x,z
+
+
 def orthophoto(frame,size):
     left,top,right,bottom=frame
     result=Image.new('RGB',size)
@@ -80,6 +88,18 @@ def connected_area(mask,min_pixels):
     return (regions>0)&(area[regions]>=min_pixels)
 
 
+@lru_cache(maxsize=1)
+def ramp_aprons():
+    import shapely
+    from shapely.geometry import Polygon
+    records=json.loads((region.OUT.parents[1]/'build/survey_pavement.json').read_bytes())
+    polygons=[]
+    for x,z,dx,dz,width in records['ramps']:
+        def point(u,v):return x+dx*u-dz*v,z+dz*u+dx*v
+        polygons.append(Polygon([point(u,v) for u,v in [(-width/2,-1.65),(width/2,-1.65),(width/2+.5,-.35),(width/2+.5,.35),(width/2,1.65),(-width/2,1.65),(-width/2-.5,.35),(-width/2-.5,-.35)]]))
+    return shapely.STRtree(polygons)
+
+
 def rectify_walks(frame,size,labels,slabs,road,parking,overhead):
     density=size[0]/(frame[2]-frame[0])
     hard,strong,soft,lum=material_evidence(frame,size)
@@ -104,11 +124,35 @@ def rectify_walks(frame,size,labels,slabs,road,parking,overhead):
     labels[reject]=0
     labels[added&(labels==0)]=1
     from parcel_surfaces import survey
-    measured=survey().sample(frame,size)
+    surfaces=survey()
+    measured=surfaces.sample(frame,size)
     exposed=~overhead&(road<=64)
     keep_slab=(source|added)&hard&(lum>164)
     labels[exposed&((measured==1)|((measured==5)&~keep_slab))]=0
     labels[exposed&(measured==3)&~soft&(labels==0)]=1
+    courts=surfaces.sample(frame,size,confirmed_concrete=True)
+    labels[exposed&courts&(labels==0)]=1
+    from frontage_survey import material_grid
+    front=material_grid(frame,size)
+    concrete=exposed&(measured==3)
+    labels[(front==1)&concrete]=1
+    labels[(front==5)&exposed]=1
+    labels[(front==2)&concrete]=2
+    labels[(front==3)&exposed]=3
+    labels[(front==4)&(measured==5)&exposed]=0
+    aprons=ramp_aprons()
+    near=aprons.query(box(*frame),predicate='intersects')
+    if len(near):
+        from rasterio.features import rasterize
+        from affine import Affine
+        grid=Affine.translation(*frame[:2])*Affine.scale((frame[2]-frame[0])/size[0],(frame[3]-frame[1])/size[1])
+        mask=rasterize(aprons.geometries[near],out_shape=labels.shape,transform=grid).astype(bool)
+        labels[exposed&mask&hard&~soft&(labels==0)]=1
+    from sidewalk_ribbons import masks as sidewalk_ribbons
+    ribbon=sidewalk_ribbons(frame,size)
+    if ribbon is not None:
+        labels[exposed&(ribbon==1)&(labels==0)]=1
+        labels[exposed&(ribbon==2)&soft&~hard&(slabs==0)&(front==0)&(labels==1)]=0
     return labels
 
 
@@ -158,8 +202,8 @@ def parking_and_woodland(classes,bounds,network):
     input_classes=classes.copy()
     for v in range(0,height,384):
         for u in range(0,width,384):
-            a,b=max(0,u-32),max(0,v-32)
-            e,s=min(width,u+416),min(height,v+416)
+            a,b=max(0,u-42),max(0,v-42)
+            e,s=min(width,u+426),min(height,v+426)
             frame=(left+a*dx,top+b*dz,left+e*dx,top+s*dz)
             if not parcel().intersects(box(*frame)):continue
             hard,strong,soft,lum=material_evidence(frame,(e-a,s-b))
@@ -185,7 +229,8 @@ def parking_and_woodland(classes,bounds,network):
             asphalt|=eligible&(marked|(in_lot&~growing&~soft))
 
             crowns=region.sample(canopy,x.ravel(),z.ravel()).reshape(z.shape)>3.0
-            wood=ndimage.uniform_filter((crowns&~floors[b:s,a:e]).astype('float32'),size=round(14/dx)|1)>.59
+            canopy_support=(crowns&~floors[b:s,a:e]).astype('float32')
+            wood=(ndimage.uniform_filter(canopy_support,size=round(14/dx)|1)>.59)&(ndimage.uniform_filter(canopy_support,size=round(44/dx)|1)>.45)
             revised=ref.copy()
             revised[wood&eligible&(ref<=1)&(lum<155)]=2
             revised[remove]=0
@@ -195,7 +240,35 @@ def parking_and_woodland(classes,bounds,network):
     return classes
 
 
-def paving_tone(bounds,network):
+def shaded_lawn(bounds,size,classes,network):
+    from rasterio import Affine
+    from rasterio.features import rasterize
+    from city_streets import solid_ground_floors
+    left,top,right,bottom=bounds
+    w,h=size
+    dx,dz=(right-left)/w,(bottom-top)/h
+    lawn=np.asarray(Image.fromarray(np.uint8(classes<=1)*255).resize(size,Image.Resampling.BOX),np.float32)/255
+    buildings=rasterize(solid_ground_floors(network),out_shape=(h,w),transform=Affine.translation(left,top)*Affine.scale(dx,dz),dtype='uint8')
+    canopy=region.lidar('dsm')-region.lidar('dtm')
+    xs,zs=np.meshgrid(left+(np.arange(w)+.5)*dx,top+(np.arange(h)+.5)*dz)
+    relative_height=region.sample(canopy,xs.ravel(),zs.ravel()).reshape(h,w)
+    crown=np.clip((relative_height-2)/6,0,1)*(buildings==0)
+    shade=ndimage.gaussian_filter(crown.astype('float32'),1.25/dx)
+    return np.rint(255*shade*lawn).astype('uint8')
+
+
+def court_finish(classes,interior):
+    height,width=classes.shape
+    columns,rows=interior.size
+    native=np.asarray(interior.resize((width,height),Image.Resampling.BILINEAR))
+    radius=math.ceil(1.5*max(width/columns,height/rows))
+    near=ndimage.maximum_filter(native,size=radius*2+1)>90
+    mineral=near&np.isin(classes,(3,5))
+    joint=Image.fromarray(np.uint8(mineral)*255).resize((columns,rows),Image.Resampling.BOX)
+    return np.maximum(np.asarray(interior),np.asarray(joint))
+
+
+def paving_tone(bounds,network,classes,courts):
     import base64
     import zlib
     from rasterio import Affine
@@ -205,6 +278,7 @@ def paving_tone(bounds,network):
     w,h=round((right-left)/1.45),round((bottom-top)/1.45)
     dx,dz=(right-left)/w,(bottom-top)/h
     value=np.zeros((h,w),dtype=np.uint8)
+    mineral=np.zeros_like(value)
     for z in range(0,h,160):
         for x in range(0,w,160):
             a,b,e,s=max(0,x-16),max(0,z-16),min(w,x+176),min(h,z+176)
@@ -217,6 +291,13 @@ def paving_tone(bounds,network):
             blend=np.clip((mean-132)/65,0,1)*np.minimum(1,weight*3)
             rows,cols=min(160,h-z),min(160,w-x)
             value[z:z+rows,x:x+cols]=np.rint(7*blend[z-b:z-b+rows,x-a:x-a+cols]).astype('uint8')*34
+            red,green,blue=np.asarray(orthophoto(frame,(e-a,s-b)),np.float32).transpose(2,0,1)
+            neutral=(red-green<12)&(green-red<5)&(green-blue<31)&(red-blue<40)&(luma>135)&(luma<224)
+            support=ndimage.gaussian_filter(neutral.astype('float32'),3.2)
+            diffuse=ndimage.gaussian_filter(np.where(neutral,luma,0),3.2)/np.maximum(.001,support)
+            chroma=ndimage.gaussian_filter(np.where(neutral,red-blue,0),3.2)/np.maximum(.001,support)
+            tint=np.clip((diffuse-151)/35,0,1)*np.clip((chroma-7)/13,0,1)*np.clip(support*2.6,0,1)
+            mineral[z:z+rows,x:x+cols]=np.rint(255*tint[z-b:z-b+rows,x-a:x-a+cols]).astype('uint8')
     surfaces=[]
     for area in network['areas']:
         if area['kind'] in ('parking','road'):
@@ -246,4 +327,18 @@ def paving_tone(bounds,network):
         colors.append((poly,tone))
     fallback=np.where(value>0,value,102).astype(np.uint8)
     value=rasterize(colors,out=fallback,transform=Affine.translation(left,top)*Affine.scale(dx,dz))
-    return dict(width=w,height=h,samples=base64.b64encode(zlib.compress(value.tobytes(),8)).decode())
+    from parking_stripes import lot_mask
+    transform=Affine.translation(left,top)*Affine.scale(dx,dz)
+    lots=rasterize([lot_mask()],out_shape=value.shape,transform=transform,dtype='uint8')
+    mineral*=lots
+    rivers=[Polygon(np.reshape(p,(-1,2)),[np.reshape(q,(-1,2)) for q in holes]) for p,*holes in network['water']]
+    water=rasterize(rivers,out_shape=value.shape,transform=transform,dtype='uint8')
+    bank=np.uint8(np.rint(255*np.clip((12-ndimage.distance_transform_edt(water==0,sampling=(dz,dx)))/4,0,1)))
+    forest=Image.fromarray(np.uint8(classes==2)*255).resize((w,h),Image.Resampling.BOX)
+    duff=np.rint(ndimage.gaussian_filter(np.asarray(forest).astype(np.float32),2.4/dx)).astype(np.uint8)
+    pixels=np.stack([value,mineral,bank,duff],axis=-1)
+    shade=shaded_lawn(bounds,(w,h),classes,network)
+    court=Image.fromarray(np.uint8(courts&(classes==3))*255).resize((w,h),Image.Resampling.BOX)
+    return dict(width=w,height=h,samples=base64.b64encode(zlib.compress(value.tobytes(),8)).decode(),
+                courts=base64.b64encode(zlib.compress(court_finish(classes,court).tobytes(),8)).decode(),
+                shadedLawn=base64.b64encode(zlib.compress(shade.tobytes(),8)).decode(),woodlandEdges=True,aggregate=base64.b64encode(zlib.compress(pixels.tobytes(),8)).decode())

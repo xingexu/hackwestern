@@ -16,10 +16,37 @@ import geo
 from campus_bounds import footprint
 
 
+CONFIRMED_CONCRETE=14
+
+
 def municipal_lines(kind,site):
     features=json.loads((region.CACHE/'municipal'/f'{kind}.geojson').read_bytes())
     geometries=[shapely.transform(shape(f['geometry']),lambda lon,lat:geo.to_grid(lat,lon),interleaved=False) for f in features]
     return [g for g in geometries if site.intersects(g)]
+
+
+def close_kerb_returns(outlines):
+    lines=[g for group in outlines for g in shapely.get_parts(group) if g.geom_type in ('LineString','LinearRing')]
+    index=shapely.STRtree(lines)
+    links=[]
+    for i,line in enumerate(lines):
+        if line.is_closed or line.length<1:continue
+        for start,inner in [(0,.7),(line.length,max(0,line.length-.7))]:
+            tip=line.interpolate(start)
+            axis=np.array(tip.coords[0])-line.interpolate(inner).coords[0]
+            axis/=max(.01,np.linalg.norm(axis))
+            candidates=[]
+            joined=False
+            for j in index.query(tip,predicate='dwithin',distance=1.25):
+                if j==i:continue
+                edge=shapely.shortest_line(tip,lines[j])
+                if edge.length<.08:
+                    joined=True
+                    break
+                direction=(np.array(edge.coords[-1])-edge.coords[0])/edge.length
+                if direction@axis>.83:candidates.append(edge)
+            if candidates and not joined:links.append(min(candidates,key=lambda g:g.length))
+    return links
 
 
 def cartography(network,site):
@@ -29,6 +56,7 @@ def cartography(network,site):
     outlines=[g.boundary for g in [*parking,*floors] if site.intersects(g)]
     outlines.extend(g for lines in borders.values() for g in lines)
     outlines.extend(Polygon(np.reshape(p,(-1,2)),[np.reshape(h,(-1,2)) for h in holes]).boundary for p,*holes in city_streets.survey())
+    outlines.extend(close_kerb_returns(outlines))
     lines=shapely.get_parts(shapely.union_all(outlines,grid_size=.08))
     faces=[p for p in shapely.get_parts(shapely.polygonize(lines)) if 1<p.area<62000 and site.intersects(p)]
     ways={k:[] for k in ['road','walk']}
@@ -66,8 +94,9 @@ def smooth(mask,radius,operation):
 
 @lru_cache(maxsize=12)
 def photograph(x,z):
-    p=region.CACHE.parent/'audit'/'ortho-2025'/f'{x}_{z}.jpg'
-    if not p.exists():return None
+    from ground_observations import parcel,survey_tile_path
+    if not parcel().intersects(box(x,z,x+150,z+150)):return None
+    p=survey_tile_path(x,z)
     with Image.open(p) as im:return np.asarray(im.convert('RGB').resize((600,600),Image.Resampling.BOX))
 
 
@@ -129,20 +158,23 @@ class Surfaces:
         cv2.setNumThreads(1)
         self.site=footprint()
         self.layers=cartography(json.loads(region.OUT.with_name('drive-network.json').read_bytes()),self.site)
+        from parking_stripes import lot_mask
+        self.layers['surveyed_parking']=shapely.STRtree(shapely.get_parts(lot_mask()))
         self.faces=self.layers['faces'].geometries
         self.canopy=region.lidar('dsm')-region.lidar('dtm')
         self.bounds=[math.floor(self.site.bounds[0]/150)*150,math.floor(self.site.bounds[1]/150)*150,
                      math.ceil(self.site.bounds[2]/150)*150,math.ceil(self.site.bounds[3]/150)*150]
         l,t,r,b=self.bounds
         self.labels=np.zeros(((b-t)*4,(r-l)*4),np.uint8)
-        evidence=np.zeros((len(self.faces)+1,5),np.float64)
+        evidence=np.zeros((len(self.faces)+1,7),np.float64)
         tiles=[(x,z) for x in range(l,r,150) for z in range(t,b,150) if self.site.intersects(box(x,z,x+150,z+150))]
         for x,z in tiles:
             records=self.evidence(x,z,0)
             ids,hard,soft,clear,lot,walk=records[:6]
-            for col,mask in enumerate([hard&clear,soft&clear,clear,lot,walk]):
+            light=records[7]
+            for col,mask in enumerate([hard&clear,soft&clear,clear,lot,walk,hard&clear&(light>140),hard&clear&(light<117)]):
                 evidence[:,col]+=np.bincount(ids[mask],minlength=len(evidence))
-        hard,soft,samples,lots,walks=evidence.T
+        hard,soft,samples,lots,walks,pale,dark=evidence.T
         total=np.maximum(hard+soft,1)
         fraction=hard/total
         areas=np.r_[0,shapely.area(self.faces)]
@@ -152,6 +184,8 @@ class Surfaces:
         faces[enough&(fraction<.19)]=1
         paved=enough&(fraction>.69)
         faces[paved]=np.where(((widths<3.7)&(lots<areas*4))|((walks>areas*5)&(lots<areas*3)),3,5)[paved]
+        concrete=(faces==5)&(lots<areas*.22)&(pale>hard*.51)&(dark<hard*.21)
+        self.pedestrian_faces=concrete
         self.face_classes=faces
         for x,z in tiles:
             block=self.classify(x,z)
@@ -179,6 +213,9 @@ class Surfaces:
         halo=40
         ids,hard,soft,clear,lot,walk,floor,lum,layer,green=self.evidence(x,z,halo)
         faces=self.face_classes[ids]
+        registered=layer('surveyed_parking')>0
+        confirmed_face=self.pedestrian_faces[ids]&~registered
+        faces[confirmed_face]=3
         curb=distance(layer('side'))
         near_lot=(distance(lot)<13)|(distance(layer('rim'))<14)
         near_road=distance(layer('road'))<3
@@ -209,6 +246,29 @@ class Surfaces:
         labels[~keep[components]]=1
         frame=(x-halo*.25,z-halo*.25,x+150+halo*.25,z+150+halo*.25)
         surveyed_verges(self.layers,frame,block_rgb(x,z,halo),labels,faces==0)
+        from frontage_survey import material_grid
+        frontage=material_grid(frame,(labels.shape[1],labels.shape[0]))
+        planted=smooth(soft&clear,5,cv2.MORPH_OPEN)
+        paved_face=(frontage!=0)&~planted&~floor
+        labels[paved_face]=np.where(frontage[paved_face]==4,5,3)
+        uncharted=(faces==0)&(frontage==0)&~floor&~lot&~walk&~near_road&~drive
+        verge=cv2.blur((soft&clear).astype('float32'),(53,53))>.31
+        mineral=cv2.blur((hard&clear&(lum>105)).astype('float32'),(35,35))
+        shadow=smooth((lum<98)&verge&(mineral<.13),3,cv2.MORPH_CLOSE)
+        labels[uncharted&shadow&np.isin(labels,[3,5])]=1
+        outdoor=(frontage==0)&~floor&~lot&~registered
+        hard_visible=cv2.blur((hard&clear&(lum>115)).astype('float32'),(21,21))
+        shade=cv2.blur((~clear|(lum<98)).astype('float32'),(21,21))
+        vegetation=cv2.blur(soft.astype('float32'),(61,61))
+        shaded=uncharted&~registered&(vegetation>.12)&(shade>.28)&(hard_visible<.30)
+        labels[shaded]=1
+        court=outdoor&~near_road&(labels!=1)&confirmed_face
+        daylight=cv2.blur((hard&clear&(lum>142)).astype('float32'),(35,35))
+        mineral_samples=cv2.blur((hard&clear).astype('float32'),(35,35))
+        planted_samples=cv2.blur((soft&clear).astype('float32'),(35,35))
+        apron=outdoor&~near_road&drive&~near_lot&(faces==0)&(labels==5)
+        light_apron=apron&(daylight>.17)&(daylight>mineral_samples*.63)&(planted_samples<.075)
+        labels[court|light_apron]=CONFIRMED_CONCRETE
         labels[floor|(lum==0)|(layer('fixed')>0)]=0
         return labels[halo:-halo,halo:-halo]
 
@@ -234,13 +294,15 @@ class Surfaces:
             removals.append(segment)
         return removals
 
-    def sample(self,frame,size,offset=(.5,.5)):
+    def sample(self,frame,size,offset=(.5,.5),confirmed_concrete=False):
         l,t,r,b=frame
         x=np.floor((l+(np.arange(size[0])+offset[0])*(r-l)/size[0]-self.bounds[0])*4).astype(int)
         z=np.floor((t+(np.arange(size[1])+offset[1])*(b-t)/size[1]-self.bounds[1])*4).astype(int)
         result=self.labels[np.ix_(z.clip(0,self.labels.shape[0]-1),x.clip(0,self.labels.shape[1]-1))]
         result[(z<0)|(z>=self.labels.shape[0])]=0
         result[:,(x<0)|(x>=self.labels.shape[1])]=0
+        if confirmed_concrete:return result==CONFIRMED_CONCRETE
+        result[result==CONFIRMED_CONCRETE]=3
         return result
 
 

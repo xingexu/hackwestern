@@ -233,6 +233,8 @@ def main():
     p.add_argument('--after',required=True)
     p.add_argument('--issues',type=Path,required=True)
     p.add_argument('--observations',type=Path)
+    p.add_argument('--before-folder',type=Path)
+    p.add_argument('--output',type=Path)
     args=p.parse_args()
     cv2.setNumThreads(1)
     audit=ROOT/'data/audit'
@@ -258,13 +260,25 @@ def main():
     site=footprint()
     relief=region.lidar('dsm')-region.lidar('dtm')
     markings=read(ROOT/'build/survey_parking.json')
-    stripes=np.asarray(markings['lines']+markings['amber']).reshape(-1,2,2)
+    extra=ROOT/'build/survey_bays.json'
+    registered=read(extra)['rows'] if extra.is_file() else []
+    observed_lots=ROOT/'build/survey_lot_markings.json'
+    ranks=ROOT/'build/survey_parking_ink.json'
+    archive=ROOT/'build/survey_parking_archive.json'
+    if archive.is_file():registered.extend(read(archive)['dividers'])
+    retained=ROOT/'build/survey_retained_parking.json'
+    if retained.is_file():registered.extend(read(retained))
+    if ranks.is_file():registered.extend([line,ink,'optical'] for line,ink in read(ranks))
+    if observed_lots.exists():registered.extend([line,ink,'optical'] for line,ink in read(observed_lots)['dividers'])
+    white=[*markings['lines'],*[line for line,amber,_ in registered if not amber]]
+    gold=[*markings['amber'],*[line for line,amber,_ in registered if amber]]
+    stripes=np.asarray(white+gold).reshape(-1,2,2)
     spatial=cKDTree(stripes.mean(axis=1))
     size=200
     def review(group):
         cell,issues=group
         west,north=(int(n)*50 for n in re.fullmatch(r'x(-?\d+)z(-?\d+)',cell).groups())
-        paths=[audit/r/'cells'/cell for r in (args.before,args.after)]
+        paths=[(args.before_folder or audit/args.before)/'cells'/cell,audit/args.after/'cells'/cell]
         metrics=[read(p/'metrics.json') for p in paths]
         ground=[image(p/'views/ground.png',size) for p in paths]
         photo=image(paths[0]/'views/city-2025.png',size)
@@ -294,7 +308,7 @@ def main():
                 line=stripes[k]-[west,north]
                 if np.any(line<.4) or np.any(line>49.6) or line_scores(detailed_photo,line,True)<.45:continue
                 observed[k]=[line_scores(im,line)>=.57 for im in detailed]
-                if k>=len(markings['lines']):amber_observed[k]=[line_scores(im,line,amber_only=True)>=.47 for im in detailed]
+                if k>=len(white):amber_observed[k]=[line_scores(im,line,amber_only=True)>=.47 for im in detailed]
         purple=[(im[:,:,0]>im[:,:,1]+8)&(im[:,:,2]>im[:,:,1]+7) for im in ground]
         track_inside=shapely.contains_xy(track.buffer(.35),xx,zz)
         found=[]
@@ -341,7 +355,7 @@ def main():
 
     items.sort(key=lambda v:v['id'])
     summary={key:dict(Counter(r['severity'] for r in items if r['status']==key)) for key in ('fixed','already-fixed','still-open')}
-    out=audit/args.after/'land-review.json'
+    out=args.output or audit/args.after/'land-review.json'
     out.write_text(json.dumps(dict(before=args.before,after=args.after,cells=sorted(cases),counts=summary,photoAreaSquareMeters=area,issues=items),separators=(',',':')))
     print(json.dumps(summary),len(items),out,flush=True)
 

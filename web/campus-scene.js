@@ -6,10 +6,11 @@ import {campusClip} from 'campus-clip';
 import {createDrivingHorizon,createCampusContext,campusEntranceMarker} from 'driving-horizon';
 import {removeGround} from 'core-volume';
 import {retireSurveyedArchitecture,createCampusBuildings,fitArchitecture,addBoundaryHousing,pruneBuildingTrees} from 'campus-buildings';
+import {campusAmbience} from './audio/world.mjs';
 import { createSurveyCanopy } from 'survey-canopy';
 import {createMunicipalDetail,addSurveyedGround,surveyConductors,fitSurveyedTrees,reconcileTreeObservations,createContextTrees} from 'municipal-detail';
 import * as THREE from 'three';
-import { createLandscapeGrid, groundDetailGLSL, walkwaySampler, surfaceOwnership, surveyImageURL, landcoverAt, createVergeDetail, createCarriageway, conformPlantings, installEstateSurfaces } from 'campus-terrain';
+import { createLandscapeGrid, groundDetailGLSL, walkwaySampler, packLandClasses, surfaceOwnership, surveyImageURL, landcoverAt, createVergeDetail, createCarriageway, conformPlantings, installEstateSurfaces } from 'campus-terrain';
 import {padLandcover} from './look/materials.mjs';
 import {surfaceCoverage,surveyedPavingTone,walkwayGuide} from './look/surface-response.mjs';
 import {foundationLight} from './look/ground-light.mjs';
@@ -93,6 +94,7 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
   detail.signalBases=municipalData.furniture?.signalBases;
   region.campusBoundary=boundary;
   roadData.campusBoundary=boundaryData;
+  roadData.pavementSurvey=aerial.pavementSurvey;
   roadData.insideCampus=boundary.contains;
   for(const [layer,size] of [[features,features.tileSize],[survey,survey.tileSize],[municipalData,municipalData.size]]){
     for(const key of Object.keys(layer.tiles)){
@@ -154,11 +156,29 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
     surface[index*2+1]=pavementWear[Math.floor(z*weatheringSize/vigor.height)*weatheringSize+Math.floor(x*weatheringSize/vigor.width)];
   }
   landscape.grassVigor=new THREE.DataTexture(surface,vigor.width,vigor.height,THREE.RGFormat);
+  const surfaceDetail=land.pavementDetail;
+  const detailPixels=surfaceDetail?new Uint8Array(await unpack(surfaceDetail.samples)):new Uint8Array([0,0,128,128]);
+  landscape.pavementDetail=new THREE.DataTexture(detailPixels,surfaceDetail?.width??1,surfaceDetail?.height??1);
+  landscape.pavementDetail.minFilter=landscape.pavementDetail.magFilter=THREE.LinearFilter;
+  landscape.pavementDetail.needsUpdate=true;
   const tone=land.pavingTone;
   if(tone){
-    landscape.pavingTone=new THREE.DataTexture(surveyedPavingTone(new Uint8Array(await unpack(tone.samples)),tone,land.bounds??region.bounds,roadData.areas,coveredCourts),tone.width,tone.height,THREE.RGBAFormat);
+    const paving=surveyedPavingTone(new Uint8Array(await unpack(tone.samples)),tone,land.bounds??region.bounds,roadData.areas,coveredCourts);
+    if(tone.courts){
+      const courts=new Uint8Array(await unpack(tone.courts));
+      for(let i=0;i<courts.length;i++)paving[i*4+2]=Math.max(paving[i*4+2],courts[i]);
+    }
+    if(tone.shadedLawn){
+      const shade=new Uint8Array(await unpack(tone.shadedLawn));
+      for(let i=0;i<shade.length;i++)paving[i*4+3]=shade[i];
+    }
+    const layers=new Uint8Array(paving.length*2);
+    layers.set(paving);
+    if(tone.aggregate)layers.set(new Uint8Array(await unpack(tone.aggregate)),paving.length);
+    landscape.pavingTone=new THREE.DataArrayTexture(layers,tone.width,tone.height,2);
     landscape.pavingTone.magFilter=THREE.LinearFilter;landscape.pavingTone.minFilter=THREE.LinearMipmapLinearFilter;
     landscape.pavingTone.generateMipmaps=true;
+    landscape.pavingTone.userData.woodlandEdges=!!tone.woodlandEdges;
     landscape.pavingTone.needsUpdate=true;
   }
   landscape.grassVigor.minFilter=landscape.grassVigor.magFilter=THREE.LinearFilter;
@@ -167,10 +187,8 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
   const blendBytes=new Uint8Array(await unpack(land.transitions));
   const padded=padLandcover(coverClasses,blendBytes,land.width);
   landscape.surfaceCoverage=surfaceCoverage(padded.cover,land.width,land.height);
-  landscape.landClasses=new THREE.DataTexture(padded.cover,land.width,land.height,THREE.RedFormat);
-  landscape.landClasses.userData.bounds=land.bounds??region.bounds;
-  landscape.landClasses.needsUpdate=true;
-  landscape.landTransitions=new THREE.DataTexture(padded.blend,land.width,land.height);
+  landscape.landTransitions=new THREE.DataTexture(packLandClasses(padded.cover,padded.blend),land.width,land.height);
+  landscape.landTransitions.userData.bounds=land.bounds??region.bounds;
   landscape.landTransitions.needsUpdate=true;
   const extendEstateWays=installEstateSurfaces(THREE,landscape,carriageway,groundMaterials.estates,new Uint8Array(await unpack(groundMaterials.estates.coverage)));
   landscape.pavement=carriageway.texture;
@@ -191,7 +209,7 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
   addBoundaryHousing(buildings,region);
   region.buildingSolids=fitArchitecture(buildings,landscape.heightAt,roadData.ways);
   if(includeBuildings)landscape.foundationLight=foundationLight(buildings);
-  const coverAt=surfaceOwnership(land,coverClasses,blendBytes);
+  const coverAt=surfaceOwnership(land,padded.cover,padded.blend);
   region.renderedTreeContacts=true;
   region.renderedBarrierNodes=new Set(Object.values(features.tiles).flatMap(tile=>(tile.p??[]).map(([kind,,x,,z])=>kind+':'+x.toFixed(2)+':'+z.toFixed(2))));
   for(const key of features.retiredBarrierNodes??[])region.renderedBarrierNodes.add(key);
@@ -318,6 +336,7 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
     furnishings.update(x,z,distance);
     return true;
   }
-  return {scenery,backdrop,context,buildingMaterial:stone,boundary,bounds:boundary.bounds,labels:(region.labels??[]).filter(p=>boundary.contains(p.x,p.z)),samples,network,roadData,sprintRoad,...(new URLSearchParams(globalThis.location?.search).has('audit')?{auditSources:{region,survey,trees,municipalData,features}}:{}),photoFrames:facadeData.frames,buildingRecords:buildings,facades,updateDetail,
+  const ambience=racing?campusAmbience(region.trees,trees.trees,municipalData,roadData):null;
+  return {ambience,scenery,backdrop,context,buildingMaterial:stone,boundary,bounds:boundary.bounds,labels:(region.labels??[]).filter(p=>boundary.contains(p.x,p.z)),samples,network,roadData,sprintRoad,...(new URLSearchParams(globalThis.location?.search).has('audit')?{auditSources:{region,survey,trees,municipalData,features}}:{}),photoFrames:facadeData.frames,buildingRecords:buildings,facades,updateDetail,
     onTextureReady(fn){outer.userData.onTextureReady=fn;},setCanopyCoverage(fn){outer.userData.setCanopyCoverage(fn);}};
 }

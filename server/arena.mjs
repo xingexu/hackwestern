@@ -1,5 +1,5 @@
 import {json,nicknameOK,readBytes} from './common.mjs'
-import {Relay,newRoundRoom,command,transition,removePlayer,seatGrace,drainGrace} from './referee.mjs'
+import {observeRacePose,Relay,newRoundRoom,command,transition,removePlayer,seatGrace,drainGrace} from './referee.mjs'
 import {CAPACITY,PROTOCOL,RULES} from '../web/net/wire.mjs'
 import {iceServers} from './ice.mjs'
 import {SIM_VERSION} from '../web/race/version.mjs'
@@ -56,7 +56,7 @@ export class Arena{
   send(ws,m){if(ws.readyState===1)ws.send(JSON.stringify(m))}
   view(){
     const r=this.r
-    return {...r,type:'room',players:r.players.map(({token,account,until,arrival,...p})=>p)}
+    return {...r,type:'room',players:r.players.map(({token,account,until,arrival,track,...p})=>p)}
   }
   event(p,name){
     console.log(JSON.stringify({event:name,room:this.r.code,mode:this.r.settings.course,arrival:p.arrival,player:p.id,playerCount:this.r.players.length,phase:this.r.phase}))
@@ -77,6 +77,7 @@ export class Arena{
       r.saved=r.race
       for(const p of r.players)this.event(p,'round finished')
     }
+    r.revision=(r.revision??0)+1
     await this.ctx.storage.put('room',r)
     const timers=[r.deadline,...r.players.map(p=>p.until),r.drain>now && r.drain,!r.players.length && now+3600000].filter(Boolean)
     if(timers.length)await this.ctx.storage.setAlarm(Math.min(...timers))
@@ -145,12 +146,20 @@ export class Arena{
     const attachment=ws.deserializeAttachment(),r=this.r,p=r?.players.find(p=>p.id===attachment.id)
     if(!p || ws.readyState!==1)return
     let c=this.connections.get(p.id)
-    if(!c){c={direct:new Set(),rtt:0,resetAt:0};this.connections.set(p.id,c)}
+    if(!c){
+      c={direct:new Set(),rtt:0,resetAt:0};this.connections.set(p.id,c)
+      if (attachment.track && attachment.race===r.race && attachment.lap===p.lap) p.track=attachment.track
+    }
     const now=Date.now()
     if(typeof msg!=='string'){
       if(!p.loaded || r.phase==='results')return
       const packet=this.relay.receive(p.slot,msg,now,c.rtt,!!c.allowReset)
       if(!packet)return
+      const advanced=observeRacePose(r,p,this.relay.sources.get(p.slot).state)
+      if(advanced || (r.phase==='playing' && p.track?.point && now>=(c.snapshotAt??0))){
+        c.snapshotAt=now+300
+        ws.serializeAttachment({id:p.id,race:r.race,lap:p.lap,track:p.track})
+      }
       c.allowReset=false
       for(const peer of r.players)if(peer!==p && !this.connections.get(peer.id)?.direct.has(p.slot)){
         for(const other of this.sockets(peer.id))other.send(packet)
@@ -188,6 +197,9 @@ export class Arena{
       if(m.type==='placed')c.allowReset=true
       if(m.type==='lap')c.allowReset=true
       await this.save(before)
+    }else if(m.type==='lap' && r.phase==='playing' && !p.finish && c.denied!==r.race){
+      c.denied=r.race
+      console.log(JSON.stringify({event:'pending checkpoints',room:r.code,slot:p.slot,passed:p.track?.passed??0}))
     }
   }
   async webSocketClose(ws){

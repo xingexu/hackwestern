@@ -165,7 +165,7 @@
     <label for="pixel-scale">Pixel size</label>
     <input id="pixel-scale" type="range" min="1" max="6" value="1">
     <output id="scale-value" for="pixel-scale">1×</output>
-    <label id="graphics-control">Graphics <select id="look-quality" aria-label="Graphics quality"><option value="auto">Auto</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="ultra">Ultra</option></select></label>
+    <div id="graphics-control"><label>Graphics <select id="look-quality" aria-label="Graphics quality"><option value="auto">Auto</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="ultra">Ultra</option></select></label><label id="blur-control" hidden><input type="checkbox" id="motion-blur"> Motion blur</label></div>
     <output id="fps" aria-label="Frames per second">— FPS</output>
   </div>
   <button id="region-view" hidden type="button">Entire campus</button>
@@ -177,6 +177,7 @@
       <div class="course-title"><span class="course-mark" aria-hidden="true">W</span><div><small>WESTERN UNIVERSITY</small><select id="drive-course" aria-label="Driving mode or race course"><option value="sprint">UC Hill Sprint</option></select></div></div>
       <label id="roam-start" hidden>Start near <select id="spawn" aria-label="Free roam starting location"></select></label>
       <div id="drive-graphics"></div>
+      <details id="driving-settings"><summary>Settings</summary><label><input type="checkbox" id="driving-assists" checked> Driving assists<span id="assists-pending" hidden> (next start)</span></label></details>
       <nav><a href="?mode=map">Campus map</a><button id="view-toggle" type="button" aria-pressed="false" aria-label="Driver view">Driver view</button><button id="recover" type="button" hidden>Recover</button><button id="restart" type="button">Restart <kbd>R</kbd></button></nav>
     </div>
     <div class="route-card"><canvas id="route-plan" width="328" height="206" aria-label="Route map with car position"></canvas><div><span id="meters">0 m</span><span id="length"></span></div><progress id="progress" aria-label="Course progress" value="0" max="1"></progress></div>
@@ -185,6 +186,8 @@
       <div><small>SPEED</small><strong id="speed">0</strong><span>km/h</span><small id="powertrain"></small></div>
       <div><small>RUN TIME</small><output id="time">0:00.00</output><span id="surface">On grid</span></div>
     </div>
+    <output id="checkpoint-direction" hidden aria-label="Next checkpoint"><b aria-hidden="true">↑</b> <span></span></output>
+    <output id="race-countdown" hidden aria-live="assertive"></output>
     <div id="drive-message" role="status"></div>
     <div id="touch-drive"><button id="tilt" type="button" aria-pressed="false">Enable tilt steering</button><div><button data-key="ArrowLeft" aria-label="Steer left">←</button><button data-key="ArrowRight" aria-label="Steer right">→</button></div><div><button data-key="ArrowDown">Brake</button><button data-key="ArrowUp">Gas</button></div></div>
     <div id="finish" hidden><div><small>UC HILL SPRINT</small><h2>Finish</h2><output id="result"></output><button id="again" type="button">Drive again ↗</button></div></div>

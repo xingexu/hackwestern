@@ -25,7 +25,7 @@ try{
     const socket=createServer().listen(0,'127.0.0.1');await once(socket,'listening')
     const port=socket.address().port;await new Promise(r=>socket.close(r))
     base='http://127.0.0.1:'+port;temp=await mkdtemp(join(tmpdir(),'western-bots-'))
-    child=spawn(process.execPath,['node_modules/wrangler/bin/wrangler.js','dev','--local','--config','server/wrangler.jsonc','--var','MULTIPLAYER:1','--var','DRAIN_TOKEN:local-bot-test','--inspector-port','0','--port',String(port),'--persist-to',temp],{detached:true,stdio:'ignore'})
+    child=spawn(process.execPath,['node_modules/wrangler/bin/wrangler.js','dev','--local','--config','server/wrangler.jsonc','--var','MULTIPLAYER:1','--var','DRAIN_TOKEN:local-bot-test','--inspector-port','0','--port',String(port),'--persist-to',temp],{detached:true,stdio:'ignore',env:{...process.env,X_LOCAL_OBSERVABILITY:'false'}})
     await poll(()=>fetch(base+'/api/health').then(r=>r.ok).catch(()=>false),25000)
   }
   const health=await (await fetch(base+'/api/health')).json()
@@ -68,21 +68,26 @@ try{
   await poll(()=>host.room.players.every(p=>p.ready))
   host.send({type:'start'});await poll(()=>bots.every(b=>b.room.phase==='playing'))
   const start=performance.now();let steps=0
-  while(performance.now()-start<seconds*1000 && host.room.phase==='playing'){
+  async function driveFrame(){
     const stamp=performance.now(),due=Math.floor((stamp-start)*.12)
     for(const b of bots){
-      const input=driveInput(ctx.samples,b.sim.state)
-      for(let k=steps;k<due;k++)b.sim.step(input)
+      for(let k=steps;k<due;k++){
+        b.input=driveInput(ctx.samples,b.sim.state)
+        b.sim.step(b.input)
+      }
       if(!b.cadence.take(stamp))continue
-      const state=frameState(b.sim.state,input,b.previous,stamp,b.ticket.slot,++b.seq,0)
+      const state=frameState(b.sim.state,b.input??{},b.previous,stamp,b.ticket.slot,++b.seq,0)
       b.ws.send(encode(state));b.previous=state
-      if(b.sim.state.phase==='finished' && !b.finished){b.send({type:'lap',race:b.room.race,lap:1});b.finished=true}
+      if(b.sim.state.phase==='finished' && !b.room.players.find(p=>p.id===b.ticket.id)?.finish && stamp>=(b.reportAt??0)){
+        b.send({type:'lap',race:b.room.race,lap:1});b.reportAt=stamp+350
+      }
     }
     steps=due;await sleep(3)
   }
+  while(performance.now()-start<seconds*1000 && host.room.phase==='playing')await driveFrame()
   const elapsed=(performance.now()-start)/1000
   const rates=bots.map(b=>Math.round(b.bytes/elapsed))
-  console.log(count+' bots, '+elapsed.toFixed(1)+' s, '+(bots[0].seq/elapsed).toFixed(1)+' Hz, received '+Math.min(...rates)+'–'+Math.max(...rates)+' bytes/s per driver, '+bots.filter(b=>b.finished).length+' crossed the finish line')
+  console.log(count+' bots, '+elapsed.toFixed(1)+' s, '+(bots[0].seq/elapsed).toFixed(1)+' Hz, received '+Math.min(...rates)+'–'+Math.max(...rates)+' bytes/s per driver, '+bots.filter(b=>b.sim.state.phase==='finished').length+' crossed the finish line')
   for(const b of bots){
     assert.equal(b.received.size,count-1);assert.ok(b.sim.state.distance>1)
     assert.ok(b.bytes/elapsed>(count-1)*64*35,JSON.stringify({reason:'Relay delivery below 35 Hz',phase:b.room.phase,car:b.sim.state.phase,closed:b.closed,sent:b.seq,bytes:b.bytes,elapsed}))
@@ -93,10 +98,11 @@ try{
     const drain=await fetch(base+'/api/drain',{method:'POST',headers:{Authorization:'Bearer local-bot-test'}})
     assert.ok(drain.ok);assert.equal((await post('/api/rooms',await profile(10))).status,503)
     await poll(()=>host.room.drain)
-    for(const b of bots)if(!b.finished)b.send({type:'lap',race:b.room.race,lap:1})
+    while(host.room.phase==='playing' && Date.now()<host.room.deadline)await driveFrame()
     for(const [event] of await closed)assert.equal(event.code,1001)
     const results=await (await fetch(base+'/api/rooms/'+code+'/results')).json()
     assert.equal(results.at(-1).results.length,count)
+    assert.ok(results.at(-1).results.every(p=>p.finish>0),JSON.stringify(bots.map(b=>({slot:b.ticket.slot,phase:b.sim.state.phase,at:b.sim.state.distance,checkpoints:b.sim.state.checkpointsPassed,finish:b.room.players.find(p=>p.id===b.ticket.id)?.finish}))))
     console.log('Draining refused new rooms, saved the running round and closed every socket with 1001')
   }
 }finally{

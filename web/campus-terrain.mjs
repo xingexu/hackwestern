@@ -95,6 +95,14 @@ export function landcoverAt(meta,classes,bounds) {
   };
 }
 
+export function packLandClasses(classes,transitions){
+  for(let i=0;i<classes.length;i++){
+    const first=transitions[i*4]&15;
+    transitions[i*4]=((classes[i]&15)<<4)|first;
+  }
+  return transitions;
+}
+
 export function surfaceOwnership(meta,classes,transitions){
   const {width,height,bounds:[left,top,right,bottom]}=meta;
   const sx=width/(right-left),sz=height/(bottom-top);

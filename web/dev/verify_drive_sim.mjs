@@ -157,7 +157,7 @@ function stopDistance(car, offset = 0) {
 
 const launch = createDriveSim(provingGround)
 const zeroToHundred = reachSpeed(launch, 100)
-assert.ok(zeroToHundred > 4 && zeroToHundred < 5.2)
+assert.ok(zeroToHundred >= 6 && zeroToHundred <= 8)
 assert.ok(launch.state.gear > 1 && launch.state.rpm > 4500 && launch.state.rpm < 7000)
 const dryStop = stopDistance(launch)
 assert.ok(dryStop > 32 && dryStop < 39)

@@ -2,6 +2,30 @@ import {decode,encode,newer,HZ} from '../web/net/wire.mjs'
 import {StampMap} from '../web/net/timing.mjs'
 import {distance} from '../web/net/motion.mjs'
 
+import courses from '../web/race/courses.mjs'
+import {advanceZones,circuitGates,zoneProgress} from '../web/race/zones.mjs'
+
+const gates=Object.fromEntries(Object.entries(courses).map(([id,course])=>[id,circuitGates(course.samples)]))
+export function observeRacePose(r,p,pose) {
+  if (r.phase!=='playing' || p.dnf || p.finish) return false
+  const samples=courses[r.settings.course].samples,indices=gates[r.settings.course]
+  const track=p.track??={...zoneProgress(),point:null}
+  const {x,y,z,epoch}=pose,point={x,y,z,epoch}
+  const prev=track.point
+  if (!prev || epoch!==prev.epoch || Math.hypot(x-prev.x,z-prev.z)>12) {
+    const anchor=samples[indices[track.passed-1]??0]
+    if (Math.hypot(x-anchor.x,z-anchor.z)>(track.passed?10:17) || Math.abs(y-anchor.y)>2.5) return false
+    track.point=point
+    track.near=true
+    track.missed=false
+    return true
+  }
+  const near=track.near,missed=track.missed
+  const credited=advanceZones(samples,indices,track,prev,point)
+  track.point=point
+  return Boolean(credited || near!==track.near || missed!==track.missed)
+}
+
 export class Relay{
   constructor(){this.sources=new Map()}
   forget(slot){this.sources.delete(slot)}
@@ -62,9 +86,10 @@ export function command(r,p,m,now,raceId){
   }else if(m.type==='ready' && p.loaded && r.phase==='lobby' && typeof m.ready==='boolean' && m.ready!==p.ready)p.ready=m.ready
   else if(m.type==='start' && p.id===r.host && !r.drain && r.phase==='lobby' && r.settings.course!=='roam' && connected.length>=2 && connected.length===r.players.length && connected.every(p=>p.loaded && p.ready)){
     Object.assign(r,{race:raceId(),phase:'positioning',deadline:now+10000,results:[]})
-    for(const player of r.players)Object.assign(player,{placed:false,lap:0,finish:0,dnf:false,vote:false})
+    for(const player of r.players)Object.assign(player,{placed:false,lap:0,finish:0,dnf:false,vote:false,track:null})
   }else if(m.type==='placed' && !p.placed && r.phase==='positioning' && m.race===r.race)p.placed=true
-  else if(m.type==='lap' && r.phase==='playing' && m.race===r.race && !p.dnf && !p.finish && m.lap===p.lap+1){
+  else if(m.type==='lap' && r.phase==='playing' && m.race===r.race && !p.dnf && !p.finish && m.lap===p.lap+1 && p.track?.passed===gates[r.settings.course].length){
+    p.track=null
     p.lap++
     if(p.lap===r.settings.laps)p.finish=Math.max(1,now-r.start)
   }else if(m.type==='vote' && !p.vote && r.race && m.race===r.race){

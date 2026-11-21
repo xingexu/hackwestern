@@ -186,7 +186,7 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
       vec4 edge=smoothstep(.5-spread,.5+spread,weights);
       vec3 grain=groundParticle(contextXZ);
       vec2 regionalUV=(contextXZ-regionalBounds.xy)/(regionalBounds.zw-regionalBounds.xy);
-      vec2 surveyTone=texture2D(surveyColour,regionalUV).rg;
+      vec2 surveyTone=texture2D(surveyColour,clamp(regionalUV,0.,1.)).rg;
       vec3 land=summerLawn(contextXZ,surveyTone.r,grain.r);
       vec3 woodland=forestFloor(contextXZ,grain);
       land=mix(land,woodland,smoothstep(.04,.96,textureLod(contextCover,uv,2.25).g));
@@ -199,7 +199,7 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
       if(all(greaterThanEqual(regionalUV,vec2(0.)))&&all(lessThanEqual(regionalUV,vec2(1.)))){
         float street=texture2D(regionalPavement,regionalUV).r;
         float aa=clamp(fwidth(street),.025,.44);
-        land=mix(land,vec3(.061,.062,.061)*(1.+.42*grain.g+.55*(surveyTone.g-.502)),smoothstep(.5-aa,.5+aa,street));
+        land=mix(land,vec3(.061,.062,.061)*(1.+.42*grain.g+.55*(surveyTone.g-.502)),smoothstep(.5-aa,.5+aa,street)*(1.-edge.a));
       }
       diffuseColor.rgb*=land;`);
     riverFinish(shader,'contextXZ','edge.a');

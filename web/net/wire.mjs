@@ -2,7 +2,7 @@ export const PROTOCOL=2
 export const HZ=60
 export const CAPACITY=8
 export const BYTES=64
-export const RULES=1
+export const RULES=2
 
 const bits=new DataView(new ArrayBuffer(4))
 function half(x){
@@ -38,10 +38,11 @@ export function frameState(car,input,previous,stamp,slot,seq,epoch){
   const h=car.heading,p=-(car.pitch+car.bodyPitch),r=car.roll
   const s=Math.sin(h),c=Math.cos(h),vx=s*car.speed+c*car.lateralSpeed,vz=c*car.speed-s*car.lateralSpeed
   const dt=previous && previous.epoch===epoch?(stamp-previous.stamp)/1000:0
-  const vy=dt>0?(car.y-previous.y)/dt:0
+  const y=car.y+(car.lift??0)
+  const vy=dt>0?(y-previous.y)/dt:0
   const acceleration=(v,old)=>dt>0?Math.max(-35,Math.min(35,(v-old)/dt)):0
   const sh=Math.sin(h/2),ch=Math.cos(h/2),sp=Math.sin(p/2),cp=Math.cos(p/2),sr=Math.sin(r/2),cr=Math.cos(r/2)
-  return {x:car.x,y:car.y,z:car.z,vx,vy,vz,ax:acceleration(vx,previous?.vx),ay:acceleration(vy,previous?.vy),az:acceleration(vz,previous?.vz),turn:car.yawRate,
+  return {x:car.x,y,z:car.z,vx,vy,vz,ax:acceleration(vx,previous?.vx),ay:acceleration(vy,previous?.vy),az:acceleration(vz,previous?.vz),turn:car.yawRate,
     q:[ch*sp*cr+sh*cp*sr,sh*cp*cr-ch*sp*sr,ch*cp*sr-sh*sp*cr,ch*cp*cr+sh*sp*sr],slot,seq,epoch,stamp,steer:input.steer||0,gas:input.throttle||0,brake:input.brake||0,rpm:car.rpm,flags:Number(!!car.contact)}
 }
 const axes=['vx','vy','vz','ax','ay','az','turn']
