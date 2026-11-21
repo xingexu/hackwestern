@@ -35,6 +35,7 @@ import {
   applyBatch,
   applyTool,
   applyExtraction,
+  readbackDelay,
   review,
 } from "../state/engine";
 import { opening, Scenario, scenarios, playStep } from "../state/scenarios";
@@ -196,6 +197,8 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
   }, [run?.expires, saved?.expires]);
   const ended = run?.s.route,
     reviewing = run?.s.review;
+  const started = run?.started,
+    rejections = run?.s.rejections;
   useEffect(() => {
     if (ended || reviewing) {
       stopMedia();
@@ -215,13 +218,16 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
     }
   }, [ended, reviewing]);
   useEffect(() => {
-    if (!run || run.s.route || run.s.review) return;
+    const r = ref.current;
+    if (!r) return;
+    const delay = readbackDelay(r.s, r.started, Date.now());
+    if (delay === null) return;
     const t = setTimeout(
       () => patch((s) => applyTool(s, { name: "finish_intake", args: {} })),
-      Math.max(0, run.started + 480_000 - Date.now()),
+      delay,
     );
     return () => clearTimeout(t);
-  }, [run?.started, ended, reviewing]);
+  }, [started, ended, reviewing, rejections]);
   useEffect(() => {
     if (!run || run.id !== "live" || run.s.route || run.s.review || busy)
       return;

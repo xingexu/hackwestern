@@ -104,6 +104,10 @@ function applyInBatch(s: CaseState, c: ToolCall): CaseState {
       }
     : n;
 }
+export function readbackDelay(s: CaseState, started: number, now: number) {
+  if (s.route || s.review || s.rejections > 0) return null;
+  return Math.max(0, started + 480_000 - now);
+}
 export function review(s: CaseState, yes: boolean): CaseState {
   if (s.route || !s.review) return s;
   const n = {

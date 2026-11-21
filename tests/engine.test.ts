@@ -13,6 +13,18 @@ import { cards, route } from "../src/rules";
 import { lines } from "../src/note/lines";
 import { saveNote, getNote, TTL } from "../src/note/store";
 import { readback } from "../src/note/lines";
+import { readbackDelay } from "../src/state/engine";
+test("an overdue read-back can be rejected, corrected, and manually reviewed", () => {
+  const s = sample();
+  const overdue = 480_001;
+  assert.equal(readbackDelay(s, 0, overdue), 0);
+  const finish = { name: "finish_intake", args: {} };
+  const correcting = review(applyTool(s, finish), false);
+  assert.equal(readbackDelay(correcting, 0, overdue + 1), null);
+  const corrected = applyTool(correcting, f("rash"));
+  assert.equal(corrected.review, false);
+  assert.equal(applyTool(corrected, finish).review, true);
+});
 test("an allergy sharing a symptom turn has its own cited note line", () => {
   const s = applyBatch(sample(), [
     f("rash"),
