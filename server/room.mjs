@@ -54,6 +54,11 @@ export class Room {
       if (this.room) return json({reason:'Code in use'}, 409)
       this.room = {kind, host:null, players:[], settings:{...settings}, race:null, start:0, expires:Date.now()+lifetime}
     } else if (action !== 'join' || !this.room || this.room.expires <= Date.now()) return json({reason:'Code not found'}, 404)
+    if (kind==='pads' && action==='join') {
+      const previous=this.room.players.find(p=>p.id!==this.room.host)
+      if (previous && previous.token===body.token) return json({id:previous.id,token:previous.token,code,kind})
+      if (previous && !this.sockets(previous.id).length) this.remove(previous.id)
+    }
     if (this.room.race || this.room.players.length >= (kind === 'rooms' ? 4 : 2)) return json({reason:'Room is full or racing'}, 409)
     const id = secret(), token = secret()
     this.room.players.push({id, token, nickname:kind === 'pads' ? 'Controller' : body.nickname, color:kind === 'pads' ? '#ffffff' : body.color, ready:false, lap:0, finish:0, until:Date.now()+grace})
@@ -76,12 +81,18 @@ export class Room {
       ws.close(1000,'Left room')
       return this.persistRemaining()
     }
-    if (m.type === 'state' || m.type === 'pad') {
+    if (r.kind==='pads' && id!==r.host) {
+      if (m.type==='pad' && controlOK(m.input)) {
+        const {steer,throttle,brake}=m.input
+        this.broadcast({type:'pad',input:{steer,throttle,brake}},ws)
+      }
+      if (m.type==='pad-action' && ['recover','restart'].includes(m.action)) this.broadcast({type:m.type,action:m.action},ws)
+      return
+    }
+    if (m.type === 'state') {
       if (now - (this.lastPacket.get(id) || 0) < 25) return
       this.lastPacket.set(id, now)
-      if (m.type === 'pad' && r.kind === 'pads' && id !== r.host && controlOK(m.input)) {
-        this.broadcast({type:'pad',input:m.input}, ws)
-      } else if (m.type === 'state' && r.kind === 'rooms' && r.race && m.race === r.race && poseOK(m)) {
+      if (r.kind === 'rooms' && r.race && m.race === r.race && poseOK(m)) {
         const {x,y,z,heading,speed} = m
         this.broadcast({type:'state',id,x,y,z,heading,speed,now}, ws)
       }

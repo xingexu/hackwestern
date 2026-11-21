@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import {createCameraRig} from '../../frame-pacing.mjs'
 import {createDriveSim} from '../../drive-sim.mjs'
 import {buildingSurvey} from './buildings.mjs'
+import {campusSeat,campusBikeRack} from '../../street-detail.js'
 import {spatialIndex} from './spatial.mjs'
 
 const materials=new WeakMap(), images=new WeakMap()
@@ -141,18 +142,20 @@ export async function adapter({scene,campus,renderer,camera:gameCamera,renderVie
     if(!anchors.has(key)) anchors.set(key,[])
     anchors.get(key).push({x,z,kind,type,r})
   }
-  const {survey,trees,municipalData,features}=campus.auditSources
+  const {region,survey,trees,municipalData,features}=campus.auditSources
   for(const tile of Object.values(municipalData.tiles)) for(const type of ['lamps','trees']) {
     for(const [x,z,,,dbh] of tile[type]??[]) anchor(x,z,'municipal',type,type==='trees'?Math.max(.12,dbh+.035):.27)
   }
   for(const tile of Object.values(survey.tiles)) for(const [x,z] of tile.stems??[]) anchor(x,z,'branch','LiDAR trunk',.30)
   for(const [x,,z] of trees.trees) anchor(x,z,'limb','core trunk',.30)
-  for(const tile of Object.values(features.tiles)) for(const [type,,x,,z,yaw,,,count] of tile.p??[]) {
+  for(const tile of Object.values(features.tiles)) for(const [type,id,x,,z,yaw,,,count] of tile.p??[]) {
     const foot=(u,t)=>anchor(x+Math.cos(yaw)*u+Math.sin(yaw)*t,z-Math.sin(yaw)*u+Math.cos(yaw)*t,'prop',type,.18)
     if(['traffic_signals','stop','bus_stop','street_lamp','phone','flagpole','fire_hydrant','parking_entrance','post_box'].includes(type))foot(0,0)
-    if(type==='bench' || type==='picnic_table')for(const u of [-.59,.59])foot(u,0)
+    const fixtureFoot=(u,y,t,w,h)=>{if(y-h*.5<.006)foot(u,t)}
+    if(type==='bench')campusSeat(fixtureFoot,1.8,features.furnitureStyles?.[id])
+    if(type==='picnic_table')for(const u of [-.59,.59])foot(u,0)
     if(type==='shelter')for(const u of [-1.42,1.42])for(const t of [-.74,.74])foot(u,t)
-    if(type==='bicycle_parking')for(let i=0;i<Math.min(count,7);i++)for(const t of [-.34,.34])foot((i-(Math.min(count,7)-1)*.5)*.76,t)
+    if(type==='bicycle_parking')campusBikeRack(fixtureFoot,count,features.furnitureStyles?.[id])
   }
   const tieCamera=new THREE.OrthographicCamera(-.5,.5,.5,-.5,.05,80)
   tieCamera.up.set(0,0,-1)
@@ -176,6 +179,22 @@ export async function adapter({scene,campus,renderer,camera:gameCamera,renderVie
   }
   return {
     layerConflict,
+    vegetation(){
+      const stems=[],lamps=[],props=[],understory=[];
+      for(const entry of Object.values(municipalData.tiles)){
+        for(const [x,z,h,r,,form] of entry.trees??[])stems.push(['municipal',x,z,h,r,form]);
+        lamps.push(...(entry.lamps??[]).map(p=>p.slice(0,5)));
+        understory.push(...(entry.understory??[]));
+      }
+      for(const [x,y,z,r,height,,,,form] of trees.trees)stems.push(['core',x,z,height-y+.8*r,r,form]);
+      for(const [x,,z,h,,diam] of region.trees)stems.push(['regional',x,z,h,diam*.5]);
+      for(const entry of Object.values(survey.tiles))for(const [x,z,h] of entry.stems??[])stems.push(['survey',x,z,h,h*.30]);
+      for(const entry of Object.values(features.tiles))for(const [kind,id,x,,z,yaw] of entry.p??[]){
+        props.push([kind,x,z,yaw,id]);
+        if(kind==='street_lamp')lamps.push([x,z,6.2,yaw,1]);
+      }
+      return {stems,lamps,props,understory};
+    },
     anchors:cell=>anchors.get(cell.id)??[],
     roadStarts:cell=>starts.get(cell.id)??[],
     buildings:buildingSurvey(campus.buildingRecords),

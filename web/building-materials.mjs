@@ -47,7 +47,7 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
   tex.needsUpdate=true;
   const material=new THREE.MeshStandardMaterial({side:THREE.DoubleSide,transparent:alpha,depthWrite:!alpha});
   material.forceSinglePass=true;
-  material.customProgramCacheKey=()=>`western-envelope-12-${instanced}-${alpha}`;
+  material.customProgramCacheKey=()=>`western-envelope-13-${instanced}-${alpha}`;
   material.userData.styles=tex;
   material.userData.coverage={value:new THREE.Vector2(0,1)};
   material.onBeforeCompile=shader=>{
@@ -82,11 +82,12 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
       float stripeIntegral(float x,float width){
         return floor(x)*width+min(fract(x),width);
       }
-      float screened(float phase,float duty){
-        float pixel=max(.0001,fwidth(phase));
+      float filteredStripe(float phase,float duty,float pixel){
+        pixel=max(.0001,pixel);
         float a=phase-pixel*.5+duty*.5;
         return clamp((stripeIntegral(a+pixel,duty)-stripeIntegral(a,duty))/pixel,0.,1.);
       }
+      float screened(float phase,float duty){return filteredStripe(phase,duty,fwidth(phase));}
       float ruled(float p,float halfWidth){
         float width=max(.0002,fwidth(p)),ink=2.*halfWidth;
         float a=p+halfWidth-width*.5,b=a+width;
@@ -186,6 +187,7 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
           albedo*=1.+sill*detail*.14;
         }else{
           vec2 q=texel/physical.xy;
+          vec2 unitPixel=fwidth(q);
           float row=floor(q.y);
           if(finish.y==1.)q.x+=.5*mod(row,2.);
           if(finish.y==2.)q.x=q.x*(1.+mod(row,2.))+.5*mod(row,2.);
@@ -199,7 +201,7 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
           }
           if(family==3)mortar=ruled(q.y,.035);
           if(family==5)mortar=ruled(q.x,.034);
-          float visibility=1.-smoothstep(.17,1.,max(fwidth(q.x),fwidth(q.y)));
+          float visibility=1.-smoothstep(.17,1.,max(unitPixel.x,unitPixel.y));
           float grain=noiseField(texel*18.)-.5;
           float weather=noiseField(texel*.39)*.68+noiseField(texel*.105)*.32;
           float sampleTone=hashCell(floor(q));
@@ -212,25 +214,35 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
               float course=floor(roughQ.y);
               roughQ.x=texel.x/physical.x*(.77+.47*hashCell(vec2(course,19.)))+hashCell(vec2(course,71.));
             }
-            float headJoint=screened(roughQ.x,rubble?.050:.022);
-            float bedJoint=screened(roughQ.y,rubble?.080:.036);
+            float course=floor(roughQ.y),nearestHead=floor(roughQ.x+.5);
+            float drift=finish.y>=4.?(hashCell(vec2(nearestHead,course))-.5)*.47:0.;
+            float offset=roughQ.x-nearestHead-drift;
+            float headJoint=filteredStripe(offset,rubble?.050:.022,unitPixel.x);
+            float bedJoint=filteredStripe(roughQ.y,rubble?.080:.036,unitPixel.y);
             mortar=headJoint+bedJoint-headJoint*bedJoint;
-            float stone=mix(.5,hashCell(floor(roughQ)),visibility);
+            float stone=mix(.5,hashCell(vec2(nearestHead-step(offset,0.),course)),visibility);
             albedo=mix(sw.rgb,joint.rgb,(.18+.75*stone)*joint.a);
             variation=(stone-.5)*joint.a*(rubble?1.35:.78)*visibility;
-            stoneBump=(rubble?.021:.006)*(grain*.55-mortar)*visibility;
+            float clearance=min(abs(offset)*physical.x,abs(fract(roughQ.y+.5)-.5)*physical.y);
+            float bevel=smoothstep(.004,rubble?.021:.012,clearance);
+            float split=surface.y==5.?1.:0.;
+            float fracture=noiseField(texel*vec2(5.8,9.1)+vec2(stone*7.,course))-.5;
+            float closeDetail=1.-smoothstep(.006,.045,max(unitPixel.x*physical.x,unitPixel.y*physical.y));
+            variation+=fracture*(rubble?.14:.048+.13*split)*visibility;
+            stoneBump=((bevel-1.)*(rubble?.010:.005)+(rubble?.009:.002+.004*split)*fracture+grain*.001)*closeDetail;
           }else if(family==1){
             float pitchY=max(.035,physical.y);
             float rowPhase=fract(texel.y/pitchY);
             float edgeY=min(rowPhase,1.-rowPhase)*pitchY;
             float edgeX=abs(fract(q.x+.5)-.5)*physical.x;
             float bevel=smoothstep(.003,.009,min(edgeX,edgeY));
-            float endJoint=screened(q.x,clamp(.010/physical.x,.018,.13));
-            float bedJoint=screened(q.y,clamp(.009/pitchY,.025,.18));
+            float endJoint=filteredStripe(q.x,clamp(.010/physical.x,.018,.13),unitPixel.x);
+            float bedJoint=filteredStripe(q.y,clamp(.009/pitchY,.025,.18),unitPixel.y);
             mortar=endJoint+bedJoint-endJoint*bedJoint;
             float firing=noiseField(texel*vec2(.44,.72))-.5;
             variation+=joint.a*(.45*firing+.27*(weather-.5));
-            stoneBump=(bevel*.0055+(sampleTone-.5)*.0015+grain*.0012)*visibility;
+            float edgeDetail=1.-smoothstep(.0018,.010,max(unitPixel.x*physical.x,unitPixel.y*pitchY));
+            stoneBump=(bevel*.0035+(sampleTone-.5)*.0008+grain*.0006)*edgeDetail;
           }
           if(family==1 || family==2)roughVariation=(.11*mortar+.065*(sampleTone-.5)*visibility+.035*grain*visibility);
           if(surface.y==1. || surface.y==2.){
@@ -251,7 +263,7 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
             mortar=max(expansion,surface.y==8.?ruled(q.y,.003):0.)*.44;
             variation=(weather-.5)*.065+(sampleTone-.5)*.022*visibility;
           }
-          if((family==0 && surface.y==0.) || family==7)variation=0.;
+          if((family==0 && (surface.y==0. || surface.y==6.)) || family==7)variation=0.;
           if(surface.y==11.){
             float phase=fract(texel.y/.14),visible=1.-smoothstep(.025,.15,fwidth(texel.y));
             mortar=0.;
@@ -312,7 +324,13 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
             vec4 rect=texelFetch(finishes,ivec2(6+2*i,finishIndex),0),rotation=texelFetch(finishes,ivec2(7+2*i,finishIndex),0);
             vec2 q=pt-rect.xy,edge=abs(vec2(dot(q,rotation.xy),dot(q,vec2(-rotation.y,rotation.x))))-rect.zw;
             float signedEdge=max(edge.x,edge.y),aa=max(.07,fwidth(signedEdge));
-            patchTone+=rotation.w*rotation.z*(1.-smoothstep(-aa,aa,signedEdge));
+            float mask=1.-smoothstep(-aa-.18,aa+.18,signedEdge);
+            if(rotation.z<0. && rotation.w>.5){
+              vec2 local=vec2(dot(q,rotation.xy),dot(q,vec2(-rotation.y,rotation.x)))/max(rect.zw,vec2(.2));
+              float moisture=length(local)+.35*(noiseField(pt*.44)-.5)+.21*(noiseField(pt*.17)-.5);
+              mask=(1.-smoothstep(.56,1.16,moisture))*(.62+.38*noiseField(pt*.56));
+            }
+            patchTone+=rotation.w*rotation.z*mask;
           }
           if(surface.w>.1){
             float angle=surface.w-4.;

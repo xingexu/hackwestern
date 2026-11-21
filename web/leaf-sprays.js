@@ -1,6 +1,29 @@
 import * as THREE from 'three';
 
-export function leafSprayTexture(){
+export const barkGrainGLSL=`
+  float barkGrain(vec3 p){
+    vec2 grain=vec2(19.1*p.x+13.7*p.z,15.2*p.z-11.4*p.x);
+    grain+=vec2(.41*sin(p.y*3.4+sin(p.z*2.8)),.46*sin(p.y*2.2+p.x*1.3));
+    vec2 relief=abs(sin(grain*1.8+sin(grain*.63+p.y*.72)));
+    float fissure=1.-smoothstep(.045,.34,min(relief.x,relief.y));
+    float flakes=sin(p.y*37.+sin(dot(p.xz,vec2(11.3,19.7))))*.035;
+    float detail=1.-smoothstep(.012,.13,length(fwidth(p)));
+    return 1.+detail*(.09-.33*fissure+flakes);
+  }`;
+
+export function barkFinish(shader){
+  shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 barkPosition;')
+    .replace('#include <project_vertex>',`#include <project_vertex>
+      #ifdef USE_INSTANCING
+        barkPosition=(instanceMatrix*vec4(transformed,1.)).xyz;
+      #else
+        barkPosition=transformed;
+      #endif`);
+  shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 barkPosition;\n'+barkGrainGLSL)
+    .replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb*=barkGrain(barkPosition);');
+}
+
+export function leafSprayTexture(budding=false){
   const canvas=document.createElement('canvas');
   canvas.width=256;canvas.height=192;
   const ink=canvas.getContext('2d');
@@ -8,11 +31,12 @@ export function leafSprayTexture(){
   const random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
   function shoot(x,y,tipX,tipY,width){
     ink.strokeStyle='#818771';
-    ink.lineWidth=width;
+    ink.lineWidth=budding?width*1.7:width;
     ink.beginPath();ink.moveTo(x,y);ink.lineTo(tipX,tipY);ink.stroke();
   }
   function leaf(x,y,angle,length){
-    const width=length*(.25+.14*random()),light=Math.round(187+68*random());
+    if(budding)length*=.67;
+    const width=length*(budding?.14:.25+.14*random()),light=Math.round(187+68*random());
     ink.save();
     ink.translate(x,y);ink.rotate(angle);
     ink.fillStyle='rgb('+light+','+Math.min(255,light+4)+','+(light-12)+')';
@@ -64,6 +88,47 @@ export function leafSprayTexture(){
   return texture;
 }
 
+export function budSprig(){
+  const positions=[],uv=[];
+  for(let j=0;j<6;j++){
+    const a=j*2.40,reach=.14+.095*j,dy=.09*j;
+    for(const side of [-1,1]){
+      const x=Math.sin(a)*reach,z=Math.cos(a)*reach,turn=a+side*.79;
+      const dx=Math.cos(turn)*.085,dz=-Math.sin(turn)*.085;
+      const tx=x+Math.sin(turn)*.24,tz=z+Math.cos(turn)*.24;
+      positions.push(x,dy,z,tx+dx,dy+.19,tz+dz,tx-dx,dy+.16,tz-dz);
+      uv.push(.80,.47,.85,.55,.92,.56);
+    }
+  }
+  const geometry=new THREE.BufferGeometry();
+  geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));
+  geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
+export function terminalTwigs(depth=3){
+  const vertices=[],uv=[];
+  function shoot(x,y,z,angle,length,width,level){
+    const dx=Math.sin(angle),dz=Math.cos(angle);
+    const tx=x+dx*length,ty=y+length*(.49+.20*Math.cos(angle*1.3)),tz=z+dz*length;
+    const ox=dz*width,oz=-dx*width;
+    vertices.push(x+ox,y,z+oz,x-ox,y,z-oz,tx,ty,tz);
+    vertices.push(x,y+width,z,x,y-width,z,tx,ty,tz);
+    for(let i=0;i<6;i++)uv.push(.985,.986);
+    if(level>0)for(const side of [-1,1]){
+      const t=side<0?.62:.85;
+      shoot(x+(tx-x)*t,y+(ty-y)*t,z+(tz-z)*t,angle+side*(.53+.23*Math.sin(angle+level)),length*(.66+.13*side),width*.62,level-1);
+    }
+  }
+  for(const [bearing,length] of [[0,.91],[-.93,.74],[1.18,.81]])shoot(0,0,0,bearing,length*(depth===1?1.23:1),depth===1?.053:.036,depth);
+  const geometry=new THREE.BufferGeometry();
+  geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
+  geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
 export function foliageCluster(lift=.35){
   const core=new THREE.IcosahedronGeometry(1,0);
   const pos=core.getAttribute('position');
@@ -84,16 +149,19 @@ export function foliageCluster(lift=.35){
     indices.push(i);
   }
   core.dispose();
-  for(let i=0;i<6;i++){
-    const a=i*2.39996+lift*3.7, dx=Math.cos(a),dz=Math.sin(a), height=[.66,.29,.48,.13,.73,.34][i];
+  for(let i=0;i<7;i++){
+    const angle=i*2.39996+lift*3.7+.36*Math.sin(i*4.3+lift);
+    const dx=Math.cos(angle),dz=Math.sin(angle),height=.24+.38*(.5+.5*Math.sin(i*1.93+lift*3.2));
+    const width=.56+.19*Math.cos(i*1.52+lift),reach=.90+.17*Math.sin(i*4.72);
+    const outline=[[-.82,.15],[-1,.52],[-.43,.85],[.19,1],[.86,.74],[.95,.31],[.48,.02]];
     const first=positions.length/3;
-    for(const [side,rise,u,vv] of [[-1,0,.055,.06],[1,0,.945,.06],[-1,1,.055,.97],[1,1,.945,.97]]){
-      const reach=.24+rise*(i%2===0?.72:.89), spread=side*(.45+rise*.30);
-      positions.push(reach*dx-spread*dz,-.44+height*rise*1.65+side*.21*Math.sin(a+1.),reach*dz+spread*dx);
+    for(const [side,t] of [[0,.49],...outline]){
+      const out=.17+reach*t-.18*side*side;
+      positions.push(out*dx-width*side*dz,-.41+height*t*1.65+side*.18*Math.sin(angle)+.11*(1-side*side),out*dz+width*side*dx);
       normals.push(.68*dx,.73,.68*dz);
-      uv.push(u*.75,vv);
+      uv.push((.5+.445*side)*.75,.06+.91*t);
     }
-    indices.push(first,first+2,first+1,first+1,first+2,first+3);
+    for(let j=0;j<outline.length;j++)indices.push(first,first+1+j,first+1+(j+1)%outline.length);
   }
   const geometry=new THREE.BufferGeometry();
   geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));

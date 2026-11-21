@@ -15,7 +15,7 @@ from shapely.strtree import STRtree
 import campus_region as region
 import geo
 from campus_bounds import footprint
-from woodlot_survey import estate_crowns, woodlots
+from woodlot_survey import estate_crowns, estate_surface, landscape_plots, woodlots
 
 OUT = region.OUT.with_name("municipal-detail.json")
 CACHE = region.CACHE / "municipal"
@@ -198,6 +198,8 @@ def build():
                    for w in network["ways"] if w["kind"]=="road" and w["points"]])
     footprints=STRtree([polygon([shell,*holes]) for shell,holes,*_ in outer["blocks"]]+
                        [polygon(r) for r in network["coreBuildings"]]+[polygon(r) for r in network["water"]])
+    carriageways=[way for way in network["ways"] if way["kind"]=="road" and len(way["points"])>=2]
+    axes=STRtree([LineString([(p[0],p[2]) for p in way["points"]]) for way in carriageways])
     lamp_refs=[(p[2],p[4]) for tile in amenities["tiles"].values() for p in tile.get("p",[]) if p[0] in ("street_lamp","traffic_signals")]
     lamps=cKDTree(lamp_refs)
     tree_refs=[(x,z) for x,_,z,*_ in outer["trees"]+core["trees"]]
@@ -221,6 +223,52 @@ def build():
 
     retired_hedges=set(json.loads(OUT.parents[1].joinpath("build/survey_ground.json").read_bytes())["retiredMunicipalHedges"])
     furniture=json.loads(Path(__file__).with_name("survey_furniture.json").read_bytes())
+    furniture['conifers']=[]
+    for x,z in furniture['observedConifers']:
+        offsets=np.array([-1.,0.,1.])
+        h=float(np.quantile(region.sample(surface,x+np.repeat(offsets,3),z+np.tile(offsets,3)),.78))
+        furniture['conifers'].append([x,z,round(h,2),round(max(1.2,min(h*.30,4.6)),2),1])
+    estate_height,estate_left,estate_top,estate_north=estate_surface()
+    observed=[]
+    for x,z,habit in furniture.pop('stemObservations'):
+        if any(math.hypot(x-X,z-Z)<r for X,Z,r in furniture['clearStems']):continue
+        if any(math.hypot(x-p[0],z-p[1])<1.80 for p in observed):continue
+        h=inferred_height(x,z,2.1)
+        if z>=estate_north:
+            cx,cz=round(x-estate_left),round(z-estate_top)
+            patch=estate_height[max(0,cz-2):cz+3,max(0,cx-2):cx+3]
+            if patch.size:h=float(np.quantile(patch,.8))
+        if habit=='s':
+            h=float(np.clip(h,2.1,4.5))
+        elif not 3.8<h<32:
+            h=9.2 if habit=='c' else 8.4
+        radii=[]
+        if region.X0<x<region.X1 and region.Z0<z<region.Z1:
+            for angle in np.arange(10)*math.tau/10:
+                distances=np.arange(1.0,min(12,max(2,h*.64)),.5)
+                canopy=region.sample(surface,x+distances*np.cos(angle),z+distances*np.sin(angle))
+                gaps=np.flatnonzero((canopy<h*.34)|(canopy>h*1.7))
+                radii.append(distances[gaps[0]] if gaps.size else distances[-1])
+        r=float(np.clip(np.median(radii) if radii else h*.32,h*.16,h*(.35 if habit=='c' else .58)))
+        observed.append([x,z,round(h,2),round(r,2),{'a':0,'b':10,'c':1,'s':8}[habit]])
+    measured,low_plants=landscape_plots(furniture.pop('canopyPlots'),furniture.pop('shrubPlots'),surface,blocked,observed,furniture['clearStems'])
+    furniture['datedTrees']=observed+measured
+    furniture['datedShrubs']=low_plants
+    furniture['styles']={}
+    for feature in json.loads((region.CACHE/'map.json').read_bytes())['elements']:
+        tags=feature.get('tags',{})
+        if tags.get('amenity')=='bench' and tags.get('material') in ('metal','stone'):
+            furniture['styles'][feature['id']]='stone' if tags['material']=='stone' else 'black-metal'
+        elif tags.get('amenity')=='bicycle_parking' and tags.get('bicycle_parking'):
+            furniture['styles'][feature['id']]=tags['bicycle_parking']
+    for structure in furniture['siteStructures']:
+        if len(structure)==8:
+            ring=outer['blocks'][structure[7]][0]
+            rect=Polygon(list(zip(ring[::2],ring[1::2]))).minimum_rotated_rectangle
+            points=list(rect.exterior.coords)
+            edges=[(math.dist(a,b),a,b) for a,b in zip(points,points[1:])]
+            length,a,b=max(edges)
+            structure[1:6]=[round(rect.centroid.x,3),round(rect.centroid.y,3),round(math.atan2(b[0]-a[0],b[1]-a[1]),4),round(min(edges)[0],3),round(length,3)]
     fences=surveyed_fences(sources.pop("fence"),network,amenities,footprints,roads,furniture["fenceTraces"])
     for kind,features in sources.items():
         for f in features:
@@ -242,6 +290,14 @@ def build():
                     arch=2 if "coach" in symbol or "post top" in symbol or "colonial" in symbol else 1 if "2 arm" in symbol or "2 head" in symbol else 0
                     h=5.5 if arch==2 else 10 if attrs["RoadClass"]=="Arterial" else 7.9
                     yaw=round(math.radians(float(attrs["Rotation"] or 0)),3)
+                    if arch==0:
+                        site=Point(x,z)
+                        way=int(axes.nearest(site));axis=axes.geometries[way]
+                        closest=axis.interpolate(axis.project(site))
+                        dx,dz=closest.x-x,closest.y-z
+                        distance=math.hypot(dx,dz)
+                        if distance<=carriageways[way]['width']*.5+h+1.2 and dx*math.sin(yaw)+dz*math.cos(yaw)<-distance*.25:
+                            yaw=round((yaw+math.pi)%math.tau,3)
                     tile(x,z)["lamps"].append([round(x,2),round(z,2),h,yaw,arch,attrs["PoleMaterial"]=="Wood"])
                 else:
                     if crowns.query((x,z))[0]<4.6 or (attrs["Condition"] or "").lower() in ("dead","removed"):
@@ -249,7 +305,7 @@ def build():
                         continue
                     diam=max(3,min(float(attrs["Diameter"] or 18),140))
                     genus=(attrs["Botanical"] or "").split(" ")[0]
-                    form=1 if genus in ("Picea","Abies","Tsuga") else 2 if genus=="Pinus" else 3 if genus in ("Thuja","Juniperus") else {"Salix":4,"Quercus":5,"Ulmus":6,"Gleditsia":7,"Tilia":8,"Acer":9}.get(genus,0)
+                    form=1 if genus in ("Picea","Abies","Tsuga") else 2 if genus=="Pinus" else 3 if genus in ("Thuja","Juniperus") else {"Salix":4,"Quercus":5,"Ulmus":6,"Gleditsia":7,"Tilia":8,"Acer":9,"Betula":11,"Populus":12,"Fraxinus":13,"Fagus":14}.get(genus,0)
                     evergreen=form in (1,2,3)
                     estimated=inferred_height(x,z,min(3.7,max(1.4,diam*.08)))
                     h=min(max(3.,2.2*math.sqrt(diam)),21.) if estimated<2 else min(estimated,27)
@@ -304,6 +360,16 @@ def build():
     platform_furniture(data["furniture"],network,amenities,json.loads(OUT.with_name("street-detail.json").read_bytes()))
     data["woodlots"]=woodlots(outer,core,tiles)
     data["woodlots"]["estates"]=estate_crowns()
+    estate=data["woodlots"]["estates"]
+    estate_index=cKDTree([p[:2] for p in estate])
+    estate_site=footprint()
+    for i,(x,z,h,r,form) in enumerate(estate):
+        if len(estate_index.query_ball_point([x,z],12))<4:continue
+        for j in range(2):
+            angle=i*2.39996+j*2.7
+            X=x+r*.69*math.cos(angle);Z=z+r*.69*math.sin(angle)
+            if estate_site.contains(Point(X,Z)):
+                data["woodlots"]["understory"].append([round(X,2),round(Z,2),round(.6+(i%8)*.12,2),1 if form==10 else 0])
     payload=json.dumps(data,separators=(",",":"),allow_nan=False)
     pending=OUT.with_suffix(".tmp")
     pending.write_text(payload)

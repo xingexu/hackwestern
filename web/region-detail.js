@@ -1,3 +1,5 @@
+import {campusSeat,campusBikeRack} from './street-detail.js';
+
 export function pruneStadiumTrees(region,data) {
   const stands=data.macro.filter(f=>f[0]==='grandstand');
   region.trees=region.trees.filter(([x,,z])=>!stands.some(([kind,id,cx,y,cz,yaw,w,l])=>{
@@ -245,16 +247,139 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
     mesh.receiveShadow=true;
     return mesh;
   }
-  function bench(at,u=0,t=0,length=1.7) {
-    for (const s of [-1,1]) at(u+s*length*.35,.23,t,.08,.45,.48,iron);
-    for (let i=0;i<4;i++) at(u,.47,t-.18+i*.12,length,.055,.09,wood);
-    for (let i=0;i<3;i++) at(u,.61+i*.12,t+.23,length,.085,.065,wood);
+  function bench(at,u=0,t=0,length=1.8,style){
+    campusSeat((x,y,z,...part)=>at(u+x,y,t+z,...part),length,style);
   }
   function prop([kind,id,x,y,z,yaw,width,side,count]) {
     if(network?.groundAt && kind!=='entrance')y=network.groundAt(x,z);
     const at=local(x,y,z,yaw);
+    const finish=data.fixtureFinishes?.get(kind+','+x+','+z);
     const post=(height,thick=.115,color=steel)=>at(0,height/2,0,thick,height,thick,color);
     switch(kind) {
+      case 'field_shed': case 'parking_enclosure': case 'park_enclosure': case 'green_enclosure': case 'shipping_container': {
+        const length=side,height=count,container=kind==='shipping_container',shed=kind==='field_shed';
+        const blue=container&&finish==='blue';
+        const skin=container?(blue?0x608695:0x9c5541):kind==='green_enclosure'?0x537665:shed?0xbab39c:0xa69f8b,edge=container?(blue?0x455d69:0x744839):0x827e71;
+        at(0,.065,0,width+.12,.13,length+.12,0x98968a);
+        for(const sign of [-1,1]){
+          at(sign*(width*.5-.048),height*.5,0,.065,height-.10,length-.07,skin);
+          at(0,height*.5,sign*(length*.5-.048),width-.07,height-.10,.065,skin);
+        }
+        at(0,height-.055,0,width+.08,.11,length+.10,container?(blue?0x7395a3:0xa65e47):0xb7b3a1);
+        for(const u of [-1,1]){
+          at(u*(width*.5-.045),height*.50,length*.5-.055,.095,height,.10,edge);
+          at(u*(width*.5-.045),height*.50,-length*.5+.055,.095,height,.10,edge);
+          if(container)for(let t=-length*.5+.16;t<length*.5-.09;t+=.29)
+            at(u*(width*.5-.008),height*.51,t,.048,height-.20,.096,blue?0x7193a2:0xa8614d);
+        }
+        const door=container?width*.88:Math.min(width*.73,1.86);
+        for(const direction of [-1,1]){
+          at(direction*door*.252,height*.44,-length*.5,door*.49,height*.84,.065,edge);
+          at(direction*door*.252,height*.45,-length*.5-.035,door*.46,height*.79,.03,skin);
+          at(direction*door*.15,container?height*.45:1.02,-length*.5-.072,.038,container?height*.80:.18,.035,iron);
+        }
+        break;
+      }
+      case 'parking_arm': {
+        at(0,.075,0,.54,.15,.55,stone);
+        at(0,.56,0,.34,.95,.35,0x626964);
+        at(0,1.03,0,.37,.085,.38,0x9d9c8d);
+        at(0,count,width*.50,.09,.115,width,white);
+        for(let t=.32;t<width-.10;t+=.72)at(0,count,t,.104,.122,.29,0xb3473e);
+        break;
+      }
+      case 'survey_goal': {
+        const rise=count,depth=side;
+        for(const sign of [-1,1]){
+          at(sign*width*.5,rise*.5,0,.10,rise,.10,white);
+          at(sign*width*.5,.045,depth*.5,.074,.08,depth,white);
+          at(sign*width*.5,rise*.50,depth*.5,.06,Math.hypot(depth,rise),.06,steel,0,-Math.atan2(depth,rise));
+        }
+        at(0,rise,0,width+.1,.10,.10,white);
+        at(0,.045,depth,width,.08,.08,steel);
+        const netPitch=-Math.atan2(depth,rise);
+        for(let u=-width*.5+.20;u<width*.5;u+=.22)at(u,rise*.5,depth*.5,.014,Math.hypot(depth,rise),.014,0xb4b6a6,0,netPitch);
+        for(let j=1;j<12;j++)at(0,rise*j/12,depth*(1-j/12),width,.014,.014,0xb4b6a6);
+        break;
+      }
+      case 'service_tank': {
+        const radius=width*.5,rows=18;
+        for(let row=0;row<rows;row++){
+          const t=((row+.5)/rows*2-1)*radius;
+          const chord=2*Math.sqrt(radius*radius-t*t);
+          at(0,.08,t,chord+.12,.16,width/rows+.012,stone);
+          at(0,count*.46,t,chord,count*.91,width/rows+.008,0xaeb3aa);
+          at(0,count*.92,t,chord,.13,width/rows+.012,0xbec1b6);
+        }
+        at(0,count,.08,.37,.12,.34,0x808b80);
+        break;
+      }
+      case 'stone_pier':
+        at(0,.045,0,width+.09,.09,side+.09,stone);
+        at(0,count*.49,0,width,count*.94,side,0x9d998c);
+        at(0,count-.055,0,width+.095,.11,side+.095,0xb8b4a7);
+        break;
+      case 'round_planter': {
+        const rows=12;
+        for(let i=0;i<rows;i++){
+          const t=2*(i+.5)/rows-1,chord=Math.sqrt(1-t*t);
+          at(0,count*.43,t*side*.44,width*.88*chord,count*.86,side*.88/rows,0xaaa796);
+          at(0,count-.055,t*side*.5,width*chord,.11,side/rows,0xbab3a4);
+          at(0,count+.006,t*side*.41,width*.82*chord,.013,side*.82/rows,0x655843);
+        }
+        break;
+      }
+      case 'stone_planter':
+        at(0,.08,0,width*.65,.16,side*.65,stone);
+        at(0,count*.56,0,width*.91,count*.66,side*.91,0xaaa796);
+        at(0,count-.06,0,width,.12,side,0xbcb7a4);
+        at(0,count-.013,0,width*.74,.05,side*.74,0x655843);
+        break;
+      case 'pay_station':
+        at(0,.055,0,width+.25,.11,side+.24,stone);
+        at(0,count*.50,0,width,count,side,0x67716e);
+        at(0,count*.76,-side*.5,.36,.29,.055,0x343e42);
+        at(0,count*.54,-side*.5,.16,.065,.064,0xd2cbbd);
+        break;
+      case 'gate_island':
+        at(0,.09,0,width,.18,side,stone);
+        at(0,.56,0,1.24,.85,2.42,0xafa994);
+        at(0,1.57,0,1.21,1.19,2.39,glass);
+        for(const u of [-.60,.60])for(const t of [-1.19,0,1.19])at(u,1.57,t,.055,1.19,.055,iron);
+        at(0,count-.06,0,1.54,.12,2.75,0x8a897f);
+        break;
+      case 'scoreboard':
+        for(const u of [-width*.34,width*.34]){
+          at(u,.12,0,.68,.24,.72,stone);
+          at(u,count*.47,0,.26,count*.94,.28,iron);
+        }
+        at(0,count*.71,0,width,count*.43,.25,0x373c42);
+        at(0,count*.72,-.14,width-.31,count*.37,.04,0x4b4850);
+        for(const u of [-.39,-.13,.13,.39]){
+          at(u*width,count-.31,0,.065,.61,.065,steel);
+          at(u*width,count-.09,-.11,.40,.18,.26,0xbdbbaf);
+        }
+        break;
+      case 'survey_bleachers':
+        at(0,.075,0,width+.62,.15,side+.55,0xc8c5b7);
+        for(let tier=0;tier<5;tier++){
+          const level=.39+(count-.39)*tier/4,t=(tier/4-.5)*(side-.42);
+          at(0,level,t,width,.088,.32,0xc1c5c2);
+          at(0,level-.19,t-.31,width,.075,.37,0xa9adab);
+          for(const u of [-.39,-.13,.13,.39])at(width*u,(level+.12)/2,t,.067,level-.12,.076,steel);
+        }
+        break;
+      case 'seating_circle': {
+        const radius=width*.48;
+        for(let i=0;i<18;i++){
+          const a=i*Math.PI/9,dx=Math.sin(a),dz=Math.cos(a);
+          if(i%6!==0)at(dx*radius,.29,dz*radius,1.09,.53,.49,0xb8af97,a);
+        }
+        at(0,.14,0,1.32,.28,1.42,stone);
+        for(const [u,h,t,lean] of [[-.28,1.18,.18,-.17],[.16,1.52,-.18,.22],[.39,.93,.24,-.27]])
+          at(u,.26+h/2,t,.27,h,.30,0x76766a,0,0,lean);
+        break;
+      }
       case 'kerb':
         at(0,.06,0,.46,.1,1.05,stone); break;
       case 'traffic_signals':
@@ -271,6 +396,10 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
       case 'stop':
         post(2.45,.08); break;
       case 'street_lamp':
+        at(0,.07,0,.32,.14,.32,stone);
+        at(0,.26,0,.19,.27,.19,steel);
+        at(.082,.67,0,.035,.22,.093,iron);
+        at(0,5.92,0,.178,.19,.18,steel);
         post(6.2,.145); at(-side*.51,6.12,0,1.16,.12,.12,iron);
         at(-side*.96,6.06,0,.58,.16,.28,iron); at(-side*.96,5.965,0,.49,.055,.22,cream); break;
       case 'bus_stop':
@@ -282,14 +411,8 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
         at(0,1.22,.74,2.9,1.77,.04,0xa6b6b4);
         if(count)bench(at,0,.37,2.25);
         break;
-      case 'bicycle_parking':
-        for(let i=0;i<Math.min(count,7);i++){
-          const u=(i-(Math.min(count,7)-1)*.5)*.76;
-          for(const t of [-.34,.34]) at(u,.36,t,.057,.72,.057,steel);
-          at(u,.71,0,.058,.06,.72,steel);
-        }
-        break;
-      case 'bench': bench(at); break;
+      case 'bicycle_parking': campusBikeRack(at,count,data.furnitureStyles?.[id]); break;
+      case 'bench': bench(at,0,0,1.8,finish??data.furnitureStyles?.[id]); break;
       case 'bleachers':
         for(let row=0;row<4;row++){
           const level=.42+row*.34,depth=row*.70-1.05;
@@ -298,15 +421,31 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
           for(const side of [-3.1,-1.04,1.04,3.1])at(side,level*.50,depth,.08,level,.10,steel);
         }
         break;
-      case 'picnic_table':
+      case 'picnic_table': {
+        if(finish==='round'){
+          at(0,.39,0,.16,.77,.16,iron);
+          for(let j=-3;j<=3;j++){
+            const t=j*.145;
+            at(0,.78,t,2*Math.sqrt(.58*.58-t*t),.072,.14,0xacb2a8);
+          }
+          for(let i=0;i<4;i++){
+            const a=i*Math.PI*.5,dx=Math.sin(a),dz=Math.cos(a);
+            at(dx*.59,.24,dz*.59,.10,.48,.10,steel);
+            at(dx*.42,.27,dz*.42,.072,.08,.83,steel,a);
+            at(dx*.73,.47,dz*.73,.62,.075,.27,0x989f98,a);
+          }
+          break;
+        }
+        const board=finish==='plum'?0x805e75:finish==='vermilion'?0xaa6548:wood;
         for(const u of [-.58,.58]){
           const base=network?.groundAt?Math.min(0,network.groundAt(x+Math.cos(yaw)*u,z-Math.sin(yaw)*u)-y):0;
           at(u,(.72+base)*.5,0,.12,.72-base,.75,wood);
           at(u,.31,0,.12,.1,1.36,iron);
         }
-        for(const t of [-.59,.59]) at(0,.46,t,1.73,.09,.26,wood);
-        for(const t of [-.25,0,.25]) at(0,.77,t,1.8,.085,.23,wood);
+        for(const t of [-.59,.59]) at(0,.46,t,1.73,.09,.26,board);
+        for(const t of [-.25,0,.25]) at(0,.77,t,1.8,.085,.23,board);
         break;
+      }
       case 'entrance':
         at(0,1.05,0,1.16,2.1,.26,iron); at(0,1.38,0,.93,.98,.29,glass);
         for(const u of [-.63,.63]) at(u,1.14,0,.12,2.28,.33,stone);
@@ -322,7 +461,39 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
         at(0,.57,-.223,.39,.48,.026,0xad5044);
         break;
       case 'phone':
-        post(2.17,.23,0x385d9a); at(0,2.18,0,.28,.18,.28,0x72c4e1); at(0,1.25,.13,.16,.34,.05,white); break;
+        at(0,.065,0,.40,.13,.39,stone);
+        at(0,1.06,0,.255,1.99,.22,0x36558a);
+        at(0,1.32,-.117,.18,.40,.022,steel);
+        at(0,1.37,-.133,.108,.092,.019,0x58635f);
+        at(.035,1.23,-.140,.044,.042,.022,0xbcb49b);
+        at(0,2.09,0,.18,.20,.16,0x79acc8);
+        at(0,2.205,0,.23,.045,.20,steel);
+        break;
+      case 'fire_circle':
+        for(let i=0;i<6;i++){
+          const a=yaw+i*Math.PI/3,t=width*.40;
+          at(Math.sin(a)*t,.21,Math.cos(a)*t,1.66,.33,.32,0x908268,a);
+          const u=.57*Math.sin(a),v=.57*Math.cos(a);
+          at(u,.115,v,.58,.21,.23,stone,a);
+        }
+        break;
+      case 'recycling_bin':
+        for(const u of [-.45,.45])for(const t of [-.35,.35])at(u,.10,t,.13,.20,.12,iron);
+        at(0,.66,0,1.15,.98,.92,0x496072);
+        for(const u of [-.51,.51])at(u,.68,-.47,.055,.87,.045,0x72808c);
+        at(0,1.21,0,1.19,.13,1.01,0x405265);
+        at(.18,1.29,-.30,.25,.035,.042,iron);
+        break;
+      case 'hoop':
+        at(0,.075,0,.77,.15,.76,stone);
+        at(0,1.70,0,.12,3.32,.12,steel);
+        at(0,3.48,.46,.11,.13,.95,steel);
+        at(0,3.44,.94,1.64,.95,.071,0xd7d5c9);
+        for(let i=0;i<12;i++){
+          const a=i*Math.PI/6;
+          at(.226*Math.cos(a),3.05,1.24+.226*Math.sin(a),.035,.035,.125,0xbb643d,-a);
+        }
+        break;
       case 'fire_hydrant':
         post(.82,.29,0xba4439); at(0,.51,0,.62,.18,.20,0xbb883c); at(0,.82,0,.33,.13,.33,0xbd963d); break;
       case 'utility_cabinet':
@@ -373,6 +544,9 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
         at(u,.49,0,.055,.97,.055,steel);
         beam(x+dx,y+1,z+dz,X+dx,Y+1,Z+dz,.06,steel);
       }
+    } else if(kind==='compound_wall'){
+      beam(x,y+.68,z,X,Y+.68,Z,1.36,0xa69e89,.22);
+      beam(x,y+1.39,z,X,Y+1.39,Z,.07,0xbab6a6,.28);
     } else if(kind==='survey_fence'){
       const n=Math.ceil(length/2.7);
       for(let i=0;i<n;i++)at(0,.79+(Y-y)*i/n,length*i/n,.065,1.58,.065,steel);
@@ -384,6 +558,15 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
           wirePositions.push(x+(X-x)*along,y+(Y-y)*along+h,z+(Z-z)*along);
           wireUV.push(length*along,h);
         }
+      }
+    } else if(kind==='iron_fence'){
+      const n=Math.ceil(length/2.45);
+      for(let i=0;i<n;i++)at(0,.66+(Y-y)*i/n,length*i/n,.074,1.32,.074,iron);
+      for(const h of [.21,1.08])beam(x,y+h,z,X,Y+h,Z,.045,iron);
+      const bars=Math.ceil(length/.15);
+      for(let k=0;k<bars;k++){
+        const f=(k+.5)/bars;
+        at(0,.69+(Y-y)*f,length*f,.028,1.10,.028,iron);
       }
     } else if (kind==='fence') {
       const n=Math.ceil(length/2.35);
@@ -474,6 +657,8 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
         for(const s of [-1,1]) for(const e of [-1,1]) {
           let u=s*(w/2+22);
           const t=e*l*.38;
+          const px=x+Math.cos(yaw)*u+Math.sin(yaw)*t,pz=z-Math.sin(yaw)*u+Math.cos(yaw)*t;
+          if(data.athleticMasts?.some(([X,Z,h])=>h>=18&&Math.hypot(px-X,pz-Z)<26))continue;
           for(let k=0;k<26;k++){
             const px=x+Math.cos(yaw)*u+Math.sin(yaw)*t,pz=z-Math.sin(yaw)*u+Math.cos(yaw)*t;
             if(!network.crownClear || network.crownClear(px,(network.groundAt?.(px,pz)??y)+10,pz,.5,11))break;
@@ -525,8 +710,16 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
         }
         break;
       case 'volleyball':
-        boundary(); at(0,2.09,0,w,.77,.045,iron); at(0,2.49,0,w,.07,.06,white);
-        for(const s of [-1,1]) at(s*w*.51,1.25,0,.09,2.5,.09,iron); break;
+        boundary();
+        for(const side of [-1,1])at(side*w*.51,1.25,0,.09,2.5,.09,iron);
+        {
+          const net=local(x,network?.groundAt?.(x,z)??y,z,yaw);
+          const cols=Math.max(2,Math.round(w/.102));
+          for(let j=0;j<=cols;j++)net((j/cols-.5)*w,2.08,0,.009,.80,.009,0x4b504e);
+          for(let j=0;j<=8;j++)net(0,1.68+j*.10,0,w,.009,.009,0x535754);
+          net(0,2.49,0,w,.048,.026,white);
+        }
+        break;
       case 'basketball':
         boundary(); stripe(0,0,w,.1);
         for(const s of [-1,1]) {at(0,1.75,s*l*.47,.13,3.5,.13,steel); at(0,3.28,s*l*.46,1.8,.98,.09,white);

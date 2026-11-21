@@ -17,7 +17,7 @@ try {
     const name=new URL(route.request().url()).pathname.slice(1);
     if(!name) return route.fulfill({contentType:'text/html',body:'<script type="importmap">{"imports":{"campus-terrain":"/campus-terrain.mjs","campus-architecture":"/architecture.js","three":"/three.js","leaf-sprays":"/leaf-sprays.js"}}</script><body style="margin:0"></body>'});
     if(name==='three.js') return route.fulfill({contentType:'text/javascript',body:three});
-    if(['campus-terrain.mjs','look/water.mjs','look/surface-response.mjs','region-detail.js','architecture.js','leaf-sprays.js','campus-region.js','region-detail.json','campus-region.json'].includes(name)) {
+    if(['campus-terrain.mjs','look/water.mjs','look/surface-response.mjs','region-detail.js','street-detail.js','architecture.js','leaf-sprays.js','campus-region.js','region-detail.json','campus-region.json'].includes(name)) {
       return route.fulfill({contentType:/\.m?js$/.test(name)?'text/javascript':'application/json',body:await readFile(resolve(root,name))});
     }
     await route.abort();

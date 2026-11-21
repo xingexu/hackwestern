@@ -48,6 +48,11 @@
       "color": "#70716b",
       "surface": "perforated",
       "opacity": 0.28
+    },
+    "airlock": {
+      "kind": "painted-metal",
+      "color": "#85857e",
+      "roughness": 0.72
     }
   },
   "floors": {
@@ -137,22 +142,6 @@
             525.33
           ],
           [
-            576.43,
-            523.81
-          ],
-          [
-            576.49,
-            523.03
-          ],
-          [
-            574.02,
-            522.84
-          ],
-          [
-            573.95,
-            523.73
-          ],
-          [
             550.71,
             521.94
           ],
@@ -168,7 +157,7 @@
         "name": "Low airlock at the join between court enclosures",
         "height": 2.4,
         "floors": 1,
-        "material": "trim",
+        "material": "airlock",
         "facade": {
           "blank": true,
           "windows": {
@@ -192,26 +181,26 @@
         },
         "roof": {
           "form": "flat",
-          "material": "trim",
+          "material": "airlock",
           "edge": "parapet",
           "overhang": 0
         },
         "footprint": [
           [
-            570.3,
-            522.1
+            571.5,
+            522.18
           ],
           [
-            573.98,
-            522.3
+            574.02,
+            522.37
           ],
           [
-            573.9,
-            524.2
+            573.91,
+            523.91
           ],
           [
-            570.16,
-            523.9
+            571.39,
+            523.72
           ]
         ]
       }

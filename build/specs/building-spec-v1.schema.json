@@ -713,6 +713,10 @@
             }
           }
         },
+        "cornerGlazing": {
+          "type": "number",
+          "minimum": 0
+        },
         "verticalSpandrels": {
           "type": "object",
           "required": [
@@ -727,6 +731,10 @@
             "width": {
               "type": "number",
               "exclusiveMinimum": 0
+            },
+            "recess": {
+              "type": "number",
+              "minimum": 0
             },
             "material": {
               "$ref": "#/$defs/materialRef"
@@ -877,6 +885,24 @@
               "walls": {
                 "$ref": "#/$defs/wallSelector"
               },
+              "pipePath": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "$ref": "#/$defs/point"
+                }
+              },
+              "diameter": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "bayWidth": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "wellMaterial": {
+                "$ref": "#/$defs/materialRef"
+              },
               "style": {
                 "type": "string"
               },
@@ -898,6 +924,7 @@
                 "enum": [
                   "fan",
                   "duct",
+                  "pipe",
                   "hatch",
                   "screen",
                   "cabinet",
@@ -1435,6 +1462,9 @@
             "type": "number"
           },
           "material": {
+            "$ref": "#/$defs/materialRef"
+          },
+          "capMaterial": {
             "$ref": "#/$defs/materialRef"
           },
           "columns": {

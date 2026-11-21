@@ -140,19 +140,18 @@ function gameContent() {
       await mkdir(join(output,'assets'),{recursive:true});
       async function publish(name){
         const src=join(staging,name),dest=join(output,name);
-        if(/\.(js|json|css|html|bin)$/.test(basename(name))){
+        if(/\.(js|json|css|html|bin|webmanifest)$/.test(basename(name))){
           const raw=await readFile(src);
-          if(raw.length>=2048){
-            const br=brotliCompressSync(raw,{params:{[constants.BROTLI_PARAM_QUALITY]:5}});
-            if(br.length<raw.length*.90){
-              await writeFile(src+'.br',br);
-              await rename(src+'.br',dest+'.br');
-            }
-          }
+          const br=brotliCompressSync(raw,{params:{[constants.BROTLI_PARAM_QUALITY]:5}});
+          await writeFile(src+'.br',br);
+          await rename(src+'.br',dest+'.br');
         }
         await rename(src,dest);
       }
-      for(const file of phoneAssets) await writeFile(join(output,file),await readFile(join(web,'phone',file)));
+      for(const file of phoneAssets){
+        await writeFile(join(staging,file),await readFile(join(web,'phone',file)));
+        await publish(file);
+      }
       for(const file of files) await publish('assets/'+file);
       await publish('index.html');
       await rm(staging,{recursive:true,force:true});

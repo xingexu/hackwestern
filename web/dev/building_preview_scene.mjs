@@ -42,8 +42,9 @@ export async function renderBuilding({building,neighbors,frames,aerial,surveyBou
     pmrem.dispose();sphere.geometry.dispose();sphere.material.dispose();
   }
   scene.environment=renderer.userDataEnvironment.texture;scene.environmentIntensity=.48;
-  fitArchitecture([building,...neighbors],ground);
-  const visibility=campusSightlines(building,neighbors),streetVisibility=campusSightlines(building,neighbors,true);
+  fitArchitecture([building,...neighbors],ground,[],false);
+  let visibility;
+  const streetVisibility=campusSightlines(building,neighbors,true);
   const model=architectureMesh(buildArchitecture([building],2));
   const context=architectureMesh(buildArchitecture(neighbors,1));
   scene.add(model,context);
@@ -57,16 +58,20 @@ export async function renderBuilding({building,neighbors,frames,aerial,surveyBou
   function jpg(canvas){return canvas.toDataURL('image/jpeg',.92).split(',')[1];}
   const view=new THREE.PerspectiveCamera(39,1.5,.15,2200);
   for(const [name,dx,dz] of [['ne',1,-1],['se',1,1],['sw',-1,1],['nw',-1,-1]]){
-    const reach=Math.max(extent*.94,(high-y)*1.48);
-    let best=-1,point;
-    for(const elevation of [.77,1.15,1.55])for(const degrees of [0,-18,18,-34,34]){
-      const a=degrees*Math.PI/180;
-      const eye=[x+reach*(dx*Math.cos(a)-dz*Math.sin(a)),y+reach*elevation+(high-y)*.3,z+reach*(dx*Math.sin(a)+dz*Math.cos(a))];
-      const score=visibility(eye)/(1+Math.abs(degrees)*.007+(elevation-.77)*.38);
-      if(score>best){best=score;point=eye;}
-    }
     const registered=obliqueReference?.[name];
-    const eye=registered?.eye??point,target=registered?.target??[x,y+(high-y)*.43,z];
+    const target=registered?.target??[x,y+(high-y)*.43,z];
+    let eye=registered?.eye;
+    if(!eye){
+      visibility??=campusSightlines(building,neighbors);
+      const reach=Math.max(extent*.94,(high-y)*1.48);
+      let best=-1;
+      for(const elevation of [.77,1.15,1.55])for(const degrees of [0,-18,18,-34,34]){
+        const a=degrees*Math.PI/180;
+        const point=[x+reach*(dx*Math.cos(a)-dz*Math.sin(a)),y+reach*elevation+(high-y)*.3,z+reach*(dx*Math.sin(a)+dz*Math.cos(a))];
+        const score=visibility(point)/(1+Math.abs(degrees)*.007+(elevation-.77)*.38);
+        if(score>best){best=score;eye=point;}
+      }
+    }
     obliques[name]={eye,target};
     view.position.set(...eye);
     view.lookAt(...target);

@@ -3,7 +3,7 @@ import {riverFinish} from './water.mjs';
 import * as THREE from 'three';
 import {anchoredHeight} from 'driving-horizon';
 
-import {foliageCluster,leafSprayTexture,lightLeafBacks} from 'leaf-sprays';
+import {barkFinish,foliageCluster,leafSprayTexture,lightLeafBacks} from 'leaf-sprays';
 import southSurvey from './landscape-data.mjs';
 
 const palette=[[0,0,0],[0,0,0],[0,0,0],[255,0,0],[0,255,0]];
@@ -113,7 +113,7 @@ export async function landscapeBackground(region,landscape,boundary,cover,unpack
 function addTreeline(ground,records,grade,boundary,anchors){
   const tiles=new Map();
   for(let i=0;i<records.length;i+=5){
-    if(anchors && !anchors.has(i/5))continue;
+    if(boundary.contains(records[i],records[i+1])||(anchors && !anchors.has(i/5)))continue;
     const key=Math.floor(records[i]/256)+','+Math.floor(records[i+1]/256);
     if(!tiles.has(key))tiles.set(key,[]);
     tiles.get(key).push(i);
@@ -122,10 +122,9 @@ function addTreeline(ground,records,grade,boundary,anchors){
   const canopy=new THREE.MeshStandardMaterial({map:leafSprayTexture(),alphaTest:.36,side:THREE.DoubleSide,roughness:.92});
   canopy.onBeforeCompile=lightLeafBacks;
   const bark=new THREE.MeshStandardMaterial({color:0x63594a});
-  boundary.coatExterior(canopy);boundary.coatExterior(bark);
+  bark.onBeforeCompile=barkFinish;
   const crownDepth=new THREE.MeshDepthMaterial({map:canopy.map,alphaTest:canopy.alphaTest,side:THREE.DoubleSide,depthPacking:THREE.RGBADepthPacking});
   const barkDepth=new THREE.MeshDepthMaterial({depthPacking:THREE.RGBADepthPacking});
-  boundary.coatExterior(crownDepth);boundary.coatExterior(barkDepth);
   const transform=new THREE.Object3D(),color=new THREE.Color();
   for(const sites of tiles.values()){
     const crowns=new THREE.InstancedMesh(leaves,canopy,sites.length*8);

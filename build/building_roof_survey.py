@@ -87,8 +87,11 @@ def survey_roofs(record,building):
         strength=.48 if kind in ('membrane','gravel-ballast','concrete-smooth','standing-seam-metal') else .36
         colour=base*(1-strength)+median*strength
         if part['roof']['form']=='flat' and kind in ('membrane','gravel-ballast','concrete-smooth'):
-            slope,ambient=(.80,55.) if kind=='gravel-ballast' else (.69,70.)
-            calibrated=np.clip((median-ambient)/slope,median*.52,255)
+            light=np.percentile(values.mean(axis=1),62)
+            sunlit=values[values.mean(axis=1)>=light-15]
+            daylight=np.median(sunlit,axis=0) if len(sunlit)>=12 else median
+            target=.65*median+.35*daylight
+            calibrated=np.clip((target-12)/.93+np.maximum(target-165,0)*.24,0,255)
             colour=base*.17+calibrated*.83
         rectangle=np.array(shape.minimum_rotated_rectangle.exterior.coords)[:4]
         edges=np.roll(rectangle,-1,axis=0)-rectangle

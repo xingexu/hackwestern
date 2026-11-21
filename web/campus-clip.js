@@ -130,7 +130,7 @@ export function campusClip(THREE,data){
   const depth=new THREE.MeshDepthMaterial({depthPacking:THREE.RGBADepthPacking});
   coat(depth);
   function attach(object){
-    if(!object||visitedObjects.has(object))return;
+    if(!object||object.userData.parcelRootedCanopy||visitedObjects.has(object))return;
     visitedObjects.add(object);
     if(object.isMesh){
       for(const m of [object.material].flat())coat(m);

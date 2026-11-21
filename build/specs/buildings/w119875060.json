@@ -1539,7 +1539,7 @@
         "floors": 6
       },
       {
-        "name": "West stair and residence block",
+        "name": "West stair and residence block below the window stacks",
         "footprint": [
           [
             102.8,
@@ -1574,8 +1574,8 @@
             1205.176
           ]
         ],
-        "height": 24.4,
-        "floors": 8,
+        "height": 10.15,
+        "floors": 3,
         "facade": {
           "material": "wall",
           "bays": {
@@ -1606,7 +1606,8 @@
           "verticalSpandrels": {
             "every": 3,
             "width": 1.5,
-            "material": "spandrel"
+            "material": "spandrel",
+            "recess": 0.24
           },
           "topFloor": {
             "windows": {
@@ -1614,10 +1615,119 @@
             },
             "material": "wall"
           }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
         }
       },
       {
-        "name": "East stair and lift block",
+        "name": "West stair and residence block",
+        "footprint": [
+          [
+            103.5,
+            1213.4
+          ],
+          [
+            100.3,
+            1213.6
+          ],
+          [
+            101.1,
+            1225.1
+          ],
+          [
+            110.7,
+            1224.5
+          ],
+          [
+            109.8,
+            1211.0
+          ],
+          [
+            110.497,
+            1210.952
+          ],
+          [
+            110.128,
+            1205.87
+          ],
+          [
+            108.21,
+            1206.009
+          ],
+          [
+            108.159,
+            1205.314
+          ],
+          [
+            106.367,
+            1205.443
+          ],
+          [
+            106.418,
+            1206.141
+          ],
+          [
+            103.785,
+            1206.331
+          ],
+          [
+            103.734,
+            1205.633
+          ],
+          [
+            102.8,
+            1205.7
+          ]
+        ],
+        "height": 24.4,
+        "floors": 5,
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "width": 4
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.34,
+            "height": 1.65,
+            "sill": 0.8,
+            "glassColor": "#536368",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0.08,
+            "depth": 0.07,
+            "material": "trim"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.12,
+            "material": "roofTrim"
+          },
+          "verticalSpandrels": {
+            "every": 3,
+            "width": 1.5,
+            "material": "spandrel",
+            "recess": 0.24
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            },
+            "material": "wall"
+          }
+        },
+        "baseOffset": 10.15
+      },
+      {
+        "name": "East stair and lift block below the window stacks",
         "footprint": [
           [
             110.9,
@@ -1636,8 +1746,8 @@
             1223.9
           ]
         ],
-        "height": 27.1,
-        "floors": 8,
+        "height": 10.15,
+        "floors": 3,
         "facade": {
           "material": "wall",
           "bays": {
@@ -1668,7 +1778,8 @@
           "verticalSpandrels": {
             "every": 3,
             "width": 1.5,
-            "material": "spandrel"
+            "material": "spandrel",
+            "recess": 0.24
           },
           "topFloor": {
             "windows": {
@@ -1676,7 +1787,92 @@
             },
             "material": "wall"
           }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
         }
+      },
+      {
+        "name": "East stair and lift block",
+        "footprint": [
+          [
+            110.9,
+            1212.0
+          ],
+          [
+            111.7,
+            1223.9
+          ],
+          [
+            120.0,
+            1223.3
+          ],
+          [
+            119.1,
+            1211.4
+          ],
+          [
+            114.431,
+            1211.742
+          ],
+          [
+            114.482,
+            1212.44
+          ],
+          [
+            111.849,
+            1212.633
+          ],
+          [
+            111.798,
+            1211.934
+          ]
+        ],
+        "height": 27.1,
+        "floors": 5,
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "width": 4
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.34,
+            "height": 1.65,
+            "sill": 0.8,
+            "glassColor": "#536368",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0.08,
+            "depth": 0.07,
+            "material": "trim"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.12,
+            "material": "roofTrim"
+          },
+          "verticalSpandrels": {
+            "every": 3,
+            "width": 1.5,
+            "material": "spandrel",
+            "recess": 0.24
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            },
+            "material": "wall"
+          }
+        },
+        "baseOffset": 10.15
       },
       {
         "name": "Glazed stair slot",
@@ -2560,20 +2756,20 @@
         "name": "Tower window stack 0.0",
         "footprint": [
           [
-            103.727,
-            1205.543
+            103.786,
+            1206.341
           ],
           [
-            106.36,
-            1205.353
+            106.419,
+            1206.151
           ],
           [
-            106.37,
-            1205.488
+            106.391,
+            1205.772
           ],
           [
-            103.737,
-            1205.678
+            103.758,
+            1205.962
           ]
         ],
         "height": 21.65,
@@ -2595,7 +2791,8 @@
             "mullions": {
               "vertical": 1,
               "horizontal": 0
-            }
+            },
+            "recess": 0.155
           },
           "cornice": {
             "height": 0,
@@ -2615,20 +2812,20 @@
         "name": "Recessed tower louvre 0.0",
         "footprint": [
           [
-            103.727,
-            1205.543
+            103.786,
+            1206.341
           ],
           [
-            106.36,
-            1205.353
+            106.419,
+            1206.151
           ],
           [
-            106.37,
-            1205.488
+            106.391,
+            1205.772
           ],
           [
-            103.737,
-            1205.678
+            103.758,
+            1205.962
           ]
         ],
         "height": 24.24,
@@ -2660,20 +2857,20 @@
         "name": "Tower window stack 0.1",
         "footprint": [
           [
-            108.152,
-            1205.221
+            108.183,
+            1205.64
           ],
           [
-            110.785,
-            1205.031
+            108.211,
+            1206.019
           ],
           [
-            110.795,
-            1205.166
+            110.129,
+            1205.88
           ],
           [
-            108.162,
-            1205.356
+            110.102,
+            1205.501
           ]
         ],
         "height": 21.65,
@@ -2695,7 +2892,8 @@
             "mullions": {
               "vertical": 1,
               "horizontal": 0
-            }
+            },
+            "recess": 0.155
           },
           "cornice": {
             "height": 0,
@@ -2715,20 +2913,20 @@
         "name": "Recessed tower louvre 0.1",
         "footprint": [
           [
-            108.152,
-            1205.221
+            108.183,
+            1205.64
           ],
           [
-            110.785,
-            1205.031
+            108.211,
+            1206.019
           ],
           [
-            110.795,
-            1205.166
+            110.129,
+            1205.88
           ],
           [
-            108.162,
-            1205.356
+            110.102,
+            1205.501
           ]
         ],
         "height": 24.24,
@@ -2760,20 +2958,20 @@
         "name": "Tower window stack 1.0",
         "footprint": [
           [
-            111.791,
-            1211.845
+            111.85,
+            1212.643
           ],
           [
-            114.424,
-            1211.652
+            114.483,
+            1212.45
           ],
           [
-            114.434,
-            1211.787
+            114.455,
+            1212.071
           ],
           [
-            111.801,
-            1211.979
+            111.822,
+            1212.264
           ]
         ],
         "height": 24.35,
@@ -2795,7 +2993,8 @@
             "mullions": {
               "vertical": 1,
               "horizontal": 0
-            }
+            },
+            "recess": 0.155
           },
           "cornice": {
             "height": 0,
@@ -2815,20 +3014,20 @@
         "name": "Recessed tower louvre 1.0",
         "footprint": [
           [
-            111.791,
-            1211.845
+            111.85,
+            1212.643
           ],
           [
-            114.424,
-            1211.652
+            114.483,
+            1212.45
           ],
           [
-            114.434,
-            1211.787
+            114.455,
+            1212.071
           ],
           [
-            111.801,
-            1211.979
+            111.822,
+            1212.264
           ]
         ],
         "height": 26.94,
@@ -3007,6 +3206,153 @@
           "form": "flat",
           "material": "roof",
           "edge": "parapet"
+        }
+      },
+      {
+        "name": "West stair and residence block window head 1",
+        "footprint": [
+          [
+            110.078,
+            1205.176
+          ],
+          [
+            108.159,
+            1205.314
+          ],
+          [
+            108.21,
+            1206.009
+          ],
+          [
+            110.128,
+            1205.87
+          ],
+          [
+            110.497,
+            1210.952
+          ]
+        ],
+        "height": 24.4,
+        "baseOffset": 24.24,
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "West stair and residence block window head 2",
+        "footprint": [
+          [
+            102.8,
+            1205.7
+          ],
+          [
+            103.734,
+            1205.633
+          ],
+          [
+            103.785,
+            1206.331
+          ],
+          [
+            106.418,
+            1206.141
+          ],
+          [
+            106.367,
+            1205.443
+          ]
+        ],
+        "height": 24.4,
+        "baseOffset": 24.24,
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "East stair and lift block window head 1",
+        "footprint": [
+          [
+            111.798,
+            1211.934
+          ],
+          [
+            111.849,
+            1212.633
+          ],
+          [
+            114.482,
+            1212.44
+          ],
+          [
+            114.431,
+            1211.742
+          ],
+          [
+            119.1,
+            1211.4
+          ]
+        ],
+        "height": 27.1,
+        "baseOffset": 26.94,
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
         }
       }
     ]

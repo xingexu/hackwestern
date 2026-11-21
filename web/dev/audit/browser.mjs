@@ -222,6 +222,7 @@ export async function install(context) {
   let cellIndex
   window.campusAudit={
     focus:cell=>game.focus(cell),
+    vegetation:()=>game.vegetation(),
     measure(cell,buildings,stages){
       cellIndex=game.index(cell)
       return measure(game,cellIndex,cell,buildings,stages)

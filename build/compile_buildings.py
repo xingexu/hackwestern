@@ -54,6 +54,28 @@ def rings(p):
     return [np.round(np.asarray(r.coords)[:-1], 3).tolist() for r in [p.exterior, *p.interiors]]
 
 
+def remove_survey_spikes(polygon):
+    def ring_points(ring):
+        points=list(ring.coords)[:-1]
+        j=0
+        while len(points)>3 and j<len(points):
+            a,b,c=points[j-1],points[j],points[(j+1)%len(points)]
+            ux,uz=a[0]-b[0],a[1]-b[1]
+            vx,vz=c[0]-b[0],c[1]-b[1]
+            if ux*vx+uz*vz>0 and abs(ux*vz-uz*vx)<.0015*max(math.hypot(ux,uz),math.hypot(vx,vz)):
+                points.pop(j)
+                j=max(0,j-1)
+            else:
+                j+=1
+        return points
+    shell=ring_points(polygon.exterior)
+    holes=[ring_points(ring) for ring in polygon.interiors]
+    if len(shell)+sum(map(len,holes))==len(polygon.exterior.coords)-1+sum(len(r.coords)-1 for r in polygon.interiors):
+        return polygon
+    cleaned=Polygon(shell,holes)
+    return cleaned if cleaned.is_valid and not cleaned.is_empty else polygon
+
+
 def as_hex(rgb):
     return "#" + "".join(f"{int(c):02x}" for c in np.clip(rgb, 0, 255))
 
@@ -223,8 +245,11 @@ def roof_surface(poly,roof):
     segments=[local]
     if form not in ("flat","lidar","shed"):
         vs=([.5] if form in ("gable","hip","half-hip","pyramid") else [.16,.5,.84] if form=="gambrel" else [.125,.875] if form=="mansard" else np.linspace(0,1,17)[1:-1])
+        rounded_barrel=form=="barrel" and roof.get("endShape")=="rounded"
+        if rounded_barrel:
+            vs=(1-np.cos(np.linspace(0,np.pi,25)[1:-1]))/2
         lines=[LineString([(l-1,t+s*dz),(r+1,t+s*dz)]) for s in vs]
-        if form=="barrel" and roof.get("endShape")=="rounded":
+        if rounded_barrel:
             cap=min(.5,dz/(2*dx))
             for u in [q*cap for q in (.035,.13,.32,.57,.81,1)]:
                 lines.extend(LineString([(l+v*dx,t-1),(l+v*dx,b+1)]) for v in (u,1-u))
@@ -507,6 +532,7 @@ def assemble(b,spec,p,portals):
         for part,start in pieces:
             for shell in polygons(part,.000001 if isinstance(outline,list) else .015):
                 shell=shapely.orient_polygons(shell if isinstance(outline,list) or len(shell.exterior.coords)==5 else shell.simplify(.08,preserve_topology=True))
+                shell=remove_survey_spikes(shell)
                 loops=rings(shell)
                 selectors=[]
                 for loop in loops:
@@ -565,12 +591,19 @@ def assemble(b,spec,p,portals):
     if parts and spec["walls"].get("courtyard"):
         shells=[Polygon(t["rings"][0],t["rings"][1:]).buffer(0) for t in parts]
         courts=[ring for poly in [*polygons(p),*polygons(unary_union(shells))] for ring in poly.interiors if Polygon(ring).area>6]
+        by_storey={}
         for part in parts:
+            section=(part["low"]+part["high"])/2
+            active=tuple(i for i,panel in enumerate(parts) if panel["low"]<section<panel["high"])
+            if active not in by_storey:
+                plates=unary_union([shells[i] for i in active])
+                by_storey[active]=[ring for poly in polygons(plates) for ring in poly.interiors if Polygon(ring).area>6]
+            visible_courts=[*courts,*by_storey[active]]
             edges=[]
             loop=part["rings"][0]
             for j,(a,c) in enumerate(zip(loop,loop[1:]+loop[:1])):
                 line=LineString([a,c])
-                if any(all(r.distance(line.interpolate(t,normalized=True))<.45 for t in (.13,.5,.87)) for r in courts):
+                if any(all(r.distance(line.interpolate(t,normalized=True))<.45 for t in (.13,.5,.87)) for r in visible_courts):
                     edges.append(j)
             if edges:part["courtyardEdges"]=edges
     coffered_soffits(parts,spec)

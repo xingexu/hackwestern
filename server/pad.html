@@ -1,59 +1,185 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Phone controller · Drive Western</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#16271f">
+<title>Phone controller · Drive Western</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#171526;color:#fbf8ff;font:18px system-ui,sans-serif;min-height:100svh;display:grid;align-content:center}main{width:min(100%,640px);padding:24px;margin:auto}h1{font-size:2rem}label{display:grid;gap:6px}input,button{padding:14px;border:1px solid #818094;border-radius:9px;font:inherit}input{text-transform:uppercase;width:100%}button{cursor:pointer;color:inherit;background:#473b66}form,section{display:grid;gap:12px}[hidden]{display:none}fieldset{display:flex;border:0;padding:0;gap:14px}fieldset button{flex:1;min-height:18svh;touch-action:none;user-select:none}#gas{background:#316a4c}#brake{background:#7c3734}output{min-height:2em;display:block;margin:12px 0}button:active{filter:brightness(1.4)}
-</style></head><body><main><h1>Phone controller</h1><form id="pair"><label>Desktop pairing code<input required id="code" maxlength="6" pattern="[A-Za-z2-9]{6}" autocomplete="off"></label><button>Pair controller</button></form><output aria-live="polite"></output><section hidden id="controls"><button id="tilt">Enable tilt steering</button><fieldset><button id="left">Left</button><button id="right">Right</button></fieldset><fieldset><button id="brake">Brake</button><button id="gas">Gas</button></fieldset></section></main><script type="module">
-const id = name => document.getElementById(name)
-const status = document.querySelector('output')
-const input = {steer:0,brake:0,throttle:0}
-let ws, origin, enabled=false, tilt=0, timer
-const keys = new Set()
-const clear = () => { keys.clear(); origin=null; tilt=0; send() }
-function send(){
-  input.steer = keys.has('left') ? 1 : keys.has('right') ? -1 : tilt
-  input.brake = Number(keys.has('brake'))
-  input.throttle = Number(keys.has('gas'))
-  if(ws?.readyState===1 && ws.bufferedAmount<2048) ws.send(JSON.stringify({type:'pad',input}))
+*{box-sizing:border-box}
+:root{color-scheme:dark;font:16px/1.4 system-ui,sans-serif;color:#faf7e9;background:#111e1a}
+body{margin:0;overflow:hidden;touch-action:manipulation}
+main,#rotate{height:100svh;height:100dvh;padding:max(14px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left))}
+main{display:grid;place-items:center}
+[hidden],#rotate{display:none!important}
+#pair{width:min(100%,370px);display:grid;gap:10px}
+h1{margin:0;font:30px/1.1 Georgia,serif}
+label{font-weight:600;color:#dae1d2}
+input,button{font:inherit;border-radius:8px}
+button{cursor:pointer;color:inherit;border:1px solid #71857a;background:#25382f;font-weight:600;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#pair input{min-width:0;width:100%;border:1px solid #71857a;background:#1c3027;padding:8px 14px;color:inherit;font:600 24px monospace;letter-spacing:.16em;text-transform:uppercase}
+#pair button{padding:10px;background:#ffce79;color:#30250f;border-color:#efbd66}
+#play{color:#cddacb;text-align:center;font-size:13px}
+#controls{width:100%;height:100%;max-width:1050px;display:grid;grid-template-rows:auto 1fr;gap:12px}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tools>div{display:flex;gap:8px}
+.tools button{min-height:42px;padding:6px 14px;font-size:14px}
+#tilt[aria-pressed=true]{border-color:#a8cdb5;color:#c5f0d2}
+#tilt:disabled{opacity:.65}
+#deck{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,8vw,110px);min-height:0;align-items:stretch;padding-top:clamp(0px,5vh,35px)}
+.group{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:stretch}
+.group button{min-width:0;display:grid;place-content:center;justify-items:center;gap:6px;border-radius:18px;font-weight:650;font-size:clamp(15px,2.3vw,23px)}
+.group button b{font:500 clamp(30px,6vw,70px)/1 system-ui}
+.group button small{font-size:12px}
+#gas{color:#173221;background:#b9d9ad;border-color:#b9d9ad}
+#brake{color:#40251c;background:#dbad92;border-color:#dbad92}
+.group button[data-held]{box-shadow:inset 0 0 0 4px #fff6;filter:brightness(1.18);transform:translateY(1px)}
+#notice{position:fixed;top:14%;left:50%;transform:translateX(-50%);padding:5px 12px;border-radius:6px;background:#17271f;color:#ffdc94;pointer-events:none;text-align:center;font-size:13px}
+#notice:empty{display:none}
+#rotate{align-content:center;justify-items:center;text-align:center;gap:18px;background:#14261e;position:fixed;inset:0}
+#rotate i{display:block;width:84px;height:46px;border:3px solid #eacc86;border-radius:9px;transform:rotate(-12deg)}
+#rotate p{margin:0;color:#cbd6ca}
+@media(orientation:portrait){main,#notice{display:none!important}#rotate{display:grid!important}}
+@media(max-height:340px){main{padding-block:8px}#pair{gap:4px}#pair h1{font-size:22px}}
+</style>
+</head>
+<body>
+<aside id="rotate"><i aria-hidden="true"></i><h1>Rotate your phone</h1><p>Turn to landscape to use the controller.</p></aside>
+<main>
+<form id="pair"><h1>Phone controller</h1><label for="code">Desktop join code</label><input id="code" required maxlength="6" pattern="[A-Za-z2-9]{6}" autocapitalize="characters" autocomplete="off" spellcheck="false"><button>Pair controller</button><a id="play" href="/?mode=drive">Drive on this device instead</a></form>
+<section id="controls" hidden aria-label="Driving controls">
+<div class="tools"><button id="tilt" aria-pressed="false">Enable tilt steering</button><div><button id="recover">Recover</button><button id="restart">Restart</button></div></div>
+<div id="deck"><div class="group"><button id="left" aria-label="Steer left"><b aria-hidden="true">←</b>Left</button><button id="right" aria-label="Steer right"><b aria-hidden="true">→</b>Right</button></div><div class="group"><button id="brake" aria-label="Brake or reverse">Brake<small>Reverse</small></button><button id="gas">Gas</button></div></div>
+</section>
+</main><output id="notice" role="status"></output>
+<script type="module">
+const by=id=>document.getElementById(id)
+const landscape=matchMedia('(orientation: landscape)')
+const held=new Map()
+let socket,ticket,heartbeat,retry,delay=250,disconnectedAt=0,tilt=0,neutral=null,sensors=false,sensorTimeout,suspended=false
+const notice=text=>{by('notice').value=text}
+const send=packet=>{if(socket?.readyState===1 && socket.bufferedAmount<1024)socket.send(JSON.stringify(packet))}
+function snapshot(){
+  const keys=new Set(held.values())
+  const steer=keys.has('left') || keys.has('right') ? Number(keys.has('left'))-Number(keys.has('right')) : tilt
+  send({type:'pad',input:{steer,throttle:Number(keys.has('gas')),brake:Number(keys.has('brake'))}})
 }
-for(const name of ['left','right','gas','brake']){
-  const b=id(name)
-  b.onpointerdown=e=>{e.preventDefault();b.setPointerCapture(e.pointerId);keys.add(name);send()}
-  b.onlostpointercapture=()=>{keys.delete(name);send()}
+function clear(){
+  held.clear()
+  neutral=null
+  tilt=0
+  for(const b of document.querySelectorAll('[data-held]'))b.removeAttribute('data-held')
+  snapshot()
 }
-window.addEventListener('blur',clear)
-document.addEventListener('visibilitychange',()=>{if(document.hidden)clear()})
-id('tilt').onclick=async()=>{
+for(const key of ['left','right','brake','gas']){
+  const b=by(key)
+  b.onpointerdown=e=>{
+    e.preventDefault()
+    if(!landscape.matches || socket?.readyState!==1)return
+    b.setPointerCapture(e.pointerId)
+    held.set(e.pointerId,key)
+    b.toggleAttribute('data-held',true)
+    snapshot()
+  }
+  b.onpointerup=b.onlostpointercapture=b.onpointercancel=e=>{
+    if(!held.delete(e.pointerId))return
+    b.toggleAttribute('data-held',[...held.values()].includes(key))
+    snapshot()
+  }
+}
+for(const action of ['recover','restart'])by(action).onclick=()=>{clear();send({type:'pad-action',action})}
+async function immersive(){
+  try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen?.()}catch{}
+  try{await screen.orientation?.lock?.('landscape')}catch{}
+}
+if(!isSecureContext){by('tilt').disabled=true;by('tilt').textContent='Tilt needs HTTPS'}
+function stopTilt(){
+  clearTimeout(sensorTimeout)
+  sensors=false;clear();by('tilt').textContent='Enable tilt steering';by('tilt').setAttribute('aria-pressed','false')
+}
+by('tilt').onclick=async()=>{
+  if(sensors){stopTilt();return}
   try{
-    if(!window.DeviceOrientationEvent || (DeviceOrientationEvent.requestPermission && await DeviceOrientationEvent.requestPermission()!=='granted')) throw Error()
-    enabled=true; origin=null; id('tilt').textContent='Recenter tilt'
-  }catch{status.value='Tilt unavailable. Use Left and Right.'}
+    if(!window.DeviceOrientationEvent)throw Error()
+    const types=[window.DeviceOrientationEvent,window.DeviceMotionEvent].filter(t=>t?.requestPermission)
+    const grants=await Promise.all(types.map(t=>t.requestPermission()))
+    if(grants.some(g=>g!=='granted'))throw Error()
+    sensors=true;neutral=null;by('tilt').textContent='Tilt on';by('tilt').setAttribute('aria-pressed','true');notice('')
+    sensorTimeout=setTimeout(()=>{stopTilt();notice('No tilt signal · use the arrows')},3000)
+  }catch{notice('Tilt unavailable · use the arrows')}
 }
 addEventListener('deviceorientation',e=>{
-  if(!enabled || !Number.isFinite(e.gamma)||!Number.isFinite(e.beta))return
-  const angle=(screen.orientation?.angle??window.orientation??0)*Math.PI/180
+  if(!sensors || !landscape.matches || document.hidden || !Number.isFinite(e.gamma) || !Number.isFinite(e.beta))return
+  clearTimeout(sensorTimeout)
+  const angle=(screen.orientation?.angle ?? window.orientation ?? 0)*Math.PI/180
   const value=e.gamma*Math.cos(angle)+e.beta*Math.sin(angle)
-  origin??=value
-  tilt=Math.max(-1,Math.min(1,(origin-value)/24))
+  neutral??=value
+  const delta=(value-neutral+540)%360-180
+  tilt=-Math.sign(delta)*Math.min(1,Math.max(0,Math.abs(delta)-1)/24)
 })
+landscape.addEventListener('change',clear)
 screen.orientation?.addEventListener('change',clear)
-const queryCode=new URLSearchParams(location.search).get('code')
-id('code').value=queryCode || ''
-id('pair').onsubmit=async e=>{
+addEventListener('orientationchange',clear)
+addEventListener('blur',clear)
+document.addEventListener('visibilitychange',()=>{if(document.hidden)clear()})
+function unpair(text){
+  ticket=null
+  sessionStorage.removeItem('pad-ticket')
+  by('controls').hidden=true;by('pair').hidden=false
+  by('pair').querySelector('button').disabled=false
+  notice(text)
+}
+function open(){
+  clearTimeout(retry)
+  if(!ticket || suspended || socket && socket.readyState<2)return
+  const url=new URL('/api/pads/'+ticket.code+'/socket',location.href)
+  url.protocol=location.protocol==='https:'?'wss:':'ws:'
+  const ws=socket=new WebSocket(url,['western',ticket.token])
+  ws.onopen=()=>{
+    if(socket!==ws)return
+    disconnectedAt=0;delay=250
+    by('pair').hidden=true;by('controls').hidden=false
+    clear();notice('')
+    heartbeat=setInterval(snapshot,40)
+  }
+  ws.onmessage=({data})=>{
+    if(socket!==ws)return
+    const m=JSON.parse(data)
+    if(m.type==='room')notice(m.players.find(p=>p.id===m.host)?.connected?'':'Reconnecting to desktop…')
+  }
+  ws.onclose=e=>{
+    if(socket!==ws)return
+    clearInterval(heartbeat)
+    clear()
+    if(e.code===1000 || e.code===4001){unpair('Pairing ended. Enter a desktop code.');return}
+    if(suspended)return
+    disconnectedAt ||= Date.now()
+    if(Date.now()-disconnectedAt>85000){unpair('Session expired. Enter the code again.');return}
+    notice('Reconnecting…')
+    retry=setTimeout(open,delay)
+    delay=Math.min(2000,delay*2)
+  }
+}
+addEventListener('pagehide',()=>{suspended=true;clearTimeout(retry);clear();socket?.close(4000,'Page hidden')})
+addEventListener('pageshow',()=>{suspended=false;if(ticket)open()})
+addEventListener('online',open)
+const code=new URLSearchParams(location.search).get('code')?.toUpperCase() || ''
+by('code').value=code
+by('pair').onsubmit=async e=>{
   e.preventDefault()
-  const code=id('code').value.trim().toUpperCase()
-  const button=id('pair').querySelector('button');button.disabled=true
+  if(!landscape.matches)return
+  void immersive()
+  const code=by('code').value.toUpperCase().trim()
+  const button=by('pair').querySelector('button')
+  button.disabled=true;notice('Connecting…')
   try{
-    let ticket=JSON.parse(sessionStorage.getItem('pad-ticket')||'null')
-    if(ticket?.code!==code){
-      const r=await fetch('/api/pads/'+encodeURIComponent(code)+'/join',{method:'POST',body:'{}'})
-      ticket=await r.json()
-      if(!r.ok)throw Error(ticket.reason)
-      sessionStorage.setItem('pad-ticket',JSON.stringify(ticket))
-    }
-    const url=new URL('/api/pads/'+code+'/socket',location.href);url.protocol=location.protocol==='https:'?'wss:':'ws:'
-    ws=new WebSocket(url,['western',ticket.token])
-    ws.onopen=()=>{id('pair').hidden=true;id('controls').hidden=false;status.value='Paired with desktop';timer=setInterval(send,40)}
-    ws.onclose=()=>{clearInterval(timer);clear();id('controls').hidden=true;id('pair').hidden=false;button.disabled=false;status.value='Connection lost. Pair again.';if(!timer)sessionStorage.removeItem('pad-ticket');timer=null}
-  }catch(err){status.value=err.message;button.disabled=false}
+    const saved=JSON.parse(sessionStorage.getItem('pad-ticket') || 'null')
+    const response=await fetch('/api/pads/'+code+'/join',{method:'POST',body:JSON.stringify({token:saved?.code===code?saved.token:undefined})})
+    const data=await response.json()
+    if(!response.ok)throw Error(data.reason)
+    ticket=data
+    sessionStorage.setItem('pad-ticket',JSON.stringify(ticket))
+    open()
+  }catch(e){unpair(e.message)}
 }
 </script></body></html>

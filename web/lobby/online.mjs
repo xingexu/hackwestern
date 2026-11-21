@@ -1,160 +1,193 @@
-import qr from 'qrcode-generator'
-import {reserve, Session} from '../net/session.mjs'
+import {pairPhone} from './pair-phone.mjs'
+import {RaceSession,seat} from '../net/race-session.mjs'
 import {createFleet} from './remote.mjs'
 import './lobby.css'
 
-export function attachOnline({THREE,scene,coupe,changeCourse,reset,carState}) {
-  const by = id => document.getElementById(id)
+const by=id=>document.getElementById(id)
+export function mountOnline(health){
   const menu=document.createElement('dialog')
   menu.id='online-menu'
-  menu.innerHTML=`<div class="heading"><h2>Race with friends</h2><button id="online-close" aria-label="Close">×</button></div>
-  <div id="online-entry"><div class="profile"><label>Nickname<input id="race-name" maxlength="18" value="Driver"></label><label>Colour<input id="race-color" type="color" value="#d94a28"></label></div>
-  <button id="make-room">Create race room</button><label>Room code<input id="room-code" maxlength="6" autocomplete="off"></label><button id="join-room">Join room</button></div>
-  <div id="online-room" hidden><h3 id="room-label"></h3><ul id="room-roster"></ul><fieldset id="race-settings"><label>Course<select id="race-course"><option value="college">College Hill</option><option value="stadium">Stadium</option><option value="campus">Thames Bridges</option></select></label><label>Laps<input id="race-laps" type="number" min="1" max="5" value="1"></label><label><span><input id="race-contact" type="checkbox"> Car collisions</span></label></fieldset>
-  <div class="actions"><button id="race-ready">Ready</button><button id="race-start">Start race</button><button id="race-again" hidden>Race again</button><button id="race-leave">Leave</button></div></div>
-  <p><button id="make-pad">Pair phone controller</button></p><div id="pad-info" hidden><strong id="pad-code"></strong><img id="pad-qr" alt="Scan to pair a phone"><a id="pad-url"></a><p id="pad-state"></p><button id="end-pad">Unpair</button></div><output id="online-status" aria-live="polite"></output>`
+  menu.setAttribute('aria-labelledby','online-title')
+  menu.innerHTML=`<div class="heading"><h2 id="online-title">Race with friends</h2><button id="online-close" aria-label="Close">×</button></div>
+    <div id="online-entry"><div class="profile"><label>Nickname<input id="race-name" maxlength="18" value="Driver"></label><label>Colour<input id="race-color" type="color" value="#d94a28"></label></div>
+    <button id="make-room">Create room</button><label>Room code<input id="room-code" maxlength="6" autocomplete="off"></label><button id="join-room">Join room</button></div>
+    <div id="online-room" hidden><button id="room-label" title="Copy room code"></button><div class="actions"><button id="share-room">Share invite</button><button id="copy-room">Copy link</button></div>
+    <ul id="room-roster"></ul><label>Nickname<input id="room-name" maxlength="18"></label><fieldset id="race-settings"><label>Course<select id="race-course"><option value="college">College Hill</option><option value="stadium">Stadium</option><option value="campus">Thames Bridges</option><option value="roam">Free roam</option></select></label>
+    <label>Laps<input id="race-laps" type="number" min="1" max="5" value="1"></label><label>Time limit (seconds)<input id="race-limit" type="number" min="30" max="900" value="300"></label><label><span><input id="race-contact" type="checkbox"> Car collisions</span></label></fieldset>
+    <div class="actions"><button id="race-ready">Ready</button><button id="race-start">Start race</button><button id="race-again" hidden>Vote to restart</button><button id="race-leave">Leave</button></div></div>
+    <p><button id="make-pad">Pair phone controller</button></p><output id="online-status" aria-live="polite"></output>`
   document.body.append(menu)
   const toggle=document.createElement('button')
   toggle.textContent='Online'
+  toggle.hidden=!health.multiplayer
   document.querySelector('.course-card nav').append(toggle)
   toggle.onclick=()=>menu.showModal()
   by('online-close').onclick=()=>menu.close()
   const banner=document.createElement('output')
-  banner.id='race-banner'
-  banner.hidden=true
-  by('drive-ui').append(banner)
-  const fleet=createFleet(THREE,scene,coupe)
-  let session,room,controller,pad,lastPad=0,lastState=0,lastFinish=0
-  const status=s=>{by('online-status').value=s}
-  const command=data=>session?.send(data)
-  const me=()=>room?.players.find(p=>p.id===session.ticket.id)
-  function clearRoom() {
-    room=null
-    session=null
+  banner.id='race-banner';banner.hidden=true;by('drive-ui').append(banner)
+  const q=new URLSearchParams(location.search),invite=q.get('room')?.toUpperCase()
+  const debug=q.has('netdebug')?document.createElement('pre'):null
+  if(debug){debug.id='net-debug';by('drive-ui').append(debug)}
+  let game,fleet,session,room,loaded=false,positioned=null,reportedLap=0,stuck=0,connection=''
+  const phone=pairPhone(action=>{
+    if(action==='recover' && !by('recover').hidden)by('recover').click()
+    else by('restart').click()
+  })
+  const state=()=>room?.players.find(p=>p.id===session?.ticket.id)
+  const status=value=>{by('online-status').value=value}
+  const send=m=>session?.send(m)
+  function clear(){
+    room=null;session=null;loaded=false;positioned=null;reportedLap=0
     sessionStorage.removeItem('western-room')
-    fleet.roster([],null)
-    by('online-entry').hidden=false
-    by('online-room').hidden=true
+    fleet?.roster([],null)
+    by('online-entry').hidden=false;by('online-room').hidden=true
     by('drive-course').disabled=false
-    by('trial-open').disabled=false
+    if(game)by('trial-open').disabled=false
     banner.hidden=true
+    if(debug)debug.textContent=''
   }
-  function display(m) {
-    const before=room
-    room=m
-    const player=me()
-    if(!player)return
-    const host=room.host===player.id
-    by('online-entry').hidden=true
-    by('online-room').hidden=false
-    by('room-label').textContent='Room '+session.ticket.code
-    const ordered=room.players.slice().sort((a,b)=>(a.finish||Infinity)-(b.finish||Infinity))
-    by('room-roster').replaceChildren(...ordered.map((p,i)=>{
-      const li=document.createElement('li')
-      li.textContent=(p.finish ? (i+1)+'. ' : '')+p.nickname+' · '+(!p.connected ? 'Disconnected' : p.finish ? (p.finish/1000).toFixed(2)+' s' : room.race ? 'Lap '+(p.lap+1) : p.ready ? 'Ready' : 'Waiting')
+  function render(){
+    if(!room)return
+    const p=state()
+    if(!p)return
+    const host=p.id===room.host, lobby=room.phase==='lobby', roam=room.settings.course==='roam'
+    by('online-entry').hidden=true;by('online-room').hidden=false
+    by('room-label').textContent='Room '+room.code
+    if(document.activeElement!==by('room-name'))by('room-name').value=p.nickname
+    const rows=room.phase==='results'?room.results:room.players
+    by('room-roster').replaceChildren(...rows.map((r,i)=>{
+      const li=document.createElement('li'),player=room.players.find(v=>v.id===r.id)
+      const label=room.phase==='results'?(r.finish?(r.finish/1000).toFixed(2)+' s':'DNF'):!r.connected?'Reconnecting':!r.loaded?'Loading campus…':r.ready && lobby?'Ready':lobby?'Waiting':r.finish?'Finished':r.dnf?'DNF':'Lap '+(r.lap+1)
+      li.textContent=(room.phase==='results'?(i+1)+'. ':'')+r.nickname+' · '+label+(room.host===r.id?' · Host':'')
+      li.style.borderColor=player?.color||'transparent'
       return li
     }))
-    by('race-settings').disabled=!host || !!room.race
+    by('race-settings').disabled=!host || !lobby || !session.connected || !!room.drain
     by('race-course').value=room.settings.course
-    by('race-laps').value=room.settings.laps
+    by('race-laps').value=room.settings.laps;by('race-limit').value=room.settings.limit
     by('race-contact').checked=room.settings.collisions
-    by('race-ready').textContent=player.ready?'Unready':'Ready'
-    by('race-ready').hidden=!!room.race
-    by('race-start').hidden=!host || !!room.race
-    by('race-start').disabled=room.players.length<2 || !room.players.every(p=>p.ready && p.connected)
-    by('race-again').hidden=!host || !room.race || !room.players.every(p=>p.finish)
-    fleet.roster(room.players,player.id)
-    by('drive-course').disabled=!!room.race
-    by('trial-open').disabled=!!room.race
-    if(room.race && room.race!==before?.race){
-      changeCourse(room.settings.course)
-      const car=carState()
-      const i=room.players.findIndex(p=>p.id===player.id)
-      const offset=(i%2 ? -1 : 1)*1.05
-      car.x+=Math.cos(car.heading)*offset-Math.sin(car.heading)*Math.floor(i/2)*4
-      car.z-=Math.sin(car.heading)*offset+Math.cos(car.heading)*Math.floor(i/2)*4
+    by('race-ready').textContent=!p.loaded?'Loading campus…':p.ready?'Unready':'Ready'
+    by('race-ready').disabled=!p.loaded || !session.connected || !!room.drain
+    by('race-ready').hidden=!lobby || roam
+    by('race-start').hidden=!host || !lobby || roam
+    by('race-start').disabled=!!room.drain || !session.connected || room.players.length<2 || !room.players.every(p=>p.loaded && p.connected && p.ready)
+    by('race-again').hidden=lobby
+    by('race-again').disabled=p.vote || !session.connected
+    by('race-again').textContent=p.vote?'Voted · '+room.players.filter(p=>p.vote).length+'/'+room.players.filter(p=>p.connected).length:'Vote to restart'
+    by('drive-course').disabled=true
+    if(game)by('trial-open').disabled=!!room.race
+    fleet?.roster(room.players,p.id)
+    status(room.drain?'Server updating':connection)
+  }
+  function apply(before){
+    render()
+    if(!game || !room || !session?.connected)return
+    const p=state()
+    if(!p)return
+    if(!loaded){loaded=true;send({type:'loaded'})}
+    if(room.settings.course==='roam' && before?.settings.course!=='roam'){game.changeCourse('roam');session.reset()}
+    if(room.race && positioned!==room.race){
+      game.changeCourse(room.settings.course)
+      const car=game.carState(),side=(p.slot%2?1:-1)*1.25,back=Math.floor(p.slot/2)*4.8
+      car.x+=Math.cos(car.heading)*side-Math.sin(car.heading)*back
+      car.z-=Math.sin(car.heading)*side+Math.cos(car.heading)*back
+      positioned=room.race;reportedLap=p.lap;session.reset();fleet.respawn()
       menu.close()
     }
-    if(room.race && before?.race===room.race && player.lap>(before.players.find(p=>p.id===player.id)?.lap??0) && !player.finish) reset()
-    if(player.finish && !menu.open) menu.showModal()
-    banner.hidden=!room.race
+    if(room.phase==='positioning' && !p.placed && !placementSent){placementSent=true;send({type:'placed',race:room.race})}
+    if(before?.race===room.race && room.race && !p.finish && p.lap>(before.players.find(v=>v.id===p.id)?.lap??0)){
+      game.reset();session.reset();fleet.respawn()
+    }
+    if(!room.race){positioned=null;placementSent=false}
+    if(room.phase==='results' && before?.phase!=='results' && !menu.open)menu.showModal()
   }
-  function connectRoom(ticket) {
-    sessionStorage.setItem('western-room',JSON.stringify(ticket))
-    session=new Session(ticket,m=>{
-      if(m.type==='room') display(m)
-      if(m.type==='state') fleet.push(m)
-    },s=>{status(s);if(s==='Session ended')clearRoom()})
+  let placementSent=false,safeSpot=null
+  function connect(ticket,profile){
+    sessionStorage.setItem('western-room',JSON.stringify({ticket,profile}))
+    session=new RaceSession(ticket,profile,m=>{const before=room;room=m;apply(before)},s=>{
+      connection=s
+      if(s==='Connected'){loaded=false;placementSent=false;reportedLap=state()?.lap||0}
+      if(session?.closed)clear()
+      render();status(s)
+    })
   }
-  async function enter(create) {
-    try {
-      const code=by('room-code').value.trim()
-      if(!create && !code)throw Error('Enter a room code')
-      const nickname=by('race-name').value.trim(),color=by('race-color').value
-      const ticket=await reserve('rooms',create?null:code,{nickname,color})
-      localStorage.setItem('western-profile',JSON.stringify({nickname,color}))
-      connectRoom(ticket)
-    }catch(err){status(err.message)}
-  }
-  by('make-room').onclick=()=>enter(true)
-  by('join-room').onclick=()=>enter(false)
-  by('race-ready').onclick=()=>command({type:'ready',ready:!me().ready})
-  by('race-start').onclick=()=>command({type:'start'})
-  by('race-again').onclick=()=>command({type:'again'})
-  by('race-leave').onclick=()=>{session.close();clearRoom();status('Left room')}
-  by('race-settings').onchange=()=>command({type:'settings',course:by('race-course').value,laps:by('race-laps').valueAsNumber,collisions:by('race-contact').checked})
   const profile=JSON.parse(localStorage.getItem('western-profile')||'null')
   if(profile){by('race-name').value=profile.nickname;by('race-color').value=profile.color}
-  const previous=JSON.parse(sessionStorage.getItem('western-room')||'null')
-  if(previous)connectRoom(previous)
-  function closePad(){
-    controller?.close()
-    controller=pad=null
-    by('pad-info').hidden=true
-    by('make-pad').hidden=false
-  }
-  by('end-pad').onclick=closePad
-  by('make-pad').onclick=async()=>{
+  async function enter(create){
+    const code=by('room-code').value.trim().toUpperCase()
+    if(!create && !code)return status('Enter a room code')
+    const profile={nickname:by('race-name').value.trim(),color:by('race-color').value,arrival:!create && code===invite?'invite':'code'}
+    status(create?'Creating room…':'Joining room…')
+    by('make-room').disabled=by('join-room').disabled=true
     try{
-      const ticket=await reserve('pads',null,{})
-      controller=new Session(ticket,m=>{
-        if(m.type==='pad'){pad=m.input;lastPad=performance.now()}
-        if(m.type==='room')by('pad-state').textContent=m.players.some(p=>p.id!==ticket.id && p.connected)?'Phone connected':'Waiting for phone'
-      },s=>{if(s==='Session ended')closePad()})
-      const url=new URL('/pad',location.origin)
-      url.searchParams.set('code',ticket.code)
-      const image=qr(0,'M')
-      image.addData(url.href);image.make()
-      by('pad-qr').src=image.createDataURL(4)
-      by('pad-code').textContent='Pairing code '+ticket.code
-      by('pad-url').textContent=by('pad-url').href=url.href
-      by('pad-info').hidden=false
-      by('make-pad').hidden=true
-    }catch(err){status(err.message)}
+      connect(await seat(create?null:code,profile),profile)
+      localStorage.setItem('western-profile',JSON.stringify(profile))
+    }catch(e){status(e.message)}
+    finally{by('make-room').disabled=by('join-room').disabled=false}
   }
+  async function share(mode){
+    const url=new URL('/',health.inviteOrigin||location.origin)
+    url.searchParams.set('room',room.code)
+    try{
+      if(mode==='share' && navigator.share)await navigator.share({title:'Drive Western',url:url.href})
+      else{
+        const text=mode==='code'?room.code:url.href
+        if(navigator.clipboard)await navigator.clipboard.writeText(text)
+        else{
+          const field=document.createElement('textarea');menu.append(field);field.value=text;field.select()
+          const copied=document.execCommand('copy');field.remove()
+          if(!copied)return status(text)
+        }
+        status(mode==='code'?'Code copied':'Invite link copied')
+      }
+      send({type:'share'})
+    }catch(e){if(e.name!=='AbortError')status(url.href)}
+  }
+  by('room-label').onclick=()=>share('code');by('copy-room').onclick=()=>share('link');by('share-room').onclick=()=>share('share')
+  by('make-pad').onclick=()=>{menu.close();phone.open()}
+  by('make-room').onclick=()=>enter(true);by('join-room').onclick=()=>enter(false)
+  by('room-name').onchange=()=>{const nickname=by('room-name').value.trim();send({type:'rename',nickname})}
+  by('race-ready').onclick=()=>send({type:'ready',ready:!state().ready})
+  by('race-start').onclick=()=>send({type:'start'})
+  by('race-again').onclick=()=>send({type:'vote',race:room.race})
+  by('race-leave').onclick=()=>{session.close();clear();status('Left room')}
+  by('race-settings').onchange=()=>send({type:'settings',course:by('race-course').value,laps:by('race-laps').valueAsNumber,limit:by('race-limit').valueAsNumber,collisions:by('race-contact').checked})
+  const prev=JSON.parse(sessionStorage.getItem('western-room')||'null')
+  if(health.multiplayer && prev?.ticket && (!invite || prev.ticket.code===invite))connect(prev.ticket,prev.profile)
+  else if(invite && health.multiplayer){by('room-code').value=invite;menu.showModal()}
   return {
+    attach(deps){game=deps;fleet=createFleet(deps.THREE,deps.scene,deps.coupe);apply(null)},
     get racing(){return !!room?.race},
-    get waiting(){return room?.race && (session.now()<room.start || !!me()?.finish)},
-    controls(input) {
-      if(!pad || performance.now()-lastPad>220)return input
-      return {...input,steer:Math.max(-1,Math.min(1,input.steer+pad.steer)),brake:Math.max(input.brake,pad.brake),throttle:Math.max(input.throttle,pad.throttle)}
+    get active(){return !!room},
+    get waiting(){return room?.race && (room.phase==='positioning' || (room.phase==='countdown' && (!session.clock.synced || session.clock.server(performance.now())<room.start)) || room.phase==='results' || state()?.dnf || !!state()?.finish)},
+    get padConnected(){return phone.connected},
+    controls:phone.controls,
+    recoverySpot(car){
+      session?.reset();fleet?.respawn();stuck=0
+      return room && safeSpot?.car===car && safeSpot.gates===car.checkpointsPassed?safeSpot.pose:null
     },
-    update(timestamp,dt) {
-      if(!room?.race)return
-      const player=me(),car=carState(),now=session.now()
-      const countdown=Math.ceil((room.start-now)/1000)
-      const label=countdown>0?'Starting in '+countdown:player.finish?'Finished':('Lap '+(player.lap+1)+' / '+room.settings.laps)
-      if(banner.textContent!==label) banner.textContent=label
-      if(timestamp-lastState>=40){
-        const {x,y,z,heading,speed}=car
-        command({type:'state',race:room.race,x,y,z,heading,speed})
-        lastState=timestamp
+    details(){return [...(session?.tracks||[])].map(([slot,t])=>({slot,path:t.path,correction:t.correction,age:t.raw(performance.now())?.age,jitter:t.jitter}))},
+    update(stamp,dt,input,pad){
+      if(!room || !game)return
+      const p=state(),car=game.carState(),now=session.clock.server(performance.now())
+      if(!p)return
+      if(!this.waiting && !car.contact && !car.offCourse && car.surface==='road' && car.speed>2 && (!safeSpot || safeSpot.car!==car || stamp-safeSpot.at>600)){
+        safeSpot={car,at:stamp,gates:car.checkpointsPassed,pose:{x:car.x,y:car.y,z:car.z,heading:car.nextGate?Math.atan2(car.nextGate.x-car.x,car.nextGate.z-car.z):car.heading,distance:car.distance,phase:car.phase}}
       }
-      if(!player.finish && car.phase==='finished' && timestamp-lastFinish>400){
-        command({type:'lap',race:room.race,lap:player.lap+1})
-        lastFinish=timestamp
+      session.frame(car,input,stamp)
+      fleet.update(session,car,room.settings.collisions && (!room.race || room.phase==='playing') && !p.finish,dt)
+      const seconds=Math.ceil((room.start-now)/1000),left=Math.ceil((room.deadline-now)/1000)
+      stuck=input.throttle>.6 && Math.abs(car.speed)<.8 && !this.waiting?stuck+dt:0
+      const label=!session.connected?connection:room.drain?'Server updating':room.phase==='positioning'?'Taking starting positions…':room.phase==='countdown' && seconds>0?'Starting in '+seconds:stuck>2?'Stuck? '+(phone.connected || matchMedia('(pointer:coarse)').matches?'Tap Recover':pad?'Press Menu to recover':'Press R to recover'):p.finish?'Finished':room.phase==='playing'?'Lap '+(p.lap+1)+' / '+room.settings.laps+(left<=30?' · '+left+' s left':''):''
+      banner.hidden=!label
+      if(banner.textContent!==label)banner.textContent=label
+      if(session.connected && room.phase==='playing' && !p.finish && !p.dnf && car.phase==='finished' && reportedLap===p.lap){
+        reportedLap++;send({type:'lap',race:room.race,lap:reportedLap})
       }
-      fleet.update(now,car,room.settings.collisions && now>room.start && !player.finish,dt)
+      if(debug && stamp>(this.debugDue||0)){
+        this.debugDue=stamp+250
+        debug.textContent=this.details().map(t=>'Slot '+(t.slot+1)+' '+(t.path||'syncing')+' · age '+Math.round((t.age||0)*1000)+' ms · correction '+t.correction.toFixed(2)+' m · jitter '+Math.round(t.jitter)+' ms').join('\n')
+      }
     }
   }
 }

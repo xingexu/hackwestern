@@ -362,13 +362,13 @@
           -64.469
         ],
         "size": [
-          2.9,
-          3.7
+          3.25,
+          4.05
         ],
-        "height": 1.09,
+        "height": 1.21,
         "material": "roofPlant",
         "rotation": -21.6,
-        "style": "low fan cabinet"
+        "style": "low air handler with access panels"
       },
       {
         "type": "hvac",
@@ -377,13 +377,17 @@
           -41.574
         ],
         "size": [
-          3.1,
-          3.0
+          4.15,
+          4.7
         ],
-        "height": 1.09,
+        "height": 2.34,
         "material": "roofPlant",
         "rotation": -21.6,
-        "style": "low fan cabinet"
+        "style": "single exhaust fan",
+        "fanGrid": [
+          1,
+          1
+        ]
       },
       {
         "type": "hvac",
@@ -392,13 +396,13 @@
           -9.538
         ],
         "size": [
-          2.9,
-          2.15
+          3.55,
+          2.65
         ],
-        "height": 1.09,
+        "height": 1.2,
         "material": "roofPlant",
         "rotation": -21.6,
-        "style": "low fan cabinet"
+        "style": "low air handler with access panels"
       },
       {
         "type": "hvac",
@@ -407,13 +411,13 @@
           -18.692
         ],
         "size": [
-          2.7,
-          2.15
+          3.0,
+          2.55
         ],
-        "height": 1.09,
+        "height": 1.1,
         "material": "roofPlant",
         "rotation": -21.6,
-        "style": "low fan cabinet"
+        "style": "low air handler with access panels"
       },
       {
         "type": "skylight",

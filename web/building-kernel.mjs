@@ -186,7 +186,30 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
     const back=near && projection===0?-Math.min(clearance*.80,Math.max(.11,depth)+.045):.015;
     const profile=openingProfile(type,width,height);
     const inner=profile.map(([x,y])=>[u+x*width,sill+y*height]);
-    if(near){
+    if(near && opening.spandrel){
+      const panel=opening.spandrel,half=Math.min(panel.width??width,r-l)*.5;
+      const a=Math.max(l,u-half),c=Math.min(r,u+half);
+      const d=-Math.min(clearance*.48,panel.recess??Math.max(.09,depth*.72));
+      const finish=material(panel.material),jamb=opening.reveal??wall;
+      const lined=Math.abs(left-a)<.001 && Math.abs(right-c)<.001;
+      if(lined){f.rect(l,bot,left,top,wall);f.rect(right,bot,r,top,wall);}
+      const band=(bottom,head)=>{
+        if(head<=bottom+.001)return;
+        if(!lined){f.rect(l,bottom,a,head,wall);f.rect(c,bottom,r,head,wall);}
+        f.rect(a,bottom,c,head,finish,d);
+        for(const x of [a,c])face([f.at(x,bottom),f.at(x,head),f.at(x,head,d),f.at(x,bottom,d)],jamb);
+        const lip=bottom===bot?bottom:head;
+        if(!panel.above)face([f.at(a,lip),f.at(c,lip),f.at(c,lip,d),f.at(a,lip,d)],jamb);
+      };
+      band(bot,sill);
+      if(!lined){f.rect(l,sill,left,peak,wall);f.rect(right,sill,r,peak,wall);}
+      for(let i=1;i<inner.length;i++){
+        const [ax,ay]=inner[i-1],[bx,by]=inner[i];
+        if(ay<peak || by<peak)f.surface([[ax,ay],[bx,by],[bx,peak],[ax,peak]],wall);
+      }
+      if(panel.above)band(peak,top);
+      else f.rect(lined?left:l,peak,lined?right:r,top,wall);
+    }else if(near){
       f.rect(l,bot,left,top,wall);f.rect(right,bot,r,top,wall);f.rect(left,bot,right,sill,wall);
       for(let i=1;i<inner.length;i++){
         const [ax,ay]=inner[i-1],[bx,by]=inner[i];
@@ -417,7 +440,9 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
     const finish=profile.material??part.material??'wall',authored=s.materials[finish];
     const interior=s.style!=='greenhouse' && !/greenhouse|aviary|shelter|growing (?:range|house)|glasshouse|conservatory|rooftop biome|hoop house/i.test(part.name+' '+s.name);
     const occupiedGlass=authored?.kind==='glass-curtain' && authored.surface!=='opaque' && interior;
+    const clearCorner=profile.cornerGlazing??0;
     function room(l,r,bottom,head,front=0){
+      l=Math.max(l,clearCorner);r=Math.min(r,f.len-clearCorner);
       if(!medium || head<=bottom+.05 || r<=l+.04)return;
       const depth=Math.min(2.6,wallDepth(f,l+.018,r-.018)*.88);
       if(depth<front+.025)return;
@@ -758,7 +783,7 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
           const windowBottom=part.low===0 && f.grade?Math.max(floor+sill,f.grade(u)+.16):floor+sill;
           if(floor+sill+h-windowBottom<.49)continue;
           const projected=typ==='oriel'||typ==='bay-window'||(win.projectEvery && k%win.projectEvery===0);
-          windows.push({u,width,bay:k,slotL:margin+k*pitch+g*pitch/group,slotR:margin+k*pitch+(g+1)*pitch/group,projection:projected?(win.projection??.55):0,sill:windowBottom,height:floor+sill+h-windowBottom,type:typ,depth:win.recess??.19,glass,trim:trimMat,reveal:material(win.surroundMaterial??pf.material??'wall',{reveal:true}),frameWidth:.085,win});
+          windows.push({u,width,bay:k,slotL:margin+k*pitch+g*pitch/group,slotR:margin+k*pitch+(g+1)*pitch/group,projection:projected?(win.projection??.55):0,sill:windowBottom,height:floor+sill+h-windowBottom,type:typ,depth:win.recess??.19,glass,trim:trimMat,reveal:material(win.surroundMaterial??pf.material??'wall',{reveal:true}),frameWidth:.085,win:clearCorner>0 && Math.min(u,f.len-u)<clearCorner?{...win,openBack:true}:win});
 
         }
       }
@@ -794,14 +819,18 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
         const r=i===windows.length-1?len:(w.u+w.width/2+windows[i+1].u-windows[i+1].width/2)/2;
         if(!near && wm!==wall)f.rect(l,bot,r,ceiling,wm,.007);
         const accents=pf.bayMaterials??[],cladding=accents.length && w.bay!==undefined?material(accents[w.bay%accents.length]):wm;
+        const stack=pf.verticalSpandrels,stackBay=stack && w.bay!==undefined && w.bay%(stack.every??1)===0;
+        if(near && !w.projection && w.bay!==undefined){
+          if(stackBay)w.spandrel={...stack,above:true};
+          else if(pf.spandrelMaterial)w.spandrel={material:pf.spandrelMaterial};
+        }
         opening(f,{l,r,bot,top:ceiling},w,cladding);
-        const stack=pf.verticalSpandrels;
-        if(stack && w.bay!==undefined && w.bay%(stack.every??1)===0){
+        if(!w.spandrel && stackBay){
           const half=Math.min(stack.width??w.width,r-l)*.5,spandrel=material(stack.material);
           f.rect(w.u-half,Math.max(start,bot),w.u+half,w.sill,spandrel,.018);
           f.rect(w.u-half,w.sill+w.height,w.u+half,ceiling,spandrel,.018);
         }
-        if(pf.spandrelMaterial && w.bay!==undefined)f.rect(w.u-w.width/2,bot,w.u+w.width/2,w.sill,material(pf.spandrelMaterial),.025);
+        if(!w.spandrel && pf.spandrelMaterial && w.bay!==undefined)f.rect(w.u-w.width/2,bot,w.u+w.width/2,w.sill,material(pf.spandrelMaterial),.025);
         if(w.cutOnly){
           const e=entries.find(e=>Math.abs(project(e)-w.u)<=(e.width??2.3)/2);
           if(e){
@@ -1161,7 +1190,57 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
     }
     return -Infinity;
   }
+  function rooftopPipe(row){
+    if(level===0)return;
+    const radius=(row.diameter??.5)/2,points=row.pipePath.filter((p,i,path)=>i===0 || Math.hypot(p[0]-path[i-1][0],p[1]-path[i-1][1])>.01);
+    if(points.length<2)return;
+    const elevation=row.height??radius+.24;
+    const casing=material(row.material??'#c8c9c3',{kind:'painted-metal',roughness:.49,metalness:.34});
+    const feet=material('#757972',{kind:'metal-panel'});
+    const stations=points.map(([x,z])=>Math.max(...b.parts.map(p=>roofAt(p,x,z))));
+    const rectangular=row.housing==='duct',sides=rectangular?4:near?8:6,sectionRadius=rectangular?radius*Math.SQRT2:radius;
+    const axis=(a,b)=>{
+      const x=b[0]-a[0],z=b[1]-a[1],len=Math.hypot(x,z);
+      return [x/len,z/len];
+    };
+    const rings=points.map(([x,z],i)=>{
+      const prev=axis(points[Math.max(0,i-1)],points[Math.max(1,i)]);
+      const next=axis(points[Math.min(i,points.length-2)],points[Math.min(i+1,points.length-1)]);
+      const dx=prev[0]+next[0],dz=prev[1]+next[1],len=Math.hypot(dx,dz)||1;
+      const scale=sectionRadius/Math.max(.34,(dx*next[0]+dz*next[1])/len);
+      return Array.from({length:sides},(_,j)=>{
+        const a=2*Math.PI*(j+(rectangular?.5:0))/sides,offset=scale*Math.cos(a)/len;
+        return [x-dz*offset,stations[i]+elevation+sectionRadius*Math.sin(a),z+dx*offset];
+      });
+    });
+    for(let i=1;i<rings.length;i++){
+      if(!Number.isFinite(stations[i-1]) || !Number.isFinite(stations[i]))continue;
+      const a=points[i-1],c=points[i],dx=c[0]-a[0],dz=c[1]-a[1],len=Math.hypot(dx,dz);
+      if(len<.05)continue;
+      const turn=Math.atan2(dz,dx),x=(a[0]+c[0])/2,z=(a[1]+c[1])/2,base=(stations[i-1]+stations[i])/2;
+      if(collisionOnly){
+        block(x,base+elevation,z,len,2*radius,2*radius,turn,casing,true);
+      }else{
+        for(let j=0;j<sides;j++){
+          const k=(j+1)%sides;
+          face([rings[i-1][j],rings[i][j],rings[i][k],rings[i-1][k]],casing);
+        }
+        if(i===1)face(rings[0],casing);
+        if(i===rings.length-1)face(rings[i],casing);
+      }
+      if(near || collisionOnly){
+        const count=Math.ceil(len/4.8);
+        for(let j=0;j<count;j++){
+          const u=(j+.5)/count,px=a[0]+dx*u,pz=a[1]+dz*u;
+          const foot=Math.max(...b.parts.map(part=>roofAt(part,px,pz)));
+          const height=stations[i-1]+(stations[i]-stations[i-1])*u+elevation-radius+.03-foot;
+          if(Number.isFinite(height) && height>.02)block(px,foot+height/2,pz,.17,height,2.6*radius,turn,feet,true);
+        }
+      }
+    }
+  }
   function feature(row,owner){
+    if(row.pipePath){rooftopPipe(row);return;}
     if(row.type==='antenna' && s.roof.suspension && row.style?.includes('mast'))return;
     const type=row.type;let theta=(row.rotation??0)*Math.PI/180,m=material(row.material??({skylight:'#7c9da4','solar-panels':'#344758','green-roof':'#6f814e',hvac:'#9ca5a2',chimney:'wall'}[type]??'roof'));
     const sizes={chimney:[.85,.85,2.45],hvac:[2.1,1.5,1.1],antenna:[.075,.075,3.6],penthouse:[6.3,4.5,2.7],'stair-tower':[3,3,3.1],skylight:[2.3,1.6,.6],dormers:[2.2,2.1,1.35],'solar-panels':[2.3,1.25,.22],'green-roof':[4,4,.12]};
@@ -1205,7 +1284,7 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
           const a=k*2*Math.PI/3,dx=Math.cos(a),dy=Math.sin(a),hub=y+hh;
           face([[x,hub,z+.11],[x+dx*.38-dy*.12,hub+dy*.38+dx*.12,z+.13],[x+dx*1.2,hub+dy*1.2,z+.2]],m);
         }
-      }else if((type==='chimney' && /metal|stack|round|flue/.test(style)) || type==='hvac' && /exhaust|flue|vent (pipe|stack)/.test(style)){
+      }else if((type==='chimney' && /metal|stack|round|flue/.test(style)) || type==='hvac' && !/duct/.test(style) && /exhaust|flue|vent (pipe|stack)/.test(style)){
         const r=Math.min(w,d),top=r*(/taper/.test(style)?.69:.89);
         frustum(x,z,r,r,y,y+hh,top,top,12,theta,m);
         frustum(x,z,top*1.13,top*1.13,y+hh-.11,y+hh+.035,top*1.13,top*1.13,12,theta,m);
@@ -1221,6 +1300,16 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
         for(const side of [-1,1]){
           const front=v=>p(v[0],v[1],side*d*.515);
           face([[-w*.32,hh*.08],[w*.32,hh*.08],[w*.32,hh*.60],[-w*.32,hh*.60]].map(front),pane,[[0,0],[1,0],[1,1],[0,1]]);
+        }
+      }else if(type==='skylight' && style.includes('opal barrel')){
+        const frame=material('#868982',{kind:'painted-metal'}),lens=material(row.material??'glass',{kind:'glass-block',color:'#e0e0d4',roughness:.38,metalness:.03});
+        const curb=Math.min(.22,hh*.48),panels=near?8:4;
+        block(x,y+curb/2,z,w,curb,d,theta,frame);
+        const section=j=>[d*.5*Math.cos(j*Math.PI/panels),curb+(hh-curb)*Math.sin(j*Math.PI/panels)];
+        for(let j=0;j<panels;j++){
+          const [a,ha]=section(j),[b,hb]=section(j+1);
+          face([p(-w/2,ha,a),p(w/2,ha,a),p(w/2,hb,b),p(-w/2,hb,b)],lens,null,[0,1,0]);
+          for(const side of [-1,1])face([p(side*w/2,curb,0),p(side*w/2,ha,a),p(side*w/2,hb,b)],lens,null,[side*c,0,side*sn]);
         }
       }else if(type==='skylight' && /round|circular|oculus/.test(style)){
         frustum(x,z,w,d,y,y+hh*.42,w,d,24,theta,frameMat);
@@ -1309,12 +1398,13 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
           const along=Math.max(w,d),across=Math.min(w,d),end=along/2,r=Math.max(.05,end-Math.min(across*.55,end*.60)),low=curb+.022;
           const point=(u,h,v)=>w>=d?p(u,h,v):p(v,h,-u);
           block(x,y+curb*.5,z,w,curb,d,theta,frameFinish);
+          if(row.wellMaterial)block(x,y+curb+.003,z,w*.96,.012,d*.96,theta,material(row.wellMaterial));
           for(const side of [-1,1]){
             const v=across*side/2;
             face([point(-end,low,v),point(end,low,v),point(r,hh,0),point(-r,hh,0)],panel,null,[0,1,0]);
             face([point(side*end,low,-across/2),point(side*end,low,across/2),point(side*r,hh,0)],panel,null,[0,1,0]);
             for(const k of [-1,1])beam(point(k*end,low,v),point(k*r,hh,0),.066,frameFinish);
-            if(near){const n=Math.ceil(2*r/1.6);for(let j=0;j<=n;j++)beam(point(r*(2*j/n-1),low,v),point(r*(2*j/n-1),hh,0),.055,frameFinish);}
+            if(near){const n=Math.ceil(2*r/(row.bayWidth??1.6));for(let j=0;j<=n;j++)beam(point(r*(2*j/n-1),low,v),point(r*(2*j/n-1),hh,0),.055,frameFinish);}
           }
           beam(point(-r,hh,0),point(r,hh,0),.085,frameFinish);
           continue;
@@ -1337,6 +1427,15 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
         if(equipment && medium){
           const flashing=material(row.material??'roof',{kind:'painted-metal',roughness:.56});
           block(x,y+hh+.046,z,w+.09,.095,d+.09,theta,flashing);
+          if(style.includes('inset roof intake')){
+            const grate=material('#484943',{kind:'painted-metal',surface:'drain-grate',roughness:.81});
+            const width=w*.48,length=d*.53;
+            block(...p(0,hh+.117,0),width,.038,length,theta,grate);
+            for(const side of [-1,1]){
+              block(...p(0,hh+.17,side*length/2),width+.10,.15,.11,theta,flashing);
+              block(...p(side*width/2,hh+.17,0),.11,.15,length-.11,theta,flashing);
+            }
+          }
           if(near && hh>1.9 && w>2.4){
             const leafWidth=Math.min(1.1,w*.31),t=theta;
             block(...p(-w*.17,Math.min(1.04,hh*.37),d*.5+.02),leafWidth,Math.min(2.08,hh*.74),.04,t,material('#81847d'));
@@ -1459,8 +1558,16 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
         const a=row.pathGround[i-1],c=row.pathGround[i];
         const ring=[f.at(0,a-.12,-w/2),f.at(f.len,c-.12,-w/2),f.at(f.len,c-.12,w/2),f.at(0,a-.12,w/2)];
         const cap=ring.map(([x,y,z])=>[x,y+h+.12,z]);
-        face(cap,m,null,[0,1,0]);
-        for(let j=0;j<4;j++){const k=(j+1)%4;face([ring[j],ring[k],cap[k],cap[j]],m);}
+        const coping=row.capMaterial?material(row.capMaterial):m;
+        face(cap,coping,null,[0,1,0]);
+        for(let j=0;j<4;j++){
+          const k=(j+1)%4;
+          if(row.capMaterial && medium){
+            const v=cap[j],w=cap[k],edge=[v[0],v[1]-.052,v[2]],next=[w[0],w[1]-.052,w[2]];
+            face([ring[j],ring[k],next,edge],m);
+            face([edge,next,w,v],coping);
+          }else face([ring[j],ring[k],cap[k],cap[j]],m);
+        }
         solid([ring.map(p=>[p[0],p[2]])],Math.min(a,c)-.12,Math.max(a,c)+h);
       }else{
         f.box(u,base+h*.5,offset,f.len,h,w,m,true,row.type==='terrace' && !row.baseOffset);
@@ -1866,7 +1973,8 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
       }
       if(!collisionOnly){
         const boundary=new Map();
-        const smooth=!contacts && ['dome','barrel','upswept'].includes(part.roof.form)?curvedRoofNormals(vertices,idx):null;
+        const curved=part.roof.suspension?.profile?.roofPoints || ['dome','barrel','upswept'].includes(part.roof.form);
+        const smooth=!contacts && curved?curvedRoofNormals(vertices,idx):null;
         for(let i=0;i<idx.length;i+=3){
           const ids=idx.slice(i,i+3);
           const roofPoints=ids.map(k=>[vertices[k][0],top+vertices[k][1],vertices[k][2]]);
@@ -1967,7 +2075,13 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
           }
           if(part.grade?.[r])f.grade=u=>part.grade[r][startEdge]+(part.grade[r][(j+1)%ring.length]-part.grade[r][startEdge])*u/f.len;
           const overrides=Object.entries(s.walls.byWall??{}).filter(([key])=>matches(key,id)).map(([,style])=>style);
-          const profile=merge(s.walls.default,part.material?{material:part.material}:null,...overrides,part.facade,r>0||part.courtyardEdges?.includes(j)?s.walls.courtyard:part.wallProfiles?.[id]);
+          const specific=r>0||part.courtyardEdges?.includes(j)?s.walls.courtyard:part.wallProfiles?.[id];
+          const layers=[s.walls.default,part.material?{material:part.material}:null,...overrides,part.facade,specific];
+          const profile=merge(...layers);
+          if(profile.segments?.length){
+            const refinements=layers.slice(layers.findLastIndex(layer=>layer?.segments!==undefined)+1).filter(Boolean);
+            if(refinements.length)profile.segments=profile.segments.map(row=>merge(row,...refinements));
+          }
           facade(f,part,id,base,top,lo,profile,pi+':'+r+':'+startEdge);
           if(medium && part.low>2 && /enclosed bridge|trussed link/i.test(part.name) && f.len>(top-base)*3 && profile.sections?.length){
             const n=Math.max(2,Math.round(f.len/((top-base)*1.25))),steel=material(profile.trussMaterial??part.material??'trim');

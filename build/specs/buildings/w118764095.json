@@ -60,6 +60,11 @@
         1.68
       ],
       "roughness": 0.42
+    },
+    "rooflightWell": {
+      "kind": "painted-metal",
+      "color": "#373f3d",
+      "roughness": 0.74
     }
   },
   "floors": {
@@ -560,7 +565,10 @@
         ],
         "height": 1.13,
         "rotation": -12,
-        "material": "rooflight"
+        "material": "rooflight",
+        "style": "linear ridge glazing",
+        "bayWidth": 0.85,
+        "wellMaterial": "rooflightWell"
       },
       {
         "type": "skylight",
@@ -574,7 +582,10 @@
         ],
         "height": 1.13,
         "rotation": 39,
-        "material": "rooflight"
+        "material": "rooflight",
+        "style": "linear ridge glazing",
+        "bayWidth": 0.85,
+        "wellMaterial": "rooflightWell"
       },
       {
         "type": "antenna",

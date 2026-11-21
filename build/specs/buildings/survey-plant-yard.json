@@ -107,6 +107,44 @@
         "footprint": "inventory",
         "height": 0.3,
         "floors": 1
+      },
+      {
+        "name": "East pipe return and valve enclosure",
+        "footprint": [
+          [
+            45.65,
+            219.2
+          ],
+          [
+            48.05,
+            219.66
+          ],
+          [
+            47.36,
+            224.76
+          ],
+          [
+            49.97,
+            225.26
+          ],
+          [
+            49.55,
+            228.1
+          ],
+          [
+            44.53,
+            227.21
+          ]
+        ],
+        "floors": 1,
+        "height": 1.75,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "fascia",
+          "features": []
+        }
       }
     ]
   },

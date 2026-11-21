@@ -175,6 +175,12 @@
       "color": "#66747f",
       "roughness": 0.4,
       "opacity": 0.91
+    },
+    "plantRoof": {
+      "kind": "membrane",
+      "color": "#aba99f",
+      "variation": 0.1,
+      "roughness": 0.82
     }
   },
   "floors": {
@@ -4733,30 +4739,32 @@
       {
         "type": "penthouse",
         "center": [
-          -229.61,
-          1176.29
+          -233.8,
+          1181.0
         ],
         "size": [
-          5,
-          11
+          10.8,
+          16.0
         ],
         "height": 3.35,
         "rotation": -21,
-        "material": "trim"
+        "material": "plantRoof",
+        "style": "service penthouse"
       },
       {
         "type": "penthouse",
         "center": [
-          -195.42,
-          1162.1
+          -190.2,
+          1165.7
         ],
         "size": [
-          5.4,
-          8.2
+          13.6,
+          9.2
         ],
         "height": 3.6,
         "rotation": -21,
-        "material": "trim"
+        "material": "plantRoof",
+        "style": "inset roof intake"
       },
       {
         "type": "hvac",
@@ -4847,19 +4855,19 @@
         "material": "trim"
       },
       {
-        "type": "clerestory",
+        "type": "penthouse",
         "center": [
-          -211.5,
-          1165.5
+          -212.9,
+          1164.8
         ],
         "size": [
-          5.6,
-          21.5
+          5.9,
+          22.4
         ],
         "height": 2.65,
-        "material": "monitor",
+        "material": "plantRoof",
         "rotation": -21,
-        "style": "shed monitor"
+        "style": "opaque service spine"
       },
       {
         "type": "penthouse",
@@ -4921,44 +4929,47 @@
       {
         "type": "penthouse",
         "center": [
-          -216.28,
-          1164.75
+          -217.8,
+          1167.0
         ],
         "size": [
-          4.22,
-          7.7
+          4.7,
+          8.35
         ],
-        "height": 1.65,
+        "height": 1.85,
         "material": "rust",
-        "rotation": -21
+        "rotation": -21,
+        "style": "air handler with access panels"
       },
       {
-        "type": "skylight",
+        "type": "penthouse",
         "center": [
-          -211.1,
-          1171.1
+          -216.25,
+          1175.23
         ],
         "size": [
-          3.5,
-          2.35
+          9.1,
+          6.35
         ],
-        "height": 0.42,
-        "material": "glass",
-        "rotation": -21
+        "height": 1.9,
+        "material": "plantRoof",
+        "rotation": -21,
+        "style": "inset roof intake"
       },
       {
-        "type": "skylight",
+        "type": "penthouse",
         "center": [
-          -209.6,
-          1174.8
+          -202.46,
+          1170.56
         ],
         "size": [
-          2.6,
-          1.85
+          5.6,
+          5.5
         ],
-        "height": 0.33,
-        "material": "glass",
-        "rotation": -21
+        "height": 1.8,
+        "material": "plantRoof",
+        "rotation": -21,
+        "style": "inset roof intake"
       }
     ]
   },

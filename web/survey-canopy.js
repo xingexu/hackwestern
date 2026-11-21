@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {groundObstacles} from './ground-obstacles.mjs';
 import {campusCanopyFilter} from 'campus-clip';
-import {foliageCluster,leafSprayTexture,lightLeafBacks} from 'leaf-sprays';
+import {barkFinish,foliageCluster,leafSprayTexture,lightLeafBacks} from 'leaf-sprays';
 
 const crownAttributes=`#include <common>
   attribute vec3 crownCenter;
@@ -22,8 +22,8 @@ function crownShape(shader){
   shader.vertexShader=shader.vertexShader.replace('#include <common>',crownAttributes).replace('#include <begin_vertex>',crownVertex);
 }
 
-function foliageMaterials(){
-  const map=leafSprayTexture(),alphaTest=.38,side=THREE.DoubleSide;
+function foliageMaterials(budding=false){
+  const map=leafSprayTexture(budding),alphaTest=budding?.23:.38,side=THREE.DoubleSide;
   const depth=new THREE.MeshDepthMaterial({map,alphaTest,side,depthPacking:THREE.RGBADepthPacking});
   depth.customProgramCacheKey=()=>'survey-crown-depth';
   depth.onBeforeCompile=crownShape;
@@ -55,49 +55,80 @@ function foliageMaterials(){
   return {material,depth};
 }
 
-function buildTile(bytes,tile,foliage,size,network,boundary,bark,wood){
+function canopyEnvelope(data,first,count,siteX,siteZ,tx,tz){
+  let meanX=0,meanZ=0,mxx=0,mzz=0,mxz=0;
+  for(let i=0;i<count;i++){
+    const off=(first+i)*12,x=siteX+data.getInt16(off,true)/32-tx,z=siteZ+data.getInt16(off+2,true)/32-tz;
+    meanX+=x;meanZ+=z;mxx+=x*x;mzz+=z*z;mxz+=x*z;
+  }
+  meanX/=count;meanZ/=count;mxx=mxx/count-meanX*meanX;mzz=mzz/count-meanZ*meanZ;mxz=mxz/count-meanX*meanZ;
+  const axis=.5*Math.atan2(2*mxz,mxx-mzz),delta=Math.hypot(mxx-mzz,2*mxz);
+  const along=.76+1.77*Math.sqrt(Math.max(.05,(mxx+mzz+delta)*.5));
+  const across=.76+1.77*Math.sqrt(Math.max(.05,(mxx+mzz-delta)*.5));
+  const cx=tx+.86*meanX,cz=tz+.86*meanZ,c=Math.cos(axis),s=Math.sin(axis),seed=tx*.403+tz*.712;
+  return (x,z,r)=>{
+    const dx=x-cx,dz=z-cz,u=(dx*c+dz*s)/along,v=(dz*c-dx*s)/across;
+    const az=Math.atan2(v,u),dist=Math.hypot(u,v);
+    const edge=1+.10*Math.sin(3*az+seed)+.075*Math.sin(5*az-seed*1.34);
+    const fraction=dist>edge?edge/dist:1;
+    const jitter=Math.min(.36,r*.21);
+    return [cx+dx*fraction+jitter*Math.sin(4.21*x+2.31*z),cz+dz*fraction+jitter*Math.cos(3.29*z-2.72*x),r*(1-.23*Math.min(1,dist)*Math.min(1,dist))];
+  };
+}
+
+function buildTile(bytes,tile,foliage,size,network,boundary,bark,wood,budding=false){
   const data=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
   if(data.byteLength!==tile.count*12) throw new Error('Canopy survey tile has incomplete records.');
-  const centers=new Float32Array(tile.count*3), normals=new Float32Array(centers.length);
-  const colors=new Float32Array(centers.length), radii=new Float32Array(tile.count);
+  const stems=budding?tile.springReturns:tile.stems;
+  const capacity=stems.reduce((n,stem)=>n+Math.ceil(stem[4]/(budding?2:1)),0);
+  const centers=new Float32Array(capacity*3), normals=new Float32Array(centers.length);
+  const colors=new Float32Array(centers.length), radii=new Float32Array(capacity);
   const color=new THREE.Color();
-  const ownsCrown=boundary?campusCanopyFilter(boundary,tile.stems.map(([x,z,h])=>[x,network.groundAt(x,z),z,h])):null;
+  const ownsCrown=boundary?campusCanopyFilter(boundary,stems.map(([x,z,h])=>[x,network.groundAt(x,z),z,h])):null;
   const segments=[],cameraWood=groundObstacles();
   let kept=0;
-  for(const [tx,tz,height,first,count,surveyBase] of tile.stems){
+  for(const [tx,tz,height,first,count,surveyBase] of stems){
+    const contour=canopyEnvelope(data,first,count,tile.col*size,tile.row*size,tx,tz);
     const floor=network.groundAt(tx,tz);
     const root=new THREE.Vector3(tx,floor-.08,tz);
     const fork=new THREE.Vector3(tx+.08,floor+height*.43,tz-.06);
     const angleOffset=(tx*.75487+tz*.56984)%6.283185;
     const arms=height>10?6:4;
     const elbows=new Map(),junctions=[];
-    for(let record=first;record<first+count;record++){
+    for(let record=first;record<first+count;record+=budding?2:1){
       const off=record*12;
-      const x=tile.col*size+data.getInt16(off,true)/32,z=tile.row*size+data.getInt16(off+2,true)/32;
-      const y=floor+data.getInt16(off+4,true)/32-surveyBase,r=data.getUint8(off+11)/32;
+      const [x,z,r]=contour(tile.col*size+data.getInt16(off,true)/32,tile.row*size+data.getInt16(off+2,true)/32,data.getUint8(off+11)/32);
+      const y=floor+data.getInt16(off+4,true)/32-surveyBase;
       if(ownsCrown&&!ownsCrown(x,y,z,r))continue;
       if(!network.crownClear(x,y,z,r*1.32))continue;
-      const bearing=(Math.atan2(z-tz,x-tx)-angleOffset+Math.PI*4)%(Math.PI*2);
-      const sector=Math.floor(bearing*arms/(Math.PI*2));
-      let elbow=elbows.get(sector);
-      if(!elbow){
-        const yaw=angleOffset+(sector+.5)*Math.PI*2/arms;
-        const reach=height*(.06+.045*(.5+.5*Math.sin(yaw)));
-        const junction=fork.clone().lerp(root,.07+sector/arms*.34);
-        elbow=new THREE.Vector3(tx+Math.cos(yaw)*reach,floor+height*(.46+.12*sector/arms),tz+Math.sin(yaw)*reach);
-        junctions.push(junction);
-        segments.push([junction,elbow,.014*height]);
-        elbows.set(sector,elbow);
+      if(!budding){
+        const bearing=(Math.atan2(z-tz,x-tx)-angleOffset+Math.PI*4)%(Math.PI*2);
+        const sector=Math.floor(bearing*arms/(Math.PI*2));
+        let elbow=elbows.get(sector);
+        if(!elbow){
+          const yaw=angleOffset+(sector+.5)*Math.PI*2/arms;
+          const reach=height*(.06+.045*(.5+.5*Math.sin(yaw)));
+          const junction=fork.clone().lerp(root,.07+sector/arms*.34);
+          elbow=new THREE.Vector3(tx+Math.cos(yaw)*reach,floor+height*(.46+.12*sector/arms),tz+Math.sin(yaw)*reach);
+          junctions.push(junction);
+          segments.push([junction,elbow,.014*height]);
+          elbows.set(sector,elbow);
+        }
+        segments.push([elbow,new THREE.Vector3(x,y,z),.004*height+.018]);
       }
-      segments.push([elbow,new THREE.Vector3(x,y,z),.004*height+.018]);
       const i=kept++;
       centers.set([x,y,z],i*3);
       const nx=data.getInt8(off+6)/126,nz=data.getInt8(off+7)/126;
       normals.set([nx,Math.sqrt(Math.max(0,1-nx*nx-nz*nz)),nz],i*3);
       color.setRGB(data.getUint8(off+8)/255,data.getUint8(off+9)/255,data.getUint8(off+10)/255,THREE.SRGBColorSpace);
+      if(budding){
+        const shade=.42+.19*data.getUint8(off+9)/255;
+        color.setRGB(shade*1.04,shade*.91,shade*.70,THREE.SRGBColorSpace);
+      }
       color.toArray(colors,i*3);
       radii[i]=r;
     }
+    if(budding)continue;
     const spine=[root,...junctions.sort((a,b)=>a.y-b.y),fork];
     const trunkRadius=Math.min(.39,.014*height+.07);
     for(let i=1;i<spine.length;i++){
@@ -121,6 +152,7 @@ function buildTile(bytes,tile,foliage,size,network,boundary,bark,wood){
   mesh.castShadow=true;
   mesh.name='Surveyed canopy clusters';
   mesh.receiveShadow=true;
+  if(budding)return mesh;
   const tree=new THREE.InstancedMesh(bark,wood,segments.length);
   const transform=new THREE.Object3D(),up=new THREE.Vector3(0,1,0),axis=new THREE.Vector3();
   for(const [index,[a,b,r]] of segments.entries()){
@@ -141,7 +173,7 @@ function buildTile(bytes,tile,foliage,size,network,boundary,bark,wood){
 }
 
 export function createSurveyCanopy(data,network,ready,boundary) {
-  const group=new THREE.Group(),foliage=foliageMaterials();
+  const group=new THREE.Group(),foliage=foliageMaterials(),spring=foliageMaterials(true);
   group.name='Rooted LiDAR canopy';
   const loaded=new Map(),inflight=new Map(),failed=new Set();
   const tiles=Object.entries(data.tiles).map(([key,tile])=>{
@@ -157,7 +189,8 @@ export function createSurveyCanopy(data,network,ready,boundary) {
     return false;
   };
   const bark=new THREE.CylinderGeometry(.50,1,1,5);
-  const wood=new THREE.MeshStandardMaterial({color:0x665a47});
+  const wood=new THREE.MeshStandardMaterial({color:0x756851,roughness:.95});
+  wood.onBeforeCompile=barkFinish;
   for(const tile of tiles) for(const [x,z,h] of tile.stems??[]) {
     const y=network.groundAt(x,z),r=Math.min(.39,.014*h+.07);
     network.addBranch([x,y-.08,z],[x+.08,y+h*.43,z-.06],r,r*.5,'survey stem');
@@ -178,6 +211,7 @@ export function createSurveyCanopy(data,network,ready,boundary) {
       load().then(bytes=>{
         if(controller.signal.aborted||!wanted.has(tile.key)) return;
         const mesh=buildTile(bytes,tile,foliage,size,network,boundary,bark,wood);
+        if(tile.springReturns?.length)mesh.add(buildTile(bytes,tile,spring,size,network,boundary,bark,wood,true));
         loaded.set(tile.key,mesh);
         group.add(mesh);
         ready?.();
@@ -196,7 +230,7 @@ export function createSurveyCanopy(data,network,ready,boundary) {
     const separation=tile=>Math.hypot((tile.col+.5)*size-x,(tile.row+.5)*size-z);
     queue=range ? tiles.filter(t=>separation(t)<range+size*.7).sort((a,b)=>separation(a)-separation(b)) : [];
     wanted=new Map(queue.map(t=>[t.key,t]));
-    for(const [key,mesh] of loaded) if(!wanted.has(key)){group.remove(mesh);mesh.geometry.dispose();for(const limb of mesh.children) limb.dispose();loaded.delete(key);}
+    for(const [key,mesh] of loaded) if(!wanted.has(key)){group.remove(mesh);mesh.geometry.dispose();for(const part of mesh.children){if(part.isInstancedMesh)part.dispose();else part.geometry.dispose();}loaded.delete(key);}
     for(const [key,controller] of inflight) if(!wanted.has(key)) controller.abort();
     pump();
   }

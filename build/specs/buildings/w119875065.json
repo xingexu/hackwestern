@@ -1508,7 +1508,8 @@
         ],
         "height": 0.43,
         "material": "glass",
-        "rotation": -21
+        "rotation": -21,
+        "style": "opal barrel rooflight"
       },
       {
         "type": "skylight",
@@ -1522,7 +1523,8 @@
         ],
         "height": 0.43,
         "material": "glass",
-        "rotation": -21
+        "rotation": -21,
+        "style": "opal barrel rooflight"
       },
       {
         "type": "skylight",
@@ -1536,7 +1538,8 @@
         ],
         "height": 0.43,
         "material": "glass",
-        "rotation": -21
+        "rotation": -21,
+        "style": "opal barrel rooflight"
       },
       {
         "type": "hvac",

@@ -18,6 +18,11 @@ function faces(packet,match){
   }
   return triangles;
 }
+const preview=structuredClone(byId.get('w147379460')),driving=structuredClone(preview);
+const slope=(x,z)=>(x+z)*.006;
+fitArchitecture([preview],slope,[],false);
+fitArchitecture([driving],slope);
+assert.deepEqual(buildArchitecture([preview],2),buildArchitecture([driving],2),'Preview geometry must match driving geometry at the same grade');
 const portal=byId.get('w141710486');
 solids(portal);
 const plaza=buildArchitecture([portal],2);
@@ -71,6 +76,34 @@ const rectangle=(x,w=9)=>{
   return {name:'Wing',center:[x+w/2,3],rings:[ring],wallIds:[[-1,-1,-1,-1]],low:0,high:6,floors:2,facade:{blank:true},roof:{form:'flat',features:[]},surface:[ring.map(([x,z])=>[x,0,z]),[0,1,2,0,2,3]]};
 };
 const wings=[rectangle(0),rectangle(9)],test={...single,ground:0,foundation:-.5,bounds:[0,0,18,6],farBudget:budget,parts:wings};
+const stack=rectangle(0);
+stack.facade={material:'wall',bays:{count:3},windows:{type:'punched',width:1.4,height:1.5,sill:.78,perBay:1,recess:.3},verticalSpandrels:{material:'#695c50',every:1,width:1.4,recess:.24}};
+const stackRecord={...test,parts:[stack],spec:{...test.spec,walls:{default:stack.facade},floors:{count:2,floorHeight:3,groundFloorHeight:3}}};
+const stackMesh=architectureMesh(buildArchitecture([stackRecord],2));
+stackMesh.updateMatrixWorld(true);
+const intoFacade=(x,y)=>new Raycaster(new Vector3(x,y,-1),new Vector3(0,0,1),0,3).intersectObject(stackMesh,true)[0]?.distance;
+assert.ok(Math.abs(intoFacade(4.15,.45)-1.24)<.005,'Spandrel must sit 24 cm inside the masonry opening');
+assert.ok(Math.abs(intoFacade(3.25,.45)-1)<.005,'Masonry pier must remain at the surveyed face');
+const upperGalleries=gallery.parts.filter(p=>p.name.includes('standing-seam slope'));
+assert.ok(upperGalleries.filter(p=>p.courtyardEdges?.length).length>=2,'Terraced courtyard must expose glazing on both upper galleries');
+const supply=rectangle(0,21);
+supply.roof.features=[{type:'hvac',center:[10,3],style:'exhaust duct',size:[12,.9,.8],rotation:0}];
+const supplyMesh=architectureMesh(buildArchitecture([{...stackRecord,parts:[supply]}],2));
+supplyMesh.updateMatrixWorld(true);
+for(const x of [4.3,15.7]){
+  const end=new Raycaster(new Vector3(x,8,3),new Vector3(0,-1,0)).intersectObject(supplyMesh,true)[0];
+  assert.ok(end && end.point.y>6.74,'Both ends of the measured 12 m exhaust duct must rise above the roof');
+}
+supply.roof.features=[{type:'hvac',pipePath:[[3,1],[7,1],[7,4]],diameter:.48,height:1,material:'trim'}];
+const pipes=architectureMesh(buildArchitecture([{...stackRecord,parts:[supply]}],2));
+pipes.updateMatrixWorld(true);
+for(const [x,z] of [[4,1],[7,1],[7,3]]){
+  ray.set(new Vector3(x,9,z),new Vector3(0,-1,0));
+  const hit=ray.intersectObject(pipes,true)[0];
+  assert.ok(hit && Math.abs(hit.point.y-7.24)<.04,'Exposed laboratory duct must remain continuous around its elbow');
+}
+ray.set(new Vector3(5.5,9,2.8),new Vector3(0,-1,0));
+assert.ok(ray.intersectObject(pipes,true)[0].point.y<6.1,'Pipework must leave the service aisle open');
 let far=buildArchitecture([test],0);
 const roofTriangles=faces(far,m=>m.roofSurface);
 assert.equal(roofTriangles.length,2,'Two adjacent flat roofs with a shared edge should form one plane');
@@ -100,6 +133,16 @@ const mansard=lodge.parts.find(p=>p.roof.form==='mansard');
 for(const level of [0,2]){
   const roof=buildArchitecture([{...lodge,parts:[mansard]}],level);
   assert.ok(faces(roof,m=>m.kind==='standing-seam-metal' && m.color===teal).length>2,'Mansard skirt must carry its metal perimeter finish');
+}
+for(const [id,x,z] of [['w126668339',-232.5,-99.5],['w126668340',-285.5,-94.5]]){
+  const residence=byId.get(id);
+  solids(residence);
+  for(const level of [1,2]){
+    const balcony=architectureMesh(buildArchitecture([residence],level));
+    balcony.updateMatrixWorld(true);
+    ray.set(new Vector3(x,12,z),new Vector3(0,-1,0));
+    assert.ok(ray.intersectObject(balcony,true).every(hit=>hit.point.y<7.4 || hit.point.y>8.5),'Storey cornice projects beyond the surveyed balcony cover');
+  }
 }
 const gambrel=byId.get('w119875057');
 const overhangs=fitArchitecture([gambrel],()=>0,[{bridge:true,points:[[-95,15,1100]]}]);

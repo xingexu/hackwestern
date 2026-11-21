@@ -17,6 +17,53 @@ export function roadsidePosition(x,z,heading,side,paved,allowed,clearance=.65){
   return best;
 }
 
+export function campusSeat(at,length=1.8,style='slats'){
+  const frame=0x414943,slat=style==='black-metal'?0x4b504c:style==='plum'?0x805e75:style==='oxblood'?0x99594e:style==='ochre'?0xb78048:0x8b7660;
+  if(style==='stone'){
+    for(const end of [-1,1])at(end*length*.33,.21,0,.22,.42,.45,0xaaa79a);
+    at(0,.45,0,length,.14,.53,0xbfbbae);
+    return;
+  }
+  for(const end of [-1,1]){
+    const u=end*length*.36;
+    for(const t of [-.17,.17]){
+      at(u,.035,t,.15,.065,.13,0x60655c);
+      at(u,.235,t,.062,.41,.065,frame);
+    }
+    at(u,.44,0,.075,.071,.51,frame);
+    at(u,.63,.22,.055,.47,.052,frame,0,.16);
+    at(u,.55,-.18,.048,.25,.05,frame);
+    at(u,.665,-.015,.055,.047,.36,frame);
+  }
+  const boards=style==='black-metal'?8:5;
+  for(let i=0;i<boards;i++){
+    const t=(i/(boards-1)-.5)*.45;
+    at(0,.475+.16*t*t,t,length,.044,.44/boards,slat);
+  }
+  for(let i=0;i<3;i++)at(0,.575+i*.106,.202+i*.024,length,.082,.042,slat,0,.19);
+}
+
+export function campusBikeRack(at,stands,style='stands'){
+  const count=Math.min(12,Math.max(1,stands));
+  const steel=0x8d9792,dark=0x555f59;
+  const wheelRack=style==='racks'||style==='wall_loops';
+  const radius=wheelRack?.175:.37,straight=wheelRack?.20:.49,step=wheelRack?.36:.80;
+  if(wheelRack)for(const t of [-radius,radius])at(0,.09,t,(count-1)*step+.27,.07,.073,dark);
+  for(let i=0;i<count;i++){
+    const u=(i-(count-1)*.5)*step;
+    for(const t of [-radius,radius]){
+      at(u,.025,t,.13,.048,.14,dark);
+      at(u,straight*.5,t,.048,straight,.048,steel);
+    }
+    for(let j=0;j<9;j++){
+      const a=j*Math.PI/9,b=(j+1)*Math.PI/9;
+      const y=straight+radius*Math.sin(a),Y=straight+radius*Math.sin(b);
+      const z=radius*Math.cos(a),Z=radius*Math.cos(b);
+      at(u,(y+Y)*.5,(z+Z)*.5,.048,.048,Math.hypot(Y-y,Z-z)+.008,steel,0,-Math.atan2(Y-y,Z-z));
+    }
+  }
+}
+
 export function createStreetDetail(THREE, data, network) {
   const group = new THREE.Group();
   group.name = 'Mapped campus streets and landmark details';
@@ -43,13 +90,11 @@ export function createStreetDetail(THREE, data, network) {
     buckets.get(key).push([matrix.clone(),color]);
   }
 
-  function bench(x, y, z, length) {
-    for (const end of [-1, 1]) {
-      box(x, y + .23, z + end * length * .36, .48, .45, .065, iron);
-      box(x + .22, y + .63, z + end * length * .36, .045, .49, .06, iron);
-    }
-    for (let i = 0; i < 4; i++) box(x - .19 + i * .125, y + .47, z, .095, .065, length, oak);
-    for (let i = 0; i < 3; i++) box(x + .23, y + .59 + i * .12, z, .048, .09, length, oak);
+  function seatFixture(x,y,z){
+    return (u,v,t,w,h,l,color,rotation=0,pitch=0,roll=0)=>box(x+t,y+v,z-u,w,h,l,color,rotation+Math.PI/2,roll,pitch);
+  }
+  function bench(x,y,z,length,style){
+    campusSeat(seatFixture(x,y,z),length,style);
   }
   function stopPole(x, z) {
     box(x, 1.42, z, .075, 2.84, .075, metal);
@@ -97,17 +142,6 @@ export function createStreetDetail(THREE, data, network) {
       if (glyphs[d][row][col] === '1') box(.209 - d * .225 - col * .074, 2.50 - row * .08, -.039, .075, .081, .027, iron);
     }
   }
-  function rack(n) {
-    for (let i = 0; i < n; i++) {
-      const z = .64 * (i - (n - 1) / 2);
-      for (const side of [-1, 1]) {
-        box(side * .39, .34, z, .048, .68, .05, metal);
-        box(side * .33, .71, z, .19, .05, .05, metal, 0, -side * .69);
-      }
-      box(0, .77, z, .58, .05, .05, metal);
-    }
-  }
-
   for (const f of data.features) {
     owner=f.kind;
     pose(f.x,network.groundAt?.(f.x,f.z)??f.y,f.z,f.yaw);
@@ -115,8 +149,8 @@ export function createStreetDetail(THREE, data, network) {
       case 'shelter': shelter(); break;
       case 'transit': stopPole(0, 0); break;
       case 'speed': speedSign(); break;
-      case 'bench': bench(0, 0, 0, 1.72); break;
-      case 'rack': rack(f.label); break;
+      case 'bench': bench(0,0,0,1.78,data.furnitureStyles?.[f.id]); break;
+      case 'rack': campusBikeRack(seatFixture(0,0,0),f.label,data.furnitureStyles?.[f.id]); break;
       case 'pedestrian':
         box(0, 1.36, 0, .075, 2.72, .075, iron);
         box(0, 2.46, 0, .5, .5, .06, 0xc5d24f, 0, Math.PI / 4);
@@ -127,7 +161,8 @@ export function createStreetDetail(THREE, data, network) {
         for(const side of [-1,1]){
           const u=side*6.9,t=-side*8;
           const x=f.x+Math.cos(f.yaw)*u+Math.sin(f.yaw)*t,z=f.z-Math.sin(f.yaw)*u+Math.cos(f.yaw)*t;
-          const site=network.roadsidePosition?network.roadsidePosition(x,z,f.yaw,side):[x,z,f.yaw];
+          const measured=data.signalBases?.find(([px,pz,s])=>px===f.x&&pz===f.z&&s===side);
+          const site=measured?[measured[3],measured[4],f.yaw]:network.roadsidePosition?network.roadsidePosition(x,z,f.yaw,side):[x,z,f.yaw];
           if(!site)continue;
           pose(site[0],network.groundAt?.(site[0],site[1])??f.y,site[1],site[2]);
           signal(side,side);

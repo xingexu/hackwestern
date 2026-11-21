@@ -186,7 +186,7 @@ function circuitGuidance() {
   return {group,update};
 }
 
-export async function startDrive(world, volume, collectMeshes, campus) {
+export async function startDrive(world, volume, collectMeshes, campus, onlineMenu) {
   document.title = 'UC Hill Sprint · Western University';
   byId('view').setAttribute('aria-label', 'Chase camera on the UC Hill Sprint course');
   byId('status').textContent = 'Preparing University Drive…';
@@ -292,6 +292,7 @@ export async function startDrive(world, volume, collectMeshes, campus) {
     byId('view').setAttribute('aria-label',course.name+' driving view');
     campus.sprintRoad.visible=sprintProps.visible=mode==='sprint';
     if(params.has('diagnostics')) window.driveMetrics={
+      get net(){return online?.details()??[];},
       get opponents(){return scene.children.filter(child=>child.name.startsWith('Racer ') && child.visible).map(({name,position})=>({name,x:position.x,z:position.z}));},
       get ghostVisible(){return Boolean(scene.getObjectByName('Time trial ghost')?.visible);},
       car,sim,network,facades:campus.facades.group,buildingRecords:campus.buildingRecords,frames:0,length,mode,course:course.id,
@@ -311,16 +312,14 @@ export async function startDrive(world, volume, collectMeshes, campus) {
     renderer.shadowMap.needsUpdate=true;
     reset();
   }
-  const hosted=/^https?:$/.test(location.protocol) && !byId('embedded-world');
-  const timing=performance.getEntriesByType('navigation')[0]?.serverTiming;
-  if (hosted && (timing?.some(entry=>entry.name==='western-online') ?? (await fetch(location.href,{method:'HEAD',signal:AbortSignal.timeout(1500)}).catch(()=>null))?.headers.get('Server-Timing')==='western-online')) {
-    document.documentElement.dataset.westernOnline='true';
-    const {attachOnline}=await import('./lobby/online.mjs');
-    online=attachOnline({THREE,scene,coupe,changeCourse,reset,carState:()=>car});
-  }
   select.onchange=()=>changeCourse(select.value);
   spawn.onchange=()=>changeCourse('roam');
-  byId('recover').onclick=()=>{sim.recover();snapshotPose(previousPose,car);remaining=0;rig.reset(car);placement.reset();};
+  byId('recover').onclick=()=>{
+    const spot=online?.recoverySpot(car),elapsed=car.elapsed;
+    if(sim.recover)sim.recover();else sim.reset();
+    if(spot)Object.assign(car,spot,{elapsed});
+    snapshotPose(previousPose,car);remaining=0;rig.reset(car);placement.reset();
+  };
   for(const button of document.querySelectorAll('[data-key]')){
     button.onpointerdown=e=>{e.preventDefault();button.setPointerCapture(e.pointerId);keys.add(button.dataset.key);};
     button.onlostpointercapture=()=>keys.delete(button.dataset.key);
@@ -335,10 +334,10 @@ export async function startDrive(world, volume, collectMeshes, campus) {
     viewToggle.setAttribute('aria-label', viewToggle.textContent);
     byId('view').setAttribute('aria-label', (driverView ? 'Driver eye view · ' : 'Chase camera · ')+select.selectedOptions[0].text);
   };
-  byId('restart').onclick = byId('again').onclick = () => { if (!online?.racing) reset(); };
+  byId('restart').onclick = byId('again').onclick = () => { if (online?.active) byId('recover').click(); else reset(); };
   window.addEventListener('keydown', event => {
     if (event.target.closest?.('select,input,dialog,textarea') || event.altKey || event.ctrlKey || event.metaKey) return;
-    if (event.code === 'KeyR' && !event.repeat && !online?.racing) reset();
+    if (event.code === 'KeyR' && !event.repeat) byId('restart').click();
     if (!commands.has(event.code)) return;
     event.preventDefault();
     keys.add(event.code);
@@ -374,7 +373,7 @@ export async function startDrive(world, volume, collectMeshes, campus) {
     const pad = connectedPad();
     padConnected = Boolean(pad);
     const restart = Boolean(pad?.buttons[9]?.pressed);
-    if (restart && !padRestartDown && !online?.racing) reset();
+    if (restart && !padRestartDown) byId('restart').click();
     padRestartDown = restart;
     const input = readGamepad(pad);
     const down = (a, b) => keys.has(a) || keys.has(b);
@@ -399,7 +398,7 @@ export async function startDrive(world, volume, collectMeshes, campus) {
       const ground=network.sample(car.x,car.z,car.y);
       surface.textContent=ground.street || ({road:'Asphalt',path:'Campus path',grass:'Grass'}[ground.surface]);
     }
-    if (paused && car.phase === 'driving') message.textContent = 'Paused';
+    if (paused && !online?.active && !online?.padConnected && car.phase === 'driving') message.textContent = 'Paused';
     else if (car.phase === 'ready') message.textContent = padConnected ? 'RT to start' : matchMedia('(pointer:coarse)').matches ? 'Touch Gas to start' : '↑ or W to start';
     else if(car.offCourse) message.textContent='Return to the marked route';
     else if(mode==='circuit' && car.nextGate) message.textContent='Checkpoint '+(car.checkpointsPassed+1)+' / '+car.checkpointCount;
@@ -417,15 +416,17 @@ export async function startDrive(world, volume, collectMeshes, campus) {
     trial.hud(car);
   }
   changeCourse(params.get('course')||(photoStart?'roam':document.querySelector('meta[name=campus-course]')?.content));
+  online=await onlineMenu;
+  online?.attach({THREE,scene,coupe,changeCourse,reset,carState:()=>car});
   const look = new THREE.Vector3();
   function frame(timestamp) {
     const elapsed = previous === null ? 0 : Math.min(.12, (timestamp - previous) / 1000);
     const interval=previous===null?0:(timestamp-previous)/1000;
     previous = timestamp;
-    online?.update(timestamp,elapsed);
-    if (!paused && !online?.waiting) {
+    let input={};
+    if ((!paused || ((online?.active || online?.padConnected) && !document.hidden)) && !online?.waiting) {
       const localInput = controls(elapsed);
-      const input = online?.controls(localInput) ?? localInput;
+      input = online?.controls(localInput) ?? localInput;
       remaining += elapsed;
       while (remaining >= 1 / 120) {
         snapshotPose(previousPose,car);
@@ -433,6 +434,7 @@ export async function startDrive(world, volume, collectMeshes, campus) {
         remaining -= 1 / 120;
       }
     }
+    online?.update(timestamp,elapsed,input,padConnected);
     const width = renderer.domElement.clientWidth, height = renderer.domElement.clientHeight;
     const renderScale=paused ? lastScale : quality.sample(interval);
     if (width !== lastWidth || height !== lastHeight || renderScale!==lastScale) {

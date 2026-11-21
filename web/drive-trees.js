@@ -4,12 +4,12 @@ import * as THREE from 'three';
 
 import { shapeBatch } from 'drive-art';
 
-import {foliageCluster,leafSprayTexture,lightLeafBacks} from 'leaf-sprays';
+import {barkFinish,foliageCluster,leafSprayTexture,lightLeafBacks} from 'leaf-sprays';
 
 export function summerFoliage(red, green, blue, variation, target = new THREE.Color()) {
   const brightness = (.3 * red + .55 * green + .15 * blue) / 255;
-  const hue = .235 + .06 * variation + .02 * Math.max(-1, Math.min(1, (green - red) / 40));
-  const saturation = .34 + .12 * (1 - variation);
+  const hue = .206 + .096 * variation + .035 * Math.max(-1, Math.min(1, (green - red) / 40));
+  const saturation = .285 + .15 * (1 - variation);
   const lightness = .3 + .15 * Math.min(1, Math.max(0, (brightness - .2) / .45));
   return target.setHSL(hue, saturation, lightness, THREE.SRGBColorSpace);
 }
@@ -108,7 +108,9 @@ export async function createCampusTrees(volume, treeData, samples, network) {
     canopy.material.alphaTest=.38;
     canopy.material.onBeforeCompile=lightLeafBacks;
     canopy.material.side=THREE.DoubleSide;
-    const trunks=bark.mesh(new THREE.MeshStandardMaterial());
+    const trunkMaterial=new THREE.MeshStandardMaterial({roughness:.96});
+    trunkMaterial.onBeforeCompile=barkFinish;
+    const trunks=bark.mesh(trunkMaterial);
     group.add(trunks, canopy);
     levels.push(createGroveLevels(canopy,trunks,standing,group));
   }

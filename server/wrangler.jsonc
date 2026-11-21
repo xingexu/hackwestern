@@ -4,6 +4,7 @@
   "main": "worker.mjs",
   "compatibility_date": "2026-09-01",
   "workers_dev": true,
+  "routes": [],
   "preview_urls": false,
   "assets": {
     "directory": "../web/dist/app",
@@ -11,12 +12,14 @@
     "run_worker_first": true,
     "html_handling": "none"
   },
+  "vars": {"MULTIPLAYER":"0"},
   "durable_objects": {
     "bindings": [
+      {"name": "RACES", "class_name": "Arena"},
       {"name": "ROOMS", "class_name": "Room"},
       {"name": "LEADERS", "class_name": "Leaderboard"}
     ]
   },
-  "migrations": [{"tag":"v1","new_sqlite_classes":["Room","Leaderboard"]}],
+  "migrations": [{"tag":"v1","new_sqlite_classes":["Room","Leaderboard"]},{"tag":"v2","new_sqlite_classes":["Arena"]}],
   "dev": {"ip":"127.0.0.1","port":8787}
 }

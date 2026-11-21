@@ -2,7 +2,7 @@ import {edgeGLSL} from './look/surface-response.mjs';
 import {riverFinish} from './look/water.mjs';
 import {bindGroundEdge,groundDetailGLSL} from 'campus-terrain';
 import { createArchitecture } from 'campus-architecture';
-import {foliageCluster,leafSprayTexture,lightLeafBacks} from 'leaf-sprays';
+import {barkGrainGLSL,foliageCluster,leafSprayTexture,lightLeafBacks} from 'leaf-sprays';
 
 export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, architecture, landscape) {
   const group = new THREE.Group();
@@ -392,15 +392,16 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     const leaves=fine?fineLobe:coarseLobe, wood=stem(fine?6:4), parts=[];
     const fork=[0,spreading?.4:.3,0];
     parts.push(limb(wood,[0,-.02,0],fork,.059,.039));
-    const count=spreading?4:3, start=random()*6.28;
+    const count=(spreading?4:3)+(seed%3), start=random()*6.28;
     for(let i=0;i<count;i++){
       const angle=start+i*6.28/count+(random()-.5)*.5;
       const reach=spreading?.5+.14*random():.3+.1*random();
       const rise=spreading?.6+.08*random():.48+.12*i+.04*random();
       const tip=[Math.sin(angle)*reach,rise,Math.cos(angle)*reach];
       if(fine){
-        const elbow=[tip[0]*.42,fork[1]+(tip[1]-fork[1])*.72,tip[2]*.57];
-        parts.push(limb(wood,fork,elbow,.038,.025),limb(wood,elbow,tip,.025,.014));
+        const junction=[0,fork[1]*(.59+.41*i/count),0];
+        const elbow=[tip[0]*.42,junction[1]+(tip[1]-junction[1])*(.47+.22*random()),tip[2]*.57];
+        parts.push(limb(wood,junction,elbow,.038,.025),limb(wood,elbow,tip,.025,.014));
         const twig=[tip[0]+Math.cos(angle)*.19,tip[1]+.1,tip[2]-Math.sin(angle)*.19];
         parts.push(limb(wood,elbow,twig,.02,.008),lobe(leaves,...twig,.31,.10));
       }
@@ -426,7 +427,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
       const width=.78-.52*t,rise=.3+.56*t;
       if(fine){
         for(let spoke=0;spoke<4;spoke++){
-          const angle=i*2.4+spoke*Math.PI/2;
+          const angle=i*2.4+spoke*1.5708+.37*Math.sin(spoke*1.7+i*.85);
           parts.push(lobe(fineLobe,Math.cos(angle)*width*.42,rise,Math.sin(angle)*width*.42,width*.70,.15-.055*t));
         }
       }else parts.push(cone(coarseCone,rise,width,.44-.1*t));
@@ -484,16 +485,17 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     const fine=build(true);
     return {branches:fine.flatMap(p=>p.branch?[p.branch]:[]),far:treeGeometry(build(false)),near:treeGeometry(fine),bare:treeGeometry(fine,true)};
   }
-  const forms=[species(fine=>broadleaf(71,true,fine)),species(fine=>broadleaf(5233,false,fine)),species(fine=>conifer(fine))];
+  const forms=[species(fine=>broadleaf(71,true,fine)),species(fine=>broadleaf(5233,false,fine)),species(fine=>conifer(fine)),species(fine=>broadleaf(2261,true,fine)),species(fine=>broadleaf(743,false,fine))];
   const vegetation=new THREE.MeshStandardMaterial({vertexColors:true,map:leafSprayTexture(),alphaTest:.36,side:THREE.DoubleSide});
   vegetation.customProgramCacheKey=()=>'campus-leaf-flecks';
   vegetation.onBeforeCompile=shader=>{
     lightLeafBacks(shader);
-    shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nattribute float leaf;\nvarying vec3 leafPoint;')
+    shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nattribute float leaf;\nvarying vec3 leafPoint;varying float barkAmount;')
       .replace('#include <color_vertex>','#include <color_vertex>\nvColor.xyz=mix(color.xyz,vColor.xyz,leaf);')
-      .replace('#include <begin_vertex>','#include <begin_vertex>\nleafPoint=(instanceMatrix * vec4(position,1.)).xyz;');
-    shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 leafPoint;')
+      .replace('#include <begin_vertex>','#include <begin_vertex>\nbarkAmount=1.-leaf;leafPoint=(instanceMatrix * vec4(position,1.)).xyz;');
+    shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 leafPoint;varying float barkAmount;\n'+barkGrainGLSL)
       .replace('#include <color_fragment>',`#include <color_fragment>
+        diffuseColor.rgb*=mix(1.,barkGrain(leafPoint),barkAmount);
         vec3 p=floor(leafPoint*9.);
         float fleck=fract(sin(dot(mod(p,127.),vec3(12.72,53.93,21.13)))*34751.32);
         float close=1.-smoothstep(.04,.35,length(fwidth(leafPoint)));
@@ -504,10 +506,10 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     const hash=Math.abs(Math.sin(x*12.9898+z*78.233)*43758.5453)%1;
     const value=Math.max(...rgb)/255;
     if(h>7 && (value<.27 || hash<.06)) return 2;
-    return h<9 || hash>.62 ? 1 : 0;
+    return h<9 || hash>.62 ? (hash>.80?4:1) : (hash>.31?3:0);
   }
   for (const trees of groves.values()) {
-    const sorted=[[],[],[]];
+    const sorted=forms.map(()=>[]);
     for(const tree of trees) sorted[pick(tree)].push(tree);
     sorted.forEach((members,kind)=>{
       if(!members.length) return;
@@ -534,7 +536,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           landscape.addBranch(point(a),point(b),start*scale,end*scale,'regional tree');
         }
         if(kind===2) color.setHSL(.35+.04*hash,.32+.08*hash,.23+.08*brightness,THREE.SRGBColorSpace);
-        else color.setHSL(.265+.045*hash+(young?.012:0),.34+.08*(1-hash),.28+.13*brightness+(young?.025:0),THREE.SRGBColorSpace);
+        else color.setHSL(.215+.103*hash+(young?.018:0),.25+.14*(1-hash),.29+.14*brightness+(young?.035:0),THREE.SRGBColorSpace);
         mesh.setColorAt(i,color);
       });
       mesh.computeBoundingSphere(); mesh.receiveShadow=true; mesh.castShadow=true; group.add(mesh);

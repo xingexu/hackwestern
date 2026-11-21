@@ -91,6 +91,22 @@
       "variation": 0.045,
       "roughness": 0.92,
       "surface": "bush-hammered"
+    },
+    "patioBlock": {
+      "kind": "split-face-block",
+      "color": "#7b6254",
+      "secondaryColor": "#998779",
+      "unitSize": [
+        0.395,
+        0.195
+      ],
+      "variation": 0.1,
+      "roughness": 0.92
+    },
+    "patioCap": {
+      "kind": "precast-panel",
+      "color": "#a19788",
+      "roughness": 0.85
     }
   },
   "floors": {
@@ -2995,7 +3011,8 @@
       ],
       "width": 0.14,
       "height": 1.13,
-      "material": "rail"
+      "material": "patioBlock",
+      "capMaterial": "patioCap"
     },
     {
       "type": "terrace",
@@ -3037,7 +3054,8 @@
       ],
       "width": 0.14,
       "height": 1.13,
-      "material": "rail"
+      "material": "patioBlock",
+      "capMaterial": "patioCap"
     },
     {
       "type": "terrace",
@@ -3079,7 +3097,8 @@
       ],
       "width": 0.14,
       "height": 1.13,
-      "material": "rail"
+      "material": "patioBlock",
+      "capMaterial": "patioCap"
     },
     {
       "type": "terrace",
@@ -3121,7 +3140,8 @@
       ],
       "width": 0.14,
       "height": 1.13,
-      "material": "rail"
+      "material": "patioBlock",
+      "capMaterial": "patioCap"
     },
     {
       "type": "terrace",
@@ -3163,7 +3183,8 @@
       ],
       "width": 0.14,
       "height": 1.13,
-      "material": "rail"
+      "material": "patioBlock",
+      "capMaterial": "patioCap"
     },
     {
       "type": "terrace",
@@ -3205,7 +3226,8 @@
       ],
       "width": 0.14,
       "height": 1.13,
-      "material": "rail"
+      "material": "patioBlock",
+      "capMaterial": "patioCap"
     },
     {
       "type": "terrace",
@@ -3247,7 +3269,8 @@
       ],
       "width": 0.14,
       "height": 1.13,
-      "material": "rail"
+      "material": "patioBlock",
+      "capMaterial": "patioCap"
     },
     {
       "type": "terrace",
@@ -3289,7 +3312,8 @@
       ],
       "width": 0.14,
       "height": 1.13,
-      "material": "rail"
+      "material": "patioBlock",
+      "capMaterial": "patioCap"
     }
   ]
 }

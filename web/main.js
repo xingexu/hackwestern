@@ -622,7 +622,18 @@ async function loadCoreMesh(asset) {
   return {geometries:chunks.map(chunkGeometry),triangles};
 }
 
+async function onlineMenu() {
+  if (document.documentElement.dataset.mode!=='drive' || !/^https?:$/.test(location.protocol) || document.getElementById('embedded-world')) return null;
+  const timing=performance.getEntriesByType('navigation')[0]?.serverTiming;
+  if (!timing?.some(entry=>entry.name==='western-online') && (await fetch(location.href,{method:'HEAD',cache:'no-store',signal:AbortSignal.timeout(2500)}))?.headers.get('X-Western-Online')!=='1') return null;
+  document.documentElement.dataset.westernOnline='true';
+  const [health,{mountOnline}]=await Promise.all([fetch('/api/health',{signal:AbortSignal.timeout(3000)}).then(r=>r.json()).catch(()=>({})),import('./lobby/online.mjs')]);
+  return mountOnline(health);
+}
+
 async function start() {
+  const online=onlineMenu().catch(()=>null);
+  const drive=document.documentElement.dataset.mode==='drive' ? import('campus-drive') : null;
   const [world, compressed] = await getWorld();
   const volume = compressed ? await new Response(compressed.pipeThrough(new DecompressionStream('deflate'))).arrayBuffer() : null;
   const packedScene=world.coreMesh ? loadCoreMesh(world.coreMesh) : null;
@@ -635,8 +646,8 @@ async function start() {
   const racing = document.documentElement.dataset.mode === 'drive';
   const campus = world.driveCourse ? await (await import('campus-scene')).prepareCampus(world, volume, racing) : null;
   if (racing) {
-    const { startDrive } = await import('campus-drive');
-    await startDrive(world,volume,packedScene ? ()=>packedScene : collectMeshes,campus);
+    const { startDrive } = await drive;
+    await startDrive(world,volume,packedScene ? ()=>packedScene : collectMeshes,campus,online);
     return;
   }
   const viewer = createViewer(world, campus);

@@ -30,6 +30,45 @@ try{
         return ctx.getImageData(0,0,width,height).data;
       };
       const first=await read();
+      if(check==='stoneWidths'){
+        const spreads=[];
+        for(let y=25;y<560;y+=36){
+          const joints=[];
+          let sum=0,count=0,previous=-10;
+          for(let x=0;x<width-3;x++){
+            let contrast=0;
+            for(let dy=-4;dy<=4;dy++){
+              const i=4*((y+dy)*width+x)+1;
+              contrast+=first[i+12]-first[i];
+            }
+            if(Math.abs(contrast)<18*9)continue;
+            if(x-previous>7 && count){joints.push(sum/count);sum=0;count=0;}
+            sum+=x;count++;previous=x;
+          }
+          if(count)joints.push(sum/count);
+          const widths=joints.slice(1).map((v,i)=>v-joints[i]).filter(w=>w>26 && w<114).sort((a,b)=>a-b);
+          if(widths.length<5)continue;
+          const at=f=>widths[Math.floor((widths.length-1)*f)];
+          spreads.push((at(.85)-at(.15))/at(.5));
+        }
+        spreads.sort((a,b)=>a-b);
+        return spreads[Math.floor(spreads.length/2)]??0;
+      }
+      if(check==='roofCellEdges'){
+        const contrasts=[];
+        const green=(x,y)=>first[4*(y*width+x)+1];
+        for(let x=40;x<202;x+=20)for(let y=520;y<660;y++){
+          const above=green(x,y)+green(x+1,y)+green(x+2,y);
+          const below=green(x-1,y)+green(x-2,y)+green(x-3,y);
+          contrasts.push(Math.abs(above-below)/3);
+        }
+        for(let y=540;y<650;y+=20)for(let x=32;x<214;x++){
+          const above=green(x,y)+green(x,y+1)+green(x,y+2);
+          const below=green(x,y-1)+green(x,y-2)+green(x,y-3);
+          contrasts.push(Math.abs(above-below)/3);
+        }
+        return contrasts.sort((a,b)=>a-b)[Math.floor(contrasts.length*.75)];
+      }
       if(check==='pavementBands'){
         const rows=[];
         for(let y=228;y<291;y++){
@@ -191,6 +230,10 @@ try{
   const canopy=await measure(-5,5,{eye:[-179,62.146,321],at:[-225,17.146,275],fov:55,width:500,height:360},'canopy');
   const laneError=await measure(5,25,{eye:[275.5,8.412,1275.5],at:[291.5,7.712,1275.5],fov:65,width:500,height:300},'lanes');
   const ortho=(x,y,z)=>({eye:[x,y+145,z],at:[x,y,z],up:[0,0,-1],span:50,width:1000,height:1000});
+  const stoneWidths=await measure(-8,17,{eye:[-374.02,39.4,876.8],at:[-374.84,39.4,874.69],up:[0,1,0],span:3,width:600,height:600},'stoneWidths');
+  assert.ok(stoneWidths>.17,'The Beryl Ivey Library rubble courses have varying widths between mortar joints');
+  const roofCellEdges=await measure(10,8,ortho(525,12,425),'roofCellEdges');
+  assert.ok(roofCellEdges<3,'Talbot membrane must remain continuous across metre boundaries');
   const walkEdge=await measure(-4,22,ortho(-175,21.99,1125),'walkEdge');
   const pavementBands=await measure(1,28,{"name":"eye-N","eye":[60.16,16.413139501571656,1435.69],"at":[60.16,15.923139501571656,1421.69],"fov":55,"width":500,"height":300},'pavementBands');
   const reflection=await measure(-3,15,{"eye":[-119.31,24.153156586170198,770.84],"at":[-133.31,23.6631565861702,770.84],"fov":55,"width":500,"height":300},'reflection');
@@ -205,7 +248,7 @@ try{
   const aggregate=await measure(0,18,{eye:[20.16,18.8165,925.69],at:[20.16,18.3265,911.69],fov:55,width:500,height:300},'aggregate');
   const bank=await measure(12,-5,{"eye":[620.16,9.127812617778787,-224.31],"at":[620.16,8.637812617778787,-238.31],"fov":55,"width":500,"height":300},'bank');
   const jointBands=await measure(-1,16,ortho(-25,20.168666823387145,825),'jointBands');
-  console.log({pavementBands,walkEdge,reflection,waterSeams,oblique,lotTone,canopy,laneError,square,water,glass,jointRed,roof,aggregate,bank,jointBands});
+  console.log({stoneWidths,roofCellEdges,pavementBands,walkEdge,reflection,waterSeams,oblique,lotTone,canopy,laneError,square,water,glass,jointRed,roof,aggregate,bank,jointBands});
   assert.ok(pavementBands<1,'The level asphalt remains free of horizontal ambient occlusion bands');
   assert.ok(walkEdge<.3,'The boulevard walk follows the straight surveyed edge within 30 cm');
   assert.ok(reflection>22,'The terrace glazing reflects the light sky and darker campus at the same pane');

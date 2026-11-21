@@ -8,11 +8,25 @@
   "materials": {
     "wall": {
       "kind": "membrane",
-      "color": "#f6f6f2"
+      "color": "#f6f6f2",
+      "surface": "welded fabric seams",
+      "unitSize": [
+        2.65,
+        12.5
+      ],
+      "variation": 0.045,
+      "roughness": 0.89
     },
     "roof": {
       "kind": "membrane",
-      "color": "#f6f6f2"
+      "color": "#f6f6f2",
+      "surface": "welded fabric seams",
+      "unitSize": [
+        2.65,
+        12.5
+      ],
+      "variation": 0.045,
+      "roughness": 0.89
     },
     "trim": {
       "kind": "painted-metal",

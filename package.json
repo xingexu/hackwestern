@@ -4,11 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "setup": "npm ci && npm run setup:python",
+    "setup:python": "python3 -m venv .venv && .venv/bin/python -m pip install -r build/requirements.txt",
     "dev": "vite --host 127.0.0.1",
     "build": "node build/race_build.mjs",
-    "start": "node serve.mjs",
+    "prestart": "npm run build",
+    "start": "node server/lan.mjs",
     "verify": "agentkit verify full",
-    "dev:online": "wrangler dev --local --config server/wrangler.jsonc",
+    "dev:online": "wrangler dev --local --config server/wrangler.jsonc --var MULTIPLAYER:1",
     "deploy": "npm run build && wrangler deploy --config server/wrangler.jsonc"
   },
   "dependencies": {
@@ -20,5 +23,9 @@
     "playwright": "1.65.1",
     "vite": "8.3.8",
     "wrangler": "4.166.0"
+  },
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10"
   }
 }

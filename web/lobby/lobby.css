@@ -14,3 +14,21 @@
 #online-menu output,#online-menu a {color:#f8d488;overflow-wrap:anywhere}
 #online-menu ul {list-style:none;padding:0}
 #race-banner {position:absolute;top:22%;left:50%;transform:translateX(-50%);padding:8px 14px;background:#20332de8;color:#fff8db;font:bold 16px system-ui;border-radius:4px}
+#phone-pair {width:min(445px,92vw);box-sizing:border-box;padding:24px;border:1px solid #69746b;border-radius:14px;background:#16271f;color:#f5f4df;font:15px/1.5 system-ui,sans-serif}
+#phone-pair::backdrop {background:rgb(14 24 21 / 65%)}
+#phone-pair form {display:flex;align-items:center;justify-content:space-between;margin:0 0 20px}
+#phone-pair h2 {font:30px/1.1 Georgia,serif;margin:0}
+#phone-pair button {border:1px solid #78867b;color:inherit;background:transparent;border-radius:6px;padding:6px 12px;cursor:pointer}
+#phone-pair form button {font-size:20px}
+#pad-info:not([hidden]) {display:grid;grid-template-columns:124px 1fr;align-items:center;gap:18px}
+#pad-qr {width:124px;height:124px;border-radius:6px;image-rendering:pixelated}
+#pad-info label {font:600 13px system-ui;color:#c6ccb7}
+#pad-code {display:block;white-space:nowrap;font:bold clamp(21px,5vw,30px) monospace;letter-spacing:.08em;color:#ffd17c}
+#pad-info p {margin:4px 0 0;font-size:13px}
+#pad-url {color:inherit;overflow-wrap:anywhere}
+#pad-state {color:#dfdfca}
+#room-label {font:600 1.65rem/1.4 ui-monospace,monospace !important;letter-spacing:.08em;width:100%;margin:.75rem 0}
+#room-roster li {border-left:4px solid;padding:.2rem .55rem;margin:.3rem 0}
+#net-debug {position:absolute;bottom:12%;left:1rem;background:#14241fe6;color:white;font:11px/1.5 monospace;pointer-events:none}
+#net-debug:empty {display:none}
+#online-menu button:disabled {opacity:.55;cursor:default}

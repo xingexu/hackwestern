@@ -9,7 +9,7 @@ import building_roof_survey
 from shapely import affinity
 from shapely.geometry import Polygon, box
 
-from compile_buildings import assemble, gable_windows, registered_inventory, roof_surface, survey_translation
+from compile_buildings import assemble, gable_windows, registered_inventory, remove_survey_spikes, roof_surface, survey_translation
 
 
 root=Path(__file__).resolve().parents[1]
@@ -35,6 +35,11 @@ assert set(record["parts"][0]["wallIds"][0])==set(range(4))
 assert len(record["parts"][1]["rings"][0])==4
 assert len(record["parts"][2]["rings"][0])==4
 assert Polygon(record["parts"][1]["rings"][0]).symmetric_difference(thin).area<.00001
+hairpin=Polygon([(0,0),(8,0),(8,3),(18,3.0004),(8,3.001),(8,6),(0,6)])
+cleaned=remove_survey_spikes(hairpin)
+assert cleaned.bounds==(0,0,8,6)
+assert cleaned.symmetric_difference(hairpin).area<.007
+assert remove_survey_spikes(thin).equals_exact(thin,0)
 with TemporaryDirectory(dir=root/".agent") as folder:
     directory=Path(folder)/"data/buildings/evidence"/building["id"]
     directory.mkdir(parents=True)
@@ -59,4 +64,9 @@ v=np.array(dome["surface"][0])
 crown=v[v[:,1]>.95*v[:,1].max()]
 assert len(crown)>3
 assert np.ptp(crown[:,0])<np.ptp(v[:,0])*.92
-print("Four registered wall profiles, orthophoto roof colour at the translated location, 35 mm rectangle, two laterally displaced attic windows below the rake, and dome end curvature verified")
+dome_test=roof_surface(box(0,0,44,34),dict(form="barrel",endShape="rounded",ridge=90,rise=9.35))
+meridian=sorted({round(h,3) for _,h,z in dome_test[0] if 0<=z<=17})
+assert max(np.diff(meridian))<1.28
+assert len(dome["rings"][0])==4
+assert records["c31"]["parts"][1]["high"]<3
+print("Four registered wall profiles, orthophoto roof colour at the translated location, 35 mm rectangle, two laterally displaced attic windows below the rake, and smooth barrel sections through the tennis-dome springline verified")

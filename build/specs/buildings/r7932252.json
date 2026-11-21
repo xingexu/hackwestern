@@ -65,6 +65,18 @@
         3.9
       ],
       "variation": 0.035
+    },
+    "supplyDuctJacket": {
+      "kind": "painted-metal",
+      "color": "#dbdbd2",
+      "roughness": 0.49,
+      "metalness": 0.34
+    },
+    "exhaustPipeJacket": {
+      "kind": "painted-metal",
+      "color": "#d1d2ce",
+      "roughness": 0.49,
+      "metalness": 0.34
     }
   },
   "floors": {
@@ -885,36 +897,6 @@
       {
         "type": "hvac",
         "center": [
-          331.2,
-          -32.55
-        ],
-        "size": [
-          24.28,
-          1.0
-        ],
-        "height": 0.95,
-        "rotation": 113.29,
-        "material": "plant",
-        "style": "duct"
-      },
-      {
-        "type": "hvac",
-        "center": [
-          326.0,
-          -35.05
-        ],
-        "size": [
-          19.71,
-          0.85
-        ],
-        "height": 0.95,
-        "rotation": 113.31,
-        "material": "plant",
-        "style": "duct"
-      },
-      {
-        "type": "hvac",
-        "center": [
           312.15,
           -3.1
         ],
@@ -956,6 +938,402 @@
         "rotation": 68.14,
         "material": "plant",
         "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "style": "exposed supply duct",
+        "housing": "duct",
+        "diameter": 1.2,
+        "height": 1.25,
+        "pipePath": [
+          [
+            326.026,
+            -22.756
+          ],
+          [
+            328.718,
+            -28.654
+          ],
+          [
+            330.385,
+            -32.885
+          ],
+          [
+            332.949,
+            -38.782
+          ],
+          [
+            335.769,
+            -45.449
+          ],
+          [
+            343.718,
+            -42.244
+          ],
+          [
+            344.182,
+            -36.282
+          ],
+          [
+            342.051,
+            -34.936
+          ],
+          [
+            340.513,
+            -31.218
+          ],
+          [
+            338.077,
+            -25.577
+          ]
+        ],
+        "material": "supplyDuctJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "exposed supply duct",
+        "housing": "duct",
+        "diameter": 1.12,
+        "height": 1.18,
+        "pipePath": [
+          [
+            329.103,
+            -31.603
+          ],
+          [
+            331.923,
+            -30.833
+          ],
+          [
+            338.59,
+            -28.269
+          ],
+          [
+            340.354,
+            -27.624
+          ]
+        ],
+        "material": "supplyDuctJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "exposed supply duct",
+        "housing": "duct",
+        "diameter": 0.71,
+        "height": 1.02,
+        "pipePath": [
+          [
+            332.821,
+            -32.115
+          ],
+          [
+            334.872,
+            -36.987
+          ],
+          [
+            336.795,
+            -42.244
+          ]
+        ],
+        "material": "supplyDuctJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.58,
+        "height": 0.95,
+        "pipePath": [
+          [
+            338.59,
+            -40.833
+          ],
+          [
+            338.59,
+            -38.782
+          ],
+          [
+            340.897,
+            -37.885
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.56,
+        "height": 0.94,
+        "pipePath": [
+          [
+            335.897,
+            -38.141
+          ],
+          [
+            337.564,
+            -37.244
+          ],
+          [
+            339.615,
+            -36.218
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.48,
+        "height": 0.88,
+        "pipePath": [
+          [
+            335.641,
+            -36.474
+          ],
+          [
+            337.308,
+            -35.577
+          ],
+          [
+            338.846,
+            -35.192
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.53,
+        "height": 1,
+        "pipePath": [
+          [
+            335.385,
+            -35.064
+          ],
+          [
+            338.333,
+            -33.654
+          ],
+          [
+            337.692,
+            -32.5
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.6,
+        "height": 0.96,
+        "pipePath": [
+          [
+            331.667,
+            -28.526
+          ],
+          [
+            333.59,
+            -27.5
+          ],
+          [
+            332.821,
+            -25.577
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.55,
+        "height": 0.98,
+        "pipePath": [
+          [
+            330.513,
+            -26.346
+          ],
+          [
+            332.821,
+            -25.192
+          ],
+          [
+            334.103,
+            -25.449
+          ],
+          [
+            336.923,
+            -24.167
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.5,
+        "height": 0.83,
+        "pipePath": [
+          [
+            329.615,
+            -24.551
+          ],
+          [
+            332.179,
+            -23.269
+          ],
+          [
+            333.205,
+            -23.782
+          ],
+          [
+            335.513,
+            -22.756
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.51,
+        "height": 0.85,
+        "pipePath": [
+          [
+            328.718,
+            -23.141
+          ],
+          [
+            331.538,
+            -21.859
+          ],
+          [
+            333.077,
+            -22.115
+          ],
+          [
+            334.615,
+            -21.346
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.52,
+        "height": 0.93,
+        "pipePath": [
+          [
+            327.436,
+            -21.859
+          ],
+          [
+            328.846,
+            -21.09
+          ],
+          [
+            328.462,
+            -19.936
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.66,
+        "height": 1.14,
+        "pipePath": [
+          [
+            340.517,
+            -27.994
+          ],
+          [
+            338.653,
+            -23.778
+          ],
+          [
+            337.1,
+            -20.267
+          ],
+          [
+            334.59,
+            -14.589
+          ],
+          [
+            331.795,
+            -15.833
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.6,
+        "height": 1.06,
+        "pipePath": [
+          [
+            335.769,
+            -18.397
+          ],
+          [
+            333.974,
+            -19.295
+          ],
+          [
+            331.026,
+            -20.705
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.58,
+        "height": 1.05,
+        "pipePath": [
+          [
+            337.436,
+            -21.09
+          ],
+          [
+            334.872,
+            -22.115
+          ]
+        ],
+        "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "jacketed exhaust pipe",
+        "housing": "pipe",
+        "diameter": 0.65,
+        "height": 1.02,
+        "pipePath": [
+          [
+            337.821,
+            -23.141
+          ],
+          [
+            335.513,
+            -24.551
+          ]
+        ],
+        "material": "exhaustPipeJacket"
       }
     ]
   },

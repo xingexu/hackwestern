@@ -7,6 +7,8 @@ import {join} from 'node:path'
 import {fileURLToPath} from 'node:url'
 import {chromium} from 'playwright'
 import {setTimeout as delay} from 'node:timers/promises'
+import {PROTOCOL,RULES} from '../web/net/wire.mjs'
+import {SIM_VERSION} from '../web/race/version.mjs'
 import {decodeReplay} from '../web/race/replay.mjs'
 
 const root=fileURLToPath(new URL('../',import.meta.url))
@@ -38,10 +40,11 @@ async function launch(script,args){
   throw Error(logs)
 }
 try{
-  const [worker,staticBase]=await Promise.all([launch('node_modules/wrangler/bin/wrangler.js',['dev','--local','--config','server/wrangler.jsonc','--persist-to',temp,'--inspector-port','0']),launch('serve.mjs',[])])
+  const [worker,staticBase]=await Promise.all([launch('node_modules/wrangler/bin/wrangler.js',['dev','--local','--config','server/wrangler.jsonc','--var','MULTIPLAYER:1','--persist-to',temp,'--inspector-port','0']),launch('serve.mjs',[])])
   const html=await (await fetch(staticBase)).text()
   const manifest=JSON.parse(html.match(/id="campus-assets">(.*?)<\/script>/)[1])
-  for(const file of ['/',new URL(manifest['drive-network.json'],staticBase).pathname]){
+  const world=await (await fetch(new URL(manifest['world.json'],staticBase))).json()
+  for(const file of ['/',new URL(manifest['drive-network.json'],staticBase).pathname,new URL(world.coreMesh.url,staticBase).pathname]){
     for(const encoding of ['identity','br','br;q=0']){
       const headers={'accept-encoding':encoding}
       const [a,b]=await Promise.all([staticBase,worker].map(base=>fetch(base+file,{headers})))
@@ -89,16 +92,14 @@ try{
   assert.equal(queuedRows[0].verified,true)
   console.log('The verification alarm promoted the valid lap and removed the altered one')
   browser=await chromium.launch({args:['--disable-background-timer-throttling','--disable-renderer-backgrounding','--disable-backgrounding-occluded-windows',...(process.platform==='darwin'?['--use-angle=metal']:[])]})
-  async function desktop(nickname){
+  const errors=[]
+  let releaseWorld
+  async function desktop(nickname,invite=''){
     const ctx=await browser.newContext({viewport:{width:800,height:540}})
     await ctx.addInitScript({content:controllerSource+`
-      const originalRAF=window.requestAnimationFrame.bind(window)
-      let clock
-      window.requestAnimationFrame=fn=>originalRAF(t=>{
-        if(!window.racePilot){clock=t;return fn(t)}
-        clock=(clock??t)+60
-        fn(clock)
-      })
+      const NativePeer=window.RTCPeerConnection
+      window.testPeers=[]
+      window.RTCPeerConnection=class extends NativePeer{constructor(...args){super(...args);window.testPeers.push(this)}}
       const original=navigator.getGamepads.bind(navigator)
       Object.defineProperty(navigator,'getGamepads',{value:()=>{
         const metrics=window.driveMetrics
@@ -109,9 +110,13 @@ try{
       }})
     `})
     const page=await ctx.newPage()
-    page.on('pageerror',e=>console.error(nickname,e.message))
-    await page.goto(worker+'/?diagnostics')
-    await page.getByRole('button',{name:'Online',exact:true}).click({timeout:60000})
+    page.on('pageerror',e=>{errors.push(e.message);console.error(nickname,e.stack)})
+    if(invite){
+      const hold=new Promise(resolve=>{releaseWorld=resolve})
+      await page.route(/\/assets\/world-[^/]+\.json$/,async r=>{await hold;await r.continue()},{times:1})
+    }
+    await page.goto(worker+'/?diagnostics&netdebug&lag=150&loss=.05&jitter=15'+(invite?'&room='+invite:''),{waitUntil:'domcontentloaded'})
+    if(!invite)await page.getByRole('button',{name:'Online',exact:true}).click({timeout:60000})
     await page.locator('#race-name').fill(nickname)
     return page
   }
@@ -128,56 +133,63 @@ try{
   await host.locator('#pad-qr[src]').waitFor()
   const padLink=await host.locator('#pad-url').getAttribute('href')
   assert.ok((await host.locator('#pad-qr').getAttribute('src')).startsWith('data:image/'))
-  const mobile=await browser.newContext({isMobile:true,hasTouch:true,viewport:{width:390,height:844}})
+  const mobile=await browser.newContext({isMobile:true,hasTouch:true,viewport:{width:844,height:390}})
   const phone=await mobile.newPage()
   await phone.goto(padLink)
+  await phone.locator('#code').fill(await host.locator('#pad-code').innerText())
   await phone.getByRole('button',{name:'Pair controller'}).click()
   await phone.locator('#tilt').click()
   await host.waitForFunction(()=>document.getElementById('pad-state').textContent==='Phone connected')
-  await host.locator('#online-close').click()
   await host.locator('#drive-course').selectOption('stadium')
   const initial=await host.evaluate(()=>window.driveMetrics.car.heading)
   await phone.evaluate(()=>{
     window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:0}))
-    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:18}))
+    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:18,gamma:18}))
   })
   const gas=await phone.locator('#gas').boundingBox()
   await phone.mouse.move(gas.x+gas.width/2,gas.y+gas.height/2)
   await phone.mouse.down()
   await host.waitForFunction(h=>window.driveMetrics.car.speed>1 && Math.abs(window.driveMetrics.car.heading-h)>.04,initial,{timeout:10000})
   await phone.mouse.up()
+  await host.getByRole('button',{name:'Phone controller',exact:true}).click()
+  await host.locator('#phone-pair button[aria-label="Close"]').click()
+  await phone.locator('#tilt').click()
   await host.getByRole('button',{name:'Online',exact:true}).click()
-  await host.locator('#end-pad').click()
-  await mobile.close()
   console.log('Mobile tilt and gas moved and turned the desktop simulation through the paired relay')
-  const guest=await desktop('Blake')
   await host.locator('#make-room').click()
   await host.locator('#room-label').waitFor()
   const roomCode=(await host.locator('#room-label').innerText()).split(' ').at(-1)
+  const guest=await desktop('Blake',roomCode)
+  assert.equal(await guest.locator('#room-code').inputValue(),roomCode)
   await guest.locator('#room-code').fill(roomCode)
   await guest.locator('#race-color').fill('#4594db')
   await guest.locator('#join-room').click()
   await guest.locator('#room-label').waitFor()
+  assert.equal(await guest.locator('#race-ready').textContent(),'Loading campus…')
+  assert.ok(await guest.locator('#race-ready').isDisabled())
+  releaseWorld()
+  await guest.waitForFunction(()=>!document.querySelector('#race-ready').disabled)
   await guest.reload()
   await guest.getByRole('button',{name:'Online',exact:true}).click()
   await guest.waitForFunction(()=>document.querySelector('#room-roster').textContent.includes('Blake · Waiting'))
-  const reserveSeat=name=>fetch(worker+'/api/rooms/'+roomCode+'/join',{method:'POST',body:JSON.stringify({nickname:name,color:'#eeeeee'})})
+  const versions={protocol:PROTOCOL,rules:RULES,sim:SIM_VERSION}
+  const reserveSeat=async name=>fetch(worker+'/api/rooms/'+roomCode+'/join',{method:'POST',body:JSON.stringify({...await (await fetch(worker+'/api/identity',{method:'POST'})).json(),...versions,nickname:name,color:'#eeeeee'})})
   const seats=[]
-  for(const name of ['Casey','Dana']){
+  for(const name of ['Casey','Dana','Eli','Fran','Gray','Harper']){
     const ticket=await (await reserveSeat(name)).json()
-    const ws=new WebSocket(worker.replace('http:','ws:')+'/api/rooms/'+roomCode+'/socket',['western',ticket.token])
+    const ws=new WebSocket(worker.replace('http:','ws:')+'/api/rooms/'+roomCode+'/socket?'+new URLSearchParams(versions),['western',ticket.token])
     await once(ws,'open')
     seats.push(ws)
   }
-  assert.equal((await reserveSeat('Fifth')).status,409)
-  await host.waitForFunction(()=>document.querySelectorAll('#room-roster li').length===4)
+  assert.equal((await reserveSeat('Ninth')).status,409)
+  await host.waitForFunction(()=>document.querySelectorAll('#room-roster li').length===8)
   for(const ws of seats){
     const left=once(ws,'close')
     ws.send(JSON.stringify({type:'leave'}))
     await left
   }
   await host.waitForFunction(()=>document.querySelectorAll('#room-roster li').length===2)
-  console.log('A driver rejoined after reload, four occupied slots excluded a fifth, and leaving released both seats')
+  console.log('A driver rejoined after reload, eight occupied slots excluded a ninth and leaving released six seats')
   await host.locator('#race-course').selectOption('stadium')
   await guest.waitForFunction(()=>document.querySelector('#race-course').value==='stadium')
   await host.locator('#race-contact').check()
@@ -188,6 +200,10 @@ try{
   await host.locator('#race-start').click()
   for(const p of [host,guest]) await p.waitForFunction(()=>window.driveMetrics.course==='stadium' && !document.querySelector('#race-banner').hidden)
   for(const p of [host,guest]) assert.ok(await p.locator('#trial-open').isDisabled())
+  await phone.mouse.move(gas.x+gas.width/2,gas.y+gas.height/2)
+  await phone.mouse.down()
+  await host.waitForFunction(()=>window.driveMetrics.car.speed>1,null,{timeout:20000})
+  await phone.mouse.up()
   await Promise.all([host,guest].map(p=>p.evaluate(()=>{window.racePilot=true})))
   await Promise.all([host,guest].map(p=>p.waitForFunction(()=>window.driveMetrics.opponents.length===1 && window.driveMetrics.car.distance>12,null,{timeout:45000})))
   for(const [page,peer] of [[host,guest],[guest,host]]){
@@ -197,8 +213,16 @@ try{
     const local=await peer.evaluate(()=>{const {x,z}=window.driveMetrics.car;return {x,z}})
     assert.ok(Math.hypot(remote.x-local.x,remote.z-local.z)<20)
   }
-  console.log('Two driving clients showed each other on the selected circuit')
-  for(let i=0;i<150;i++){
+  try{
+    await Promise.all([host,guest].map(p=>p.waitForFunction(()=>window.driveMetrics.net[0]?.path==='direct',null,{timeout:25000})))
+  }catch(error){
+    for(const p of [host,guest])console.error(await p.evaluate(async()=>({net:window.driveMetrics.net,peers:await Promise.all(window.testPeers.filter(pc=>pc.connectionState!=='closed').map(async pc=>({connection:pc.connectionState,ice:pc.iceConnectionState,signaling:pc.signalingState,local:pc.localDescription?.type,remote:pc.remoteDescription?.type,stats:[...await pc.getStats()].filter(([,v])=>v.type==='data-channel' || v.type==='candidate-pair').map(([,v])=>[v.type,v.state,v.messagesSent,v.messagesReceived])})))})))
+    throw error
+  }
+  await host.evaluate(()=>window.testPeers.forEach(pc=>pc.close()))
+  await Promise.all([host,guest].map(p=>p.waitForFunction(()=>window.driveMetrics.net[0]?.path==='relay' && window.driveMetrics.net[0].age<.6,null,{timeout:10000})))
+  console.log('Paired phone drove the host during the race. Both clients drew direct WebRTC updates and switched to live Worker relay at 150 ms and 5% loss')
+  for(let i=0;i<260;i++){
     const stats=await Promise.all([host,guest].map(p=>p.evaluate(()=>{const {distance,checkpointsPassed,phase,speed}=window.driveMetrics.car;return {distance,checkpointsPassed,phase,speed}})))
     if(i%10===0)console.log('Race progress',JSON.stringify(stats))
     if(stats.every(s=>s.phase==='finished'))break
@@ -206,6 +230,13 @@ try{
   }
   for(const page of [host,guest])await page.waitForFunction(()=>document.querySelector('#room-roster').textContent.includes('2. '),null,{timeout:3000})
   assert.equal(await host.locator('#room-roster').innerText(),await guest.locator('#room-roster').innerText())
+  const saved=await (await fetch(worker+'/api/rooms/'+roomCode+'/results')).json()
+  assert.equal(saved.at(-1).results.filter(r=>r.finish>0).length,2)
+  await host.locator('#race-again').click()
+  await guest.locator('#race-again').click()
+  await host.waitForFunction(()=>!document.querySelector('#race-ready').hidden)
+  await mobile.close()
+  assert.deepEqual(errors,[])
   console.log('Both clients completed a circuit with gamepad inputs and displayed identical finish order and times')
 } finally {
   await browser?.close()

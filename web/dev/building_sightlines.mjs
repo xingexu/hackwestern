@@ -13,7 +13,9 @@ export function campusSightlines(building,neighbors,street=false){
     if(record.spec.present===false)continue;
     for(const part of record.parts){
       const rings=part.solidRings??part.rings;
-      volumes.push({rings,bounds:record.bounds,bottom:part.low===0?record.foundation:record.ground+part.low,top:record.ground+part.high+Math.max(0,...part.surface[0].map(v=>v[1]))});
+      const xs=rings[0].map(p=>p[0]),zs=rings[0].map(p=>p[1]);
+      const bounds=[Math.min(...xs),Math.min(...zs),Math.max(...xs),Math.max(...zs)];
+      volumes.push({rings,bounds,bottom:part.low===0?record.foundation:record.ground+part.low,top:record.ground+part.high+Math.max(0,...part.surface[0].map(v=>v[1]))});
     }
   }
   let targets=[];

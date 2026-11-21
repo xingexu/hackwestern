@@ -56,7 +56,7 @@ export function pruneBuildingTrees(region,core,municipal,network){
   }
 }
 
-export function fitArchitecture(records,heightAt,roadWays=[]){
+export function fitArchitecture(records,heightAt,roadWays=[],collectCollisions=true){
   const solids=[],enclosures=[],decks=[],contacts=createBuildingContacts();
   const footprintWeight=b=>{
     if(!b.bounds || b.spec.present===false)return 0;
@@ -128,6 +128,7 @@ export function fitArchitecture(records,heightAt,roadWays=[]){
     decks.push(...fitParkingDecks(b,heightAt));
     const preliminary=buildArchitecture([b],-1);
     b.contactHeights=Object.fromEntries(preliminary.footings.map(([key,x,z])=>[key,heightAt(x,z)]));
+    if(!collectCollisions)continue;
     solids.push(...(preliminary.footings.length?buildArchitecture([b],-1).solids:preliminary.solids));
     for(const p of b.parts){
       if(p.low!==0 || p.high<=0 || p.paving || b.spec.style==='parking-structure')continue;
@@ -228,7 +229,7 @@ export async function createCampusBuildings(records,frames,onReady){
     for(const b of items)for(let i=0;i<4;i++)bounds[i]=(i<2?Math.min:Math.max)(bounds[i],b.bounds[i]);
     states.set(key,{key,bounds,level:-1,target:0,range:Infinity,mesh:null,coarse:null});
   }
-  const url=URL.createObjectURL(new Blob(['(',workerLoop.toString(),')(',buildArchitecture.toString(),');'],{type:'text/javascript'}));
+  const url=URL.createObjectURL(new Blob(['"use strict";(',workerLoop.toString(),')(',buildArchitecture.toString(),');'],{type:'text/javascript'}));
   const worker=new Worker(url);
   URL.revokeObjectURL(url);
   worker.postMessage({tiles,audit:new URLSearchParams(globalThis.location?.search).has('audit')});

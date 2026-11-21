@@ -7,6 +7,7 @@ import numpy as np
 from scipy import ndimage
 from scipy.spatial import cKDTree
 from shapely import contains_xy
+from shapely.geometry import Point
 
 import campus_region as region
 from campus_bounds import footprint
@@ -65,9 +66,132 @@ def woodlots(outer,core,tiles):
                 trees[i].append(3 if evergreen>.45 else 10 if brown>.64 else 5)
             elif brown>.64:
                 bare.append([x,z])
+    dormant=[]
+    for entry in survey['tiles'].values():
+        for x,z,h,*_ in entry['stems']:
+            ix,iz=region.pix(x,z)
+            if not (0<=int(iz)<len(zs) and 0<=int(ix)<len(xs) and woods[int(iz),int(ix)]):continue
+            by_tile.setdefault((math.floor(x/150)*150,math.floor(z/150)*150),[])
+    for tx,tz in by_tile:
+        photo=np.asarray(survey_tile(tx,tz),dtype=np.int16)
+        for entry in survey['tiles'].values():
+            for x,z,h,*_ in entry['stems']:
+                if not tx<=x<tx+150 or not tz<=z<tz+150:continue
+                ix,iz=region.pix(x,z)
+                if not (0<=int(iz)<len(zs) and 0<=int(ix)<len(xs) and woods[int(iz),int(ix)]):continue
+                u,v=int((x-tx)*4),int((z-tz)*4)
+                red,g,b=photo[max(0,v-9):v+10,max(0,u-9):u+10].transpose(2,0,1)
+                brown=np.mean((red>g+2)&(red>b+11)&(g<155))
+                if brown>.71 and g.std()>10:
+                    dormant.append([x,z,h,round(min(8.2,max(1.8,h*.33)),2),10])
     lawn=np.isin(classes,[0,1])&campus
     park=park_crowns(heights,lawn,xs,zs,stems+[p[:2] for p in trees])
-    return dict(trees=trees,bare=bare,park=park)
+    established=stems+[p[:2] for p in trees+park]
+    recruits,understory=woodland_structure(heights,classes,campus,xs,zs,established)
+    return dict(trees=trees,bare=bare,park=park,recruits=recruits,understory=understory,dormantSurvey=dormant)
+
+
+def woodland_structure(heights,classes,campus,xs,zs,established):
+    smooth=ndimage.gaussian_filter(heights,.64)
+    vegetation=campus&np.isin(classes,[0,1,2,11])
+    in_woods=classes==2
+    texture=ndimage.maximum_filter(smooth,5)-ndimage.minimum_filter(smooth,5)
+    peaks=(smooth==ndimage.maximum_filter(smooth,3))&(heights>=3)&(heights<33)&(texture>1.45)
+    row,col=np.where(vegetation&peaks)
+    xy=np.column_stack((xs[col],zs[row]))
+    clear=cKDTree(established).query(xy)[0]
+    candidates={}
+    for i in np.flatnonzero(clear>np.where(in_woods[row,col],2.9,3.5)):
+        x,z=xy[i]
+        candidates.setdefault((math.floor(x/150)*150,math.floor(z/150)*150),[]).append(i)
+    recruits=[]
+    planted={}
+    for (tx,tz),ids in sorted(candidates.items()):
+        photo=np.asarray(survey_tile(tx,tz),dtype=np.int16)
+        for i in sorted(ids,key=lambda j:-smooth[row[j],col[j]]):
+            x,z=xy[i];r,c=row[i],col[i]
+            u,v=int((x-tx)*4),int((z-tz)*4)
+            red,green,blue=photo[max(0,v-6):v+7,max(0,u-6):u+7].transpose(2,0,1)
+            needles=np.mean((green>red+2)&(green>blue+3)&(green<144))
+            bare=np.mean((red>=green)&(red>blue+8)&(green<164))
+            if needles<.40 and (bare<.54 or red.std()<9):continue
+            rays=[]
+            for angle in np.arange(12)*math.pi/6:
+                radius=0.
+                for j in range(1,5):
+                    a=c+round(j*math.cos(angle));b=r+round(j*math.sin(angle))
+                    if not (0<=a<len(xs) and 0<=b<len(zs) and heights[b,a]>heights[r,c]*.44):break
+                    radius=j*(xs[1]-xs[0])
+                rays.append(radius)
+            if not in_woods[r,c] and (sum(rad>=7.5 for rad in rays)>6 or sum(rad>=1.6 for rad in rays)<4):continue
+            h=float(heights[r,c]);width=float(np.clip(np.quantile(rays,.45),1.12,min(6.6,h*.44)))
+            key=(math.floor(x/6),math.floor(z/6));spacing=3.35 if in_woods[r,c] else 4.
+            if any(math.hypot(x-a,z-b)<spacing for k in range(key[0]-1,key[0]+2) for j in range(key[1]-1,key[1]+2) for a,b in planted.get((k,j),())):continue
+            form=(1 if h/width>2.9 else 2) if needles>.40 else 10 if bare>.70 else 8
+            recruits.append([round(x,2),round(z,2),round(h,2),round(width,2),form])
+            planted.setdefault(key,[]).append((x,z))
+    canopy=ndimage.uniform_filter((heights>3.5).astype(np.float32),5)
+    wooded=campus&in_woods&(canopy>.48)&(heights>2.)&(heights<34.)
+    spacing=(zs[1]-zs[0],xs[1]-xs[0])
+    river=ndimage.distance_transform_edt(classes!=6,sampling=spacing)
+    wooded_margin=ndimage.distance_transform_edt(in_woods,sampling=spacing)
+    understory=[]
+    for r in range(2,len(zs)-3,3):
+        for c in range(2,len(xs)-3,3):
+            seed=(r*73856093^c*19349663)&65535
+            j=r+seed%3-1;k=c+(seed//3)%3-1
+            if not wooded[j,k] or seed%7>(4 if river[j,k]<55 else 2):continue
+            h=.50+.89*((seed%59)/58)+(.35 if river[j,k]<55 else 0.)
+            form=2 if river[j,k]<55 and seed%3 else 1 if seed%5 else 0
+            deadfall=wooded_margin[j,k]>14 or (river[j,k]<40 and wooded_margin[j,k]>3.5)
+            understory.append([round(xs[k],2),round(zs[j],2),round(h,2),form,bool(deadfall)])
+    return recruits,understory
+
+
+def landscape_plots(plots,shrub_plots,height,blocked,known,cleared):
+    canopy=[];shrubs=[]
+    indexed=cKDTree([p[:2] for p in known])
+    holes=cKDTree([p[:2] for p in cleared])
+    for left,top,right,bottom,form in [*plots,*[[*rect,'shrub'] for rect in shrub_plots]]:
+        if top>region.Z1:continue
+        frame=(math.floor(left)-3,math.floor(top)-3,math.ceil(right)+3,math.ceil(bottom)+3)
+        w=frame[2]-frame[0];h=frame[3]-frame[1]
+        x,z=np.meshgrid(frame[0]+np.arange(w)+.5,frame[1]+np.arange(h)+.5)
+        ortho=np.asarray(orthophoto(frame,(w*2,h*2)),dtype=np.int16)
+        red,green,blue=ortho.transpose(2,0,1)
+        needles=((green>red+2)&(green>blue+3)&(green<146)).astype(float)
+        brown=((red>=green)&(red>blue+9)&(green<156)).astype(float)
+        foliage=ndimage.uniform_filter(needles,7)[1::2,1::2]
+        twigs=ndimage.uniform_filter(brown,7)[1::2,1::2]
+        texture=(ndimage.maximum_filter(red,7)-ndimage.minimum_filter(red,7))[1::2,1::2]
+        elevation=region.sample(height,x,z)
+        inside=(x>=left)&(x<=right)&(z>=top)&(z<=bottom)
+        if form=='shrub':
+            mask=inside&((foliage>.45)|((twigs>.63)&(texture>31)))&(texture>18)
+            for j,i in np.argwhere(mask)[::3]:
+                px,pz=x[j,i],z[j,i]
+                if blocked(Point(px,pz)) or any(math.hypot(px-X,pz-Z)<2.15 for X,Z,*_ in shrubs):continue
+                shrubs.append([float(px),float(pz),round(float(np.clip(elevation[j,i],.64,1.72)),2),1])
+            continue
+        relief=ndimage.maximum_filter(elevation,7)-ndimage.minimum_filter(elevation,7)
+        local=ndimage.gaussian_filter(elevation,.65)
+        peaks=(local==ndimage.maximum_filter(local,5))&(elevation>3.4)&(elevation<34)&(relief>1.35)&inside
+        for j,i in np.argwhere(peaks):
+            px,pz=x[j,i],z[j,i]
+            if foliage[j,i]<.32 and (twigs[j,i]<.52 or texture[j,i]<25):continue
+            if blocked(Point(px,pz)) or holes.query([px,pz])[0]<3 or indexed.query([px,pz])[0]<2.4:continue
+            if any(math.hypot(px-X,pz-Z)<3 for X,Z,*_ in canopy):continue
+            high=float(elevation[j,i])
+            rays=[]
+            for angle in np.arange(12)*math.tau/12:
+                ds=np.arange(1.,min(11.,high*.62+1),.60)
+                sample=region.sample(height,px+np.cos(angle)*ds,pz+np.sin(angle)*ds)
+                stops=np.flatnonzero((sample<high*.39)|(sample>high*1.47))
+                rays.append(ds[stops[0]] if len(stops) else ds[-1])
+            wide=float(np.clip(np.median(rays),1.1,high*.51))
+            habit=(1 if high/wide>2.7 else 2) if form=='c' or foliage[j,i]>.57 else 10 if form=='b' or twigs[j,i]>.72 else 5
+            canopy.append([float(px),float(pz),round(high,2),round(wide,2),habit])
+    return canopy,shrubs
 
 
 def park_crowns(heights,lawn,xs,zs,stems):
@@ -145,7 +269,7 @@ def core_crowns(records,height,ground,imagery,mapped):
     return result
 
 
-def estate_crowns():
+def estate_surface():
     import rasterio
     from rasterio.warp import reproject,Resampling,transform_bounds
     from rasterio.transform import from_bounds
@@ -171,6 +295,13 @@ def estate_crowns():
                 layers.append(layer)
         height=layers[1]-layers[0]
         np.save(cache,height)
+    return height,left,top,t
+
+
+def estate_crowns():
+    height,left,top,t=estate_surface()
+    h,w=height.shape
+    right,bottom=left+w,top+h
     rgb=np.asarray(orthophoto((left,top,right,bottom),(w*2,h*2)),dtype=np.int16)
     smooth=ndimage.gaussian_filter(height,.85)
     peaks=(smooth==ndimage.maximum_filter(smooth,5))&(smooth>3.1)&(smooth<32)

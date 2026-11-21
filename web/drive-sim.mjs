@@ -238,16 +238,17 @@ function moveThroughWorld(network, state) {
   let vx = dm.sin(mid) * state.speed + dm.cos(mid) * state.lateralSpeed
   let vz = dm.cos(mid) * state.speed - dm.sin(mid) * state.lateralSpeed
   const steps = Math.max(1, Math.ceil((dm.hypot(vx, vz) * DT + Math.abs(turn) * 2.24) / .32))
-  function blocked(x, z) {
-    if (network.blocked) return network.blocked(x, z, state.y, BODY_RADIUS)
-    if (network.sample(x, z, state.y).blocked) return true
-    return CONTACT_DIRECTIONS.some(([a, b]) => network.sample(x + a * BODY_RADIUS, z + b * BODY_RADIUS, state.y).blocked)
+  function blocked(x, z, y = state.y) {
+    if (network.blocked) return network.blocked(x, z, y, BODY_RADIUS)
+    if (network.sample(x, z, y).blocked) return true
+    return CONTACT_DIRECTIONS.some(([a, b]) => network.sample(x + a * BODY_RADIUS, z + b * BODY_RADIUS, y).blocked)
   }
   function contact(x, z, heading) {
+    const y = network.sample(x, z, state.y).y
     for (const offset of BODY_OFFSETS) {
       const bx = x + dm.sin(heading) * offset
       const bz = z + dm.cos(heading) * offset
-      if (blocked(bx, bz)) return [bx, bz]
+      if (blocked(bx, bz, y)) return [bx, bz]
     }
     return null
   }
