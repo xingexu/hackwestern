@@ -1,6 +1,7 @@
 import hashlib
 import json
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -62,10 +63,21 @@ def registered_pitch(frame,labels,pose,reference):
     return angle,round(residual,2),int(usable.sum())
 
 
-def ground_registration(street,frame):
+def registration_files(street,keys):
+    by_frame={key:[] for key in keys}
+    folder=street/"ground-registrations"
+    if folder.is_dir():
+        for name in os.listdir(folder):
+            key=name.partition("-")[0]
+            if key in by_frame and name.endswith(".npz"):by_frame[key].append(folder/name)
+    return by_frame
+
+
+def ground_registration(files,frame):
     token=hashlib.sha256(json.dumps([frame.get(k) for k in ("lat","lon","heading","pitch","fov")],separators=(",",":")).encode()).hexdigest()[:8]
     found=[]
-    for cache in (street/"ground-registrations").glob(f"{frame['id']}-*-{token}.npz"):
+    for cache in files:
+        if not cache.name.endswith("-"+token+".npz"):continue
         with np.load(cache) as data:
             row=json.loads(str(data["f"]))
             if isinstance(row,dict) and row.get("id")==frame["id"] and row.get("score",0)>=.70 and len(data["p"])>100:
@@ -115,6 +127,7 @@ def main(keys):
     root=Path(__file__).resolve().parents[1]/"data"
     street=root/"streetview"
     frames={f["id"]:f for f in json.loads((street/"frames.json").read_text())}
+    registrations=registration_files(street,keys)
     reference=roof_reference(root)
     lanes=lane_reference(root)
     out={}
@@ -129,7 +142,7 @@ def main(keys):
         hfov=math.degrees(2*math.atan(.5/pose["fx"]))
         angle=-float(f["pitch"]) if f.get("pitch") is not None else -math.degrees(pose["pitch"])
         out[key]=dict(hfov=hfov,elevationAngle=angle,roll=f.get("roll") or 0,calibration=pose["source"])
-        ground_fit=ground_registration(street,f)
+        ground_fit=ground_registration(registrations[key],f)
         lane=lane_pose(f,lanes) if not ground_fit else None
         if lane:out[key].update(lane)
         horizontal={**f,**(ground_fit or lane or {})}

@@ -39,6 +39,12 @@ assert (survey.classes(*drive_samples.T)==1).all() and land_at(-325,727.5)<=2
 absent=np.array([[-245,660],[-307,720]])
 assert not survey.classes(*absent.T).any() and all(land_at(*p)<=2 for p in absent)
 assert land_at(232.5,1450)==8 and land_at(12,-58)==5
+carriage=data['carriageway']
+asphalt=decode(carriage['samples'],'uint8').reshape(carriage['height'],carriage['width'])
+for x,z in [(-254,849.5),(-289,863.6)]:
+    row=int((z-region.Z0)*carriage['height']/(region.Z1-region.Z0))
+    col=int((x-region.X0)*carriage['width']/(region.X1-region.X0))
+    assert asphalt[row,col]==0 and land_at(x,z)<=2
 sports=land['observations']['sports']
 track=shapely.Polygon(sports['track'][0],sports['track'][1:])
 surface=shapely.union_all(shapely.polygons(sports['rubber']))

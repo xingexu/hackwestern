@@ -166,7 +166,7 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
           albedo*=.87+.13*screened(grid.x+.08,.12);
         }else if(family==12){
           float blind=ruled(texel.y*5.,.23);
-          albedo*=.44+.33*blind+.10*sin(texel.x*1.77);
+          albedo*=.71+.09*blind+.035*sin(texel.x*1.77);
         }else if(family==10){
           vec2 q=abs(fract(faceUV)-.5),aa=max(fwidth(faceUV),vec2(.001));
           vec2 opening=1.-smoothstep(vec2(pane.z,finish.z)*.5-aa*.4,vec2(pane.z,finish.z)*.5+aa*.4,q);

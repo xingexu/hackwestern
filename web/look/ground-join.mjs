@@ -15,8 +15,38 @@ function crossings(axis,start,end,times){
   }
 }
 
+export function estateBoundary(vertices,indices,elevation){
+  const edges=new Map();
+  for(let i=0;i<indices.length;i+=3)for(let k=0;k<3;k++){
+    const a=indices[i+k],b=indices[i+(k+1)%3],key=Math.min(a,b)*vertices.length+Math.max(a,b);
+    if(edges.has(key))edges.delete(key);else edges.set(key,[a,b]);
+  }
+  const rim=[...edges.values()].map(pair=>pair.map(i=>{
+    const v=vertices[i];return [v[0],elevation(...v),v[2]];
+  }));
+  return {
+    height(x,z){
+      let nearest=.10**2,height;
+      for(const [[ax,ay,az],[bx,by,bz]] of rim){
+        const dx=bx-ax,dz=bz-az,t=Math.min(1,Math.max(0,((x-ax)*dx+(z-az)*dz)/(dx*dx+dz*dz)));
+        const distance=(x-ax-t*dx)**2+(z-az-t*dz)**2;
+        if(distance<nearest){nearest=distance;height=ay+t*(by-ay);}
+      }
+      return height;
+    },
+    crossings(x,z,dx,dz){
+      const square=dx*dx+dz*dz,times=[];
+      for(const segment of rim)for(const [ax,,az] of segment){
+        const t=((ax-x)*dx+(az-z)*dz)/square;
+        if(t>1e-5 && t<.99999 && (ax-x-t*dx)**2+(az-z-t*dz)**2<.0025)times.push(t);
+      }
+      return [...new Set(times)].sort((a,b)=>a-b);
+    }
+  };
+}
+
 export function joinTerrainEdges(positions,indices,source,landscape){
-  const {xs,zs,heightAt}=landscape,n=positions.length/3;
+  const {xs,zs,heightAt,estateBoundary}=landscape,n=positions.length/3;
   const outer=new Set(),key=(a,b)=>Math.min(a,b)*n+Math.max(a,b);
   for(let i=0;i<indices.length;i+=3)for(let j=0;j<3;j++){
     const a=indices[i+j],b=indices[i+(j+1)%3];
@@ -31,11 +61,12 @@ export function joinTerrainEdges(positions,indices,source,landscape){
       const a=indices[i+j],b=indices[i+(j+1)%3];ring.push(a);
       if(!outer.has(key(a,b)))continue;
       const x=positions[3*a],z=positions[3*a+2],dx=positions[3*b]-x,dz=positions[3*b+2]-z;
-      if(z+dz*.5<zs[0] || z+dz*.5>zs.at(-1) || x+dx*.5<xs[0] || x+dx*.5>xs.at(-1))continue;
+      const estate=z+dz*.5>zs.at(-1);
+      if(z+dz*.5<zs[0] || (estate && !estateBoundary) || x+dx*.5<xs[0] || x+dx*.5>xs.at(-1))continue;
       const times=[0,1];
       crossings(xs,x,x+dx,times);crossings(zs,z,z+dz,times);times.sort((a,b)=>a-b);
-      const cuts=[];
-      for(let k=1;k<times.length;k++){
+      const cuts=estate?estateBoundary.crossings(x,z,dx,dz):[];
+      for(let k=1;!estate && k<times.length;k++){
         const start=times[k-1],end=times[k],mid=(start+end)*.5;
         const u=cell(xs,x+dx*mid),v=cell(zs,z+dz*mid),w=xs[u+1]-xs[u],h=zs[v+1]-zs[v];
         const diagonal=(1-(x-xs[u])/w-(z-zs[v])/h)/(dx/w+dz/h);
@@ -45,7 +76,7 @@ export function joinTerrainEdges(positions,indices,source,landscape){
       const outline=[a];
       for(const t of cuts){
         const px=x+t*dx,pz=z+t*dz;ring.push(n+extra.length/3);
-        outline.push(n+extra.length/3);extra.push(px,heightAt(px,pz),pz);
+        outline.push(n+extra.length/3);extra.push(px,(estate?estateBoundary.height(px,pz):undefined)??heightAt(px,pz),pz);
       }
       outline.push(b);
       const distance=Math.hypot(dx,dz);

@@ -11,18 +11,22 @@ export const riverGLSL=`
     return mix(mix(riverCorner(i),riverCorner(i+ivec2(1,0)),f.x),
                mix(riverCorner(i+ivec2(0,1)),riverCorner(i+ivec2(1)),f.x),f.y);
   }
-  vec3 riverBed(vec2 p){
+  vec3 riverColour(vec3 land,vec2 p,float weight){
+    float footprint=length(fwidth(p));
+    if(weight<=0.)return land;
     float s=riverNoise(p*.13);
     float ripple=riverNoise(p*.75+vec2(s,-s)*1.4)-.5;
-    float gravel=(riverNoise(p*13.0)-.5)*(1.-smoothstep(.025,.090,length(fwidth(p))));
-    return mix(vec3(.038,.050,.023),vec3(.083,.081,.046),s)*(1.+.17*ripple+.18*gravel);
+    float gravel=(riverNoise(p*13.0)-.5)*(1.-smoothstep(.025,.090,footprint));
+    vec3 bed=mix(vec3(.038,.050,.023),vec3(.083,.081,.046),s)*(1.+.17*ripple+.18*gravel);
+    return mix(land,bed,weight);
   }
-  vec3 riverNormal(vec2 p){
+  vec3 riverNormal(vec2 p,float footprint){
     float shift=riverNoise(p*.31)*6.+riverNoise(p*.91)*1.7;
     vec2 a=vec2(.87,.50),b=vec2(-.31,.95);
     float u=dot(a,p)*6.3+shift,v=dot(b,p)*11.4-1.7*shift;
-    float strength=.34+.66*riverNoise(p*.68);
-    vec2 slope=strength*(a*sin(u)*.064/(1.+fwidth(u))+b*cos(v)*.042/(1.+fwidth(v)));
+    float strength=.35+.65*riverNoise(p*.68);
+    float capillary=1.-smoothstep(.03,.23,footprint);
+    vec2 slope=strength*(a*sin(u)*.027+b*cos(v)*.017)*capillary;
     return normalize(mat3(viewMatrix)*vec3(slope.x,1.,slope.y));
   }`;
 
@@ -31,5 +35,11 @@ export function riverFinish(shader,site,weight){
     .replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
       roughnessFactor=mix(roughnessFactor,.32,${weight});`)
     .replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
-      normal=normalize(mix(normal,riverNormal(${site}),${weight}));`);
+      float rippleFootprint=length(fwidth(${site}));
+      if(${weight}>0.)normal=normalize(mix(normal,riverNormal(${site},rippleFootprint),${weight}));`)
+    .replace('#include <opaque_fragment>',`if(${weight}>0.){
+        float waterGrazing=pow(1.-clamp(dot(normal,normalize(vViewPosition)),0.,1.),3.);
+        outgoingLight=mix(outgoingLight,vec3(.178,.254,.308),${weight}*(.06+.37*waterGrazing));
+      }
+      #include <opaque_fragment>`);
 }

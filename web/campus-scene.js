@@ -138,7 +138,7 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
   const landscape=createLandscapeGrid(region,world,coreAt,aerial.relief,new Int16Array(reliefBytes),carriageway.contains);
   landscape.preview=preview;
   landscape.racing=Boolean(racing);
-  landscape.walkwayGuide=walkwayGuide(pathTiles,new Uint16Array(await unpack(pathContours)));
+  landscape.walkwayGuide=walkwayGuide(pathTiles,new Uint16Array(await unpack(pathContours)),roadData.ways);
   const landBytes=await unpack(groundMaterials.landcover.samples);
   const land=groundMaterials.landcover;
   await prepareReflections(unpack);

@@ -4,6 +4,7 @@ import json
 import math
 import os
 import re
+import time
 from pathlib import Path
 
 import numpy as np
@@ -693,6 +694,7 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--id");ap.add_argument("--spec",type=Path);ap.add_argument("--out",type=Path);ap.add_argument("--refresh-auto",action="store_true")
     args=ap.parse_args()
+    started=time.time_ns()
     buildings=read(ROOT/"data/buildings/inventory.json")["buildingsList"]
     road=read(WEB/"drive-network.json")
     if args.refresh_auto or any(not (AUTO/(b["id"]+".json")).exists() for b in buildings if not args.id or b["id"]==args.id):
@@ -783,7 +785,10 @@ def main():
         items.append(record)
     if not items:raise ValueError("No matching inventory buildings")
     if args.id and not args.out:raise ValueError("Specify --out for a single building")
-    write(args.out or WEB/"campus-buildings.json",items)
+    output=args.out or WEB/"campus-buildings.json"
+    write(output,items)
+    if not args.out:
+        os.utime(output,ns=(output.stat().st_atime_ns,started))
     print(f'{len(items)} buildings, {sum(len(i["parts"]) for i in items)} massing parts')
 
 

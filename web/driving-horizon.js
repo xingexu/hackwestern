@@ -1,16 +1,19 @@
-import {joinTerrainEdges} from './look/ground-join.mjs';
+import {estateBoundary,joinTerrainEdges} from './look/ground-join.mjs';
 import {riverFinish} from './look/water.mjs';
 export function createDrivingHorizon(THREE,data,landscape){
   const positions=[],colors=[],cells=new Map(),surveyAt=landscape.heightAt;
   const key=(x,z)=>Math.floor(x/8)+','+Math.floor(z/8);
   const lawn=new THREE.Color(0x819967);
+  const elevation=(x,survey,z,rim)=>{
+    const t=Math.min(1,Math.max(0,(z-data.edge)/26));
+    return survey+(surveyAt(x,data.edge)-rim)*(1-t*t*(3-2*t));
+  };
   for(let i=0;i<data.indices.length;i+=3){
     const a=data.vertices[data.indices[i]],b=data.vertices[data.indices[i+1]],c=data.vertices[data.indices[i+2]];
     const start=positions.length;
     const cross=(b[0]-a[0])*(c[2]-a[2])-(b[2]-a[2])*(c[0]-a[0]);
     for(const [x,survey,z,rim] of cross>0?[a,c,b]:[a,b,c]){
-      const t=Math.min(1,Math.max(0,(z-data.edge)/26));
-      const y=survey+(surveyAt(x,data.edge)-rim)*(1-t*t*(3-2*t));
+      const y=elevation(x,survey,z,rim);
       const tone=.97+.028*Math.sin(x*.039+z*.025)+.018*Math.cos(z*.049-x*.021);
       positions.push(x,y,z);
       colors.push(lawn.r*tone,lawn.g*tone,lawn.b*tone);
@@ -24,6 +27,7 @@ export function createDrivingHorizon(THREE,data,landscape){
         cells.get(bin).push(triangle);
       }
   }
+  landscape.estateBoundary=estateBoundary(data.vertices,data.indices,elevation);
   landscape.heightAt=(x,z)=>{
     if(z<=data.edge)return surveyAt(x,z);
     for(const [ax,ay,az,bx,by,bz,cx,cy,cz] of cells.get(key(x,z))??[]){
@@ -56,7 +60,7 @@ export function createDrivingHorizon(THREE,data,landscape){
   waterMaterial.onBeforeCompile=shader=>{
     shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec2 waterXZ;').replace('#include <begin_vertex>','#include <begin_vertex>\nwaterXZ=position.xz;');
     shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying vec2 waterXZ;')
-      .replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb=riverBed(waterXZ);');
+      .replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb=riverColour(vec3(0.),waterXZ,1.);');
     riverFinish(shader,'waterXZ','1.');
   };
   for(const reach of data.water){
@@ -128,7 +132,8 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
   const positions=new Float32Array(source.length/4*3);
   for(let k=0;k<source.length;k+=4){
     const [x,y,z,d]=source.subarray(k,k+4),t=Math.min(1,d/12);
-    const near=t<1?landscape.heightAt(x,z):y;
+    const rim=d<.01 && z>landscape.zs.at(-1)?landscape.estateBoundary?.height(x,z):undefined;
+    const near=rim??(t<1?landscape.heightAt(x,z):y);
     positions.set([x,near+(y-near)*t*t*(3-2*t),z],k/4*3);
   }
   for(let k=0;k<indices.length;k+=3){
@@ -189,7 +194,7 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
       land=mix(land,vec3(.286,.270,.240)*(1.+.37*grain.b),edge.b);
       float shore=smoothstep(.04,.46,weights.a);
       land=mix(land,vec3(.12,.13,.077)*(1.+grain.b*.36),shore);
-      land=mix(land,riverBed(contextXZ),edge.a);
+      land=riverColour(land,contextXZ,edge.a);
       
       if(all(greaterThanEqual(regionalUV,vec2(0.)))&&all(lessThanEqual(regionalUV,vec2(1.)))){
         float street=texture2D(regionalPavement,regionalUV).r;

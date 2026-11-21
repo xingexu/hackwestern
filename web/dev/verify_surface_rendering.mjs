@@ -82,6 +82,12 @@ try{
         const bends=rows.slice(2).map((value,i)=>Math.abs(value-2*rows[i+1]+rows[i])).sort((a,b)=>a-b);
         return bends[Math.floor(bends.length*.9)];
       }
+      if(check==='cycleway'){
+        return Math.max(...[[100,458],[180,443],[250,429]].map(([row,edge])=>{
+          for(let x=edge+14;x>=edge-40;x--)if(first[4*(width*row+x)+1]<130)return Math.abs(x-edge)/20;
+          throw Error('Missing asphalt cycleway at sample row '+row);
+        }));
+      }
       if(check==='walkEdge'){
         const boundary=x=>{
           for(let y=65;y<167;y++){
@@ -131,7 +137,20 @@ try{
         };
         return [340,376,412].reduce((sum,y)=>sum+(mean(946,y-7)+mean(946,y+7))*.5-mean(946,y),0)/3;
       }
-      if(check==='bank'){
+      if(check==='membrane'){
+        const blocks=[];
+        for(let y=380;y<488;y+=12){
+          const row=[];
+          for(let x=40;x<148;x+=12){
+            let sum=0;
+            for(let v=y;v<y+12;v++)for(let u=x;u<x+12;u++)sum+=first[(v*width+u)*4+1];
+            row.push(sum/144);
+          }
+          blocks.push(...row.slice(1).map((value,i)=>Math.abs(value-row[i])));
+        }
+        return blocks.sort((a,b)=>a-b)[Math.floor(blocks.length*.85)];
+      }
+      if(check==='bank' || check==='estate'){
         const sky=scene.background;
         scene.background=new THREE.Color(0xff00ff);
         const magenta=await read();
@@ -139,7 +158,8 @@ try{
         const blue=await read();
         scene.background=sky;
         let leaks=0;
-        for(let y=220;y<294;y++)for(let x=320;x<480;x++){
+        const [left,top,right,bottom]=check==='bank'?[320,220,480,294]:[325,181,499,221];
+        for(let y=top;y<bottom;y++)for(let x=left;x<right;x++){
           const i=4*(y*width+x);
           if(Math.abs(magenta[i]-blue[i])>50)leaks++;
         }
@@ -234,12 +254,16 @@ try{
   assert.ok(stoneWidths>.17,'The Beryl Ivey Library rubble courses have varying widths between mortar joints');
   const roofCellEdges=await measure(10,8,ortho(525,12,425),'roofCellEdges');
   assert.ok(roofCellEdges<3,'Talbot membrane must remain continuous across metre boundaries');
+  const cycleway=await measure(3,7,{...ortho(175,22,375),layer:'ground'},'cycleway');
   const walkEdge=await measure(-4,22,ortho(-175,21.99,1125),'walkEdge');
   const pavementBands=await measure(1,28,{"name":"eye-N","eye":[60.16,16.413139501571656,1435.69],"at":[60.16,15.923139501571656,1421.69],"fov":55,"width":500,"height":300},'pavementBands');
   const reflection=await measure(-3,15,{"eye":[-119.31,24.153156586170198,770.84],"at":[-133.31,23.6631565861702,770.84],"fov":55,"width":500,"height":300},'reflection');
   const oblique=await measure(5,25,{eye:[321,54.812101,1321],at:[275,9.812101,1275],fov:55,width:500,height:360},'oblique');
   const lotTone=await measure(-3,9,{...ortho(-125,16,475),layer:'ground'},'lotTone');
+  const huronFlats=await measure(4,20,{...ortho(225,8,1025),layer:'ground'},'lotTone');
   const square=await measure(-11,8,{...ortho(-525,13.819,425),eye:[-525,160,425],at:[-525,300,425],layer:'ground'},'square');
+  const membrane=await measure(2,12,ortho(125,20.954,625),'membrane');
+  const estate=await measure(-3,37,{eye:[-98.05,17.1633,1855.3453],at:[-112.05,15.3293,1855.3453],fov:55,width:500,height:300},'estate');
   const waterSeams=await measure(0,-8,ortho(25,6.71,-375),'waterSeams');
   const water=await measure(0,-8,ortho(25,6.71,-375),'water');
   const glass=await measure(9,-1,ortho(475,12.065,-25),'glass');
@@ -248,7 +272,11 @@ try{
   const aggregate=await measure(0,18,{eye:[20.16,18.8165,925.69],at:[20.16,18.3265,911.69],fov:55,width:500,height:300},'aggregate');
   const bank=await measure(12,-5,{"eye":[620.16,9.127812617778787,-224.31],"at":[620.16,8.637812617778787,-238.31],"fov":55,"width":500,"height":300},'bank');
   const jointBands=await measure(-1,16,ortho(-25,20.168666823387145,825),'jointBands');
-  console.log({stoneWidths,roofCellEdges,pavementBands,walkEdge,reflection,waterSeams,oblique,lotTone,canopy,laneError,square,water,glass,jointRed,roof,aggregate,bank,jointBands});
+  console.log({stoneWidths,roofCellEdges,cycleway,huronFlats,estate,membrane,pavementBands,walkEdge,reflection,waterSeams,oblique,lotTone,canopy,laneError,square,water,glass,jointRed,roof,aggregate,bank,jointBands});
+  assert.ok(cycleway<.25,'The paved cycleway boundary stays within 25 cm of its registered cross sections');
+  assert.ok(huronFlats[0]>142 && huronFlats[0]-huronFlats[2]>7,'Huron Flats parking uses the pale finish seen in the 2025 aerial');
+  assert.equal(estate,0,'Sky is occluded along the southern edge of the Platt’s Lane lawn');
+  assert.ok(membrane<1.5,'The flat membrane on the Spencer Engineering Building has continuous shading between sheets');
   assert.ok(pavementBands<1,'The level asphalt remains free of horizontal ambient occlusion bands');
   assert.ok(walkEdge<.3,'The boulevard walk follows the straight surveyed edge within 30 cm');
   assert.ok(reflection>22,'The terrace glazing reflects the light sky and darker campus at the same pane');

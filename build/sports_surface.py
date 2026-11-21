@@ -22,8 +22,8 @@ def surveyed_sports():
     solids=sorted([shape(g) for g,_ in shapes(mask.astype(np.uint8),mask=mask,transform=Affine.translation(l,t)*Affine.scale(.25))],key=lambda g:-g.area)
     track=solids[0].simplify(.26,preserve_topology=True)
     rings=[np.round(np.asarray(ring.coords),2).tolist() for ring in [track.exterior,*track.interiors] if Polygon(ring).area>2.5]
-    rugby=[[154,1474.8],[229.9,1429.2],[295.4,1545.3],[216.7,1589.3]]
-    soccer=[[239.4,1428],[350,1362.7],[390.9,1433.3],[280.1,1499.6]]
+    rugby=[[154,1474.8],[231.5,1432.0],[295.4,1545.3],[215.7,1589.1]]
+    soccer=[[240.6,1434.5],[367.5,1366.6],[406.0,1436.3],[279.3,1501.0]]
     return dict(track=rings,synthetic=[rugby,soccer],trackBounds=[l,t,r,b],bleachers=[[175,1520,-1.09],[181,1532,-1.09],[188,1545,-1.09]])
 
 

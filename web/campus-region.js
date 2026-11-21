@@ -56,7 +56,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     const material=new THREE.MeshStandardMaterial({map});
     if(!landscape) return material;
     const gameGround=highResolution||landscape.racing;
-    material.customProgramCacheKey=()=>[gameGround,!!finish,!!conditions,!!guide].join('-');
+    material.customProgramCacheKey=()=>[gameGround,!!finish,!!conditions,guide?.format??0].join('-');
     material.userData.finish=finish;
     material.userData.walkGuide=guide;
     material.userData.conditions=conditions;
@@ -95,7 +95,6 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           uniform float conditionStrength;
           float grain(vec2 p){return fract(sin(dot(mod(p,257.),vec2(26.51,17.71)))*43758.54)-.5;}
           vec3 groundTint(float kind){
-            if(kind==2.) return vec3(.115,.196,.078);
             if(kind==3.) return vec3(.1785,.278,.114);
             if(kind==4.) return vec3(.291,.268,.217);
             if(kind==5.) return vec3(.152,.164,.172);
@@ -148,23 +147,24 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           vec4 profile=texture2D(surfaceCoverage,profileUv);
           vec3 pavingSurvey=texture2D(pavingTone,coverUV).rgb;
           float mappedLot=coverageEdge(pavingSurvey.g);
-          float lot=max(coverageEdge(profile.a),mappedLot*max(carriage,smoothstep(.025,.24,textureLod(surfaceCoverage,profileUv,2.).a)));
-          lot=max(lot,carriage*smoothstep(.08,.66,textureLod(pavingTone,coverUV,2.8).g));
-          road=max(road,lot);
+          float lot=mappedLot;
+          float pavedLot=max(coverageEdge(ground.a),mappedLot*max(carriage,smoothstep(.025,.24,textureLod(surfaceCoverage,profileUv,2.).a)));
+          road=max(road,pavedLot);
           vec3 land=ground.rgb;
           if(cover==6.) road=0.;
           float turf=1.-smoothstep(.045,.12,distance(ground.rgb,groundTint(0.)));
           vec2 surveyTone=texture2D(grassVigor,uv).rg;
           vec3 blades=summerLawn(surveyPoint,surveyTone.r,particle.r);
-          land=mix(land,blades,turf*(1.-ground.a));
-          float forest=clamp(textureLod(surfaceCoverage,profileUv,2.3).b*(1.+.22*growth),0.,1.),waterCoverage=profile.g;
+          land=mix(land,blades,turf);
+          float woodland=textureLod(surfaceCoverage,profileUv,3.8).b;
+          float forest=smoothstep(.18,.74,woodland)*textureLod(surfaceCoverage,profileUv,2.4).b,waterCoverage=profile.g;
           vec3 litter=forestFloor(surveyPoint,particle);
-          land=mix(land,litter,smoothstep(.02,.98,forest));
+          land=mix(land,litter,.55*smoothstep(.02,.98,forest));
           land=groundEdge(land,blades,litter,surveyPoint,(cover<=2. || cover==11.)?1.:0.);
-          if(cover==8.){
-            float mow=.5+.5*cos(dot(surveyPoint,vec2(-.099,.680)));
-            land=mix(vec3(.041,.117,.049),vec3(.059,.141,.058),mow)*(1.+particle.r*.65+growth*.08);
-          }
+          float sport=1.-smoothstep(.012,.078,distance(ground.rgb,groundTint(8.)));
+          float fieldCut=cos(dot(surveyPoint,vec2(-.099,.680))+.35*growth);
+          vec3 fieldGrass=vec3(.055,.129,.054)*(1.+.029*fieldCut+particle.r*.65+growth*.08);
+          land=mix(land,fieldGrass,sport);
           if(cover==4.) land*=1.+particle.b*.72;
           land*=1.+growth*.07+nearDetail*(grainFine*(.10+.11*lawn)+grainCoarse*.12*lawn);
           float waterAA=clamp(fwidth(waterCoverage),.04,.42);
@@ -175,7 +175,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           land=mix(land,concrete,max(coarseWalk,coverageEdge(pavingSurvey.b)));
           vec3 bank=mix(vec3(.111,.130,.078),vec3(.16,.155,.098),.5+growth);
           land=mix(land,bank,smoothstep(.015,.41,waterCoverage));
-          land=mix(land,riverBed(surveyPoint),waterWeight);
+          land=riverColour(land,surveyPoint,waterWeight);
           vec3 observation=vec3(0.);
           ${conditions?'observation=texture2D(conditionMap,(surveyPoint-conditionBounds.xy)/(conditionBounds.zw-conditionBounds.xy)).rgb*conditionStrength;':''}
           float coarse=clamp((observation.r-.3333)*1.5,0.,1.);
@@ -187,10 +187,10 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           bitumen=mix(bitumen,vec3(.286,.268,.226),paleLot);
           float repairs=broadNoise(surveyPoint*.048+vec2(growth,-growth)*.26);
           bitumen*=1.+.55*(surveyTone.g-.502)+ground.a*(repairs*.14+.035*broadNoise(surveyPoint*.19));
-          bitumen*=1.+particle.g*.63+nearDetail*(grainFine*(.17+coarse*.21)+grainCoarse*(.068+coarse*.08))+.03*broadNoise(surveyPoint*.72);
+          bitumen*=1.+particle.g*.52+nearDetail*(grainFine*(.17+coarse*.21)+grainCoarse*(.068+coarse*.08))+.03*broadNoise(surveyPoint*.72);
           vec2 lotUV=mat2(.90,-.43,.43,.90)*surveyPoint*.051+vec2(repairs,growth)*.08;
           float seal=texture2D(groundGrain,lotUV).a;
-          bitumen*=1.-seal*lot*(.23+.15*coarse);
+          bitumen*=1.-seal*lot*(.025+.05*coarse)*smoothstep(-.14,.29,repairs);
           bitumen*=1.-.39*paleLot*slabJoint(mat2(.961,-.276,.276,.961)*surveyPoint,vec2(5.7,6.2));
           vec3 surface=mix(land,bitumen,road);
           ${finish?`vec4 finish=texture2D(finishMap,vMapUv);
@@ -198,7 +198,9 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
             ${guide?`vec2 rim=min(vMapUv,1.-vMapUv);
               pedal=mix(pedal,texture2D(walkGuide,vMapUv).r,smoothstep(.0005,.008,min(rim.x,rim.y)));`:''}
             float pedestrian=coverageEdge(pedal)*(1.-carriage);
-            vec3 slab=mix(vec3(.10,.116,.12),vec3(.286,.270,.240),smoothstep(55./255.,145./255.,finish.a));
+            float asphaltPath=1.-smoothstep(55./255.,145./255.,finish.a);
+            ${guide?.format===THREE.RGFormat?'asphaltPath=coverageEdge(texture2D(walkGuide,vMapUv).g);':''}
+            vec3 slab=mix(vec3(.286,.270,.240),vec3(.10,.116,.12),asphaltPath);
             float brushed=clamp((observation.g-.3333)*1.5,0.,1.);
             slab*=1.+particle.b*.37+.035*broadNoise(surveyPoint*.77)+nearDetail*(grainFine*(.13+.11*brushed)+grainCoarse*(.035+brushed*.075));
             vec2 jointCoord=mat2(.953,.303,-.303,.953)*surveyPoint/vec2(1.72,2.40);
@@ -222,7 +224,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
       if(gameGround){
         riverFinish(shader,'surveyPoint','waterWeight');
         shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
-          normal=normalize(mix(normal,mat3(viewMatrix)*vec3(0.,1.,0.),lot*.70*(1.-waterWeight)));`);
+          normal=normalize(mix(normal,mat3(viewMatrix)*vec3(0.,1.,0.),max(lot,carriage)*.70*(1.-waterWeight)));`);
         landscape.foundationLight?.(shader);
       }
     };

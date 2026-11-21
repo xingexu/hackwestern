@@ -224,7 +224,15 @@ class Surfaces:
         v=np.floor((pts[:,:,1]-self.bounds[1])*4).astype(int).clip(0,self.labels.shape[0]-1)
         soft=(self.labels[v,u]==1).sum(axis=1)>=4
         ends=np.flatnonzero(np.diff(np.r_[False,soft,False]))
-        return [substring(line,d[a],d[b-1]).buffer(width*.72,cap_style='flat') for a,b in ends.reshape(-1,2) if d[b-1]-d[a]>=8]
+        removals=[]
+        for a,b in ends.reshape(-1,2):
+            if d[b-1]-d[a]<8:continue
+            segment=substring(line,d[a],d[b-1]).buffer(width*.72,cap_style='flat')
+            for k in (a,b-1):
+                if k==0 or k==len(d)-1:
+                    segment=segment.union(shapely.Point(p[k]).buffer(width*.72))
+            removals.append(segment)
+        return removals
 
     def sample(self,frame,size,offset=(.5,.5)):
         l,t,r,b=frame

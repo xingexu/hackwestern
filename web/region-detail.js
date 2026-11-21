@@ -111,8 +111,8 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
   paintMaterial.depthWrite=false;
   let endZoneInk;
   function endZoneAtlas(){
-    const canvas=new OffscreenCanvas(1024,256),ink=canvas.getContext('2d');
-    ink.fillStyle='white';ink.font='bold 116px Georgia, serif';ink.textAlign='center';
+    const canvas=new OffscreenCanvas(2048,512),ink=canvas.getContext('2d');
+    ink.scale(2,2);ink.fillStyle='white';ink.font='bold 116px Georgia, serif';ink.textAlign='center';
     for(const [i,word] of ['WESTERN','MUSTANGS'].entries()){
       const measure=ink.measureText(word);
       ink.save();
@@ -127,7 +127,10 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
   function paintShader(material,track){
     material.customProgramCacheKey=()=>track?'athletics-lanes':'field-paint';
     material.onBeforeCompile=shader=>{
-      if(track)shader.uniforms.endZoneInk={value:endZoneInk??=endZoneAtlas()};
+      if(track){
+        shader.uniforms.endZoneInk={value:endZoneInk??=endZoneAtlas()};
+        shader.uniforms.turfFiber={value:landscape?.groundGrain??null};
+      }
       if(track&&laneBasis){
         shader.uniforms.turnCenters={value:new THREE.Vector4(...laneBasis.slice(0,4))};
         shader.uniforms.trackRadius={value:laneBasis[4]};
@@ -135,7 +138,7 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
       shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec2 mark,fieldPosition;')
         .replace('#include <begin_vertex>','#include <begin_vertex>\nmark=uv;fieldPosition=position.xz;');
       shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
-        varying vec2 mark,fieldPosition;uniform sampler2D endZoneInk;uniform vec4 turnCenters;uniform float trackRadius;
+        varying vec2 mark,fieldPosition;uniform sampler2D endZoneInk,turfFiber;uniform vec4 turnCenters;uniform float trackRadius;
         float laneIntegral(float x){return floor(x)*(.064/1.22)+min(fract(x),.064/1.22);}`)
         .replace('#include <color_fragment>',`#include <color_fragment>
           float station=mark.x;
@@ -149,6 +152,11 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
             float coverage=(laneIntegral(hi+.032/1.22)-laneIntegral(lo+.032/1.22))/footprint;
             ${laneBasis?'coverage*=smoothstep(-.12,-.04,station)*(1.-smoothstep(8.04,8.12,station));':''}
             diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.823,.723,.738),clamp(coverage,0.,1.));
+          }else if(mark.y<-4.){
+            vec2 axis=mat2(.48,.877,-.877,.48)*fieldPosition;
+            float mow=cos(axis.x*.90+.16*sin(axis.y*.071));
+            float grain=texture2D(turfFiber,axis*.57).r-.46;
+            diffuseColor.rgb*=vec3(.71,.89,.68)*(1.+.067*mow+.77*grain);
           }else if(mark.y<=-2.){
             float ink=texture2D(endZoneInk,vec2(mark.x,mark.y+3.)).a;
             diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.81,.80,.73),ink);
@@ -1034,7 +1042,7 @@ export function createRegionDetail(THREE, data, region, network, landscape) {
     if(!landscape||!data.sports)return;
     const lanes=laneBasis?()=>[0,1]:null;
     for(const triangle of data.sports.rubber)groundStrip(triangle,.004,0x714672,lanes);
-    for(const ring of data.sports.synthetic)groundStrip(ring,.004,0x54694e);
+    for(const ring of data.sports.synthetic)groundStrip(ring,.004,0x57744f,()=>[0,-5]);
     for(const patch of data.sports.practice?.surfaces??[])for(const face of patch.triangles)groundStrip(face,.006,patch.color);
   }
   fieldSurfaces();

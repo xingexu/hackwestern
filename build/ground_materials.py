@@ -54,6 +54,8 @@ def game_cover(domain,network):
             draw.polygon(pixels(hole),fill=0)
     osm=json.loads((region.CACHE/'map.json').read_bytes())['elements']
     nodes={e['id']:geo.to_grid(e['lat'],e['lon']) for e in osm if e['type']=='node'}
+    sport=json.loads(region.OUT.parents[1].joinpath('build/survey_sports.json').read_bytes())
+    pitches=[Polygon(r) for r in sport['synthetic']]
     gardens=[]
     polygons=[]
     for e in osm:
@@ -80,6 +82,8 @@ def game_cover(domain,network):
             kind=4
         if kind:
             p=Polygon(ring)
+            if kind==8 and any(p.intersection(pitch).area>p.area*.5 for pitch in pitches):
+                continue
             if p.area>1 and domain.intersects(p):
                 polygons.append((kind,ring,t,p.area))
     polygons.sort(key=lambda r:((r[0] in (7,8,9)), -r[3]))
@@ -107,17 +111,20 @@ def game_cover(domain,network):
     revisable=inside&np.isin(classes,[0,1,2,3,4,5,11])
     classes[revisable&(measured==5)]=5
     classes[revisable&np.isin(measured,[1,3])&np.isin(classes,[3,4,5])]=0
+    clusters,_=ndimage.label(classes==5)
+    areas=np.bincount(clusters.ravel())*((right-left)/width)*((bottom-top)/height)
+    verge=ndimage.maximum_filter(np.where(classes==5,0,classes),size=3)<=2
+    classes[(clusters>0)&(areas[clusters]<1.6)&verge]=0
     for patch in ground_survey['patches']:
         shell,*holes=patch['rings']
         surveyed=geometry_mask([Polygon(shell,holes)],out_shape=classes.shape,transform=transform,invert=True)
         classes[surveyed&inside]=patch['class']
     for island in ground_survey['islands']:
         classes[geometry_mask([Polygon(island)],out_shape=classes.shape,transform=transform,invert=True)&inside]=1
-    sport=json.loads(region.OUT.parents[1].joinpath('build/survey_sports.json').read_bytes())
     track=Polygon(sport['track'][0],sport['track'][1:])
     surround=geometry_mask([track.envelope.buffer(5)],out_shape=classes.shape,transform=transform,invert=True)
     classes[surround&(classes==7)]=3
-    for label,geometry in [(8,Polygon(track.exterior)),(7,track),*[(8,Polygon(ring)) for ring in sport['synthetic']]]:
+    for label,geometry in [(8,Polygon(track.exterior)),(7,track),*[(8,pitch.buffer(-.8)) for pitch in pitches]]:
         surveyed=geometry_mask([geometry],out_shape=classes.shape,transform=transform,invert=True)
         classes[surveyed&inside]=label
     garden=geometry_mask(gardens,out_shape=classes.shape,transform=transform,invert=True)
@@ -151,7 +158,7 @@ def game_cover(domain,network):
     weight=best/np.maximum(.0001,best+runner)
     weight=np.clip((weight-.30)/.40,0,1)
     weight=weight*weight*(3-2*weight)
-    hard=np.isin(classes,[3,5,6,7,8])
+    hard=np.isin(classes,[3,5,6,7])
     near=ndimage.binary_dilation(hard,iterations=4)
     primary[near]=classes[near]
     secondary[near]=classes[near]

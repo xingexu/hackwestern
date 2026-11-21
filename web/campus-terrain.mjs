@@ -334,8 +334,9 @@ export const groundDetailGLSL=`
     float moisturePatch=sin(swale.x+swale.y*1.3)*.17+sin(swale.y*1.6-swale.x*.51)*.11;
     float dry=clamp(.63-moisture*.43+moisturePatch,0.,1.);
     float cut=.5+.5*cos(dot(p,vec2(.339,.233))+.48*sin(dot(p,vec2(.034,-.026))));
-    float clump=.5+.28*sin(p.x*1.8+sin(p.y*2.24))+.22*sin(dot(p,vec2(4.2,-2.11)));
-    vec3 turf=mix(vec3(.047,.116,.030),vec3(.142,.149,.053),dry);
+    float footprint=length(fwidth(p));
+    float clump=.5+(.28*sin(p.x*1.8+sin(p.y*2.24))+.22*sin(dot(p,vec2(4.2,-2.11))))*(1.-smoothstep(.12,.8,footprint));
+    vec3 turf=mix(vec3(.050,.111,.032),vec3(.167,.148,.062),dry);
     return turf*(.897+.103*cut+.085*clump+blade*1.04);
   }`;
 

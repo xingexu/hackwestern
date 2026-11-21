@@ -115,7 +115,7 @@ export function daylight(renderer,scene,background){
   sky.material.dispose();
   const sun=new THREE.DirectionalLight(0xffefda,3.12);
   sun.castShadow=true;
-  scene.add(sun,sun.target,new THREE.HemisphereLight(0xc9d9ef,0x827564,.86));
+  scene.add(sun,sun.target,new THREE.HemisphereLight(0xd6e1ee,0x958674,1.05));
   return sun;
 }
 
@@ -130,7 +130,7 @@ export function followShadows(renderer,sun,quality){
     sun.shadow.mapSize.setScalar(Math.min(mapSize,renderer.capabilities.maxTextureSize));
     Object.assign(sun.shadow.camera,{left:-reach,right:reach,bottom:-reach,top:reach,near:1,far:360});
     const texel=2*reach/sun.shadow.mapSize.x;
-    sun.shadow.radius=Math.min(2.45,.17/texel);
+    sun.shadow.radius=Math.min(2.55,.18/texel);
     sun.shadow.normalBias=1.64*texel;
     sun.shadow.bias=-.55*texel/(sun.shadow.camera.far-sun.shadow.camera.near);
     sun.shadow.camera.updateProjectionMatrix();

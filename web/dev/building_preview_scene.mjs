@@ -16,6 +16,8 @@ export async function renderBuilding({building,neighbors,frames,aerial,surveyBou
   renderer.toneMappingExposure=1.02;
   renderer.shadowMap.enabled=true;
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  renderer.shadowMap.autoUpdate=false;
+  renderer.shadowMap.needsUpdate=true;
   const [x0,z0,x1,z1]=building.bounds;
   const x=(x0+x1)/2,z=(z0+z1)/2,y=building.ground;
   const extent=Math.max(x1-x0,z1-z0,12);
@@ -86,9 +88,9 @@ export async function renderBuilding({building,neighbors,frames,aerial,surveyBou
         part.roof.features=(part.roof.features??[]).filter(f=>f.style!=='measured roof plant');
       }
       const surface=architectureMesh(buildArchitecture([control],2));
-      model.visible=false;scene.add(surface);
+      model.visible=false;scene.add(surface);renderer.shadowMap.needsUpdate=true;
       pictures.push(['ne-shadow-control',jpg(capture(view,900,600))]);
-      scene.remove(surface);model.visible=true;
+      scene.remove(surface);model.visible=true;renderer.shadowMap.needsUpdate=true;
       surface.traverse(o=>{o.geometry?.dispose();o.material?.userData.styles?.dispose();o.material?.dispose();if(o.isInstancedMesh)o.dispose();});
     }
   }
@@ -110,6 +112,7 @@ export async function renderBuilding({building,neighbors,frames,aerial,surveyBou
     const photo=await image('/'+f.path);
     const ratio=photo.width/photo.height,rads=f.heading*Math.PI/180;
     production.updateDetail(f.x,f.z,50,true);
+    renderer.shadowMap.needsUpdate=true;
     const cam=new THREE.PerspectiveCamera(2*Math.atan(Math.tan((f.hfov??64)*Math.PI/360)/ratio)*180/Math.PI,ratio,.1,1600);
     cam.position.set(f.x,y0,f.z);cam.lookAt(f.x+Math.sin(rads),y0+Math.tan((f.elevationAngle??0)*Math.PI/180),f.z-Math.cos(rads));
     cam.rotateZ(-(f.roll??0)*Math.PI/180);

@@ -15,7 +15,7 @@ for(const way of roads.ways){
   for(const p of way.points)if(outline.contains(p[0],p[2]))sites.push([p[0],p[2]]);
 }
 if(!sites.length)throw Error('Missing survey roads');
-const [left,north,right,south]=parcel.bounds,columns=6,rows=9,wide=66,high=20,buffer=new Uint8Array(wide*columns*high*rows*4);
+const [left,north,right,south]=parcel.bounds,columns=6,rows=9,wide=194,high=48,buffer=new Uint8Array(wide*columns*high*rows*4);
 const server=spawn(process.execPath,['serve.mjs','--port','0'],{cwd:root,stdio:['ignore','pipe','inherit']});
 let browser;
 try{
@@ -38,7 +38,7 @@ try{
       await page.evaluate(c=>campusAudit.focus(c),{id:'x'+ix+'z'+iz,x:ix*50,z:iz*50});
       await page.waitForLoadState('networkidle');
       const rgb=await page.evaluate(({x,z,wide,high})=>{
-        const {renderer}=driveMetrics.inspectLook(),y=driveMetrics.network.groundAt(x,z)+3.2,side=112,fov=106;
+        const {renderer}=driveMetrics.inspectLook(),y=driveMetrics.network.groundAt(x,z)+3.2,side=192,fov=106;
         const context=new OffscreenCanvas(side,side).getContext('2d',{willReadFrequently:true}),faces=[];
         for(let q=0;q<4;q++){
           const a=Math.PI*q/2;
@@ -52,10 +52,10 @@ try{
           const tx=Math.round(side*.5*(1+Math.tan(local)/tan)-.5),ty=Math.round(side*.5*(1-Math.tan(pitch)/Math.cos(local)/tan)-.5);
           const index=4*(v*wide+u);
           for(let k=0;k<3;k++){
-            let sum=0;for(let py=-2;py<=2;py++)for(let px=-2;px<=2;px++){
+            let sum=0;for(let py=-1;py<=1;py++)for(let px=-1;px<=1;px++){
               const xx=Math.max(0,Math.min(side-1,tx+px)),yy=Math.max(0,Math.min(side-1,ty+py));sum+=src[4*(yy*side+xx)+k];
             }
-            out[index+k]=Math.round(sum/25);
+            out[index+k]=Math.round(sum/9);
           }
           out[index+3]=255;
         }

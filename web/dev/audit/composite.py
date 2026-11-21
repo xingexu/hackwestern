@@ -53,7 +53,7 @@ def sheet(folder):
                     canvas.paste(view, (left, top))
             title = {"top":"GAME   North ↑   20 px/m", "city-2025":"CITY OF LONDON   2025   North ↑   10 px/m source"}.get(name, name)
             if top==2140:
-                title = "Ground only · structures and vegetation hidden" if left==0 else "Automated findings · see original top.png for an unobstructed view"
+                title = "Campus parcel ground only · outside parcel omitted" if left==0 else "Automated findings · see original top.png for an unobstructed view"
             draw.rectangle((left, top, left+draw.textlength(title, font=font(16))+14, top+22), fill="#172021")
             draw.text((left+6,top+2), title, font=font(16))
     colors = {"critical":"#ff2170", "high":"#ff7300", "medium":"#00b7ff", "low":"#b7ff70"}

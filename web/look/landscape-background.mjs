@@ -67,7 +67,7 @@ export async function landscapeBackground(region,landscape,boundary,cover,unpack
         float water=smoothstep(.5-waterAA,.5+waterAA,groundCover.a);
         vec3 land=mix(summerLawn(site,surveyTone.r,particle.r),forestFloor(site,particle),groundCover.r);
         land=mix(land,vec3(.125,.119,.101)*(1.+particle.b*.36),groundCover.g);
-        land=mix(land,riverBed(site),water);
+        land=riverColour(land,site,water);
         diffuseColor.rgb=mix(land,vec3(.061,.062,.061)*(1.+particle.g*.44+.55*(surveyTone.g-.502)),smoothstep(.5-aa,.5+aa,pavement));`);
     riverFinish(shader,'site','water');
   };

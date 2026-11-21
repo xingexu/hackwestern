@@ -2,8 +2,9 @@ import {fork,execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {parseArgs} from 'node:util';
 import {createServer,createConnection} from 'node:net';
-import {readFile,writeFile,mkdir,unlink,mkdtemp,rm,readdir} from 'node:fs/promises';
-import {existsSync,readdirSync,statSync} from 'node:fs';
+import {createServer as httpServer} from 'node:http';
+import {readFile,writeFile,mkdir,unlink,mkdtemp,rm,readdir,stat} from 'node:fs/promises';
+import {createReadStream,existsSync,readdirSync,statSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {resolve,join,extname} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -24,23 +25,74 @@ async function load(){
   const pageSource=await readFile(join(root,'web/index.html'),'utf8');
   const imports=JSON.parse(pageSource.match(/<script type="importmap">([\s\S]*?)<\/script>/)[1]).imports;
   for(const key of Object.keys(imports))imports[key]='/web/'+imports[key].slice(2);
-  return {inventory:inventory.buildingsList,frames:new Map(frames.map(f=>[f.id,f])),imports,browser:await openBrowser()};
+  const types={'.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.png':'image/png','.jpg':'image/jpeg'};
+  const page='<link rel="icon" href="data:,"><script type="importmap">'+JSON.stringify({imports})+'</script>';
+  const assets=httpServer(async(req,res)=>{
+    try{
+      const path=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
+      if(path==='/'){res.writeHead(200,{'Content-Type':'text/html'}).end(page);return;}
+      const type=types[extname(path)];
+      const dataset=/^\/[\w-]+\.json$/.test(path);
+      const file=dataset?resolve(root,'web',path.slice(1)):resolve(root,'.'+path);
+      const web=file.startsWith(join(root,'web')+'/');
+      const photo=(type==='image/png'||type==='image/jpeg') && ['data/buildings','data/streetview'].some(dir=>file.startsWith(join(root,dir)+'/'));
+      if(!type || !(web || photo)){res.writeHead(404).end();return;}
+      const info=await stat(file),etag='"'+info.mtimeMs+'-'+info.size+'"';
+      if(req.headers['if-none-match']===etag){res.writeHead(304).end();return;}
+      res.writeHead(200,{'Content-Type':type,'Content-Length':info.size,'ETag':etag,'Cache-Control':'no-cache'});
+      const stream=createReadStream(file);
+      res.once('close',()=>stream.destroy());stream.on('error',()=>res.destroy());stream.pipe(res);
+    }catch{if(!res.headersSent)res.writeHead(404);res.end();}
+  });
+  const browser=await openBrowser();
+  await new Promise((accept,reject)=>{assets.once('error',reject);assets.listen(0,'127.0.0.1',accept);});
+  return {inventory:inventory.buildingsList,frames:new Map(frames.map(f=>[f.id,f])),browser,context:await browser.newContext(),url:'http://127.0.0.1:'+assets.address().port,assets};
 }
-async function render(state,job){
-  const {id,spec,out}=job;
+const compilationSlots=Array.from({length:3},()=>Promise.resolve());
+let nextCompiler=0,calibrationBatch,compiled;
+function compileOne(args){
+  const slot=nextCompiler++%compilationSlots.length;
+  const run=compilationSlots[slot].then(()=>promisify(execFile)(join(root,'.venv/bin/python'),args,{cwd:root}));
+  compilationSlots[slot]=run.catch(()=>{});
+  return run;
+}
+async function readCalibration(keys){
+  const result=await promisify(execFile)(join(root,'.venv/bin/python'),['build/building_camera.py',...keys]);
+  return JSON.parse(result.stdout);
+}
+function calibrate(frames){
+  if(!frames.length)return Promise.resolve({});
+  if(!calibrationBatch){
+    const keys=new Set();
+    const poses=new Promise((accept,reject)=>setTimeout(()=>{
+      calibrationBatch=null;
+      readCalibration(keys).then(accept,reject);
+    },24));
+    calibrationBatch={keys,poses};
+  }
+  const batch=calibrationBatch,ids=frames.map(frame=>frame.id);
+  for(const id of ids)batch.keys.add(id);
+  return batch.poses.catch(error=>{
+    if(batch.keys.size===ids.length)throw error;
+    return readCalibration(ids);
+  });
+}
+async function prepare(state,job){
+  const {id,spec}=job;
   const inv=state.inventory.find(b=>b.id===id);
   if(!inv)throw new Error('Unknown inventory building '+id);
-  const data=await json('web/campus-buildings.json');
+  const compiledTime=statSync('web/campus-buildings.json').mtimeMs;
+  if(compiled?.mtime!==compiledTime)compiled={mtime:compiledTime,records:json('web/campus-buildings.json')};
+  const data=await compiled.records;
   let building=data.find(b=>b.id===id);
   const source=spec??join(root,'build/specs/buildings',id+'.json');
-  const compiledTime=statSync('web/campus-buildings.json').mtimeMs;
   const inputs=[...recipeInputs,join('data/buildings/evidence',id,'aerial-source.jpg'),join('build/specs/auto',id+'.json')];
   const changed=existsSync(source) && createHash('sha256').update(await readFile(source)).digest('hex')!==building?.sourceDigest;
   if(spec || !building || changed || inputs.some(p=>existsSync(p) && statSync(p).mtimeMs>compiledTime)){
     const scratch=await mkdtemp(join(root,'.agent/building-'));
     try{
       const file=join(scratch,'one.json');
-      await promisify(execFile)(join(root,'.venv/bin/python'),['build/compile_buildings.py','--id',id,'--spec',source,'--out',file],{cwd:root});
+      await compileOne(['build/compile_buildings.py','--id',id,'--spec',source,'--out',file]);
       building=JSON.parse(await readFile(file))[0];
     }finally{await rm(scratch,{recursive:true,force:true});}
   }
@@ -49,19 +101,18 @@ async function render(state,job){
   const pinned={w118764095:'131414491',w237299189:'138541401',w118764110:'126865219',w310132539:'79749217'};
   const ids=[...new Set([pinned[id],...inv.sheetFrames.map(f=>f.frame),...(building.sources??[]),...inv.walls.flatMap(w=>w.frames.map(f=>f.frame))])];
   const frames=ids.map(k=>state.frames.get(k)).filter(f=>f&&existsSync(join(root,'data/streetview',f.path))).slice(0,32).map(f=>({...f,path:'data/streetview/'+f.path}));
-  const page=state.page??await state.browser.newPage();
+  const calibrated=await calibrate(frames);
+  for(const f of frames)Object.assign(f,calibrated[f.id]);
+  const obliqueReference=existsSync('data/buildings/preview-poses.json')?(await json('data/buildings/preview-poses.json'))[id]:undefined;
+  return {building,neighbors,frames,obliqueReference,aerial:inv.aerial,surveyBounds:[Math.min(...inv.footprint.map(p=>p[0])),Math.min(...inv.footprint.map(p=>p[1])),Math.max(...inv.footprint.map(p=>p[0])),Math.max(...inv.footprint.map(p=>p[1]))],shadowReference:job.shadowReference};
+}
+async function render(state,job,config){
+  const {id,out}=job;
+  const page=state.page??await state.context.newPage();
   try{
     if(!state.page){
     state.errors=[];page.on('console',m=>{if(m.type()==='error')state.errors.push(m.text());});
-    await page.route('http://campus.local/**',async route=>{
-      const path=decodeURIComponent(new URL(route.request().url()).pathname);
-      if(path==='/')return route.fulfill({contentType:'text/html',body:'<script type="importmap">'+JSON.stringify({imports:state.imports})+'</script>'});
-      const file=path.endsWith('.json')?resolve(root,'web',path.slice(1)):resolve(root,'.'+path);
-      if(!file.startsWith(root)||!['.js','.mjs','.jpg','.png','.json'].includes(extname(file)))return route.abort();
-      const type={'.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.png':'image/png','.jpg':'image/jpeg'}[extname(file)];
-      return route.fulfill({contentType:type,body:await readFile(file)});
-    });
-    await page.goto('http://campus.local/');
+    await page.goto(state.url);
     state.page=page;
     }
     const calibrated=JSON.parse((await promisify(execFile)(join(root,'.venv/bin/python'),['build/building_camera.py',...frames.map(f=>f.id)])).stdout);
@@ -96,12 +147,17 @@ async function daemon(){
       const job=JSON.parse(msg);msg='';
       const slot=slots.reduce((a,b)=>a.count<=b.count?a:b);
       slot.count++;outstanding++;
-      slot.queue=slot.queue.then(async()=>{
-        try{init??=load();slot.state??={...await init};peer.end(JSON.stringify(await render(slot.state,job)));}
-        catch(e){peer.end(JSON.stringify({error:e.message}));}
+      init??=load();
+      const prepared=init.then(state=>prepare(state,job));
+      slot.queue=Promise.allSettled([slot.queue,prepared]).then(async ([,ready])=>{
+        try{
+          if(ready.status==='rejected')throw ready.reason;
+          slot.state??={...await init};
+          peer.end(JSON.stringify(await render(slot.state,job,ready.value)));
+        }catch(e){peer.end(JSON.stringify({error:e.message}));}
         finally{
           slot.count--;outstanding--;
-          if(!outstanding)timer=setTimeout(async()=>{server.close();await (await init)?.browser.close();},55000);
+          if(!outstanding)timer=setTimeout(async()=>{server.close();const state=await init;state.assets.close();await state.browser.close();},55000);
         }
       });
     });
