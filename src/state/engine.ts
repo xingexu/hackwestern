@@ -40,6 +40,9 @@ export function append(s: CaseState, t: Turn): CaseState {
 }
 export function applyTool(s: CaseState, c: ToolCall): CaseState {
   if (s.route) return s;
+  return applyInBatch(s, c);
+}
+function applyInBatch(s: CaseState, c: ToolCall): CaseState {
   const schema = Object.hasOwn(toolSchemas, c.name)
     ? toolSchemas[c.name as keyof typeof toolSchemas]
     : null;
@@ -83,7 +86,7 @@ export function applyTool(s: CaseState, c: ToolCall): CaseState {
   const observed = route(n);
   if (observed === "er" || observed === "walk_in")
     n = { ...n, urgencyFloor: observed };
-  const flag = redFlag(n);
+  const flag = n.route === "911" ? n.redFlag : (redFlag(n) ?? n.redFlag);
   return flag
     ? {
         ...n,
@@ -104,12 +107,6 @@ export function review(s: CaseState, yes: boolean): CaseState {
   return yes || n.rejections === 2 ? { ...n, route: route(n) } : n;
 }
 export function applyBatch(s: CaseState, calls: ToolCall[]) {
-  // Give immediate physical danger precedence over a crisis disclosure in the same turn.
-  return [...calls]
-    .sort(
-      (a, b) =>
-        Number(a.args.code === "self_harm_thoughts") -
-        Number(b.args.code === "self_harm_thoughts"),
-    )
-    .reduce(applyTool, s);
+  // A previously closed interview is immutable. The triggering batch is one atomic update.
+  return s.route ? s : calls.reduce(applyInBatch, s);
 }

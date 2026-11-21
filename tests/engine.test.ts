@@ -13,6 +13,18 @@ import { cards, route } from "../src/rules";
 import { lines } from "../src/note/lines";
 import { saveNote, getNote, TTL } from "../src/note/store";
 import { readback } from "../src/note/lines";
+test("a triggering batch keeps accompanying evidence without reopening the interview", () => {
+  const s = applyBatch(sample(), [
+    f("self_harm_thoughts"),
+    f("chest_pain"),
+    f("nausea"),
+    { name: "finish_intake", args: {} },
+  ]);
+  assert.equal(s.route, "911");
+  assert.equal(s.review, false);
+  assert.equal(s.findings.length, 3);
+  assert.equal(applyBatch(s, [f("rash")]), s);
+});
 test("earlier urgent findings set a floor through correction", () => {
   let s = applyTool(sample(), f("rash", { severity: 5 }));
   s = applyTool(s, f("rash", { severity: 1 }));
