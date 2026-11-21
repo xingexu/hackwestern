@@ -17,7 +17,13 @@ import facilities from "../rules/facilities.json";
 import { lines } from "../note/lines";
 import { Evidence } from "../note/Viewer";
 import { post } from "../live/client";
-export function Outcome({ s }: { s: CaseState }) {
+export function Outcome({
+  s,
+  translating,
+}: {
+  s: CaseState;
+  translating: boolean;
+}) {
   const route = s.route!,
     c = cards[route],
     em = route === "911",
@@ -43,7 +49,7 @@ export function Outcome({ s }: { s: CaseState }) {
         .catch(() => setStatus("Use the short link below."));
   }, [link]);
   async function share() {
-    if (pending) return;
+    if (pending || translating) return;
     setPending(true);
     try {
       const r = await post<{ id: string }>("notes", { state: s });
@@ -115,15 +121,17 @@ export function Outcome({ s }: { s: CaseState }) {
         <Evidence lines={lines(s)} />
         <button
           className="secondary"
-          disabled={pending || !!link}
+          disabled={pending || translating || !!link}
           onClick={share}
         >
           <QrCode size={17} />
-          {pending
-            ? "Preparing note…"
-            : link
-              ? "Link created"
-              : "Create handoff QR"}
+          {translating
+            ? "Finishing translation…"
+            : pending
+              ? "Preparing note…"
+              : link
+                ? "Link created"
+                : "Create handoff QR"}
         </button>
         {status && <p role="status">{status}</p>}
         {link && (

@@ -80,6 +80,7 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
     [saved, setSaved] = useState<Run | null>(null),
     [status, setStatus] = useState(""),
     [busy, setBusy] = useState(false),
+    [pendingTranslations, setPendingTranslations] = useState(0),
     [text, setText] = useState(""),
     [camera, setCamera] = useState(false),
     [setup, setSetup] = useState(false),
@@ -132,6 +133,7 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
   function clear() {
     generation.current++;
     stopMedia();
+    setPendingTranslations(0);
     release.current?.();
     release.current = null;
     inFlight.current = false;
@@ -443,12 +445,14 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
                 speaker: who,
                 original:
                   who === "ai" && condition.test(line) ? deniedLine : line,
-                english: s.language.startsWith("en") ? line : "",
+                english:
+                  who === "ai" && s.language.startsWith("en") ? line : "",
               }),
             );
             if (who === "patient") {
               const idx = lastSource.current,
                 base = liveBase.current!;
+              setPendingTranslations((n) => n + 1);
               void post<Reply>("intake", { state: base, text: line })
                 .then((reply) => {
                   if (g !== generation.current || !ref.current) return;
@@ -470,7 +474,16 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
                     return applyExtraction(next, reply.calls, idx, watchdog);
                   });
                 })
-                .catch(() => {});
+                .catch(() => {
+                  if (g === generation.current)
+                    setStatus(
+                      "Translation unavailable. Keep the original words in the handoff.",
+                    );
+                })
+                .finally(() => {
+                  if (g === generation.current)
+                    setPendingTranslations((n) => Math.max(0, n - 1));
+                });
             }
           },
           tools: (calls) => {
@@ -680,7 +693,7 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
                 </button>
               </div>
               {s.route ? (
-                <Outcome s={s} />
+                <Outcome s={s} translating={pendingTranslations > 0} />
               ) : (
                 <>
                   <div className="eyebrow">
@@ -734,10 +747,16 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
                               <CheckCheck size={15} /> Read-back
                             </span>
                             <p dir="auto">{readback(s)}</p>
+                            {pendingTranslations > 0 && (
+                              <p role="status">
+                                Finishing the English translation…
+                              </p>
+                            )}
                             <div className="row wrap">
                               <button
                                 className="primary"
                                 onClick={() => patch((s) => review(s, true))}
+                                disabled={pendingTranslations > 0}
                               >
                                 <Check size={16} />
                                 {s.language.startsWith("zh")
