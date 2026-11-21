@@ -2,6 +2,7 @@ import { z } from "zod";
 import {
   CaseState,
   findingSchema,
+  emergencies,
   regions,
   short,
   patientAt,
@@ -109,4 +110,32 @@ export function review(s: CaseState, yes: boolean): CaseState {
 export function applyBatch(s: CaseState, calls: ToolCall[]) {
   // A previously closed interview is immutable. The triggering batch is one atomic update.
   return s.route ? s : calls.reduce(applyInBatch, s);
+}
+export function applyExtraction(
+  s: CaseState,
+  calls: ToolCall[],
+  index: number,
+  watchdog: boolean,
+) {
+  if (s.route === "911" || !patientAt(s, index)) return s;
+  const safe = calls.filter((c) => {
+    if (c.name === "finish_intake" || c.name === "request_camera") return false;
+    if ("sourceTurn" in c.args && c.args.sourceTurn !== index) return false;
+    const parsed =
+      c.name === "record_finding" ? findingSchema.safeParse(c.args) : null;
+    const f = parsed?.success ? parsed.data : null;
+    const urgent =
+      f?.present &&
+      (f.code === "self_harm_thoughts" ||
+        (f.happeningNow !== false &&
+          (emergencies as readonly string[]).includes(f.code)));
+    if (urgent) return true;
+    return watchdog && !s.route && !s.review;
+  });
+  if (!safe.length) return s;
+  if (!s.route) return applyBatch(s, safe);
+  const n = applyBatch({ ...s, route: null }, safe);
+  return n.route === "911" || (n.route === "crisis" && s.route !== "crisis")
+    ? n
+    : s;
 }

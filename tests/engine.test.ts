@@ -13,6 +13,32 @@ import { cards, route } from "../src/rules";
 import { lines } from "../src/note/lines";
 import { saveNote, getNote, TTL } from "../src/note/store";
 import { readback } from "../src/note/lines";
+import { applyExtraction } from "../src/state/engine";
+test("first-turn fallback handles urgent disclosures with no watchdog or Live tool", () => {
+  const s = sample();
+  for (const state of [
+    s,
+    { ...s, review: true },
+    { ...s, route: "health811" as const },
+  ]) {
+    assert.equal(
+      applyExtraction(state, [f("chest_pain")], 0, false).route,
+      "911",
+    );
+    assert.equal(
+      applyExtraction(state, [f("self_harm_thoughts")], 0, false).route,
+      "crisis",
+    );
+  }
+  assert.equal(
+    applyExtraction(s, [f("chest_pain", { present: false })], 0, false),
+    s,
+  );
+  assert.equal(
+    applyExtraction(s, [f("chest_pain", { sourceTurn: 9 })], 0, false),
+    s,
+  );
+});
 test("a triggering batch keeps accompanying evidence without reopening the interview", () => {
   const s = applyBatch(sample(), [
     f("self_harm_thoughts"),

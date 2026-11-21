@@ -30,7 +30,13 @@ import {
   fresh,
   words,
 } from "../contract";
-import { append, applyBatch, applyTool, review } from "../state/engine";
+import {
+  append,
+  applyBatch,
+  applyTool,
+  applyExtraction,
+  review,
+} from "../state/engine";
 import { opening, Scenario, scenarios, playStep } from "../state/scenarios";
 import { openLive, LiveController, post } from "../live/client";
 import { readback } from "../note/lines";
@@ -445,12 +451,7 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
                 base = liveBase.current!;
               void post<Reply>("intake", { state: base, text: line })
                 .then((reply) => {
-                  if (
-                    g !== generation.current ||
-                    ref.current?.s.route ||
-                    ref.current?.s.review
-                  )
-                    return;
+                  if (g !== generation.current || !ref.current) return;
                   patch((current) => {
                     const transcript = current.transcript.map((t, i) =>
                       i === idx ? { ...t, english: reply.english } : t,
@@ -463,21 +464,10 @@ export default function Studio({ hasKey }: { hasKey: boolean }) {
                             idx,
                           )
                         : { ...current, transcript };
-                    if (noTools.current >= 2) {
-                      noTools.current = 0;
-                      return applyBatch(
-                        next,
-                        reply.calls.filter(
-                          (c) =>
-                            !["finish_intake", "request_camera"].includes(
-                              c.name,
-                            ) &&
-                            (!("sourceTurn" in c.args) ||
-                              c.args.sourceTurn === idx),
-                        ),
-                      );
-                    }
-                    return next;
+                    const watchdog =
+                      noTools.current >= 2 && idx === lastSource.current;
+                    if (watchdog) noTools.current = 0;
+                    return applyExtraction(next, reply.calls, idx, watchdog);
                   });
                 })
                 .catch(() => {});
