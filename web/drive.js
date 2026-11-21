@@ -5,6 +5,7 @@ import {driveFinish} from 'drive-finish';
 import {qualityControl} from 'look-quality';
 import {installPhoneControls} from './phone/controls.mjs';
 import {installTrial} from './race/trial.mjs';
+import {installLandmarkFlash} from './landmark-flash.mjs';
 import {adaptiveResolution,createCameraRig,interpolatePose,snapshotPose} from 'frame-pacing';
 import * as THREE from 'three';
 import { createDriveSim, readGamepad } from 'drive-sim';
@@ -248,6 +249,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   let lastWidth = 0, lastHeight = 0,lastScale=1;
   let padConnected = false, padRestartDown = false;
   const phone=installPhoneControls(byId('touch-drive'));
+  const landmarks=installLandmarkFlash({parent:byId('drive-ui'),labels:[...world.labels,...campus.labels],ways:campus.roadData.ways});
   let online;
   const visualHeight=pose=>network.sample(pose.x,pose.z,pose.y).y;
   const trial=installTrial({scene,reset,visualHeight,vibrate:phone.vibrate,ghostModel(){
@@ -270,6 +272,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     finish.hidden = true;
     lastHud = -Infinity;
     paused = false;
+    landmarks.hide();
     document.activeElement?.blur();
   }
   function changeCourse(id) {
@@ -414,6 +417,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
       byId('again').focus();
     }
     trial.hud(car);
+    landmarks.update(car,{quiet:paused || !finish.hidden || car.phase==='finished' || Boolean(online?.waiting) || byId('pixel-countdown')?.hidden===false});
   }
   changeCourse(params.get('course')||(photoStart?'roam':document.querySelector('meta[name=campus-course]')?.content));
   online=await onlineMenu;

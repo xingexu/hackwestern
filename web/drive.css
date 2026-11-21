@@ -155,3 +155,20 @@ html[data-mode="drive"],html[data-mode="drive"] body { overscroll-behavior:none;
   filter:drop-shadow(0 3px 0 #0b141166); pointer-events:none; z-index:2;
 }
 @media (max-height:550px) { #pixel-countdown:not([hidden]) { top:max(54px,12vh); width:min(32vw,240px); } }
+
+/* Landmark name flash: brief white caption just above the car's roof */
+#landmark-flash:not([hidden]) {
+  position:absolute; top:49%; left:50%; transform:translate(-50%,-50%);
+  max-width:min(78vw,620px); text-align:center; pointer-events:none;
+  color:#fff; font:600 clamp(17px,2.4vw,28px)/1.15 Georgia,serif; letter-spacing:.01em;
+  text-shadow:0 1px 2px #0b1411cc,0 0 12px #0b141199; opacity:0;
+}
+#landmark-flash.play { animation:landmark-flash 1.2s ease-out forwards; }
+@keyframes landmark-flash {
+  0% { opacity:0; transform:translate(-50%,-30%); }
+  15%,70% { opacity:1; transform:translate(-50%,-50%); }
+  100% { opacity:0; transform:translate(-50%,-70%); }
+}
+@media (prefers-reduced-motion:reduce) {
+  @keyframes landmark-flash { 0%,100% { opacity:0; transform:translate(-50%,-50%); } 15%,70% { opacity:1; transform:translate(-50%,-50%); } }
+}
