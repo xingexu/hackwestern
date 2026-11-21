@@ -336,3 +336,42 @@ html[data-mode="map"] body { background: var(--ink); }
 #map-sources { font: 15px/1.2 var(--body); color: var(--on); background: var(--panel-bg); border-radius: 0; box-shadow: var(--frame-flat); }
 #map-sources summary { font: 6px/1.6 var(--display); padding: 3px 6px; }
 #map-sources a { color: var(--on-soft); }
+
+/* ---------- Race start countdown, landmark flash and driving settings ---------- */
+/* The pixel 3·2·1·GO canvas sits over #race-countdown, which keeps its box (and text for
+   screen readers and audio cues) but goes transparent while the pixel version is showing. */
+#race-countdown:not([hidden]) { border: 0; border-radius: 0; background: var(--lav); color: var(--on); box-shadow: var(--frame); font-family: var(--display); }
+#drive-ui:has(#pixel-countdown:not([hidden])) #race-countdown { background: none; color: transparent; box-shadow: none; }
+#pixel-countdown:not([hidden]) { top: 50%; transform: translate(-50%, -50%) scale(var(--pop, 1)); }
+@media (max-height: 550px) { #pixel-countdown:not([hidden]) { top: 50%; } }
+#landmark-flash:not([hidden]) {
+  font: clamp(12px, 1.8vw, 18px)/1.4 var(--display); color: var(--lav-solid);
+  text-shadow: var(--px) var(--px) 0 var(--edge), calc(-1 * var(--px)) 0 0 var(--edge), 0 calc(-1 * var(--px)) 0 var(--edge);
+}
+/* The landmark flash needs its own (opacity-only) animation to stay visible under reduced motion. */
+@media (prefers-reduced-motion: reduce) { #landmark-flash.play { animation-duration: 1.2s !important; } }
+#checkpoint-direction:not([hidden]) { border-radius: 0; background: var(--panel-bg); color: var(--on); box-shadow: var(--frame); }
+#checkpoint-direction b { color: var(--accent); }
+#driving-settings { color: var(--on-soft); font: 8px/1.6 var(--display); }
+#driving-settings summary { color: var(--on); }
+#audio-settings { border-top-color: var(--lav-2); }
+#audio-settings legend { font: 8px/1.6 var(--display); color: var(--accent); }
+#audio-settings input { accent-color: var(--accent); }
+#audio-settings output { color: var(--on-soft); }
+@media (pointer: coarse) {
+  #mobile-menu-toggle { border: 0; border-radius: 0; color: var(--on); background: var(--btn); box-shadow: var(--button-face), var(--frame); }
+  #mobile-drive-menu { color: var(--on); background: var(--lav-solid); border: 0; border-radius: 0; box-shadow: var(--frame); }
+  #mobile-drive-menu[open] { animation: px-pop .3s steps(5) both; }
+  #mobile-drive-menu::backdrop { background: rgb(42 15 77 / 55%); }
+  #mobile-drive-menu .course-card { background: transparent; box-shadow: none; }
+  #mobile-drive-menu nav > * { border-color: var(--edge); font-size: 8px; }
+  .close-drive-menu { color: var(--on); }
+  .mobile-steering #tilt, .mobile-steering #phone-settings summary { border: 0; border-radius: 0; color: var(--on); background: var(--btn); box-shadow: var(--button-face), var(--frame); font: 9px/1.2 var(--display); }
+  .route-card[data-expanded] { border-radius: 0; }
+  #touch-drive [data-key], #touch-drive #thumb-wheel { border: 0; border-radius: 0; color: var(--on); background: var(--btn); }
+  #touch-drive [data-key=ArrowUp] { background: #9be8bd; }
+  #touch-drive [data-key=ArrowDown] { background: #ffb0bb; }
+  .instruments { border-radius: 0; }
+  .instruments strong { font: 22px/18px var(--body); text-shadow: none; }
+  #mobile-drive-hint { border-radius: 0; color: var(--on); background: var(--panel-bg); box-shadow: var(--frame-flat); font: 16px/18px var(--body); }
+}
