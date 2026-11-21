@@ -1,0 +1,102 @@
+[
+  {
+    "route": "pharmacist",
+    "name": "Western On-Campus Pharmacy",
+    "address": "UCC lower level, 1151 Richmond St",
+    "phone": "519-661-4058",
+    "hours": "Mon–Thu 8:30–19:00; Fri 8:30–17:00; Sat 9:30–16:00; Sun 11:00–16:00",
+    "url": "https://ohca.thehealthline.ca/printService.aspx?id=15022",
+    "lat": 43.0087,
+    "lon": -81.2762
+  },
+  {
+    "route": "pharmacist",
+    "name": "Rexall Waterloo/Oxford",
+    "address": "350 Oxford St E",
+    "phone": "519-432-7165",
+    "hours": "Daily 8:00–21:00",
+    "url": "https://www.rexall.ca/storelocator/store/1727",
+    "lat": 42.996,
+    "lon": -81.249
+  },
+  {
+    "route": "walk_in",
+    "name": "St. Joseph’s Urgent Care",
+    "address": "268 Grosvenor St",
+    "phone": "519-646-6100 ext. 67020",
+    "hours": "Mon–Fri 8:00–18:00; weekends & holidays 8:00–16:00",
+    "url": "https://atlaslondon.ca/Services/Display/14676/Urgent_Care_Centre",
+    "lat": 43.0004,
+    "lon": -81.2536
+  },
+  {
+    "route": "walk_in",
+    "name": "Oxford Walk-In Clinic",
+    "address": "140 Oxford St E",
+    "phone": "519-433-4999",
+    "hours": "Daily; confirm hours by phone",
+    "url": "https://oxfordwalkinclinic.com/",
+    "lat": 42.9948,
+    "lon": -81.2566
+  },
+  {
+    "route": "er",
+    "name": "University Hospital Emergency Department",
+    "address": "339 Windermere Rd",
+    "phone": "519-685-8500",
+    "hours": "Open 24 hours • adult emergency department",
+    "url": "https://www.lhsc.on.ca/patients-visitors/university-hospital",
+    "lat": 43.0129,
+    "lon": -81.2758
+  },
+  {
+    "route": "er",
+    "name": "Victoria Hospital Emergency Department",
+    "address": "800 Commissioners Rd E",
+    "phone": "519-685-8141",
+    "hours": "Open 24 hours",
+    "url": "https://www.lhsc.on.ca/patients-visitors/victoria-hospital-childrens-hospital",
+    "lat": 42.9605,
+    "lon": -81.2252
+  },
+  {
+    "route": "pediatric_er",
+    "name": "Children’s Hospital Emergency Department",
+    "address": "800 Commissioners Rd E",
+    "phone": "519-685-8141",
+    "hours": "Open 24 hours • children",
+    "url": "https://www.lhsc.on.ca/patients-visitors/victoria-hospital-childrens-hospital",
+    "lat": 42.9605,
+    "lon": -81.2252
+  },
+  {
+    "route": "family_doctor",
+    "name": "St. Joseph’s Family Medical Centre",
+    "address": "346 Platt’s Lane",
+    "phone": "519-672-9660",
+    "hours": "Registered patients: call for appointment hours",
+    "url": "https://thamesvalleyfht.ca/locations/oxford-st-josephs-family-health-organization/",
+    "lat": 42.994,
+    "lon": -81.284
+  },
+  {
+    "route": "family_doctor",
+    "name": "Byron Family Medical Centre",
+    "address": "1228 Commissioners Rd W",
+    "phone": "519-472-9670",
+    "hours": "Registered patients: call for appointment hours",
+    "url": "https://thamesvalleyfht.ca/locations/byron-family-medical-centre-london-health-sciences-centre/",
+    "lat": 42.96,
+    "lon": -81.334
+  },
+  {
+    "route": "family_doctor",
+    "name": "Victoria Family Medical Centre",
+    "address": "60 Chesley Ave",
+    "phone": "519-685-8500",
+    "hours": "Registered patients: call for appointment hours",
+    "url": "https://thamesvalleyfht.ca/locations/victoria-family-health-centre-london-health-sciences-centre/",
+    "lat": 42.99,
+    "lon": -81.217
+  }
+]
