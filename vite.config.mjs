@@ -15,42 +15,45 @@ const page=await readFile(join(web,'index.html'),'utf8');
 const imports=JSON.parse(page.match(/<script type="importmap">([\s\S]*?)<\/script>/)[1]).imports;
 const aliases=Object.entries(imports).filter(([name])=>name!=='three').map(([name,location])=>({find:name,replacement:join(web,location)}));
 const phoneAssets=['app.webmanifest','drive-192.png','drive-512.png','apple-touch-icon.png'];
+const padAssets=['logo-pixel.png','favicon.png','fonts/press-start-2p.woff2','fonts/vt323.woff2'];
 const datasets=['campus-buildings.json','world.json','street-signs.json','campus-boundary.json','driving-horizon.json','world.bin','campus-ground.json','campus-region.json','drive-network.json','drive-route.json','drive-trees.json','street-detail.json','region-detail.json','municipal-detail.json','mesh-worker.js'];
 const tileSources=['ground-materials.json','surface-tiles.json','canopy-survey.json','region-detail.json','streetview-facades.json'];
 
 const [boundary,terrain]=await Promise.all(['campus-boundary.json','campus-region.json'].map(async file=>JSON.parse(await readFile(join(web,file)))));
 const scope=campusAssets(boundary,terrain);
 
-function mappedAssets(file,source) {
+// `startup` (optional Set) collects unpacked assets the game fetches before its first frame, for preload hints.
+function mappedAssets(file,source,startup) {
   const data=scope(file.replace('.json',''),JSON.parse(source));
   const assets=new Map();
-  function unpack(payload,extension) {
+  function unpack(payload,extension,early=false) {
     const bytes=Buffer.from(payload,'base64');
     const hash=createHash('sha256').update(bytes).digest('hex').slice(0,18);
     const name='assets/'+hash+'.'+extension;
     assets.set(name,bytes);
+    if(early) startup?.add(name);
     return './'+name;
   }
   if(file==='ground-materials.json'){
     delete data.frames;
     delete data.rejected;
-    data.landcover.transitions=unpack(data.landcover.transitions,'bin');
-    if(data.landcover.pavingTone)data.landcover.pavingTone.samples=unpack(data.landcover.pavingTone.samples,'bin');
+    data.landcover.transitions=unpack(data.landcover.transitions,'bin',true);
+    if(data.landcover.pavingTone)data.landcover.pavingTone.samples=unpack(data.landcover.pavingTone.samples,'bin',true);
     const context=data.landcover.context;
     if(context){
-      for(const key of ['vertices','indices','cover','coverage','trees'])if(context[key])context[key]=unpack(context[key],'bin');
-      if(context.backdrop)for(const [key,bytes] of Object.entries(context.backdrop))context.backdrop[key]=unpack(bytes,'bin');
+      for(const key of ['vertices','indices','cover','coverage','trees'])if(context[key])context[key]=unpack(context[key],'bin',key!=='cover'||!context.coverage);
+      if(context.backdrop)for(const [key,bytes] of Object.entries(context.backdrop))context.backdrop[key]=unpack(bytes,'bin',true);
     }
-    data.estates.coverage=unpack(data.estates.coverage,'bin');
-    for(const section of [data.landcover,data.landcover.vigor,data.estates]) section.samples=unpack(section.samples,'bin');
+    data.estates.coverage=unpack(data.estates.coverage,'bin',true);
+    for(const section of [data.landcover,data.landcover.vigor,data.estates]) section.samples=unpack(section.samples,'bin',section!==data.estates);
     for(const tile of Object.values(data.tiles)){
       delete tile.proof;delete tile.origin;
       if(!Array.isArray(tile.cells) || 'image' in tile) throw new Error('Ground tiles must contain material classes');
     }
   }else if(file==='surface-tiles.json'){
     delete data.core;
-    for(const tile of data.walkways) tile.samples=unpack(tile.samples,'bin');
-    for(const section of [data.relief,data.groundCover,data.carriageway]) if(section) section.samples=unpack(section.samples,'bin');
+    for(const tile of data.walkways) tile.samples=unpack(tile.samples,'bin',true);
+    for(const section of [data.relief,data.groundCover,data.carriageway]) if(section) section.samples=unpack(section.samples,'bin',true);
     for(const key of ['preview']) if(typeof data[key]==='string') data[key]=unpack(data[key],'webp');
     for(const [key,image] of Object.entries(data.tiles)) data.tiles[key]=unpack(image,'webp');
     for(const [key,image] of Object.entries(data.finishes)) data.finishes[key]=unpack(image,'png');
@@ -67,8 +70,11 @@ function mappedAssets(file,source) {
   return assets;
 }
 
+// Modules the drive page imports dynamically on startup; their chunks get <link rel=modulepreload>.
+const startupModules=/[\\/]web[\\/](drive\.js|campus-scene\.js|scene-pack\.mjs)$/;
+
 function gameContent() {
-  const developmentAssets=new Map(),manifest={};
+  const developmentAssets=new Map(),manifest={},startupAssets=new Set(),startupChunks=new Set();
   return {
     name:'western-campus-content',
     transformIndexHtml:{order:'pre',handler(html){
@@ -96,7 +102,14 @@ function gameContent() {
         }catch(error){next(error);}
       });
     },
-    async generateBundle() {
+    async generateBundle(options,bundle) {
+      const chunks=Object.values(bundle).filter(item=>item.type==='chunk');
+      const addChunk=chunk=>{
+        if(!chunk || chunk.isEntry || startupChunks.has(chunk.fileName)) return;
+        startupChunks.add(chunk.fileName);
+        for(const name of chunk.imports) addChunk(bundle[name]);
+      };
+      for(const chunk of chunks) if(startupModules.test(chunk.facadeModuleId??'')) addChunk(chunk);
       execFileSync(join(web,'../.venv/bin/python'),[join(web,'../build/compile_buildings.py')],{stdio:'inherit'});
       const emit=(file,source)=>{
         let fileName=file;
@@ -112,6 +125,7 @@ function gameContent() {
       const key=createHash('sha256').update(packed.source).digest('hex').slice(0,18);
       const meshName='assets/core-'+key+'.bin';
       world.coreMesh={url:'./'+meshName,chunks:packed.chunks,triangles:packed.triangles};
+      startupAssets.add(meshName);
       this.emitFile({type:'asset',fileName:meshName,source:packed.source});
       delete ground.texture;
       delete ground.cut;
@@ -128,14 +142,22 @@ function gameContent() {
         emit(file,compiled[file]?JSON.stringify(compiled[file]):await readFile(join(web,file)));
       }
       for(const file of tileSources){
-        for(const [name,source] of mappedAssets(file,await readFile(join(web,file))))
+        for(const [name,source] of mappedAssets(file,await readFile(join(web,file)),startupAssets))
           emit(name,source);
       }
     },
     async writeBundle(){
       const htmlFile=join(staging,'index.html');
       const html=await readFile(htmlFile,'utf8');
-      await writeFile(htmlFile,html.replace('<head>','<head><script type="application/json" id="campus-assets">'+JSON.stringify(manifest)+'</script>'));
+      // Preload hints flatten the startup waterfall (HTML → JS → world.json → data JSON → binary samples)
+      // into one round of parallel requests. `crossorigin` matches the same-origin fetch() the game uses.
+      // The data URLs already sit in the campus-assets manifest, so a small script adds their preload links
+      // (keeps the hosted page small); binary samples are listed by file name.
+      const samples=[...startupAssets].map(name=>name.slice('assets/'.length));
+      const preloads=[...startupChunks].map(file=>'<link rel="modulepreload" href="./'+file+'">').join('')+
+        '<script>for(const url of [...Object.values(JSON.parse(document.getElementById("campus-assets").textContent)),...'+JSON.stringify(samples)+'.map(name=>"./assets/"+name)]){'+
+        'const link=document.createElement("link");link.rel="preload";link.as="fetch";link.crossOrigin="anonymous";link.href=url;document.head.append(link)}</script>';
+      await writeFile(htmlFile,html.replace('<head>','<head><script type="application/json" id="campus-assets">'+JSON.stringify(manifest)+'</script>').replace('</head>',preloads+'</head>'));
       const files=await readdir(join(staging,'assets'));
       await mkdir(join(output,'assets'),{recursive:true});
       async function publish(name){
@@ -152,6 +174,13 @@ function gameContent() {
         await writeFile(join(staging,file),await readFile(join(web,'phone',file)));
         await publish(file);
       }
+      // The phone pad page (server/pad.html) is served outside Vite, so it uses stable /ui/ paths.
+      await mkdir(join(staging,'ui','fonts'),{recursive:true});
+      await mkdir(join(output,'ui','fonts'),{recursive:true});
+      for(const file of padAssets){
+        await writeFile(join(staging,'ui',file),await readFile(join(web,'ui',file)));
+        await publish('ui/'+file);
+      }
       for(const file of files) await publish('assets/'+file);
       await publish('index.html');
       await rm(staging,{recursive:true,force:true});
@@ -162,6 +191,8 @@ function gameContent() {
 export default defineConfig({
   root:web,base:'./',publicDir:false,resolve:{alias:aliases},
   server:{host:'127.0.0.1'},
-  build:{target:'es2022',outDir:staging,emptyOutDir:true,reportCompressedSize:false},
+  build:{target:'es2022',outDir:staging,emptyOutDir:true,reportCompressedSize:false,
+    // Hosted HTML must stay free of base64 payloads, so UI images are always emitted as files.
+    assetsInlineLimit:file=>file.includes('/web/ui/')?false:undefined},
   plugins:[gameContent()]
 });

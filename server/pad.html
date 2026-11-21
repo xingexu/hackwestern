@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="theme-color" content="#16271f">
+<meta name="theme-color" content="#12082a">
+<link rel="icon" type="image/png" href="/ui/favicon.png">
 <title>Phone controller · Drive Western</title>
 <style>
 *{box-sizing:border-box}
@@ -42,14 +43,56 @@ button{cursor:pointer;color:inherit;border:1px solid #71857a;background:#25382f;
 #rotate p{margin:0;color:#cbd6ca}
 @media(orientation:portrait){main,#notice{display:none!important}#rotate{display:grid!important}}
 @media(max-height:340px){main{padding-block:8px}#pair{gap:4px}#pair h1{font-size:22px}}
+/* Formula Western pixel theme (mirrors web/ui/components.css; fonts/logo are copied to /ui/ by the build). */
+@font-face{font-family:"Press Start 2P";src:url(/ui/fonts/press-start-2p.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"VT323";src:url(/ui/fonts/vt323.woff2) format("woff2");font-display:swap}
+:root{--px:3px;--ink:#12082a;--ink-2:#1d0f3f;--ink-3:#2b1760;--violet:#6c34d6;--lilac:#a57cf5;--cream:#fbf6ea;--mist:#cdbff0;--gold:#ffd166;
+  --btn:#b99cff;--btn-hover:#cdb8ff;--btn-down:#9f7ff2;--on:#2a0f4d;--lav:#f0e9ff;--accent:#6c34d6;
+  --display:"Press Start 2P",ui-monospace,monospace;--body:"VT323",ui-monospace,monospace;
+  --frame:0 calc(-1*var(--px)) 0 0 var(--on),0 var(--px) 0 0 var(--on),calc(-1*var(--px)) 0 0 0 var(--on),var(--px) 0 0 0 var(--on),calc(2*var(--px)) calc(3*var(--px)) 0 0 rgb(8 3 20/55%);
+  --face:inset 0 calc(-1*var(--px)) 0 0 rgb(42 15 77/30%),inset 0 var(--px) 0 0 rgb(255 255 255/55%);
+  font:22px/1.2 var(--body);color:var(--cream);background:var(--ink)}
+body{background:radial-gradient(circle at 50% 30%,rgb(108 52 214/30%),transparent 65%),var(--ink)}
+@keyframes px-pop{0%{transform:scale(.7);opacity:0}70%{transform:scale(1.04);opacity:1}100%{transform:none}}
+@keyframes px-tilt{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(12deg)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.pad-logo{display:block;width:176px;height:auto;margin:0 auto 6px;image-rendering:pixelated}
+#pair{animation:px-pop .3s steps(5) both}
+h1{font:16px/1.4 var(--display);color:var(--btn);text-align:center}
+label{font-weight:400;color:var(--mist)}
+input,button{border-radius:0}
+button{border:0;color:var(--on);background:var(--btn);box-shadow:var(--face),var(--frame);font:10px/1.2 var(--display);-webkit-font-smoothing:none;transition:transform 90ms steps(2),background-color 120ms steps(2)}
+button:active{background:var(--btn-down);transform:translateY(var(--px))}
+button:focus-visible,input:focus-visible{outline:var(--px) solid var(--gold);outline-offset:var(--px)}
+#pair input{border:0;background:var(--lav);box-shadow:var(--frame);font:18px var(--display);letter-spacing:.2em;padding:12px 14px;color:var(--on)}
+#pair button{padding:14px}
+#play{color:var(--mist);font-size:20px}
+.tools button{min-height:42px;font-size:9px}
+#tilt[aria-pressed=true]{background:var(--accent);color:var(--lav)}
+#tilt-meter{position:relative;flex:1;max-width:260px;height:18px;background:var(--lav);box-shadow:var(--frame)}
+#tilt-meter::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:var(--px);background:var(--btn)}
+#tilt-meter i{position:absolute;top:var(--px);bottom:var(--px);width:18px;left:calc(var(--x,50%) - 9px);background:var(--accent)}
+.group{gap:14px}
+.group button{border-radius:0;font:clamp(11px,1.8vw,16px)/1.2 var(--display);gap:10px}
+.group button b{font:clamp(34px,7vw,76px)/1 var(--body)}
+.group button small{font:18px var(--body);opacity:.85}
+#left,#right{background:var(--btn);color:var(--on)}
+#gas{color:var(--on);background:#9be8bd}
+#brake{color:var(--on);background:#ffb0bb}
+.group button[data-held]{box-shadow:var(--face),0 0 0 0 transparent;filter:brightness(1.2);transform:translateY(var(--px))}
+#notice{border-radius:0;background:var(--lav);color:var(--on);box-shadow:var(--frame);font-size:20px}
+#rotate{background:var(--ink)}
+#rotate i{border:var(--px) solid var(--btn);border-radius:0;animation:px-tilt 1.6s steps(4) infinite}
+#rotate p{color:var(--mist)}
+@media(max-height:340px){.pad-logo{width:120px}#pair h1{font-size:12px}}
 </style>
 </head>
 <body>
-<aside id="rotate"><i aria-hidden="true"></i><h1>Rotate your phone</h1><p>Turn to landscape to use the controller.</p></aside>
+<aside id="rotate"><img class="pad-logo" src="/ui/logo-pixel.png" alt="" width="176" height="73"><i aria-hidden="true"></i><h1>Rotate your phone</h1><p>Turn to landscape to use the controller.</p></aside>
 <main>
-<form id="pair"><h1>Phone controller</h1><label for="code">Desktop join code</label><input id="code" required maxlength="6" pattern="[A-Za-z2-9]{6}" autocapitalize="characters" autocomplete="off" spellcheck="false"><button>Pair controller</button><a id="play" href="/?mode=drive">Drive on this device instead</a></form>
+<form id="pair"><img class="pad-logo" src="/ui/logo-pixel.png" alt="Formula Western" width="176" height="73"><h1>Phone controller</h1><label for="code">Desktop join code</label><input id="code" required maxlength="6" pattern="[A-Za-z2-9]{6}" autocapitalize="characters" autocomplete="off" spellcheck="false"><button>Pair controller</button><a id="play" href="/?mode=drive">Drive on this device instead</a></form>
 <section id="controls" hidden aria-label="Driving controls">
-<div class="tools"><button id="tilt" aria-pressed="false">Enable tilt steering</button><button id="center" hidden>Centre tilt</button><div><button id="recover">Recover</button><button id="restart">Restart</button></div></div>
+<div class="tools"><button id="tilt" aria-pressed="false">Enable tilt steering</button><button id="center" hidden>Centre tilt</button><div id="tilt-meter" aria-hidden="true"><i></i></div><div><button id="recover">Recover</button><button id="restart">Restart</button></div></div>
 <div id="deck"><div class="group"><button id="left" aria-label="Steer left"><b aria-hidden="true">←</b>Left</button><button id="right" aria-label="Steer right"><b aria-hidden="true">→</b>Right</button></div><div class="group"><button id="brake" aria-label="Brake or reverse">Brake<small>Reverse</small></button><button id="gas">Gas</button></div></div>
 </section>
 </main><output id="notice" role="status"></output>
@@ -59,6 +102,7 @@ const landscape=matchMedia('(orientation: landscape)')
 const held=new Map()
 let socket,ticket,heartbeat,retry,delay=250,disconnectedAt=0,tilt=0,target=0,reading=null,neutral=null,angle=null,sensors=false,sensorTimeout,suspended=false
 const notice=text=>{by('notice').value=text}
+const meter=by('tilt-meter')
 const send=packet=>{if(socket?.readyState===1 && socket.bufferedAmount<1024)socket.send(JSON.stringify(packet))}
 let filteredAt=performance.now()
 function snapshot(){
@@ -68,6 +112,7 @@ function snapshot(){
   const keys=new Set(held.values())
   const steer=keys.has('left') || keys.has('right') ? Number(keys.has('left'))-Number(keys.has('right')) : tilt
   send({type:'pad',input:{steer,throttle:Number(keys.has('gas')),brake:Number(keys.has('brake'))}})
+  meter.style.setProperty('--x',(50-steer*50).toFixed(1)+'%')
 }
 function clear(){
   held.clear()

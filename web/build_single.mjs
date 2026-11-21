@@ -44,6 +44,19 @@ for(const file of gameModules){
   embeddedMap[aliasByFile.get(file)]='data:text/javascript;base64,'+Buffer.from(source).toString('base64');
 }
 const css = await readFile(resolve(root, 'drive.css'), 'utf8');
+// UI components (web/ui): inline the stylesheet, script, fonts and logo images as data URIs.
+const uiMime = { '.png': 'image/png', '.woff2': 'font/woff2' };
+async function uiDataUrl(path) {
+  const extension = path.slice(path.lastIndexOf('.'));
+  return `data:${uiMime[extension]};base64,${(await readFile(resolve(root, 'ui', path))).toString('base64')}`;
+}
+// Replace every `prefix + file` reference matched by `pattern` (capture group 1 = file in web/ui) with a data URI.
+async function inlineUiAssets(text, pattern, prefix) {
+  for (const path of new Set([...text.matchAll(pattern)].map(match => match[1]))) text = text.replaceAll(prefix + path, await uiDataUrl(path));
+  return text;
+}
+const uiCss = await inlineUiAssets(await readFile(resolve(root, 'ui/components.css'), 'utf8'), /url\(\.\/([\w./-]+\.woff2)\)/g, './');
+const uiScript = (await readFile(resolve(root, 'ui/components.mjs'), 'utf8')).replace(/<\/script/gi, '<\\/script');
 const datasets = JSON.parse(world).driveCourse ? ['drive-trees', 'drive-route', 'campus-ground', 'campus-region', 'street-detail','drive-network','region-detail','surface-tiles','canopy-survey','municipal-detail','ground-materials','driving-horizon','campus-buildings','streetview-facades','street-signs','campus-boundary'] : [];
 const scope=datasets.length?campusAssets(...await Promise.all(['campus-boundary','campus-region'].map(async name=>JSON.parse(await readFile(resolve(worldDir,name+'.json')))))):null;
 const inlineDatasets = await Promise.all(datasets.map(async name => {
@@ -62,10 +75,13 @@ const inlineDatasets = await Promise.all(datasets.map(async name => {
   return `<script id="embedded-${name}" type="application/json">${content}</script>`;
 }));
 const template=page.replace(/<script type="importmap">[\s\S]*?<\/script>/,()=>'<script type="importmap">'+JSON.stringify({imports:embeddedMap})+'</script>')
-  .replace(/  <link rel="(?:manifest|apple-touch-icon)"[^>]+>\n/g,'');
-const html = template
+  .replace(/  <link rel="(?:manifest|apple-touch-icon)"[^>]+>\n/g,'')
+  .replace(/  <link rel="preload" href="\.\/ui\/fonts\/[^>]+>\n/g,'');
+const html = (await inlineUiAssets(template, /"\.\/ui\/([\w-]+\.png)"/g, './ui/'))
   .replace('name="campus-entry" content="map"', () => `name="campus-entry" content="${values.drive ? 'drive' : 'map'}"`)
   .replace('<link rel="stylesheet" href="./drive.css">', () => `<style>${css}</style>`)
+  .replace('<link rel="stylesheet" href="./ui/components.css">', () => `<style>${uiCss}</style>`)
+  .replace('<script type="module" src="./ui/components.mjs"></script>', () => `<script type="module">\n${uiScript}</script>`)
   .replace(moduleTag, () => [...inlineDatasets, inline].join('\n  '));
 
 await mkdir(dirname(output), { recursive: true });
