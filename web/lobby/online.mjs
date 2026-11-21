@@ -1,6 +1,7 @@
 import {pairPhone} from './pair-phone.mjs'
 import {RaceSession,seat} from '../net/race-session.mjs'
 import {createFleet} from './remote.mjs'
+import {pixelCountdown} from '../race/pixel-countdown.mjs'
 import './lobby.css'
 
 const by=id=>document.getElementById(id)
@@ -44,6 +45,7 @@ export function mountOnline(health){
     by('drive-course').disabled=false
     if(game)by('trial-open').disabled=false
     banner.hidden=true
+    pixelCountdown().hide()
     if(debug)debug.textContent=''
   }
   function render(){
@@ -184,6 +186,9 @@ export function mountOnline(health){
       session.frame(car,input,stamp)
       fleet.update(session,car,room.settings.collisions && (!room.race || room.phase==='playing') && !p.finish,dt)
       const seconds=Math.ceil((room.start-now)/1000),left=Math.ceil((room.deadline-now)/1000)
+      const untilStart=(room.start-now)/1000
+      if(room.race && session.clock.synced && (room.phase==='countdown' || room.phase==='playing') && untilStart>-1 && untilStart<=3.2)pixelCountdown().sync(untilStart)
+      else pixelCountdown().hide()
       stuck=input.throttle>.6 && Math.abs(car.speed)<.8 && !this.waiting?stuck+dt:0
       const label=!session.connected?connection:room.drain?'Server updating':room.phase==='positioning'?'Taking starting positions…':room.phase==='countdown' && seconds>0?'Starting in '+seconds:stuck>2?'Stuck? '+(phone.connected || matchMedia('(pointer:coarse)').matches?'Tap Recover':pad?'Press Menu to recover':'Press R to recover'):p.finish?'Finished':room.phase==='playing'?'Lap '+(p.lap+1)+' / '+room.settings.laps+(left<=30?' · '+left+' s left':''):''
       banner.hidden=!label

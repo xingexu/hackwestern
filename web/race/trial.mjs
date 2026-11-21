@@ -3,6 +3,7 @@ import {quantizeInput,createPlayback,createRecorder,encodeReplay,decodeReplay,si
 import {personalBest,player,saveBest,saveNickname} from './storage.mjs'
 import * as leaderboard from '../net/leaderboard.mjs'
 import {snapshotPose,interpolatePose} from '../frame-pacing.mjs'
+import {pixelCountdown} from './pixel-countdown.mjs'
 
 function lap(ms) {
   const n=Math.abs(ms)
@@ -49,6 +50,7 @@ export function installTrial({scene,ghostModel,reset,sound,visualHeight,vibrate}
     recorder=ghost=source=finishedReplay=null
     splits.hidden=results.hidden=ghostToggle.hidden=true
     if (model) model.visible=false
+    pixelCountdown().hide()
     byId('recover').hidden=!context
     if (panel.open) panel.close()
   }
@@ -172,6 +174,9 @@ export function installTrial({scene,ghostModel,reset,sound,visualHeight,vibrate}
   function hud(car) {
     if (!active) return
     byId('time').textContent=lap(milliseconds(tick))
+    if (countdown) pixelCountdown().sync(countdown/120)
+    else if (!expired && tick<120) pixelCountdown().sync(-tick/120)
+    else pixelCountdown().hide()
     if (countdown || tick<96) byId('drive-message').textContent=''
     else if (expired) byId('drive-message').textContent='Time limit · restart to try again'
     if (finishedReplay) {byId('result').textContent=lap(finishedReplay.timeMs);return}
