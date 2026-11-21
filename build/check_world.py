@@ -8,6 +8,9 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
+import geo
+from voxelize import building_rasters, collect_layers
+
 WEB = Path(__file__).resolve().parent.parent / "web"
 REQUIRED_LABELS = {"University College", "Middlesex College", "Weldon Library", "Physics Building"}
 MIN_LANDMARK_RISE = 30
@@ -31,6 +34,11 @@ def main():
     heights = np.frombuffer(zlib.decompress(base64.b64decode(ground["heightMillimeters"])), dtype="<u2")
     if heights.size != depth * width or np.mean(heights % 1000 != 0) < .5:
         fail("The campus ground lost its submeter lidar heights")
+    buildings = collect_layers(geo.load_osm())[0]
+    footprints = np.logical_or.reduce([mask for _, mask in building_rasters(buildings)])
+    cut = np.frombuffer(zlib.decompress(base64.b64decode(ground["cut"])), dtype=np.uint8)
+    if not np.array_equal(heights[footprints.ravel()], cut[footprints.ravel()].astype(np.uint32) * 1000):
+        fail("Ground under mapped buildings must match their voxel foundations")
     with Image.open(io.BytesIO(base64.b64decode(ground["texture"]))) as texture:
         if texture.width < width * 4 or texture.height < depth * 4:
             fail("Campus ground must retain at least four texture samples per metre")

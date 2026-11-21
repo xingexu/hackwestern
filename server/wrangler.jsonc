@@ -12,7 +12,7 @@
     "run_worker_first": true,
     "html_handling": "none"
   },
-  "vars": {"MULTIPLAYER":"0"},
+  "vars": {"MULTIPLAYER":"1"},
   "durable_objects": {
     "bindings": [
       {"name": "RACES", "class_name": "Arena"},
@@ -21,5 +21,20 @@
     ]
   },
   "migrations": [{"tag":"v1","new_sqlite_classes":["Room","Leaderboard"]},{"tag":"v2","new_sqlite_classes":["Arena"]}],
+  "env": {
+    "domain": {
+      "name": "drive-western",
+      "workers_dev": true,
+      "routes": [{"pattern":"fwestern.ca","custom_domain":true},{"pattern":"www.fwestern.ca","custom_domain":true}],
+      "vars": {"MULTIPLAYER":"1"},
+      "durable_objects": {
+        "bindings": [
+          {"name": "RACES", "class_name": "Arena"},
+          {"name": "ROOMS", "class_name": "Room"},
+          {"name": "LEADERS", "class_name": "Leaderboard"}
+        ]
+      }
+    }
+  },
   "dev": {"ip":"127.0.0.1","port":8787}
 }

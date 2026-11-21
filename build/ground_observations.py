@@ -1,6 +1,8 @@
+import io
 import json
 import math
 from functools import lru_cache
+from uuid import uuid4
 
 import numpy as np
 from PIL import Image
@@ -16,8 +18,7 @@ def parcel():
     return footprint()
 
 
-@lru_cache(maxsize=18)
-def survey_tile(x,z):
+def survey_tile_path(x,z):
     from building_inventory import AERIAL_SERVICE,local_to_mercator
     path=region.CACHE.parent/'audit'/'ortho-2025'/f'{x}_{z}.jpg'
     if not path.exists():
@@ -28,12 +29,19 @@ def survey_tile(x,z):
             size='1500,1500',adjustAspectRatio='false',format='jpg',f='image'),timeout=90)
         response.raise_for_status()
         path.parent.mkdir(parents=True,exist_ok=True)
-        pending=path.with_suffix('.pending')
+        with Image.open(io.BytesIO(response.content)) as photo:
+            photo.load()
+            if photo.size != (1500,1500):
+                raise ValueError(f"Unexpected orthophoto dimensions {photo.size}")
+        pending=path.with_suffix(f'.{uuid4().hex}.pending')
         pending.write_bytes(response.content)
-        with Image.open(pending) as photo:
-            assert photo.size==(1500,1500)
         pending.replace(path)
-    with Image.open(path) as img:
+    return path
+
+
+@lru_cache(maxsize=18)
+def survey_tile(x,z):
+    with Image.open(survey_tile_path(x,z)) as img:
         return img.convert('RGB').resize((600,600),Image.Resampling.BOX)
 
 

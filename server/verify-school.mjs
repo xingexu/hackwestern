@@ -64,7 +64,7 @@ try{
   await pad.locator('#code').fill(code)
   await pad.getByRole('button',{name:'Pair controller'}).tap()
   await page.waitForFunction(()=>document.querySelector('#pad-state').textContent==='Phone connected')
-  await pad.locator('#tilt').tap()
+  await pad.waitForFunction(()=>document.querySelector('#tilt').getAttribute('aria-pressed')==='true')
   await pad.evaluate(()=>{
     window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:0,gamma:0}))
     window.dispatchEvent(new DeviceOrientationEvent('deviceorientation',{beta:20,gamma:20}))

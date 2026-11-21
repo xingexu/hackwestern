@@ -16,6 +16,7 @@ from shapely.geometry import LineString,Polygon,box
 import campus_region as region
 from campus_bounds import footprint
 from city_streets import mapped_network
+from ground_observations import survey_tile_path
 
 
 OUT=region.OUT.parents[1]/'build/survey_road_paint.json'
@@ -23,10 +24,8 @@ OUT=region.OUT.parents[1]/'build/survey_road_paint.json'
 
 @lru_cache(maxsize=10)
 def rgb_tile(x,z):
-    path=region.CACHE.parent/'audit'/'ortho-2025'/f'{x}_{z}.jpg'
-    if path.is_file():
-        with Image.open(path) as img:return np.asarray(img.convert('RGB'))
-    return np.zeros((1500,1500,3),np.uint8)
+    with Image.open(survey_tile_path(x,z)) as img:
+        return np.asarray(img.convert('RGB'))
 
 
 def pigment(points):

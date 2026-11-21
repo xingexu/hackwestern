@@ -138,7 +138,7 @@ try{
   await phone.goto(padLink)
   await phone.locator('#code').fill(await host.locator('#pad-code').innerText())
   await phone.getByRole('button',{name:'Pair controller'}).click()
-  await phone.locator('#tilt').click()
+  await phone.waitForFunction(()=>document.querySelector('#tilt').getAttribute('aria-pressed')==='true')
   await host.waitForFunction(()=>document.getElementById('pad-state').textContent==='Phone connected')
   await host.locator('#drive-course').selectOption('stadium')
   const initial=await host.evaluate(()=>window.driveMetrics.car.heading)

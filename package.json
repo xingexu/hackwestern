@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "setup": "npm ci && npm run setup:python",
+    "setup": "npm ci && npm run setup:python && playwright install chromium webkit",
     "setup:python": "python3 -m venv .venv && .venv/bin/python -m pip install -r build/requirements.txt",
     "dev": "vite --host 127.0.0.1",
     "build": "node build/race_build.mjs",
@@ -12,6 +12,7 @@
     "start": "node server/lan.mjs",
     "verify": "agentkit verify full",
     "dev:online": "wrangler dev --local --config server/wrangler.jsonc --var MULTIPLAYER:1",
+    "deploy:domain": "npm run deploy -- --env domain",
     "deploy": "npm run build && wrangler deploy --config server/wrangler.jsonc"
   },
   "dependencies": {
