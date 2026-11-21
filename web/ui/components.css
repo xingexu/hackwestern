@@ -349,7 +349,7 @@ html[data-mode="map"] body { background: var(--ink); }
   text-shadow: var(--px) var(--px) 0 var(--edge), calc(-1 * var(--px)) 0 0 var(--edge), 0 calc(-1 * var(--px)) 0 var(--edge);
 }
 /* The landmark flash needs its own (opacity-only) animation to stay visible under reduced motion. */
-@media (prefers-reduced-motion: reduce) { #landmark-flash.play { animation-duration: 1.2s !important; } }
+@media (prefers-reduced-motion: reduce) { #landmark-flash.play { animation: landmark-flash 1.2s ease-out forwards !important; } }
 #checkpoint-direction:not([hidden]) { border-radius: 0; background: var(--panel-bg); color: var(--on); box-shadow: var(--frame); }
 #checkpoint-direction b { color: var(--accent); }
 #driving-settings { color: var(--on-soft); font: 8px/1.6 var(--display); }
