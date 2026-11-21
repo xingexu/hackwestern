@@ -1,0 +1,300 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764098",
+  "name": "Thompson Engineering Building",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "126865227"
+    }
+  ],
+  "style": "contemporary-glass",
+  "floors": {
+    "count": 4,
+    "typicalHeight": 4.1,
+    "groundFloorHeight": 4.1
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 17.47,
+        "floors": 4
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              110.589,
+              767.573
+            ],
+            [
+              111.531,
+              772.281
+            ],
+            [
+              107.937,
+              774.078
+            ],
+            [
+              106.658,
+              777.916
+            ],
+            [
+              107.934,
+              784.3
+            ],
+            [
+              111.197,
+              784.3
+            ],
+            [
+              112.711,
+              787.328
+            ],
+            [
+              113.737,
+              817.092
+            ],
+            [
+              126.249,
+              819.367
+            ],
+            [
+              132.366,
+              815.696
+            ],
+            [
+              129.385,
+              781.909
+            ],
+            [
+              132.028,
+              781.028
+            ],
+            [
+              132.466,
+              779.714
+            ],
+            [
+              131.92,
+              771.64
+            ],
+            [
+              129.008,
+              770.912
+            ],
+            [
+              126.937,
+              764.7
+            ],
+            [
+              113.462,
+              764.7
+            ]
+          ]
+        },
+        "height": 22.57,
+        "baseOffset": 17.47,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              127.133,
+              818.706
+            ],
+            [
+              123.274,
+              818.155
+            ],
+            [
+              121.7,
+              817.93
+            ],
+            [
+              119.84,
+              817.664
+            ],
+            [
+              113.513,
+              820.195
+            ],
+            [
+              113.865,
+              821.951
+            ],
+            [
+              116.1,
+              821.8
+            ],
+            [
+              116.37,
+              825.65
+            ],
+            [
+              125.73,
+              825.01
+            ],
+            [
+              125.52,
+              822.04
+            ],
+            [
+              127.95,
+              821.878
+            ],
+            [
+              128.544,
+              818.907
+            ],
+            [
+              127.133,
+              818.706
+            ]
+          ]
+        },
+        "height": 22.57,
+        "baseOffset": 17.47,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              115.453,
+              786.531
+            ],
+            [
+              123.3,
+              791.762
+            ],
+            [
+              123.3,
+              787.9
+            ],
+            [
+              123.3,
+              779.538
+            ],
+            [
+              127.195,
+              775.644
+            ],
+            [
+              123.3,
+              773.697
+            ],
+            [
+              123.3,
+              766.515
+            ],
+            [
+              122.185,
+              766.334
+            ],
+            [
+              120.241,
+              772.167
+            ],
+            [
+              118.743,
+              771.418
+            ],
+            [
+              114.284,
+              775.878
+            ],
+            [
+              117.551,
+              780.235
+            ]
+          ]
+        },
+        "height": 26.82,
+        "baseOffset": 22.57,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#83745f",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#a5a897"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.7
+      },
+      "windows": {
+        "type": "curtain-wall",
+        "width": 2.6,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#555851",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 10,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

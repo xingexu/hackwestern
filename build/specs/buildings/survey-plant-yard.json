@@ -1,0 +1,151 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-plant-yard",
+  "name": "University service plant enclosure",
+  "status": "authored",
+  "confidence": 0.77,
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#ada99f"
+    },
+    "roof": {
+      "kind": "concrete-smooth",
+      "color": "#c0bbb0"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#8a8e89"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#747975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.2,
+    "typicalHeight": 2.2
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          32.6,
+          209.5
+        ],
+        "size": [
+          12.2,
+          3.7
+        ],
+        "height": 2.6,
+        "rotation": 10,
+        "style": "packaged chiller"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          27.6,
+          216.2
+        ],
+        "size": [
+          3.1,
+          3.8
+        ],
+        "height": 2.7,
+        "rotation": 10,
+        "style": "cooling fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          34.4,
+          217.6
+        ],
+        "size": [
+          3.55,
+          3.75
+        ],
+        "height": 2.9,
+        "rotation": 10,
+        "style": "cooling fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          32.0,
+          222.3
+        ],
+        "size": [
+          10.35,
+          2.5
+        ],
+        "height": 2.65,
+        "rotation": 10,
+        "style": "louvred air handler"
+      }
+    ]
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "University service plant enclosure",
+        "footprint": "inventory",
+        "height": 0.3,
+        "floors": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof corners and orientation traced in the London 2025 orthophoto in local campus coordinates."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The earlier bare-earth and surface rasters do not resolve the full small structure. The roof profile and dimensions use its 2025 orthophoto footprint and shadow.",
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          25.1,
+          203.9
+        ],
+        [
+          41.95,
+          207.35
+        ],
+        [
+          39.5,
+          226.48
+        ],
+        [
+          21.72,
+          223.04
+        ],
+        [
+          24.05,
+          207.2
+        ]
+      ],
+      "width": 0.32,
+      "height": 2.75,
+      "material": "wall"
+    }
+  ]
+}

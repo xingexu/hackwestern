@@ -1,0 +1,1276 @@
+{
+ "groups": [
+  {
+   "group": 1,
+   "center": [
+    -151.9,
+    -35.7
+   ],
+   "buildings": [
+    {
+     "id": "w237299189",
+     "name": "Support Services Building",
+     "area": 6198.2,
+     "framesUsable": 66
+    },
+    {
+     "id": "w126668347",
+     "name": "Saugeen Maitland Hall (Residence)",
+     "area": 4433.9,
+     "framesUsable": 72
+    },
+    {
+     "id": "w126668540",
+     "name": "Siebens Centre",
+     "area": 2371.4,
+     "framesUsable": 34
+    },
+    {
+     "id": "w126668341",
+     "name": "Lambton Hall (Residence)",
+     "area": 2335.7,
+     "framesUsable": 19
+    },
+    {
+     "id": "w126668520",
+     "name": "Bayfield Hall (Residence)",
+     "area": 2278.0,
+     "framesUsable": 110
+    },
+    {
+     "id": "w126668339",
+     "name": "Beaver Hall (Residence)",
+     "area": 1740.7,
+     "framesUsable": 30
+    },
+    {
+     "id": "w126668340",
+     "name": "Ausable Hall (Residence)",
+     "area": 1685.1,
+     "framesUsable": 2
+    },
+    {
+     "id": "w237300020",
+     "name": "Graphic Services",
+     "area": 1506.2,
+     "framesUsable": 11
+    },
+    {
+     "id": "w237300096",
+     "name": "Advanced Facility for Avian Research",
+     "area": 1119.1,
+     "framesUsable": 6
+    },
+    {
+     "id": "w778714478",
+     "name": "",
+     "area": 78.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778734780",
+     "name": "",
+     "area": 77.4,
+     "framesUsable": 0
+    },
+    {
+     "id": "c2441",
+     "name": "",
+     "area": 38.3,
+     "framesUsable": 5
+    },
+    {
+     "id": "c2465",
+     "name": "",
+     "area": 34.7,
+     "framesUsable": 12
+    },
+    {
+     "id": "c3175",
+     "name": "",
+     "area": 30.5,
+     "framesUsable": 0
+    },
+    {
+     "id": "c2613",
+     "name": "",
+     "area": 21.9,
+     "framesUsable": 0
+    },
+    {
+     "id": "c2652",
+     "name": "",
+     "area": 18.7,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3844",
+     "name": "",
+     "area": 15.6,
+     "framesUsable": 0
+    }
+   ]
+  },
+  {
+   "group": 2,
+   "center": [
+    -69.8,
+    1581.4
+   ],
+   "buildings": [
+    {
+     "id": "w123525251",
+     "name": "",
+     "area": 1041.5,
+     "framesUsable": 0
+    },
+    {
+     "id": "w144343833",
+     "name": "",
+     "area": 861.4,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525225",
+     "name": "",
+     "area": 721.9,
+     "framesUsable": 16
+    },
+    {
+     "id": "w123525216",
+     "name": "",
+     "area": 562.7,
+     "framesUsable": 5
+    },
+    {
+     "id": "w123525204",
+     "name": "",
+     "area": 523.2,
+     "framesUsable": 28
+    },
+    {
+     "id": "w123525228",
+     "name": "",
+     "area": 503.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "w144343832",
+     "name": "",
+     "area": 494.5,
+     "framesUsable": 7
+    },
+    {
+     "id": "w123525219",
+     "name": "",
+     "area": 470.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714542",
+     "name": "",
+     "area": 410.7,
+     "framesUsable": 18
+    },
+    {
+     "id": "w123525201",
+     "name": "",
+     "area": 400.2,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525200",
+     "name": "",
+     "area": 398.3,
+     "framesUsable": 8
+    },
+    {
+     "id": "w123525190",
+     "name": "",
+     "area": 397.9,
+     "framesUsable": 2
+    },
+    {
+     "id": "w123525197",
+     "name": "",
+     "area": 392.6,
+     "framesUsable": 5
+    },
+    {
+     "id": "w123525195",
+     "name": "",
+     "area": 379.5,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525191",
+     "name": "",
+     "area": 354.4,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525185",
+     "name": "",
+     "area": 303.4,
+     "framesUsable": 4
+    },
+    {
+     "id": "w123525193",
+     "name": "",
+     "area": 289.7,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714508",
+     "name": "",
+     "area": 160.2,
+     "framesUsable": 3
+    }
+   ]
+  },
+  {
+   "group": 3,
+   "center": [
+    -79.7,
+    1155.5
+   ],
+   "buildings": [
+    {
+     "id": "w119875065",
+     "name": "Althouse",
+     "area": 9455.8,
+     "framesUsable": 33
+    },
+    {
+     "id": "w147379460",
+     "name": "Elborn College",
+     "area": 9238.1,
+     "framesUsable": 3
+    },
+    {
+     "id": "w310134768",
+     "name": "Ontario Hall",
+     "area": 6156.1,
+     "framesUsable": 117
+    },
+    {
+     "id": "w310135962",
+     "name": "Perth Hall",
+     "area": 3446.7,
+     "framesUsable": 70
+    },
+    {
+     "id": "w147379451",
+     "name": "",
+     "area": 2713.6,
+     "framesUsable": 20
+    },
+    {
+     "id": "w147379452",
+     "name": "",
+     "area": 1712.7,
+     "framesUsable": 4
+    },
+    {
+     "id": "w119875057",
+     "name": "",
+     "area": 1103.1,
+     "framesUsable": 12
+    },
+    {
+     "id": "w119875051",
+     "name": "Althouse",
+     "area": 858.5,
+     "framesUsable": 0
+    },
+    {
+     "id": "w119875078",
+     "name": "",
+     "area": 484.8,
+     "framesUsable": 8
+    },
+    {
+     "id": "w119875067",
+     "name": "Pizza Hut",
+     "area": 448.2,
+     "framesUsable": 14
+    },
+    {
+     "id": "w119875069",
+     "name": "Barakat",
+     "area": 339.5,
+     "framesUsable": 12
+    },
+    {
+     "id": "w526910752",
+     "name": "7-Eleven",
+     "area": 240.7,
+     "framesUsable": 8
+    },
+    {
+     "id": "w119875059",
+     "name": "Subway",
+     "area": 171.8,
+     "framesUsable": 16
+    },
+    {
+     "id": "w778714509",
+     "name": "",
+     "area": 158.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3040",
+     "name": "",
+     "area": 43.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3698",
+     "name": "",
+     "area": 13.7,
+     "framesUsable": 0
+    }
+   ]
+  },
+  {
+   "group": 4,
+   "center": [
+    186.1,
+    1139.5
+   ],
+   "buildings": [
+    {
+     "id": "w118764094",
+     "name": "Thompson Arena",
+     "area": 7365.2,
+     "framesUsable": 0
+    },
+    {
+     "id": "w310132539",
+     "name": "Western Student Recreation Centre",
+     "area": 5004.3,
+     "framesUsable": 9
+    },
+    {
+     "id": "w119875060",
+     "name": "London Hall",
+     "area": 4455.8,
+     "framesUsable": 27
+    },
+    {
+     "id": "w119875073",
+     "name": "Essex Hall",
+     "area": 4035.1,
+     "framesUsable": 22
+    },
+    {
+     "id": "w142216970",
+     "name": "",
+     "area": 2701.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "w142216960",
+     "name": "J W Little Memorial Building",
+     "area": 1819.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "w142216972",
+     "name": "",
+     "area": 1465.2,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714536",
+     "name": "",
+     "area": 290.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714522",
+     "name": "",
+     "area": 213.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w142216969",
+     "name": "",
+     "area": 205.3,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714519",
+     "name": "",
+     "area": 197.4,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714547",
+     "name": "",
+     "area": 122.0,
+     "framesUsable": 32
+    },
+    {
+     "id": "c2455",
+     "name": "",
+     "area": 35.9,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3043",
+     "name": "",
+     "area": 27.8,
+     "framesUsable": 1
+    },
+    {
+     "id": "c2728",
+     "name": "",
+     "area": 13.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3694",
+     "name": "",
+     "area": 12.7,
+     "framesUsable": 0
+    }
+   ]
+  },
+  {
+   "group": 5,
+   "center": [
+    -80.1,
+    303.7
+   ],
+   "buildings": [
+    {
+     "id": "w141710486",
+     "name": "University Community Center",
+     "area": 6834.6,
+     "framesUsable": 52
+    },
+    {
+     "id": "w126668336",
+     "name": "Huron University College",
+     "area": 5562.4,
+     "framesUsable": 0
+    },
+    {
+     "id": "w118764097",
+     "name": "Law School",
+     "area": 3606.9,
+     "framesUsable": 40
+    },
+    {
+     "id": "w1300081894",
+     "name": "Ronald D. Schmeichel Building for Entrepreneurship and Innovation",
+     "area": 2976.7,
+     "framesUsable": 10
+    },
+    {
+     "id": "w1346111803",
+     "name": "Burnlea Hall",
+     "area": 2726.3,
+     "framesUsable": 2
+    },
+    {
+     "id": "w1346111804",
+     "name": "The Frank Holmes Centre for Leadership, Ethics & Entrepreneurship",
+     "area": 2256.5,
+     "framesUsable": 4
+    },
+    {
+     "id": "w126668534",
+     "name": "Huron Dining Hall",
+     "area": 1543.8,
+     "framesUsable": 30
+    },
+    {
+     "id": "w310131574",
+     "name": "Western Student Services Building",
+     "area": 1315.7,
+     "framesUsable": 66
+    },
+    {
+     "id": "w562894113",
+     "name": "Dr. Don Rix Clinical Skills Learning Building",
+     "area": 850.2,
+     "framesUsable": 27
+    },
+    {
+     "id": "w310131575",
+     "name": "South Hall",
+     "area": 706.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "w310131577",
+     "name": "Hellmuth Hall",
+     "area": 623.2,
+     "framesUsable": 0
+    },
+    {
+     "id": "w237299258",
+     "name": "Apps International House",
+     "area": 261.1,
+     "framesUsable": 17
+    },
+    {
+     "id": "w631167535",
+     "name": "Benson House",
+     "area": 163.5,
+     "framesUsable": 6
+    },
+    {
+     "id": "w778714479",
+     "name": "",
+     "area": 76.7,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3843",
+     "name": "Apps International House",
+     "area": 49.6,
+     "framesUsable": 8
+    }
+   ]
+  },
+  {
+   "group": 6,
+   "center": [
+    499.9,
+    109.5
+   ],
+   "buildings": [
+    {
+     "id": "r7932251",
+     "name": "Biological & Geological Sciences",
+     "area": 3798.3,
+     "framesUsable": 64
+    },
+    {
+     "id": "w142286122",
+     "name": "Physics Building",
+     "area": 3324.6,
+     "framesUsable": 17
+    },
+    {
+     "id": "w142286116",
+     "name": "North Campus Building",
+     "area": 3283.8,
+     "framesUsable": 38
+    },
+    {
+     "id": "r7380709-1",
+     "name": "John Labatt Visual Art Centre",
+     "area": 3089.9,
+     "framesUsable": 20
+    },
+    {
+     "id": "w141710478",
+     "name": "Delaware Hall (Residence)",
+     "area": 2816.3,
+     "framesUsable": 8
+    },
+    {
+     "id": "w118764099",
+     "name": "Middlesex College",
+     "area": 2222.2,
+     "framesUsable": 26
+    },
+    {
+     "id": "w142286130",
+     "name": "Staging Building",
+     "area": 2157.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w118764093",
+     "name": "Western Science Centre",
+     "area": 2141.1,
+     "framesUsable": 7
+    },
+    {
+     "id": "w527547917",
+     "name": "Western Interdisciplinary Research Building",
+     "area": 1552.8,
+     "framesUsable": 11
+    },
+    {
+     "id": "w555604064",
+     "name": "Material Sciences Addition",
+     "area": 1234.9,
+     "framesUsable": 0
+    },
+    {
+     "id": "w126668554",
+     "name": "Biotron Experimental Climate Change Research Centre",
+     "area": 866.5,
+     "framesUsable": 5
+    },
+    {
+     "id": "w126668547",
+     "name": "Greenhouses",
+     "area": 689.6,
+     "framesUsable": 15
+    },
+    {
+     "id": "w118764089",
+     "name": "Collip Medical Research Building",
+     "area": 456.1,
+     "framesUsable": 9
+    },
+    {
+     "id": "r7380709-0",
+     "name": "John Labatt Visual Art Centre",
+     "area": 342.9,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714481",
+     "name": "",
+     "area": 166.3,
+     "framesUsable": 0
+    },
+    {
+     "id": "w562873579",
+     "name": "",
+     "area": 14.8,
+     "framesUsable": 12
+    },
+    {
+     "id": "c2752",
+     "name": "",
+     "area": 13.2,
+     "framesUsable": 0
+    }
+   ]
+  },
+  {
+   "group": 7,
+   "center": [
+    195.7,
+    665.7
+   ],
+   "buildings": [
+    {
+     "id": "w118764110",
+     "name": "Spencer Engineering Building",
+     "area": 5937.7,
+     "framesUsable": 33
+    },
+    {
+     "id": "w558927474",
+     "name": "FIMS & Nursing Building",
+     "area": 4497.5,
+     "framesUsable": 65
+    },
+    {
+     "id": "w626520018",
+     "name": "Amit Chakma Engineering Building",
+     "area": 3027.7,
+     "framesUsable": 12
+    },
+    {
+     "id": "w142216959",
+     "name": "Alumni Hall",
+     "area": 2620.3,
+     "framesUsable": 64
+    },
+    {
+     "id": "w118764090",
+     "name": "Boundary Layer Wind Tunnel Laboratory",
+     "area": 2612.3,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3858",
+     "name": "",
+     "area": 2456.1,
+     "framesUsable": 10
+    },
+    {
+     "id": "w118764098",
+     "name": "Thompson Engineering Building",
+     "area": 2422.3,
+     "framesUsable": 8
+    },
+    {
+     "id": "w126668543",
+     "name": "Health Sciences Building",
+     "area": 2314.1,
+     "framesUsable": 56
+    },
+    {
+     "id": "w213344476",
+     "name": "Power Plant",
+     "area": 1606.0,
+     "framesUsable": 14
+    },
+    {
+     "id": "w1203780928",
+     "name": "Claudette Mackay-Lassonde Pavilion",
+     "area": 1005.9,
+     "framesUsable": 27
+    },
+    {
+     "id": "w142216971",
+     "name": "",
+     "area": 358.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w126668552",
+     "name": "Cronyn Observatory",
+     "area": 144.9,
+     "framesUsable": 10
+    },
+    {
+     "id": "c3293",
+     "name": "",
+     "area": 82.3,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3708",
+     "name": "",
+     "area": 61.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3705",
+     "name": "",
+     "area": 50.5,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3781",
+     "name": "",
+     "area": 44.2,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3778",
+     "name": "",
+     "area": 33.9,
+     "framesUsable": 1
+    },
+    {
+     "id": "c3777",
+     "name": "",
+     "area": 29.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "c2602",
+     "name": "",
+     "area": 22.6,
+     "framesUsable": 11
+    }
+   ]
+  },
+  {
+   "group": 8,
+   "center": [
+    283.3,
+    370.5
+   ],
+   "buildings": [
+    {
+     "id": "w118764108",
+     "name": "Weldon Library",
+     "area": 7537.7,
+     "framesUsable": 29
+    },
+    {
+     "id": "w141710484",
+     "name": "Social Science Center",
+     "area": 6648.4,
+     "framesUsable": 25
+    },
+    {
+     "id": "w118764095",
+     "name": "Thames Hall",
+     "area": 3658.0,
+     "framesUsable": 28
+    },
+    {
+     "id": "w116779543",
+     "name": "Talbot College",
+     "area": 3248.3,
+     "framesUsable": 56
+    },
+    {
+     "id": "w142216964",
+     "name": "Somerville House",
+     "area": 3188.9,
+     "framesUsable": 0
+    },
+    {
+     "id": "w1203774692",
+     "name": "Arts & Humanities",
+     "area": 3173.2,
+     "framesUsable": 0
+    },
+    {
+     "id": "w118764092",
+     "name": "University College",
+     "area": 2977.7,
+     "framesUsable": 0
+    },
+    {
+     "id": "w1264685790",
+     "name": "Music Building",
+     "area": 2409.6,
+     "framesUsable": 1
+    },
+    {
+     "id": "w1203774693",
+     "name": "3M Centre",
+     "area": 1800.4,
+     "framesUsable": 18
+    },
+    {
+     "id": "w126668337",
+     "name": "International & Graduate Affairs",
+     "area": 1700.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "w237302165",
+     "name": "Lawson Hall",
+     "area": 1664.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w118764109",
+     "name": "Stevenson Hall",
+     "area": 1589.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "w141710481",
+     "name": "McIntosh Art Gallery",
+     "area": 222.3,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714477",
+     "name": "",
+     "area": 83.7,
+     "framesUsable": 0
+    },
+    {
+     "id": "c31",
+     "name": "",
+     "area": 55.8,
+     "framesUsable": 0
+    }
+   ]
+  },
+  {
+   "group": 9,
+   "center": [
+    42.3,
+    1720.0
+   ],
+   "buildings": [
+    {
+     "id": "w123525194",
+     "name": "",
+     "area": 1155.6,
+     "framesUsable": 1
+    },
+    {
+     "id": "w123525241",
+     "name": "",
+     "area": 813.9,
+     "framesUsable": 12
+    },
+    {
+     "id": "w123525243",
+     "name": "",
+     "area": 786.8,
+     "framesUsable": 7
+    },
+    {
+     "id": "w123525240",
+     "name": "",
+     "area": 767.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525242",
+     "name": "",
+     "area": 759.4,
+     "framesUsable": 3
+    },
+    {
+     "id": "w123525232",
+     "name": "",
+     "area": 757.9,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525222",
+     "name": "",
+     "area": 734.4,
+     "framesUsable": 13
+    },
+    {
+     "id": "w123525238",
+     "name": "",
+     "area": 566.4,
+     "framesUsable": 12
+    },
+    {
+     "id": "w123525214",
+     "name": "",
+     "area": 513.7,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525196",
+     "name": "",
+     "area": 478.1,
+     "framesUsable": 26
+    },
+    {
+     "id": "w123525244",
+     "name": "",
+     "area": 423.4,
+     "framesUsable": 21
+    },
+    {
+     "id": "w123525198",
+     "name": "",
+     "area": 386.0,
+     "framesUsable": 3
+    },
+    {
+     "id": "w123525192",
+     "name": "",
+     "area": 376.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525182",
+     "name": "",
+     "area": 370.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525189",
+     "name": "",
+     "area": 296.2,
+     "framesUsable": 0
+    },
+    {
+     "id": "w123525188",
+     "name": "",
+     "area": 290.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714502",
+     "name": "",
+     "area": 128.8,
+     "framesUsable": 24
+    }
+   ]
+  },
+  {
+   "group": 10,
+   "center": [
+    178.3,
+    -31.1
+   ],
+   "buildings": [
+    {
+     "id": "r21319536-0",
+     "name": "",
+     "area": 12569.0,
+     "framesUsable": 64
+    },
+    {
+     "id": "w682172580",
+     "name": "Dental Sciences Building",
+     "area": 4166.5,
+     "framesUsable": 0
+    },
+    {
+     "id": "w141710483",
+     "name": "Robarts Research Institute",
+     "area": 4158.7,
+     "framesUsable": 118
+    },
+    {
+     "id": "w141710482",
+     "name": "Medical Sciences Building",
+     "area": 3487.6,
+     "framesUsable": 19
+    },
+    {
+     "id": "w126668525",
+     "name": "West Valley Building",
+     "area": 3019.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w116779542",
+     "name": "Natural Sciences Building",
+     "area": 2961.7,
+     "framesUsable": 36
+    },
+    {
+     "id": "r7932252",
+     "name": "Chemistry Building",
+     "area": 2695.0,
+     "framesUsable": 30
+    },
+    {
+     "id": "w141710485",
+     "name": "Taylor Library",
+     "area": 1900.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w682172581",
+     "name": "Health Sciences Addition",
+     "area": 1832.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w1554621117",
+     "name": "",
+     "area": 1366.4,
+     "framesUsable": 5
+    },
+    {
+     "id": "w141710480",
+     "name": "Kresge Building",
+     "area": 1081.9,
+     "framesUsable": 16
+    },
+    {
+     "id": "r21319536-1",
+     "name": "",
+     "area": 651.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714480",
+     "name": "",
+     "area": 179.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778714475",
+     "name": "",
+     "area": 64.4,
+     "framesUsable": 0
+    },
+    {
+     "id": "c2401",
+     "name": "",
+     "area": 47.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "c2594",
+     "name": "",
+     "area": 23.3,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3102",
+     "name": "",
+     "area": 14.0,
+     "framesUsable": 0
+    }
+   ]
+  },
+  {
+   "group": 11,
+   "center": [
+    303.2,
+    -323.9
+   ],
+   "buildings": [
+    {
+     "id": "w142286181",
+     "name": "",
+     "area": 5989.6,
+     "framesUsable": 27
+    },
+    {
+     "id": "r21319537-0",
+     "name": "",
+     "area": 4291.1,
+     "framesUsable": 26
+    },
+    {
+     "id": "w126668348",
+     "name": "Westminister Hall",
+     "area": 1543.5,
+     "framesUsable": 10
+    },
+    {
+     "id": "w255852502",
+     "name": "Western Centre for Public Health and Family Medicine",
+     "area": 1521.9,
+     "framesUsable": 4
+    },
+    {
+     "id": "w778713877",
+     "name": "",
+     "area": 200.9,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778713855",
+     "name": "",
+     "area": 191.3,
+     "framesUsable": 1
+    },
+    {
+     "id": "w778713906",
+     "name": "",
+     "area": 159.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "w778713980",
+     "name": "",
+     "area": 130.7,
+     "framesUsable": 2
+    },
+    {
+     "id": "w778714476",
+     "name": "",
+     "area": 63.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "r21319537-1",
+     "name": "",
+     "area": 46.5,
+     "framesUsable": 22
+    },
+    {
+     "id": "c2578",
+     "name": "",
+     "area": 23.8,
+     "framesUsable": 0
+    },
+    {
+     "id": "c2603",
+     "name": "",
+     "area": 23.0,
+     "framesUsable": 4
+    },
+    {
+     "id": "c2729",
+     "name": "",
+     "area": 14.0,
+     "framesUsable": 0
+    }
+   ]
+  },
+  {
+   "group": 12,
+   "center": [
+    -467.7,
+    691.6
+   ],
+   "buildings": [
+    {
+     "id": "r7379137",
+     "name": "Richard Ivey Building",
+     "area": 8746.6,
+     "framesUsable": 12
+    },
+    {
+     "id": "w147379380",
+     "name": "Brescia College",
+     "area": 4453.5,
+     "framesUsable": 1
+    },
+    {
+     "id": "w310130110",
+     "name": "Brescia University College",
+     "area": 3987.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "w147379378",
+     "name": "Brecsia University College",
+     "area": 1719.7,
+     "framesUsable": 3
+    },
+    {
+     "id": "w147379448",
+     "name": "Brescia University College",
+     "area": 665.1,
+     "framesUsable": 0
+    },
+    {
+     "id": "w147379473",
+     "name": "Henderson House",
+     "area": 396.3,
+     "framesUsable": 0
+    },
+    {
+     "id": "w147379469",
+     "name": "Brough House",
+     "area": 390.5,
+     "framesUsable": 0
+    },
+    {
+     "id": "w147379464",
+     "name": "",
+     "area": 343.6,
+     "framesUsable": 0
+    },
+    {
+     "id": "w190852608",
+     "name": "Young House",
+     "area": 196.0,
+     "framesUsable": 0
+    },
+    {
+     "id": "w310131576",
+     "name": "",
+     "area": 175.4,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3396",
+     "name": "",
+     "area": 154.3,
+     "framesUsable": 0
+    },
+    {
+     "id": "c3513",
+     "name": "",
+     "area": 109.7,
+     "framesUsable": 0
+    },
+    {
+     "id": "w190852609",
+     "name": "Yellow Cottage",
+     "area": 96.2,
+     "framesUsable": 0
+    },
+    {
+     "id": "c2605",
+     "name": "",
+     "area": 20.4,
+     "framesUsable": 0
+    }
+   ]
+  }
+ ]
+}

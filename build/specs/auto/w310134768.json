@@ -1,0 +1,105 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w310134768",
+  "name": "Ontario Hall",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "128912077"
+    }
+  ],
+  "style": "mid-century-modern",
+  "floors": {
+    "count": 5,
+    "typicalHeight": 3.7,
+    "groundFloorHeight": 3.7
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 19.98,
+        "floors": 5
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#878a8d",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#bcbdad"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.8,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#495b6f",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 22,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

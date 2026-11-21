@@ -1,0 +1,1463 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "western-building-spec/1",
+  "title": "Western campus building spec, version 1",
+  "description": "One file per building at build/specs/buildings/<id>.json. The id and wall indices come from data/buildings/inventory.json. Coordinates are local metres: x east, z south, y up, the same frame as the inventory, web/campus-region.json and data/streetview/frames.json. Heights are metres above the building's ground level (inventory field 'ground'). The generator must render every field below; optional fields fall back to sensible defaults. New optional fields may be added later; existing fields keep their meaning. Set present:false for footprints with no building today, and lidarTrusted:false (with lidarNote) when lidar heights are wrong for the building.",
+  "type": "object",
+  "required": [
+    "schema",
+    "id",
+    "style",
+    "materials",
+    "floors",
+    "walls",
+    "roof",
+    "evidence",
+    "confidence"
+  ],
+  "additionalProperties": true,
+  "$defs": {
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$",
+      "description": "sRGB colour sampled from real photos under daylight, not guessed."
+    },
+    "point": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "[x, z] in local metres."
+    },
+    "polygon": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/point"
+      },
+      "minItems": 3
+    },
+    "materialRef": {
+      "type": "string",
+      "description": "Key into the spec's materials object."
+    },
+    "wallSelector": {
+      "description": "A wall index from the inventory, a list of indices, an inclusive range string like '3-7', or one of 'all', 'street', 'north', 'south', 'east', 'west' (compass words match the inventory 'faces' field).",
+      "oneOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "material": {
+      "type": "object",
+      "required": [
+        "kind",
+        "color"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "ashlar-stone",
+            "rubble-stone",
+            "split-face-block",
+            "limestone-smooth",
+            "brick",
+            "concrete-board-formed",
+            "concrete-smooth",
+            "precast-panel",
+            "stucco",
+            "metal-panel",
+            "corrugated-metal",
+            "glass-curtain",
+            "spandrel-glass",
+            "wood-siding",
+            "terracotta",
+            "slate",
+            "asphalt-shingle",
+            "clay-tile",
+            "standing-seam-metal",
+            "copper-patina",
+            "copper-new",
+            "membrane",
+            "gravel-ballast",
+            "green-roof",
+            "painted-metal",
+            "glass-block"
+          ]
+        },
+        "color": {
+          "$ref": "#/$defs/color"
+        },
+        "secondaryColor": {
+          "$ref": "#/$defs/color",
+          "description": "Mortar, joint, seam or speckle colour."
+        },
+        "variation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "How much individual units vary in tone (0 uniform, 0.3 typical stone)."
+        },
+        "unitSize": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "[width, height] of a brick, stone course, panel or shingle in metres."
+        },
+        "bond": {
+          "enum": [
+            "running",
+            "stack",
+            "flemish",
+            "english",
+            "random-ashlar",
+            "coursed-rubble"
+          ]
+        },
+        "roughness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "metalness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "weathering": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Streaking and darkening near the base and under sills."
+        },
+        "surface": {
+          "type": "string"
+        }
+      }
+    },
+    "windows": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "punched",
+            "ribbon",
+            "curtain-wall",
+            "lancet",
+            "tudor-arch",
+            "round-arch",
+            "segmental-arch",
+            "oriel",
+            "bay-window",
+            "storefront",
+            "slot",
+            "clerestory",
+            "glass-block",
+            "none"
+          ]
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "sill": {
+          "type": "number",
+          "description": "Sill height above the floor line of that storey."
+        },
+        "perBay": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "spacing": {
+          "type": "number",
+          "description": "Gap between windows inside one bay."
+        },
+        "recess": {
+          "type": "number",
+          "description": "How deep the glass sits behind the wall face, metres."
+        },
+        "mullions": {
+          "type": "object",
+          "properties": {
+            "vertical": {
+              "type": "integer"
+            },
+            "horizontal": {
+              "type": "integer"
+            },
+            "width": {
+              "type": "number"
+            }
+          }
+        },
+        "transom": {
+          "type": "boolean"
+        },
+        "frameColor": {
+          "$ref": "#/$defs/color"
+        },
+        "glass": {
+          "enum": [
+            "clear",
+            "tinted",
+            "reflective",
+            "dark",
+            "frosted",
+            "leaded"
+          ]
+        },
+        "glassColor": {
+          "$ref": "#/$defs/color"
+        },
+        "surround": {
+          "enum": [
+            "none",
+            "stone",
+            "brick-soldier",
+            "precast",
+            "metal"
+          ]
+        },
+        "surroundMaterial": {
+          "$ref": "#/$defs/materialRef"
+        },
+        "sillProjecting": {
+          "type": "boolean"
+        },
+        "lintel": {
+          "type": "boolean"
+        },
+        "hoodMould": {
+          "type": "boolean",
+          "description": "Gothic label moulding over the opening."
+        },
+        "tracery": {
+          "type": "boolean"
+        },
+        "shading": {
+          "enum": [
+            "none",
+            "fins",
+            "louvres",
+            "overhang",
+            "sloped-glass"
+          ]
+        },
+        "projectEvery": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "projection": {
+          "type": "number"
+        },
+        "rake": {
+          "type": "number"
+        },
+        "topStage": {
+          "type": "boolean"
+        },
+        "finDepth": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "facade": {
+      "type": "object",
+      "properties": {
+        "material": {
+          "$ref": "#/$defs/materialRef"
+        },
+        "blank": {
+          "type": "boolean",
+          "description": "True for walls with no openings."
+        },
+        "base": {
+          "type": "object",
+          "properties": {
+            "height": {
+              "type": "number"
+            },
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "projection": {
+              "type": "number"
+            },
+            "batter": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "bays": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "count": {
+              "type": "integer"
+            },
+            "pattern": {
+              "enum": [
+                "regular",
+                "paired",
+                "grouped",
+                "irregular"
+              ]
+            },
+            "groupSize": {
+              "type": "integer"
+            },
+            "groupGap": {
+              "type": "number"
+            },
+            "edgeMargin": {
+              "type": "number"
+            }
+          }
+        },
+        "windows": {
+          "$ref": "#/$defs/windows"
+        },
+        "groundFloor": {
+          "type": "object",
+          "properties": {
+            "windows": {
+              "$ref": "#/$defs/windows"
+            },
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "height": {
+              "type": "number"
+            }
+          }
+        },
+        "topFloor": {
+          "type": "object",
+          "properties": {
+            "windows": {
+              "$ref": "#/$defs/windows"
+            },
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            }
+          }
+        },
+        "floorOverrides": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          },
+          "description": "Keyed by storey number (0 = ground)."
+        },
+        "piers": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "depth": {
+              "type": "number"
+            },
+            "every": {
+              "type": "integer"
+            },
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "fullHeight": {
+              "type": "boolean"
+            },
+            "aboveRoof": {
+              "type": "number"
+            },
+            "profile": {
+              "enum": [
+                "rectangular",
+                "sawtooth"
+              ]
+            },
+            "hand": {
+              "enum": [
+                "left",
+                "right"
+              ]
+            },
+            "endPiers": {
+              "type": "boolean"
+            }
+          },
+          "description": "Pilasters, vertical fins or stone piers between bays."
+        },
+        "bands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "at": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "floor-lines",
+                      "sill-lines",
+                      "head-lines"
+                    ]
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                ]
+              },
+              "height": {
+                "type": "number"
+              },
+              "depth": {
+                "type": "number"
+              },
+              "material": {
+                "$ref": "#/$defs/materialRef"
+              }
+            }
+          }
+        },
+        "cornice": {
+          "type": "object",
+          "properties": {
+            "height": {
+              "type": "number"
+            },
+            "depth": {
+              "type": "number"
+            },
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "soffitMaterial": {
+              "$ref": "#/$defs/materialRef"
+            }
+          }
+        },
+        "parapet": {
+          "type": "object",
+          "properties": {
+            "height": {
+              "type": "number"
+            },
+            "type": {
+              "enum": [
+                "plain",
+                "coped",
+                "crenellated",
+                "glass-rail",
+                "metal-rail",
+                "pierced",
+                "stepped"
+              ]
+            },
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "copingMaterial": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "fenceHeight": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "buttresses": {
+          "type": "object",
+          "properties": {
+            "every": {
+              "type": "integer"
+            },
+            "width": {
+              "type": "number"
+            },
+            "depth": {
+              "type": "number"
+            },
+            "stepped": {
+              "type": "boolean"
+            },
+            "height": {
+              "type": "number",
+              "minimum": 0
+            },
+            "cap": {
+              "enum": [
+                "plain",
+                "gabled"
+              ]
+            }
+          }
+        },
+        "quoins": {
+          "type": "boolean"
+        },
+        "gables": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": [
+                "plain",
+                "parapet",
+                "stepped",
+                "dutch"
+              ]
+            },
+            "count": {
+              "type": "integer"
+            }
+          }
+        },
+        "balconies": {
+          "type": "object",
+          "properties": {
+            "every": {
+              "type": "integer"
+            },
+            "floors": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "depth": {
+              "type": "number"
+            },
+            "rail": {
+              "enum": [
+                "glass",
+                "metal",
+                "solid"
+              ]
+            },
+            "endPanels": {
+              "type": "boolean"
+            },
+            "infill": {
+              "enum": [
+                "solid",
+                "open",
+                "lower-panel",
+                "alternating"
+              ]
+            },
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "bayPattern": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "minItems": 1
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "frontHeight": {
+              "type": "number",
+              "minimum": 0
+            },
+            "deckMaterial": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "edgeMaterial": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "capMaterial": {
+              "$ref": "#/$defs/materialRef"
+            },
+            "railMaterial": {
+              "$ref": "#/$defs/materialRef"
+            }
+          }
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/facade"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "range"
+                ],
+                "properties": {
+                  "range": {
+                    "type": "array",
+                    "items": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "bayMaterials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/materialRef"
+          },
+          "minItems": 1
+        },
+        "spandrelMaterial": {
+          "$ref": "#/$defs/materialRef"
+        },
+        "fasciaBeam": {
+          "type": "object",
+          "properties": {
+            "spacing": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "projection": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "spacing",
+            "projection"
+          ]
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "start",
+              "end",
+              "base",
+              "top",
+              "material"
+            ],
+            "properties": {
+              "start": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "end": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "base": {
+                "type": "number"
+              },
+              "top": {
+                "type": "number"
+              },
+              "material": {
+                "$ref": "#/$defs/materialRef"
+              },
+              "verticalMullionSpacing": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "horizontalMullions": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "recess": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 3
+              },
+              "surroundMaterial": {
+                "$ref": "#/$defs/materialRef"
+              }
+            }
+          }
+        },
+        "verticalSpandrels": {
+          "type": "object",
+          "required": [
+            "material",
+            "every"
+          ],
+          "properties": {
+            "every": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            }
+          }
+        },
+        "soffitBeams": {
+          "type": "object",
+          "required": [
+            "spacing",
+            "width",
+            "height",
+            "depth"
+          ],
+          "properties": {
+            "spacing": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "depth": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "downspout": {
+          "type": "object",
+          "properties": {
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            }
+          }
+        },
+        "openGroundFloor": {
+          "type": "boolean"
+        }
+      }
+    },
+    "roof": {
+      "type": "object",
+      "properties": {
+        "form": {
+          "enum": [
+            "flat",
+            "gable",
+            "hip",
+            "half-hip",
+            "mansard",
+            "shed",
+            "gambrel",
+            "pyramid",
+            "dome",
+            "barrel",
+            "sawtooth",
+            "lidar"
+          ]
+        },
+        "pitch": {
+          "type": "number",
+          "description": "Degrees from horizontal."
+        },
+        "rise": {
+          "type": "number",
+          "description": "Ridge height above the eaves, metres. Use pitch or rise."
+        },
+        "ridge": {
+          "oneOf": [
+            {
+              "enum": [
+                "long-axis",
+                "short-axis"
+              ]
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "description": "Ridge direction, or a bearing in degrees clockwise from north."
+        },
+        "overhang": {
+          "type": "number"
+        },
+        "material": {
+          "$ref": "#/$defs/materialRef"
+        },
+        "edge": {
+          "enum": [
+            "parapet",
+            "fascia",
+            "gutter",
+            "cornice",
+            "none"
+          ]
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "penthouse",
+                  "hvac",
+                  "skylight",
+                  "dormers",
+                  "chimney",
+                  "cupola",
+                  "lantern",
+                  "solar-panels",
+                  "green-roof",
+                  "antenna",
+                  "stair-tower",
+                  "clerestory"
+                ]
+              },
+              "center": {
+                "$ref": "#/$defs/point"
+              },
+              "at": {
+                "$ref": "#/$defs/point"
+              },
+              "size": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "height": {
+                "type": "number"
+              },
+              "rotation": {
+                "type": "number"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "walls": {
+                "$ref": "#/$defs/wallSelector"
+              },
+              "style": {
+                "type": "string"
+              },
+              "material": {
+                "$ref": "#/$defs/materialRef"
+              },
+              "fanGrid": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 6
+                },
+                "description": "Fan count along the long and short axes of a cooling unit."
+              },
+              "housing": {
+                "enum": [
+                  "fan",
+                  "duct",
+                  "hatch",
+                  "screen",
+                  "cabinet",
+                  "drain"
+                ]
+              }
+            }
+          }
+        },
+        "skirtMaterial": {
+          "$ref": "#/$defs/materialRef"
+        },
+        "endShape": {
+          "type": "string"
+        }
+      }
+    },
+    "part": {
+      "type": "object",
+      "required": [
+        "height"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "footprint": {
+          "description": "'inventory' for the whole footprint, {\"clip\": polygon} to intersect the footprint with a rough polygon around a wing, or an explicit polygon.",
+          "oneOf": [
+            {
+              "const": "inventory"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "clip": {
+                  "$ref": "#/$defs/polygon"
+                }
+              },
+              "required": [
+                "clip"
+              ]
+            },
+            {
+              "$ref": "#/$defs/polygon"
+            }
+          ]
+        },
+        "baseOffset": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number",
+          "description": "Top of wall or parapet above ground."
+        },
+        "floors": {
+          "type": "integer"
+        },
+        "roof": {
+          "$ref": "#/$defs/roof"
+        },
+        "facade": {
+          "$ref": "#/$defs/facade",
+          "description": "Overrides the building facade for this part."
+        },
+        "material": {
+          "$ref": "#/$defs/materialRef"
+        },
+        "wallProfiles": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/facade"
+          }
+        },
+        "atticWindows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "window"
+            ],
+            "properties": {
+              "window": {
+                "$ref": "#/$defs/windows"
+              },
+              "at": {
+                "$ref": "#/$defs/point"
+              },
+              "position": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        },
+        "plantings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "at"
+            ],
+            "properties": {
+              "at": {
+                "$ref": "#/$defs/point"
+              },
+              "radius": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          }
+        },
+        "soffit": {
+          "type": "object",
+          "properties": {
+            "cofferSpacing": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number",
+                "minimum": 0.35
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "schema": {
+      "const": "western-building-spec/1"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "auto",
+        "authored",
+        "refined",
+        "graded"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "summary": {
+      "type": "string",
+      "description": "Plain description of what the building really looks like from the street."
+    },
+    "style": {
+      "enum": [
+        "collegiate-gothic",
+        "gothic-revival-modern",
+        "brutalist",
+        "mid-century-modern",
+        "postmodern",
+        "contemporary-glass",
+        "contemporary-stone",
+        "residential-brick",
+        "residential-modern",
+        "house",
+        "industrial-utility",
+        "athletic",
+        "greenhouse",
+        "parking-structure"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "kartaview",
+              "photo",
+              "aerial",
+              "lidar",
+              "osm",
+              "knowledge"
+            ]
+          },
+          "frame": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "walls": {
+            "$ref": "#/$defs/wallSelector"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "materials": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/material"
+      },
+      "description": "Must include 'wall' and 'roof'. Typical extra keys: 'trim', 'base', 'frame', 'accent', 'glass'."
+    },
+    "floors": {
+      "type": "object",
+      "required": [
+        "count"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "groundFloorHeight": {
+          "type": "number"
+        },
+        "typicalHeight": {
+          "type": "number"
+        },
+        "raisedGround": {
+          "type": "number",
+          "description": "Visible basement or plinth height before the ground floor starts."
+        }
+      }
+    },
+    "massing": {
+      "type": "object",
+      "properties": {
+        "parts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/part"
+          }
+        },
+        "source": {
+          "enum": [
+            "parts",
+            "lidar"
+          ]
+        },
+        "translation": {
+          "$ref": "#/$defs/point"
+        }
+      },
+      "description": "Omit for a single block using the full footprint and lidar height."
+    },
+    "walls": {
+      "type": "object",
+      "required": [
+        "default"
+      ],
+      "properties": {
+        "default": {
+          "$ref": "#/$defs/facade"
+        },
+        "byWall": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/facade"
+          },
+          "description": "Keys are wall selectors as strings, for example '24', '3-7' or 'north'. Values override the default."
+        },
+        "courtyard": {
+          "$ref": "#/$defs/facade"
+        }
+      }
+    },
+    "roof": {
+      "$ref": "#/$defs/roof"
+    },
+    "towers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "at",
+          "size",
+          "height"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "at": {
+            "$ref": "#/$defs/point"
+          },
+          "plan": {
+            "enum": [
+              "square",
+              "rectangle",
+              "octagon",
+              "round"
+            ]
+          },
+          "size": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "rotation": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number",
+            "description": "Top of the masonry shaft above ground."
+          },
+          "top": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "battlements",
+                  "spire",
+                  "pyramid",
+                  "cupola",
+                  "flat",
+                  "lantern",
+                  "dome"
+                ]
+              },
+              "height": {
+                "type": "number"
+              },
+              "material": {
+                "$ref": "#/$defs/materialRef"
+              },
+              "openwork": {
+                "type": "boolean"
+              }
+            }
+          },
+          "pinnacles": {
+            "type": "integer"
+          },
+          "clockFaces": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "belfry": {
+            "type": "boolean"
+          },
+          "windows": {
+            "$ref": "#/$defs/windows"
+          },
+          "material": {
+            "$ref": "#/$defs/materialRef"
+          },
+          "buttresses": {
+            "type": "boolean"
+          },
+          "flagpole": {
+            "type": "boolean"
+          },
+          "cornerTurrets": {
+            "type": "object",
+            "required": [
+              "width",
+              "height"
+            ],
+            "properties": {
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "entrances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "wall"
+        ],
+        "properties": {
+          "wall": {
+            "type": "integer"
+          },
+          "position": {
+            "type": "number",
+            "description": "0 to 1 along the wall from point a to point b."
+          },
+          "width": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          },
+          "type": {
+            "enum": [
+              "doors-single",
+              "doors-double",
+              "glass-vestibule",
+              "revolving",
+              "gothic-portal",
+              "arched-portal",
+              "loading-dock",
+              "garage",
+              "service-door"
+            ]
+          },
+          "recess": {
+            "type": "number"
+          },
+          "steps": {
+            "type": "integer"
+          },
+          "ramp": {
+            "type": "boolean"
+          },
+          "canopy": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "flat",
+                  "glass",
+                  "arched",
+                  "portico",
+                  "cantilever"
+                ]
+              },
+              "depth": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number"
+              },
+              "columns": {
+                "type": "integer"
+              },
+              "material": {
+                "$ref": "#/$defs/materialRef"
+              },
+              "form": {
+                "enum": [
+                  "gable",
+                  "pitched",
+                  "shed",
+                  "arched",
+                  "flat"
+                ]
+              },
+              "soffitMaterial": {
+                "$ref": "#/$defs/materialRef"
+              },
+              "frameMaterial": {
+                "$ref": "#/$defs/materialRef"
+              },
+              "rise": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          },
+          "surround": {
+            "$ref": "#/$defs/materialRef"
+          }
+        }
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "colonnade",
+              "arcade",
+              "covered-walkway",
+              "skybridge",
+              "exterior-stair",
+              "ramp",
+              "loading-bay",
+              "retaining-wall",
+              "terrace",
+              "chimney-stack",
+              "fire-escape",
+              "lattice-dome"
+            ]
+          },
+          "walls": {
+            "$ref": "#/$defs/wallSelector"
+          },
+          "path": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/point"
+            }
+          },
+          "width": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          },
+          "baseOffset": {
+            "type": "number"
+          },
+          "material": {
+            "$ref": "#/$defs/materialRef"
+          },
+          "columns": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Anything real that this schema cannot express yet, for the generator team."
+    },
+    "present": {
+      "type": "boolean",
+      "description": "false when the footprint no longer has a building (demolished or never built; for example the 2025 orthophoto shows lawn). The generator then renders nothing for it. Back it with evidence entries."
+    },
+    "lidarTrusted": {
+      "type": "boolean",
+      "description": "false when the inventory lidar heights do not describe this building (tree canopy over a small roof, recent construction or demolition). Heights then come only from this spec. Explain in lidarNote."
+    },
+    "lidarNote": {
+      "type": "string",
+      "description": "Why lidar heights are not trusted for this building, with the measured alternative."
+    }
+  }
+}

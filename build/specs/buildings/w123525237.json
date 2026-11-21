@@ -1,0 +1,517 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w123525237",
+  "name": "Platt’s Lane west townhouse row",
+  "status": "authored",
+  "confidence": 0.78,
+  "summary": "Five staggered pairs of two-storey brick townhouses share shallow brown gables and pale fascia along the Platt’s Lane row.",
+  "style": "residential-brick",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#8c4e3c",
+      "secondaryColor": "#986b57",
+      "unitSize": [
+        0.2,
+        0.065
+      ],
+      "bond": "running",
+      "variation": 0.09,
+      "roughness": 0.89
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#5f4b3e",
+      "secondaryColor": "#4d3f34",
+      "unitSize": [
+        0.34,
+        0.145
+      ],
+      "variation": 0.08,
+      "roughness": 0.95
+    },
+    "accent": {
+      "kind": "stucco",
+      "color": "#bfa48c",
+      "secondaryColor": "#ae9582",
+      "variation": 0.035,
+      "roughness": 0.82
+    },
+    "infill": {
+      "kind": "metal-panel",
+      "color": "#824437",
+      "unitSize": [
+        1.5,
+        1.25
+      ],
+      "roughness": 0.66,
+      "secondaryColor": "#784439",
+      "variation": 0.02
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#dedbd2",
+      "roughness": 0.62
+    },
+    "hood": {
+      "kind": "painted-metal",
+      "color": "#c3a58e",
+      "roughness": 0.69
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#a39e97",
+      "roughness": 0.85
+    },
+    "endField": {
+      "kind": "precast-panel",
+      "color": "#af927d",
+      "secondaryColor": "#a38a78",
+      "unitSize": [
+        1.7,
+        2.7
+      ],
+      "variation": 0.02
+    },
+    "flashing": {
+      "kind": "painted-metal",
+      "color": "#645248"
+    },
+    "screen": {
+      "kind": "wood-siding",
+      "color": "#8a735b",
+      "secondaryColor": "#75614e",
+      "unitSize": [
+        0.14,
+        1.75
+      ]
+    },
+    "hoodRoof": {
+      "kind": "painted-metal",
+      "color": "#977865",
+      "secondaryColor": "#896c60",
+      "roughness": 0.76
+    },
+    "vent": {
+      "kind": "painted-metal",
+      "color": "#595951"
+    },
+    "patio": {
+      "kind": "concrete-smooth",
+      "color": "#b2a294"
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 2.8,
+    "typicalHeight": 2.8,
+    "raisedGround": 0.14
+  },
+  "roof": {
+    "form": "gable",
+    "rise": 1.67,
+    "ridge": 68.42,
+    "edge": "fascia",
+    "overhang": 0.23,
+    "material": "roof"
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Gabled townhouse pair 1",
+        "footprint": [
+          [
+            -70.5,
+            1830.2
+          ],
+          [
+            -67.0,
+            1839.1
+          ],
+          [
+            -58.286,
+            1835.634
+          ],
+          [
+            -61.818,
+            1826.707
+          ]
+        ],
+        "height": 5.16,
+        "floors": 2
+      },
+      {
+        "name": "Gabled townhouse pair 2",
+        "footprint": [
+          [
+            -57.4,
+            1837.6
+          ],
+          [
+            -48.773,
+            1834.187
+          ],
+          [
+            -53.123,
+            1823.192
+          ],
+          [
+            -53.4,
+            1823.3
+          ],
+          [
+            -52.7,
+            1825.2
+          ],
+          [
+            -61.1,
+            1828.5
+          ],
+          [
+            -61.8,
+            1826.7
+          ],
+          [
+            -61.819,
+            1826.707
+          ],
+          [
+            -58.287,
+            1835.635
+          ],
+          [
+            -58.2,
+            1835.6
+          ]
+        ],
+        "height": 5.29,
+        "floors": 2
+      },
+      {
+        "name": "Gabled townhouse pair 3",
+        "footprint": [
+          [
+            -48.3,
+            1834.0
+          ],
+          [
+            -49.1,
+            1831.9
+          ],
+          [
+            -40.879,
+            1828.65
+          ],
+          [
+            -44.39,
+            1819.774
+          ],
+          [
+            -53.124,
+            1823.192
+          ],
+          [
+            -48.774,
+            1834.188
+          ]
+        ],
+        "height": 5.16,
+        "floors": 2
+      },
+      {
+        "name": "Gabled townhouse pair 4",
+        "footprint": [
+          [
+            -40.5,
+            1828.5
+          ],
+          [
+            -39.8,
+            1830.4
+          ],
+          [
+            -31.42,
+            1827.067
+          ],
+          [
+            -35.633,
+            1816.417
+          ],
+          [
+            -36.1,
+            1816.6
+          ],
+          [
+            -35.5,
+            1818.4
+          ],
+          [
+            -43.5,
+            1821.5
+          ],
+          [
+            -44.2,
+            1819.7
+          ],
+          [
+            -44.391,
+            1819.775
+          ],
+          [
+            -40.88,
+            1828.65
+          ]
+        ],
+        "height": 5.29,
+        "floors": 2
+      },
+      {
+        "name": "Gabled townhouse pair 5",
+        "footprint": [
+          [
+            -31.0,
+            1826.9
+          ],
+          [
+            -31.7,
+            1825.2
+          ],
+          [
+            -23.4,
+            1822.0
+          ],
+          [
+            -26.9,
+            1813.0
+          ],
+          [
+            -35.634,
+            1816.418
+          ],
+          [
+            -31.421,
+            1827.067
+          ]
+        ],
+        "height": 5.16,
+        "floors": 2
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 9,
+      "position": 0.5926,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    },
+    {
+      "wall": 9,
+      "position": 0.4113,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    },
+    {
+      "wall": 8,
+      "position": 0.576,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    },
+    {
+      "wall": 8,
+      "position": 0.3877,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    },
+    {
+      "wall": 7,
+      "position": 0.5813,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    },
+    {
+      "wall": 7,
+      "position": 0.4093,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    },
+    {
+      "wall": 6,
+      "position": 0.5767,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    },
+    {
+      "wall": 6,
+      "position": 0.3785,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    },
+    {
+      "wall": 5,
+      "position": 0.5607,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    },
+    {
+      "wall": 5,
+      "position": 0.3886,
+      "type": "doors-single",
+      "width": 0.88,
+      "height": 2.04,
+      "recess": 0.18,
+      "doorColor": "#735752",
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 1.25,
+        "depth": 0.91,
+        "rise": 0.26,
+        "material": "roof",
+        "form": "shed"
+      }
+    }
+  ],
+  "walls": {
+    "default": {
+      "bays": {
+        "width": 3.45,
+        "edgeMargin": 0.38
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.56,
+        "height": 1.22,
+        "sill": 0.73,
+        "recess": 0.15,
+        "frameColor": "#e2ddd4",
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 0
+        }
+      },
+      "cornice": {
+        "height": 0.16,
+        "depth": 0.19,
+        "material": "trim"
+      }
+    }
+  },
+  "lidarTrusted": false,
+  "lidarNote": "The regional DSM sampling ends inside the southern row. Eaves follow the stored housing block and adjacent surveyed pairs.",
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof breaks, wall line and orientation traced from the London 2025 orthophoto."
+    }
+  ]
+}

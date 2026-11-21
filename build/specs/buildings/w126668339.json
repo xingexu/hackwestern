@@ -1,0 +1,3453 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668339",
+  "name": "Beaver Hall (Residence)",
+  "status": "refined",
+  "confidence": 0.84,
+  "summary": "A three-level buff-brick walk-up including a low garden level, where paired balcony stacks with solid end panels break up rows of small windows along the long wings.",
+  "style": "residential-brick",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#b89c7e",
+      "secondaryColor": "#b7a994",
+      "unitSize": [
+        0.203,
+        0.067
+      ],
+      "bond": "running",
+      "variation": 0.13,
+      "roughness": 0.85
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#b4a48f",
+      "roughness": 0.83,
+      "variation": 0.06
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#8e8f88",
+      "variation": 0.05,
+      "weathering": 0.3,
+      "roughness": 0.84
+    },
+    "edge": {
+      "kind": "painted-metal",
+      "color": "#524e47",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "doorBrick": {
+      "kind": "brick",
+      "color": "#60483b",
+      "secondaryColor": "#735c4c",
+      "unitSize": [
+        0.203,
+        0.067
+      ],
+      "bond": "running",
+      "variation": 0.13,
+      "roughness": 0.85
+    },
+    "stairPane": {
+      "kind": "glass-curtain",
+      "color": "#72807a",
+      "secondaryColor": "#5a655f"
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 2.38,
+    "typicalHeight": 2.62
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.45,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.14,
+        "height": 1.39,
+        "sill": 0.68,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.045
+        },
+        "frameColor": "#5d5850",
+        "glass": "tinted",
+        "glassColor": "#607273",
+        "surround": "brick-soldier",
+        "sillProjecting": true,
+        "surroundMaterial": "wall",
+        "lintel": true
+      },
+      "base": {
+        "material": "base",
+        "height": 0.28,
+        "projection": 0.04
+      },
+      "parapet": {
+        "type": "plain",
+        "height": 0.12,
+        "material": "edge"
+      },
+      "groundFloor": {
+        "height": 2.38,
+        "windows": {
+          "type": "punched",
+          "width": 1.13,
+          "height": 1.32,
+          "sill": 0.44,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#5d5850",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "brick-soldier",
+          "sillProjecting": true,
+          "surroundMaterial": "wall",
+          "lintel": true
+        }
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4.17,
+          "count": 6,
+          "pattern": "regular",
+          "edgeMargin": 0.18,
+          "groupSize": 2,
+          "groupGap": 0.75
+        },
+        "balconies": {
+          "every": 3,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.46,
+          "rail": "metal",
+          "bayPattern": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "endPanels": true,
+          "infill": "alternating",
+          "material": "trim",
+          "panelMaterial": "trim"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.16666666666666666
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.16666666666666666,
+              0.5
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.5,
+              1.0
+            ],
+            "bays": {
+              "count": 3,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          }
+        ]
+      },
+      "1": {
+        "bays": {
+          "width": 4.33,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 4.04,
+          "count": 11,
+          "pattern": "regular",
+          "edgeMargin": 0.18,
+          "groupSize": 2,
+          "groupGap": 0.75
+        },
+        "balconies": {
+          "every": 3,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.46,
+          "rail": "metal",
+          "bayPattern": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "endPanels": true,
+          "infill": "alternating",
+          "material": "trim",
+          "panelMaterial": "trim"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.18181818181818182
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.18181818181818182,
+              0.36363636363636365
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.36363636363636365,
+              0.7272727272727273
+            ],
+            "bays": {
+              "count": 4,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.7272727272727273,
+              0.9090909090909091
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.9090909090909091,
+              1.0
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          }
+        ]
+      },
+      "3": {
+        "bays": {
+          "width": 3.98,
+          "count": 12,
+          "pattern": "regular",
+          "edgeMargin": 0.18,
+          "groupSize": 2,
+          "groupGap": 0.75
+        },
+        "balconies": {
+          "every": 3,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.46,
+          "rail": "metal",
+          "bayPattern": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "endPanels": true,
+          "infill": "alternating",
+          "material": "trim",
+          "panelMaterial": "trim"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.16666666666666666
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.16666666666666666,
+              0.3333333333333333
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.3333333333333333,
+              0.6666666666666666
+            ],
+            "bays": {
+              "count": 4,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.6666666666666666,
+              0.8333333333333334
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.8333333333333334,
+              1.0
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          }
+        ]
+      },
+      "4": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 4.04,
+          "count": 12,
+          "pattern": "regular",
+          "edgeMargin": 0.18,
+          "groupSize": 2,
+          "groupGap": 0.75
+        },
+        "balconies": {
+          "every": 3,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.46,
+          "rail": "metal",
+          "bayPattern": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "endPanels": true,
+          "infill": "alternating",
+          "material": "trim",
+          "panelMaterial": "trim"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.16666666666666666
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.16666666666666666,
+              0.3333333333333333
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.3333333333333333,
+              0.6666666666666666
+            ],
+            "bays": {
+              "count": 4,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.6666666666666666,
+              0.8333333333333334
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.8333333333333334,
+              1.0
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          }
+        ]
+      },
+      "7": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 4.08,
+          "count": 12,
+          "pattern": "regular",
+          "edgeMargin": 0.18,
+          "groupSize": 2,
+          "groupGap": 0.75
+        },
+        "balconies": {
+          "every": 3,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.46,
+          "rail": "metal",
+          "bayPattern": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "endPanels": true,
+          "infill": "alternating",
+          "material": "trim",
+          "panelMaterial": "trim"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.16666666666666666
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.16666666666666666,
+              0.3333333333333333
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.3333333333333333,
+              0.45
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.45,
+              0.55
+            ],
+            "material": "doorBrick",
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.7,
+              "height": 1.53
+            },
+            "balconies": {
+              "bayPattern": [
+                0
+              ],
+              "floors": []
+            },
+            "sections": [
+              {
+                "start": 0.469,
+                "end": 0.532,
+                "base": 2.7,
+                "top": 6.8,
+                "material": "stairPane",
+                "verticalMullionSpacing": 0.9,
+                "horizontalMullions": 2
+              }
+            ]
+          },
+          {
+            "range": [
+              0.55,
+              0.6666666666666666
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.6666666666666666,
+              0.8333333333333334
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.8333333333333334,
+              1.0
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          }
+        ]
+      },
+      "9": {
+        "bays": {
+          "width": 7.29,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 4.19,
+          "count": 6,
+          "pattern": "regular",
+          "edgeMargin": 0.18,
+          "groupSize": 2,
+          "groupGap": 0.75
+        },
+        "balconies": {
+          "every": 3,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.46,
+          "rail": "metal",
+          "bayPattern": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "endPanels": true,
+          "infill": "alternating",
+          "material": "trim",
+          "panelMaterial": "trim"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.16666666666666666
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          },
+          {
+            "range": [
+              0.16666666666666666,
+              0.5
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                1
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            },
+            "cornice": {
+              "height": 0.21,
+              "depth": 1.38,
+              "material": "trim"
+            },
+            "windows": {
+              "type": "storefront",
+              "width": 2.1,
+              "height": 1.99,
+              "sill": 0.14,
+              "glassColor": "#495b59",
+              "recess": 0.38
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 2.12,
+                "height": 1.95,
+                "sill": 0.1,
+                "recess": 0.25
+              }
+            }
+          },
+          {
+            "range": [
+              0.5,
+              1.0
+            ],
+            "bays": {
+              "count": 3,
+              "edgeMargin": 0.04,
+              "pattern": "regular"
+            },
+            "balconies": {
+              "every": 3,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.46,
+              "rail": "metal",
+              "bayPattern": [
+                0
+              ],
+              "endPanels": true,
+              "infill": "alternating",
+              "material": "trim",
+              "panelMaterial": "trim"
+            }
+          }
+        ]
+      },
+      "11": {
+        "bays": {
+          "width": 7.62,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -238,
+          -142
+        ],
+        "size": [
+          2.85,
+          1.65
+        ],
+        "height": 0.9,
+        "rotation": -21,
+        "material": "trim",
+        "style": "Low rooftop box"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          -230.3,
+          -122.1
+        ],
+        "size": [
+          4.3,
+          3.4
+        ],
+        "height": 3.12,
+        "material": "wall",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -241.3,
+          -151
+        ],
+        "size": [
+          0.68,
+          0.62
+        ],
+        "height": 0.45,
+        "material": "edge",
+        "rotation": 0,
+        "style": "low vent cap"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -222.4,
+          -114.4
+        ],
+        "size": [
+          0.68,
+          0.62
+        ],
+        "height": 0.45,
+        "material": "edge",
+        "rotation": 0,
+        "style": "low vent cap"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -248.8,
+          -81.3
+        ],
+        "size": [
+          0.68,
+          0.62
+        ],
+        "height": 0.45,
+        "material": "edge",
+        "rotation": 0,
+        "style": "low vent cap"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -229.8,
+          -90.3
+        ],
+        "size": [
+          0.68,
+          0.62
+        ],
+        "height": 0.45,
+        "material": "edge",
+        "rotation": 0,
+        "style": "low vent cap"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "102315763",
+      "walls": [
+        4,
+        5
+      ],
+      "note": "The narrow end is largely blank. Long face has three rows, the lowest close to the sidewalk, and paired stacks of balconies with solid end walls. Warm brick sample #b89c7e."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414133",
+      "walls": [
+        5
+      ],
+      "note": "Dark balcony fronts, bright slab edges, groups of small punched openings and a thin dark roof edge."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "102315809",
+      "walls": [
+        8
+      ],
+      "note": "Eastern elevation has garden-level glazing and alternating paired balconies under a mature canopy."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "98467783",
+      "walls": [
+        8
+      ],
+      "note": "Glazed common entrance reached from sidewalk between two projecting balcony groups."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/BHR.jpg",
+      "note": "Three exposed levels and darker recessed balcony areas, with shallow relief in the brickwork."
+    },
+    {
+      "kind": "aerial",
+      "note": "Offset bent wings have a continuous pale flat membrane and scattered small vents."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 7.8 m, P90 7.9 m, maximum 11.26 m above inventory ground. The broad 7.8–7.9 m plateau fits the two raised living floors above a partly lowered garden level."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 8,
+      "position": 0.5,
+      "type": "glass-vestibule",
+      "width": 1.9,
+      "height": 2.15,
+      "recess": 0.65,
+      "surround": "doorBrick"
+    },
+    {
+      "wall": 5,
+      "position": 0.48,
+      "type": "doors-double",
+      "width": 1.75,
+      "height": 2.17,
+      "recess": 0.7
+    }
+  ],
+  "notes": "Short solid balcony end walls alternate with lighter metal fronts. The grouped-bay settings approximate the paired upper balconies and single-width windows between them. Courtyard doors are estimates. Balcony slabs and solid side cheeks are pale concrete. The front rails are metal pickets. The long Beaver parking face has two adjacent balconies, four ordinary window bays, then two adjacent balconies.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Residential wings",
+        "footprint": "inventory",
+        "height": 7.85,
+        "floors": 3
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -254.073,
+            -157.975
+          ],
+          [
+            -251.126,
+            -150.175
+          ],
+          [
+            -252.81,
+            -149.539
+          ],
+          [
+            -255.757,
+            -157.339
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -254.113,
+            -158.051
+          ],
+          [
+            -254.052,
+            -157.892
+          ],
+          [
+            -255.12,
+            -157.489
+          ],
+          [
+            -255.18,
+            -157.648
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -251.166,
+            -150.251
+          ],
+          [
+            -251.106,
+            -150.092
+          ],
+          [
+            -252.173,
+            -149.689
+          ],
+          [
+            -252.233,
+            -149.848
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -235.742,
+            -133.975
+          ],
+          [
+            -232.887,
+            -126.415
+          ],
+          [
+            -234.571,
+            -125.779
+          ],
+          [
+            -237.426,
+            -133.339
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -235.781,
+            -134.051
+          ],
+          [
+            -235.721,
+            -133.892
+          ],
+          [
+            -236.789,
+            -133.489
+          ],
+          [
+            -236.849,
+            -133.648
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -232.927,
+            -126.491
+          ],
+          [
+            -232.867,
+            -126.332
+          ],
+          [
+            -233.934,
+            -125.929
+          ],
+          [
+            -233.994,
+            -126.088
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -227.178,
+            -111.295
+          ],
+          [
+            -224.324,
+            -103.735
+          ],
+          [
+            -226.008,
+            -103.099
+          ],
+          [
+            -228.862,
+            -110.659
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -227.218,
+            -111.371
+          ],
+          [
+            -227.158,
+            -111.212
+          ],
+          [
+            -228.225,
+            -110.809
+          ],
+          [
+            -228.285,
+            -110.968
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -224.363,
+            -103.811
+          ],
+          [
+            -224.303,
+            -103.652
+          ],
+          [
+            -225.371,
+            -103.249
+          ],
+          [
+            -225.431,
+            -103.408
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -230.393,
+            -97.018
+          ],
+          [
+            -237.831,
+            -94.21
+          ],
+          [
+            -238.467,
+            -95.894
+          ],
+          [
+            -231.029,
+            -98.702
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -230.317,
+            -97.057
+          ],
+          [
+            -230.476,
+            -96.997
+          ],
+          [
+            -230.879,
+            -98.065
+          ],
+          [
+            -230.72,
+            -98.125
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -237.755,
+            -94.249
+          ],
+          [
+            -237.914,
+            -94.189
+          ],
+          [
+            -238.318,
+            -95.257
+          ],
+          [
+            -238.159,
+            -95.317
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -252.708,
+            -88.593
+          ],
+          [
+            -260.146,
+            -85.785
+          ],
+          [
+            -260.782,
+            -87.469
+          ],
+          [
+            -253.344,
+            -90.277
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -252.632,
+            -88.632
+          ],
+          [
+            -252.791,
+            -88.572
+          ],
+          [
+            -253.194,
+            -89.64
+          ],
+          [
+            -253.035,
+            -89.7
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -260.07,
+            -85.824
+          ],
+          [
+            -260.229,
+            -85.764
+          ],
+          [
+            -260.633,
+            -86.832
+          ],
+          [
+            -260.474,
+            -86.892
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -255.112,
+            -72.802
+          ],
+          [
+            -247.549,
+            -75.66
+          ],
+          [
+            -246.913,
+            -73.976
+          ],
+          [
+            -254.476,
+            -71.118
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -255.188,
+            -72.762
+          ],
+          [
+            -255.029,
+            -72.823
+          ],
+          [
+            -254.626,
+            -71.755
+          ],
+          [
+            -254.785,
+            -71.695
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -247.625,
+            -75.621
+          ],
+          [
+            -247.466,
+            -75.681
+          ],
+          [
+            -247.062,
+            -74.613
+          ],
+          [
+            -247.221,
+            -74.553
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -232.422,
+            -81.377
+          ],
+          [
+            -224.859,
+            -84.235
+          ],
+          [
+            -224.223,
+            -82.551
+          ],
+          [
+            -231.786,
+            -79.693
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -232.498,
+            -81.337
+          ],
+          [
+            -232.339,
+            -81.398
+          ],
+          [
+            -231.936,
+            -80.33
+          ],
+          [
+            -232.095,
+            -80.27
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -224.935,
+            -84.196
+          ],
+          [
+            -224.776,
+            -84.256
+          ],
+          [
+            -224.372,
+            -83.188
+          ],
+          [
+            -224.531,
+            -83.128
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -211.369,
+            -108.088
+          ],
+          [
+            -214.254,
+            -115.721
+          ],
+          [
+            -212.57,
+            -116.358
+          ],
+          [
+            -209.685,
+            -108.724
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -211.329,
+            -108.012
+          ],
+          [
+            -211.389,
+            -108.171
+          ],
+          [
+            -210.322,
+            -108.574
+          ],
+          [
+            -210.262,
+            -108.415
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -214.214,
+            -115.645
+          ],
+          [
+            -214.274,
+            -115.804
+          ],
+          [
+            -213.207,
+            -116.208
+          ],
+          [
+            -213.147,
+            -116.049
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -220.024,
+            -130.988
+          ],
+          [
+            -222.909,
+            -138.621
+          ],
+          [
+            -221.225,
+            -139.258
+          ],
+          [
+            -218.34,
+            -131.624
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -219.984,
+            -130.912
+          ],
+          [
+            -220.044,
+            -131.071
+          ],
+          [
+            -218.977,
+            -131.474
+          ],
+          [
+            -218.917,
+            -131.315
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -222.869,
+            -138.545
+          ],
+          [
+            -222.929,
+            -138.704
+          ],
+          [
+            -221.862,
+            -139.108
+          ],
+          [
+            -221.802,
+            -138.949
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Projecting concrete cover over paired balconies",
+        "footprint": [
+          [
+            -234.084,
+            -147.585
+          ],
+          [
+            -237.044,
+            -155.425
+          ],
+          [
+            -235.36,
+            -156.06
+          ],
+          [
+            -232.4,
+            -148.22
+          ]
+        ],
+        "baseOffset": 7.6899999999999995,
+        "height": 7.944999999999999,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -234.044,
+            -147.509
+          ],
+          [
+            -234.104,
+            -147.668
+          ],
+          [
+            -233.037,
+            -148.071
+          ],
+          [
+            -232.977,
+            -147.912
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Brick side return at paired balconies",
+        "footprint": [
+          [
+            -237.004,
+            -155.349
+          ],
+          [
+            -237.064,
+            -155.508
+          ],
+          [
+            -235.997,
+            -155.911
+          ],
+          [
+            -235.937,
+            -155.752
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.7299999999999995,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "edge",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Wider bedroom range along the upper drive",
+        "footprint": [
+          [
+            -209.389,
+            -102.991
+          ],
+          [
+            -213.993,
+            -115.174
+          ],
+          [
+            -213.179,
+            -115.482
+          ],
+          [
+            -208.575,
+            -103.299
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 7.864999999999999,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "8": {
+            "material": "wall",
+            "bays": {
+              "count": 4,
+              "edgeMargin": 0.23
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.14,
+              "height": 1.39,
+              "sill": 0.68,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.045
+              },
+              "frameColor": "#5d5850",
+              "glass": "tinted",
+              "glassColor": "#607273",
+              "surround": "brick-soldier",
+              "sillProjecting": true,
+              "surroundMaterial": "wall",
+              "lintel": true
+            },
+            "base": {
+              "material": "base",
+              "height": 0.28,
+              "projection": 0.04
+            },
+            "parapet": {
+              "type": "plain",
+              "height": 0.12,
+              "material": "edge"
+            },
+            "groundFloor": {
+              "height": 2.38,
+              "windows": {
+                "type": "punched",
+                "width": 1.13,
+                "height": 1.32,
+                "sill": 0.44,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.045
+                },
+                "frameColor": "#5d5850",
+                "glass": "tinted",
+                "glassColor": "#526768",
+                "surround": "brick-soldier",
+                "sillProjecting": true,
+                "surroundMaterial": "wall",
+                "lintel": true
+              }
+            },
+            "blank": false,
+            "segments": [],
+            "balconies": {
+              "floors": [],
+              "bayPattern": [
+                0
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}

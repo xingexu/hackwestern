@@ -1,0 +1,210 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2455",
+  "name": "Low playing-field structure",
+  "status": "refined",
+  "confidence": 0.45,
+  "summary": "A pale, low rectangular structure stands alone on the grass. Its ends are slightly angled and a small fixture sits near one end.",
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#aaa99a"
+    },
+    "roof": {
+      "kind": "concrete-smooth",
+      "color": "#b8b4a2",
+      "unitSize": [
+        3,
+        6
+      ],
+      "secondaryColor": "#b2ae9d",
+      "variation": 0.025
+    },
+    "fixture": {
+      "kind": "painted-metal",
+      "color": "#494a42"
+    },
+    "equipment": {
+      "kind": "precast-panel",
+      "color": "#a99e86",
+      "secondaryColor": "#9a907f",
+      "roughness": 0.84
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 1.15,
+    "typicalHeight": 1.15
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "cornice": {
+        "height": 0.08,
+        "depth": 0.05,
+        "material": "wall"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia"
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Pale, oblong surface with clipped corners and a short projection at one end. Roof sample at (345,862)."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 1.15 m, P90 1.19 m, maximum 1.19 m. Nearly uniform top elevation of 1.15–1.19 m supports a platform-scale object."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Sports field and nearby freestanding shelters are visible. This low outline cannot be isolated reliably at ground level.",
+      "frame": "373912878",
+      "walls": [
+        1
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Roadside field view does not identify the small low object.",
+      "frame": "131414623",
+      "walls": [
+        1
+      ]
+    }
+  ],
+  "notes": "Use the original clipped-corner outline. Function, surface composition and small top fitting remain uncertain. Two adjacent field equipment housings have separate footprints in the 2025 aerial. Height and material are estimates from their shadows.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Low field structure",
+        "footprint": "inventory",
+        "height": 1.16,
+        "floors": 1
+      },
+      {
+        "name": "Low fitting at stepped end",
+        "footprint": [
+          [
+            345.88,
+            863.61
+          ],
+          [
+            346.54,
+            863.21
+          ],
+          [
+            346.93,
+            863.84
+          ],
+          [
+            346.27,
+            864.24
+          ]
+        ],
+        "height": 1.51,
+        "floors": 1,
+        "baseOffset": 1.16,
+        "material": "fixture",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "fixture",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North field equipment housing",
+        "footprint": [
+          [
+            327.05,
+            850.7
+          ],
+          [
+            330.12,
+            851.0
+          ],
+          [
+            329.52,
+            857.55
+          ],
+          [
+            326.41,
+            857.24
+          ]
+        ],
+        "height": 3.05,
+        "floors": 1,
+        "material": "equipment",
+        "facade": {
+          "material": "equipment",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "equipment",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "South field equipment housing",
+        "footprint": [
+          [
+            326.9,
+            861.06
+          ],
+          [
+            329.4,
+            859.86
+          ],
+          [
+            331.15,
+            862.95
+          ],
+          [
+            328.66,
+            864.29
+          ]
+        ],
+        "height": 2.45,
+        "floors": 1,
+        "material": "equipment",
+        "facade": {
+          "material": "equipment",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "equipment",
+          "edge": "fascia"
+        }
+      }
+    ]
+  }
+}

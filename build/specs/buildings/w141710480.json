@@ -1,0 +1,1076 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w141710480",
+  "name": "Kresge Building",
+  "status": "refined",
+  "confidence": 0.85,
+  "summary": "Kresge Building has three rows of stone-framed multi-light windows, tall slender buttresses, and a shallow gabled parapet over a pointed stone entry portal on its projecting east block.",
+  "style": "collegiate-gothic",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#c6bba7",
+      "secondaryColor": "#b0a48f",
+      "unitSize": [
+        0.78,
+        0.34
+      ],
+      "variation": 0.13,
+      "roughness": 0.83,
+      "bond": "random-ashlar"
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#858780"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d7cebb"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "rangeRoof": {
+      "kind": "gravel-ballast",
+      "color": "#4c4a3f"
+    },
+    "returnRoof": {
+      "kind": "gravel-ballast",
+      "color": "#77796e",
+      "variation": 0.19
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 4.75,
+    "typicalHeight": 4.55
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.045
+      },
+      "bays": {
+        "width": 4.15,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "punched",
+        "width": 2.15,
+        "height": 2.05,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.16,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.14
+        },
+        "frameColor": "#d6cdbb",
+        "glass": "tinted",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.76,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.13,
+          "depth": 0.07,
+          "material": "trim"
+        },
+        {
+          "at": [
+            10.45
+          ],
+          "height": 0.2,
+          "depth": 0.12,
+          "material": "trim"
+        }
+      ],
+      "buttresses": {
+        "every": 1,
+        "width": 0.56,
+        "depth": 0.5,
+        "stepped": true,
+        "material": "trim",
+        "pinnacles": true,
+        "aboveRoof": 0.4
+      },
+      "cornice": {
+        "height": 0.28,
+        "depth": 0.18,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 3.96,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 4
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 5.11,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 4.6,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 6
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.12,
+          "height": 1.9,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.16,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.14
+          },
+          "frameColor": "#d6cdbb",
+          "glass": "tinted",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "lintel": true
+        },
+        "piers": {
+          "width": 0.42,
+          "depth": 0.42,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true,
+          "aboveRoof": 0.62
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 3.8,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 4
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 4.42,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 4
+        },
+        "buttresses": {
+          "every": 1,
+          "width": 0.62,
+          "depth": 0.65,
+          "stepped": true,
+          "material": "trim",
+          "pinnacles": true,
+          "aboveRoof": 0.4
+        },
+        "piers": {
+          "width": 0.42,
+          "depth": 0.42,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true,
+          "aboveRoof": 0.62
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 4.37,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 8
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 3.82,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "7": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 3.67,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 3
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 4.08,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 6
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          227.77,
+          102.44
+        ],
+        "size": [
+          0.95,
+          1.2
+        ],
+        "height": 0.62,
+        "rotation": -21,
+        "material": "plant",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          232.44,
+          100.65
+        ],
+        "size": [
+          0.95,
+          1.2
+        ],
+        "height": 0.62,
+        "rotation": -21,
+        "material": "plant",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          237.1,
+          98.85
+        ],
+        "size": [
+          0.95,
+          1.2
+        ],
+        "height": 0.62,
+        "rotation": -21,
+        "material": "plant",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          241.77,
+          97.06
+        ],
+        "size": [
+          0.95,
+          1.2
+        ],
+        "height": 0.62,
+        "rotation": -21,
+        "material": "plant",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          221.68,
+          109.4
+        ],
+        "size": [
+          0.78,
+          0.92
+        ],
+        "height": 0.63,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          225.03,
+          108.11
+        ],
+        "size": [
+          0.78,
+          0.92
+        ],
+        "height": 0.63,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          228.38,
+          106.83
+        ],
+        "size": [
+          0.78,
+          0.92
+        ],
+        "height": 0.63,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          231.73,
+          105.54
+        ],
+        "size": [
+          0.78,
+          0.92
+        ],
+        "height": 0.63,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          235.08,
+          104.25
+        ],
+        "size": [
+          0.78,
+          0.92
+        ],
+        "height": 0.63,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          238.43,
+          102.97
+        ],
+        "size": [
+          0.78,
+          0.92
+        ],
+        "height": 0.63,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          241.78,
+          101.68
+        ],
+        "size": [
+          0.78,
+          0.92
+        ],
+        "height": 0.63,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          244.62,
+          100.59
+        ],
+        "size": [
+          0.78,
+          0.92
+        ],
+        "height": 0.63,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          252.2,
+          94.3
+        ],
+        "size": [
+          1.1,
+          1.3
+        ],
+        "height": 0.77,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          256.8,
+          96.8
+        ],
+        "size": [
+          1.1,
+          1.3
+        ],
+        "height": 0.77,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          258.6,
+          100.2
+        ],
+        "size": [
+          1.1,
+          1.3
+        ],
+        "height": 0.77,
+        "material": "plant",
+        "rotation": -21,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          249.4,
+          88.0
+        ],
+        "size": [
+          2.6,
+          2.95
+        ],
+        "height": 0.72,
+        "rotation": -20,
+        "material": "plant",
+        "style": "low roof cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          254.85,
+          94.2
+        ],
+        "size": [
+          2.15,
+          2.65
+        ],
+        "height": 0.72,
+        "rotation": -20,
+        "material": "plant",
+        "style": "low roof cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          257.4,
+          99.8
+        ],
+        "size": [
+          1.85,
+          2.2
+        ],
+        "height": 0.72,
+        "rotation": -20,
+        "material": "plant",
+        "style": "low roof cabinet"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface heights above inventory ground. Median 15.11 m, P90 15.60 m, highest return 21.07 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Original reference colour from a mean image patch centred at (138,118) on a 300 by 300 normalized grid in KB. Raw sRGB #7d766b. Joint colours and unit sizes estimated."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Sunlit roof patch at local [257.6, 104.8] averages #b4b7a7."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/KB.jpg",
+      "note": "Three rows of multi-light windows in ashlar dressings, slender pointed buttress caps and a low gable above the deeply moulded pointed door surround."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "89741155",
+      "walls": [
+        2,
+        4
+      ],
+      "note": "South front is screened by deciduous trees. The projecting pavilion and higher pale stonework appear on the right edge."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "146586499",
+      "walls": [
+        2,
+        4
+      ],
+      "note": "The street view from the south includes the pale masonry complex and projecting stone end. Entrance detailing is clearer in the facilities photograph."
+    },
+    {
+      "kind": "lidar",
+      "note": "The court side at (261,75) returns near grade. The occupied east return remains at the surveyed footprint, with the low roof around 11.4 m."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Projecting entry bay and south return",
+        "footprint": {
+          "clip": [
+            [
+              252.52,
+              116.25
+            ],
+            [
+              250.18,
+              110.58
+            ],
+            [
+              250.18,
+              110.58
+            ],
+            [
+              250.18,
+              110.58
+            ],
+            [
+              248.294,
+              105.674
+            ],
+            [
+              258.3,
+              102.1
+            ],
+            [
+              257.2,
+              98.4
+            ],
+            [
+              261.277,
+              95.898
+            ],
+            [
+              263.46,
+              95.06
+            ],
+            [
+              263.46,
+              95.06
+            ],
+            [
+              268.79,
+              109.37
+            ],
+            [
+              268.79,
+              109.37
+            ],
+            [
+              268.79,
+              109.37
+            ],
+            [
+              265.791,
+              110.638
+            ],
+            [
+              265.791,
+              110.638
+            ],
+            [
+              265.791,
+              110.638
+            ],
+            [
+              265.211,
+              109.266
+            ],
+            [
+              265.21,
+              109.265
+            ],
+            [
+              265.21,
+              109.264
+            ],
+            [
+              265.209,
+              109.264
+            ],
+            [
+              265.209,
+              109.263
+            ],
+            [
+              265.208,
+              109.262
+            ],
+            [
+              265.207,
+              109.262
+            ],
+            [
+              265.206,
+              109.261
+            ],
+            [
+              265.205,
+              109.261
+            ],
+            [
+              265.205,
+              109.261
+            ],
+            [
+              265.204,
+              109.26
+            ],
+            [
+              265.203,
+              109.26
+            ],
+            [
+              265.202,
+              109.26
+            ],
+            [
+              265.201,
+              109.26
+            ],
+            [
+              265.2,
+              109.26
+            ],
+            [
+              265.199,
+              109.261
+            ],
+            [
+              265.198,
+              109.261
+            ],
+            [
+              261.126,
+              110.982
+            ],
+            [
+              261.125,
+              110.983
+            ],
+            [
+              261.124,
+              110.983
+            ],
+            [
+              261.124,
+              110.984
+            ],
+            [
+              261.123,
+              110.984
+            ],
+            [
+              261.122,
+              110.985
+            ],
+            [
+              261.122,
+              110.986
+            ],
+            [
+              261.121,
+              110.987
+            ],
+            [
+              261.121,
+              110.988
+            ],
+            [
+              261.121,
+              110.988
+            ],
+            [
+              261.12,
+              110.989
+            ],
+            [
+              261.12,
+              110.99
+            ],
+            [
+              261.12,
+              110.991
+            ],
+            [
+              261.12,
+              110.992
+            ],
+            [
+              261.12,
+              110.993
+            ],
+            [
+              261.121,
+              110.994
+            ],
+            [
+              261.121,
+              110.995
+            ],
+            [
+              261.702,
+              112.367
+            ],
+            [
+              261.702,
+              112.367
+            ],
+            [
+              261.702,
+              112.367
+            ],
+            [
+              252.52,
+              116.25
+            ],
+            [
+              252.52,
+              116.25
+            ]
+          ]
+        },
+        "height": 11.9,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "material": "returnRoof"
+        }
+      },
+      {
+        "name": "Main stone range",
+        "footprint": {
+          "clip": [
+            [
+              248.167,
+              105.719
+            ],
+            [
+              246.863,
+              102.57
+            ],
+            [
+              248.142,
+              102.079
+            ],
+            [
+              245.599,
+              95.45
+            ],
+            [
+              216.619,
+              106.572
+            ],
+            [
+              218.28,
+              95.78
+            ],
+            [
+              241.12,
+              86.9
+            ],
+            [
+              240.2,
+              84.87
+            ],
+            [
+              250.5,
+              81.0
+            ],
+            [
+              249.22,
+              78.67
+            ],
+            [
+              256.59,
+              76.64
+            ],
+            [
+              263.46,
+              95.06
+            ],
+            [
+              261.277,
+              95.898
+            ],
+            [
+              257.2,
+              98.4
+            ],
+            [
+              258.3,
+              102.1
+            ],
+            [
+              248.294,
+              105.674
+            ],
+            [
+              250.18,
+              110.58
+            ]
+          ]
+        },
+        "height": 15.25,
+        "floors": 4,
+        "material": "wall",
+        "roof": {
+          "material": "rangeRoof"
+        }
+      },
+      {
+        "name": "Projecting gabled stone portal",
+        "footprint": [
+          [
+            261.117,
+            110.986
+          ],
+          [
+            265.207,
+            109.257
+          ],
+          [
+            265.982,
+            111.09
+          ],
+          [
+            261.892,
+            112.819
+          ]
+        ],
+        "height": 12.85,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.2
+          },
+          "gables": {
+            "type": "parapet",
+            "count": 1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.02,
+            "height": 1.8,
+            "sill": 0.89,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.14
+            },
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "frameColor": "#d6cdbb"
+          },
+          "parapet": {
+            "height": 0.78,
+            "type": "coped",
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "South frontage of west laboratory",
+        "footprint": {
+          "clip": [
+            [
+              220.94,
+              112.09
+            ],
+            [
+              215.87,
+              111.44
+            ],
+            [
+              215.87,
+              111.44
+            ],
+            [
+              215.87,
+              111.44
+            ],
+            [
+              216.619,
+              106.572
+            ],
+            [
+              245.599,
+              95.45
+            ],
+            [
+              248.142,
+              102.079
+            ],
+            [
+              246.863,
+              102.57
+            ],
+            [
+              246.714,
+              102.209
+            ],
+            [
+              246.713,
+              102.208
+            ],
+            [
+              246.713,
+              102.207
+            ],
+            [
+              246.712,
+              102.207
+            ],
+            [
+              246.712,
+              102.206
+            ],
+            [
+              246.711,
+              102.205
+            ],
+            [
+              246.71,
+              102.205
+            ],
+            [
+              246.709,
+              102.204
+            ],
+            [
+              246.708,
+              102.204
+            ],
+            [
+              246.708,
+              102.203
+            ],
+            [
+              246.707,
+              102.203
+            ],
+            [
+              246.706,
+              102.203
+            ],
+            [
+              246.705,
+              102.203
+            ],
+            [
+              246.704,
+              102.203
+            ],
+            [
+              246.703,
+              102.203
+            ],
+            [
+              246.702,
+              102.203
+            ],
+            [
+              246.701,
+              102.203
+            ],
+            [
+              220.94,
+              112.09
+            ],
+            [
+              220.94,
+              112.09
+            ]
+          ]
+        },
+        "height": 11.7,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "material": "returnRoof"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 4,
+      "position": 0.69,
+      "type": "gothic-portal",
+      "width": 2.55,
+      "height": 3.9,
+      "recess": 0.85,
+      "surround": "trim",
+      "steps": 4,
+      "doorColor": "#654b39"
+    }
+  ],
+  "notes": "The portal has carved mouldings and a shallow gable between shoulder stones. Buttress caps finish in narrow points. Window tracery is rectangular. Bay counts on obscured faces and dimensions of openings are estimates. The narrow westward range occupies the position of the adjoining Molecular Biology Laboratory on the Western facilities map. The high roof covers the northern spine, with a lower return above the entire south frontage."
+}

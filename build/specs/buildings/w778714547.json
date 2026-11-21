@@ -1,0 +1,288 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714547",
+  "name": "Essex Hall bicycle shelter",
+  "status": "refined",
+  "confidence": 0.95,
+  "summary": "A gently arched green canopy follows the curved forecourt. Green posts on concrete bases hold up see-through roof panels over the bike racks.",
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "painted-metal",
+      "color": "#44655c",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "roof": {
+      "kind": "glass-curtain",
+      "color": "#315b4b",
+      "roughness": 0.46,
+      "unitSize": [
+        1.25,
+        2.9
+      ],
+      "secondaryColor": "#345849",
+      "opacity": 0.81
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#52927f",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b9b9b1"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.2,
+    "typicalHeight": 3.2
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "barrel",
+    "material": "roof",
+    "edge": "fascia",
+    "rise": 0.36,
+    "ridge": "long-axis",
+    "overhang": 0.12,
+    "covering": "Dark green translucent panels on lighter green tubular frames"
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Narrow curved outline arcs from the north court toward the eastern residential wing. Shadow from Essex darkens the roof in the orthophoto."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 3.41 m, P90 3.5 m, maximum 3.53 m. The measured roof sits at approximately 3.4–3.5 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Complete open canopy, slim green tubular posts, translucent bowed segments, diagonal roof framing, round pale concrete feet and bike racks underneath. PIL sampled the canopy at (0.847,0.659) in the original frame.",
+      "frame": "130394519",
+      "walls": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Close approach distinguishes the detached bike shelter from the smaller entry canopy at the building.",
+      "frame": "138541247",
+      "walls": [
+        8,
+        9
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Shelter traces the curve of the paved forecourt and is open to pedestrians on both sides.",
+      "frame": "36076325",
+      "walls": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "kind": "knowledge",
+      "note": "Frame 130394519 shows approximately eight posts supporting the full length. The orthophoto and sunlit street views distinguish the dark green canopy from the brighter green uprights."
+    }
+  ],
+  "notes": "Successive roof sections change direction along the arc. The lower space must remain open between uprights. Bike racks and curved trusses need a shelter primitive. In the orthophoto the dark return continues beneath the residence shadow to z 1145. The four changes of direction follow the existing footprint.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Elevated shelter roof",
+        "footprint": [
+          [
+            89.87,
+            1125.62
+          ],
+          [
+            94.09,
+            1128.44
+          ],
+          [
+            99.1,
+            1134.14
+          ],
+          [
+            101.35,
+            1138.69
+          ],
+          [
+            102.25,
+            1144.81
+          ],
+          [
+            96.82,
+            1145.62
+          ],
+          [
+            96.31,
+            1142.13
+          ],
+          [
+            94.26,
+            1137.23
+          ],
+          [
+            90.8,
+            1133.2
+          ],
+          [
+            86.87,
+            1131.0
+          ]
+        ],
+        "height": 3.18,
+        "floors": 1,
+        "baseOffset": 3.04,
+        "roof": {
+          "form": "barrel",
+          "material": "roof",
+          "edge": "fascia",
+          "rise": 0.36,
+          "ridge": "long-axis",
+          "overhang": 0.12
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "walls": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "width": 0.13,
+      "height": 3.08,
+      "material": "trim",
+      "footing": {
+        "diameter": 0.66,
+        "height": 0.3,
+        "material": "base"
+      },
+      "path": [
+        [
+          89.8,
+          1129.7
+        ],
+        [
+          93.8,
+          1132.1
+        ]
+      ],
+      "columns": 2
+    },
+    {
+      "type": "colonnade",
+      "walls": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "width": 0.13,
+      "height": 3.08,
+      "material": "trim",
+      "footing": {
+        "diameter": 0.66,
+        "height": 0.3,
+        "material": "base"
+      },
+      "path": [
+        [
+          93.8,
+          1132.1
+        ],
+        [
+          97.0,
+          1136.1
+        ]
+      ],
+      "columns": 2
+    },
+    {
+      "type": "colonnade",
+      "walls": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "width": 0.13,
+      "height": 3.08,
+      "material": "trim",
+      "footing": {
+        "diameter": 0.66,
+        "height": 0.3,
+        "material": "base"
+      },
+      "path": [
+        [
+          97.0,
+          1136.1
+        ],
+        [
+          98.8,
+          1140.1
+        ]
+      ],
+      "columns": 2
+    },
+    {
+      "type": "colonnade",
+      "walls": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "width": 0.13,
+      "height": 3.08,
+      "material": "trim",
+      "footing": {
+        "diameter": 0.66,
+        "height": 0.3,
+        "material": "base"
+      },
+      "path": [
+        [
+          98.8,
+          1140.1
+        ],
+        [
+          100.0,
+          1144.7
+        ]
+      ],
+      "columns": 2
+    }
+  ]
+}

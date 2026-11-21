@@ -1,0 +1,1019 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2729",
+  "name": "Perth Drive gazebo",
+  "status": "authored",
+  "confidence": 0.78,
+  "summary": "Small timber gazebo beside the detached stair tower, with a many-sided shingle roof, open posts, and a low railing. The tower partly obscures its roof in the aerial.",
+  "style": "house",
+  "materials": {
+    "wall": {
+      "kind": "wood-siding",
+      "color": "#64513d",
+      "secondaryColor": "#453c30",
+      "unitSize": [
+        0.12,
+        2.3
+      ],
+      "weathering": 0.32
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#766956",
+      "secondaryColor": "#574d3d",
+      "unitSize": [
+        0.31,
+        0.14
+      ]
+    },
+    "trim": {
+      "kind": "wood-siding",
+      "color": "#63513f",
+      "secondaryColor": "#4c4035",
+      "unitSize": [
+        0.13,
+        0.13
+      ]
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.38
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Gazebo eave ring",
+        "height": 2.43,
+        "floors": 1,
+        "footprint": "inventory",
+        "baseOffset": 2.31,
+        "roof": {
+          "form": "pyramid",
+          "material": "roof",
+          "edge": "fascia",
+          "rise": 1.24,
+          "overhang": 0.28,
+          "features": [
+            {
+              "type": "cupola",
+              "center": [
+                239.45,
+                -206.4
+              ],
+              "size": [
+                0.67,
+                0.67
+              ],
+              "height": 0.57,
+              "material": "roof"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Raised octagonal timber deck",
+        "footprint": [
+          [
+            241.1,
+            -204.9
+          ],
+          [
+            241.7,
+            -206.5
+          ],
+          [
+            241,
+            -208
+          ],
+          [
+            239.4,
+            -208.6
+          ],
+          [
+            237.8,
+            -207.9
+          ],
+          [
+            237.2,
+            -206.3
+          ],
+          [
+            237.9,
+            -204.8
+          ],
+          [
+            239.5,
+            -204.2
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.19,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 1 handrail",
+        "footprint": [
+          [
+            241.06021,
+            -204.91492
+          ],
+          [
+            241.66021,
+            -206.51492
+          ],
+          [
+            241.73979,
+            -206.48508
+          ],
+          [
+            241.13979,
+            -204.88508
+          ]
+        ],
+        "baseOffset": 0.99,
+        "height": 1.07,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 1 bottom rail",
+        "footprint": [
+          [
+            241.06021,
+            -204.91492
+          ],
+          [
+            241.66021,
+            -206.51492
+          ],
+          [
+            241.73979,
+            -206.48508
+          ],
+          [
+            241.13979,
+            -204.88508
+          ]
+        ],
+        "baseOffset": 0.26,
+        "height": 0.32,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 2 handrail",
+        "footprint": [
+          [
+            241.66149,
+            -206.48203
+          ],
+          [
+            240.96149,
+            -207.98203
+          ],
+          [
+            241.03851,
+            -208.01797
+          ],
+          [
+            241.73851,
+            -206.51797
+          ]
+        ],
+        "baseOffset": 0.99,
+        "height": 1.07,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 2 bottom rail",
+        "footprint": [
+          [
+            241.66149,
+            -206.48203
+          ],
+          [
+            240.96149,
+            -207.98203
+          ],
+          [
+            241.03851,
+            -208.01797
+          ],
+          [
+            241.73851,
+            -206.51797
+          ]
+        ],
+        "baseOffset": 0.26,
+        "height": 0.32,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 3 handrail",
+        "footprint": [
+          [
+            240.98508,
+            -207.96021
+          ],
+          [
+            239.38508,
+            -208.56021
+          ],
+          [
+            239.41492,
+            -208.63979
+          ],
+          [
+            241.01492,
+            -208.03979
+          ]
+        ],
+        "baseOffset": 0.99,
+        "height": 1.07,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 3 bottom rail",
+        "footprint": [
+          [
+            240.98508,
+            -207.96021
+          ],
+          [
+            239.38508,
+            -208.56021
+          ],
+          [
+            239.41492,
+            -208.63979
+          ],
+          [
+            241.01492,
+            -208.03979
+          ]
+        ],
+        "baseOffset": 0.26,
+        "height": 0.32,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 4 handrail",
+        "footprint": [
+          [
+            239.41703,
+            -208.56106
+          ],
+          [
+            237.81703,
+            -207.86106
+          ],
+          [
+            237.78297,
+            -207.93894
+          ],
+          [
+            239.38297,
+            -208.63894
+          ]
+        ],
+        "baseOffset": 0.99,
+        "height": 1.07,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 4 bottom rail",
+        "footprint": [
+          [
+            239.41703,
+            -208.56106
+          ],
+          [
+            237.81703,
+            -207.86106
+          ],
+          [
+            237.78297,
+            -207.93894
+          ],
+          [
+            239.38297,
+            -208.63894
+          ]
+        ],
+        "baseOffset": 0.26,
+        "height": 0.32,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 5 handrail",
+        "footprint": [
+          [
+            237.83979,
+            -207.88508
+          ],
+          [
+            237.23979,
+            -206.28508
+          ],
+          [
+            237.16021,
+            -206.31492
+          ],
+          [
+            237.76021,
+            -207.91492
+          ]
+        ],
+        "baseOffset": 0.99,
+        "height": 1.07,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 5 bottom rail",
+        "footprint": [
+          [
+            237.83979,
+            -207.88508
+          ],
+          [
+            237.23979,
+            -206.28508
+          ],
+          [
+            237.16021,
+            -206.31492
+          ],
+          [
+            237.76021,
+            -207.91492
+          ]
+        ],
+        "baseOffset": 0.26,
+        "height": 0.32,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 7 handrail",
+        "footprint": [
+          [
+            237.91492,
+            -204.83979
+          ],
+          [
+            239.51492,
+            -204.23979
+          ],
+          [
+            239.48508,
+            -204.16021
+          ],
+          [
+            237.88508,
+            -204.76021
+          ]
+        ],
+        "baseOffset": 0.99,
+        "height": 1.07,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 7 bottom rail",
+        "footprint": [
+          [
+            237.91492,
+            -204.83979
+          ],
+          [
+            239.51492,
+            -204.23979
+          ],
+          [
+            239.48508,
+            -204.16021
+          ],
+          [
+            237.88508,
+            -204.76021
+          ]
+        ],
+        "baseOffset": 0.26,
+        "height": 0.32,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 8 handrail",
+        "footprint": [
+          [
+            239.48297,
+            -204.23894
+          ],
+          [
+            241.08297,
+            -204.93894
+          ],
+          [
+            241.11703,
+            -204.86106
+          ],
+          [
+            239.51703,
+            -204.16106
+          ]
+        ],
+        "baseOffset": 0.99,
+        "height": 1.07,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bay 8 bottom rail",
+        "footprint": [
+          [
+            239.48297,
+            -204.23894
+          ],
+          [
+            241.08297,
+            -204.93894
+          ],
+          [
+            241.11703,
+            -204.86106
+          ],
+          [
+            239.51703,
+            -204.16106
+          ]
+        ],
+        "baseOffset": 0.26,
+        "height": 0.32,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall"
+    }
+  },
+  "roof": {
+    "form": "pyramid",
+    "material": "roof",
+    "edge": "fascia",
+    "rise": 1.24,
+    "overhang": 0.28,
+    "features": []
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          241.1,
+          -204.9
+        ],
+        [
+          241.7,
+          -206.5
+        ],
+        [
+          241,
+          -208
+        ],
+        [
+          239.4,
+          -208.6
+        ],
+        [
+          237.8,
+          -207.9
+        ],
+        [
+          237.2,
+          -206.3
+        ],
+        [
+          237.9,
+          -204.8
+        ],
+        [
+          239.5,
+          -204.2
+        ],
+        [
+          241.1,
+          -204.9
+        ]
+      ],
+      "columns": 8,
+      "height": 2.31,
+      "width": 0.13,
+      "material": "trim"
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          241.1,
+          -204.9
+        ],
+        [
+          241.7,
+          -206.5
+        ]
+      ],
+      "columns": 10,
+      "height": 0.68,
+      "baseOffset": 0.31,
+      "width": 0.065,
+      "material": "trim"
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          241.7,
+          -206.5
+        ],
+        [
+          241,
+          -208
+        ]
+      ],
+      "columns": 10,
+      "height": 0.68,
+      "baseOffset": 0.31,
+      "width": 0.065,
+      "material": "trim"
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          241,
+          -208
+        ],
+        [
+          239.4,
+          -208.6
+        ]
+      ],
+      "columns": 10,
+      "height": 0.68,
+      "baseOffset": 0.31,
+      "width": 0.065,
+      "material": "trim"
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          239.4,
+          -208.6
+        ],
+        [
+          237.8,
+          -207.9
+        ]
+      ],
+      "columns": 10,
+      "height": 0.68,
+      "baseOffset": 0.31,
+      "width": 0.065,
+      "material": "trim"
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          237.8,
+          -207.9
+        ],
+        [
+          237.2,
+          -206.3
+        ]
+      ],
+      "columns": 10,
+      "height": 0.68,
+      "baseOffset": 0.31,
+      "width": 0.065,
+      "material": "trim"
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          237.9,
+          -204.8
+        ],
+        [
+          239.5,
+          -204.2
+        ]
+      ],
+      "columns": 10,
+      "height": 0.68,
+      "baseOffset": 0.31,
+      "width": 0.065,
+      "material": "trim"
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          239.5,
+          -204.2
+        ],
+        [
+          241.1,
+          -204.9
+        ]
+      ],
+      "columns": 10,
+      "height": 0.68,
+      "baseOffset": 0.31,
+      "width": 0.065,
+      "material": "trim"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "39252548",
+      "walls": "all",
+      "note": "Brown shingled roof and open timber columns with a low railing sit in front of the masonry stair tower. Gazebo is at the right edge of the image."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "66576809",
+      "walls": "all",
+      "note": "Low hipped silhouette against the much taller stair. The footprint has no indexed walls."
+    },
+    {
+      "kind": "osm",
+      "note": "The city octagon coincides with an OSM gazebo shelter node.",
+      "url": "https://www.openstreetmap.org/node/14143212784"
+    },
+    {
+      "kind": "aerial",
+      "note": "Small polygonal shelter and pad on the grass beside the stair tower, partly masked by the tower roof in the aerial."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 3.93 m and P90 7.22 m. The small octagon lies directly beside a 16.6 m shaft. The photograph supports a canopy rising roughly 3.7 m above the pad."
+    }
+  ],
+  "notes": "Observed physical elements include an octagonal deck, explicit timber cupola, wooden balustrades with upright balusters, curved wooden knee braces in photos, and an adjacent separate stair. Curved knee braces remain unsupported in the current model, and a separate generic dark shelter still intersects the roof and rail.",
+  "lidarTrusted": false,
+  "lidarNote": "The mapped octagon is about four metres wide beside a much taller tower. Street photographs show approximately 2.4 m of clear height below the roof and a 3.7 m apex. P90 of 7.22 m exceeds the roof height."
+}

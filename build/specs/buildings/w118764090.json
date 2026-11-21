@@ -1,0 +1,637 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764090",
+  "name": "Boundary Layer Wind Tunnel Laboratory",
+  "status": "refined",
+  "confidence": 0.74,
+  "style": "industrial-utility",
+  "summary": "A low laboratory fills the strip between Thompson and Chakma under a pale flat roof stepping around several rectangular returns with small vents.",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#aaa79e",
+      "unitSize": [
+        3.05,
+        6.9
+      ],
+      "secondaryColor": "#929088",
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#b7b0a0",
+      "weathering": 0.62,
+      "variation": 0.34,
+      "secondaryColor": "#938d80"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#ccc9bf"
+    },
+    "service": {
+      "kind": "split-face-block",
+      "color": "#b4ad9e",
+      "unitSize": [
+        0.42,
+        0.2
+      ],
+      "secondaryColor": "#a09a90"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 6.9,
+    "typicalHeight": 6.9
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 5.5,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "trim"
+      },
+      "base": {
+        "height": 0.39,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 3
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.12,
+          "height": 0.96,
+          "sill": 1.42,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "perBay": 2,
+          "spacing": 0.22
+        },
+        "base": {
+          "height": 1.05,
+          "material": "service",
+          "projection": 0.04
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.12,
+          "height": 0.96,
+          "sill": 1.42,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "perBay": 2,
+          "spacing": 0.22
+        },
+        "base": {
+          "height": 1.05,
+          "material": "service",
+          "projection": 0.04
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 3
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.12,
+          "height": 0.96,
+          "sill": 1.42,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "perBay": 2,
+          "spacing": 0.22
+        }
+      },
+      "5": {
+        "windows": {
+          "type": "punched",
+          "width": 1.12,
+          "height": 0.96,
+          "sill": 1.42,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "perBay": 2,
+          "spacing": 0.22
+        },
+        "bays": {
+          "count": 5
+        }
+      },
+      "13": {
+        "windows": {
+          "type": "punched",
+          "width": 1.12,
+          "height": 0.96,
+          "sill": 1.42,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "perBay": 2,
+          "spacing": 0.22
+        },
+        "bays": {
+          "count": 4
+        }
+      },
+      "1": {
+        "base": {
+          "height": 1.05,
+          "material": "service",
+          "projection": 0.04
+        }
+      },
+      "2": {
+        "base": {
+          "height": 1.05,
+          "material": "service",
+          "projection": 0.04
+        }
+      },
+      "3": {
+        "base": {
+          "height": 1.05,
+          "material": "service",
+          "projection": 0.04
+        }
+      },
+      "7": {
+        "base": {
+          "height": 1.05,
+          "material": "service",
+          "projection": 0.04
+        }
+      },
+      "8": {
+        "base": {
+          "height": 1.05,
+          "material": "service",
+          "projection": 0.04
+        }
+      },
+      "9": {
+        "base": {
+          "height": 1.05,
+          "material": "service",
+          "projection": 0.04
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "clerestory",
+        "center": [
+          64,
+          790
+        ],
+        "size": [
+          3.5,
+          19.5
+        ],
+        "height": 1.02,
+        "material": "trim",
+        "rotation": -4,
+        "style": "raised glazed roof monitor"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          70,
+          784
+        ],
+        "size": [
+          0.92,
+          0.92
+        ],
+        "height": 0.55,
+        "material": "trim",
+        "rotation": 0,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          72,
+          790
+        ],
+        "size": [
+          0.92,
+          0.92
+        ],
+        "height": 0.55,
+        "material": "trim",
+        "rotation": 0,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          84,
+          768
+        ],
+        "size": [
+          0.92,
+          0.92
+        ],
+        "height": 0.55,
+        "material": "trim",
+        "rotation": 0,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          92,
+          775
+        ],
+        "size": [
+          0.92,
+          0.92
+        ],
+        "height": 0.55,
+        "material": "trim",
+        "rotation": 0,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          86,
+          795
+        ],
+        "size": [
+          0.92,
+          0.92
+        ],
+        "height": 0.55,
+        "material": "trim",
+        "rotation": 0,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          92,
+          815
+        ],
+        "size": [
+          0.92,
+          0.92
+        ],
+        "height": 0.55,
+        "material": "trim",
+        "rotation": 0,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          77,
+          826
+        ],
+        "size": [
+          0.92,
+          0.92
+        ],
+        "height": 0.55,
+        "material": "trim",
+        "rotation": 0,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          80.8,
+          772
+        ],
+        "size": [
+          1.25,
+          1.6
+        ],
+        "height": 0.21,
+        "material": "trim",
+        "rotation": 0
+      },
+      {
+        "type": "skylight",
+        "center": [
+          69.3,
+          809.6
+        ],
+        "size": [
+          1.25,
+          1.6
+        ],
+        "height": 0.21,
+        "material": "trim",
+        "rotation": 0
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Light weathered roof, intermittent round vents, southwest returns and a long eastern hall."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 6.93 m, 90th percentile 6.99 m, maximum 7.56 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/BLWT.jpg",
+      "note": "University oblique taken before Chakma shows the low laboratory, pale exterior and small dark openings along the ends."
+    },
+    {
+      "kind": "photo",
+      "url": "https://london.ca/sites/default/files/2021-04/2019%20Abstracts.pdf",
+      "note": "The project retained an outside north passage to the tunnel laboratory."
+    },
+    {
+      "kind": "knowledge",
+      "note": "The pre-Chakma university oblique shows pale cladding. Available pixels mix facade and roof at this scale. The current material is uncertain."
+    },
+    {
+      "kind": "lidar",
+      "note": "At z 784–792 the first returns at x 57 and 59 fall to roughly 1 m, between Chakma and the 7–8 m tunnel roof beginning near x 61."
+    },
+    {
+      "kind": "lidar",
+      "note": "The south roof continues through z 834 at x 78 and 79. The roof in the shared court steps around an open strip with near-ground first returns around x 62–67, z 757–762."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "East tunnel hall",
+        "footprint": [
+          [
+            78.42,
+            832.32
+          ],
+          [
+            78.64,
+            835.27
+          ],
+          [
+            87.54,
+            834.6
+          ],
+          [
+            87.0,
+            827.29
+          ],
+          [
+            105.34,
+            825.92
+          ],
+          [
+            100.27,
+            758.22
+          ],
+          [
+            80.5,
+            759.698
+          ],
+          [
+            80.5,
+            770.78
+          ],
+          [
+            80.5,
+            799.0
+          ],
+          [
+            75.0,
+            799.0
+          ],
+          [
+            75.0,
+            832.577
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 6.98,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.36,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "West test bays",
+        "footprint": [
+          [
+            75.0,
+            799.0
+          ],
+          [
+            80.5,
+            799.0
+          ],
+          [
+            80.5,
+            770.78
+          ],
+          [
+            68.66,
+            771.66
+          ],
+          [
+            69.25,
+            779.44
+          ],
+          [
+            65.51,
+            779.72
+          ],
+          [
+            65.3,
+            776.82
+          ],
+          [
+            60.92,
+            777.15
+          ],
+          [
+            63.526,
+            812.0
+          ],
+          [
+            75.0,
+            812.0
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 6.65,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.28,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "West test bays",
+        "footprint": [
+          [
+            80.5,
+            770.78
+          ],
+          [
+            80.5,
+            759.698
+          ],
+          [
+            79.67,
+            759.76
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 6.65,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.28,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "Southwest bay",
+        "footprint": [
+          [
+            75.0,
+            812.0
+          ],
+          [
+            63.526,
+            812.0
+          ],
+          [
+            64.423,
+            824.0
+          ],
+          [
+            75.0,
+            824.0
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 6.42,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.28,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "Southwest end room",
+        "footprint": [
+          [
+            75.0,
+            824.0
+          ],
+          [
+            64.423,
+            824.0
+          ],
+          [
+            65.12,
+            833.32
+          ],
+          [
+            75.0,
+            832.577
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 6.03,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.28,
+            "material": "trim"
+          }
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 8,
+      "position": 0.45,
+      "width": 2.0,
+      "height": 2.45,
+      "type": "doors-double",
+      "steps": 0
+    },
+    {
+      "wall": 4,
+      "position": 0.57,
+      "width": 3,
+      "height": 3.5,
+      "type": "service-door",
+      "steps": 0,
+      "surround": "trim"
+    }
+  ],
+  "notes": "No usable KartaView frame of the laboratory. Side cladding, window rhythm and the precise door positions are inferred from the university oblique and roof access paths."
+}

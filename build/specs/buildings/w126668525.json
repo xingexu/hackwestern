@@ -1,0 +1,1084 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668525",
+  "name": "West Valley Building",
+  "status": "refined",
+  "confidence": 0.72,
+  "summary": "West Valley Building is a long low pale masonry research building with horizontal bands, two visible window levels on the east section, a recessed dark glass slot, and a lower west wing.",
+  "style": "mid-century-modern",
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#ada392",
+      "secondaryColor": "#a79d90",
+      "unitSize": [
+        0.39,
+        0.19
+      ],
+      "variation": 0.07,
+      "roughness": 0.83,
+      "bond": "running",
+      "surface": "horizontal scored masonry"
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#928e7d"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#b7ada4"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "westRoof": {
+      "kind": "membrane",
+      "color": "#7e7b6c"
+    },
+    "shed": {
+      "kind": "corrugated-metal",
+      "color": "#b8b7ad",
+      "unitSize": [
+        0.19,
+        2.4
+      ]
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 5.2,
+    "typicalHeight": 5.2
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.045
+      },
+      "bays": {
+        "width": 5.8,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "punched",
+        "width": 2.1,
+        "height": 3.05,
+        "sill": 0.62,
+        "perBay": 1,
+        "recess": 0.22,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 2,
+          "width": 0.055
+        },
+        "frameColor": "#9fa7a2",
+        "glass": "tinted",
+        "surround": "none"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.45,
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 5.82,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 5
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 5.88,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 16
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 6.06,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 6
+        },
+        "segments": [
+          {
+            "range": [
+              0.43,
+              0.55
+            ],
+            "blank": true,
+            "sections": [
+              {
+                "start": 0.46,
+                "end": 0.51,
+                "base": 0.5,
+                "top": 10.85,
+                "material": "glazing",
+                "horizontalMullions": 3
+              }
+            ]
+          }
+        ]
+      },
+      "3": {
+        "bays": {
+          "width": 5.97,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 7
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 6.27,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 6
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 5.11,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "8": {
+        "windows": {
+          "type": "curtain-wall",
+          "perBay": 0,
+          "sill": 0.15,
+          "height": 4.9,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2
+          }
+        },
+        "blank": true
+      },
+      "9": {
+        "bays": {
+          "width": 5.08,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          72,
+          -32
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          75,
+          -31.4
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          80.5,
+          -30.5
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          87,
+          -29.6
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          94,
+          -28.4
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          100,
+          -27.1
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          75.6,
+          -20
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          82.4,
+          -19
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          89.4,
+          -17.6
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          96,
+          -16.6
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          102.6,
+          -14.9
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          68,
+          -15.3
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          29,
+          -32
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          19,
+          -16
+        ],
+        "size": [
+          0.72,
+          0.76
+        ],
+        "height": 0.44,
+        "material": "plant",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          52.35,
+          -6.76
+        ],
+        "size": [
+          1.25,
+          1.45
+        ],
+        "height": 1.1,
+        "material": "metal",
+        "rotation": 9,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          55.61,
+          -6.23
+        ],
+        "size": [
+          1.25,
+          1.45
+        ],
+        "height": 1.1,
+        "material": "metal",
+        "rotation": 9,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          59.79,
+          -5.54
+        ],
+        "size": [
+          1.25,
+          1.45
+        ],
+        "height": 1.1,
+        "material": "metal",
+        "rotation": 9,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          63.04,
+          -5.0
+        ],
+        "size": [
+          1.25,
+          1.45
+        ],
+        "height": 1.1,
+        "material": "metal",
+        "rotation": 9,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          65.36,
+          -4.62
+        ],
+        "size": [
+          1.25,
+          1.45
+        ],
+        "height": 1.1,
+        "material": "metal",
+        "rotation": 9,
+        "style": "fan"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          48.5,
+          -7.3
+        ],
+        "size": [
+          2.8,
+          1.77
+        ],
+        "height": 0.85,
+        "material": "glazing",
+        "rotation": 9
+      },
+      {
+        "type": "skylight",
+        "center": [
+          36,
+          -37.3
+        ],
+        "size": [
+          0.8,
+          1.1
+        ],
+        "height": 0.19,
+        "rotation": 9,
+        "material": "glazing",
+        "style": "rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          42.5,
+          -36.4
+        ],
+        "size": [
+          0.8,
+          1.1
+        ],
+        "height": 0.19,
+        "rotation": 9,
+        "material": "glazing",
+        "style": "rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          49,
+          -35.4
+        ],
+        "size": [
+          0.8,
+          1.1
+        ],
+        "height": 0.19,
+        "rotation": 9,
+        "material": "glazing",
+        "style": "rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          55.5,
+          -34.4
+        ],
+        "size": [
+          0.8,
+          1.1
+        ],
+        "height": 0.19,
+        "rotation": 9,
+        "material": "glazing",
+        "style": "rectangular rooflight"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 11.23 m, P90 14.86 m, highest return 22.97 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Original reference colour from a mean image patch centred at (115,80) on a 300 by 300 normalized grid in WVB. Raw sRGB #78716b. Joint colours and unit sizes estimated."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [87.06, -15.68] averages #928e7d."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WVB.jpg",
+      "note": "Pale coarse masonry divided by shallow projecting horizontal courses, a tall narrow glazed joint at the return and stacked rectangular windows split by thin silver mullions."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "138034583",
+      "walls": [
+        0
+      ],
+      "note": "Western Road approach is screened by trees. Wall openings could not be counted."
+    },
+    {
+      "kind": "aerial",
+      "note": "Two long adjoining roof plates, the narrower western one set back on the north. Trees overhang the entire south edge."
+    },
+    {
+      "kind": "lidar",
+      "note": "2017 roof grid gives 11.1–11.3 m at multiple points 1–5 m inside the east and north edges of the higher plate. The west roof is about 6.7 m, with 9.7–10.9 m on its north service edge."
+    },
+    {
+      "kind": "lidar",
+      "note": "The strip outside the nominal north edge returns 12.3 m at (40,-37) and (48,-35). A narrow roof crosses the light well near z=-11. The central well at (112,-19) is close to grade."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Lower west range",
+        "footprint": {
+          "clip": [
+            [
+              22.048,
+              -39.123
+            ],
+            [
+              30.773,
+              -37.473
+            ],
+            [
+              30.204,
+              -33.357
+            ],
+            [
+              58.692,
+              -29.41
+            ],
+            [
+              55.11,
+              -3.93
+            ],
+            [
+              39.898,
+              -6.427
+            ],
+            [
+              40.611,
+              -10.767
+            ],
+            [
+              16.46,
+              -14.734
+            ],
+            [
+              15.747,
+              -10.392
+            ],
+            [
+              12.96,
+              -10.85
+            ],
+            [
+              13.808,
+              -16.898
+            ],
+            [
+              15.739,
+              -16.627
+            ],
+            [
+              18.928,
+              -39.354
+            ],
+            [
+              22.02,
+              -38.88
+            ]
+          ]
+        },
+        "height": 7.45,
+        "floors": 2,
+        "material": "wall",
+        "roof": {
+          "material": "westRoof"
+        }
+      },
+      {
+        "name": "East range",
+        "footprint": {
+          "clip": [
+            [
+              70.56,
+              -37.75
+            ],
+            [
+              111.85,
+              -31.45
+            ],
+            [
+              108.6,
+              -12.02
+            ],
+            [
+              105.85,
+              4.41
+            ],
+            [
+              96.561,
+              2.883
+            ],
+            [
+              97.274,
+              -1.458
+            ],
+            [
+              74.052,
+              -5.273
+            ],
+            [
+              73.339,
+              -0.934
+            ],
+            [
+              70.552,
+              -1.392
+            ],
+            [
+              71.2,
+              -5.336
+            ],
+            [
+              55.666,
+              -7.888
+            ],
+            [
+              58.97,
+              -31.39
+            ],
+            [
+              69.58,
+              -29.92
+            ]
+          ]
+        },
+        "height": 11.25,
+        "floors": 2,
+        "material": "wall"
+      },
+      {
+        "name": "North raised service strip",
+        "footprint": {
+          "clip": [
+            [
+              58.97,
+              -31.39
+            ],
+            [
+              58.692,
+              -29.41
+            ],
+            [
+              30.204,
+              -33.357
+            ],
+            [
+              31.026,
+              -39.3
+            ],
+            [
+              32.442,
+              -39.104
+            ],
+            [
+              32.34,
+              -35.08
+            ]
+          ]
+        },
+        "height": 9.7,
+        "floors": 2,
+        "material": "wall",
+        "roof": {
+          "material": "westRoof"
+        }
+      },
+      {
+        "name": "Northwest service headhouse",
+        "footprint": {
+          "clip": [
+            [
+              31.026,
+              -39.3
+            ],
+            [
+              30.773,
+              -37.473
+            ],
+            [
+              22.048,
+              -39.123
+            ],
+            [
+              22.44,
+              -42.51
+            ],
+            [
+              32.48,
+              -40.61
+            ],
+            [
+              32.442,
+              -39.104
+            ]
+          ]
+        },
+        "height": 10.8,
+        "floors": 2,
+        "material": "wall",
+        "roof": {
+          "material": "westRoof"
+        }
+      },
+      {
+        "name": "West rim",
+        "footprint": {
+          "clip": [
+            [
+              17.0,
+              -39.65
+            ],
+            [
+              18.928,
+              -39.354
+            ],
+            [
+              15.739,
+              -16.627
+            ],
+            [
+              13.808,
+              -16.898
+            ]
+          ]
+        },
+        "height": 7.15,
+        "floors": 2,
+        "material": "wall",
+        "roof": {
+          "material": "westRoof"
+        }
+      },
+      {
+        "name": "South metal shed",
+        "footprint": {
+          "clip": [
+            [
+              39.898,
+              -6.427
+            ],
+            [
+              15.747,
+              -10.392
+            ],
+            [
+              16.46,
+              -14.734
+            ],
+            [
+              40.611,
+              -10.767
+            ]
+          ]
+        },
+        "height": 4.4,
+        "floors": 1,
+        "material": "shed",
+        "roof": {
+          "form": "shed",
+          "rise": 0.86,
+          "edge": "none",
+          "material": "shed",
+          "ridge": 279
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "South metal shed",
+        "footprint": {
+          "clip": [
+            [
+              96.561,
+              2.883
+            ],
+            [
+              73.339,
+              -0.934
+            ],
+            [
+              74.052,
+              -5.273
+            ],
+            [
+              97.274,
+              -1.458
+            ]
+          ]
+        },
+        "height": 5.7,
+        "floors": 1,
+        "material": "shed",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "shed",
+          "rise": 0.86,
+          "edge": "none",
+          "material": "shed",
+          "ridge": 279
+        }
+      },
+      {
+        "name": "South service yard enclosure",
+        "footprint": {
+          "clip": [
+            [
+              55.11,
+              -3.93
+            ],
+            [
+              55.666,
+              -7.888
+            ],
+            [
+              71.2,
+              -5.336
+            ],
+            [
+              70.552,
+              -1.392
+            ]
+          ]
+        },
+        "height": 5.3,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "blank": true,
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised narrow north roof over the service strip",
+        "footprint": [
+          [
+            31.8,
+            -39.05
+          ],
+          [
+            68.7,
+            -33.6
+          ],
+          [
+            68.4,
+            -31.37
+          ],
+          [
+            31.4,
+            -36.8
+          ]
+        ],
+        "height": 12.16,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": []
+        },
+        "baseOffset": 9.56,
+        "roof": {
+          "material": "westRoof"
+        }
+      },
+      {
+        "name": "Lower north service bay",
+        "footprint": [
+          [
+            32.2,
+            -37.15
+          ],
+          [
+            68.65,
+            -31.75
+          ],
+          [
+            68.2,
+            -29.2
+          ],
+          [
+            32.0,
+            -34.92
+          ]
+        ],
+        "height": 9.68,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "westRoof"
+        }
+      },
+      {
+        "name": "Service connection across the eastern light well",
+        "footprint": [
+          [
+            119.8,
+            -8.34
+          ],
+          [
+            120.2,
+            -11.26
+          ],
+          [
+            108.7,
+            -12.86
+          ],
+          [
+            108.3,
+            -9.94
+          ]
+        ],
+        "height": 8.05,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "blank": false,
+          "material": "metal",
+          "windows": {
+            "type": "ribbon",
+            "width": 2.4,
+            "height": 1.1,
+            "sill": 0.65
+          },
+          "bays": {
+            "width": 2.6
+          },
+          "bands": []
+        },
+        "baseOffset": 5.65,
+        "roof": {
+          "edge": "fascia",
+          "material": "westRoof"
+        }
+      }
+    ]
+  },
+  "notes": "The higher returns along the southern roof edge include tree crowns. Wall heights use samples in the centres of the roof plates. Bay spacing is estimated from the facilities exterior photograph. Bay counts on obscured faces and dimensions of openings are estimates. Entrance and loading door locations are approximate. The facilities photo shows the slot at an inside corner. The second loading position suggested on the north drive is unconfirmed.",
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.56,
+      "type": "doors-double",
+      "width": 2.1,
+      "height": 2.6,
+      "canopy": {
+        "type": "flat",
+        "depth": 1.8,
+        "width": 3.5,
+        "material": "trim"
+      }
+    },
+    {
+      "wall": 5,
+      "position": 0.56,
+      "type": "loading-dock",
+      "width": 2.9,
+      "height": 2.9
+    }
+  ]
+}

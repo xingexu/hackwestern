@@ -1,0 +1,210 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714481",
+  "name": "Unnamed service-court building",
+  "style": "industrial-utility",
+  "confidence": 0.46,
+  "status": "refined",
+  "summary": "An unnamed utility block in the lab courtyard is a small low rectangular structure with a dark flat roof and rooftop projections, with its walls mostly hidden.",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#a4a098",
+      "unitSize": [
+        2.3,
+        1.1
+      ],
+      "secondaryColor": "#8e8a82",
+      "variation": 0.065,
+      "bond": "stack"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#44413b",
+      "roughness": 0.74,
+      "secondaryColor": "#5e5a51",
+      "variation": 0.16,
+      "surface": "weathered membrane"
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#b6b2aa"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "louvre": {
+      "kind": "corrugated-metal",
+      "color": "#77796e",
+      "unitSize": [
+        0.8,
+        0.1
+      ]
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.6,
+    "typicalHeight": 3.6
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "bays": {
+        "width": 5,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "plain",
+        "height": 0.18,
+        "material": "wall"
+      },
+      "base": {
+        "height": 0.55,
+        "projection": 0.04,
+        "material": "trim"
+      },
+      "blank": true
+    },
+    "byWall": {
+      "3": {
+        "sections": [
+          {
+            "start": 0.32,
+            "end": 0.45,
+            "base": 2.11,
+            "top": 3.09,
+            "material": "louvre",
+            "horizontalMullions": 6
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          398.5,
+          67
+        ],
+        "size": [
+          0.68,
+          0.68
+        ],
+        "height": 0.67,
+        "material": "metal",
+        "rotation": -21,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          401.0,
+          65.8
+        ],
+        "size": [
+          0.8,
+          0.8
+        ],
+        "height": 0.67,
+        "material": "metal",
+        "rotation": -21,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          403.5,
+          64.5
+        ],
+        "size": [
+          0.72,
+          0.72
+        ],
+        "height": 0.67,
+        "material": "metal",
+        "rotation": -21,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          405,
+          63.3
+        ],
+        "size": [
+          0.9,
+          0.9
+        ],
+        "height": 0.67,
+        "material": "metal",
+        "rotation": -21,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          398.5,
+          70.0
+        ],
+        "size": [
+          1.3,
+          3.15
+        ],
+        "height": 0.67,
+        "material": "metal",
+        "rotation": -21,
+        "style": "louvred air handler"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface minus local ground: median 3.79 m, 90th percentile 5.32 m, maximum 9.65 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "Rectangular dark roof in the Biological and Geological Sciences service court. Small bright rectangular projections cluster toward its north end. Canopy obscures its south end."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "height": 3.8,
+        "floors": 1,
+        "footprint": "inventory"
+      }
+    ]
+  },
+  "notes": "The wall finish is inferred. Lidar peaks at the wooded south edge have not been used as a second storey. Materials are provisional analogues where direct sampling is impossible. The west service door and north ventilation grille are inferred. Neither is visible through the courtyard trees.",
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.42,
+      "type": "service-door",
+      "width": 1.06,
+      "height": 2.16
+    }
+  ]
+}

@@ -1,0 +1,598 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764098",
+  "name": "Thompson Engineering Building",
+  "status": "refined",
+  "confidence": 0.85,
+  "style": "contemporary-stone",
+  "summary": "A long pale masonry laboratory block has projecting vertical surrounds grouping lower window rows and small punched windows in a separate row at the parapet.",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#bfb199",
+      "unitSize": [
+        0.61,
+        0.27
+      ],
+      "secondaryColor": "#a79e8b",
+      "bond": "random-ashlar",
+      "variation": 0.21,
+      "roughness": 0.88
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#adb1a1"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c6bda9"
+    },
+    "stairGlass": {
+      "kind": "glass-curtain",
+      "color": "#768c93"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#9a9b94",
+      "surface": "opaque",
+      "roughness": 0.74,
+      "metalness": 0.23
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#b6b4a9"
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.6,
+    "typicalHeight": 4.0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.1,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.55,
+        "height": 2.9,
+        "sill": 0.44,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "glass": "tinted",
+        "frameColor": "#a3a598",
+        "surround": "none",
+        "surroundMaterial": "trim",
+        "sillProjecting": true
+      },
+      "topFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 1.2,
+          "height": 1.89,
+          "sill": 0.71,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "tinted",
+          "frameColor": "#a3a598",
+          "surround": "stone",
+          "surroundMaterial": "trim"
+        }
+      },
+      "parapet": {
+        "height": 0.35,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 4,
+          "width": 4.82,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 10,
+          "width": 4.37,
+          "pattern": "regular"
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 7,
+          "width": 4.76,
+          "pattern": "regular"
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 22,
+          "width": 4.41,
+          "pattern": "regular"
+        },
+        "buttresses": {
+          "width": 0.76,
+          "depth": 0.65,
+          "every": 1,
+          "stepped": true,
+          "fullHeight": false
+        },
+        "bands": [
+          {
+            "at": [
+              13.04
+            ],
+            "height": 0.28,
+            "depth": 0.22,
+            "material": "trim"
+          }
+        ],
+        "segments": [
+          {
+            "range": [
+              0.96,
+              1
+            ],
+            "blank": true,
+            "buttresses": {
+              "width": 0,
+              "depth": 0,
+              "every": 99
+            }
+          }
+        ]
+      },
+      "11": {
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "width": 3.35
+        },
+        "blank": true,
+        "sections": [
+          {
+            "start": 0.65,
+            "end": 1,
+            "base": 0.36,
+            "top": 17.05,
+            "material": "stairGlass",
+            "horizontalMullions": 10,
+            "verticalMullionSpacing": 1.42
+          }
+        ]
+      },
+      "12": {
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "count": 1
+        },
+        "piers": {
+          "every": 99,
+          "width": 0.01
+        },
+        "blank": true,
+        "sections": [
+          {
+            "start": 0,
+            "end": 0.67,
+            "base": 0.36,
+            "top": 17.05,
+            "material": "stairGlass",
+            "horizontalMullions": 10,
+            "verticalMullionSpacing": 1.42
+          }
+        ]
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "5": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "6": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "8": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "14": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "15": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "13": {
+        "blank": true
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          120.65,
+          789.9
+        ],
+        "size": [
+          1.2,
+          14.5
+        ],
+        "height": 2.0,
+        "material": "trim",
+        "rotation": -4,
+        "style": "linear duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          119.7,
+          774.25
+        ],
+        "size": [
+          6.7,
+          4.1
+        ],
+        "height": 3.65,
+        "material": "trim",
+        "rotation": -4,
+        "style": "twin rooftop air handler",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "chimney",
+        "center": [
+          119.2,
+          777.3
+        ],
+        "size": [
+          1.04,
+          1.04
+        ],
+        "height": 4.9,
+        "material": "plant",
+        "rotation": 0,
+        "style": "metal exhaust flue"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          119.8,
+          785.0
+        ],
+        "size": [
+          1.2,
+          1.2
+        ],
+        "height": 5.05,
+        "material": "plant",
+        "rotation": 0,
+        "style": "metal exhaust flue"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          120.4,
+          795.9
+        ],
+        "size": [
+          1,
+          1
+        ],
+        "height": 4.15,
+        "material": "plant",
+        "rotation": 0,
+        "style": "metal exhaust flue"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          116.5,
+          738.7
+        ],
+        "size": [
+          2.3,
+          2.1
+        ],
+        "height": 1.3,
+        "material": "plant",
+        "rotation": 0,
+        "fanGrid": [
+          1,
+          1
+        ],
+        "style": "condenser fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          120,
+          749.1
+        ],
+        "size": [
+          2,
+          2.5
+        ],
+        "height": 1.48,
+        "material": "plant",
+        "rotation": 0,
+        "fanGrid": [
+          1,
+          1
+        ],
+        "style": "condenser fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          121.9,
+          807.2
+        ],
+        "size": [
+          1.23,
+          13.0
+        ],
+        "height": 1.7,
+        "material": "plant",
+        "rotation": -4,
+        "style": "linear exhaust duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          118.1,
+          775.3
+        ],
+        "size": [
+          6.25,
+          1.22
+        ],
+        "height": 2.2,
+        "material": "plant",
+        "rotation": -38,
+        "style": "diagonal duct"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          119.1,
+          774.3
+        ],
+        "size": [
+          0.9,
+          0.9
+        ],
+        "height": 5.3,
+        "material": "plant",
+        "rotation": 0,
+        "style": "round exhaust flue"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Long north-south roof with a raised mechanical strip over its southern half. A narrow glass stair is visible at the north end."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 18.16 m, 90th percentile 23.98 m, maximum 29.43 m."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "126865227",
+      "walls": [
+        10,
+        11,
+        12
+      ],
+      "note": "Long facade along the drive has projecting window surrounds, a narrow glazed vertical joint at the corner, and smaller top openings."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/TEB.jpg",
+      "note": "Glazed stair strip, buff masonry, upper punched row and a flat projecting entrance canopy."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Main wall colour sampled with PIL from Western Facilities exterior photograph. 300 × 300 pixel reference, patch centred at (46, 101), 7 × 7 pixels."
+    },
+    {
+      "kind": "lidar",
+      "note": "The cross arm is near z 777, with 23–25 m returns on the plant and 31–32 m at its north exhausts. The teaching roof at z 762 is about 17–18 m."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Teaching block",
+        "height": 17.6,
+        "floors": 4,
+        "footprint": "inventory"
+      },
+      {
+        "name": "Roof plant room",
+        "footprint": [
+          [
+            111.473,
+            767.296
+          ],
+          [
+            115.112,
+            818.066
+          ],
+          [
+            128.527,
+            817.104
+          ],
+          [
+            124.888,
+            766.334
+          ]
+        ],
+        "height": 23.95,
+        "baseOffset": 17.6,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "West return of roof plant",
+        "footprint": [
+          [
+            115.743,
+            773.578
+          ],
+          [
+            116.337,
+            781.857
+          ],
+          [
+            108.457,
+            782.422
+          ],
+          [
+            107.863,
+            774.143
+          ]
+        ],
+        "baseOffset": 17.6,
+        "height": 23.8,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Exhaust manifold along plant room",
+        "footprint": [
+          [
+            118.186,
+            776.579
+          ],
+          [
+            119.86,
+            800.52
+          ],
+          [
+            118.414,
+            800.621
+          ],
+          [
+            116.74,
+            776.68
+          ]
+        ],
+        "baseOffset": 24.18,
+        "height": 25.22,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "flat",
+          "material": "plant",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 10,
+      "position": 0.91,
+      "width": 2.6,
+      "height": 2.8,
+      "type": "doors-double",
+      "steps": 0,
+      "canopy": {
+        "type": "flat",
+        "width": 5.25,
+        "depth": 2.45,
+        "material": "trim",
+        "columns": 0
+      }
+    },
+    {
+      "wall": 7,
+      "position": 0.46,
+      "width": 2.55,
+      "height": 2.8,
+      "type": "doors-double",
+      "steps": 0
+    }
+  ],
+  "notes": "West-side bays and the south door are estimates. The roof plant includes exposed exhaust ductwork over a long screened enclosure."
+}

@@ -1,0 +1,2467 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w527547917",
+  "name": "Western Interdisciplinary Research Building",
+  "style": "contemporary-glass",
+  "confidence": 0.86,
+  "status": "refined",
+  "summary": "Western Interdisciplinary Research Building is a seven-storey glazed slab with pale side panels interrupted by tall blue glass slots, set above a dark recessed ground storey and paired with a lower perpendicular east wing.",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#c4c2b9",
+      "unitSize": [
+        3.0,
+        4.95
+      ],
+      "secondaryColor": "#b7b5ad",
+      "variation": 0.032,
+      "bond": "stack"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#d8dccf",
+      "roughness": 0.74
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#aeada9"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#8fabb6",
+      "unitSize": [
+        1.2,
+        1.65
+      ],
+      "secondaryColor": "#a6b8bf",
+      "roughness": 0.12
+    },
+    "spandrel": {
+      "kind": "spandrel-glass",
+      "color": "#839ba5"
+    },
+    "fins": {
+      "kind": "painted-metal",
+      "color": "#56656b"
+    },
+    "soffit": {
+      "kind": "painted-metal",
+      "color": "#384246"
+    },
+    "baseGlass": {
+      "kind": "glass-curtain",
+      "color": "#475a60",
+      "unitSize": [
+        1.3,
+        4
+      ]
+    },
+    "louvre": {
+      "kind": "corrugated-metal",
+      "color": "#50585c",
+      "unitSize": [
+        0.76,
+        0.12
+      ],
+      "surface": "louvred"
+    },
+    "greenSpandrel": {
+      "kind": "spandrel-glass",
+      "color": "#91a5a2"
+    },
+    "serviceRoof": {
+      "kind": "membrane",
+      "color": "#a3a49b",
+      "secondaryColor": "#82857c",
+      "variation": 0.1
+    }
+  },
+  "floors": {
+    "count": 7,
+    "groundFloorHeight": 5.7,
+    "typicalHeight": 4.95
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "slot",
+        "width": 1.05,
+        "height": 4.4,
+        "sill": 0.05,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "frameColor": "#57676f",
+        "glass": "reflective"
+      },
+      "bays": {
+        "width": 2.1,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "plain",
+        "height": 0.38,
+        "material": "wall"
+      },
+      "base": {
+        "height": 0.15,
+        "projection": 0.01,
+        "material": "metal"
+      },
+      "groundFloor": {
+        "material": "spandrel",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 2.0,
+          "height": 4.85,
+          "sill": 0.03,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "dark"
+        }
+      },
+      "cornice": {
+        "height": 0.28,
+        "depth": 0.04,
+        "material": "fins"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 19,
+          "width": 1.47
+        },
+        "material": "glass",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 1.44,
+          "height": 4.45,
+          "sill": 0.08,
+          "perBay": 1,
+          "recess": 0.025,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.078
+          },
+          "glass": "reflective",
+          "glassColor": "#86a6b2",
+          "frameColor": "#52646c"
+        },
+        "topFloor": {
+          "material": "louvre",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "bands": [],
+        "floorOverrides": {
+          "0": {
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.035,
+              "height": 5.12,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          },
+          "1": {
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.035,
+              "height": 5.12,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          },
+          "2": {
+            "material": "spandrel",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.66,
+              "height": 3.75,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          },
+          "3": {
+            "material": "spandrel",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.66,
+              "height": 3.75,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          },
+          "4": {
+            "material": "spandrel",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.66,
+              "height": 3.75,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          }
+        },
+        "spandrelMaterial": "greenSpandrel",
+        "verticalSpandrels": {
+          "every": 5,
+          "width": 0.48,
+          "material": "greenSpandrel"
+        },
+        "sections": [
+          {
+            "start": 0,
+            "end": 1,
+            "base": 32.55,
+            "top": 37.45,
+            "material": "louvre",
+            "verticalMullionSpacing": 1.2,
+            "horizontalMullions": 29
+          },
+          {
+            "start": 0,
+            "end": 1,
+            "base": 16.05,
+            "top": 16.970000000000002,
+            "material": "greenSpandrel",
+            "verticalMullionSpacing": 0.74,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0,
+            "end": 1,
+            "base": 21.29,
+            "top": 22.21,
+            "material": "greenSpandrel",
+            "verticalMullionSpacing": 0.74,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0,
+            "end": 1,
+            "base": 26.52,
+            "top": 27.44,
+            "material": "greenSpandrel",
+            "verticalMullionSpacing": 0.74,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0,
+            "end": 1,
+            "base": 31.76,
+            "top": 32.68,
+            "material": "greenSpandrel",
+            "verticalMullionSpacing": 0.74,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.015,
+            "end": 0.985,
+            "base": 5.7,
+            "top": 16.04,
+            "material": "glass",
+            "verticalMullionSpacing": 0.73,
+            "horizontalMullions": 3
+          }
+        ]
+      },
+      "1": {
+        "bays": {
+          "count": 11,
+          "width": 1.47
+        },
+        "material": "glass",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 1.44,
+          "height": 4.45,
+          "sill": 0.08,
+          "perBay": 1,
+          "recess": 0.025,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.078
+          },
+          "glass": "reflective",
+          "glassColor": "#86a6b2",
+          "frameColor": "#52646c"
+        },
+        "topFloor": {
+          "material": "louvre",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "bands": [],
+        "floorOverrides": {
+          "0": {
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.035,
+              "height": 5.12,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          },
+          "1": {
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.035,
+              "height": 5.12,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          },
+          "2": {
+            "material": "spandrel",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.66,
+              "height": 3.75,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          },
+          "3": {
+            "material": "spandrel",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.66,
+              "height": 3.75,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          },
+          "4": {
+            "material": "spandrel",
+            "windows": {
+              "type": "curtain-wall",
+              "sill": 0.66,
+              "height": 3.75,
+              "frameColor": "#506169",
+              "glassColor": "#8eaebb",
+              "glass": "reflective",
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.075
+              },
+              "surround": "none"
+            }
+          }
+        },
+        "spandrelMaterial": "greenSpandrel",
+        "verticalSpandrels": {
+          "every": 5,
+          "width": 0.48,
+          "material": "greenSpandrel"
+        },
+        "sections": [
+          {
+            "start": 0,
+            "end": 1,
+            "base": 32.55,
+            "top": 37.45,
+            "material": "louvre",
+            "verticalMullionSpacing": 1.2,
+            "horizontalMullions": 29
+          },
+          {
+            "start": 0,
+            "end": 1,
+            "base": 16.05,
+            "top": 16.970000000000002,
+            "material": "greenSpandrel",
+            "verticalMullionSpacing": 0.74,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0,
+            "end": 1,
+            "base": 21.29,
+            "top": 22.21,
+            "material": "greenSpandrel",
+            "verticalMullionSpacing": 0.74,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0,
+            "end": 1,
+            "base": 26.52,
+            "top": 27.44,
+            "material": "greenSpandrel",
+            "verticalMullionSpacing": 0.74,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0,
+            "end": 1,
+            "base": 31.76,
+            "top": 32.68,
+            "material": "greenSpandrel",
+            "verticalMullionSpacing": 0.74,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.015,
+            "end": 0.985,
+            "base": 5.7,
+            "top": 16.04,
+            "material": "glass",
+            "verticalMullionSpacing": 0.73,
+            "horizontalMullions": 3
+          }
+        ]
+      },
+      "2": {
+        "bays": {
+          "width": 4.9,
+          "pattern": "irregular"
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.12,
+          "height": 5.04,
+          "sill": 0.01,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "glass": "reflective",
+          "glassColor": "#5076a0",
+          "frameColor": "#627988"
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          }
+        },
+        "sections": [
+          {
+            "start": 0,
+            "end": 1,
+            "base": 33.35,
+            "top": 37.42,
+            "material": "louvre",
+            "horizontalMullions": 24
+          }
+        ]
+      },
+      "3": {
+        "bays": {
+          "width": 4.9,
+          "pattern": "irregular"
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.12,
+          "height": 5.04,
+          "sill": 0.01,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "glass": "reflective",
+          "glassColor": "#5076a0",
+          "frameColor": "#627988"
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          }
+        },
+        "sections": [
+          {
+            "start": 0,
+            "end": 1,
+            "base": 33.35,
+            "top": 37.42,
+            "material": "louvre",
+            "horizontalMullions": 24
+          }
+        ]
+      },
+      "4": {
+        "bays": {
+          "count": 18,
+          "width": 2.15
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 3.45,
+          "height": 2.75,
+          "sill": 0.75,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#5d737d"
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 4.9,
+          "pattern": "irregular"
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.12,
+          "height": 5.04,
+          "sill": 0.01,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "glass": "reflective",
+          "glassColor": "#5076a0",
+          "frameColor": "#627988"
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          }
+        },
+        "sections": []
+      },
+      "6": {
+        "bays": {
+          "width": 4.9,
+          "pattern": "irregular"
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.12,
+          "height": 5.04,
+          "sill": 0.01,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "glass": "reflective",
+          "glassColor": "#5076a0",
+          "frameColor": "#627988"
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          }
+        },
+        "sections": []
+      },
+      "7": {
+        "bays": {
+          "width": 4.9,
+          "pattern": "irregular"
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.12,
+          "height": 5.04,
+          "sill": 0.01,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "glass": "reflective",
+          "glassColor": "#5076a0",
+          "frameColor": "#627988"
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          }
+        },
+        "sections": []
+      },
+      "8": {
+        "bays": {
+          "count": 15,
+          "width": 2.11
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 3.45,
+          "height": 2.75,
+          "sill": 0.75,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#5d737d"
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 4.9,
+          "pattern": "irregular"
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.12,
+          "height": 5.04,
+          "sill": 0.01,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "glass": "reflective",
+          "glassColor": "#5076a0",
+          "frameColor": "#627988"
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "material": "wall"
+          }
+        },
+        "sections": []
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          464.85,
+          -64.65
+        ],
+        "size": [
+          7.4,
+          4.1
+        ],
+        "height": 1.35,
+        "rotation": 41,
+        "material": "metal"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          484.85,
+          -55.65
+        ],
+        "size": [
+          5,
+          3.5
+        ],
+        "height": 1.2,
+        "rotation": 41,
+        "material": "metal"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          476.35,
+          -61.15
+        ],
+        "size": [
+          9.25,
+          6.8
+        ],
+        "height": 2.6,
+        "material": "louvre",
+        "rotation": 43
+      },
+      {
+        "type": "chimney",
+        "center": [
+          479.85,
+          -58.45
+        ],
+        "size": [
+          1.5,
+          1.5
+        ],
+        "height": 2.2,
+        "material": "metal",
+        "rotation": 0
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          471.6,
+          -69.3
+        ],
+        "size": [
+          3,
+          1.8
+        ],
+        "height": 1.4,
+        "rotation": 42,
+        "material": "metal"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          473.9,
+          -67.4
+        ],
+        "size": [
+          2.8,
+          1.8
+        ],
+        "height": 1.4,
+        "rotation": 42,
+        "material": "metal"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          476.2,
+          -65.1
+        ],
+        "size": [
+          2.8,
+          1.6
+        ],
+        "height": 1.25,
+        "rotation": 42,
+        "material": "metal"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface minus local ground: median 33.46 m, 90th percentile 37.6 m, maximum 38.91 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WIRB.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Exposed pale slab edge with irregular blue vertical glazed slots and a deep glazed setback at grade. Construction sheeting appears at the top in this older frame.",
+      "frame": "62270901",
+      "walls": [
+        2
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Street-facing end is a tall glass grid, with fine vertical divisions and differing horizontal spandrels.",
+      "frame": "39252487",
+      "walls": [
+        1
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Finished glass at grade wraps the corner below the overhanging opaque facade.",
+      "frame": "373914092",
+      "walls": [
+        1,
+        2
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "Tall slab along the southwest approach intersects a lower east wing. Local roof samples separate the 37 m and 16 m plateaus."
+    },
+    {
+      "kind": "photo",
+      "note": "PIL mean wall or glazing sample, source-pixel rectangle (x, y, width, height) (251, 130, 4, 4) gives #9c9b97.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WIRB.jpg"
+    },
+    {
+      "kind": "kartaview",
+      "walls": [
+        1,
+        2
+      ],
+      "frame": "62270901",
+      "note": "Slots end well above the undercroft on the side facing the road. The finished university photo shows continuous lower glazing on the end wall and stronger horizontal spandrels only higher up."
+    },
+    {
+      "kind": "kartaview",
+      "walls": [
+        1,
+        2
+      ],
+      "frame": "62270901",
+      "note": "The pale side plane projects over a shadowed, recessed ground floor. Narrow framing returns toward the glazed end."
+    },
+    {
+      "kind": "lidar",
+      "note": "Across the slab and wing, shifting the plan roughly 5 m west and 3 m south fits 1 m roof returns better. The long occupied slab returns 37–39 m and the rear service court about 32 m. The broad exposed roof is light in the 2025 photograph."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Tall research slab",
+        "height": 37.45,
+        "floors": 6,
+        "footprint": [
+          [
+            472.746,
+            -58.668
+          ],
+          [
+            455.561,
+            -73.558
+          ],
+          [
+            454.94,
+            -73.27
+          ],
+          [
+            432.06,
+            -46.14
+          ],
+          [
+            439.7,
+            -37.34
+          ],
+          [
+            442.07,
+            -34.06
+          ],
+          [
+            465.29,
+            -50.86
+          ],
+          [
+            465.619,
+            -50.569
+          ]
+        ],
+        "baseOffset": 5.65,
+        "wallProfiles": {
+          "0": {
+            "bays": {
+              "count": 19,
+              "width": 1.47
+            },
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "width": 1.44,
+              "height": 4.45,
+              "sill": 0.08,
+              "perBay": 1,
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.078
+              },
+              "glass": "reflective",
+              "glassColor": "#86a6b2",
+              "frameColor": "#52646c"
+            },
+            "topFloor": {
+              "material": "louvre",
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "bands": [],
+            "floorOverrides": {
+              "0": {
+                "material": "glass",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.035,
+                  "height": 5.12,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "1": {
+                "material": "glass",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.035,
+                  "height": 5.12,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "2": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "3": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "4": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              }
+            },
+            "spandrelMaterial": "greenSpandrel",
+            "verticalSpandrels": {
+              "every": 5,
+              "width": 0.48,
+              "material": "greenSpandrel"
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 32.55,
+                "top": 37.45,
+                "material": "louvre",
+                "verticalMullionSpacing": 1.2,
+                "horizontalMullions": 29
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 16.05,
+                "top": 16.970000000000002,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 21.29,
+                "top": 22.21,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 26.52,
+                "top": 27.44,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 31.76,
+                "top": 32.68,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0.015,
+                "end": 0.985,
+                "base": 5.7,
+                "top": 16.04,
+                "material": "glass",
+                "verticalMullionSpacing": 0.73,
+                "horizontalMullions": 3
+              }
+            ]
+          },
+          "1": {
+            "bays": {
+              "count": 11,
+              "width": 1.47
+            },
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "width": 1.44,
+              "height": 4.45,
+              "sill": 0.08,
+              "perBay": 1,
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.078
+              },
+              "glass": "reflective",
+              "glassColor": "#86a6b2",
+              "frameColor": "#52646c"
+            },
+            "topFloor": {
+              "material": "louvre",
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "bands": [],
+            "floorOverrides": {
+              "0": {
+                "material": "glass",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.035,
+                  "height": 5.12,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "1": {
+                "material": "glass",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.035,
+                  "height": 5.12,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "2": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "3": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "4": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              }
+            },
+            "spandrelMaterial": "greenSpandrel",
+            "verticalSpandrels": {
+              "every": 5,
+              "width": 0.48,
+              "material": "greenSpandrel"
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 32.55,
+                "top": 37.45,
+                "material": "louvre",
+                "verticalMullionSpacing": 1.2,
+                "horizontalMullions": 29
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 16.05,
+                "top": 16.970000000000002,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 21.29,
+                "top": 22.21,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 26.52,
+                "top": 27.44,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 31.76,
+                "top": 32.68,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0.015,
+                "end": 0.985,
+                "base": 5.7,
+                "top": 16.04,
+                "material": "glass",
+                "verticalMullionSpacing": 0.73,
+                "horizontalMullions": 3
+              }
+            ]
+          },
+          "2": {
+            "bays": {
+              "width": 4.9,
+              "pattern": "irregular"
+            },
+            "windows": {
+              "type": "slot",
+              "width": 1.12,
+              "height": 5.04,
+              "sill": 0.01,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              },
+              "glass": "reflective",
+              "glassColor": "#5076a0",
+              "frameColor": "#627988"
+            },
+            "floorOverrides": {
+              "0": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              },
+              "1": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              }
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 33.35,
+                "top": 37.42,
+                "material": "louvre",
+                "horizontalMullions": 24
+              }
+            ]
+          },
+          "3": {
+            "bays": {
+              "width": 4.9,
+              "pattern": "irregular"
+            },
+            "windows": {
+              "type": "slot",
+              "width": 1.12,
+              "height": 5.04,
+              "sill": 0.01,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              },
+              "glass": "reflective",
+              "glassColor": "#5076a0",
+              "frameColor": "#627988"
+            },
+            "floorOverrides": {
+              "0": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              },
+              "1": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              }
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 33.35,
+                "top": 37.42,
+                "material": "louvre",
+                "horizontalMullions": 24
+              }
+            ]
+          },
+          "4": {
+            "bays": {
+              "count": 18,
+              "width": 2.15
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 3.45,
+              "height": 2.75,
+              "sill": 0.75,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1,
+                "width": 0.055
+              },
+              "frameColor": "#5d737d"
+            }
+          },
+          "9": {
+            "bays": {
+              "width": 4.9,
+              "pattern": "irregular"
+            },
+            "windows": {
+              "type": "slot",
+              "width": 1.12,
+              "height": 5.04,
+              "sill": 0.01,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              },
+              "glass": "reflective",
+              "glassColor": "#5076a0",
+              "frameColor": "#627988"
+            },
+            "floorOverrides": {
+              "0": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              },
+              "1": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              }
+            },
+            "sections": []
+          }
+        }
+      },
+      {
+        "name": "Lower perpendicular wing",
+        "height": 16.1,
+        "floors": 3,
+        "footprint": [
+          [
+            465.9,
+            -50.32
+          ],
+          [
+            472.21,
+            -57.3
+          ],
+          [
+            495.66,
+            -36.09
+          ],
+          [
+            501.88,
+            -42.95
+          ],
+          [
+            495.04,
+            -49.13
+          ],
+          [
+            500.51,
+            -55.18
+          ],
+          [
+            483.338,
+            -70.705
+          ],
+          [
+            465.619,
+            -50.569
+          ]
+        ],
+        "facade": {
+          "windows": {
+            "type": "ribbon",
+            "width": 3.45,
+            "height": 2.75,
+            "sill": 0.75,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.055
+            }
+          }
+        },
+        "wallProfiles": {
+          "7": {
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "width": 1.6,
+              "height": 4.6,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 2,
+                "width": 0.06
+              },
+              "sill": 0.08,
+              "frameColor": "#586971"
+            },
+            "spandrelMaterial": "spandrel",
+            "piers": {
+              "width": 0.49,
+              "depth": 0.35,
+              "every": 7,
+              "material": "wall"
+            }
+          },
+          "8": {
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "width": 1.6,
+              "height": 4.6,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 2,
+                "width": 0.06
+              },
+              "sill": 0.08,
+              "frameColor": "#586971"
+            },
+            "spandrelMaterial": "spandrel",
+            "piers": {
+              "width": 0.49,
+              "depth": 0.35,
+              "every": 7,
+              "material": "wall"
+            }
+          }
+        }
+      },
+      {
+        "name": "Recessed glazed base of high block",
+        "footprint": [
+          [
+            461.702,
+            -76.403
+          ],
+          [
+            434.15,
+            -43.733
+          ],
+          [
+            439.7,
+            -37.34
+          ],
+          [
+            442.07,
+            -34.06
+          ],
+          [
+            465.29,
+            -50.86
+          ],
+          [
+            465.619,
+            -50.569
+          ],
+          [
+            483.338,
+            -70.705
+          ],
+          [
+            471.84,
+            -81.1
+          ]
+        ],
+        "height": 5.65,
+        "floors": 1,
+        "material": "baseGlass",
+        "roof": {
+          "form": "flat",
+          "material": "soffit",
+          "edge": "fascia",
+          "overhang": 0
+        },
+        "facade": {
+          "material": "baseGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 1.45,
+            "height": 5.3,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.06
+            },
+            "sill": 0.08,
+            "frameColor": "#54636a",
+            "glassColor": "#46595f"
+          },
+          "bays": {
+            "width": 1.45
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          }
+        }
+      },
+      {
+        "name": "Full-height precast blade",
+        "footprint": [
+          [
+            464.206,
+            -52.051
+          ],
+          [
+            463.801,
+            -51.758
+          ],
+          [
+            465.607,
+            -49.262
+          ],
+          [
+            466.012,
+            -49.555
+          ]
+        ],
+        "height": 37.63,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "wall"
+        },
+        "baseOffset": 5.65
+      },
+      {
+        "name": "Full-height precast blade",
+        "footprint": [
+          [
+            441.637,
+            -35.721
+          ],
+          [
+            441.232,
+            -35.428
+          ],
+          [
+            443.037,
+            -32.933
+          ],
+          [
+            443.442,
+            -33.226
+          ]
+        ],
+        "height": 37.63,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "wall"
+        },
+        "baseOffset": 5.65
+      },
+      {
+        "name": "Full-height precast blade",
+        "footprint": [
+          [
+            433.612,
+            -46.775
+          ],
+          [
+            433.293,
+            -47.16
+          ],
+          [
+            430.921,
+            -45.195
+          ],
+          [
+            431.24,
+            -44.81
+          ]
+        ],
+        "height": 37.63,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "wall"
+        },
+        "baseOffset": 5.65
+      },
+      {
+        "name": "Recessed high mechanical court",
+        "height": 32.35,
+        "floors": 5,
+        "footprint": [
+          [
+            483.338,
+            -70.705
+          ],
+          [
+            471.84,
+            -81.1
+          ],
+          [
+            455.561,
+            -73.558
+          ],
+          [
+            472.746,
+            -58.668
+          ]
+        ],
+        "baseOffset": 5.65,
+        "wallProfiles": {
+          "0": {
+            "bays": {
+              "count": 19,
+              "width": 1.47
+            },
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "width": 1.44,
+              "height": 4.45,
+              "sill": 0.08,
+              "perBay": 1,
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.078
+              },
+              "glass": "reflective",
+              "glassColor": "#86a6b2",
+              "frameColor": "#52646c"
+            },
+            "topFloor": {
+              "material": "louvre",
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "bands": [],
+            "floorOverrides": {
+              "0": {
+                "material": "glass",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.035,
+                  "height": 5.12,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "1": {
+                "material": "glass",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.035,
+                  "height": 5.12,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "2": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "3": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "4": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              }
+            },
+            "spandrelMaterial": "greenSpandrel",
+            "verticalSpandrels": {
+              "every": 5,
+              "width": 0.48,
+              "material": "greenSpandrel"
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 32.55,
+                "top": 37.45,
+                "material": "louvre",
+                "verticalMullionSpacing": 1.2,
+                "horizontalMullions": 29
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 16.05,
+                "top": 16.970000000000002,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 21.29,
+                "top": 22.21,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 26.52,
+                "top": 27.44,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 31.76,
+                "top": 32.68,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0.015,
+                "end": 0.985,
+                "base": 5.7,
+                "top": 16.04,
+                "material": "glass",
+                "verticalMullionSpacing": 0.73,
+                "horizontalMullions": 3
+              }
+            ]
+          },
+          "1": {
+            "bays": {
+              "count": 11,
+              "width": 1.47
+            },
+            "material": "glass",
+            "windows": {
+              "type": "curtain-wall",
+              "width": 1.44,
+              "height": 4.45,
+              "sill": 0.08,
+              "perBay": 1,
+              "recess": 0.025,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.078
+              },
+              "glass": "reflective",
+              "glassColor": "#86a6b2",
+              "frameColor": "#52646c"
+            },
+            "topFloor": {
+              "material": "louvre",
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "bands": [],
+            "floorOverrides": {
+              "0": {
+                "material": "glass",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.035,
+                  "height": 5.12,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "1": {
+                "material": "glass",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.035,
+                  "height": 5.12,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "2": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "3": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              },
+              "4": {
+                "material": "spandrel",
+                "windows": {
+                  "type": "curtain-wall",
+                  "sill": 0.66,
+                  "height": 3.75,
+                  "frameColor": "#506169",
+                  "glassColor": "#8eaebb",
+                  "glass": "reflective",
+                  "recess": 0.025,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 1,
+                    "width": 0.075
+                  },
+                  "surround": "none"
+                }
+              }
+            },
+            "spandrelMaterial": "greenSpandrel",
+            "verticalSpandrels": {
+              "every": 5,
+              "width": 0.48,
+              "material": "greenSpandrel"
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 32.55,
+                "top": 37.45,
+                "material": "louvre",
+                "verticalMullionSpacing": 1.2,
+                "horizontalMullions": 29
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 16.05,
+                "top": 16.970000000000002,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 21.29,
+                "top": 22.21,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 26.52,
+                "top": 27.44,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 31.76,
+                "top": 32.68,
+                "material": "greenSpandrel",
+                "verticalMullionSpacing": 0.74,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0.015,
+                "end": 0.985,
+                "base": 5.7,
+                "top": 16.04,
+                "material": "glass",
+                "verticalMullionSpacing": 0.73,
+                "horizontalMullions": 3
+              }
+            ]
+          },
+          "2": {
+            "bays": {
+              "width": 4.9,
+              "pattern": "irregular"
+            },
+            "windows": {
+              "type": "slot",
+              "width": 1.12,
+              "height": 5.04,
+              "sill": 0.01,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              },
+              "glass": "reflective",
+              "glassColor": "#5076a0",
+              "frameColor": "#627988"
+            },
+            "floorOverrides": {
+              "0": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              },
+              "1": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              }
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 33.35,
+                "top": 37.42,
+                "material": "louvre",
+                "horizontalMullions": 24
+              }
+            ]
+          },
+          "3": {
+            "bays": {
+              "width": 4.9,
+              "pattern": "irregular"
+            },
+            "windows": {
+              "type": "slot",
+              "width": 1.12,
+              "height": 5.04,
+              "sill": 0.01,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              },
+              "glass": "reflective",
+              "glassColor": "#5076a0",
+              "frameColor": "#627988"
+            },
+            "floorOverrides": {
+              "0": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              },
+              "1": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              }
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 33.35,
+                "top": 37.42,
+                "material": "louvre",
+                "horizontalMullions": 24
+              }
+            ]
+          },
+          "4": {
+            "bays": {
+              "count": 18,
+              "width": 2.15
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 3.45,
+              "height": 2.75,
+              "sill": 0.75,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1,
+                "width": 0.055
+              },
+              "frameColor": "#5d737d"
+            }
+          },
+          "9": {
+            "bays": {
+              "width": 4.9,
+              "pattern": "irregular"
+            },
+            "windows": {
+              "type": "slot",
+              "width": 1.12,
+              "height": 5.04,
+              "sill": 0.01,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              },
+              "glass": "reflective",
+              "glassColor": "#5076a0",
+              "frameColor": "#627988"
+            },
+            "floorOverrides": {
+              "0": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              },
+              "1": {
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "material": "wall"
+              }
+            },
+            "sections": []
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "serviceRoof",
+          "edge": "parapet"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.67,
+      "type": "glass-vestibule",
+      "width": 3.5,
+      "height": 3.5,
+      "recess": 1.15,
+      "at": [
+        449.733,
+        -39.604
+      ]
+    }
+  ],
+  "notes": "Vision glass and opaque glass alternate in unequal vertical strips. At grade the glazed volume recedes behind the overhanging side wall."
+}

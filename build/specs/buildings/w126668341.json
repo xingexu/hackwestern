@@ -1,0 +1,2778 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668341",
+  "name": "Lambton Hall (Residence)",
+  "status": "refined",
+  "confidence": 0.92,
+  "summary": "An orange-red brick residence trimmed with cream bands, projecting window bays, and a small pedimented blue-green entrance canopy, stepping down from an eight-storey central block to six- and four-storey wings.",
+  "style": "postmodern",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#c16b49",
+      "secondaryColor": "#ba866d",
+      "unitSize": [
+        0.203,
+        0.067
+      ],
+      "bond": "running",
+      "variation": 0.13,
+      "roughness": 0.85
+    },
+    "base": {
+      "kind": "precast-panel",
+      "color": "#d4c09d",
+      "secondaryColor": "#c8b597",
+      "unitSize": [
+        0.41,
+        0.2
+      ],
+      "variation": 0.035
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#e3cbb1",
+      "secondaryColor": "#b9a892",
+      "unitSize": [
+        1.6,
+        0.2
+      ]
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#b3b5a6",
+      "variation": 0.05,
+      "weathering": 0.12,
+      "roughness": 0.84
+    },
+    "canopy": {
+      "kind": "painted-metal",
+      "color": "#63929d",
+      "metalness": 0.04,
+      "roughness": 0.58
+    },
+    "centralRoof": {
+      "kind": "membrane",
+      "color": "#48494a",
+      "variation": 0.05,
+      "weathering": 0.12,
+      "roughness": 0.84
+    },
+    "soffit": {
+      "kind": "painted-metal",
+      "color": "#c6c5bb",
+      "unitSize": [
+        1.21,
+        0.6
+      ],
+      "roughness": 0.83
+    }
+  },
+  "floors": {
+    "count": 8,
+    "groundFloorHeight": 3.25,
+    "typicalHeight": 2.83
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 5,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.05,
+        "height": 1.35,
+        "sill": 0.77,
+        "perBay": 2,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 0,
+          "width": 0.045
+        },
+        "frameColor": "#dedfda",
+        "glass": "tinted",
+        "glassColor": "#70888e",
+        "surround": "brick-soldier",
+        "sillProjecting": true,
+        "surroundMaterial": "wall",
+        "spacing": 0.32
+      },
+      "base": {
+        "height": 0.23,
+        "projection": 0.055,
+        "material": "base"
+      },
+      "parapet": {
+        "height": 0.28,
+        "type": "coped",
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": [
+            6.08,
+            11.82,
+            17.52,
+            23.21
+          ],
+          "height": 0.21,
+          "depth": 0.085,
+          "material": "trim"
+        }
+      ],
+      "groundFloor": {
+        "material": "base",
+        "windows": {
+          "surround": "none",
+          "surroundMaterial": "base",
+          "sillProjecting": false
+        }
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 5.74,
+          "count": 8,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 5.27,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 7.35,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 5.94,
+          "count": 5,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.4,
+            "height": 1.45,
+            "sill": 1,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "frameColor": "#457b80",
+            "glass": "tinted",
+            "glassColor": "#526768",
+            "surround": "none",
+            "sillProjecting": false,
+            "surroundMaterial": "base"
+          },
+          "material": "base"
+        },
+        "cornice": {
+          "height": 0.22,
+          "depth": 0.13,
+          "material": "trim"
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 5.83,
+          "count": 9,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 10.07,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "punched",
+          "perBay": 1,
+          "width": 1.1,
+          "height": 1.3
+        },
+        "gables": {
+          "type": "parapet",
+          "count": 1
+        }
+      },
+      "7": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 7.35,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 5.67,
+          "count": 11,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 5.71,
+          "count": 7,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 5.67,
+          "count": 7,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "12": {
+        "bays": {
+          "width": 4.96,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "gables": {
+          "type": "parapet",
+          "count": 1
+        }
+      },
+      "13": {
+        "bays": {
+          "width": 7.4,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "14": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "gables": {
+          "type": "parapet",
+          "count": 1
+        }
+      },
+      "15": {
+        "bays": {
+          "width": 9.12,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "gables": {
+          "type": "parapet",
+          "count": 1
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -50.3,
+          -257.4
+        ],
+        "size": [
+          3.4,
+          2.3
+        ],
+        "height": 1.4,
+        "material": "base",
+        "rotation": 9
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -41.5,
+          -223.5
+        ],
+        "size": [
+          2.05,
+          4.55
+        ],
+        "height": 1.08,
+        "material": "trim",
+        "rotation": 9,
+        "style": "narrow rooftop air handler"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -42.18,
+          -218.85
+        ],
+        "size": [
+          0.74,
+          5.25
+        ],
+        "height": 0.34,
+        "material": "trim",
+        "rotation": 9,
+        "style": "low duct run"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "73976461",
+      "walls": [
+        4
+      ],
+      "note": "Paired punched openings, brick soldier heads, cream bands, and projecting multi-pane window bays flank the entry. Blue-green posts and a split triangular canopy crown. Sunlit red brick sampled #dd987b, lit canopy paint #80b1be."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "73976455",
+      "walls": [
+        2,
+        4,
+        5
+      ],
+      "note": "Tall central range rises behind the blue-green forecourt walkway. Pale masonry continues across the ground floor."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "73976447",
+      "walls": [
+        5,
+        6
+      ],
+      "note": "Long low wing with blank stepped end, horizontal light bands and projecting brick bays."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/LAHR.jpg",
+      "note": "Eight levels at the entrance, paired small windows alternating with projecting grouped windows, canopy on round columns."
+    },
+    {
+      "kind": "aerial",
+      "note": "Three flat-roofed volumes in a bent arrangement, with a mechanical enclosure at the junction, and entries approached from the courtyard."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 17.54 m, P90 25.19 m, maximum 29.05 m above inventory ground. Northwest plateau 17.7 m, long southern plateau 12.0 m, central parapet about 24 m with rooftop plant up to 29.05 m."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Northwest residential wing",
+        "footprint": {
+          "clip": [
+            [
+              -121.563,
+              -318.914
+            ],
+            [
+              -66.252,
+              -310.154
+            ],
+            [
+              -75.184,
+              -253.757
+            ],
+            [
+              -130.495,
+              -262.517
+            ]
+          ]
+        },
+        "height": 17.7,
+        "floors": 6
+      },
+      {
+        "name": "Taller central entrance block",
+        "footprint": {
+          "clip": [
+            [
+              -67.19,
+              -304.23
+            ],
+            [
+              -21.76,
+              -297.03
+            ],
+            [
+              -29.75,
+              -246.56
+            ],
+            [
+              -75.18,
+              -253.76
+            ]
+          ]
+        },
+        "height": 23.95,
+        "floors": 8,
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "centralRoof"
+        }
+      },
+      {
+        "name": "Low wing beside Western Road",
+        "footprint": {
+          "clip": [
+            [
+              -53.46,
+              -250.32
+            ],
+            [
+              -27.78,
+              -246.25
+            ],
+            [
+              -36.36,
+              -192.02
+            ],
+            [
+              -62.04,
+              -196.09
+            ]
+          ]
+        },
+        "height": 12.04,
+        "floors": 4
+      },
+      {
+        "name": "Projecting entrance-front bedroom bay",
+        "footprint": [
+          [
+            -73.209,
+            -253.655
+          ],
+          [
+            -64.386,
+            -252.452
+          ],
+          [
+            -64.296,
+            -253.116
+          ],
+          [
+            -73.119,
+            -254.319
+          ]
+        ],
+        "height": 23.95,
+        "baseOffset": 3.12,
+        "floors": 7,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 2,
+            "width": 4.45,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        }
+      },
+      {
+        "name": "Projecting entrance-front bedroom bay",
+        "footprint": [
+          [
+            -51.005,
+            -250.628
+          ],
+          [
+            -46.946,
+            -250.074
+          ],
+          [
+            -46.855,
+            -250.738
+          ],
+          [
+            -50.914,
+            -251.291
+          ]
+        ],
+        "height": 23.95,
+        "baseOffset": 3.12,
+        "floors": 7,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "width": 4.1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        }
+      },
+      {
+        "name": "Pediment on the entrance porch",
+        "footprint": [
+          [
+            -61.381,
+            -252.739
+          ],
+          [
+            -56.03,
+            -252.009
+          ],
+          [
+            -56.579,
+            -247.977
+          ],
+          [
+            -61.93,
+            -248.706
+          ]
+        ],
+        "height": 3.03,
+        "baseOffset": 2.92,
+        "floors": 1,
+        "material": "canopy",
+        "facade": {
+          "material": "canopy",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "canopy"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "canopy"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "material": "canopy",
+          "edge": "fascia",
+          "rise": 0.83,
+          "ridge": 187.8,
+          "overhang": 0.07
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -107.178,
+            -294.983
+          ],
+          [
+            -104.483,
+            -290.987
+          ],
+          [
+            -105.147,
+            -290.54
+          ],
+          [
+            -107.841,
+            -294.536
+          ]
+        ],
+        "height": 17.7,
+        "baseOffset": 3.12,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -97.555,
+            -280.711
+          ],
+          [
+            -94.861,
+            -276.715
+          ],
+          [
+            -95.524,
+            -276.267
+          ],
+          [
+            -98.218,
+            -280.264
+          ]
+        ],
+        "height": 17.7,
+        "baseOffset": 3.12,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -87.933,
+            -266.438
+          ],
+          [
+            -85.238,
+            -262.442
+          ],
+          [
+            -85.902,
+            -261.995
+          ],
+          [
+            -88.596,
+            -265.991
+          ]
+        ],
+        "height": 17.7,
+        "baseOffset": 3.12,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -47.855,
+            -244.765
+          ],
+          [
+            -48.845,
+            -239.967
+          ],
+          [
+            -49.628,
+            -240.129
+          ],
+          [
+            -48.639,
+            -244.927
+          ]
+        ],
+        "height": 12.04,
+        "baseOffset": 3.12,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -51.389,
+            -227.629
+          ],
+          [
+            -52.378,
+            -222.83
+          ],
+          [
+            -53.161,
+            -222.992
+          ],
+          [
+            -52.172,
+            -227.79
+          ]
+        ],
+        "height": 12.04,
+        "baseOffset": 3.12,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -54.922,
+            -210.492
+          ],
+          [
+            -55.911,
+            -205.694
+          ],
+          [
+            -56.695,
+            -205.855
+          ],
+          [
+            -55.705,
+            -210.653
+          ]
+        ],
+        "height": 12.04,
+        "baseOffset": 3.12,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -36.972,
+            -206.812
+          ],
+          [
+            -35.726,
+            -214.378
+          ],
+          [
+            -36.811,
+            -214.556
+          ],
+          [
+            -38.057,
+            -206.991
+          ]
+        ],
+        "height": 12.04,
+        "baseOffset": 3.12,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -33.809,
+            -226.382
+          ],
+          [
+            -32.564,
+            -233.948
+          ],
+          [
+            -33.59,
+            -234.117
+          ],
+          [
+            -34.836,
+            -226.551
+          ]
+        ],
+        "height": 12.04,
+        "baseOffset": 3.12,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -31.623,
+            -246.429
+          ],
+          [
+            -30.671,
+            -252.211
+          ],
+          [
+            -29.536,
+            -252.024
+          ],
+          [
+            -30.488,
+            -246.242
+          ]
+        ],
+        "height": 12.04,
+        "baseOffset": 3.12,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -34.785,
+            -263.406
+          ],
+          [
+            -39.504,
+            -264.275
+          ],
+          [
+            -39.359,
+            -265.062
+          ],
+          [
+            -34.64,
+            -264.193
+          ]
+        ],
+        "height": 23.95,
+        "baseOffset": 3.12,
+        "floors": 7,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "centralRoof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -51.637,
+            -266.509
+          ],
+          [
+            -56.355,
+            -267.378
+          ],
+          [
+            -56.21,
+            -268.164
+          ],
+          [
+            -51.492,
+            -267.296
+          ]
+        ],
+        "height": 23.95,
+        "baseOffset": 3.12,
+        "floors": 7,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "centralRoof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -71.51,
+            -274.51
+          ],
+          [
+            -74.121,
+            -278.493
+          ],
+          [
+            -73.452,
+            -278.932
+          ],
+          [
+            -70.841,
+            -274.949
+          ]
+        ],
+        "height": 17.7,
+        "baseOffset": 3.12,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Projecting bedroom bay",
+        "footprint": [
+          [
+            -80.835,
+            -288.734
+          ],
+          [
+            -83.447,
+            -292.717
+          ],
+          [
+            -82.778,
+            -293.156
+          ],
+          [
+            -80.166,
+            -289.173
+          ]
+        ],
+        "height": 17.7,
+        "baseOffset": 3.12,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.16
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.49,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none",
+            "surroundMaterial": "wall",
+            "frameColor": "#dedfda",
+            "glassColor": "#70888e",
+            "recess": 0.1
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.25,
+              "height": 1.49,
+              "sill": 0.72,
+              "perBay": 1
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.2,
+            "material": "trim"
+          },
+          "base": {
+            "material": "wall",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Brick stair tower above central block",
+        "footprint": [
+          [
+            -39.105,
+            -259.298
+          ],
+          [
+            -40.481,
+            -250.607
+          ],
+          [
+            -47.395,
+            -251.702
+          ],
+          [
+            -46.019,
+            -260.393
+          ]
+        ],
+        "height": 28.92,
+        "baseOffset": 23.95,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [
+            {
+              "at": [
+                27.6
+              ],
+              "height": 0.2,
+              "depth": 0.08,
+              "material": "trim"
+            }
+          ],
+          "parapet": {
+            "type": "coped",
+            "height": 0.18,
+            "material": "trim"
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "centralRoof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Covered entrance porch roof",
+        "footprint": [
+          [
+            -74.734,
+            -254.559
+          ],
+          [
+            -49.412,
+            -251.107
+          ],
+          [
+            -49.81,
+            -248.184
+          ],
+          [
+            -75.132,
+            -251.637
+          ]
+        ],
+        "height": 3.04,
+        "baseOffset": 2.82,
+        "floors": 1,
+        "material": "canopy",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "canopy"
+          },
+          "material": "canopy",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "centralRoof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Porch column foot",
+        "footprint": [
+          [
+            -74.262,
+            -251.863
+          ],
+          [
+            -74.308,
+            -251.722
+          ],
+          [
+            -74.428,
+            -251.635
+          ],
+          [
+            -74.576,
+            -251.635
+          ],
+          [
+            -74.696,
+            -251.722
+          ],
+          [
+            -74.742,
+            -251.863
+          ],
+          [
+            -74.696,
+            -252.004
+          ],
+          [
+            -74.576,
+            -252.091
+          ],
+          [
+            -74.428,
+            -252.091
+          ],
+          [
+            -74.308,
+            -252.004
+          ]
+        ],
+        "height": 0.49,
+        "baseOffset": 0.012,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "material": "base",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round porch column",
+        "footprint": [
+          [
+            -74.407,
+            -251.863
+          ],
+          [
+            -74.425,
+            -251.807
+          ],
+          [
+            -74.473,
+            -251.773
+          ],
+          [
+            -74.531,
+            -251.773
+          ],
+          [
+            -74.579,
+            -251.807
+          ],
+          [
+            -74.597,
+            -251.863
+          ],
+          [
+            -74.579,
+            -251.919
+          ],
+          [
+            -74.531,
+            -251.953
+          ],
+          [
+            -74.473,
+            -251.953
+          ],
+          [
+            -74.425,
+            -251.919
+          ]
+        ],
+        "height": 2.97,
+        "baseOffset": 0.49,
+        "floors": 1,
+        "material": "canopy",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "canopy"
+          },
+          "material": "canopy",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "canopy",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Porch column foot",
+        "footprint": [
+          [
+            -68.939,
+            -251.138
+          ],
+          [
+            -68.985,
+            -250.997
+          ],
+          [
+            -69.105,
+            -250.91
+          ],
+          [
+            -69.253,
+            -250.91
+          ],
+          [
+            -69.373,
+            -250.997
+          ],
+          [
+            -69.419,
+            -251.138
+          ],
+          [
+            -69.373,
+            -251.279
+          ],
+          [
+            -69.253,
+            -251.366
+          ],
+          [
+            -69.105,
+            -251.366
+          ],
+          [
+            -68.985,
+            -251.279
+          ]
+        ],
+        "height": 0.49,
+        "baseOffset": 0.012,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "material": "base",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round porch column",
+        "footprint": [
+          [
+            -69.084,
+            -251.138
+          ],
+          [
+            -69.102,
+            -251.082
+          ],
+          [
+            -69.15,
+            -251.048
+          ],
+          [
+            -69.208,
+            -251.048
+          ],
+          [
+            -69.256,
+            -251.082
+          ],
+          [
+            -69.274,
+            -251.138
+          ],
+          [
+            -69.256,
+            -251.194
+          ],
+          [
+            -69.208,
+            -251.228
+          ],
+          [
+            -69.15,
+            -251.228
+          ],
+          [
+            -69.102,
+            -251.194
+          ]
+        ],
+        "height": 2.97,
+        "baseOffset": 0.49,
+        "floors": 1,
+        "material": "canopy",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "canopy"
+          },
+          "material": "canopy",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "canopy",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Porch column foot",
+        "footprint": [
+          [
+            -63.939,
+            -250.456
+          ],
+          [
+            -63.985,
+            -250.315
+          ],
+          [
+            -64.105,
+            -250.228
+          ],
+          [
+            -64.253,
+            -250.228
+          ],
+          [
+            -64.373,
+            -250.315
+          ],
+          [
+            -64.419,
+            -250.456
+          ],
+          [
+            -64.373,
+            -250.597
+          ],
+          [
+            -64.253,
+            -250.684
+          ],
+          [
+            -64.105,
+            -250.684
+          ],
+          [
+            -63.985,
+            -250.597
+          ]
+        ],
+        "height": 0.49,
+        "baseOffset": 0.012,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "material": "base",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round porch column",
+        "footprint": [
+          [
+            -64.084,
+            -250.456
+          ],
+          [
+            -64.102,
+            -250.4
+          ],
+          [
+            -64.15,
+            -250.366
+          ],
+          [
+            -64.208,
+            -250.366
+          ],
+          [
+            -64.256,
+            -250.4
+          ],
+          [
+            -64.274,
+            -250.456
+          ],
+          [
+            -64.256,
+            -250.512
+          ],
+          [
+            -64.208,
+            -250.546
+          ],
+          [
+            -64.15,
+            -250.546
+          ],
+          [
+            -64.102,
+            -250.512
+          ]
+        ],
+        "height": 2.97,
+        "baseOffset": 0.49,
+        "floors": 1,
+        "material": "canopy",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "canopy"
+          },
+          "material": "canopy",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "canopy",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Porch column foot",
+        "footprint": [
+          [
+            -61.64,
+            -248.861
+          ],
+          [
+            -61.686,
+            -248.72
+          ],
+          [
+            -61.806,
+            -248.633
+          ],
+          [
+            -61.954,
+            -248.633
+          ],
+          [
+            -62.074,
+            -248.72
+          ],
+          [
+            -62.12,
+            -248.861
+          ],
+          [
+            -62.074,
+            -249.002
+          ],
+          [
+            -61.954,
+            -249.089
+          ],
+          [
+            -61.806,
+            -249.089
+          ],
+          [
+            -61.686,
+            -249.002
+          ]
+        ],
+        "height": 0.49,
+        "baseOffset": 0.012,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "material": "base",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round porch column",
+        "footprint": [
+          [
+            -61.785,
+            -248.861
+          ],
+          [
+            -61.803,
+            -248.805
+          ],
+          [
+            -61.851,
+            -248.771
+          ],
+          [
+            -61.909,
+            -248.771
+          ],
+          [
+            -61.957,
+            -248.805
+          ],
+          [
+            -61.975,
+            -248.861
+          ],
+          [
+            -61.957,
+            -248.917
+          ],
+          [
+            -61.909,
+            -248.951
+          ],
+          [
+            -61.851,
+            -248.951
+          ],
+          [
+            -61.803,
+            -248.917
+          ]
+        ],
+        "height": 2.97,
+        "baseOffset": 0.49,
+        "floors": 1,
+        "material": "canopy",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "canopy"
+          },
+          "material": "canopy",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "canopy",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Porch column foot",
+        "footprint": [
+          [
+            -56.435,
+            -248.151
+          ],
+          [
+            -56.481,
+            -248.01
+          ],
+          [
+            -56.601,
+            -247.923
+          ],
+          [
+            -56.749,
+            -247.923
+          ],
+          [
+            -56.869,
+            -248.01
+          ],
+          [
+            -56.915,
+            -248.151
+          ],
+          [
+            -56.869,
+            -248.292
+          ],
+          [
+            -56.749,
+            -248.379
+          ],
+          [
+            -56.601,
+            -248.379
+          ],
+          [
+            -56.481,
+            -248.292
+          ]
+        ],
+        "height": 0.49,
+        "baseOffset": 0.012,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "material": "base",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round porch column",
+        "footprint": [
+          [
+            -56.58,
+            -248.151
+          ],
+          [
+            -56.598,
+            -248.095
+          ],
+          [
+            -56.646,
+            -248.061
+          ],
+          [
+            -56.704,
+            -248.061
+          ],
+          [
+            -56.752,
+            -248.095
+          ],
+          [
+            -56.77,
+            -248.151
+          ],
+          [
+            -56.752,
+            -248.207
+          ],
+          [
+            -56.704,
+            -248.241
+          ],
+          [
+            -56.646,
+            -248.241
+          ],
+          [
+            -56.598,
+            -248.207
+          ]
+        ],
+        "height": 2.97,
+        "baseOffset": 0.49,
+        "floors": 1,
+        "material": "canopy",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "canopy"
+          },
+          "material": "canopy",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "canopy",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Porch column foot",
+        "footprint": [
+          [
+            -50.94,
+            -248.684
+          ],
+          [
+            -50.986,
+            -248.543
+          ],
+          [
+            -51.106,
+            -248.456
+          ],
+          [
+            -51.254,
+            -248.456
+          ],
+          [
+            -51.374,
+            -248.543
+          ],
+          [
+            -51.42,
+            -248.684
+          ],
+          [
+            -51.374,
+            -248.825
+          ],
+          [
+            -51.254,
+            -248.912
+          ],
+          [
+            -51.106,
+            -248.912
+          ],
+          [
+            -50.986,
+            -248.825
+          ]
+        ],
+        "height": 0.49,
+        "baseOffset": 0.012,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "material": "base",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round porch column",
+        "footprint": [
+          [
+            -51.085,
+            -248.684
+          ],
+          [
+            -51.103,
+            -248.628
+          ],
+          [
+            -51.151,
+            -248.594
+          ],
+          [
+            -51.209,
+            -248.594
+          ],
+          [
+            -51.257,
+            -248.628
+          ],
+          [
+            -51.275,
+            -248.684
+          ],
+          [
+            -51.257,
+            -248.74
+          ],
+          [
+            -51.209,
+            -248.774
+          ],
+          [
+            -51.151,
+            -248.774
+          ],
+          [
+            -51.103,
+            -248.74
+          ]
+        ],
+        "height": 2.97,
+        "baseOffset": 0.49,
+        "floors": 1,
+        "material": "canopy",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "canopy"
+          },
+          "material": "canopy",
+          "base": {
+            "height": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "canopy",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Front porch landing roof",
+        "footprint": [
+          [
+            -61.381,
+            -252.739
+          ],
+          [
+            -56.03,
+            -252.009
+          ],
+          [
+            -56.579,
+            -247.977
+          ],
+          [
+            -61.93,
+            -248.706
+          ]
+        ],
+        "height": 2.95,
+        "baseOffset": 2.76,
+        "floors": 1,
+        "material": "canopy",
+        "facade": {
+          "material": "canopy",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "canopy"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "canopy"
+          },
+          "groundFloor": {
+            "material": "canopy"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "centralRoof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Pale soffit inside painted entrance fascia",
+        "footprint": [
+          [
+            -74.657,
+            -254.458
+          ],
+          [
+            -75.031,
+            -251.714
+          ],
+          [
+            -49.887,
+            -248.285
+          ],
+          [
+            -49.513,
+            -251.03
+          ]
+        ],
+        "baseOffset": 2.775,
+        "height": 2.825,
+        "floors": 1,
+        "material": "soffit",
+        "facade": {
+          "blank": true,
+          "material": "soffit",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "soffit"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "soffit"
+          },
+          "topFloor": {
+            "material": "soffit"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soffit",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Pale soffit inside painted entrance fascia",
+        "footprint": [
+          [
+            -61.304,
+            -252.638
+          ],
+          [
+            -61.829,
+            -248.783
+          ],
+          [
+            -56.656,
+            -248.078
+          ],
+          [
+            -56.131,
+            -251.932
+          ]
+        ],
+        "baseOffset": 2.715,
+        "height": 2.765,
+        "floors": 1,
+        "material": "soffit",
+        "facade": {
+          "blank": true,
+          "material": "soffit",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "soffit"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "soffit"
+          },
+          "topFloor": {
+            "material": "soffit"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soffit",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 4,
+      "position": 0.59,
+      "type": "doors-single",
+      "width": 1.04,
+      "height": 2.14,
+      "ramp": true,
+      "surround": "base",
+      "doorColor": "#527d83"
+    },
+    {
+      "wall": 4,
+      "position": 0.835,
+      "type": "doors-double",
+      "width": 2.05,
+      "height": 2.26,
+      "recess": 0.42
+    }
+  ],
+  "attachments": [
+    {
+      "type": "ramp",
+      "walls": 4,
+      "path": [
+        [
+          -73.17,
+          -250.5
+        ],
+        [
+          -62.8,
+          -248.86
+        ]
+      ],
+      "width": 1.4,
+      "height": 0.52,
+      "material": "base"
+    }
+  ],
+  "notes": "Some bedroom windows wrap the corners of shallow projecting bays. The entrance canopy has a split triangular pediment over a lower covered walk. Hidden north-east walls follow the visible residential spacing."
+}

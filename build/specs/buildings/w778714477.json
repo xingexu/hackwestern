@@ -1,0 +1,231 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714477",
+  "name": "Concrete Beach pavilion",
+  "status": "refined",
+  "confidence": 0.8,
+  "summary": "Open square plaza pavilion with a pale green pyramidal roof set at the bend of a curved pergola.",
+  "style": "postmodern",
+  "materials": {
+    "wall": {
+      "kind": "limestone-smooth",
+      "color": "#b8b4a4",
+      "secondaryColor": "#929080",
+      "variation": 0.24,
+      "unitSize": [
+        1.22,
+        0.61
+      ],
+      "bond": "stack",
+      "roughness": 0.82,
+      "weathering": 0.18
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#929080",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "standing-seam-metal",
+      "color": "#a5c2ad",
+      "secondaryColor": "#8ca894",
+      "roughness": 0.58,
+      "unitSize": [
+        0.47,
+        3.9
+      ]
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 4.3,
+    "typicalHeight": 4.3,
+    "raisedGround": 0
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "pyramid",
+    "rise": 2.35,
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.57,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Inventory core-1m surface percentiles above ground: median 5.86 m, 90th percentile 6.44 m, maximum 6.65 m."
+    },
+    {
+      "kind": "photo",
+      "note": "USC describes the pavilion as a covered gazebo on Concrete Beach.",
+      "url": "https://westernusc.ca/services/reservations/spaces/atrium-lowerlevel-concretebeach/"
+    },
+    {
+      "kind": "aerial",
+      "note": "Small square roof rotated to the plaza axes, four pale blue-green facets meeting at a single apex. A curving slatted pergola passes along two sides."
+    },
+    {
+      "kind": "aerial",
+      "note": "The pavilion has four pale mint roof facets and a visible eave beyond the supports. The two curved adjoining pergola arms show regular gaps between the slats."
+    },
+    {
+      "kind": "lidar",
+      "note": "Roof-only 1 m returns around 4.6–6.8 m are centred near (130.3,301.1). The tip is near (130,301), under a metre north of the mapped centre. Returns continue through z=307. The full 3.5 m move suggested by the photo would overshoot the measured eaves."
+    }
+  ],
+  "attachments": [
+    {
+      "type": "colonnade",
+      "walls": 0,
+      "path": [
+        [
+          129.07,
+          307.15
+        ],
+        [
+          124.18,
+          299.95
+        ]
+      ],
+      "width": 0.45,
+      "height": 4.2,
+      "material": "trim",
+      "columns": 2
+    },
+    {
+      "type": "colonnade",
+      "walls": 2,
+      "path": [
+        [
+          131.31,
+          295.08
+        ],
+        [
+          136.19,
+          302.28
+        ]
+      ],
+      "width": 0.45,
+      "height": 4.2,
+      "material": "trim",
+      "columns": 2
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          118.26,
+          307.84
+        ],
+        [
+          121.62,
+          305.92
+        ],
+        [
+          125.34,
+          303.28
+        ]
+      ],
+      "width": 4.65,
+      "height": 3.45,
+      "columns": 3,
+      "material": "trim",
+      "cover": "open-slats",
+      "slatSpacing": 0.67
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          134.82,
+          296.44
+        ],
+        [
+          137.34,
+          293.8
+        ],
+        [
+          139.62,
+          289.96
+        ],
+        [
+          141.06,
+          286.12
+        ],
+        [
+          141.78,
+          281.8
+        ],
+        [
+          141.78,
+          277.6
+        ]
+      ],
+      "width": 4.65,
+      "height": 3.45,
+      "columns": 7,
+      "material": "trim",
+      "cover": "open-slats",
+      "slatSpacing": 0.67
+    }
+  ],
+  "notes": "The pavilion is open on every side. Integrate the raised roof and corner supports with the plaza pergola. No clear street image for pier finish; pier palette inferred.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Raised open pavilion roof",
+        "footprint": [
+          [
+            128.99,
+            307.48
+          ],
+          [
+            123.84,
+            299.9
+          ],
+          [
+            131.39,
+            294.75
+          ],
+          [
+            136.53,
+            302.33
+          ]
+        ],
+        "baseOffset": 4.12,
+        "height": 4.32,
+        "floors": 1,
+        "roof": {
+          "form": "pyramid",
+          "rise": 2.35,
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0.57
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      }
+    ]
+  },
+  "entrances": []
+}

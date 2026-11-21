@@ -1,0 +1,904 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3705",
+  "name": "Thompson parking shelter",
+  "status": "refined",
+  "confidence": 0.69,
+  "style": "industrial-utility",
+  "summary": "A narrow shelter stands beside the parking aisle with pale metal members dividing its roof into a close-set series of transverse strips.",
+  "materials": {
+    "wall": {
+      "kind": "painted-metal",
+      "color": "#9e9e91",
+      "metalness": 0.55,
+      "roughness": 0.45
+    },
+    "roof": {
+      "kind": "spandrel-glass",
+      "color": "#4f5454",
+      "unitSize": [
+        0.75,
+        1.7
+      ],
+      "secondaryColor": "#b7b9ac",
+      "metalness": 0.3,
+      "roughness": 0.62
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#bdc1b9",
+      "roughness": 0.68,
+      "metalness": 0.28
+    },
+    "pad": {
+      "kind": "concrete-smooth",
+      "color": "#c2bfb4"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.55,
+    "typicalHeight": 2.55
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 2.1,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "barrel",
+    "material": "roof",
+    "edge": "fascia",
+    "features": [],
+    "rise": 0.31
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Pale frame and closely spaced transverse roof divisions on a rectangular concrete pad east of the Thompson parking aisle."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 0.38 m, 90th percentile 0.76 m, maximum 0.88 m."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The ground-level lidar returns are inconsistent with the roof and cast shadow in the orthophoto.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Shelter roof",
+        "height": 2.65,
+        "floors": 1,
+        "footprint": "inventory",
+        "baseOffset": 2.49,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Shelter pad",
+        "footprint": [
+          [
+            160.7,
+            818.926
+          ],
+          [
+            156.326,
+            819.398
+          ],
+          [
+            157.797,
+            833.374
+          ],
+          [
+            162.276,
+            832.902
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.095,
+        "floors": 1,
+        "material": "pad",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "flat",
+          "material": "pad",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            160.456,
+            819.342
+          ],
+          [
+            160.448,
+            819.268
+          ],
+          [
+            156.696,
+            819.663
+          ],
+          [
+            156.704,
+            819.737
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            160.526,
+            820.007
+          ],
+          [
+            160.518,
+            819.933
+          ],
+          [
+            156.766,
+            820.328
+          ],
+          [
+            156.774,
+            820.402
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            160.596,
+            820.672
+          ],
+          [
+            160.588,
+            820.598
+          ],
+          [
+            156.836,
+            820.993
+          ],
+          [
+            156.844,
+            821.067
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            160.666,
+            821.337
+          ],
+          [
+            160.658,
+            821.263
+          ],
+          [
+            156.906,
+            821.658
+          ],
+          [
+            156.914,
+            821.732
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            160.736,
+            822.002
+          ],
+          [
+            160.728,
+            821.928
+          ],
+          [
+            156.976,
+            822.323
+          ],
+          [
+            156.984,
+            822.397
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            160.806,
+            822.667
+          ],
+          [
+            160.798,
+            822.593
+          ],
+          [
+            157.046,
+            822.988
+          ],
+          [
+            157.054,
+            823.062
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            160.876,
+            823.332
+          ],
+          [
+            160.868,
+            823.258
+          ],
+          [
+            157.116,
+            823.653
+          ],
+          [
+            157.124,
+            823.727
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            160.946,
+            823.997
+          ],
+          [
+            160.938,
+            823.923
+          ],
+          [
+            157.186,
+            824.318
+          ],
+          [
+            157.194,
+            824.392
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.016,
+            824.662
+          ],
+          [
+            161.008,
+            824.588
+          ],
+          [
+            157.256,
+            824.983
+          ],
+          [
+            157.264,
+            825.057
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.086,
+            825.327
+          ],
+          [
+            161.078,
+            825.253
+          ],
+          [
+            157.326,
+            825.648
+          ],
+          [
+            157.334,
+            825.722
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.156,
+            825.992
+          ],
+          [
+            161.148,
+            825.918
+          ],
+          [
+            157.396,
+            826.313
+          ],
+          [
+            157.404,
+            826.387
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.226,
+            826.657
+          ],
+          [
+            161.218,
+            826.583
+          ],
+          [
+            157.466,
+            826.978
+          ],
+          [
+            157.474,
+            827.052
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.296,
+            827.322
+          ],
+          [
+            161.288,
+            827.248
+          ],
+          [
+            157.536,
+            827.643
+          ],
+          [
+            157.544,
+            827.717
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.366,
+            827.987
+          ],
+          [
+            161.358,
+            827.913
+          ],
+          [
+            157.606,
+            828.308
+          ],
+          [
+            157.614,
+            828.382
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.436,
+            828.652
+          ],
+          [
+            161.428,
+            828.578
+          ],
+          [
+            157.676,
+            828.973
+          ],
+          [
+            157.684,
+            829.047
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.506,
+            829.317
+          ],
+          [
+            161.498,
+            829.243
+          ],
+          [
+            157.746,
+            829.638
+          ],
+          [
+            157.754,
+            829.712
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.576,
+            829.982
+          ],
+          [
+            161.568,
+            829.908
+          ],
+          [
+            157.816,
+            830.303
+          ],
+          [
+            157.824,
+            830.377
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.646,
+            830.647
+          ],
+          [
+            161.638,
+            830.573
+          ],
+          [
+            157.886,
+            830.968
+          ],
+          [
+            157.894,
+            831.042
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.716,
+            831.312
+          ],
+          [
+            161.708,
+            831.238
+          ],
+          [
+            157.956,
+            831.633
+          ],
+          [
+            157.964,
+            831.707
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.786,
+            831.977
+          ],
+          [
+            161.778,
+            831.903
+          ],
+          [
+            158.026,
+            832.298
+          ],
+          [
+            158.034,
+            832.372
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      },
+      {
+        "name": "Curved transverse glazing bar",
+        "footprint": [
+          [
+            161.856,
+            832.642
+          ],
+          [
+            161.848,
+            832.568
+          ],
+          [
+            158.096,
+            832.963
+          ],
+          [
+            158.104,
+            833.037
+          ]
+        ],
+        "baseOffset": 2.64,
+        "height": 2.68,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.3,
+          "material": "trim",
+          "edge": "none",
+          "ridge": 173.99
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "walls": 1,
+      "path": [
+        [
+          156.7,
+          819.7
+        ],
+        [
+          158.1,
+          833.0
+        ]
+      ],
+      "width": 0.15,
+      "height": 2.49,
+      "columns": 6,
+      "material": "trim",
+      "columnDiameter": 0.15
+    },
+    {
+      "type": "colonnade",
+      "walls": 3,
+      "path": [
+        [
+          161.9,
+          832.6
+        ],
+        [
+          160.4,
+          819.3
+        ]
+      ],
+      "width": 0.15,
+      "height": 2.49,
+      "columns": 6,
+      "material": "trim",
+      "columnDiameter": 0.15
+    }
+  ],
+  "notes": "The roof divisions are clear. Glazing, supports and enclosure are estimates from overhead."
+}

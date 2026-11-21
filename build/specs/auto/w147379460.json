@@ -1,0 +1,305 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w147379460",
+  "name": "Elborn College",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "137106689"
+    }
+  ],
+  "style": "collegiate-gothic",
+  "floors": {
+    "count": 2,
+    "typicalHeight": 3.9,
+    "groundFloorHeight": 3.9
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 6.39,
+        "floors": 2
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              -96.602,
+              950.975
+            ],
+            [
+              -101.333,
+              939.62
+            ],
+            [
+              -97.7,
+              937.803
+            ],
+            [
+              -97.7,
+              931.753
+            ],
+            [
+              -112.478,
+              894.316
+            ],
+            [
+              -110.621,
+              892.46
+            ],
+            [
+              -111.837,
+              883.951
+            ],
+            [
+              -114.033,
+              883.402
+            ],
+            [
+              -146.58,
+              895.67
+            ],
+            [
+              -142.67,
+              906.04
+            ],
+            [
+              -166.79,
+              915.14
+            ],
+            [
+              -167.263,
+              913.885
+            ],
+            [
+              -192.666,
+              924.277
+            ],
+            [
+              -184.418,
+              945.929
+            ],
+            [
+              -186.378,
+              949.849
+            ],
+            [
+              -184.278,
+              958.249
+            ],
+            [
+              -145.28,
+              943.54
+            ],
+            [
+              -136.24,
+              967.53
+            ],
+            [
+              -121.71,
+              962.05
+            ],
+            [
+              -126.56,
+              949.18
+            ],
+            [
+              -123.57,
+              948.06
+            ],
+            [
+              -116.2,
+              967.6
+            ],
+            [
+              -112.55,
+              966.22
+            ],
+            [
+              -113.59,
+              963.45
+            ],
+            [
+              -99.253,
+              958.044
+            ]
+          ]
+        },
+        "height": 11.49,
+        "baseOffset": 6.39,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              -155.487,
+              913.649
+            ],
+            [
+              -156.652,
+              914.813
+            ],
+            [
+              -165.886,
+              916.865
+            ],
+            [
+              -168.453,
+              922.0
+            ],
+            [
+              -159.659,
+              939.59
+            ],
+            [
+              -150.822,
+              936.644
+            ],
+            [
+              -150.028,
+              939.028
+            ],
+            [
+              -146.0,
+              940.37
+            ],
+            [
+              -136.611,
+              937.241
+            ],
+            [
+              -142.025,
+              934.534
+            ],
+            [
+              -139.389,
+              931.019
+            ],
+            [
+              -144.615,
+              923.703
+            ],
+            [
+              -143.649,
+              918.876
+            ],
+            [
+              -145.813,
+              913.467
+            ],
+            [
+              -148.078,
+              908.937
+            ],
+            [
+              -149.284,
+              908.535
+            ],
+            [
+              -156.308,
+              911.186
+            ]
+          ]
+        },
+        "height": 15.74,
+        "baseOffset": 11.49,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#7a7568",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#a9ac9c"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.1
+      },
+      "windows": {
+        "type": "tudor-arch",
+        "width": 1.8,
+        "height": 2.25,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1
+        },
+        "glassColor": "#495651",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 0.46,
+        "depth": 0.24,
+        "every": 2,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.13,
+          "depth": 0.07,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 18,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "gothic-portal",
+      "recess": 0.32
+    }
+  ]
+}

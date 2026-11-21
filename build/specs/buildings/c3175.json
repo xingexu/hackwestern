@@ -1,0 +1,386 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3175",
+  "name": "Unnamed yard structure",
+  "status": "refined",
+  "confidence": 0.49,
+  "summary": "Three adjoining pale metal enclosures stand in a row at the wooded edge of the paved yard. Narrow gaps and separate caps divide the roofs.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#bfc3ba",
+      "unitSize": [
+        1.17,
+        2.52
+      ],
+      "variation": 0.06
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#777971",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "roof": {
+      "kind": "metal-panel",
+      "color": "#d9ddd4",
+      "unitSize": [
+        0.65,
+        1.8
+      ],
+      "variation": 0.09,
+      "weathering": 0.14
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.5,
+    "typicalHeight": 3.5
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall",
+      "base": {
+        "height": 0.12,
+        "projection": 0.03,
+        "material": "base"
+      },
+      "cornice": {
+        "height": 0.105,
+        "depth": 0.09,
+        "material": "trim"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.05,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Several adjoining pale roof panels step around the yard corner. Upper canopy and deep shadows complicate roof edges. Roof patch sampled #d9ddd4."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 4.2 m, P90 6.72 m, maximum 8.12 m above inventory ground. The highest returns lie along the wooded margin. The remaining pale roof pixels track a much lower group around 3–4 m."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Yard enclosure 1",
+        "footprint": [
+          [
+            -317.662,
+            56.411
+          ],
+          [
+            -316.013,
+            60.49
+          ],
+          [
+            -318.238,
+            61.389
+          ],
+          [
+            -319.887,
+            57.31
+          ]
+        ],
+        "height": 2.5,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0.055
+        }
+      },
+      {
+        "name": "Yard enclosure 2",
+        "footprint": [
+          [
+            -315.192,
+            55.361
+          ],
+          [
+            -313.543,
+            59.44
+          ],
+          [
+            -315.768,
+            60.339
+          ],
+          [
+            -317.417,
+            56.26
+          ]
+        ],
+        "height": 2.42,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0.055
+        }
+      },
+      {
+        "name": "Yard enclosure 3",
+        "footprint": [
+          [
+            -312.732,
+            54.351
+          ],
+          [
+            -311.248,
+            58.022
+          ],
+          [
+            -313.473,
+            58.921
+          ],
+          [
+            -314.957,
+            55.25
+          ]
+        ],
+        "height": 2.43,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0.055
+        }
+      },
+      {
+        "name": "Low rectangular cover on container end",
+        "footprint": [
+          [
+            -316.981,
+            59.657
+          ],
+          [
+            -316.558,
+            60.705
+          ],
+          [
+            -317.207,
+            60.967
+          ],
+          [
+            -317.63,
+            59.919
+          ]
+        ],
+        "baseOffset": 2.5,
+        "height": 2.64,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Low rectangular cover on container end",
+        "footprint": [
+          [
+            -314.89,
+            58.76
+          ],
+          [
+            -314.467,
+            59.808
+          ],
+          [
+            -315.116,
+            60.07
+          ],
+          [
+            -315.539,
+            59.022
+          ]
+        ],
+        "baseOffset": 2.42,
+        "height": 2.56,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Low rectangular cover on container end",
+        "footprint": [
+          [
+            -312.274,
+            57.363
+          ],
+          [
+            -311.955,
+            58.151
+          ],
+          [
+            -313.142,
+            58.631
+          ],
+          [
+            -313.461,
+            57.843
+          ]
+        ],
+        "baseOffset": 2.43,
+        "height": 2.57,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "lidarTrusted": false,
+  "lidarNote": "Tree canopy crosses this small footprint. Short aerial shadows suggest caps roughly 2.4–2.5 m above the yard.",
+  "notes": "The orthophoto shows parallel cap edges and narrow shadow gaps. Wall finish and height are approximate because the trees obscure the side elevations.",
+  "entrances": []
+}

@@ -1,0 +1,1452 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668534",
+  "name": "Huron Dining Hall",
+  "status": "refined",
+  "confidence": 0.86,
+  "summary": "Huron Dining Hall is a low flat-roofed cream building featuring grouped small square clerestory windows and tall pointed glazed bays sheltered beneath linked pitched hoods.",
+  "style": "postmodern",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#e3cd9e",
+      "secondaryColor": "#c9b991",
+      "unitSize": [
+        7.8,
+        1.4
+      ],
+      "variation": 0.045
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#85847a",
+      "roughness": 0.82,
+      "secondaryColor": "#77786b"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d2c9b8",
+      "unitSize": [
+        0.8,
+        0.28
+      ]
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#414346",
+      "roughness": 0.48
+    },
+    "blocks": {
+      "kind": "glass-block",
+      "color": "#a4ada5",
+      "secondaryColor": "#76817c",
+      "unitSize": [
+        0.2,
+        0.2
+      ]
+    },
+    "hood": {
+      "kind": "asphalt-shingle",
+      "color": "#60615c",
+      "unitSize": [
+        0.37,
+        0.16
+      ],
+      "secondaryColor": "#525550"
+    },
+    "gGlass": {
+      "kind": "glass-curtain",
+      "color": "#52626a",
+      "unitSize": [
+        1,
+        0.8
+      ]
+    },
+    "gableGlass": {
+      "kind": "glass-curtain",
+      "color": "#596965",
+      "secondaryColor": "#58655e",
+      "unitSize": [
+        1,
+        0.95
+      ]
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 6.1,
+    "typicalHeight": 6.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.5,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "clerestory",
+        "width": 0.55,
+        "height": 0.65,
+        "sill": 3.95,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 0,
+          "width": 0.065
+        },
+        "frameColor": "#45494a",
+        "glass": "tinted",
+        "surround": "none"
+      },
+      "parapet": {
+        "type": "plain",
+        "height": 0.42,
+        "material": "wall"
+      },
+      "piers": {
+        "width": 0.56,
+        "depth": 0.29,
+        "every": 2,
+        "material": "wall",
+        "fullHeight": true
+      }
+    },
+    "byWall": {
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "glass-block",
+          "perBay": 4,
+          "width": 0.7,
+          "height": 0.78,
+          "sill": 3.7,
+          "spacing": 0.26,
+          "frameColor": "#c4b99c"
+        },
+        "bays": {
+          "count": 1,
+          "pattern": "grouped",
+          "groupSize": 4
+        },
+        "sections": [
+          {
+            "start": 0.418,
+            "end": 0.442,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.558,
+            "end": 0.5820000000000001,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          }
+        ]
+      },
+      "3": {
+        "bays": {
+          "count": 4,
+          "pattern": "grouped",
+          "groupSize": 4
+        },
+        "windows": {
+          "type": "glass-block",
+          "width": 0.7,
+          "height": 0.78,
+          "sill": 3.7,
+          "perBay": 4,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#c4b99c",
+          "glass": "tinted",
+          "surround": "none",
+          "spacing": 0.26
+        },
+        "sections": [
+          {
+            "start": 0.0955,
+            "end": 0.1195,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.1305,
+            "end": 0.1545,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.3455,
+            "end": 0.3695,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.3805,
+            "end": 0.4045,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.5955,
+            "end": 0.6195,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.6305,
+            "end": 0.6545,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.8455,
+            "end": 0.8695,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.8805,
+            "end": 0.9045,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          }
+        ]
+      },
+      "6": {
+        "bays": {
+          "count": 4
+        },
+        "windows": {
+          "type": "storefront",
+          "width": 3.3,
+          "height": 4.05,
+          "sill": 0.05,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#4a4c49",
+          "glass": "tinted",
+          "surround": "none",
+          "glassColor": "#485b60"
+        },
+        "bands": [
+          {
+            "at": [
+              4.0
+            ],
+            "height": 0.5,
+            "depth": 0.4,
+            "material": "trim"
+          }
+        ]
+      },
+      "7": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "9": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "count": 1
+        },
+        "bands": [
+          {
+            "at": [
+              4.0
+            ],
+            "height": 0.5,
+            "depth": 0.4,
+            "material": "trim"
+          }
+        ]
+      },
+      "11": {
+        "bays": {
+          "count": 5
+        },
+        "windows": {
+          "type": "storefront",
+          "width": 3.6,
+          "height": 4.05,
+          "sill": 0.08,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 2,
+            "width": 0.065
+          },
+          "frameColor": "#4a4c49",
+          "glass": "tinted",
+          "surround": "none",
+          "glassColor": "#485b60"
+        },
+        "bands": [
+          {
+            "at": [
+              4.0
+            ],
+            "height": 0.5,
+            "depth": 0.4,
+            "material": "trim"
+          }
+        ]
+      },
+      "5": {
+        "windows": {
+          "type": "glass-block",
+          "width": 0.7,
+          "height": 0.78,
+          "sill": 3.7,
+          "perBay": 4,
+          "spacing": 0.26,
+          "frameColor": "#c4b99c"
+        },
+        "bays": {
+          "count": 2,
+          "pattern": "grouped",
+          "groupSize": 4
+        },
+        "sections": [
+          {
+            "start": 0.20299999999999999,
+            "end": 0.22699999999999998,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.273,
+            "end": 0.29700000000000004,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.703,
+            "end": 0.727,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.773,
+            "end": 0.797,
+            "base": 1.25,
+            "top": 1.95,
+            "material": "blocks",
+            "verticalMullionSpacing": 0.2,
+            "horizontalMullions": 2
+          }
+        ]
+      },
+      "4": {
+        "bays": {
+          "count": 1
+        },
+        "bands": [
+          {
+            "at": [
+              4.0
+            ],
+            "height": 0.5,
+            "depth": 0.4,
+            "material": "trim"
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -112,
+          403
+        ],
+        "size": [
+          3.6,
+          2.6
+        ],
+        "height": 1.1
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -105,
+          401
+        ],
+        "size": [
+          3.6,
+          2.6
+        ],
+        "height": 1.1
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -118,
+          402
+        ],
+        "size": [
+          2.35,
+          2
+        ],
+        "height": 0.85,
+        "rotation": -20
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -105,
+          406
+        ],
+        "size": [
+          2.35,
+          2
+        ],
+        "height": 0.85,
+        "rotation": -20
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -114,
+          410
+        ],
+        "size": [
+          2.35,
+          2
+        ],
+        "height": 0.85,
+        "rotation": -20
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -109,
+          414
+        ],
+        "size": [
+          2.35,
+          2
+        ],
+        "height": 0.85,
+        "rotation": -20
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -117,
+          415
+        ],
+        "size": [
+          2.35,
+          2
+        ],
+        "height": 0.85,
+        "rotation": -20
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "81868131",
+      "walls": [
+        3
+      ],
+      "note": "Service side has long plain cream panel faces."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131663135",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "Low wall and group of small square high windows."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "81868127",
+      "walls": [
+        6,
+        8,
+        11
+      ],
+      "note": "Road approach reveals glazed pointed bays, columns and continuous projecting sloping fascia."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "96097207",
+      "walls": [
+        6,
+        11
+      ],
+      "note": "Several linked gabled entry bays have full-height mullioned glass."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "114881743",
+      "walls": [
+        5,
+        6
+      ],
+      "note": "Sunlit cream face, low canopy and large dark gable window."
+    },
+    {
+      "kind": "aerial",
+      "note": "Flat gravel roof behind the repeated pitched glazed bays, with rooftop equipment near the centre. The gables concentrate along the north-facing side."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 6.07 m, P90 6.63 m and maximum 11.36 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Wall colour sampled with PIL. KartaView 114881743 at normalized pixel (0.074, 0.64). Roof tone sampled from the 2025 orthophoto. Dimensions and bay counts on obscured elevations are estimates."
+    },
+    {
+      "kind": "knowledge",
+      "note": "The small high square openings continue across the south service return. The entrance hood shades the pointed glass on the approach from Western Road."
+    }
+  ],
+  "notes": "Street imagery and orthophoto cover separate perimeter sections, and the 11.36 m lidar peak is localized to the largest gabled hood. Gable faces have opaque triangular infill above rectangular glass where actual glass reaches the apex.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Dining hall",
+        "footprint": [
+          [
+            -132.22,
+            419.69
+          ],
+          [
+            -124.29,
+            416.59
+          ],
+          [
+            -119.72,
+            429.55
+          ],
+          [
+            -92.04,
+            419.77
+          ],
+          [
+            -93.12,
+            416.73
+          ],
+          [
+            -80.16,
+            412.15
+          ],
+          [
+            -85.85,
+            396.03
+          ],
+          [
+            -92.28,
+            398.3
+          ],
+          [
+            -95.38,
+            389.54
+          ],
+          [
+            -105.82,
+            393.51
+          ],
+          [
+            -108.86,
+            385.95
+          ],
+          [
+            -129.2388,
+            393.9151
+          ],
+          [
+            -121.4624,
+            415.2807
+          ],
+          [
+            -131.3291,
+            418.8719
+          ],
+          [
+            -139.0554,
+            397.6443
+          ],
+          [
+            -139.49,
+            397.8
+          ]
+        ],
+        "height": 6.35,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "West roof step",
+        "footprint": [
+          [
+            -135.75,
+            396.46
+          ],
+          [
+            -139.0554,
+            397.6443
+          ],
+          [
+            -131.3291,
+            418.8719
+          ],
+          [
+            -121.4624,
+            415.2807
+          ],
+          [
+            -129.2388,
+            393.9151
+          ]
+        ],
+        "height": 7.02,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 11, bay 1",
+        "footprint": [
+          [
+            -110.17,
+            384.184
+          ],
+          [
+            -115.206,
+            386.132
+          ],
+          [
+            -113.979,
+            389.303
+          ],
+          [
+            -113.348,
+            390.935
+          ],
+          [
+            -108.312,
+            388.987
+          ],
+          [
+            -109.538,
+            385.816
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 2.35,
+          "ridge": 158.84442815274497,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 4.75,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 11, bay 2",
+        "footprint": [
+          [
+            -116.296,
+            386.554
+          ],
+          [
+            -121.332,
+            388.502
+          ],
+          [
+            -120.105,
+            391.673
+          ],
+          [
+            -119.474,
+            393.305
+          ],
+          [
+            -114.438,
+            391.357
+          ],
+          [
+            -115.664,
+            388.186
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 2.35,
+          "ridge": 158.84442815274497,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 4.75,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 11, bay 3",
+        "footprint": [
+          [
+            -122.422,
+            388.924
+          ],
+          [
+            -127.458,
+            390.872
+          ],
+          [
+            -126.231,
+            394.043
+          ],
+          [
+            -125.6,
+            395.675
+          ],
+          [
+            -120.564,
+            393.727
+          ],
+          [
+            -121.79,
+            390.556
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 4.05,
+          "ridge": 158.84442815274497,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 4.75,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 11, bay 4",
+        "footprint": [
+          [
+            -128.548,
+            391.294
+          ],
+          [
+            -133.584,
+            393.242
+          ],
+          [
+            -132.357,
+            396.413
+          ],
+          [
+            -131.726,
+            398.045
+          ],
+          [
+            -126.69,
+            396.097
+          ],
+          [
+            -127.916,
+            392.926
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 2.35,
+          "ridge": 158.84442815274497,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 4.75,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 11, bay 5",
+        "footprint": [
+          [
+            -134.368,
+            393.545
+          ],
+          [
+            -139.404,
+            395.494
+          ],
+          [
+            -138.177,
+            398.664
+          ],
+          [
+            -137.545,
+            400.297
+          ],
+          [
+            -132.509,
+            398.348
+          ],
+          [
+            -133.736,
+            395.177
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 2.35,
+          "ridge": 158.84442815274497,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 4.75,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 6, bay 1",
+        "footprint": [
+          [
+            -79.627,
+            407.292
+          ],
+          [
+            -82.833,
+            408.423
+          ],
+          [
+            -84.483,
+            409.006
+          ],
+          [
+            -83.145,
+            412.798
+          ],
+          [
+            -79.938,
+            411.666
+          ],
+          [
+            -78.288,
+            411.084
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 2.35,
+          "ridge": 70.55583366191512,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 3.3711764705882357,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 6, bay 2",
+        "footprint": [
+          [
+            -81.106,
+            403.1
+          ],
+          [
+            -84.312,
+            404.232
+          ],
+          [
+            -85.962,
+            404.815
+          ],
+          [
+            -84.624,
+            408.607
+          ],
+          [
+            -81.418,
+            407.475
+          ],
+          [
+            -79.768,
+            406.892
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 2.35,
+          "ridge": 70.55583366191512,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 3.3711764705882357,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 6, bay 3",
+        "footprint": [
+          [
+            -82.472,
+            399.232
+          ],
+          [
+            -85.678,
+            400.363
+          ],
+          [
+            -87.328,
+            400.946
+          ],
+          [
+            -85.99,
+            404.738
+          ],
+          [
+            -82.783,
+            403.606
+          ],
+          [
+            -81.133,
+            403.024
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 2.35,
+          "ridge": 70.55583366191512,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 3.3711764705882357,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 6, bay 4",
+        "footprint": [
+          [
+            -83.78,
+            395.524
+          ],
+          [
+            -86.986,
+            396.656
+          ],
+          [
+            -88.637,
+            397.238
+          ],
+          [
+            -87.298,
+            401.03
+          ],
+          [
+            -84.092,
+            399.898
+          ],
+          [
+            -82.442,
+            399.316
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 2.35,
+          "ridge": 70.55583366191512,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 3.3711764705882357,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 9, bay 1",
+        "footprint": [
+          [
+            -98.83,
+            388.584
+          ],
+          [
+            -103.877,
+            390.503
+          ],
+          [
+            -103.256,
+            392.139
+          ],
+          [
+            -102.047,
+            395.317
+          ],
+          [
+            -97.0,
+            393.398
+          ],
+          [
+            -97.621,
+            391.762
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 4.05,
+          "ridge": 159.20724104368463,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 4.75,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Glazed hood at wall 4, bay 1",
+        "footprint": [
+          [
+            -91.013,
+            416.327
+          ],
+          [
+            -92.663,
+            416.91
+          ],
+          [
+            -95.867,
+            418.049
+          ],
+          [
+            -95.005,
+            420.476
+          ],
+          [
+            -93.355,
+            419.893
+          ],
+          [
+            -90.151,
+            418.755
+          ]
+        ],
+        "height": 5.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 4.05,
+          "ridge": 70.53040734861017,
+          "material": "hood",
+          "edge": "fascia",
+          "overhang": 0.27
+        },
+        "material": "gableGlass",
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 4.35,
+            "width": 1.9260000000000002,
+            "sill": 0.12,
+            "perBay": 1,
+            "glass": "dark",
+            "frameColor": "#423e40",
+            "glassColor": "#485963",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2
+            }
+          },
+          "bays": {
+            "count": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "material": "trim"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 11,
+      "position": 0.52,
+      "type": "doors-double",
+      "width": 1.95,
+      "height": 2.55,
+      "canopy": {
+        "type": "cantilever",
+        "depth": 2.35,
+        "width": 6.1,
+        "material": "trim",
+        "form": "shed",
+        "rise": 0.52
+      },
+      "recess": 1.35
+    },
+    {
+      "wall": 3,
+      "position": 0.2,
+      "type": "service-door",
+      "width": 1.3,
+      "height": 2.22
+    },
+    {
+      "wall": 6,
+      "position": 0.4,
+      "type": "doors-double",
+      "width": 2.4,
+      "height": 2.6,
+      "recess": 1.35,
+      "canopy": {
+        "type": "cantilever",
+        "form": "shed",
+        "width": 4.4,
+        "depth": 1.45,
+        "rise": 0.42,
+        "material": "trim"
+      }
+    },
+    {
+      "wall": 5,
+      "position": 0.63,
+      "type": "loading-dock",
+      "width": 3.4,
+      "height": 3.45,
+      "recess": 0.62
+    }
+  ]
+}

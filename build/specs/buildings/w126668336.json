@@ -1,0 +1,2651 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668336",
+  "name": "Huron University College",
+  "status": "refined",
+  "confidence": 0.72,
+  "summary": "The collegiate complex combines stepped academic roofs, a tilted solar array, west annex, Tudor timber, glazed gabled entry, and basement-well edges around the limestone chapel and battlemented bell tower.",
+  "style": "residential-brick",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#925c49",
+      "secondaryColor": "#bbb0a1",
+      "unitSize": [
+        0.21,
+        0.067
+      ],
+      "variation": 0.18,
+      "bond": "running"
+    },
+    "roof": {
+      "kind": "slate",
+      "color": "#605e5b",
+      "roughness": 0.82
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d2c9b8",
+      "unitSize": [
+        0.8,
+        0.28
+      ]
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#414346",
+      "roughness": 0.48
+    },
+    "flatRoof": {
+      "kind": "membrane",
+      "color": "#91918c"
+    },
+    "gableFascia": {
+      "kind": "painted-metal",
+      "color": "#93302a"
+    },
+    "northBallast": {
+      "kind": "gravel-ballast",
+      "color": "#77786f",
+      "secondaryColor": "#676a64"
+    },
+    "southMembrane": {
+      "kind": "membrane",
+      "color": "#cac8b9",
+      "secondaryColor": "#aaa99c",
+      "weathering": 0.2
+    },
+    "westDark": {
+      "kind": "membrane",
+      "color": "#726d61"
+    },
+    "roofGlazing": {
+      "kind": "glass-curtain",
+      "color": "#555f5e",
+      "unitSize": [
+        1.05,
+        1.4
+      ]
+    },
+    "chapelStone": {
+      "kind": "ashlar-stone",
+      "color": "#beae92",
+      "secondaryColor": "#b1a085",
+      "unitSize": [
+        0.51,
+        0.23
+      ],
+      "bond": "random-ashlar",
+      "variation": 0.085
+    },
+    "spireCopper": {
+      "kind": "copper-patina",
+      "color": "#547765",
+      "secondaryColor": "#698271"
+    },
+    "timber": {
+      "kind": "wood-siding",
+      "color": "#66503e",
+      "unitSize": [
+        0.21,
+        2.2
+      ]
+    },
+    "infill": {
+      "kind": "stucco",
+      "color": "#d7ccb6"
+    },
+    "courtPaving": {
+      "kind": "concrete-smooth",
+      "color": "#b5b1a2"
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 3.2,
+    "typicalHeight": 3.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.35,
+        "height": 1.65,
+        "sill": 0.75,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.065
+        },
+        "frameColor": "#e4e0d5",
+        "glass": "clear",
+        "surround": "none",
+        "sillProjecting": true
+      },
+      "bands": [
+        {
+          "at": [
+            4.3
+          ],
+          "height": 0.14,
+          "depth": 0.04,
+          "material": "trim"
+        }
+      ],
+      "base": {
+        "height": 1.25,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "7": {
+        "bays": {
+          "count": 7,
+          "pattern": "paired",
+          "width": 3.19,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.98,
+          "height": 1.65,
+          "sill": 0.75,
+          "perBay": 2,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "stone",
+          "sillProjecting": true,
+          "spacing": 0.15,
+          "surroundMaterial": "trim",
+          "lintel": true
+        }
+      },
+      "28": {
+        "bays": {
+          "count": 7,
+          "pattern": "paired",
+          "width": 3.5,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.98,
+          "height": 1.65,
+          "sill": 0.75,
+          "perBay": 2,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "stone",
+          "sillProjecting": true,
+          "spacing": 0.15,
+          "surroundMaterial": "trim",
+          "lintel": true
+        }
+      },
+      "32": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired",
+          "width": 3.13,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.98,
+          "height": 1.65,
+          "sill": 0.75,
+          "perBay": 2,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "stone",
+          "sillProjecting": true,
+          "spacing": 0.15,
+          "surroundMaterial": "trim",
+          "lintel": true
+        }
+      },
+      "34": {
+        "bays": {
+          "count": 14,
+          "pattern": "paired",
+          "width": 3.43,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.98,
+          "height": 1.65,
+          "sill": 0.75,
+          "perBay": 2,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "stone",
+          "sillProjecting": true,
+          "spacing": 0.15,
+          "surroundMaterial": "trim",
+          "lintel": true
+        }
+      },
+      "37": {
+        "bays": {
+          "count": 9,
+          "pattern": "paired",
+          "width": 3.43,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.98,
+          "height": 1.65,
+          "sill": 0.75,
+          "perBay": 2,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "stone",
+          "sillProjecting": true,
+          "spacing": 0.15,
+          "surroundMaterial": "trim",
+          "lintel": true
+        }
+      },
+      "43": {
+        "windows": {
+          "type": "lancet",
+          "width": 0.98,
+          "height": 3.2,
+          "sill": 1.5,
+          "perBay": 2,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "leaded",
+          "surround": "stone",
+          "tracery": true,
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.15
+        },
+        "bays": {
+          "pattern": "paired",
+          "groupSize": 2
+        }
+      },
+      "45": {
+        "windows": {
+          "type": "lancet",
+          "width": 1.45,
+          "height": 3.2,
+          "sill": 1.5,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#bbae91",
+          "glass": "leaded",
+          "surround": "stone",
+          "tracery": true,
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "glassColor": "#55665d"
+        },
+        "material": "chapelStone"
+      },
+      "46": {
+        "bays": {
+          "count": 1,
+          "pattern": "regular",
+          "width": 10.83
+        },
+        "windows": {
+          "type": "lancet",
+          "width": 3.4,
+          "height": 4.5,
+          "sill": 1.3,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 2,
+            "width": 0.065
+          },
+          "frameColor": "#bbae91",
+          "glass": "leaded",
+          "surround": "stone",
+          "tracery": true,
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "glassColor": "#55665d"
+        },
+        "gables": {
+          "type": "parapet",
+          "count": 1
+        },
+        "material": "chapelStone",
+        "buttresses": {
+          "every": 1,
+          "width": 0.58,
+          "depth": 0.44,
+          "stepped": true,
+          "material": "chapelStone"
+        }
+      },
+      "47": {
+        "windows": {
+          "type": "lancet",
+          "width": 1.45,
+          "height": 3.2,
+          "sill": 1.5,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#bbae91",
+          "glass": "leaded",
+          "surround": "stone",
+          "tracery": true,
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "glassColor": "#55665d"
+        },
+        "material": "chapelStone"
+      },
+      "49": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired",
+          "width": 3.31,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.98,
+          "height": 1.65,
+          "sill": 0.75,
+          "perBay": 2,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "stone",
+          "sillProjecting": true,
+          "spacing": 0.15,
+          "surroundMaterial": "trim",
+          "lintel": true
+        },
+        "base": {
+          "height": 2.35,
+          "material": "chapelStone"
+        },
+        "spandrelMaterial": "timber",
+        "piers": {
+          "width": 0.15,
+          "depth": 0.09,
+          "every": 1,
+          "fullHeight": true,
+          "material": "timber"
+        },
+        "topFloor": {
+          "material": "infill",
+          "windows": {
+            "type": "punched",
+            "width": 1.12,
+            "height": 1.52,
+            "sill": 0.63,
+            "perBay": 2,
+            "spacing": 0.26,
+            "frameColor": "#e0dac9",
+            "surround": "none"
+          }
+        }
+      },
+      "0-4": {
+        "windows": {
+          "type": "ribbon",
+          "width": 2.85,
+          "height": 1.65,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "tinted",
+          "surround": "none"
+        }
+      },
+      "11-26": {
+        "windows": {
+          "type": "ribbon",
+          "width": 2.85,
+          "height": 1.65,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "tinted",
+          "surround": "none"
+        }
+      },
+      "35": {
+        "gables": {
+          "type": "parapet",
+          "count": 1
+        }
+      },
+      "54": {
+        "gables": {
+          "type": "parapet",
+          "count": 1
+        },
+        "bands": []
+      },
+      "0": {
+        "bands": []
+      },
+      "1": {
+        "bands": []
+      },
+      "2": {
+        "bands": []
+      },
+      "3": {
+        "bands": []
+      },
+      "4": {
+        "bands": []
+      },
+      "55": {
+        "bands": []
+      },
+      "48": {
+        "base": {
+          "height": 2.35,
+          "material": "chapelStone"
+        },
+        "spandrelMaterial": "timber",
+        "piers": {
+          "width": 0.15,
+          "depth": 0.09,
+          "every": 1,
+          "fullHeight": true,
+          "material": "timber"
+        },
+        "topFloor": {
+          "material": "infill",
+          "windows": {
+            "type": "punched",
+            "width": 1.12,
+            "height": 1.52,
+            "sill": 0.63,
+            "perBay": 2,
+            "spacing": 0.26,
+            "frameColor": "#e0dac9",
+            "surround": "none"
+          }
+        }
+      },
+      "50": {
+        "base": {
+          "height": 2.35,
+          "material": "chapelStone"
+        },
+        "spandrelMaterial": "timber",
+        "piers": {
+          "width": 0.15,
+          "depth": 0.09,
+          "every": 1,
+          "fullHeight": true,
+          "material": "timber"
+        },
+        "topFloor": {
+          "material": "infill",
+          "windows": {
+            "type": "punched",
+            "width": 1.12,
+            "height": 1.52,
+            "sill": 0.63,
+            "perBay": 2,
+            "spacing": 0.26,
+            "frameColor": "#e0dac9",
+            "surround": "none"
+          }
+        }
+      },
+      "51": {
+        "base": {
+          "height": 2.35,
+          "material": "chapelStone"
+        },
+        "spandrelMaterial": "timber",
+        "piers": {
+          "width": 0.15,
+          "depth": 0.09,
+          "every": 1,
+          "fullHeight": true,
+          "material": "timber"
+        },
+        "topFloor": {
+          "material": "infill",
+          "windows": {
+            "type": "punched",
+            "width": 1.12,
+            "height": 1.52,
+            "sill": 0.63,
+            "perBay": 2,
+            "spacing": 0.26,
+            "frameColor": "#e0dac9",
+            "surround": "none"
+          }
+        }
+      },
+      "52": {
+        "base": {
+          "height": 2.35,
+          "material": "chapelStone"
+        },
+        "spandrelMaterial": "timber",
+        "piers": {
+          "width": 0.15,
+          "depth": 0.09,
+          "every": 1,
+          "fullHeight": true,
+          "material": "timber"
+        },
+        "topFloor": {
+          "material": "infill",
+          "windows": {
+            "type": "punched",
+            "width": 1.12,
+            "height": 1.52,
+            "sill": 0.63,
+            "perBay": 2,
+            "spacing": 0.26,
+            "frameColor": "#e0dac9",
+            "surround": "none"
+          }
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "hip",
+    "rise": 3.8,
+    "ridge": "long-axis",
+    "material": "roof",
+    "edge": "gutter",
+    "overhang": 0.24,
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -172,
+          306
+        ],
+        "size": [
+          3.5,
+          3
+        ],
+        "height": 1.25
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -130.82,
+          306.62
+        ],
+        "size": [
+          4.15,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -125.47,
+          307.75
+        ],
+        "size": [
+          4.15,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -120.86,
+          306.09
+        ],
+        "size": [
+          4.15,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -116.64,
+          301.22
+        ],
+        "size": [
+          4.15,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -106.47,
+          297.4
+        ],
+        "size": [
+          4.15,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -101.13,
+          295.37
+        ],
+        "size": [
+          4.15,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -95.96,
+          293.34
+        ],
+        "size": [
+          4.15,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -115.79,
+          346.75
+        ],
+        "size": [
+          3.5,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -111.6,
+          342.08
+        ],
+        "size": [
+          3.5,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -105.91,
+          339.98
+        ],
+        "size": [
+          3.5,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -101.24,
+          338.1
+        ],
+        "size": [
+          3.5,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -81.95,
+          331.18
+        ],
+        "size": [
+          3.5,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": -21.7,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -103.82,
+          308.36
+        ],
+        "size": [
+          4.15,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": 68.3,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -101.66,
+          313.88
+        ],
+        "size": [
+          3.5,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": 68.3,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -100.2,
+          318.06
+        ],
+        "size": [
+          3.5,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": 68.3,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -96.88,
+          325.8
+        ],
+        "size": [
+          3.5,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": 68.3,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -94.56,
+          330.22
+        ],
+        "size": [
+          3.5,
+          2.3
+        ],
+        "height": 1.62,
+        "rotation": 68.3,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -90.9,
+          212
+        ],
+        "size": [
+          2.8,
+          2.2
+        ],
+        "height": 1.67,
+        "rotation": -80,
+        "material": "timber",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -91.4,
+          219
+        ],
+        "size": [
+          2.8,
+          2.2
+        ],
+        "height": 1.67,
+        "rotation": -80,
+        "material": "timber",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -92.4,
+          225.3
+        ],
+        "size": [
+          2.8,
+          2.2
+        ],
+        "height": 1.67,
+        "rotation": -80,
+        "material": "timber",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -93.7,
+          231.6
+        ],
+        "size": [
+          2.8,
+          2.2
+        ],
+        "height": 1.67,
+        "rotation": -80,
+        "material": "timber",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -94.6,
+          238.4
+        ],
+        "size": [
+          2.8,
+          2.2
+        ],
+        "height": 1.67,
+        "rotation": -80,
+        "material": "timber",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -94.88,
+          257.74
+        ],
+        "size": [
+          2.9,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": -80,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -98.2,
+          265.3
+        ],
+        "size": [
+          2.9,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": -80,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -81.85,
+          225.03
+        ],
+        "size": [
+          2.8,
+          2.2
+        ],
+        "height": 1.67,
+        "rotation": 100,
+        "material": "timber",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -83,
+          231.7
+        ],
+        "size": [
+          2.8,
+          2.2
+        ],
+        "height": 1.67,
+        "rotation": 100,
+        "material": "timber",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -114.51,
+          350.0
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -107.94,
+          349.28
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -102.42,
+          347.11
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -96.58,
+          344.82
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -85.47,
+          340.45
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -79.2,
+          337.98
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "gable"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -124.58,
+          297.86
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -116.78,
+          297.41
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -106,
+          292.8
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -100,
+          290.5
+        ],
+        "size": [
+          3.2,
+          2.2
+        ],
+        "height": 1.6,
+        "rotation": 158,
+        "material": "roof",
+        "style": "shed"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          -93,
+          341
+        ],
+        "size": [
+          1.2,
+          0.96
+        ],
+        "height": 2.3,
+        "material": "wall"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          -112,
+          297.8
+        ],
+        "size": [
+          1.2,
+          0.96
+        ],
+        "height": 2.3,
+        "material": "wall"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          -92,
+          231
+        ],
+        "size": [
+          1.2,
+          0.96
+        ],
+        "height": 2.3,
+        "material": "wall"
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          -108.5,
+          236.4
+        ],
+        "size": [
+          17,
+          2.1
+        ],
+        "height": 0.92,
+        "rotation": 10,
+        "material": "roofGlazing",
+        "style": "tilted glazed photovoltaic array"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -105,
+          232
+        ],
+        "size": [
+          2.6,
+          2.4
+        ],
+        "height": 1.1
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -148,
+          285
+        ],
+        "size": [
+          2.6,
+          2.4
+        ],
+        "height": 1.1
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -152,
+          284
+        ],
+        "size": [
+          2.6,
+          2.4
+        ],
+        "height": 1.1
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -168,
+          309
+        ],
+        "size": [
+          2.6,
+          2.4
+        ],
+        "height": 1.1
+      },
+      {
+        "type": "chimney",
+        "center": [
+          -76.2,
+          213.6
+        ],
+        "size": [
+          1.1,
+          0.84
+        ],
+        "height": 1.35,
+        "material": "wall"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -160.7,
+          303.8
+        ],
+        "size": [
+          3.15,
+          2.1
+        ],
+        "height": 1.85,
+        "rotation": 68,
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -163.6,
+          305.4
+        ],
+        "size": [
+          1.68,
+          1.62
+        ],
+        "height": 0.92,
+        "rotation": 68
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "url": "https://huronu.ca/wp-content/uploads/oneil-ridley-01-1024x683.jpg",
+      "note": "Courtyard entrance framed by brick and pale horizontal bands, projecting gabled hood and white double-hung windows."
+    },
+    {
+      "kind": "photo",
+      "url": "https://huronu.ca/wp-content/uploads/oneil-ridley-02-1024x683.jpg",
+      "note": "Stepped brick bay and projecting sills on a residence elevation."
+    },
+    {
+      "kind": "photo",
+      "url": "https://huronu.ca/wp-content/uploads/chapel-2-1024x683.jpg",
+      "note": "The chapel has tall leaded pointed windows and exposed pitched timber roof."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "148668399",
+      "walls": [
+        46
+      ],
+      "note": "Distant view across the lawn shows the pitched chapel and small spire against the sky."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "96097207",
+      "walls": [
+        34,
+        35
+      ],
+      "note": "Red brick residence with pitched roof, dormers and pale-framed rectangular windows behind the dining hall."
+    },
+    {
+      "kind": "aerial",
+      "note": "Grey ridges turn at right angles on the three residence wings. Repeated dormers, a chapel projection toward Western Road and flat rectangular roofs enclosing two sides of the paved court are distinct."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 10.56 m, P90 13.65 m and maximum 20.22 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Wall colour sampled with PIL. Photo https://huronu.ca/wp-content/uploads/oneil-ridley-01-1024x683.jpg at normalized pixel (0.351, 0.654). Roof tone sampled from the 2025 orthophoto. Dimensions and bay counts on obscured elevations are estimates."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Individual dormer centres follow the three long ridges in the 2025 orthophoto. The red entrance fascia is visible in the Huron residence gallery."
+    },
+    {
+      "kind": "photo",
+      "url": "https://huronu.ca/wp-content/uploads/Huron-Viewbook-2026-Digital-Pages.pdf#page=34",
+      "walls": [
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "note": "Huron's 2026 viewbook page 34 shows a substantial limestone bell tower with a corner copper spire, timber-framed dormers, and a solar array behind the chapel."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional lidar around (-84,242) measures 17–18 m over the square shaft with a local sample close to 20 m at the corner, and the thin spire tip height is estimated from the photograph."
+    }
+  ],
+  "notes": "Regional lidar around (-84,242) measures 17–18 m over the square shaft with a local sample close to 20 m at the corner, and the thin spire tip height is estimated from the photograph.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "South residence roof",
+        "footprint": {
+          "clip": [
+            [
+              -103.52,
+              335.45
+            ],
+            [
+              -120.98,
+              342.34
+            ],
+            [
+              -115.67,
+              355.76
+            ],
+            [
+              -71.05,
+              338.22
+            ],
+            [
+              -76.07,
+              325.43
+            ],
+            [
+              -85.15,
+              329.0
+            ],
+            [
+              -87.298,
+              323.531
+            ],
+            [
+              -105.078,
+              331.354
+            ]
+          ]
+        },
+        "height": 10.1,
+        "floors": 3,
+        "roof": {
+          "form": "hip",
+          "rise": 3.0,
+          "ridge": 68,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        }
+      },
+      {
+        "name": "East residence return",
+        "footprint": {
+          "clip": [
+            [
+              -100.61,
+              325.35
+            ],
+            [
+              -104.911,
+              327.025
+            ],
+            [
+              -106.49,
+              327.64
+            ],
+            [
+              -105.078,
+              331.354
+            ],
+            [
+              -103.703,
+              330.749
+            ],
+            [
+              -87.298,
+              323.531
+            ],
+            [
+              -96.44,
+              300.26
+            ],
+            [
+              -92.718,
+              298.801
+            ],
+            [
+              -97.0,
+              290.0
+            ],
+            [
+              -114.0,
+              299.0
+            ],
+            [
+              -111.733,
+              305.989
+            ],
+            [
+              -108.66,
+              304.78
+            ]
+          ]
+        },
+        "height": 10,
+        "floors": 3,
+        "roof": {
+          "form": "hip",
+          "rise": 3.0,
+          "ridge": 158,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        }
+      },
+      {
+        "name": "Cross range with dormers",
+        "footprint": {
+          "clip": [
+            [
+              -105.31,
+              289.54
+            ],
+            [
+              -108.8,
+              290.85
+            ],
+            [
+              -109.49,
+              288.76
+            ],
+            [
+              -110.73,
+              289.24
+            ],
+            [
+              -130.4,
+              296.63
+            ],
+            [
+              -132.603,
+              291.006
+            ],
+            [
+              -138.0,
+              293.0
+            ],
+            [
+              -132.343,
+              311.589
+            ],
+            [
+              -131.49,
+              313.76
+            ],
+            [
+              -111.733,
+              305.989
+            ],
+            [
+              -114.0,
+              299.0
+            ],
+            [
+              -97.0,
+              290.0
+            ],
+            [
+              -92.718,
+              298.801
+            ],
+            [
+              -87.56,
+              296.78
+            ],
+            [
+              -92.36,
+              284.55
+            ],
+            [
+              -101.35,
+              288.09
+            ],
+            [
+              -99.658,
+              278.83
+            ],
+            [
+              -103.757,
+              280.345
+            ]
+          ]
+        },
+        "height": 9.95,
+        "floors": 3,
+        "roof": {
+          "form": "hip",
+          "rise": 3.85,
+          "ridge": 68,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        }
+      },
+      {
+        "name": "Chapel chancel and transept",
+        "footprint": {
+          "clip": [
+            [
+              -85.45,
+              257.51
+            ],
+            [
+              -83.41,
+              257.88
+            ],
+            [
+              -81.09,
+              256.21
+            ],
+            [
+              -67.02,
+              258.51
+            ],
+            [
+              -65.28,
+              247.82
+            ],
+            [
+              -80.21,
+              245.37
+            ],
+            [
+              -80.08,
+              244.65
+            ],
+            [
+              -80.49,
+              244.05
+            ],
+            [
+              -80.286,
+              242.627
+            ],
+            [
+              -90.0,
+              242.0
+            ],
+            [
+              -92.0,
+              261.0
+            ],
+            [
+              -86.194,
+              261.581
+            ]
+          ]
+        },
+        "height": 7.55,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 5.05,
+          "ridge": 99,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        },
+        "material": "chapelStone",
+        "facade": {
+          "material": "chapelStone",
+          "bands": [],
+          "base": {
+            "material": "chapelStone",
+            "height": 0.65
+          }
+        }
+      },
+      {
+        "name": "Pitched north range",
+        "footprint": [
+          [
+            -105.261,
+            289.249
+          ],
+          [
+            -103.757,
+            280.345
+          ],
+          [
+            -99.6582,
+            278.8301
+          ],
+          [
+            -98.73,
+            273.75
+          ],
+          [
+            -88.75,
+            275.57
+          ],
+          [
+            -88.24,
+            272.77
+          ],
+          [
+            -86.1943,
+            261.581
+          ],
+          [
+            -92.0,
+            261.0
+          ],
+          [
+            -90.0,
+            242.0
+          ],
+          [
+            -80.286,
+            242.627
+          ],
+          [
+            -80.24,
+            242.31
+          ],
+          [
+            -79.98,
+            240.51
+          ],
+          [
+            -79.69,
+            240.54
+          ],
+          [
+            -79.46,
+            239.08
+          ],
+          [
+            -80.82,
+            238.85
+          ],
+          [
+            -80.91,
+            239.28
+          ],
+          [
+            -81.07,
+            239.25
+          ],
+          [
+            -77.68,
+            219.69
+          ],
+          [
+            -77.072,
+            219.7902
+          ],
+          [
+            -92.8816,
+            217.0026
+          ],
+          [
+            -93.07,
+            218.1
+          ],
+          [
+            -91.73,
+            218.33
+          ],
+          [
+            -95.52,
+            240.47
+          ],
+          [
+            -98.03,
+            240.05
+          ],
+          [
+            -95.1,
+            224.72
+          ],
+          [
+            -98.721,
+            224.083
+          ],
+          [
+            -104.0,
+            254.0
+          ],
+          [
+            -104.923,
+            262.075
+          ],
+          [
+            -100.7,
+            262.83
+          ],
+          [
+            -102.53,
+            273.08
+          ]
+        ],
+        "height": 10,
+        "floors": 3,
+        "roof": {
+          "form": "hip",
+          "rise": 3.9,
+          "ridge": 10,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        }
+      },
+      {
+        "name": "Pitched north range",
+        "footprint": [
+          [
+            -72.13,
+            208.74
+          ],
+          [
+            -76.7276,
+            208.0
+          ],
+          [
+            -84.0464,
+            208.0
+          ],
+          [
+            -72.3487,
+            210.0626
+          ]
+        ],
+        "height": 10,
+        "floors": 3,
+        "roof": {
+          "form": "hip",
+          "rise": 3.9,
+          "ridge": 10,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        }
+      },
+      {
+        "name": "Northwest academic wing",
+        "footprint": [
+          [
+            -100.869,
+            236.257
+          ],
+          [
+            -118.684,
+            233.116
+          ],
+          [
+            -121.78,
+            250.69
+          ],
+          [
+            -117.77,
+            251.39
+          ],
+          [
+            -118.99,
+            258.28
+          ],
+          [
+            -104.9,
+            260.79
+          ],
+          [
+            -105.12,
+            262.04
+          ],
+          [
+            -104.923,
+            262.075
+          ],
+          [
+            -104.0,
+            254.0
+          ]
+        ],
+        "height": 10.65,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "southMembrane",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Western academic additions",
+        "footprint": [
+          [
+            -140.38,
+            275.11
+          ],
+          [
+            -139.1,
+            278.38
+          ],
+          [
+            -141.14,
+            279.17
+          ],
+          [
+            -143.5,
+            273.16
+          ],
+          [
+            -158.94,
+            279.21
+          ],
+          [
+            -149.07,
+            304.4
+          ],
+          [
+            -152.32,
+            305.67
+          ],
+          [
+            -157.56,
+            292.28
+          ],
+          [
+            -158.0003,
+            292.4523
+          ],
+          [
+            -150.9313,
+            310.8676
+          ],
+          [
+            -146.4735,
+            309.1564
+          ],
+          [
+            -145.359,
+            312.0599
+          ],
+          [
+            -144.08,
+            310.53
+          ],
+          [
+            -140.42,
+            309.09
+          ],
+          [
+            -134.27,
+            306.68
+          ],
+          [
+            -132.343,
+            311.589
+          ],
+          [
+            -138.0,
+            293.0
+          ],
+          [
+            -132.603,
+            291.006
+          ],
+          [
+            -135.05,
+            284.76
+          ],
+          [
+            -132.97,
+            283.94
+          ],
+          [
+            -134.97,
+            278.9
+          ],
+          [
+            -132.93,
+            278.1
+          ],
+          [
+            -133.7,
+            276.16
+          ],
+          [
+            -134.96,
+            272.97
+          ]
+        ],
+        "height": 7.3,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "flatRoof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Western academic additions",
+        "footprint": [
+          [
+            -160.52,
+            323.26
+          ],
+          [
+            -156.11,
+            324.48
+          ],
+          [
+            -155.6529,
+            324.3092
+          ],
+          [
+            -158.3946,
+            317.1667
+          ],
+          [
+            -162.3218,
+            318.6742
+          ]
+        ],
+        "height": 7.3,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "flatRoof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Lower northern end gable",
+        "footprint": [
+          [
+            -85.55,
+            206.58
+          ],
+          [
+            -84.34,
+            199.07
+          ],
+          [
+            -91.98,
+            197.93
+          ],
+          [
+            -93.13,
+            205.37
+          ],
+          [
+            -90.95,
+            205.75
+          ],
+          [
+            -91.3362,
+            208.0
+          ],
+          [
+            -76.7276,
+            208.0
+          ]
+        ],
+        "height": 4.0,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 2.3,
+          "ridge": 10,
+          "material": "roof",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "North transverse range",
+        "footprint": [
+          [
+            -74.04,
+            220.29
+          ],
+          [
+            -72.3487,
+            210.0626
+          ],
+          [
+            -84.0464,
+            208.0
+          ],
+          [
+            -91.3362,
+            208.0
+          ],
+          [
+            -92.8816,
+            217.0026
+          ],
+          [
+            -77.072,
+            219.7902
+          ]
+        ],
+        "height": 9.75,
+        "floors": 3,
+        "roof": {
+          "form": "hip",
+          "rise": 3.0,
+          "ridge": 100,
+          "material": "roof",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Curved lower entrance link",
+        "footprint": [
+          [
+            -148.86,
+            321.77
+          ],
+          [
+            -146.13,
+            318.04
+          ],
+          [
+            -146.22,
+            314.16
+          ],
+          [
+            -145.66,
+            312.42
+          ],
+          [
+            -145.359,
+            312.0599
+          ],
+          [
+            -146.4735,
+            309.1564
+          ],
+          [
+            -159.5436,
+            314.1735
+          ],
+          [
+            -155.6529,
+            324.3092
+          ]
+        ],
+        "height": 8.0,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "flatRoof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Westernmost academic range",
+        "footprint": [
+          [
+            -182.48,
+            325.01
+          ],
+          [
+            -162.85,
+            317.33
+          ],
+          [
+            -162.322,
+            318.674
+          ],
+          [
+            -162.233,
+            318.64
+          ],
+          [
+            -170.606,
+            297.385
+          ],
+          [
+            -190.27,
+            305.08
+          ]
+        ],
+        "height": 9.08,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "westDark",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Northwest low service wing",
+        "height": 4.25,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": []
+        },
+        "footprint": [
+          [
+            -125.9,
+            246.5
+          ],
+          [
+            -122.3,
+            221.5
+          ],
+          [
+            -128.9,
+            220.0
+          ],
+          [
+            -132.0,
+            246.4
+          ],
+          [
+            -134.8,
+            250.5
+          ],
+          [
+            -120.4,
+            253.6
+          ],
+          [
+            -119.7486,
+            251.0446
+          ],
+          [
+            -121.78,
+            250.69
+          ],
+          [
+            -121.2811,
+            247.8585
+          ]
+        ]
+      },
+      {
+        "name": "Lower north academic roof",
+        "footprint": [
+          [
+            -98.721,
+            224.083
+          ],
+          [
+            -116.54,
+            220.95
+          ],
+          [
+            -118.684,
+            233.116
+          ],
+          [
+            -100.869,
+            236.257
+          ]
+        ],
+        "height": 8.78,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "northBallast",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Light-roofed east service bay of western range",
+        "footprint": [
+          [
+            -158.395,
+            317.167
+          ],
+          [
+            -159.544,
+            314.174
+          ],
+          [
+            -150.931,
+            310.868
+          ],
+          [
+            -158.0,
+            292.452
+          ],
+          [
+            -170.606,
+            297.385
+          ],
+          [
+            -162.233,
+            318.64
+          ]
+        ],
+        "height": 6.55,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "southMembrane",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Small west service annex below tree canopy",
+        "footprint": [
+          [
+            -183.776,
+            321.502
+          ],
+          [
+            -188.806,
+            323.468
+          ],
+          [
+            -191.536,
+            316.482
+          ],
+          [
+            -186.507,
+            314.516
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 3.35,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "windows": {
+            "type": "punched",
+            "width": 0.85,
+            "height": 0.9,
+            "sill": 1.5,
+            "perBay": 1
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "bays": {
+            "width": 3.9
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "westDark",
+          "edge": "parapet"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 28,
+      "position": 0.48,
+      "type": "glass-vestibule",
+      "width": 2,
+      "height": 2.35,
+      "steps": 4,
+      "canopy": {
+        "type": "portico",
+        "depth": 2.05,
+        "width": 4,
+        "columns": 2,
+        "material": "gableFascia",
+        "form": "gable",
+        "rise": 1.36,
+        "glazedGable": true
+      },
+      "recess": 0.35
+    },
+    {
+      "wall": 21,
+      "position": 0.62,
+      "type": "glass-vestibule",
+      "width": 2.7,
+      "height": 2.6
+    },
+    {
+      "wall": 34,
+      "position": 0.54,
+      "type": "doors-double",
+      "width": 1.8,
+      "height": 2.5,
+      "surround": "trim"
+    },
+    {
+      "wall": 37,
+      "position": 0.48,
+      "type": "doors-double",
+      "width": 1.8,
+      "height": 2.5,
+      "surround": "trim"
+    },
+    {
+      "wall": 49,
+      "position": 0.47,
+      "type": "doors-double",
+      "width": 1.8,
+      "height": 2.5,
+      "surround": "trim"
+    },
+    {
+      "wall": 46,
+      "position": 0.48,
+      "type": "doors-double",
+      "width": 1.8,
+      "height": 2.5,
+      "surround": "trim"
+    }
+  ],
+  "towers": [
+    {
+      "name": "Chapel entrance and bell tower",
+      "at": [
+        -84.38,
+        241.95
+      ],
+      "plan": "square",
+      "size": [
+        6.75,
+        6.32
+      ],
+      "height": 17.6,
+      "rotation": 10,
+      "material": "chapelStone",
+      "belfry": true,
+      "buttresses": true,
+      "windows": {
+        "type": "lancet",
+        "width": 1.95,
+        "height": 4.5,
+        "perBay": 1,
+        "sill": 0.7,
+        "glass": "leaded",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 3,
+          "width": 0.12
+        }
+      },
+      "top": {
+        "type": "battlements",
+        "height": 0.62,
+        "material": "chapelStone"
+      },
+      "cornerTurrets": {
+        "width": 0.96,
+        "height": 1.15
+      }
+    },
+    {
+      "name": "Southeast corner copper spire",
+      "at": [
+        -81.7,
+        245.02
+      ],
+      "plan": "octagon",
+      "size": [
+        1.45,
+        1.45
+      ],
+      "height": 18.8,
+      "material": "chapelStone",
+      "top": {
+        "type": "spire",
+        "height": 8.8,
+        "material": "spireCopper"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -85.69,
+          198.62
+        ],
+        [
+          -85.57,
+          197.82
+        ],
+        [
+          -90.54,
+          197.08
+        ],
+        [
+          -90.66,
+          197.87
+        ]
+      ],
+      "width": 0.22,
+      "height": 0.32,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -92.44,
+          199.27
+        ],
+        [
+          -93.23,
+          199.15
+        ],
+        [
+          -93.97,
+          203.93
+        ],
+        [
+          -93.18,
+          204.05
+        ]
+      ],
+      "width": 0.22,
+      "height": 0.32,
+      "material": "trim"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -97.6,
+          276.9
+        ],
+        [
+          -93.5,
+          282.4
+        ]
+      ],
+      "width": 4.25,
+      "height": 0.15,
+      "material": "courtPaving"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -73.5,
+          217.9
+        ],
+        [
+          -72.7,
+          218.03
+        ],
+        [
+          -72.43,
+          216.39
+        ],
+        [
+          -73.23,
+          216.26
+        ]
+      ],
+      "width": 0.19,
+      "height": 0.29,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -72.68,
+          212.93
+        ],
+        [
+          -71.88,
+          213.06
+        ],
+        [
+          -71.61,
+          211.43
+        ],
+        [
+          -72.41,
+          211.29
+        ]
+      ],
+      "width": 0.19,
+      "height": 0.29,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -75.99,
+          207.98
+        ],
+        [
+          -75.86,
+          207.18
+        ],
+        [
+          -77.5,
+          206.91
+        ],
+        [
+          -77.62,
+          207.71
+        ]
+      ],
+      "width": 0.19,
+      "height": 0.29,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -80.95,
+          207.18
+        ],
+        [
+          -80.82,
+          206.38
+        ],
+        [
+          -82.46,
+          206.11
+        ],
+        [
+          -82.59,
+          206.91
+        ]
+      ],
+      "width": 0.19,
+      "height": 0.29,
+      "material": "trim"
+    }
+  ]
+}

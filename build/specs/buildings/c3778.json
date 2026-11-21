@@ -1,0 +1,70 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3778",
+  "name": "South Valley lawn east",
+  "status": "refined",
+  "confidence": 0.96,
+  "style": "industrial-utility",
+  "summary": "Absent footprint showing grass and deciduous branches across the survey rectangle, so omit the historical city footprint from the building mesh.",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#898981"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#7a6e56"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c2b9a8"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 0,
+    "typicalHeight": 0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 1,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The 2025 orthophoto shows grass and deciduous branches across the survey rectangle. No roof edge or building shadow falls within the footprint."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 1.34 m, 90th percentile 4.35 m, maximum 5.32 m."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "136656575",
+      "walls": [
+        2
+      ],
+      "note": "View toward the lawn through trees beside Health Sciences. No structure is resolved."
+    }
+  ],
+  "present": false,
+  "lidarTrusted": false,
+  "lidarNote": "Leafless crowns occupy the footprint and explain the elevated surface.",
+  "notes": "Omit the historical city footprint from the building mesh."
+}

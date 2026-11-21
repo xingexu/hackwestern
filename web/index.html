@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="manifest" href="./phone/app.webmanifest">
+  <link rel="apple-touch-icon" href="./phone/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Drive Western">
+  <meta name="theme-color" content="#c9d5d4">
+  <meta name="campus-entry" content="map">
+  <meta name="campus-course" content="sprint">
+  <link rel="stylesheet" href="./drive.css">
+  <script>
+    const manifest=document.getElementById('campus-assets');
+    if(manifest) globalThis.campusAssetUrls=JSON.parse(manifest.textContent);
+    const mode = new URLSearchParams(location.search).get("mode") || document.querySelector('meta[name="campus-entry"]').content;
+    document.documentElement.dataset.mode = mode === "drive" ? "drive" : "map";
+  </script>
+  <title>Western Campus Map</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, sans-serif;
+      color: #283635;
+      background: #c9d5d4;
+      --panel: rgb(246 246 234 / 88%);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; overflow: hidden; }
+    #view, #labels { position: fixed; inset: 0; width: 100%; height: 100%; }
+    #view { display: block; touch-action: none; cursor: grab; image-rendering: pixelated; }
+    #view:active { cursor: grabbing; }
+    #labels { pointer-events: none; overflow: hidden; }
+    .tag {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #eff3e9;
+      background: #263733;
+      padding: 3px 5px;
+      box-shadow: 2px 2px 0 rgb(30 43 35 / 30%);
+    }
+    .tag canvas { display: block; image-rendering: pixelated; }
+    .tag::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 4px;
+      background: inherit;
+      top: 100%;
+      left: calc(50% - 1px);
+    }
+    .hud { position: fixed; z-index: 1; }
+    header { top: max(24px, env(safe-area-inset-top)); left: max(28px, env(safe-area-inset-left)); pointer-events: none; }
+    header.detail::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: -7px -9px;
+      border-radius: 3px;
+      background: var(--panel);
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-family: Georgia, serif;
+      font-size: clamp(25px, 3.2vw, 43px);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: 1;
+    }
+    .location { margin: 0; color: #435451; font: 700 10px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    button, #scale-panel {
+      border: 1px solid rgb(52 71 62 / 21%);
+      border-radius: 4px;
+      background: var(--panel);
+      color: #283635;
+    }
+    button { font: inherit; cursor: pointer; }
+    button:focus-visible, input:focus-visible { outline: 2px solid #475534; outline-offset: 3px; }
+    #reset {
+      top: max(24px, env(safe-area-inset-top));
+      right: max(28px, env(safe-area-inset-right));
+      display: grid;
+      justify-items: center;
+      gap: 3px;
+      padding: 6px 8px;
+      font: 700 10px/1 var(--mono);
+    }
+    #north {
+      display: block;
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(90deg, #34433c 50%, #79908a 50%);
+      clip-path: polygon(50% 0, 96% 95%, 50% 69%, 4% 95%);
+    }
+    #controls {
+      left: max(28px, env(safe-area-inset-left));
+      bottom: max(25px, env(safe-area-inset-bottom));
+      margin: 0;
+      padding: 6px 8px;
+      border-radius: 3px;
+      color: #31423c;
+      background: rgb(241 244 232 / 78%);
+      font: 600 11px/1.45 var(--mono);
+      pointer-events: none;
+    }
+    #scale-panel {
+      right: max(28px, env(safe-area-inset-right));
+      bottom: max(24px, env(safe-area-inset-bottom));
+      display: grid;
+      grid-template-columns: auto minmax(56px, 88px) 22px;
+      align-items: center;
+      gap: 5px 8px;
+      padding: 7px 9px;
+      font: 700 11px/1 var(--mono);
+    }
+    #scale-panel input { width: 100%; margin: 0; accent-color: #657356; cursor: pointer; }
+    #fps { grid-column: 1 / -1; justify-self: end; color: #4e5e56; font-size: 10px; }
+    #status {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      max-width: min(90vw, 400px);
+      margin: 0;
+      padding: 10px 13px;
+      border-radius: 4px;
+      background: var(--panel);
+      text-align: center;
+      font: 700 12px/1.45 var(--mono);
+      z-index: 2;
+    }
+    [hidden] { display: none; }
+    @media (pointer: coarse) { .mouse { display: none; } }
+    @media (pointer: fine) { .touch { display: none; } }
+    @media (max-width: 620px) {
+      header, #controls { left: max(12px, env(safe-area-inset-left)); }
+      #reset, #scale-panel { right: max(12px, env(safe-area-inset-right)); }
+      header, #reset { top: max(14px, env(safe-area-inset-top)); }
+      #controls, #scale-panel { bottom: max(12px, env(safe-area-inset-bottom)); }
+      #controls { font-size: 10px; max-width: calc(100vw - 182px); }
+    }
+    #credits { position: fixed; left: 50%; transform: translateX(-50%); bottom: 4px; margin: 0; padding: 2px 8px; border-radius: 4px; background: rgba(245,243,236,.82); font: 9px/1.35 ui-monospace, Menlo, monospace; color: #3a3f38; pointer-events: none; text-align: center; max-width: min(52vw, 640px); }
+    @media (max-width: 1100px) { #credits { left: auto; right: max(12px, env(safe-area-inset-right)); transform: none; bottom: 92px; max-width: 260px; text-align: right; } }
+    @media (max-width: 700px) { #credits { display: none; } }
+  </style>
+  <script type="importmap">
+    {"imports":{"three":"./three.module.js","three-mesh-bvh":"./mesh-bvh.module.js","campus-buildings":"./campus-buildings.mjs","building-kernel":"./building-kernel.mjs","parking-decks":"./parking-decks.mjs","building-contacts":"./building-contacts.mjs","building-materials":"./building-materials.mjs","campus-drive":"./drive.js","drive-sim":"./drive-sim.mjs","drive-art":"./drive-art.js","drive-road":"./drive-road.js","drive-trees":"./drive-trees.js","campus-scene":"./campus-scene.js","campus-region":"./campus-region.js","street-detail":"./street-detail.js","drive-network":"./drive-network.mjs","campus-roads":"./campus-roads.js","region-detail":"./region-detail.js","survey-canopy":"./survey-canopy.js","leaf-sprays":"./leaf-sprays.js","driving-horizon":"./driving-horizon.js","campus-clip":"./campus-clip.js","streetview-facades":"./streetview-facades.js","campus-terrain":"./campus-terrain.mjs","campus-architecture":"./architecture.js","municipal-detail":"./municipal-detail.js","frame-pacing":"./frame-pacing.mjs","campus-daylight":"./look/daylight.mjs","drive-finish":"./look/finish.mjs","look-quality":"./look/quality.mjs","look-materials":"./look/materials.mjs","grove-lod":"./grove-lod.js","core-volume":"./core-volume.mjs","scene-pack":"./scene-pack.mjs"}}
+  </script>
+</head>
+<body>
+  <canvas id="view" aria-label="Interactive 3D model of Western University"></canvas>
+  <div id="map-ui">
+  <div id="labels" aria-label="Buildings"></div>
+  <header class="hud">
+    <h1>Western University</h1>
+    <p class="location">Campus map · London, Ontario</p>
+  </header>
+  <button id="reset" class="hud" type="button" aria-label="Reset map view"><span id="north"></span>N</button>
+  <p id="controls" class="hud"><span class="mouse">Drag to orbit · Shift-drag to pan · Scroll to zoom · Q / E to turn</span><span class="touch">Drag to orbit · Two fingers to pan and zoom</span></p>
+  <div id="scale-panel" class="hud">
+    <label for="pixel-scale">Pixel size</label>
+    <input id="pixel-scale" type="range" min="1" max="6" value="1">
+    <output id="scale-value" for="pixel-scale">1×</output>
+    <label id="graphics-control">Graphics <select id="look-quality" aria-label="Graphics quality"><option value="auto">Auto</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="ultra">Ultra</option></select></label>
+    <output id="fps" aria-label="Frames per second">— FPS</output>
+  </div>
+  <button id="region-view" hidden type="button">Entire campus</button>
+  <a id="roam-link" href="?mode=drive&amp;course=roam">Free roam ↗</a>
+  <a id="drive-link" href="?mode=drive">Drive UC Hill <span aria-hidden="true">↗</span></a>
+  </div>
+  <section id="drive-ui" aria-label="Driving controls and instruments">
+    <div class="course-card">
+      <div class="course-title"><span class="course-mark" aria-hidden="true">W</span><div><small>WESTERN UNIVERSITY</small><select id="drive-course" aria-label="Driving mode or race course"><option value="sprint">UC Hill Sprint</option></select></div></div>
+      <label id="roam-start" hidden>Start near <select id="spawn" aria-label="Free roam starting location"></select></label>
+      <div id="drive-graphics"></div>
+      <nav><a href="?mode=map">Campus map</a><button id="view-toggle" type="button" aria-pressed="false" aria-label="Driver view">Driver view</button><button id="recover" type="button" hidden>Recover</button><button id="restart" type="button">Restart <kbd>R</kbd></button></nav>
+    </div>
+    <div class="route-card"><canvas id="route-plan" width="328" height="206" aria-label="Route map with car position"></canvas><div><span id="meters">0 m</span><span id="length"></span></div><progress id="progress" aria-label="Course progress" value="0" max="1"></progress></div>
+    <div class="drive-help" id="input-hint">WASD or arrows · R to restart</div>
+    <div class="instruments">
+      <div><small>SPEED</small><strong id="speed">0</strong><span>km/h</span><small id="powertrain"></small></div>
+      <div><small>RUN TIME</small><output id="time">0:00.00</output><span id="surface">On grid</span></div>
+    </div>
+    <div id="drive-message" role="status"></div>
+    <div id="touch-drive"><button id="tilt" type="button" aria-pressed="false">Enable tilt steering</button><div><button data-key="ArrowLeft" aria-label="Steer left">←</button><button data-key="ArrowRight" aria-label="Steer right">→</button></div><div><button data-key="ArrowDown">Brake</button><button data-key="ArrowUp">Gas</button></div></div>
+    <div id="finish" hidden><div><small>UC HILL SPRINT</small><h2>Finish</h2><output id="result"></output><button id="again" type="button">Drive again ↗</button></div></div>
+  </section>
+  <p id="status" role="status">Loading campus…</p>
+  <script type="module" src="./main.js"></script>
+  <details id="map-sources">
+    <summary>Map credits</summary>
+    <div>
+      <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors</a>
+      <a href="https://maps.london.ca/server/rest/services" target="_blank" rel="noreferrer">City of London surveys and aerial photography</a>
+      <a href="https://open.canada.ca/en/open-government-licence-canada" target="_blank" rel="noreferrer">Natural Resources Canada HRDEM · Open Government Licence – Canada</a>
+      <span id="sign-credits"></span>
+      <a id="road-credit" hidden target="_blank" rel="noreferrer"></a>
+      <a id="facade-credit" hidden target="_blank" rel="noreferrer"></a>
+      <a href="https://kartaview.org/terms" target="_blank" rel="noreferrer">Street reference images © Grab and KartaView contributors · building and paving features interpreted for the game · CC BY-SA 4.0</a>
+      <a href="https://www.uwo.ca/fm/client_services/building_info.html" target="_blank" rel="noreferrer">Western Facilities Management exterior photographs</a>
+      <a href="https://www.uwo.ca/earth/geocollections/resources/displays/if_the_walls_of_western_could_talk.html" target="_blank" rel="noreferrer">Western Archives · Middlesex College stonework</a>
+      <span>Esri World Imagery</span>
+    </div>
+  </details>
+</body>
+</html>

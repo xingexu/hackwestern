@@ -1,0 +1,509 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w310131576",
+  "name": "Mary Manor",
+  "status": "refined",
+  "confidence": 0.87,
+  "summary": "White clapboard house with a brown gabled roof, sash windows, and a tall buff-brick chimney. A lower wing wraps the main block above a pale brick base.",
+  "style": "house",
+  "evidence": [
+    {
+      "kind": "knowledge",
+      "url": "https://tvsef.ca/wp-content/uploads/2023/03/brescia_map-TVSEF.pdf",
+      "note": "Mary Manor is the free-standing house between Facilities Management and Brescia Lane."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/MM.jpg",
+      "note": "White horizontal siding, a buff-brick base and tall buff-brick chimney on the gabled end. Sash windows have white frames. Wall and brick colours sampled from the photo."
+    },
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. Brown roof has a straight east-northeast ridge. Narrow lower roof along west side, projecting gables, small north arrival walk and trees along the road."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 8.04 m, P90 8.75 m, maximum 9.7 m. Main roof 8–9 m with local return near 9.7 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "Mary Manor has a low west lean-to and a north glazed porch adjoining the main gable alongside a paved east apron."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "wood-siding",
+      "color": "#d2d6d5",
+      "variation": 0.07,
+      "secondaryColor": "#e2e3de",
+      "unitSize": [
+        2.7,
+        0.145
+      ],
+      "bond": "running"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#dedbd2",
+      "variation": 0.09
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#5d5148",
+      "variation": 0.08,
+      "secondaryColor": "#493f39",
+      "unitSize": [
+        0.32,
+        0.16
+      ]
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b7afa2",
+      "variation": 0.09
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#797b73",
+      "variation": 0.09
+    },
+    "stone": {
+      "kind": "brick",
+      "color": "#9c805e",
+      "variation": 0.21,
+      "secondaryColor": "#b09b7c",
+      "unitSize": [
+        0.205,
+        0.067
+      ],
+      "bond": "running"
+    },
+    "sideRoof": {
+      "kind": "membrane",
+      "color": "#86867b",
+      "roughness": 0.93
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 3.0,
+    "typicalHeight": 2.84,
+    "raisedGround": 0.42
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 0.98,
+        "height": 1.45,
+        "sill": 0.74,
+        "perBay": 1,
+        "recess": 0.14,
+        "frameColor": "#e8e6da",
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 2,
+          "width": 0.055
+        },
+        "glass": "clear",
+        "sillProjecting": true
+      },
+      "bays": {
+        "width": 3.25,
+        "pattern": "regular",
+        "edgeMargin": 0.24
+      },
+      "base": {
+        "height": 1.08,
+        "material": "stone",
+        "projection": 0.06
+      },
+      "cornice": {
+        "height": 0.18,
+        "depth": 0.21,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 3,
+          "width": 4.05,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 4,
+          "width": 3.61,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 3,
+          "width": 4.04,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 4,
+          "width": 3.61,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "gutter",
+    "rise": 2.85,
+    "ridge": 68,
+    "overhang": 0.26,
+    "features": [
+      {
+        "type": "dormers",
+        "center": [
+          -474.601,
+          977.245
+        ],
+        "size": [
+          1.6,
+          1.55
+        ],
+        "height": 1.35,
+        "material": "wall",
+        "rotation": -21,
+        "walls": 1,
+        "style": "Eave dormer with white sash and gabled head."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -477.6,
+          978.501
+        ],
+        "size": [
+          1.6,
+          1.55
+        ],
+        "height": 1.35,
+        "material": "wall",
+        "rotation": -21,
+        "walls": 1,
+        "style": "Eave dormer with white sash and gabled head."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -480.4,
+          979.673
+        ],
+        "size": [
+          1.6,
+          1.55
+        ],
+        "height": 1.35,
+        "material": "wall",
+        "rotation": -21,
+        "walls": 1,
+        "style": "Eave dormer with white sash and gabled head."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -485.481,
+          969.555
+        ],
+        "size": [
+          1.6,
+          1.55
+        ],
+        "height": 1.35,
+        "material": "wall",
+        "rotation": 159,
+        "walls": 3,
+        "style": "Eave dormer with white sash and gabled head."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -482.484,
+          968.299
+        ],
+        "size": [
+          1.6,
+          1.55
+        ],
+        "height": 1.35,
+        "material": "wall",
+        "rotation": 159,
+        "walls": 3,
+        "style": "Eave dormer with white sash and gabled head."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -479.687,
+          967.127
+        ],
+        "size": [
+          1.6,
+          1.55
+        ],
+        "height": 1.35,
+        "material": "wall",
+        "rotation": 159,
+        "walls": 3,
+        "style": "Eave dormer with white sash and gabled head."
+      }
+    ]
+  },
+  "notes": "The east photos show a broad chimney shoulder and corbelled cap, a half-round attic opening and white corner boards. The rear porch and low wing dimensions follow the aerial approximately.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main gable",
+        "footprint": [
+          [
+            -482.426,
+            980.976
+          ],
+          [
+            -472.928,
+            977.0
+          ],
+          [
+            -477.28,
+            965.663
+          ],
+          [
+            -486.7,
+            969.61
+          ]
+        ],
+        "height": 6.28,
+        "floors": 2
+      },
+      {
+        "name": "Lower west side wing",
+        "footprint": [
+          [
+            -490.344,
+            969.857
+          ],
+          [
+            -487.123,
+            968.621
+          ],
+          [
+            -482.357,
+            981.038
+          ],
+          [
+            -485.578,
+            982.274
+          ]
+        ],
+        "height": 3.0,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "sideRoof",
+          "edge": "gutter",
+          "rise": 0.19,
+          "ridge": 159,
+          "overhang": 0.25
+        }
+      },
+      {
+        "name": "Low wraparound east gable wing",
+        "footprint": [
+          [
+            -471.04,
+            976.21
+          ],
+          [
+            -475.72,
+            965.01
+          ],
+          [
+            -477.28,
+            965.663
+          ],
+          [
+            -472.928,
+            977.0
+          ]
+        ],
+        "height": 3.1,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "rise": 0.64,
+          "ridge": 159,
+          "edge": "gutter"
+        },
+        "facade": {
+          "material": "wall",
+          "base": {
+            "height": 1.08,
+            "material": "stone",
+            "projection": 0.06
+          },
+          "windows": {
+            "type": "punched",
+            "width": 0.79,
+            "height": 1.26,
+            "sill": 1.1,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1
+            }
+          },
+          "bays": {
+            "width": 2.5
+          }
+        }
+      },
+      {
+        "name": "North glazed porch",
+        "footprint": [
+          [
+            -481.917,
+            965.166
+          ],
+          [
+            -479.519,
+            964.162
+          ],
+          [
+            -478.612,
+            966.33
+          ],
+          [
+            -481.009,
+            967.334
+          ]
+        ],
+        "height": 2.96,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "ridge": 69,
+          "rise": 0.39,
+          "edge": "fascia"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "storefront",
+            "width": 1.95,
+            "height": 1.85,
+            "sill": 0.78,
+            "frameColor": "#e2e3db",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            }
+          }
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.7,
+      "type": "glass-vestibule",
+      "width": 1.02,
+      "height": 2.16,
+      "steps": 2,
+      "recess": 0.48,
+      "at": [
+        -480.585,
+        964.608
+      ]
+    }
+  ],
+  "attachments": [
+    {
+      "type": "chimney-stack",
+      "walls": 0,
+      "path": [
+        [
+          -473.69,
+          969.687
+        ],
+        [
+          -472.894,
+          971.591
+        ]
+      ],
+      "width": 0.92,
+      "height": 9.68,
+      "material": "stone"
+    },
+    {
+      "type": "chimney-stack",
+      "walls": 0,
+      "path": [
+        [
+          -473.742,
+          969.38
+        ],
+        [
+          -472.689,
+          971.9
+        ]
+      ],
+      "width": 0.99,
+      "height": 4.65,
+      "material": "stone"
+    },
+    {
+      "type": "chimney-stack",
+      "walls": 0,
+      "path": [
+        [
+          -473.783,
+          969.463
+        ],
+        [
+          -472.801,
+          971.815
+        ]
+      ],
+      "width": 0.98,
+      "height": 0.16,
+      "baseOffset": 9.57,
+      "material": "stone"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -472.812,
+          969.583
+        ],
+        [
+          -470.612,
+          974.847
+        ]
+      ],
+      "width": 1.5,
+      "height": 0.12,
+      "material": "base"
+    }
+  ]
+}

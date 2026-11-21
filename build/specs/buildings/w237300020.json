@@ -1,0 +1,598 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w237300020",
+  "name": "Graphic Services",
+  "status": "refined",
+  "confidence": 0.88,
+  "summary": "A single-storey shop clad in vertical silver-grey corrugated siding under a white shallow-pitched metal roof, with square divided windows and a glazed double-door entrance left of centre on the east front.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#b5b8b3",
+      "secondaryColor": "#868b86",
+      "unitSize": [
+        0.21,
+        5.97
+      ],
+      "roughness": 0.48,
+      "metalness": 0.5,
+      "variation": 0.035
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#a5a7a2",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    },
+    "roof": {
+      "kind": "standing-seam-metal",
+      "color": "#eaece0",
+      "secondaryColor": "#c5c8be",
+      "unitSize": [
+        0.57,
+        3
+      ]
+    },
+    "flashing": {
+      "kind": "painted-metal",
+      "color": "#b3b6b0",
+      "secondaryColor": "#a0a49e",
+      "roughness": 0.67
+    },
+    "walkPad": {
+      "kind": "membrane",
+      "color": "#a7a9a1",
+      "roughness": 0.88
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 5.75,
+    "typicalHeight": 5.75
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.6,
+        "height": 1.49,
+        "sill": 0.79,
+        "perBay": 1,
+        "recess": 0.055,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.065
+        },
+        "frameColor": "#d5d8d5",
+        "glass": "tinted",
+        "glassColor": "#384541",
+        "surround": "none",
+        "sillProjecting": false
+      },
+      "base": {
+        "material": "base",
+        "height": 0.35,
+        "projection": 0.04
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 3.05,
+          "count": 9,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "1": {
+        "windows": {
+          "type": "punched",
+          "width": 1.35,
+          "height": 1.12,
+          "sill": 1.05,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#d0d3ce",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "metal",
+          "sillProjecting": true
+        },
+        "bays": {
+          "width": 7.65,
+          "count": 6,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "2": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "windows": {
+          "type": "punched",
+          "width": 1.2,
+          "height": 0.99,
+          "sill": 1.08,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#d0d3ce",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "metal",
+          "sillProjecting": true
+        },
+        "bays": {
+          "width": 8.37,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 4.32,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 4.16,
+          "count": 5,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "ridge": 68,
+    "pitch": 1.42,
+    "edge": "gutter",
+    "overhang": 0.18,
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -268.9,
+          62.1
+        ],
+        "size": [
+          2.9,
+          1.9
+        ],
+        "height": 1.27,
+        "material": "trim",
+        "rotation": -21,
+        "style": "rectangular exhaust cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -261.6,
+          56.9
+        ],
+        "size": [
+          2.7,
+          1.6
+        ],
+        "height": 1.18,
+        "material": "trim",
+        "rotation": -21,
+        "style": "rectangular fan cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -260.7,
+          54.4
+        ],
+        "size": [
+          2.6,
+          1.52
+        ],
+        "height": 1.16,
+        "material": "trim",
+        "rotation": -21,
+        "style": "low cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -264.9,
+          59.7
+        ],
+        "size": [
+          6.9,
+          0.62
+        ],
+        "height": 0.32,
+        "material": "trim",
+        "rotation": -21,
+        "style": "duct"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "131414115",
+      "walls": [
+        0
+      ],
+      "note": "East face has eight square divided windows and a taller glazed double entrance second from the south end. Deep vertical ribs catch sun on one side. Average lit and shaded corrugations sampled #70706e under backlighting."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414117",
+      "walls": [
+        0,
+        5
+      ],
+      "note": "Four-pane pattern with broad head light. Silver flutes rise from a low concrete sill to a thin metal edge."
+    },
+    {
+      "kind": "aerial",
+      "note": "White ribbed roof with a long shallow ridge on the main tract. Two small rooftop boxes lie east of centre."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 6.02 m, P90 6.63 m, maximum 10.11 m above inventory ground. Broad top lies near 6 m, P90 6.63 m. The north-west extension in the orthophoto does not have a full contemporary lidar return."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.82,
+      "type": "glass-vestibule",
+      "width": 3.83,
+      "height": 3.08,
+      "canopy": {
+        "type": "cantilever",
+        "width": 4.47,
+        "depth": 1.1,
+        "columns": 0,
+        "material": "trim"
+      },
+      "recess": 0.15
+    }
+  ],
+  "notes": "The left-of-centre doorway occupies one slot of the east window rhythm and has a shallow ribbed metal hood. The yard-side fenestration and small north-west roof intersection are inferred.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main shop",
+        "footprint": [
+          [
+            -300.843,
+            55.693
+          ],
+          [
+            -289.82,
+            82.69
+          ],
+          [
+            -247.31,
+            65.33
+          ],
+          [
+            -257.59,
+            39.85
+          ],
+          [
+            -277.11,
+            47.0
+          ]
+        ],
+        "height": 5.94,
+        "floors": 1
+      },
+      {
+        "name": "Northwest service extension",
+        "footprint": [
+          [
+            -277.11,
+            47.0
+          ],
+          [
+            -280.51,
+            39.06
+          ],
+          [
+            -303.71,
+            48.67
+          ],
+          [
+            -300.843,
+            55.693
+          ]
+        ],
+        "height": 5.89,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "facade": {},
+        "roof": {
+          "form": "shed",
+          "pitch": 1.05,
+          "ridge": 68,
+          "material": "roof",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Folded metal ridge cap",
+        "footprint": [
+          [
+            -295.297,
+            69.276
+          ],
+          [
+            -252.667,
+            52.052
+          ],
+          [
+            -252.738,
+            51.876
+          ],
+          [
+            -295.369,
+            69.1
+          ]
+        ],
+        "baseOffset": 6.261,
+        "height": 6.351,
+        "floors": 1,
+        "material": "flashing",
+        "facade": {
+          "blank": true,
+          "material": "flashing",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "flashing"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "flashing"
+          },
+          "topFloor": {
+            "material": "flashing"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "flashing",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Service pad beneath roof cabinet",
+        "footprint": [
+          [
+            -267.428,
+            59.795
+          ],
+          [
+            -266.264,
+            62.829
+          ],
+          [
+            -270.372,
+            64.405
+          ],
+          [
+            -271.536,
+            61.371
+          ]
+        ],
+        "baseOffset": 6.1690000000000005,
+        "height": 6.299,
+        "floors": 1,
+        "material": "walkPad",
+        "facade": {
+          "blank": true,
+          "material": "walkPad",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "walkPad"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "walkPad"
+          },
+          "topFloor": {
+            "material": "walkPad"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "walkPad",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Service pad beneath roof cabinet",
+        "footprint": [
+          [
+            -260.168,
+            54.77
+          ],
+          [
+            -259.111,
+            57.524
+          ],
+          [
+            -263.032,
+            59.03
+          ],
+          [
+            -264.089,
+            56.276
+          ]
+        ],
+        "baseOffset": 6.221,
+        "height": 6.351,
+        "floors": 1,
+        "material": "walkPad",
+        "facade": {
+          "blank": true,
+          "material": "walkPad",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "walkPad"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "walkPad"
+          },
+          "topFloor": {
+            "material": "walkPad"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "walkPad",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Service pad beneath roof cabinet",
+        "footprint": [
+          [
+            -259.3,
+            52.326
+          ],
+          [
+            -258.272,
+            55.005
+          ],
+          [
+            -262.1,
+            56.474
+          ],
+          [
+            -263.128,
+            53.795
+          ]
+        ],
+        "baseOffset": 6.2330000000000005,
+        "height": 6.363,
+        "floors": 1,
+        "material": "walkPad",
+        "facade": {
+          "blank": true,
+          "material": "walkPad",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "walkPad"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "walkPad"
+          },
+          "topFloor": {
+            "material": "walkPad"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "walkPad",
+          "edge": "none"
+        }
+      }
+    ]
+  }
+}

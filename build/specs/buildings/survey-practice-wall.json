@@ -1,0 +1,51 @@
+{
+  "confidence": 0.84,
+  "style": "athletic",
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.2
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#919589"
+    },
+    "roof": {
+      "kind": "concrete-smooth",
+      "color": "#acafa3"
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "none",
+    "material": "roof"
+  },
+  "massing": {
+    "parts": [
+      {
+        "name": "Court practice wall",
+        "footprint": "inventory",
+        "height": 3.15,
+        "floors": 1
+      }
+    ]
+  },
+  "schema": "western-building-spec/1",
+  "id": "survey-practice-wall",
+  "name": "Tennis practice wall",
+  "status": "authored",
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof breaks, wall line and orientation traced from the London 2025 orthophoto."
+    }
+  ]
+}

@@ -1,0 +1,1459 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w237302165",
+  "name": "Stevenson Hall",
+  "status": "refined",
+  "confidence": 0.72,
+  "summary": "Northern section of joined halls featuring stone wings, stepped flat roofs, recessed modern ribbon windows, and square pale concrete piers at the west entrance.",
+  "style": "mid-century-modern",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#b5ada2",
+      "secondaryColor": "#a49d93",
+      "variation": 0.11,
+      "unitSize": [
+        2.4,
+        1.2
+      ],
+      "bond": "stack",
+      "roughness": 0.82,
+      "weathering": 0.18
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#a19ca2",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#b0b0a9"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    },
+    "stone": {
+      "kind": "rubble-stone",
+      "color": "#ada58f",
+      "secondaryColor": "#b8b19d",
+      "bond": "coursed-rubble",
+      "unitSize": [
+        0.52,
+        0.23
+      ],
+      "variation": 0.25
+    },
+    "equipment": {
+      "kind": "metal-panel",
+      "color": "#9b9d99",
+      "roughness": 0.69,
+      "unitSize": [
+        0.6,
+        1.2
+      ]
+    },
+    "upperMetal": {
+      "kind": "metal-panel",
+      "color": "#969893",
+      "secondaryColor": "#777b78",
+      "unitSize": [
+        0.46,
+        3.8
+      ]
+    },
+    "rooflight": {
+      "kind": "glass-curtain",
+      "color": "#526b72",
+      "roughness": 0.37
+    },
+    "northRoof": {
+      "kind": "membrane",
+      "color": "#a4a397",
+      "roughness": 0.88
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.15,
+    "typicalHeight": 3.55,
+    "raisedGround": 0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "ribbon",
+        "width": 4.8,
+        "height": 1.8,
+        "sill": 0.95,
+        "perBay": 1,
+        "recess": 0.17,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 0,
+          "width": 0.065
+        },
+        "frameColor": "#686965",
+        "glass": "tinted",
+        "glassColor": "#747b80"
+      },
+      "bays": {
+        "width": 5.4,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "parapet": {
+        "height": 0.38,
+        "type": "plain",
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4.93,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 5.0,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 6.18,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "3": {
+        "bays": {
+          "width": 6.74,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "4": {
+        "bays": {
+          "width": 5.83,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "5": {
+        "blank": true,
+        "windows": {
+          "type": "punched",
+          "perBay": 2,
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "material": "stone",
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "6": {
+        "bays": {
+          "width": 6.53,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "7": {
+        "bays": {
+          "width": 4.25,
+          "pattern": "regular",
+          "edgeMargin": 0.35
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#bcb5a6",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "8": {
+        "bays": {
+          "width": 4.25,
+          "pattern": "regular",
+          "edgeMargin": 0.35
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#bcb5a6",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "9": {
+        "bays": {
+          "width": 4.25,
+          "pattern": "regular",
+          "edgeMargin": 0.35
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#bcb5a6",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "10": {
+        "bays": {
+          "width": 4.25,
+          "pattern": "regular",
+          "edgeMargin": 0.35
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#bcb5a6",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "11": {
+        "bays": {
+          "width": 4.25,
+          "pattern": "regular",
+          "edgeMargin": 0.35
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#bcb5a6",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "12": {
+        "bays": {
+          "width": 5.02,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "13": {
+        "bays": {
+          "width": 5.66,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "14": {
+        "blank": true,
+        "windows": {
+          "type": "punched",
+          "perBay": 2,
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "material": "stone",
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "15": {
+        "bays": {
+          "width": 6.26,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "16": {
+        "bays": {
+          "width": 5.7,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 6
+        },
+        "material": "stone",
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.83,
+          "sill": 0.81,
+          "perBay": 2,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "spacing": 0.19,
+          "frameColor": "#bcb5a6"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.42,
+          "material": "trim"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.12,
+            "depth": 0.08,
+            "material": "trim"
+          }
+        ]
+      },
+      "17": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "18": {
+        "bays": {
+          "width": 5.07,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.45,
+          "height": 1.56,
+          "sill": 0.88,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a"
+        },
+        "piers": {
+          "width": 0.62,
+          "depth": 0.62,
+          "every": 2,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "groundFloor": {
+          "height": 4.35,
+          "windows": {
+            "type": "storefront",
+            "width": 4.1,
+            "height": 3.15,
+            "sill": 0.14,
+            "frameColor": "#524f51"
+          }
+        },
+        "topFloor": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "upperMetal"
+        },
+        "segments": [
+          {
+            "range": [
+              0,
+              0.24
+            ],
+            "windows": {
+              "type": "punched",
+              "width": 1.26,
+              "height": 1.6,
+              "sill": 0.82,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              }
+            }
+          },
+          {
+            "range": [
+              0.24,
+              0.57
+            ],
+            "windows": {
+              "type": "punched",
+              "width": 3.25,
+              "height": 1.65,
+              "sill": 0.82,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1,
+                "width": 0.065
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "skylight",
+        "center": [
+          231.303,
+          271.281
+        ],
+        "size": [
+          6.9,
+          3.95
+        ],
+        "height": 1.24,
+        "material": "rooflight",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          220.712,
+          264.115
+        ],
+        "size": [
+          4.2,
+          3.3
+        ],
+        "height": 0.9,
+        "rotation": 10,
+        "material": "equipment"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          225.229,
+          257.26
+        ],
+        "size": [
+          1.75,
+          2.7
+        ],
+        "height": 1.0,
+        "rotation": 10,
+        "material": "equipment"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          219.0,
+          256.8
+        ],
+        "size": [
+          6.8,
+          4.4
+        ],
+        "height": 1,
+        "material": "upperMetal",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          222.5,
+          228.3
+        ],
+        "size": [
+          2.7,
+          2.15
+        ],
+        "height": 0.65,
+        "material": "equipment",
+        "rotation": 10,
+        "style": "north roof ventilation unit",
+        "fanGrid": [
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "note": "Facilities Management exterior photograph. PIL daylight wall and secondary surface samples at (76%, 74%) and (66%, 55%) of image width and height. Lighting varies across photographs.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/STVH.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory core-1m surface percentiles above ground: median 15.0 m, 90th percentile 18.84 m, maximum 19.8 m."
+    },
+    {
+      "kind": "photo",
+      "note": "Western campus map places Stevenson Hall on the north side of the joined complex and Lawson Hall to the south. Inventory names are reversed; geometry follows the physical footprint.",
+      "url": "https://welcome.uwo.ca/pdf/2026-WesternU-SOH-map.pdf"
+    },
+    {
+      "kind": "osm",
+      "note": "Entrance positions are aligned to mapped footpath, service or stair endpoints where those meet the outer wall. Door and step dimensions are estimates."
+    },
+    {
+      "kind": "aerial",
+      "note": "Stevenson occupies the northern hooked footprint. A narrow east return encloses three sides of a courtyard; setback roof plant is concentrated over the southwestern end."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Bay counts, opening dimensions and storey heights on unseen elevations are architectural estimates. Wall and roof hues are image samples, subject to exposure and shadows."
+    },
+    {
+      "kind": "lidar",
+      "note": "The southwest range rises to about 19 m. Its eastern skylight bay is about 12 m. The courtyard stair projection is much lower than the attached stone ranges."
+    },
+    {
+      "kind": "lidar",
+      "note": "The north wing is near 11 m with a light membrane and a central ventilation housing. The skylight over the southern junction has a dark metal grid over translucent glazing. The street-side photo identifies the modern banded wing adjoining the older stone ranges."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 18,
+      "position": 0.66,
+      "type": "glass-vestibule",
+      "width": 4.55,
+      "height": 3.2,
+      "recess": 1.15,
+      "canopy": {
+        "type": "portico",
+        "depth": 3.2,
+        "width": 6.6,
+        "columns": 2,
+        "material": "wall"
+      }
+    },
+    {
+      "wall": 9,
+      "type": "doors-double",
+      "position": 0.53,
+      "width": 2.25,
+      "height": 2.7,
+      "steps": 3
+    },
+    {
+      "wall": 13,
+      "type": "doors-single",
+      "position": 0.56,
+      "width": 1.25,
+      "height": 2.55,
+      "canopy": {
+        "type": "flat",
+        "depth": 1.28,
+        "width": 2.1,
+        "material": "trim"
+      }
+    }
+  ],
+  "notes": "The western entrance sits in a concrete wing with punched windows and a metal top storey. Building names follow the campus map. Courtyard doorways and the number of rows along the east wing are inferred.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Link and main block",
+        "footprint": {
+          "clip": [
+            [
+              236.12,
+              275.87
+            ],
+            [
+              239.8,
+              257.72
+            ],
+            [
+              242.17,
+              258.2
+            ],
+            [
+              243.28,
+              251.55
+            ],
+            [
+              248.18,
+              252.3
+            ],
+            [
+              248.59,
+              245.72
+            ],
+            [
+              229.43,
+              242.23
+            ],
+            [
+              213.61,
+              242.23
+            ],
+            [
+              211.61,
+              253.45
+            ],
+            [
+              214.53,
+              253.98
+            ],
+            [
+              213.12,
+              261.9
+            ],
+            [
+              216.44,
+              252.88
+            ],
+            [
+              235.82,
+              257.37
+            ],
+            [
+              231.36,
+              275.13
+            ]
+          ]
+        },
+        "height": 14.95,
+        "floors": 3,
+        "wallProfiles": {
+          "16": {
+            "material": "stone",
+            "windows": {
+              "type": "punched",
+              "width": 0.91,
+              "height": 1.83,
+              "sill": 0.81,
+              "perBay": 2,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.065
+              },
+              "spacing": 0.19,
+              "frameColor": "#bcb5a6"
+            },
+            "parapet": {
+              "type": "coped",
+              "height": 0.42,
+              "material": "trim"
+            },
+            "bands": [
+              {
+                "at": "sill-lines",
+                "height": 0.12,
+                "depth": 0.08,
+                "material": "trim"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "East stone range",
+        "footprint": {
+          "clip": [
+            [
+              271.55,
+              227.73
+            ],
+            [
+              263.26,
+              226.2
+            ],
+            [
+              263.12,
+              226.93
+            ],
+            [
+              255.31,
+              225.56
+            ],
+            [
+              251.79402,
+              246.04355
+            ],
+            [
+              257.46857,
+              247.04413
+            ],
+            [
+              256.3215,
+              253.5495
+            ],
+            [
+              260.56,
+              254.2
+            ],
+            [
+              261.47,
+              249.03
+            ],
+            [
+              267.92,
+              250.08
+            ]
+          ]
+        },
+        "height": 14.55,
+        "floors": 4,
+        "facade": {
+          "material": "stone",
+          "windows": {
+            "type": "punched",
+            "width": 0.91,
+            "height": 1.83,
+            "sill": 0.81,
+            "perBay": 2,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "spacing": 0.19,
+            "frameColor": "#bcb5a6"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.42,
+            "material": "trim"
+          },
+          "bands": [
+            {
+              "at": "sill-lines",
+              "height": 0.12,
+              "depth": 0.08,
+              "material": "trim"
+            }
+          ]
+        }
+      },
+      {
+        "name": "East stone range",
+        "footprint": {
+          "clip": [
+            [
+              248.43816,
+              248.1568
+            ],
+            [
+              248.85853,
+              245.77279
+            ],
+            [
+              248.58976,
+              245.72379
+            ]
+          ]
+        },
+        "height": 14.55,
+        "floors": 4,
+        "facade": {
+          "material": "stone",
+          "windows": {
+            "type": "punched",
+            "width": 0.91,
+            "height": 1.83,
+            "sill": 0.81,
+            "perBay": 2,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "spacing": 0.19,
+            "frameColor": "#bcb5a6"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.42,
+            "material": "trim"
+          },
+          "bands": [
+            {
+              "at": "sill-lines",
+              "height": 0.12,
+              "depth": 0.08,
+              "material": "trim"
+            }
+          ]
+        }
+      },
+      {
+        "name": "East-range link junction",
+        "footprint": {
+          "clip": [
+            [
+              248.85853,
+              245.77279
+            ],
+            [
+              248.43816,
+              248.1568
+            ],
+            [
+              248.18,
+              252.3
+            ],
+            [
+              256.3215,
+              253.5495
+            ],
+            [
+              257.46857,
+              247.04413
+            ],
+            [
+              251.79402,
+              246.04355
+            ],
+            [
+              251.75,
+              246.3
+            ]
+          ]
+        },
+        "height": 13.85,
+        "floors": 3,
+        "facade": {
+          "material": "stone",
+          "windows": {
+            "type": "punched",
+            "width": 0.91,
+            "height": 1.83,
+            "sill": 0.81,
+            "perBay": 2,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "spacing": 0.19,
+            "frameColor": "#bcb5a6"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.42,
+            "material": "trim"
+          },
+          "bands": [
+            {
+              "at": "sill-lines",
+              "height": 0.12,
+              "depth": 0.08,
+              "material": "trim"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Lower northwest wing",
+        "footprint": {
+          "clip": [
+            [
+              230.27642,
+              223.70597
+            ],
+            [
+              235.80282,
+              224.53493
+            ],
+            [
+              235.84,
+              224.24
+            ],
+            [
+              217.6,
+              219.8
+            ],
+            [
+              213.61,
+              242.23
+            ],
+            [
+              229.42803,
+              242.23
+            ],
+            [
+              226.96,
+              241.78
+            ],
+            [
+              229.79,
+              226.97
+            ]
+          ]
+        },
+        "height": 11.3,
+        "floors": 3,
+        "facade": {
+          "material": "stone",
+          "windows": {
+            "type": "punched",
+            "width": 0.91,
+            "height": 1.83,
+            "sill": 0.81,
+            "perBay": 2,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "spacing": 0.19,
+            "frameColor": "#bcb5a6"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.42,
+            "material": "trim"
+          },
+          "bands": [
+            {
+              "at": "sill-lines",
+              "height": 0.12,
+              "depth": 0.08,
+              "material": "trim"
+            }
+          ]
+        },
+        "roof": {
+          "form": "flat",
+          "material": "northRoof",
+          "edge": "parapet",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Courtyard stair entrance",
+        "footprint": {
+          "clip": [
+            [
+              235.80282,
+              224.53493
+            ],
+            [
+              230.27642,
+              223.70597
+            ],
+            [
+              229.79,
+              226.97
+            ],
+            [
+              235.39,
+              227.81
+            ]
+          ]
+        },
+        "height": 5.4,
+        "floors": 1,
+        "facade": {
+          "material": "stone",
+          "windows": {
+            "type": "punched",
+            "width": 0.91,
+            "height": 1.83,
+            "sill": 0.81,
+            "perBay": 2,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "spacing": 0.19,
+            "frameColor": "#bcb5a6"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.42,
+            "material": "trim"
+          },
+          "bands": [
+            {
+              "at": "sill-lines",
+              "height": 0.12,
+              "depth": 0.08,
+              "material": "trim"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Lower skylight roof",
+        "footprint": {
+          "clip": [
+            [
+              228.52868,
+              274.68754
+            ],
+            [
+              231.36035,
+              275.12861
+            ],
+            [
+              235.82,
+              257.37
+            ],
+            [
+              231.74855,
+              256.42672
+            ]
+          ]
+        },
+        "height": 12.05,
+        "floors": 3
+      },
+      {
+        "name": "Set-back south-western roof",
+        "footprint": {
+          "clip": [
+            [
+              216.44,
+              252.88
+            ],
+            [
+              213.12413,
+              261.88879
+            ],
+            [
+              212.18,
+              267.2
+            ],
+            [
+              210.99,
+              273.95
+            ],
+            [
+              220.68,
+              275.81
+            ],
+            [
+              221.29,
+              273.56
+            ],
+            [
+              228.52868,
+              274.68754
+            ],
+            [
+              231.74855,
+              256.42672
+            ]
+          ]
+        },
+        "height": 18.9,
+        "floors": 4,
+        "facade": {
+          "topFloor": {
+            "material": "upperMetal",
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        }
+      }
+    ]
+  }
+}

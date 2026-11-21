@@ -1,0 +1,174 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w237299258",
+  "name": "Apps International House",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "127904701"
+    }
+  ],
+  "style": "mid-century-modern",
+  "floors": {
+    "count": 1,
+    "typicalHeight": 3.7,
+    "groundFloorHeight": 3.7
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 3.11,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              -83.3,
+              112.934
+            ],
+            [
+              -87.742,
+              113.823
+            ],
+            [
+              -90.269,
+              117.191
+            ],
+            [
+              -89.16,
+              119.8
+            ],
+            [
+              -90.321,
+              120.293
+            ],
+            [
+              -87.3,
+              121.803
+            ],
+            [
+              -87.3,
+              125.394
+            ],
+            [
+              -85.185,
+              128.566
+            ],
+            [
+              -83.11,
+              127.68
+            ],
+            [
+              -81.4,
+              131.71
+            ],
+            [
+              -74.83,
+              128.92
+            ],
+            [
+              -76.71,
+              124.51
+            ],
+            [
+              -74.08,
+              123.4
+            ],
+            [
+              -80.04,
+              109.39
+            ],
+            [
+              -83.3,
+              110.777
+            ]
+          ]
+        },
+        "height": 8.21,
+        "baseOffset": 3.11,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#938a7f",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#545953"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.8,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#52595d",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 5,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

@@ -1,0 +1,1463 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w142216972",
+  "name": "Western Alumni Stadium east grandstand",
+  "status": "refined",
+  "confidence": 0.86,
+  "summary": "Western Alumni Stadium east grandstand is a narrower open bank of silver bleachers facing west across the track and rising toward the perimeter path behind the seats.",
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#c9cbbd",
+      "unitSize": [
+        2.2,
+        0.3
+      ],
+      "secondaryColor": "#9fa39a"
+    },
+    "roof": {
+      "kind": "metal-panel",
+      "color": "#c9cbbd",
+      "metalness": 0.42,
+      "unitSize": [
+        3.65,
+        0.72
+      ],
+      "secondaryColor": "#a2a697"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#62706a",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#aeb5ad",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "seatDark": {
+      "kind": "painted-metal",
+      "color": "#908c86"
+    },
+    "booth": {
+      "kind": "painted-metal",
+      "color": "#e1e3d8",
+      "secondaryColor": "#d4d8ce"
+    },
+    "canopyGreen": {
+      "kind": "membrane",
+      "color": "#a5c5ad",
+      "secondaryColor": "#a4bcaa"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 7.55,
+    "typicalHeight": 7.55
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          306.8,
+          1271.9
+        ],
+        "size": [
+          3,
+          3.7
+        ],
+        "height": 2.35,
+        "material": "booth",
+        "rotation": 8,
+        "style": "camera press box facing the track"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Parallel light bench rows cover the entire deck, with aisles cutting across them. The outer access path runs along the east side. Deck colour sampled at local (309,1244)."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 5.82 m, P90 7.4 m, maximum 7.83 m. Cross sections rise west to east from about 2 to 7.5 m."
+    },
+    {
+      "kind": "photo",
+      "note": "Western Facilities stadium panorama shows two uncovered raked stands, open steel framing below the decks and the larger west bank.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WAS.jpg"
+    },
+    {
+      "kind": "osm",
+      "note": "Footprint tagged building=grandstand."
+    },
+    {
+      "kind": "photo",
+      "note": "Western Athletics describes the spectator stands and media press box.",
+      "url": "https://westernmustangs.ca/sports/2010/6/9/Facilities_0609105641.aspx"
+    }
+  ],
+  "notes": "Each clipped tier approximates one row of the open seating rake. Aisle breaks, handrails, diagonal frame bracing and individual seats need dedicated grandstand geometry. Nearest available camera is about 210 m from a wall midpoint. The striped cover meets the south end of the grandstand. Its support arrangement and height are inferred from the 2025 image.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Seating row 1 from track",
+        "footprint": {
+          "clip": [
+            [
+              303.213,
+              1221.474
+            ],
+            [
+              289.632,
+              1318.126
+            ],
+            [
+              290.392,
+              1318.235
+            ],
+            [
+              304.044,
+              1221.534
+            ]
+          ]
+        },
+        "height": 1.85,
+        "floors": 1,
+        "baseOffset": 1.43,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 2 from track",
+        "footprint": {
+          "clip": [
+            [
+              304.044,
+              1221.534
+            ],
+            [
+              290.392,
+              1318.235
+            ],
+            [
+              291.152,
+              1318.344
+            ],
+            [
+              304.874,
+              1221.595
+            ]
+          ]
+        },
+        "height": 2.23,
+        "floors": 1,
+        "baseOffset": 1.81,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 3 from track",
+        "footprint": {
+          "clip": [
+            [
+              304.874,
+              1221.595
+            ],
+            [
+              291.152,
+              1318.344
+            ],
+            [
+              291.912,
+              1318.453
+            ],
+            [
+              305.705,
+              1221.655
+            ]
+          ]
+        },
+        "height": 2.61,
+        "floors": 1,
+        "baseOffset": 2.19,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 4 from track",
+        "footprint": {
+          "clip": [
+            [
+              305.705,
+              1221.655
+            ],
+            [
+              291.912,
+              1318.453
+            ],
+            [
+              292.671,
+              1318.562
+            ],
+            [
+              306.535,
+              1221.715
+            ]
+          ]
+        },
+        "height": 2.99,
+        "floors": 1,
+        "baseOffset": 2.57,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 5 from track",
+        "footprint": {
+          "clip": [
+            [
+              306.535,
+              1221.715
+            ],
+            [
+              292.671,
+              1318.562
+            ],
+            [
+              293.431,
+              1318.671
+            ],
+            [
+              307.365,
+              1221.776
+            ]
+          ]
+        },
+        "height": 3.37,
+        "floors": 1,
+        "baseOffset": 2.95,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 6 from track",
+        "footprint": {
+          "clip": [
+            [
+              307.365,
+              1221.776
+            ],
+            [
+              293.431,
+              1318.671
+            ],
+            [
+              294.191,
+              1318.78
+            ],
+            [
+              308.196,
+              1221.836
+            ]
+          ]
+        },
+        "height": 3.75,
+        "floors": 1,
+        "baseOffset": 3.33,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 7 from track",
+        "footprint": {
+          "clip": [
+            [
+              308.196,
+              1221.836
+            ],
+            [
+              294.191,
+              1318.78
+            ],
+            [
+              294.951,
+              1318.889
+            ],
+            [
+              309.026,
+              1221.897
+            ]
+          ]
+        },
+        "height": 4.13,
+        "floors": 1,
+        "baseOffset": 3.71,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 8 from track",
+        "footprint": {
+          "clip": [
+            [
+              309.026,
+              1221.897
+            ],
+            [
+              294.951,
+              1318.889
+            ],
+            [
+              295.711,
+              1318.998
+            ],
+            [
+              309.857,
+              1221.957
+            ]
+          ]
+        },
+        "height": 4.51,
+        "floors": 1,
+        "baseOffset": 4.09,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 9 from track",
+        "footprint": {
+          "clip": [
+            [
+              309.857,
+              1221.957
+            ],
+            [
+              295.711,
+              1318.998
+            ],
+            [
+              296.471,
+              1319.107
+            ],
+            [
+              310.687,
+              1222.017
+            ]
+          ]
+        },
+        "height": 4.89,
+        "floors": 1,
+        "baseOffset": 4.47,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 10 from track",
+        "footprint": {
+          "clip": [
+            [
+              310.687,
+              1222.017
+            ],
+            [
+              296.471,
+              1319.107
+            ],
+            [
+              297.231,
+              1319.216
+            ],
+            [
+              311.517,
+              1222.078
+            ]
+          ]
+        },
+        "height": 5.27,
+        "floors": 1,
+        "baseOffset": 4.85,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 11 from track",
+        "footprint": {
+          "clip": [
+            [
+              311.517,
+              1222.078
+            ],
+            [
+              297.231,
+              1319.216
+            ],
+            [
+              297.991,
+              1319.325
+            ],
+            [
+              312.348,
+              1222.138
+            ]
+          ]
+        },
+        "height": 5.65,
+        "floors": 1,
+        "baseOffset": 5.23,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 12 from track",
+        "footprint": {
+          "clip": [
+            [
+              312.348,
+              1222.138
+            ],
+            [
+              297.991,
+              1319.325
+            ],
+            [
+              298.75,
+              1319.434
+            ],
+            [
+              313.178,
+              1222.198
+            ]
+          ]
+        },
+        "height": 6.03,
+        "floors": 1,
+        "baseOffset": 5.61,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 13 from track",
+        "footprint": {
+          "clip": [
+            [
+              313.178,
+              1222.198
+            ],
+            [
+              298.75,
+              1319.434
+            ],
+            [
+              299.51,
+              1319.543
+            ],
+            [
+              314.009,
+              1222.259
+            ]
+          ]
+        },
+        "height": 6.41,
+        "floors": 1,
+        "baseOffset": 5.99,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 14 from track",
+        "footprint": {
+          "clip": [
+            [
+              314.009,
+              1222.259
+            ],
+            [
+              299.51,
+              1319.543
+            ],
+            [
+              300.27,
+              1319.652
+            ],
+            [
+              314.839,
+              1222.319
+            ]
+          ]
+        },
+        "height": 6.79,
+        "floors": 1,
+        "baseOffset": 6.37,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 15 from track",
+        "footprint": {
+          "clip": [
+            [
+              314.839,
+              1222.319
+            ],
+            [
+              300.27,
+              1319.652
+            ],
+            [
+              301.03,
+              1319.761
+            ],
+            [
+              315.67,
+              1222.38
+            ]
+          ]
+        },
+        "height": 7.17,
+        "floors": 1,
+        "baseOffset": 6.75,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Seating row 16 from track",
+        "footprint": {
+          "clip": [
+            [
+              315.67,
+              1222.38
+            ],
+            [
+              301.03,
+              1319.761
+            ],
+            [
+              301.79,
+              1319.87
+            ],
+            [
+              316.5,
+              1222.44
+            ]
+          ]
+        },
+        "height": 7.55,
+        "floors": 1,
+        "baseOffset": 7.13,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "1": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "2": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          },
+          "3": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Trackside access deck",
+        "footprint": [
+          [
+            300.96,
+            1221.31
+          ],
+          [
+            287.57,
+            1317.83
+          ],
+          [
+            289.632,
+            1318.126
+          ],
+          [
+            303.213,
+            1221.474
+          ]
+        ],
+        "height": 1.64,
+        "floors": 1,
+        "baseOffset": 1.42,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "wallProfiles": {
+          "0": {
+            "parapet": {
+              "height": 1.05,
+              "type": "metal-rail",
+              "material": "frame"
+            }
+          }
+        }
+      },
+      {
+        "name": "Walkway fascia 1",
+        "footprint": [
+          [
+            300.96,
+            1221.31
+          ],
+          [
+            299.755,
+            1229.997
+          ],
+          [
+            300.032,
+            1230.019
+          ],
+          [
+            301.24,
+            1221.33
+          ]
+        ],
+        "height": 1.42,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Walkway fascia 2",
+        "footprint": [
+          [
+            299.42,
+            1232.41
+          ],
+          [
+            297.907,
+            1243.317
+          ],
+          [
+            298.181,
+            1243.341
+          ],
+          [
+            299.697,
+            1232.432
+          ]
+        ],
+        "height": 1.42,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Walkway fascia 3",
+        "footprint": [
+          [
+            297.559,
+            1245.826
+          ],
+          [
+            295.336,
+            1261.848
+          ],
+          [
+            295.606,
+            1261.876
+          ],
+          [
+            297.833,
+            1245.851
+          ]
+        ],
+        "height": 1.42,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Walkway fascia 4",
+        "footprint": [
+          [
+            295.001,
+            1264.261
+          ],
+          [
+            292.993,
+            1278.739
+          ],
+          [
+            293.259,
+            1278.769
+          ],
+          [
+            295.271,
+            1264.289
+          ]
+        ],
+        "height": 1.42,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Walkway fascia 5",
+        "footprint": [
+          [
+            292.658,
+            1281.152
+          ],
+          [
+            290.382,
+            1297.561
+          ],
+          [
+            290.643,
+            1297.594
+          ],
+          [
+            292.923,
+            1281.183
+          ]
+        ],
+        "height": 1.42,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Walkway fascia 6",
+        "footprint": [
+          [
+            290.02,
+            1300.167
+          ],
+          [
+            287.57,
+            1317.83
+          ],
+          [
+            287.826,
+            1317.867
+          ],
+          [
+            290.281,
+            1300.201
+          ]
+        ],
+        "height": 1.42,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "South trackside canopy",
+        "footprint": [
+          [
+            287.31,
+            1318.95
+          ],
+          [
+            293.2,
+            1319.81
+          ],
+          [
+            292.22,
+            1326.81
+          ],
+          [
+            286.29,
+            1325.95
+          ]
+        ],
+        "height": 2.65,
+        "floors": 1,
+        "baseOffset": 2.52,
+        "material": "booth",
+        "facade": {
+          "material": "booth",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "booth",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Green centre panel of trackside cover",
+        "footprint": [
+          [
+            286.963,
+            1321.33
+          ],
+          [
+            292.867,
+            1322.19
+          ],
+          [
+            292.553,
+            1324.43
+          ],
+          [
+            286.637,
+            1323.57
+          ]
+        ],
+        "height": 2.68,
+        "floors": 1,
+        "baseOffset": 2.648,
+        "material": "canopyGreen",
+        "facade": {
+          "material": "canopyGreen",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "canopyGreen",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "walls": 2,
+      "path": [
+        [
+          315.41,
+          1222.36
+        ],
+        [
+          300.79,
+          1319.73
+        ]
+      ],
+      "width": 0.22,
+      "height": 7.0,
+      "columns": 16,
+      "material": "frame"
+    },
+    {
+      "type": "exterior-stair",
+      "walls": 0,
+      "path": [
+        [
+          300.085,
+          1243.187
+        ],
+        [
+          313.042,
+          1244.321
+        ]
+      ],
+      "width": 1.3,
+      "baseOffset": 1.64,
+      "height": 5.91,
+      "material": "trim",
+      "landing": false
+    },
+    {
+      "type": "exterior-stair",
+      "walls": 0,
+      "path": [
+        [
+          297.413,
+          1262.212
+        ],
+        [
+          310.149,
+          1263.498
+        ]
+      ],
+      "width": 1.3,
+      "baseOffset": 1.64,
+      "height": 5.91,
+      "material": "trim",
+      "landing": false
+    },
+    {
+      "type": "exterior-stair",
+      "walls": 0,
+      "path": [
+        [
+          294.881,
+          1280.236
+        ],
+        [
+          307.408,
+          1281.667
+        ]
+      ],
+      "width": 1.3,
+      "baseOffset": 1.64,
+      "height": 5.91,
+      "material": "trim",
+      "landing": false
+    },
+    {
+      "type": "exterior-stair",
+      "walls": 0,
+      "path": [
+        [
+          292.35,
+          1298.259
+        ],
+        [
+          304.667,
+          1299.835
+        ]
+      ],
+      "width": 1.3,
+      "baseOffset": 1.64,
+      "height": 5.91,
+      "material": "trim",
+      "landing": false
+    },
+    {
+      "type": "ramp",
+      "walls": 2,
+      "path": [
+        [
+          315.7,
+          1236.9
+        ],
+        [
+          312.6,
+          1259.8
+        ]
+      ],
+      "width": 1.22,
+      "height": 4.55,
+      "material": "frame"
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          287.31,
+          1318.95
+        ],
+        [
+          286.29,
+          1325.95
+        ]
+      ],
+      "width": 0.1,
+      "height": 2.5,
+      "columns": 2,
+      "material": "booth"
+    },
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          293.2,
+          1319.81
+        ],
+        [
+          292.22,
+          1326.81
+        ]
+      ],
+      "width": 0.1,
+      "height": 2.5,
+      "columns": 2,
+      "material": "booth"
+    }
+  ],
+  "seating": {
+    "fieldFacingWall": 0
+  }
+}

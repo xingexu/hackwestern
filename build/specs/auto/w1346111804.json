@@ -1,0 +1,215 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w1346111804",
+  "name": "The Frank Holmes Centre for Leadership, Ethics & Entrepreneurship",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "126866573"
+    }
+  ],
+  "style": "mid-century-modern",
+  "floors": {
+    "count": 1,
+    "typicalHeight": 3.7,
+    "groundFloorHeight": 3.7
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 5.19,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              -113.082,
+              364.7
+            ],
+            [
+              -111.71,
+              375.24
+            ],
+            [
+              -104.33,
+              375.3
+            ],
+            [
+              -89.1,
+              369.18
+            ],
+            [
+              -86.103,
+              377.3
+            ],
+            [
+              -84.714,
+              377.3
+            ],
+            [
+              -73.163,
+              371.968
+            ],
+            [
+              -72.302,
+              384.02
+            ],
+            [
+              -67.7,
+              383.856
+            ],
+            [
+              -67.7,
+              372.015
+            ],
+            [
+              -63.992,
+              371.088
+            ],
+            [
+              -61.274,
+              362.933
+            ],
+            [
+              -69.387,
+              361.774
+            ],
+            [
+              -74.3,
+              356.862
+            ],
+            [
+              -74.3,
+              364.7
+            ],
+            [
+              -76.581,
+              364.7
+            ],
+            [
+              -91.581,
+              364.7
+            ]
+          ]
+        },
+        "height": 10.29,
+        "baseOffset": 5.19,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              -63.241,
+              394.833
+            ],
+            [
+              -76.869,
+              397.861
+            ],
+            [
+              -75.37,
+              401.78
+            ],
+            [
+              -72.23,
+              400.46
+            ],
+            [
+              -71.24,
+              403.27
+            ],
+            [
+              -64.433,
+              400.795
+            ]
+          ]
+        },
+        "height": 10.29,
+        "baseOffset": 5.19,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#a8a193",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c7ccbf"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.8,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#6a6a60",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

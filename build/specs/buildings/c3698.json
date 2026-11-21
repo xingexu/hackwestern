@@ -1,0 +1,56 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3698",
+  "name": "Western Road rear-yard footprint",
+  "status": "refined",
+  "confidence": 0.67,
+  "summary": "The small mapped square sits beside a parking space in a treed service yard. The current orthophoto shows brown ground and an enclosure with no identifiable roof.",
+  "style": "industrial-utility",
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The 2025 orthophoto shows branches, brown ground, and the edge of an enclosure next to a car. Unlike the nearby square shed to the north, no continuous roof plane or roof-edge shadow appears at this footprint."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 5.1 / 7.96 / 8.66 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "wood-siding",
+      "color": "#726a58",
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#686658",
+      "variation": 0.12
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.6,
+    "typicalHeight": 2.6
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall"
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "notes": "This footprint is omitted from the visible building set. The adjacent tree and yard fencing may account for the municipal outline or elevated lidar returns.",
+  "present": false,
+  "lidarTrusted": false,
+  "lidarNote": "The 5.1 m median and 8.66 m maximum coincide with tree branches. The footprint has no identifiable roof plane."
+}

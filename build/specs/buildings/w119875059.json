@@ -1,0 +1,747 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w119875059",
+  "name": "Subway footprint",
+  "status": "refined",
+  "confidence": 0.86,
+  "summary": "A small house-like shop features dark vertical siding, a low multicoloured stone base, and a shingled roof. A broad gable with one upper window faces the lot beside the lower glazed storefront.",
+  "style": "house",
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "137106779",
+      "walls": [
+        2
+      ],
+      "note": "The east elevation combines a glazed shop bay with a darker cross-gable, a small upper sash, and a stone base."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "137106781",
+      "walls": [
+        2
+      ],
+      "note": "Close views show vertical board joints, a dark shingled skirt, a stone veneer base, and a single upper sash. The siding colour was sampled from the gable."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "137106777",
+      "walls": [
+        1,
+        2
+      ],
+      "note": "The entrance and shop glazing sit to the right of the gable from this approach."
+    },
+    {
+      "kind": "aerial",
+      "note": "The compact dark roof is divided into a main hipped mass and a cross-gable on the southeast side."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 6.02 / 6.73 / 7.41 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "wood-siding",
+      "color": "#535250",
+      "secondaryColor": "#404441",
+      "unitSize": [
+        0.37,
+        6.4
+      ],
+      "variation": 0.12
+    },
+    "base": {
+      "kind": "rubble-stone",
+      "color": "#766752",
+      "secondaryColor": "#a39b88",
+      "unitSize": [
+        0.39,
+        0.23
+      ],
+      "variation": 0.43,
+      "bond": "coursed-rubble"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#989c95",
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#3b3d3b",
+      "secondaryColor": "#2e302e",
+      "unitSize": [
+        0.31,
+        0.14
+      ],
+      "variation": 0.12,
+      "roughness": 0.95
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#65777b"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#919790"
+    },
+    "fascia": {
+      "kind": "painted-metal",
+      "color": "#534f47",
+      "roughness": 0.73
+    },
+    "serviceCap": {
+      "kind": "concrete-smooth",
+      "color": "#c3c4b8",
+      "weathering": 0.35
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.3,
+    "typicalHeight": 3.3
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.79,
+        "material": "base",
+        "projection": 0.07
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "bays": {
+        "width": 3.5,
+        "pattern": "regular",
+        "edgeMargin": 0.27
+      },
+      "cornice": {
+        "height": 0.2,
+        "depth": 0.33,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 2,
+          "width": 4.7
+        },
+        "windows": {
+          "type": "storefront",
+          "width": 2.5,
+          "height": 1.79,
+          "sill": 0.55,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#373c39",
+          "glass": "tinted",
+          "glassColor": "#546365",
+          "surround": "none"
+        },
+        "sections": [
+          {
+            "start": 0.47,
+            "end": 0.96,
+            "base": 0.54,
+            "top": 2.57,
+            "material": "glass",
+            "verticalMullionSpacing": 1.12,
+            "horizontalMullions": 1
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "half-hip",
+    "rise": 3.25,
+    "material": "roof",
+    "edge": "gutter",
+    "overhang": 0.36,
+    "ridge": 162
+  },
+  "notes": "The single upper window in the gable and the shingled skirt at mid-wall level are distinctive features. The upper window serves as an attic opening.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Northern shop volume",
+        "footprint": {
+          "clip": [
+            [
+              -44.079,
+              1067.276
+            ],
+            [
+              -26.96,
+              1061.714
+            ],
+            [
+              -23.439,
+              1072.549
+            ],
+            [
+              -40.558,
+              1078.112
+            ]
+          ]
+        },
+        "height": 3.5,
+        "floors": 1
+      },
+      {
+        "name": "Southern cross-gable",
+        "footprint": {
+          "clip": [
+            [
+              -40.558,
+              1078.112
+            ],
+            [
+              -23.439,
+              1072.549
+            ],
+            [
+              -20.470153,
+              1081.686253
+            ],
+            [
+              -37.58917,
+              1087.248559
+            ]
+          ]
+        },
+        "height": 3.75,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 3.48,
+          "ridge": 72,
+          "material": "roof",
+          "overhang": 0.34,
+          "edge": "gutter"
+        },
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "base": {
+            "height": 0.83,
+            "material": "base",
+            "projection": 0.07
+          }
+        }
+      },
+      {
+        "name": "Shingled pent over gable wall",
+        "footprint": [
+          [
+            -26.335,
+            1080.094
+          ],
+          [
+            -28.274,
+            1073.691
+          ],
+          [
+            -27.709,
+            1073.52
+          ],
+          [
+            -25.77,
+            1079.923
+          ]
+        ],
+        "height": 2.72,
+        "baseOffset": 2.65,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "shed",
+          "rise": 0.52,
+          "ridge": 343,
+          "material": "roof",
+          "edge": "gutter",
+          "features": [],
+          "overhang": 0.05
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Storefront fascia housing",
+        "footprint": [
+          [
+            -28.289,
+            1073.777
+          ],
+          [
+            -30.77,
+            1065.588
+          ],
+          [
+            -30.521,
+            1065.513
+          ],
+          [
+            -28.04,
+            1073.702
+          ]
+        ],
+        "height": 3.48,
+        "baseOffset": 2.61,
+        "floors": 1,
+        "material": "fascia",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "fascia",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "fascia"
+        }
+      },
+      {
+        "name": "Attic sash and casing",
+        "footprint": [
+          [
+            -26.921,
+            1077.118
+          ],
+          [
+            -27.215,
+            1076.15
+          ],
+          [
+            -27.152,
+            1076.131
+          ],
+          [
+            -26.858,
+            1077.099
+          ]
+        ],
+        "height": 5.33,
+        "baseOffset": 4.08,
+        "floors": 1,
+        "material": "frame",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "frame"
+        }
+      },
+      {
+        "name": "Attic glazing",
+        "footprint": [
+          [
+            -26.876,
+            1077.039
+          ],
+          [
+            -27.133,
+            1076.191
+          ],
+          [
+            -27.084,
+            1076.176
+          ],
+          [
+            -26.827,
+            1077.024
+          ]
+        ],
+        "height": 5.255,
+        "baseOffset": 4.16,
+        "floors": 1,
+        "material": "glass",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "glass",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "curtain-wall",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1
+            }
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "glass"
+        }
+      },
+      {
+        "name": "Attic sash meeting rail",
+        "footprint": [
+          [
+            -26.826,
+            1077.04
+          ],
+          [
+            -27.092,
+            1076.162
+          ],
+          [
+            -27.032,
+            1076.144
+          ],
+          [
+            -26.766,
+            1077.022
+          ]
+        ],
+        "height": 4.75,
+        "baseOffset": 4.695,
+        "floors": 1,
+        "material": "frame",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "frame"
+        }
+      },
+      {
+        "name": "Low south service platform",
+        "footprint": [
+          [
+            -32.229,
+            1082.427
+          ],
+          [
+            -31.37,
+            1085.071
+          ],
+          [
+            -34.271,
+            1086.013
+          ],
+          [
+            -35.13,
+            1083.369
+          ]
+        ],
+        "height": 0.48,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "sections": [],
+          "segments": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "base",
+            "aboveRoof": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "base"
+          },
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "base"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "serviceCap",
+          "features": []
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.74,
+      "type": "doors-single",
+      "width": 1.04,
+      "height": 2.25,
+      "recess": 0.25
+    }
+  ]
+}

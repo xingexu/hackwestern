@@ -1,0 +1,1617 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w310132539",
+  "name": "Western Student Recreation Centre",
+  "status": "refined",
+  "confidence": 0.89,
+  "summary": "Western Student Recreation Centre has a glazed north frontage joining three box-shaped gym volumes, with tall masonry piers dividing buff walls beneath silver ribbed cladding and dark high-level bands along Philip Aziz Avenue.",
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#ece1cb",
+      "bond": "running",
+      "variation": 0.14,
+      "roughness": 0.83,
+      "unitSize": [
+        0.2,
+        0.067
+      ],
+      "secondaryColor": "#c6c1b2"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#f3f4ec"
+    },
+    "westRoof": {
+      "kind": "membrane",
+      "color": "#bfc2b4"
+    },
+    "lowRoof": {
+      "kind": "membrane",
+      "color": "#c2c8ba"
+    },
+    "panel": {
+      "kind": "corrugated-metal",
+      "color": "#f4f3f3",
+      "roughness": 0.49,
+      "unitSize": [
+        0.18,
+        4.5
+      ],
+      "secondaryColor": "#bcc1bf",
+      "surface": "ribbed-metal"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#9da6a6",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#6d9194",
+      "unitSize": [
+        1.45,
+        2
+      ],
+      "secondaryColor": "#afbcb8"
+    },
+    "louvre": {
+      "kind": "metal-panel",
+      "color": "#50575a",
+      "unitSize": [
+        1.5,
+        0.12
+      ],
+      "secondaryColor": "#70777a"
+    },
+    "southMasonry": {
+      "kind": "brick",
+      "color": "#c3b387",
+      "bond": "running",
+      "variation": 0.06,
+      "roughness": 0.83,
+      "unitSize": [
+        0.4,
+        0.2
+      ],
+      "secondaryColor": "#a39783"
+    },
+    "southPier": {
+      "kind": "brick",
+      "color": "#d3ccbb",
+      "bond": "running",
+      "variation": 0.14,
+      "roughness": 0.83,
+      "unitSize": [
+        0.2,
+        0.067
+      ],
+      "secondaryColor": "#ac9f89"
+    },
+    "silverRoof": {
+      "kind": "membrane",
+      "color": "#f3f3ea"
+    },
+    "portalFrame": {
+      "kind": "painted-metal",
+      "color": "#393f42"
+    },
+    "highGlass": {
+      "kind": "spandrel-glass",
+      "color": "#418b8d"
+    },
+    "cornerGlass": {
+      "kind": "glass-curtain",
+      "color": "#76acae",
+      "secondaryColor": "#508080",
+      "roughness": 0.2,
+      "metalness": 0.15
+    },
+    "cornerLower": {
+      "kind": "glass-curtain",
+      "color": "#4d7b81",
+      "roughness": 0.2
+    },
+    "cornerFrame": {
+      "kind": "painted-metal",
+      "color": "#8b9f9f"
+    },
+    "drain": {
+      "kind": "painted-metal",
+      "color": "#8f8977",
+      "secondaryColor": "#928a74"
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.1,
+    "typicalHeight": 4.3
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "height": 0.24,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "1": {
+        "material": "panel",
+        "blank": true,
+        "windows": {
+          "type": "none"
+        },
+        "sections": [
+          {
+            "start": 0,
+            "end": 1,
+            "base": 0.35,
+            "top": 12.65,
+            "material": "glass",
+            "verticalMullionSpacing": 1.35,
+            "horizontalMullions": 3
+          }
+        ]
+      },
+      "2": {
+        "blank": false,
+        "material": "glass",
+        "bays": {
+          "width": 3,
+          "pattern": "regular",
+          "count": 2
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 4.08,
+          "height": 3.75,
+          "sill": 0.06,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "tinted",
+          "glassColor": "#64777f",
+          "frameColor": "#acb6b3",
+          "surround": "metal"
+        }
+      },
+      "8": {
+        "blank": false,
+        "material": "southMasonry",
+        "bays": {
+          "width": 6.6,
+          "pattern": "regular"
+        },
+        "piers": {
+          "width": 1.02,
+          "depth": 0.6,
+          "every": 1,
+          "material": "southPier",
+          "fullHeight": true,
+          "aboveRoof": 0.42
+        },
+        "windows": {
+          "type": "none"
+        },
+        "bands": [
+          {
+            "at": [
+              8.8,
+              20.85
+            ],
+            "height": 1.75,
+            "depth": 0.06,
+            "material": "louvre"
+          }
+        ]
+      },
+      "9": {
+        "blank": false,
+        "material": "southMasonry",
+        "bays": {
+          "width": 6.6,
+          "pattern": "regular"
+        },
+        "piers": {
+          "width": 1.02,
+          "depth": 0.6,
+          "every": 1,
+          "material": "southPier",
+          "fullHeight": true,
+          "aboveRoof": 0.42
+        },
+        "windows": {
+          "type": "none"
+        },
+        "bands": [
+          {
+            "at": [
+              8.8,
+              20.85
+            ],
+            "height": 1.75,
+            "depth": 0.06,
+            "material": "louvre"
+          }
+        ]
+      },
+      "5": {
+        "blank": false,
+        "material": "panel",
+        "base": {
+          "height": 0.3,
+          "material": "wall"
+        },
+        "bays": {
+          "width": 6.5,
+          "pattern": "regular",
+          "count": 5
+        },
+        "windows": {
+          "type": "none"
+        },
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          }
+        }
+      },
+      "10": {
+        "blank": false,
+        "material": "panel",
+        "base": {
+          "height": 0.3,
+          "material": "wall"
+        },
+        "bays": {
+          "width": 28,
+          "count": 1
+        },
+        "windows": {
+          "type": "none"
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none"
+          }
+        },
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          }
+        }
+      },
+      "11": {
+        "blank": false,
+        "material": "panel",
+        "base": {
+          "height": 0.3,
+          "material": "wall"
+        },
+        "bays": {
+          "width": 6.5,
+          "pattern": "regular",
+          "count": 4
+        },
+        "windows": {
+          "type": "none"
+        },
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          }
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          198.5,
+          890
+        ],
+        "size": [
+          1.5,
+          2.5
+        ],
+        "height": 0.8,
+        "material": "trim"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          210.2,
+          873.44
+        ],
+        "size": [
+          0.74,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          215.5,
+          873.09
+        ],
+        "size": [
+          0.55,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          221.7,
+          872.68
+        ],
+        "size": [
+          0.74,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          228.2,
+          872.25
+        ],
+        "size": [
+          0.55,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          234.7,
+          871.82
+        ],
+        "size": [
+          0.74,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          210.2,
+          888.69
+        ],
+        "size": [
+          0.74,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          215.5,
+          888.34
+        ],
+        "size": [
+          0.55,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          221.7,
+          887.93
+        ],
+        "size": [
+          0.74,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          228.2,
+          887.5
+        ],
+        "size": [
+          0.55,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          234.7,
+          887.07
+        ],
+        "size": [
+          0.74,
+          0.55
+        ],
+        "height": 0.13,
+        "material": "drain",
+        "style": "roof drain cover"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Distinct roof planes fill the western arm, tall white central rectangle and low east end. PIL roof samples at local (184,895), (223,875) and (250,880)."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 17.0 m, P90 22.43 m, maximum 22.54 m. West roof near 17.0 m, central 22.4 m, eastern 11.8 m. The heights describe stacked gym volumes and the sloping site."
+    },
+    {
+      "kind": "kartaview",
+      "note": "South facade has four tall buff bays between projecting rectangular piers, dark louvre strips and a pale ribbed upper box.",
+      "frame": "79749215",
+      "walls": [
+        8,
+        9
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Steps rise off the sidewalk below the corner with vertical glazing strips, white corrugated cladding and pale masonry. PIL means on the full frame at normalized (0.865,0.62), (0.92,0.40) and (0.81,0.38) supply masonry, panel and glass.",
+      "frame": "146585635",
+      "walls": [
+        10,
+        11
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Oblique southeast approach shows the white upper gym above the repeated lower masonry bays.",
+      "frame": "146585611",
+      "walls": [
+        5,
+        8,
+        9
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "The entrance side has a multi-level glazed curtain wall, exposed supports below the overhang and a darker rectangular entrance frame.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WSRC.jpg"
+    },
+    {
+      "kind": "photo",
+      "note": "Project architects orient the glazed frontage north and identify the stepped south side.",
+      "url": "https://dsai.ca/projects/western-student-recreation-centre/"
+    },
+    {
+      "kind": "photo",
+      "note": "Four levels include stacked gyms and the common Thompson/WSRC front entry.",
+      "url": "https://www.uwo.ca/campusrec/about/wsrc.html"
+    },
+    {
+      "kind": "knowledge",
+      "note": "Comparison of frame 146585635 with the east wall of the west gym places a single nearly full-height patch of mullioned glass near the southern corner, above a masonry base. The remaining upper surface is ribbed. Frame 79749215 shows four strongly modelled buff bays beside the silver panel block. The white intermediate roof patch at local (190,877) samples #f3f3ea."
+    }
+  ],
+  "notes": "The north frontage bridges a grade change. Rectangular dark frames project from the curtain wall. Exact entrance offset, rear door spacing and plant dimensions are approximate. The lidar shows a 16 m northern atrium in front of the 22.5 m gym. The sloping front wall changes from four masonry bays to the set-back metal volume around x 229 m.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Western gym and south return",
+        "footprint": {
+          "clip": [
+            [
+              159.83,
+              936.94
+            ],
+            [
+              184.818,
+              935.2613
+            ],
+            [
+              184.1634,
+              925.5021
+            ],
+            [
+              187.7555,
+              925.262
+            ],
+            [
+              186.54,
+              907.14
+            ],
+            [
+              186.762,
+              907.125
+            ],
+            [
+              183.918,
+              864.618
+            ],
+            [
+              155.12,
+              866.55
+            ]
+          ]
+        },
+        "height": 17,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "westRoof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "White roof between western and upper gym",
+        "footprint": {
+          "clip": [
+            [
+              190.633,
+              965.0
+            ],
+            [
+              205.2,
+              965.0
+            ],
+            [
+              197.4,
+              820.0
+            ],
+            [
+              180.934,
+              820.0
+            ]
+          ]
+        },
+        "height": 17,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "silverRoof"
+        },
+        "wallProfiles": {
+          "9": {
+            "material": "panel",
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "piers": {
+              "width": 0,
+              "depth": 0,
+              "aboveRoof": 0
+            },
+            "bands": [],
+            "sections": [
+              {
+                "start": 0.73,
+                "end": 1,
+                "base": 13.8,
+                "top": 16.0,
+                "material": "highGlass",
+                "verticalMullionSpacing": 1.5
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Upper gym",
+        "footprint": [
+          [
+            200.5,
+            868.1
+          ],
+          [
+            202.65,
+            903.9
+          ],
+          [
+            229.1,
+            902.1
+          ],
+          [
+            228.83,
+            897.95
+          ],
+          [
+            226.75,
+            865.9
+          ]
+        ],
+        "height": 22.4,
+        "floors": 4,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "wallProfiles": {
+          "9": {
+            "material": "southMasonry",
+            "piers": {
+              "width": 0.85,
+              "depth": 0.55,
+              "every": 1,
+              "material": "southPier",
+              "aboveRoof": 0.35
+            },
+            "bands": [
+              {
+                "at": [
+                  20.85
+                ],
+                "height": 1.6,
+                "depth": 0.06,
+                "material": "louvre"
+              }
+            ],
+            "bays": {
+              "width": 6.55,
+              "edgeMargin": 0.1
+            }
+          }
+        }
+      },
+      {
+        "name": "Low east volume",
+        "footprint": [
+          [
+            228.83,
+            897.95
+          ],
+          [
+            229.1,
+            902.1
+          ],
+          [
+            243.35,
+            901.15
+          ],
+          [
+            243.22,
+            899.23
+          ],
+          [
+            256.0,
+            898.25
+          ],
+          [
+            255.8,
+            894.62
+          ],
+          [
+            261.65,
+            894.2
+          ],
+          [
+            259.55,
+            862.7
+          ],
+          [
+            240.15,
+            864.06
+          ],
+          [
+            239.9,
+            861.35
+          ],
+          [
+            237.81,
+            861.49
+          ],
+          [
+            238.05,
+            865.14
+          ],
+          [
+            240.12,
+            897.12
+          ]
+        ],
+        "height": 11.9,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "lowRoof",
+          "edge": "parapet"
+        },
+        "wallProfiles": {
+          "9": {
+            "material": "southMasonry",
+            "sections": [],
+            "piers": {
+              "width": 1.01,
+              "depth": 0.58,
+              "every": 1,
+              "material": "southPier",
+              "aboveRoof": 0.4
+            },
+            "bands": [
+              {
+                "at": [
+                  10.2
+                ],
+                "height": 1.6,
+                "depth": 0.12,
+                "material": "trim"
+              }
+            ]
+          },
+          "5": {
+            "material": "panel",
+            "blank": false,
+            "windows": {
+              "type": "none"
+            },
+            "bays": {
+              "width": 4.35,
+              "edgeMargin": 0.25
+            },
+            "piers": {
+              "width": 0.22,
+              "depth": 0.31,
+              "material": "trim",
+              "every": 1,
+              "fullHeight": true
+            },
+            "groundFloor": {
+              "material": "panel",
+              "windows": {
+                "type": "none"
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "Masonry below southeast corner glazing",
+        "footprint": {
+          "clip": [
+            [
+              188.41,
+              935.02
+            ],
+            [
+              187.7555,
+              925.262
+            ],
+            [
+              184.1634,
+              925.5021
+            ],
+            [
+              184.818,
+              935.2613
+            ]
+          ]
+        },
+        "height": 6.25,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "westRoof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Glazed southeast corner of western gym",
+        "footprint": [
+          [
+            188.99,
+            935.6
+          ],
+          [
+            188.33550000000002,
+            925.262
+          ],
+          [
+            184.1634,
+            925.5021
+          ],
+          [
+            184.818,
+            935.8413
+          ]
+        ],
+        "baseOffset": 6.25,
+        "height": 17,
+        "floors": 1,
+        "material": "panel",
+        "facade": {
+          "blank": true,
+          "material": "panel",
+          "windows": {
+            "type": "none"
+          },
+          "sections": []
+        },
+        "roof": {
+          "form": "flat",
+          "material": "westRoof",
+          "edge": "fascia"
+        },
+        "wallProfiles": {
+          "10": {
+            "material": "panel",
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "groundFloor": {
+              "material": "panel",
+              "windows": {
+                "type": "none"
+              }
+            },
+            "sections": [
+              {
+                "start": 0.45,
+                "end": 1,
+                "base": 6.34,
+                "top": 13.25,
+                "material": "cornerLower",
+                "verticalMullionSpacing": 0.45,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0.45,
+                "end": 1,
+                "base": 13.25,
+                "top": 13.46,
+                "material": "cornerFrame"
+              },
+              {
+                "start": 0.45,
+                "end": 1,
+                "base": 13.46,
+                "top": 16.83,
+                "material": "cornerGlass",
+                "verticalMullionSpacing": 0.45,
+                "horizontalMullions": 1
+              }
+            ]
+          },
+          "11": {
+            "material": "panel",
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "groundFloor": {
+              "material": "panel",
+              "windows": {
+                "type": "none"
+              }
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 6.34,
+                "top": 13.25,
+                "material": "cornerLower",
+                "verticalMullionSpacing": 0.45,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 13.25,
+                "top": 13.46,
+                "material": "cornerFrame"
+              },
+              {
+                "start": 0,
+                "end": 1,
+                "base": 13.46,
+                "top": 16.83,
+                "material": "cornerGlass",
+                "verticalMullionSpacing": 0.45,
+                "horizontalMullions": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "North portal jamb",
+        "footprint": [
+          [
+            166.018,
+            860.797
+          ],
+          [
+            166.447,
+            860.769
+          ],
+          [
+            166.497,
+            861.507
+          ],
+          [
+            166.068,
+            861.536
+          ]
+        ],
+        "height": 10.95,
+        "floors": 1,
+        "material": "portalFrame",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "portalFrame"
+        }
+      },
+      {
+        "name": "North portal jamb",
+        "footprint": [
+          [
+            175.13,
+            860.186
+          ],
+          [
+            175.559,
+            860.157
+          ],
+          [
+            175.608,
+            860.896
+          ],
+          [
+            175.179,
+            860.924
+          ]
+        ],
+        "height": 10.95,
+        "floors": 1,
+        "material": "portalFrame",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "portalFrame"
+        }
+      },
+      {
+        "name": "North portal header",
+        "footprint": [
+          [
+            165.999,
+            860.799
+          ],
+          [
+            175.578,
+            860.156
+          ],
+          [
+            175.627,
+            860.894
+          ],
+          [
+            166.049,
+            861.537
+          ]
+        ],
+        "height": 11.4,
+        "floors": 1,
+        "baseOffset": 10.93,
+        "material": "portalFrame",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "portalFrame"
+        }
+      },
+      {
+        "name": "Set-back eastern upper gym",
+        "footprint": [
+          [
+            226.75,
+            865.9
+          ],
+          [
+            228.83,
+            897.95
+          ],
+          [
+            240.12,
+            897.12
+          ],
+          [
+            238.05,
+            865.14
+          ]
+        ],
+        "height": 22.4,
+        "floors": 4,
+        "roof": {
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "wallProfiles": {
+          "9": {
+            "material": "panel",
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "bands": [],
+            "piers": {
+              "width": 0,
+              "depth": 0,
+              "aboveRoof": 0
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 20.38,
+                "top": 22.35,
+                "material": "highGlass",
+                "verticalMullionSpacing": 1.45
+              }
+            ]
+          },
+          "-1": {
+            "material": "panel",
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "bands": [],
+            "piers": {
+              "width": 0,
+              "depth": 0,
+              "aboveRoof": 0
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 20.38,
+                "top": 22.35,
+                "material": "highGlass",
+                "verticalMullionSpacing": 1.45
+              }
+            ]
+          },
+          "1": {
+            "material": "panel",
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 0.35,
+                "top": 12.65,
+                "material": "glass",
+                "verticalMullionSpacing": 1.35,
+                "horizontalMullions": 3
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "North atrium projecting upper glazing",
+        "footprint": [
+          [
+            156.1,
+            860.5
+          ],
+          [
+            233.8,
+            855.28
+          ],
+          [
+            234.45,
+            865.31
+          ],
+          [
+            200.5,
+            868.1
+          ],
+          [
+            199.743,
+            863.556
+          ],
+          [
+            156.55,
+            866.42
+          ]
+        ],
+        "height": 16.1,
+        "floors": 2,
+        "baseOffset": 3.56,
+        "facade": {
+          "material": "glass",
+          "blank": false,
+          "bays": {
+            "width": 2.2
+          },
+          "windows": {
+            "type": "curtain-wall",
+            "height": 4.45,
+            "glassColor": "#73898a"
+          },
+          "sections": [],
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0.1,
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "silverRoof",
+          "edge": "fascia",
+          "overhang": 0.1
+        },
+        "wallProfiles": {
+          "1": {
+            "material": "glass",
+            "bays": {
+              "width": 2.3
+            },
+            "windows": {
+              "type": "curtain-wall",
+              "glassColor": "#718c90"
+            },
+            "parapet": {
+              "height": 0.11,
+              "type": "coped",
+              "material": "trim"
+            }
+          }
+        }
+      },
+      {
+        "name": "Atrium column 1",
+        "footprint": [
+          [
+            174.232,
+            859.815
+          ],
+          [
+            174.671,
+            859.786
+          ],
+          [
+            174.699,
+            860.205
+          ],
+          [
+            174.26,
+            860.234
+          ]
+        ],
+        "height": 3.56,
+        "floors": 1,
+        "material": "southPier",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "southPier",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Atrium column 2",
+        "footprint": [
+          [
+            184.679,
+            859.114
+          ],
+          [
+            185.118,
+            859.085
+          ],
+          [
+            185.146,
+            859.504
+          ],
+          [
+            184.707,
+            859.534
+          ]
+        ],
+        "height": 3.56,
+        "floors": 1,
+        "material": "southPier",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "southPier",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Atrium column 3",
+        "footprint": [
+          [
+            195.283,
+            858.403
+          ],
+          [
+            195.723,
+            858.374
+          ],
+          [
+            195.751,
+            858.793
+          ],
+          [
+            195.312,
+            858.822
+          ]
+        ],
+        "height": 3.56,
+        "floors": 1,
+        "material": "southPier",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "southPier",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Atrium column 4",
+        "footprint": [
+          [
+            205.888,
+            857.692
+          ],
+          [
+            206.327,
+            857.662
+          ],
+          [
+            206.355,
+            858.081
+          ],
+          [
+            205.916,
+            858.111
+          ]
+        ],
+        "height": 3.56,
+        "floors": 1,
+        "material": "southPier",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "southPier",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Atrium column 5",
+        "footprint": [
+          [
+            215.314,
+            857.059
+          ],
+          [
+            215.753,
+            857.03
+          ],
+          [
+            215.781,
+            857.449
+          ],
+          [
+            215.342,
+            857.478
+          ]
+        ],
+        "height": 3.56,
+        "floors": 1,
+        "material": "southPier",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "southPier",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North atrium perimeter column 1",
+        "footprint": [
+          [
+            160.05,
+            860.352
+          ],
+          [
+            160.05,
+            860.922
+          ],
+          [
+            159.55,
+            860.922
+          ],
+          [
+            159.55,
+            860.352
+          ]
+        ],
+        "height": 3.56,
+        "floors": 1,
+        "material": "southPier",
+        "facade": {
+          "material": "southPier",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "southPier",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North atrium perimeter column 2",
+        "footprint": [
+          [
+            168.45,
+            859.789
+          ],
+          [
+            168.45,
+            860.359
+          ],
+          [
+            167.95,
+            860.359
+          ],
+          [
+            167.95,
+            859.789
+          ]
+        ],
+        "height": 3.56,
+        "floors": 1,
+        "material": "southPier",
+        "facade": {
+          "material": "southPier",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "southPier",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North atrium perimeter column 3",
+        "footprint": [
+          [
+            221.35,
+            856.245
+          ],
+          [
+            221.35,
+            856.815
+          ],
+          [
+            220.85,
+            856.815
+          ],
+          [
+            220.85,
+            856.245
+          ]
+        ],
+        "height": 3.56,
+        "floors": 1,
+        "material": "southPier",
+        "facade": {
+          "material": "southPier",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "southPier",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North atrium perimeter column 4",
+        "footprint": [
+          [
+            230.35,
+            855.642
+          ],
+          [
+            230.35,
+            856.212
+          ],
+          [
+            229.85,
+            856.212
+          ],
+          [
+            229.85,
+            855.642
+          ]
+        ],
+        "height": 3.56,
+        "floors": 1,
+        "material": "southPier",
+        "facade": {
+          "material": "southPier",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "southPier",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.2,
+      "type": "glass-vestibule",
+      "width": 4.0,
+      "height": 3.5,
+      "recess": 1.75,
+      "canopy": {
+        "type": "cantilever",
+        "width": 6.5,
+        "depth": 1.4,
+        "material": "portalFrame",
+        "columns": 0
+      },
+      "surround": "portalFrame",
+      "at": [
+        170.8,
+        860.85
+      ]
+    },
+    {
+      "wall": 10,
+      "position": 0.79,
+      "type": "service-door",
+      "width": 1.1,
+      "height": 2.2
+    }
+  ],
+  "attachments": [
+    {
+      "type": "exterior-stair",
+      "walls": [
+        10,
+        11
+      ],
+      "path": [
+        [
+          191.2,
+          936.8
+        ],
+        [
+          188.2,
+          931.5
+        ]
+      ],
+      "height": 2.5,
+      "width": 1.65,
+      "material": "wall"
+    }
+  ]
+}

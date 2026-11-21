@@ -1,0 +1,1311 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764095",
+  "name": "Thames Hall",
+  "status": "refined",
+  "confidence": 0.88,
+  "summary": "Coursed buff-grey masonry building with raised basement windows, a stone Oxford Drive entrance, flat atrium roofs, and eastern buttresses alongside double-height paired gym windows.",
+  "style": "collegiate-gothic",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#aa9f8e",
+      "secondaryColor": "#b5aa97",
+      "variation": 0.17,
+      "unitSize": [
+        0.87,
+        0.34
+      ],
+      "bond": "coursed-rubble",
+      "roughness": 0.82,
+      "weathering": 0.18
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#cdbdaa",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#9aa59b"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    },
+    "equipment": {
+      "kind": "metal-panel",
+      "color": "#a2a5a0",
+      "roughness": 0.69,
+      "unitSize": [
+        0.6,
+        1.2
+      ]
+    },
+    "rooflight": {
+      "kind": "glass-block",
+      "color": "#a7b4b1",
+      "secondaryColor": "#7b8581"
+    },
+    "serviceWall": {
+      "kind": "limestone-smooth",
+      "color": "#a99f8c",
+      "roughness": 0.86
+    },
+    "bayGlass": {
+      "kind": "spandrel-glass",
+      "color": "#515d62",
+      "unitSize": [
+        0.92,
+        1.68
+      ],
+      "roughness": 0.42
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 3,
+    "typicalHeight": 3.1,
+    "raisedGround": 0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 2.15,
+        "height": 1.8,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.17,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.065
+        },
+        "frameColor": "#d0c8b8",
+        "glass": "tinted",
+        "glassColor": "#53636a",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "bays": {
+        "width": 4.1,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "parapet": {
+        "height": 0.38,
+        "type": "coped",
+        "material": "wall"
+      },
+      "cornice": {
+        "height": 0.34,
+        "depth": 0.18,
+        "material": "trim"
+      },
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.07
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4.07,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 5
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.1,
+            "height": 1.25,
+            "sill": 1.65,
+            "frameColor": "#c9c4b8"
+          }
+        },
+        "piers": {
+          "width": 0.69,
+          "depth": 0.36,
+          "every": 2,
+          "material": "trim",
+          "fullHeight": true,
+          "aboveRoof": 0.76
+        },
+        "windows": {
+          "perBay": 2,
+          "width": 0.81,
+          "spacing": 0.16,
+          "hoodMould": true,
+          "surround": "stone"
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 3.85,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 4.55,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.1,
+            "height": 1.25,
+            "sill": 1.65,
+            "frameColor": "#c9c4b8"
+          }
+        },
+        "windows": {
+          "perBay": 2,
+          "width": 0.81,
+          "spacing": 0.16,
+          "hoodMould": true,
+          "surround": "stone"
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 3.15,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 4.25,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 5
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.1,
+            "height": 1.25,
+            "sill": 1.65,
+            "frameColor": "#c9c4b8"
+          }
+        },
+        "piers": {
+          "width": 0.69,
+          "depth": 0.36,
+          "every": 2,
+          "material": "trim",
+          "fullHeight": true,
+          "aboveRoof": 0.76
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 3.75,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.28,
+          "height": 1.6,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#c5beb0",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 4.62,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 6.8,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 5
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.24,
+          "height": 5.65,
+          "sill": 1.5,
+          "perBay": 2,
+          "recess": 0.29,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 7,
+            "width": 0.052
+          },
+          "frameColor": "#b6ad9c",
+          "glass": "leaded",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true,
+          "spacing": 0.31
+        },
+        "buttresses": {
+          "width": 0.91,
+          "depth": 0.85,
+          "every": 1,
+          "stepped": true,
+          "fullHeight": true,
+          "pinnacles": true
+        },
+        "bands": [
+          {
+            "at": "head-lines",
+            "height": 0.18,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ]
+      },
+      "8": {
+        "bays": {
+          "width": 4.11,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 5
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 4.28,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 4.74,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 3.58,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "12": {
+        "bays": {
+          "width": 4.53,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "13": {
+        "bays": {
+          "width": 3.97,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 4.48,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "15": {
+        "bays": {
+          "width": 5.66,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "16": {
+        "bays": {
+          "width": 4.35,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "17": {
+        "bays": {
+          "width": 2.83,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "18": {
+        "bays": {
+          "width": 3.76,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.1,
+            "height": 1.25,
+            "sill": 1.65,
+            "frameColor": "#c9c4b8"
+          }
+        },
+        "piers": {
+          "width": 0.69,
+          "depth": 0.36,
+          "every": 2,
+          "material": "trim",
+          "fullHeight": true,
+          "aboveRoof": 0.76
+        }
+      },
+      "19": {
+        "bays": {
+          "width": 3.9,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 9
+        },
+        "bands": [
+          {
+            "at": "head-lines",
+            "height": 0.18,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ],
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.1,
+            "height": 1.25,
+            "sill": 1.65,
+            "frameColor": "#c9c4b8"
+          }
+        },
+        "piers": {
+          "width": 0.69,
+          "depth": 0.36,
+          "every": 2,
+          "material": "trim",
+          "fullHeight": true,
+          "aboveRoof": 0.76
+        },
+        "windows": {
+          "perBay": 2,
+          "width": 0.81,
+          "spacing": 0.16,
+          "hoodMould": true,
+          "surround": "stone"
+        }
+      },
+      "20": {
+        "bays": {
+          "width": 4.13,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.1,
+            "height": 1.25,
+            "sill": 1.65,
+            "frameColor": "#c9c4b8"
+          }
+        },
+        "piers": {
+          "width": 0.69,
+          "depth": 0.36,
+          "every": 2,
+          "material": "trim",
+          "fullHeight": true,
+          "aboveRoof": 0.76
+        },
+        "windows": {
+          "perBay": 2,
+          "width": 0.81,
+          "spacing": 0.16,
+          "hoodMould": true,
+          "surround": "stone"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          185.369,
+          480.611
+        ],
+        "size": [
+          2.8,
+          2.8
+        ],
+        "height": 0.57,
+        "rotation": 10,
+        "material": "equipment",
+        "fanGrid": [
+          1,
+          1
+        ],
+        "style": "circular fan in square curb"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          178.637,
+          484.684
+        ],
+        "size": [
+          2.8,
+          2.8
+        ],
+        "height": 0.57,
+        "rotation": 10,
+        "material": "equipment",
+        "fanGrid": [
+          1,
+          1
+        ],
+        "style": "circular fan in square curb"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          184.129,
+          491.059
+        ],
+        "size": [
+          2.8,
+          2.8
+        ],
+        "height": 0.57,
+        "rotation": 10,
+        "material": "equipment",
+        "fanGrid": [
+          1,
+          1
+        ],
+        "style": "circular fan in square curb"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          182.889,
+          482.382
+        ],
+        "size": [
+          1.5,
+          6.2
+        ],
+        "height": 1.13,
+        "rotation": -12,
+        "material": "rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          181.294,
+          487.694
+        ],
+        "size": [
+          1.5,
+          6.2
+        ],
+        "height": 1.13,
+        "rotation": 39,
+        "material": "rooflight"
+      },
+      {
+        "type": "antenna",
+        "center": [
+          203.2,
+          459.1
+        ],
+        "size": [
+          0.4,
+          0.4
+        ],
+        "height": 8.5,
+        "material": "trim",
+        "rotation": 10
+      },
+      {
+        "type": "antenna",
+        "center": [
+          205.0,
+          460.2
+        ],
+        "size": [
+          0.4,
+          0.4
+        ],
+        "height": 8.5,
+        "material": "trim",
+        "rotation": 10
+      },
+      {
+        "type": "skylight",
+        "center": [
+          215.6,
+          480.0
+        ],
+        "size": [
+          2,
+          2
+        ],
+        "height": 0.66,
+        "material": "rooflight",
+        "rotation": 10,
+        "style": "round domed skylight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          214.0,
+          487.0
+        ],
+        "size": [
+          1.52,
+          1.52
+        ],
+        "height": 0.66,
+        "material": "rooflight",
+        "rotation": 10,
+        "style": "round domed skylight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          212.6,
+          492.0
+        ],
+        "size": [
+          2,
+          2
+        ],
+        "height": 0.66,
+        "material": "rooflight",
+        "rotation": 10,
+        "style": "round domed skylight"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "note": "Facilities Management photograph of the exterior and its openings.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/TH1.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory core-1m surface percentiles above ground: median 13.17 m, 90th percentile 13.59 m, maximum 20.21 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "East gym front has tall pairs of gridded lights, pale rectangular label moulds, pilasters and caps above the parapet.",
+      "frame": "131415085",
+      "walls": [
+        7
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Shorter two-storey return beside the gym has smaller rectangular windows and dark doors.",
+      "frame": "131415089",
+      "walls": [
+        5,
+        7
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Oxford Drive view shows the projecting portal at the end of the west range.",
+      "frame": "131415195",
+      "walls": [
+        20,
+        19
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "South end in winter, rows of rectangular divided openings.",
+      "frame": "552818690",
+      "walls": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "Renovation added the raised atrium roof and an Alumni Circle entrance.",
+      "url": "https://www.uwo.ca/fm/projects/capital_projects/thames_hall.html"
+    },
+    {
+      "kind": "osm",
+      "note": "Entrance positions are aligned to mapped footpath, service or stair endpoints where those meet the outer wall. Door and step dimensions are estimates."
+    },
+    {
+      "kind": "aerial",
+      "note": "Flat roofs at two main elevations, with central linear clerestory and ductwork over the west-central roof."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Bay counts, opening dimensions and storey heights on unseen elevations are architectural estimates. Wall and roof hues are image samples, subject to exposure and shadows."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131415089",
+      "walls": [
+        5,
+        7
+      ],
+      "note": "PIL mean patches for wall and trim centred at (63%, 46%) and (66.8%, 39.8%) of the photo. Exposure multipliers 1.18 and 1.22 approximate daylight across the source views."
+    },
+    {
+      "kind": "photo",
+      "note": "The Oxford Drive photograph shows the pointed entrance arch, clustered casements and a pair of thin white roof masts.",
+      "url": "https://www.uwo.ca/fm/client_services/building_info.html"
+    },
+    {
+      "kind": "lidar",
+      "note": "The raised western roof covers about 16 by 22 m after checking adjacent parapets. The gym roof carries a long curb with three round caps. The low southeastern steps lie outside wall 5. Road-side wall and roof offsets in the aerial increase with height."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 20,
+      "position": 0.52,
+      "type": "gothic-portal",
+      "width": 3.05,
+      "height": 4.42,
+      "recess": 0.95,
+      "surround": "trim"
+    },
+    {
+      "wall": 18,
+      "position": 0.49,
+      "type": "glass-vestibule",
+      "width": 3.1,
+      "height": 3.0
+    },
+    {
+      "wall": 5,
+      "position": 0.18,
+      "type": "doors-single",
+      "width": 1.2,
+      "height": 2.25,
+      "steps": 3,
+      "canopy": {
+        "type": "flat",
+        "width": 3.1,
+        "depth": 1.5,
+        "material": "trim"
+      }
+    },
+    {
+      "wall": 0,
+      "position": 0.54,
+      "type": "doors-double",
+      "width": 2.1,
+      "height": 2.5
+    }
+  ],
+  "notes": "The gym window pairs cross the apparent storey line. Small carved finials terminate the buttresses. Roof and new atrium follow the newer orthophoto.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Higher Oxford Drive and central range",
+        "footprint": {
+          "clip": [
+            [
+              214.15,
+              502.93
+            ],
+            [
+              214.39,
+              502.97
+            ],
+            [
+              214.93,
+              501.63
+            ],
+            [
+              204.87,
+              500.15
+            ],
+            [
+              212.77,
+              459.57
+            ],
+            [
+              171.9,
+              452.12
+            ],
+            [
+              170.77,
+              458.63
+            ],
+            [
+              169.46,
+              466.12
+            ],
+            [
+              171.02,
+              466.4
+            ],
+            [
+              165.02,
+              500.65
+            ],
+            [
+              163.16,
+              500.32
+            ],
+            [
+              162.95,
+              501.51
+            ],
+            [
+              211.34,
+              510.48
+            ],
+            [
+              213.96,
+              504.02
+            ]
+          ]
+        },
+        "height": 13.45,
+        "floors": 3,
+        "wallProfiles": {
+          "6": {
+            "topFloor": {
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "8": {
+            "topFloor": {
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "9": {
+            "topFloor": {
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "Lower east gym and perimeter rooms",
+        "footprint": {
+          "clip": [
+            [
+              172.49,
+              510.34
+            ],
+            [
+              181.77,
+              511.96
+            ],
+            [
+              181.1,
+              515.76
+            ],
+            [
+              190.08,
+              517.32
+            ],
+            [
+              190.61,
+              514.21
+            ],
+            [
+              211.55,
+              517.86
+            ],
+            [
+              212.02,
+              515.14
+            ],
+            [
+              212.53,
+              512.22
+            ],
+            [
+              213.96,
+              504.02
+            ],
+            [
+              211.34,
+              510.48
+            ],
+            [
+              162.95,
+              501.51
+            ],
+            [
+              162.82,
+              502.26
+            ],
+            [
+              161.74,
+              508.45
+            ]
+          ]
+        },
+        "height": 9.45,
+        "floors": 2
+      },
+      {
+        "name": "Double-height eastern gymnasium and north return",
+        "footprint": {
+          "clip": [
+            [
+              227.81,
+              505.33
+            ],
+            [
+              233.62,
+              472.01
+            ],
+            [
+              213.39,
+              468.48
+            ],
+            [
+              216.34,
+              451.61
+            ],
+            [
+              209.86,
+              450.49
+            ],
+            [
+              202.33,
+              449.18
+            ],
+            [
+              202.95,
+              445.65
+            ],
+            [
+              194.02,
+              444.09
+            ],
+            [
+              193.67,
+              446.13
+            ],
+            [
+              181.94,
+              444.07
+            ],
+            [
+              181.16,
+              448.47
+            ],
+            [
+              175.59,
+              447.5
+            ],
+            [
+              174.84,
+              451.78
+            ],
+            [
+              172.04,
+              451.29
+            ],
+            [
+              171.9,
+              452.12
+            ],
+            [
+              212.77,
+              459.57
+            ],
+            [
+              204.87,
+              500.15
+            ],
+            [
+              214.93,
+              501.63
+            ],
+            [
+              214.39,
+              502.97
+            ]
+          ]
+        },
+        "height": 9.45,
+        "floors": 1
+      },
+      {
+        "name": "Western rooflight curb",
+        "height": 14.2,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "baseOffset": 13.45,
+        "footprint": [
+          [
+            191.52927,
+            476.81205
+          ],
+          [
+            187.68297,
+            498.62554
+          ],
+          [
+            172.27073,
+            495.90795
+          ],
+          [
+            176.11703,
+            474.09446
+          ]
+        ]
+      },
+      {
+        "name": "Gym rooflight curb",
+        "height": 10.05,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "baseOffset": 9.45,
+        "footprint": [
+          [
+            219.4592,
+            476.31912
+          ],
+          [
+            216.19461,
+            494.8335
+          ],
+          [
+            210.0888,
+            493.75688
+          ],
+          [
+            213.35339,
+            475.2425
+          ]
+        ]
+      },
+      {
+        "name": "Northwest roof-access room with membrane cap",
+        "height": 16.2,
+        "floors": 1,
+        "material": "serviceWall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "baseOffset": 13.45,
+        "footprint": [
+          [
+            173.28632,
+            453.628
+          ],
+          [
+            181.46023,
+            455.06928
+          ],
+          [
+            179.8453,
+            464.22799
+          ],
+          [
+            171.67139,
+            462.78671
+          ]
+        ]
+      },
+      {
+        "name": "Projecting dark-glazed gym bay",
+        "height": 6.86,
+        "floors": 1,
+        "material": "bayGlass",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "wallProfiles": {
+          "7": {
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 2.38,
+                "top": 6.65,
+                "material": "bayGlass",
+                "verticalMullionSpacing": 0.94,
+                "horizontalMullions": 2
+              }
+            ]
+          }
+        },
+        "baseOffset": 2.18,
+        "footprint": [
+          [
+            228.44709,
+            500.97778
+          ],
+          [
+            229.26049,
+            496.31298
+          ],
+          [
+            230.21604,
+            496.47963
+          ],
+          [
+            229.40264,
+            501.14443
+          ]
+        ]
+      },
+      {
+        "name": "Projecting dark-glazed gym bay",
+        "height": 6.86,
+        "floors": 1,
+        "material": "bayGlass",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "wallProfiles": {
+          "7": {
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 2.38,
+                "top": 6.65,
+                "material": "bayGlass",
+                "verticalMullionSpacing": 0.94,
+                "horizontalMullions": 2
+              }
+            ]
+          }
+        },
+        "baseOffset": 2.18,
+        "footprint": [
+          [
+            230.19009,
+            490.98178
+          ],
+          [
+            231.00349,
+            486.31698
+          ],
+          [
+            231.95904,
+            486.48363
+          ],
+          [
+            231.14563,
+            491.14843
+          ]
+        ]
+      }
+    ]
+  }
+}

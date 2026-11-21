@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Phone controller · Drive Western</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#171526;color:#fbf8ff;font:18px system-ui,sans-serif;min-height:100svh;display:grid;align-content:center}main{width:min(100%,640px);padding:24px;margin:auto}h1{font-size:2rem}label{display:grid;gap:6px}input,button{padding:14px;border:1px solid #818094;border-radius:9px;font:inherit}input{text-transform:uppercase;width:100%}button{cursor:pointer;color:inherit;background:#473b66}form,section{display:grid;gap:12px}[hidden]{display:none}fieldset{display:flex;border:0;padding:0;gap:14px}fieldset button{flex:1;min-height:18svh;touch-action:none;user-select:none}#gas{background:#316a4c}#brake{background:#7c3734}output{min-height:2em;display:block;margin:12px 0}button:active{filter:brightness(1.4)}
+</style></head><body><main><h1>Phone controller</h1><form id="pair"><label>Desktop pairing code<input required id="code" maxlength="6" pattern="[A-Za-z2-9]{6}" autocomplete="off"></label><button>Pair controller</button></form><output aria-live="polite"></output><section hidden id="controls"><button id="tilt">Enable tilt steering</button><fieldset><button id="left">Left</button><button id="right">Right</button></fieldset><fieldset><button id="brake">Brake</button><button id="gas">Gas</button></fieldset></section></main><script type="module">
+const id = name => document.getElementById(name)
+const status = document.querySelector('output')
+const input = {steer:0,brake:0,throttle:0}
+let ws, origin, enabled=false, tilt=0, timer
+const keys = new Set()
+const clear = () => { keys.clear(); origin=null; tilt=0; send() }
+function send(){
+  input.steer = keys.has('left') ? 1 : keys.has('right') ? -1 : tilt
+  input.brake = Number(keys.has('brake'))
+  input.throttle = Number(keys.has('gas'))
+  if(ws?.readyState===1 && ws.bufferedAmount<2048) ws.send(JSON.stringify({type:'pad',input}))
+}
+for(const name of ['left','right','gas','brake']){
+  const b=id(name)
+  b.onpointerdown=e=>{e.preventDefault();b.setPointerCapture(e.pointerId);keys.add(name);send()}
+  b.onlostpointercapture=()=>{keys.delete(name);send()}
+}
+window.addEventListener('blur',clear)
+document.addEventListener('visibilitychange',()=>{if(document.hidden)clear()})
+id('tilt').onclick=async()=>{
+  try{
+    if(!window.DeviceOrientationEvent || (DeviceOrientationEvent.requestPermission && await DeviceOrientationEvent.requestPermission()!=='granted')) throw Error()
+    enabled=true; origin=null; id('tilt').textContent='Recenter tilt'
+  }catch{status.value='Tilt unavailable. Use Left and Right.'}
+}
+addEventListener('deviceorientation',e=>{
+  if(!enabled || !Number.isFinite(e.gamma)||!Number.isFinite(e.beta))return
+  const angle=(screen.orientation?.angle??window.orientation??0)*Math.PI/180
+  const value=e.gamma*Math.cos(angle)+e.beta*Math.sin(angle)
+  origin??=value
+  tilt=Math.max(-1,Math.min(1,(origin-value)/24))
+})
+screen.orientation?.addEventListener('change',clear)
+const queryCode=new URLSearchParams(location.search).get('code')
+id('code').value=queryCode || ''
+id('pair').onsubmit=async e=>{
+  e.preventDefault()
+  const code=id('code').value.trim().toUpperCase()
+  const button=id('pair').querySelector('button');button.disabled=true
+  try{
+    let ticket=JSON.parse(sessionStorage.getItem('pad-ticket')||'null')
+    if(ticket?.code!==code){
+      const r=await fetch('/api/pads/'+encodeURIComponent(code)+'/join',{method:'POST',body:'{}'})
+      ticket=await r.json()
+      if(!r.ok)throw Error(ticket.reason)
+      sessionStorage.setItem('pad-ticket',JSON.stringify(ticket))
+    }
+    const url=new URL('/api/pads/'+code+'/socket',location.href);url.protocol=location.protocol==='https:'?'wss:':'ws:'
+    ws=new WebSocket(url,['western',ticket.token])
+    ws.onopen=()=>{id('pair').hidden=true;id('controls').hidden=false;status.value='Paired with desktop';timer=setInterval(send,40)}
+    ws.onclose=()=>{clearInterval(timer);clear();id('controls').hidden=true;id('pair').hidden=false;button.disabled=false;status.value='Connection lost. Pair again.';if(!timer)sessionStorage.removeItem('pad-ticket');timer=null}
+  }catch(err){status.value=err.message;button.disabled=false}
+}
+</script></body></html>

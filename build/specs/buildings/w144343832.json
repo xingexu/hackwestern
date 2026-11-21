@@ -1,0 +1,660 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w144343832",
+  "name": "1095 Western Road",
+  "status": "refined",
+  "confidence": 0.95,
+  "summary": "This four-level red-brick apartment block has a partly exposed lower level, flat roof, five road-front bays, a central framed entry, light lintels, and a strong basement belt course.",
+  "style": "residential-brick",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#925242",
+      "secondaryColor": "#957568",
+      "variation": 0.17,
+      "unitSize": [
+        0.203,
+        0.067
+      ],
+      "bond": "running",
+      "roughness": 0.87
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#c8bdac",
+      "secondaryColor": "#a69f8e",
+      "variation": 0.055
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#737468",
+      "secondaryColor": "#565851",
+      "variation": 0.14,
+      "roughness": 0.93
+    },
+    "door": {
+      "kind": "painted-metal",
+      "color": "#47473c"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#514e44"
+    },
+    "glass": {
+      "kind": "spandrel-glass",
+      "color": "#424d50"
+    },
+    "vent": {
+      "kind": "painted-metal",
+      "color": "#9b9b90",
+      "roughness": 0.74
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 1.46,
+    "typicalHeight": 3.04
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Apartment block with projecting north bay",
+        "footprint": [
+          [
+            30.792,
+            1465.245
+          ],
+          [
+            31.127,
+            1465.114
+          ],
+          [
+            29.875,
+            1461.899
+          ],
+          [
+            3.67,
+            1472.12
+          ],
+          [
+            4.963,
+            1475.443
+          ],
+          [
+            10.13,
+            1488.72
+          ],
+          [
+            36.0,
+            1478.62
+          ],
+          [
+            30.837,
+            1465.361
+          ]
+        ],
+        "floors": 4,
+        "height": 10.94
+      },
+      {
+        "name": "Stone entrance pilaster left",
+        "footprint": [
+          [
+            33.326,
+            1471.106
+          ],
+          [
+            33.432,
+            1471.377
+          ],
+          [
+            33.199,
+            1471.467
+          ],
+          [
+            33.093,
+            1471.197
+          ]
+        ],
+        "floors": 1,
+        "baseOffset": 0.155,
+        "height": 2.435,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0.14,
+            "projection": 0.055,
+            "material": "trim"
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "segments": [],
+          "sections": [],
+          "cornice": {
+            "height": 0.14,
+            "depth": 0.09,
+            "material": "trim"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Stone entrance pilaster right",
+        "footprint": [
+          [
+            32.546,
+            1469.103
+          ],
+          [
+            32.652,
+            1469.373
+          ],
+          [
+            32.419,
+            1469.464
+          ],
+          [
+            32.313,
+            1469.194
+          ]
+        ],
+        "floors": 1,
+        "baseOffset": 0.155,
+        "height": 2.435,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0.14,
+            "projection": 0.055,
+            "material": "trim"
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "segments": [],
+          "sections": [],
+          "cornice": {
+            "height": 0.14,
+            "depth": 0.09,
+            "material": "trim"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.45,
+        "height": 1.76,
+        "sill": 0.59,
+        "perBay": 1,
+        "recess": 0.105,
+        "mullions": {
+          "vertical": 3,
+          "horizontal": 3,
+          "width": 0.034
+        },
+        "frameColor": "#847e70",
+        "glass": "reflective",
+        "glassColor": "#738087",
+        "surround": "none",
+        "sillProjecting": true,
+        "lintel": true,
+        "surroundMaterial": "trim"
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 1.35,
+          "height": 0.99,
+          "sill": 0.2,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 2,
+            "width": 0.035
+          },
+          "frameColor": "#847e70",
+          "glass": "reflective",
+          "glassColor": "#738087",
+          "surround": "none",
+          "sillProjecting": true,
+          "lintel": true,
+          "surroundMaterial": "trim"
+        },
+        "height": 1.46
+      },
+      "base": {
+        "height": 0.12,
+        "material": "trim",
+        "projection": 0.04
+      },
+      "bands": [
+        {
+          "at": [
+            1.35
+          ],
+          "height": 0.16,
+          "depth": 0.085,
+          "material": "trim"
+        },
+        {
+          "at": [
+            1.56
+          ],
+          "height": 0.19,
+          "depth": 0.09,
+          "material": "trim"
+        },
+        {
+          "at": [
+            10.19
+          ],
+          "height": 0.26,
+          "depth": 0.11,
+          "material": "trim"
+        }
+      ],
+      "cornice": {
+        "height": 0.09,
+        "depth": 0.075,
+        "material": "trim"
+      },
+      "parapet": {
+        "height": 0.13,
+        "type": "coped",
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 5,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 8,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 5,
+          "pattern": "regular",
+          "edgeMargin": 0.64
+        },
+        "segments": [
+          {
+            "range": [
+              0,
+              0.39
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.2
+            }
+          },
+          {
+            "range": [
+              0.39,
+              0.6
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.08
+            },
+            "windows": {
+              "width": 0.9,
+              "sill": 0.12,
+              "height": 1.66
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none"
+              }
+            }
+          },
+          {
+            "range": [
+              0.6,
+              0.8
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.16
+            }
+          },
+          {
+            "range": [
+              0.8,
+              1
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.16
+            }
+          }
+        ]
+      },
+      "3": {
+        "bays": {
+          "count": 8,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          17.59,
+          1469.95
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          14.71,
+          1471.15
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          15.79,
+          1474.51
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          18.43,
+          1473.55
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          10.99,
+          1478.35
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          12.31,
+          1481.47
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          16.39,
+          1480.27
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          18.43,
+          1480.87
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          19.63,
+          1481.83
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          21.43,
+          1479.67
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          22.03,
+          1477.87
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          26.59,
+          1476.07
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          25.15,
+          1472.59
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.5,
+      "width": 1.08,
+      "height": 2.22,
+      "type": "doors-single",
+      "surround": "trim",
+      "recess": 0.22,
+      "steps": 1,
+      "doorColor": "#413f33",
+      "canopy": {
+        "type": "flat",
+        "width": 2.42,
+        "depth": 0.46,
+        "material": "trim"
+      }
+    },
+    {
+      "wall": 0,
+      "position": 0.5,
+      "width": 1.03,
+      "height": 2.05,
+      "type": "service-door",
+      "recess": 0.14,
+      "doorColor": "#413f33"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "knowledge",
+      "note": "The city address point identifies 1095 Western Road and records four levels.",
+      "url": "https://maps.london.ca/server/rest/services/BASEMAP_ORTHO_UTM/MapServer/0"
+    },
+    {
+      "kind": "photo",
+      "note": "Owner's exterior photograph shows three full-size window rows above a low basement row, multi-light sash, light projecting sills and lintels, a continuous string course and a framed entrance. A clean daylight brick patch supplies the wall colour. Brick mean RGB is 144, 94, 86 from pixel rectangle (214,84)–(232,97) of the 399 × 267 image.",
+      "url": "https://www.londonprop.com/userContent/images/Property%20Images/London/Exterior%20Thumbnails/1095exthumb.jpg"
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 orthophoto shows a single rectangular flat roof with narrow perimeter coping and small scattered vents. Roof finish sampled inside the footprint."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m lidar above local ground measures 10.90 m at P50, 10.94 m at P90 and 11.04 m at maximum. The closely grouped heights support a single parapet elevation."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Five bays on the short road-facing end. The central bay has narrower stair windows over the door, with a slight break in the parapet at the corner bay.",
+      "frame": "34490918",
+      "walls": [
+        2,
+        3
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Oblique road view records the level cornice and dark sash against red masonry.",
+      "frame": "131415303",
+      "walls": [
+        2
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "The owner's 1095 gallery plan shows four window openings along one long apartment wall and the stair window at the end of the common corridor.",
+      "url": "https://www.londonprop.com/userContent/galleries/6F9FB76D-082C-E7FB-4D48-4E5C28DC65DB/finals/1083%20-%203%20bed%20%28upper%20floors%29.jpg"
+    },
+    {
+      "kind": "aerial",
+      "note": "Small bright roof exhaust caps were located on the 2025 orthophoto. Their approximate dimensions reflect the image resolution. The dark patches between the vents lie on the roof surface."
+    },
+    {
+      "kind": "aerial",
+      "note": "The shallow projecting north bay shares one uninterrupted roof with the rest of the block."
+    }
+  ],
+  "notes": "The first window row represents a partly buried floor. The central stair windows sit between floor levels. The entrance has a deep rectangular surround with a projecting cap. Long-side bay counts and the rear access position are approximate. The owner exterior resolves fine subdivided sash, a projecting stone entrance cap and light sill and lintel stones. The rooftop trim and lower belt are separate courses."
+}

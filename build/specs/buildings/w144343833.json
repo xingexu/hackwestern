@@ -1,0 +1,821 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w144343833",
+  "name": "1083 Western Road",
+  "status": "refined",
+  "confidence": 0.89,
+  "summary": "This four-level red-brick walk-up has a partly exposed lower level, long flat roof, multi-pane sash, stone-coloured lintels, projecting sills, belt course, and rectangular entrance surround.",
+  "style": "residential-brick",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#925242",
+      "secondaryColor": "#957568",
+      "variation": 0.17,
+      "unitSize": [
+        0.203,
+        0.067
+      ],
+      "bond": "running",
+      "roughness": 0.87
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#c2b5a1",
+      "secondaryColor": "#a69f8e",
+      "variation": 0.055
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#6c6e63",
+      "secondaryColor": "#565851",
+      "variation": 0.14,
+      "roughness": 0.93
+    },
+    "door": {
+      "kind": "painted-metal",
+      "color": "#47473c"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#514e44"
+    },
+    "glass": {
+      "kind": "spandrel-glass",
+      "color": "#424d50"
+    },
+    "vent": {
+      "kind": "painted-metal",
+      "color": "#9b9b90",
+      "roughness": 0.74
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 1.6,
+    "typicalHeight": 3.16
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Apartment block",
+        "footprint": "inventory",
+        "height": 11.29,
+        "floors": 4
+      },
+      {
+        "name": "Stone entrance pilaster left",
+        "footprint": [
+          [
+            38.053,
+            1515.114
+          ],
+          [
+            37.945,
+            1514.845
+          ],
+          [
+            37.713,
+            1514.938
+          ],
+          [
+            37.821,
+            1515.207
+          ]
+        ],
+        "floors": 1,
+        "baseOffset": 1.085,
+        "height": 3.365,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0.14,
+            "projection": 0.055,
+            "material": "trim"
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "segments": [],
+          "sections": [],
+          "cornice": {
+            "height": 0.14,
+            "depth": 0.09,
+            "material": "trim"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Stone entrance pilaster right",
+        "footprint": [
+          [
+            38.851,
+            1517.111
+          ],
+          [
+            38.744,
+            1516.841
+          ],
+          [
+            38.511,
+            1516.934
+          ],
+          [
+            38.619,
+            1517.203
+          ]
+        ],
+        "floors": 1,
+        "baseOffset": 1.085,
+        "height": 3.365,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0.14,
+            "projection": 0.055,
+            "material": "trim"
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "segments": [],
+          "sections": [],
+          "cornice": {
+            "height": 0.14,
+            "depth": 0.09,
+            "material": "trim"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.45,
+        "height": 1.76,
+        "sill": 0.59,
+        "perBay": 1,
+        "recess": 0.105,
+        "mullions": {
+          "vertical": 3,
+          "horizontal": 3,
+          "width": 0.034
+        },
+        "frameColor": "#847e70",
+        "glass": "reflective",
+        "glassColor": "#738087",
+        "surround": "none",
+        "sillProjecting": true,
+        "lintel": true,
+        "surroundMaterial": "trim"
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 1.35,
+          "height": 1.24,
+          "sill": 0.13,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 2,
+            "width": 0.035
+          },
+          "frameColor": "#847e70",
+          "glass": "reflective",
+          "glassColor": "#738087",
+          "surround": "none",
+          "sillProjecting": true,
+          "lintel": true,
+          "surroundMaterial": "trim"
+        },
+        "height": 1.6
+      },
+      "base": {
+        "height": 0.12,
+        "material": "trim",
+        "projection": 0.04
+      },
+      "bands": [
+        {
+          "at": [
+            1.5
+          ],
+          "height": 0.16,
+          "depth": 0.085,
+          "material": "trim"
+        },
+        {
+          "at": [
+            1.71
+          ],
+          "height": 0.19,
+          "depth": 0.09,
+          "material": "trim"
+        },
+        {
+          "at": [
+            10.54
+          ],
+          "height": 0.26,
+          "depth": 0.11,
+          "material": "trim"
+        }
+      ],
+      "cornice": {
+        "height": 0.09,
+        "depth": 0.075,
+        "material": "trim"
+      },
+      "parapet": {
+        "height": 0.13,
+        "type": "coped",
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 5,
+          "pattern": "regular",
+          "edgeMargin": 1.18
+        },
+        "segments": [
+          {
+            "range": [
+              0,
+              0.405
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.6
+            }
+          },
+          {
+            "range": [
+              0.405,
+              0.595
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.35
+            },
+            "windows": {
+              "width": 0.94,
+              "height": 1.62,
+              "sill": 0.15
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none"
+              }
+            }
+          },
+          {
+            "range": [
+              0.595,
+              1
+            ],
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.6
+            }
+          }
+        ]
+      },
+      "1": {
+        "bays": {
+          "count": 12,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 5,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 12,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          31.01,
+          1521.38
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          19.25,
+          1526.66
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          13.25,
+          1519.94
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          4.85,
+          1528.58
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          28.73,
+          1519.1
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          16.61,
+          1518.02
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          -0.91,
+          1533.74
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          6.17,
+          1531.58
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          20.57,
+          1521.62
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          13.13,
+          1524.62
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          0.77,
+          1529.9
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          10.01,
+          1531.34
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          38.435,
+          1522.229
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          25.478,
+          1523.91
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          27.637,
+          1524.27
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          23.318,
+          1520.429
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          20.799,
+          1522.95
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          22.959,
+          1524.27
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          24.158,
+          1525.71
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          3.403,
+          1533.152
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          23.798,
+          1521.749
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          -1.396,
+          1531.592
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          26.918,
+          1522.709
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          9.282,
+          1529.791
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          8.082,
+          1532.912
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          12.161,
+          1527.751
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.5,
+      "width": 1.56,
+      "height": 2.22,
+      "type": "doors-double",
+      "surround": "trim",
+      "recess": 0.22,
+      "steps": 7,
+      "doorColor": "#413f33",
+      "canopy": {
+        "type": "flat",
+        "width": 2.42,
+        "depth": 0.46,
+        "material": "trim"
+      }
+    },
+    {
+      "wall": 2,
+      "position": 0.5,
+      "width": 1.05,
+      "height": 2.05,
+      "type": "doors-single",
+      "recess": 0.14,
+      "doorColor": "#413f33"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "knowledge",
+      "note": "The city address point identifies 1083 Western Road and records four levels.",
+      "url": "https://maps.london.ca/server/rest/services/BASEMAP_ORTHO_UTM/MapServer/0"
+    },
+    {
+      "kind": "photo",
+      "note": "Owner's exterior photograph shows three full-size window rows above a low basement row, multi-light sash, light projecting sills and lintels, a continuous string course and a framed entrance. A clean daylight brick patch supplies the wall colour. Brick mean RGB is 160, 109, 103 from pixel rectangle (226,25)–(244,43) of the 399 × 267 image.",
+      "url": "https://www.londonprop.com/userContent/images/Property%20Images/London/Exterior%20Thumbnails/1083exthumb.jpg"
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 orthophoto shows a single rectangular flat roof with narrow perimeter coping and small scattered vents. Roof finish sampled inside the footprint."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m lidar above local ground measures 11.22 m at P50, 11.29 m at P90 and 11.54 m at maximum. The closely grouped heights support a single parapet elevation."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Additional distant road view through foliage. Only the upper wall and long horizontal roof edge are useful; the address-specific owner photograph provides facade detail.",
+      "frame": "136656061",
+      "walls": [
+        0,
+        1
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "The owner's lower-floor plan shows a long ramp around the outside of Stair 2. The orientation toward the rear parking court is inferred from the site approach.",
+      "url": "https://www.londonprop.com/userContent/galleries/348D9803-AD95-4851-F41D-1DCC76468B09/finals/1083%20-%203%20bed%20%281st%20floor%29.jpg"
+    },
+    {
+      "kind": "aerial",
+      "note": "Small bright roof exhaust caps were located on the 2025 orthophoto. Their approximate dimensions reflect the image resolution. The dark patches between the vents lie on the roof surface."
+    }
+  ],
+  "notes": "The first window row represents a partly buried floor. The central stair windows sit between floor levels. The entrance has a deep rectangular surround with a projecting cap. Long-side bay counts and the rear access position are approximate. The owner exterior resolves fine subdivided sash, a projecting stone entrance cap and light sill and lintel stones. The rooftop trim and lower belt are separate courses.",
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "width": 0.24,
+      "height": 1.29,
+      "material": "wall",
+      "path": [
+        [
+          37.805,
+          1514.75
+        ],
+        [
+          40.164,
+          1513.808
+        ]
+      ]
+    },
+    {
+      "type": "retaining-wall",
+      "width": 0.24,
+      "height": 1.29,
+      "material": "wall",
+      "path": [
+        [
+          38.815,
+          1517.276
+        ],
+        [
+          41.174,
+          1516.333
+        ]
+      ]
+    }
+  ]
+}

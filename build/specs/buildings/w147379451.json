@@ -1,0 +1,948 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w147379451",
+  "name": "Sarnia Road courtyard apartments",
+  "status": "refined",
+  "confidence": 0.86,
+  "summary": "This four-storey red brick building encloses a three-sided courtyard. Paired sash windows feature pale stone heads and sills. A round-headed entrance and a light balustrade mark the centre of the street elevation.",
+  "style": "residential-brick",
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "146585703",
+      "walls": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "note": "This view shows four rows of windows in red brick, with a stone arched entrance and a pale roofline balustrade at the centre."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "148668637",
+      "walls": [
+        1,
+        3,
+        5
+      ],
+      "note": "The full street elevation shows two projecting ends, paired windows and a shallow dark roof."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "148656591",
+      "walls": [
+        5,
+        6
+      ],
+      "note": "A close view shows running-bond brick, multi-pane sash windows, lintels, sills and a continuous band above the ground floor. The front projection obscures the inner courtyard."
+    },
+    {
+      "kind": "aerial",
+      "note": "Two parallel flat-roofed rear ranges extend from the pitched front range, with the courtyard between them opening to the north."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 12.33 / 15.53 / 19.6 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#b8846e",
+      "secondaryColor": "#c8b3a4",
+      "unitSize": [
+        0.205,
+        0.073
+      ],
+      "variation": 0.17,
+      "bond": "running"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#dacab0",
+      "secondaryColor": "#c1b7a4",
+      "unitSize": [
+        0.65,
+        0.22
+      ],
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#44464a",
+      "secondaryColor": "#36393b",
+      "unitSize": [
+        0.32,
+        0.145
+      ],
+      "variation": 0.12
+    },
+    "flatRoof": {
+      "kind": "membrane",
+      "color": "#63635c",
+      "variation": 0.12,
+      "weathering": 0.38
+    },
+    "fascia": {
+      "kind": "painted-metal",
+      "color": "#514438"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#eae6db"
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 3.15,
+    "typicalHeight": 2.94
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4,
+        "pattern": "paired",
+        "edgeMargin": 0.27
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.02,
+        "height": 1.64,
+        "sill": 0.82,
+        "perBay": 2,
+        "recess": 0.14,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.031
+        },
+        "frameColor": "#eee9df",
+        "glass": "tinted",
+        "glassColor": "#57636a",
+        "surround": "none",
+        "surroundMaterial": "trim",
+        "lintel": true,
+        "sillProjecting": false,
+        "spacing": 0.3
+      },
+      "bands": [
+        {
+          "at": [
+            3.26
+          ],
+          "height": 0.26,
+          "depth": 0.06,
+          "material": "trim"
+        }
+      ],
+      "cornice": {
+        "height": 0.115,
+        "depth": 0.17,
+        "material": "fascia"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4.12,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 15
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "paired",
+          "edgeMargin": 0.27,
+          "count": 3
+        },
+        "quoins": false,
+        "piers": {
+          "every": 3,
+          "width": 0.32,
+          "depth": 0.075,
+          "fullHeight": true,
+          "material": "wall"
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 4.25,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 1
+        },
+        "quoins": false,
+        "piers": {
+          "every": 3,
+          "width": 0.32,
+          "depth": 0.075,
+          "fullHeight": true,
+          "material": "wall"
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 4.3,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 7
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.12,
+          "height": 1.65,
+          "sill": 0.82,
+          "perBay": 1,
+          "recess": 0.14,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.031
+          },
+          "frameColor": "#eee9df",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none",
+          "surroundMaterial": "trim",
+          "lintel": true,
+          "sillProjecting": false
+        },
+        "parapet": {
+          "type": "pierced",
+          "height": 0.86,
+          "material": "trim"
+        },
+        "cornice": {
+          "height": 0.55,
+          "depth": 0.31,
+          "material": "trim"
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 5.61,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 1
+        },
+        "quoins": false,
+        "piers": {
+          "every": 3,
+          "width": 0.32,
+          "depth": 0.075,
+          "fullHeight": true,
+          "material": "wall"
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 3.63,
+          "pattern": "paired",
+          "edgeMargin": 0.27,
+          "count": 3
+        },
+        "quoins": false,
+        "piers": {
+          "every": 3,
+          "width": 0.32,
+          "depth": 0.075,
+          "fullHeight": true,
+          "material": "wall"
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 4.15,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 15
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 4.35,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 5
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 3.97,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 12
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 4.25,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 4.28,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 11
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 4.03,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 5
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "hip",
+    "rise": 3.05,
+    "material": "roof",
+    "edge": "cornice",
+    "overhang": 0.31,
+    "features": [
+      {
+        "type": "dormers",
+        "center": [
+          -161.432,
+          1048.529
+        ],
+        "size": [
+          1.72,
+          1.77
+        ],
+        "height": 1.85,
+        "material": "trim",
+        "rotation": -24,
+        "style": "paired gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -141.199,
+          1039.365
+        ],
+        "size": [
+          1.72,
+          1.77
+        ],
+        "height": 1.85,
+        "material": "trim",
+        "rotation": -24,
+        "style": "paired gabled dormer"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          -169.4,
+          1042.5
+        ],
+        "size": [
+          4.9,
+          3.08
+        ],
+        "height": 0.16,
+        "material": "frame",
+        "rotation": -20,
+        "style": "horizontal white roof hatch"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          -137.6,
+          1030.25
+        ],
+        "size": [
+          4.9,
+          3.08
+        ],
+        "height": 0.16,
+        "material": "frame",
+        "rotation": -20,
+        "style": "horizontal white roof hatch"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -178.15,
+          1045.35
+        ],
+        "size": [
+          1.52,
+          1.47
+        ],
+        "height": 1.21,
+        "material": "wall",
+        "rotation": 69,
+        "style": "low gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -130.7,
+          1037.8
+        ],
+        "size": [
+          1.52,
+          1.47
+        ],
+        "height": 1.21,
+        "material": "wall",
+        "rotation": -110,
+        "style": "low gabled dormer"
+      }
+    ]
+  },
+  "notes": "The ornamental balustrade consists of individual pale balusters. Street-level cameras provide much better coverage of the south front than of the north courtyard.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "West and east rear wings",
+        "footprint": [
+          [
+            -130.655,
+            1018.784
+          ],
+          [
+            -144.82,
+            980.84
+          ],
+          [
+            -165.0,
+            988.9
+          ],
+          [
+            -151.124,
+            1026.234
+          ]
+        ],
+        "height": 12.2,
+        "floors": 4,
+        "roof": {
+          "form": "flat",
+          "material": "flatRoof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Hipped street range",
+        "footprint": [
+          [
+            -168.883,
+            1032.697
+          ],
+          [
+            -162.383,
+            1050.555
+          ],
+          [
+            -138.193,
+            1039.534
+          ],
+          [
+            -143.981,
+            1023.634
+          ],
+          [
+            -151.124,
+            1026.234
+          ],
+          [
+            -148.39,
+            1033.59
+          ],
+          [
+            -160.18,
+            1038.48
+          ],
+          [
+            -163.179,
+            1030.621
+          ]
+        ],
+        "height": 12.7,
+        "floors": 4,
+        "roof": {
+          "form": "hip",
+          "rise": 3.12,
+          "ridge": 70,
+          "material": "roof",
+          "edge": "cornice",
+          "overhang": 0.23
+        }
+      },
+      {
+        "name": "West street pavilion",
+        "footprint": [
+          [
+            -168.883,
+            1032.697
+          ],
+          [
+            -183.148,
+            1037.889
+          ],
+          [
+            -175.36,
+            1060.22
+          ],
+          [
+            -161.78,
+            1054.84
+          ],
+          [
+            -162.68,
+            1050.69
+          ],
+          [
+            -162.383,
+            1050.555
+          ]
+        ],
+        "height": 12.5,
+        "floors": 4,
+        "roof": {
+          "form": "hip",
+          "rise": 3.9,
+          "ridge": 160,
+          "edge": "fascia",
+          "material": "roof",
+          "overhang": 0.29
+        }
+      },
+      {
+        "name": "East street pavilion",
+        "footprint": [
+          [
+            -143.981,
+            1023.634
+          ],
+          [
+            -138.193,
+            1039.534
+          ],
+          [
+            -138.03,
+            1039.46
+          ],
+          [
+            -137.14,
+            1042.43
+          ],
+          [
+            -136.286,
+            1044.774
+          ],
+          [
+            -123.03,
+            1039.21
+          ],
+          [
+            -130.655,
+            1018.784
+          ]
+        ],
+        "height": 12.5,
+        "floors": 4,
+        "roof": {
+          "form": "hip",
+          "rise": 3.9,
+          "ridge": 160,
+          "edge": "fascia",
+          "material": "roof",
+          "overhang": 0.29
+        }
+      },
+      {
+        "name": "Projecting entrance frontispiece",
+        "footprint": [
+          [
+            -154.213,
+            1046.734
+          ],
+          [
+            -145.585,
+            1042.803
+          ],
+          [
+            -145.37,
+            1043.276
+          ],
+          [
+            -153.998,
+            1047.207
+          ]
+        ],
+        "height": 12.78,
+        "floors": 4,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 3
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.12,
+            "height": 1.65,
+            "sill": 0.82,
+            "perBay": 1,
+            "recess": 0.14,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.031
+            },
+            "frameColor": "#eee9df",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": false
+          },
+          "parapet": {
+            "type": "pierced",
+            "height": 0.92,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0.55,
+            "depth": 0.31,
+            "material": "trim"
+          },
+          "piers": {
+            "width": 0.37,
+            "depth": 0.13,
+            "material": "wall",
+            "every": 3,
+            "fullHeight": true,
+            "aboveRoof": 0
+          },
+          "quoins": false
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "flatRoof",
+          "features": []
+        }
+      },
+      {
+        "name": "West stone jamb",
+        "footprint": [
+          [
+            -151.871,
+            1046.255
+          ],
+          [
+            -150.86,
+            1045.794
+          ],
+          [
+            -150.792,
+            1045.944
+          ],
+          [
+            -151.803,
+            1046.405
+          ]
+        ],
+        "height": 5.1,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "trim",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "trim"
+        }
+      },
+      {
+        "name": "East stone jamb",
+        "footprint": [
+          [
+            -148.469,
+            1044.705
+          ],
+          [
+            -147.458,
+            1044.245
+          ],
+          [
+            -147.39,
+            1044.395
+          ],
+          [
+            -148.401,
+            1044.855
+          ]
+        ],
+        "height": 5.1,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "trim",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Stone entrance entablature",
+        "footprint": [
+          [
+            -151.974,
+            1046.291
+          ],
+          [
+            -147.365,
+            1044.191
+          ],
+          [
+            -147.275,
+            1044.387
+          ],
+          [
+            -151.884,
+            1046.487
+          ]
+        ],
+        "height": 5.48,
+        "baseOffset": 4.68,
+        "floors": 1,
+        "material": "trim",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Courtyard rear wing",
+        "footprint": [
+          [
+            -163.179,
+            1030.621
+          ],
+          [
+            -176.96,
+            994.51
+          ],
+          [
+            -195.72,
+            1001.84
+          ],
+          [
+            -183.148,
+            1037.889
+          ]
+        ],
+        "height": 12.2,
+        "floors": 4,
+        "roof": {
+          "form": "flat",
+          "material": "flatRoof",
+          "edge": "fascia"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.52,
+      "type": "arched-portal",
+      "width": 2.35,
+      "height": 3.53,
+      "recess": 0.44,
+      "surround": "trim",
+      "steps": 4,
+      "at": [
+        -149.684,
+        1045.241
+      ]
+    },
+    {
+      "wall": 2,
+      "position": 0.39,
+      "type": "doors-single",
+      "width": 0.98,
+      "height": 2.15,
+      "steps": 3
+    }
+  ],
+  "attachments": [
+    {
+      "type": "exterior-stair",
+      "path": [
+        [
+          -145.22,
+          1043.867
+        ],
+        [
+          -149.336,
+          1045.742
+        ]
+      ],
+      "width": 1.8,
+      "height": 0.83,
+      "material": "trim"
+    }
+  ]
+}

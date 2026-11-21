@@ -1,0 +1,377 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w147379464",
+  "name": "Brescia Facilities Management",
+  "status": "refined",
+  "confidence": 0.48,
+  "summary": "Long rectangular service building beside Lot D, covered by a brown gabled roof with a straight ridge and a light south eave.",
+  "style": "industrial-utility",
+  "evidence": [
+    {
+      "kind": "knowledge",
+      "url": "https://tvsef.ca/wp-content/uploads/2023/03/brescia_map-TVSEF.pdf",
+      "note": "Facilities Management is the long shed immediately south of Lot D."
+    },
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. Straight ridge running ENE, brown slopes and light eave on the garden side. Parking apron against the north face. Roof colour sampled on its southern slope."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 7.2 m, P90 7.78 m, maximum 11.39 m. Central roof rows around 7–8 m. Localized highest points at southwest tree cover."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Campus frame search out to 130 m found no usable street-facing image. Finish and bay estimates on screened walls are provisional."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "146585451",
+      "note": "This aligned road frame is about 221 m away. The ridge intervenes and hides the service elevation. Openings and cladding remain estimates."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#d5d1c4",
+      "variation": 0.09,
+      "secondaryColor": "#b9b6af",
+      "unitSize": [
+        0.3,
+        5.65
+      ],
+      "bond": "stack"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#e4e0d4",
+      "variation": 0.09
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#54483e",
+      "variation": 0.06,
+      "secondaryColor": "#483c32",
+      "unitSize": [
+        0.32,
+        0.16
+      ],
+      "roughness": 0.91
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b7afa2",
+      "variation": 0.09
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#797b73",
+      "variation": 0.09
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 5.6,
+    "typicalHeight": 3.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.18,
+        "height": 1,
+        "sill": 0.99,
+        "perBay": 1,
+        "recess": 0.14,
+        "frameColor": "#d5d4cb",
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 0,
+          "width": 0.055
+        },
+        "glass": "clear"
+      },
+      "bays": {
+        "width": 4.6,
+        "pattern": "regular",
+        "edgeMargin": 0.24
+      },
+      "base": {
+        "height": 0.4,
+        "material": "base",
+        "projection": 0.03
+      },
+      "cornice": {
+        "height": 0.14,
+        "depth": 0.11,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 1,
+          "width": 5.5,
+          "edgeMargin": 0.12,
+          "pattern": "irregular"
+        },
+        "windows": {
+          "type": "slot",
+          "width": 0.78,
+          "height": 0.75,
+          "sill": 2.5,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#deded7",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 3,
+          "width": 5.2,
+          "edgeMargin": 0.12,
+          "pattern": "irregular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 1,
+          "width": 5.5,
+          "edgeMargin": 0.12,
+          "pattern": "irregular"
+        },
+        "windows": {
+          "type": "slot",
+          "width": 0.78,
+          "height": 0.75,
+          "sill": 2.5,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#deded7",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 4,
+          "width": 5.2,
+          "edgeMargin": 0.12,
+          "pattern": "irregular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "gutter",
+    "ridge": 69,
+    "rise": 2.45,
+    "overhang": 0.32,
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -522.623,
+          962.21
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -520.293,
+          961.316
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -517.963,
+          960.421
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -515.633,
+          959.527
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -513.303,
+          958.633
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -510.973,
+          957.738
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -508.644,
+          956.844
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -506.314,
+          955.95
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -503.984,
+          955.055
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -501.657,
+          954.162
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -499.327,
+          953.268
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "height": 0.18,
+        "material": "trim",
+        "style": "Small pale metal ridge cap visible in the orthophoto."
+      }
+    ]
+  },
+  "notes": "Service doors are inferred to face the parking apron. Exterior cladding and exact openings remain unconfirmed.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Maintenance building",
+        "footprint": "inventory",
+        "height": 5.6,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "gutter",
+          "ridge": 69,
+          "rise": 2.45,
+          "overhang": 0.32
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.3,
+      "type": "garage",
+      "width": 3.2,
+      "height": 3.35,
+      "doorColor": "#85847d"
+    },
+    {
+      "wall": 3,
+      "position": 0.75,
+      "type": "service-door",
+      "width": 1.03,
+      "height": 2.2
+    }
+  ]
+}

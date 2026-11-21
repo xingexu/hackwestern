@@ -1,0 +1,1210 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668540",
+  "name": "Siebens Centre",
+  "status": "refined",
+  "confidence": 0.85,
+  "summary": "The Siebens Centre has a two-storey buff coursed stone front with a shallow gable over a recessed arched entrance, a low wing with a masonry chimney, and an east wing with a rooftop mechanical enclosure.",
+  "style": "mid-century-modern",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#bfad95",
+      "secondaryColor": "#a69a89",
+      "unitSize": [
+        0.405,
+        0.17
+      ],
+      "bond": "coursed-rubble",
+      "variation": 0.135
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#cbbfa9",
+      "secondaryColor": "#b2a996",
+      "unitSize": [
+        0.52,
+        0.22
+      ]
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    },
+    "east": {
+      "kind": "ashlar-stone",
+      "color": "#bdaf99",
+      "secondaryColor": "#a39481",
+      "unitSize": [
+        0.37,
+        0.155
+      ],
+      "bond": "random-ashlar",
+      "variation": 0.115,
+      "roughness": 0.85
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c4cabb",
+      "variation": 0.05,
+      "weathering": 0.12,
+      "roughness": 0.84
+    },
+    "plant": {
+      "kind": "metal-panel",
+      "color": "#d2d4cf",
+      "metalness": 0.46,
+      "roughness": 0.52,
+      "unitSize": [
+        0.24,
+        3.9
+      ]
+    },
+    "stairGlass": {
+      "kind": "glass-curtain",
+      "color": "#667a78",
+      "secondaryColor": "#778681"
+    },
+    "fanMetal": {
+      "kind": "painted-metal",
+      "color": "#878985",
+      "secondaryColor": "#5e635f",
+      "metalness": 0.35,
+      "roughness": 0.67
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 3.8,
+    "typicalHeight": 3.7
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.45,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "windows": {
+        "type": "punched",
+        "width": 2.03,
+        "height": 1.73,
+        "sill": 0.82,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.045
+        },
+        "frameColor": "#7f8176",
+        "glass": "tinted",
+        "glassColor": "#68736e",
+        "surround": "none",
+        "sillProjecting": false,
+        "surroundMaterial": "trim"
+      },
+      "base": {
+        "material": "base",
+        "height": 0.28,
+        "projection": 0.04
+      },
+      "parapet": {
+        "height": 0.28,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 6.96,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.63,
+          "height": 1.14,
+          "sill": 1.25,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#585954",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 4.13,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 3.38,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 4.34,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 11.42,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "gables": {
+          "type": "parapet",
+          "count": 1,
+          "height": 1.45
+        },
+        "windows": {
+          "type": "segmental-arch",
+          "width": 2.5,
+          "height": 1.85,
+          "sill": 0.7,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#585954",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "stone",
+          "sillProjecting": true,
+          "surroundMaterial": "trim"
+        },
+        "piers": {
+          "width": 0.72,
+          "depth": 0.28,
+          "material": "wall",
+          "every": 1,
+          "fullHeight": true
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 3.4,
+          "count": 4,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 2.84,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "east",
+        "windows": {
+          "type": "punched",
+          "width": 1.48,
+          "height": 1.52,
+          "sill": 0.77,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#d0d0c7",
+          "glass": "tinted",
+          "glassColor": "#707e7d",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.68,
+          "depth": 0.32,
+          "every": 2,
+          "fullHeight": true,
+          "aboveRoof": 0.43,
+          "material": "east"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.23,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ],
+        "floorOverrides": {
+          "0": {
+            "windows": {
+              "height": 0.82,
+              "sill": 1.75
+            }
+          }
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 3.55,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "east",
+        "windows": {
+          "type": "punched",
+          "width": 1.48,
+          "height": 1.52,
+          "sill": 0.77,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#d0d0c7",
+          "glass": "tinted",
+          "glassColor": "#707e7d",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.68,
+          "depth": 0.32,
+          "every": 2,
+          "fullHeight": true,
+          "aboveRoof": 0.43,
+          "material": "east"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.23,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ],
+        "floorOverrides": {
+          "0": {
+            "windows": {
+              "height": 0.82,
+              "sill": 1.75
+            }
+          }
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 3.87,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "east",
+        "windows": {
+          "type": "punched",
+          "width": 1.48,
+          "height": 1.52,
+          "sill": 0.77,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#585954",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.4,
+          "depth": 0.14,
+          "material": "east",
+          "every": 2,
+          "fullHeight": true
+        },
+        "bands": [
+          {
+            "at": "head-lines",
+            "height": 0.15,
+            "depth": 0.075,
+            "material": "east"
+          }
+        ]
+      },
+      "12": {
+        "bays": {
+          "width": 3.73,
+          "count": 10,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "east",
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.85,
+          "sill": 0.77,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#d0d0c7",
+          "glass": "tinted",
+          "glassColor": "#707e7d",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.68,
+          "depth": 0.32,
+          "every": 2,
+          "fullHeight": true,
+          "aboveRoof": 0.43,
+          "material": "east"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.23,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ],
+        "floorOverrides": {
+          "0": {
+            "windows": {
+              "height": 0.82,
+              "sill": 1.75
+            }
+          }
+        }
+      },
+      "13": {
+        "bays": {
+          "width": 4.23,
+          "count": 6,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "east",
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.85,
+          "sill": 0.77,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#d0d0c7",
+          "glass": "tinted",
+          "glassColor": "#707e7d",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.68,
+          "depth": 0.32,
+          "every": 2,
+          "fullHeight": true,
+          "aboveRoof": 0.43,
+          "material": "east"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.23,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ],
+        "floorOverrides": {
+          "0": {
+            "windows": {
+              "height": 0.82,
+              "sill": 1.75
+            }
+          }
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 3.68,
+          "count": 12,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "east",
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.85,
+          "sill": 0.77,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#d0d0c7",
+          "glass": "tinted",
+          "glassColor": "#707e7d",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.68,
+          "depth": 0.32,
+          "every": 2,
+          "fullHeight": true,
+          "aboveRoof": 0.43,
+          "material": "east"
+        },
+        "bands": [
+          {
+            "at": "sill-lines",
+            "height": 0.23,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ],
+        "floorOverrides": {
+          "0": {
+            "windows": {
+              "height": 0.82,
+              "sill": 1.75
+            }
+          }
+        }
+      },
+      "19": {
+        "bays": {
+          "width": 4.09,
+          "count": 4,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "20": {
+        "bays": {
+          "width": 4.05,
+          "count": 4,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "21": {
+        "bays": {
+          "width": 4.17,
+          "count": 4,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "sections": [
+          {
+            "start": 0.05,
+            "end": 0.17,
+            "base": 1.8,
+            "top": 8.23,
+            "material": "stairGlass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 4
+          }
+        ]
+      },
+      "22": {
+        "bays": {
+          "width": 5.07,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "23": {
+        "bays": {
+          "width": 5.77,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "perBay": 2,
+          "width": 1.35,
+          "height": 1.48,
+          "sill": 0.9,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          }
+        }
+      },
+      "24": {
+        "bays": {
+          "width": 5.02,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "perBay": 2,
+          "width": 1.35,
+          "height": 1.48,
+          "sill": 0.9,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          }
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "chimney",
+        "center": [
+          17.8,
+          25.4
+        ],
+        "size": [
+          1.46,
+          1.48
+        ],
+        "height": 10.2,
+        "rotation": -3.7,
+        "material": "wall",
+        "style": "square stone chimney"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          87,
+          47
+        ],
+        "size": [
+          0.93,
+          0.93
+        ],
+        "height": 8.8,
+        "rotation": 0,
+        "material": "plant",
+        "style": "round exhaust stack"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          36.2,
+          40.6
+        ],
+        "size": [
+          3.4,
+          6
+        ],
+        "height": 1.7,
+        "rotation": -3.7,
+        "material": "plant",
+        "style": "Rectangular unit with exposed ducts"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          78.4,
+          44.8
+        ],
+        "size": [
+          5.8,
+          3.7
+        ],
+        "height": 1.4,
+        "rotation": -3.7,
+        "material": "plant",
+        "style": "Paired fans on the east enclosure roof"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          24.5,
+          46
+        ],
+        "size": [
+          1.62,
+          1.55
+        ],
+        "height": 3,
+        "material": "wall",
+        "rotation": -3.7
+      },
+      {
+        "type": "hvac",
+        "center": [
+          14.5,
+          38
+        ],
+        "size": [
+          3,
+          1.7
+        ],
+        "height": 1.2,
+        "material": "plant",
+        "rotation": -3.7
+      },
+      {
+        "type": "hvac",
+        "center": [
+          12.5,
+          33
+        ],
+        "size": [
+          1.3,
+          1.4
+        ],
+        "height": 0.85,
+        "material": "plant",
+        "rotation": 0
+      },
+      {
+        "type": "hvac",
+        "center": [
+          41,
+          45.4
+        ],
+        "size": [
+          19.4,
+          1.01
+        ],
+        "height": 0.8,
+        "material": "plant",
+        "rotation": -3.7,
+        "style": "rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          44.8,
+          35.3
+        ],
+        "size": [
+          1.08,
+          10.3
+        ],
+        "height": 0.76,
+        "material": "plant",
+        "rotation": -3.7,
+        "style": "rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          80.4,
+          38.7
+        ],
+        "size": [
+          1.12,
+          1.12
+        ],
+        "height": 1.15,
+        "material": "fanMetal",
+        "rotation": -3.7,
+        "style": "round exhaust cowl"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          84.3,
+          38.45
+        ],
+        "size": [
+          1.12,
+          1.12
+        ],
+        "height": 1.15,
+        "material": "fanMetal",
+        "rotation": -3.7,
+        "style": "round exhaust cowl"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          88.25,
+          38.21
+        ],
+        "size": [
+          1.12,
+          1.12
+        ],
+        "height": 1.15,
+        "material": "fanMetal",
+        "rotation": -3.7,
+        "style": "round exhaust cowl"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          92.0,
+          37.97
+        ],
+        "size": [
+          1.12,
+          1.12
+        ],
+        "height": 1.15,
+        "material": "fanMetal",
+        "rotation": -3.7,
+        "style": "round exhaust cowl"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          75.3,
+          44.8
+        ],
+        "size": [
+          1.0,
+          3
+        ],
+        "height": 0.58,
+        "material": "plant",
+        "rotation": -3.7,
+        "style": "insulated duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          79.4,
+          46.65
+        ],
+        "size": [
+          7,
+          0.72
+        ],
+        "height": 0.58,
+        "material": "plant",
+        "rotation": -3.7,
+        "style": "insulated duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          85.8,
+          45.6
+        ],
+        "size": [
+          0.87,
+          3.35
+        ],
+        "height": 0.58,
+        "material": "plant",
+        "rotation": -3.7,
+        "style": "insulated duct"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "131662993",
+      "walls": [
+        0,
+        20,
+        22,
+        23,
+        24
+      ],
+      "note": "Low masonry service wing with broad rectangular openings, square stone chimney and paired openings in the taller wing. Sunlit coursed masonry samples #ccbaa2 and #cebba2."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "99075361",
+      "walls": [
+        9,
+        10,
+        12
+      ],
+      "note": "Low garden-level lights below two full rows of square windows. Slightly projecting piers frame the bays, with a pale rooftop screen and tall round flue."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "103297209",
+      "walls": [
+        12
+      ],
+      "note": "An elevated glazed link is visible farther east in the same view. The endpoints cannot be assigned to this footprint."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/SDRI.jpg",
+      "note": "The front has a shallow gable and a recessed arched stone surround above a glazed double entry, five broad steps and paired flanking windows."
+    },
+    {
+      "kind": "aerial",
+      "note": "Front path ends at the projecting centre of the original south range. Rear projections have different roof levels. Pale east roof has a long equipment enclosure and ductwork."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 11.75 m, P90 16.39 m, maximum 25.22 m above inventory ground. Northwest service roof about 4.5 m, western rooms around 10–12 m, east envelope around 12 m with a 16 m roof above the plant."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Low north-west service projection",
+        "footprint": {
+          "clip": [
+            [
+              4.43,
+              20.34
+            ],
+            [
+              20.39,
+              19.31
+            ],
+            [
+              21.91,
+              42.76
+            ],
+            [
+              5.94,
+              43.79
+            ]
+          ]
+        },
+        "height": 4.55,
+        "floors": 1,
+        "facade": {
+          "windows": {
+            "type": "punched",
+            "width": 1.62,
+            "height": 1.14,
+            "sill": 1.25,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.045
+            },
+            "frameColor": "#585954",
+            "glass": "tinted",
+            "glassColor": "#526768",
+            "surround": "none",
+            "sillProjecting": false
+          }
+        }
+      },
+      {
+        "name": "Original west block",
+        "footprint": {
+          "clip": [
+            [
+              5.94,
+              43.79
+            ],
+            [
+              22.91,
+              42.7
+            ],
+            [
+              24.36,
+              65.15
+            ],
+            [
+              7.4,
+              66.25
+            ]
+          ]
+        },
+        "height": 10.8,
+        "floors": 3,
+        "facade": {
+          "groundFloor": {
+            "windows": {
+              "height": 0.84,
+              "sill": 1.58
+            }
+          },
+          "windows": {
+            "width": 2.12,
+            "height": 1.72,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.046
+            },
+            "sillProjecting": true
+          }
+        }
+      },
+      {
+        "name": "Front entrance and north return",
+        "footprint": {
+          "clip": [
+            [
+              20.39,
+              19.31
+            ],
+            [
+              47.34,
+              17.57
+            ],
+            [
+              50.31,
+              63.47
+            ],
+            [
+              23.36,
+              65.21
+            ]
+          ]
+        },
+        "height": 11.75,
+        "floors": 2
+      },
+      {
+        "name": "Central connecting range",
+        "footprint": {
+          "clip": [
+            [
+              48.31,
+              32.54
+            ],
+            [
+              66.27,
+              31.37
+            ],
+            [
+              68.27,
+              62.31
+            ],
+            [
+              50.31,
+              63.47
+            ]
+          ]
+        },
+        "height": 12.1,
+        "floors": 3,
+        "material": "east"
+      },
+      {
+        "name": "East range",
+        "footprint": {
+          "clip": [
+            [
+              66.4,
+              33.37
+            ],
+            [
+              107.31,
+              30.72
+            ],
+            [
+              109.57,
+              65.65
+            ],
+            [
+              68.66,
+              68.3
+            ]
+          ]
+        },
+        "height": 12.15,
+        "floors": 3,
+        "material": "east",
+        "facade": {
+          "windows": {
+            "type": "punched",
+            "width": 1.55,
+            "height": 1.85,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.045
+            },
+            "frameColor": "#d0d0c7",
+            "glass": "tinted",
+            "glassColor": "#707e7d",
+            "surround": "none",
+            "sillProjecting": true
+          },
+          "piers": {
+            "width": 0.68,
+            "depth": 0.32,
+            "every": 2,
+            "fullHeight": true,
+            "aboveRoof": 0.43,
+            "material": "east"
+          },
+          "bands": [
+            {
+              "at": "sill-lines",
+              "height": 0.23,
+              "depth": 0.11,
+              "material": "trim"
+            }
+          ],
+          "floorOverrides": {
+            "0": {
+              "windows": {
+                "height": 0.82,
+                "sill": 1.75
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "Upper east mechanical enclosure",
+        "footprint": {
+          "clip": [
+            [
+              69.131,
+              41.581
+            ],
+            [
+              102.062,
+              39.451
+            ],
+            [
+              103.069,
+              55.019
+            ],
+            [
+              70.138,
+              57.149
+            ]
+          ]
+        },
+        "height": 16.4,
+        "baseOffset": 12.15,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "parapet": {
+            "height": 0.12,
+            "type": "plain",
+            "material": "plant"
+          }
+        }
+      },
+      {
+        "name": "Railed masonry headhouse behind entrance",
+        "footprint": [
+          [
+            31.759,
+            45.09
+          ],
+          [
+            32.024,
+            49.181
+          ],
+          [
+            23.841,
+            49.71
+          ],
+          [
+            23.576,
+            45.619
+          ]
+        ],
+        "height": 14.2,
+        "baseOffset": 11.75,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "parapet": {
+            "type": "metal-rail",
+            "height": 0.95,
+            "material": "plant"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 6,
+      "position": 0.51,
+      "type": "arched-portal",
+      "width": 2.97,
+      "height": 3.52,
+      "steps": 5,
+      "recess": 0.49,
+      "surround": "trim"
+    },
+    {
+      "wall": 24,
+      "position": 0.42,
+      "type": "service-door",
+      "width": 1.05,
+      "height": 2.16
+    },
+    {
+      "wall": 21,
+      "position": 0.88,
+      "width": 1.65,
+      "height": 2.25,
+      "type": "doors-double"
+    }
+  ],
+  "notes": "The eastern enclosed bridge is visible beyond this footprint. Its attachment points belong to the adjoining complex or are obscured, so no bridge path is asserted here. The garden level is partially exposed on the south side. SDRI.jpg resolves one large portal and clerestory between the two front buttresses. Two full rows are exposed on the adjoining front elevation."
+}

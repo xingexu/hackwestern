@@ -1,0 +1,2724 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668547",
+  "name": "Greenhouses",
+  "style": "greenhouse",
+  "confidence": 0.89,
+  "status": "refined",
+  "summary": "Greenhouses consists of low parallel glass gable ranges linked down the middle, built on low concrete bases with closely spaced silver frames.",
+  "materials": {
+    "wall": {
+      "kind": "glass-curtain",
+      "color": "#747975",
+      "unitSize": [
+        0.72,
+        1.05
+      ],
+      "secondaryColor": "#5e635f",
+      "variation": 0.065,
+      "bond": "stack",
+      "roughness": 0.22,
+      "metalness": 0.04
+    },
+    "roof": {
+      "kind": "glass-curtain",
+      "color": "#767a79",
+      "roughness": 0.2,
+      "unitSize": [
+        0.76,
+        1.17
+      ],
+      "secondaryColor": "#bcc4c4",
+      "metalness": 0.05
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#868b87"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b2ad99"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#b9bfc0"
+    },
+    "headRoof": {
+      "kind": "gravel-ballast",
+      "color": "#50514c",
+      "variation": 0.08,
+      "secondaryColor": "#666760"
+    },
+    "gardenWall": {
+      "kind": "concrete-smooth",
+      "color": "#b6ac91",
+      "secondaryColor": "#a69e8b"
+    },
+    "bed": {
+      "kind": "concrete-smooth",
+      "color": "#928673"
+    },
+    "soil": {
+      "kind": "gravel-ballast",
+      "color": "#655646",
+      "variation": 0.19
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.2,
+    "typicalHeight": 2.2
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "curtain-wall",
+        "width": 0.91,
+        "height": 1.44,
+        "sill": 0.84,
+        "perBay": 1,
+        "recess": 0.015,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "frameColor": "#b9bfc0",
+        "glass": "clear",
+        "glassColor": "#adc1bc"
+      },
+      "bays": {
+        "width": 0.95,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "height": 0,
+        "type": "plain",
+        "material": "frame"
+      },
+      "base": {
+        "height": 0.85,
+        "material": "base",
+        "projection": 0.07
+      },
+      "piers": {
+        "width": 0.045,
+        "depth": 0.04,
+        "material": "frame",
+        "every": 1,
+        "fullHeight": true
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 7,
+          "width": 2.7
+        },
+        "material": "base",
+        "windows": {
+          "type": "ribbon",
+          "width": 2.45,
+          "height": 1.23,
+          "sill": 1.05,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          }
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 11,
+          "width": 0.95
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 5,
+          "width": 0.96
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 3,
+          "width": 0.9
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 12,
+          "width": 0.94
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 5,
+          "width": 0.93
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 12,
+          "width": 0.95
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 3,
+          "width": 0.91
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 12,
+          "width": 0.98
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 7,
+          "width": 0.9
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 12,
+          "width": 0.96
+        }
+      },
+      "11": {
+        "bays": {
+          "count": 12,
+          "width": 0.91
+        }
+      },
+      "12": {
+        "bays": {
+          "count": 8,
+          "width": 0.9
+        }
+      },
+      "13": {
+        "bays": {
+          "count": 27,
+          "width": 0.96
+        }
+      },
+      "14": {
+        "bays": {
+          "count": 8,
+          "width": 0.91
+        }
+      },
+      "15": {
+        "bays": {
+          "count": 12,
+          "width": 0.94
+        }
+      },
+      "16": {
+        "bays": {
+          "count": 12,
+          "width": 0.92
+        }
+      },
+      "17": {
+        "bays": {
+          "count": 6,
+          "width": 1.01
+        }
+      },
+      "18": {
+        "bays": {
+          "count": 12,
+          "width": 0.95
+        }
+      },
+      "19": {
+        "bays": {
+          "count": 3,
+          "width": 0.84
+        }
+      },
+      "20": {
+        "bays": {
+          "count": 11,
+          "width": 0.98
+        }
+      },
+      "21": {
+        "bays": {
+          "count": 6,
+          "width": 0.9
+        }
+      },
+      "22": {
+        "bays": {
+          "count": 12,
+          "width": 0.94
+        }
+      },
+      "23": {
+        "bays": {
+          "count": 3,
+          "width": 0.99
+        }
+      },
+      "24": {
+        "bays": {
+          "count": 12,
+          "width": 0.93
+        }
+      },
+      "25": {
+        "bays": {
+          "count": 11,
+          "width": 0.92
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "gutter",
+    "rise": 1.7,
+    "ridge": 71,
+    "overhang": 0.08,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface minus local ground: median 3.71 m, 90th percentile 4.24 m, maximum 5.42 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/BGG.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Low northern headhouse has a horizontal band of glazing and a single opaque door facing the service lane.",
+      "frame": "138045379",
+      "walls": [
+        0
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "Three narrow parallel glazed ranges lie south of the broader headhouse. Open slots between the ranges produce the comb-like footprint."
+    },
+    {
+      "kind": "photo",
+      "note": "PIL mean wall or glazing sample, source-pixel rectangle (x, y, width, height) (116, 108, 4, 4) gives #747975.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/BGG.jpg"
+    },
+    {
+      "kind": "aerial",
+      "note": "An enclosed plot runs south of the glass ranges. The 2025 city image resolves a pair of low service structures and two rows of narrow growing beds with open paths."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.45,
+      "type": "doors-single",
+      "width": 1.0,
+      "height": 2.05
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Northern headhouse",
+        "height": 3.87,
+        "floors": 1,
+        "footprint": [
+          [
+            434.877,
+            39.13
+          ],
+          [
+            452.435,
+            32.716
+          ],
+          [
+            449.55,
+            24.4
+          ],
+          [
+            431.89,
+            30.51
+          ]
+        ],
+        "roof": {
+          "form": "flat",
+          "material": "headRoof",
+          "edge": "parapet"
+        },
+        "facade": {
+          "material": "base",
+          "windows": {
+            "type": "ribbon",
+            "width": 2.4,
+            "height": 1.22,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.06
+            },
+            "sill": 1.18
+          },
+          "piers": {
+            "width": 0.05,
+            "material": "metal"
+          },
+          "parapet": {
+            "height": 0.35,
+            "type": "coped",
+            "material": "metal"
+          },
+          "bays": {
+            "width": 3.45
+          }
+        },
+        "material": "base",
+        "wallProfiles": {
+          "0": {
+            "material": "base",
+            "windows": {
+              "type": "ribbon",
+              "width": 2.45,
+              "height": 1.25,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 0,
+                "width": 0.06
+              },
+              "sill": 1.15
+            }
+          },
+          "1": {
+            "material": "base",
+            "windows": {
+              "type": "ribbon",
+              "width": 2.45,
+              "height": 1.25,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 0,
+                "width": 0.06
+              },
+              "sill": 1.15
+            }
+          },
+          "25": {
+            "material": "base",
+            "windows": {
+              "type": "ribbon",
+              "width": 2.45,
+              "height": 1.25,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 0,
+                "width": 0.06
+              },
+              "sill": 1.15
+            }
+          }
+        }
+      },
+      {
+        "name": "North passage",
+        "height": 2.35,
+        "floors": 1,
+        "footprint": {
+          "clip": [
+            [
+              622.07,
+              -27.92
+            ],
+            [
+              623.09,
+              -25.13
+            ],
+            [
+              284.94,
+              98.39
+            ],
+            [
+              283.93,
+              95.6
+            ]
+          ]
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 161,
+          "rise": 0.93,
+          "material": "roof",
+          "edge": "gutter"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 0.91,
+            "height": 1.44,
+            "sill": 0.84,
+            "perBay": 1,
+            "recess": 0.015,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#b9bfc0",
+            "glass": "clear",
+            "glassColor": "#adc1bc"
+          },
+          "base": {
+            "height": 0.8,
+            "material": "base",
+            "projection": 0.065
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        }
+      },
+      {
+        "name": "North glasshouse",
+        "height": 2.35,
+        "floors": 1,
+        "footprint": {
+          "clip": [
+            [
+              623.09,
+              -25.13
+            ],
+            [
+              624.74,
+              -20.61
+            ],
+            [
+              286.59,
+              102.91
+            ],
+            [
+              284.94,
+              98.39
+            ]
+          ]
+        },
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "gutter",
+          "rise": 1.65,
+          "ridge": 71,
+          "overhang": 0.06
+        },
+        "facade": {
+          "base": {
+            "height": 0.8,
+            "material": "base",
+            "projection": 0.065
+          }
+        }
+      },
+      {
+        "name": "Middle passage",
+        "height": 2.35,
+        "floors": 1,
+        "footprint": {
+          "clip": [
+            [
+              624.74,
+              -20.61
+            ],
+            [
+              625.71,
+              -17.97
+            ],
+            [
+              287.56,
+              105.55
+            ],
+            [
+              286.59,
+              102.91
+            ]
+          ]
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 161,
+          "rise": 0.93,
+          "material": "roof",
+          "edge": "gutter"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 0.91,
+            "height": 1.44,
+            "sill": 0.84,
+            "perBay": 1,
+            "recess": 0.015,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#b9bfc0",
+            "glass": "clear",
+            "glassColor": "#adc1bc"
+          },
+          "base": {
+            "height": 0.8,
+            "material": "base",
+            "projection": 0.065
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        }
+      },
+      {
+        "name": "Middle glasshouse",
+        "height": 2.35,
+        "floors": 1,
+        "footprint": {
+          "clip": [
+            [
+              625.71,
+              -17.97
+            ],
+            [
+              627.76,
+              -12.34
+            ],
+            [
+              289.62,
+              111.18
+            ],
+            [
+              287.56,
+              105.55
+            ]
+          ]
+        },
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "gutter",
+          "rise": 1.65,
+          "ridge": 71,
+          "overhang": 0.06
+        },
+        "facade": {
+          "base": {
+            "height": 0.8,
+            "material": "base",
+            "projection": 0.065
+          }
+        }
+      },
+      {
+        "name": "South passage",
+        "height": 2.35,
+        "floors": 1,
+        "footprint": {
+          "clip": [
+            [
+              627.76,
+              -12.34
+            ],
+            [
+              628.46,
+              -10.43
+            ],
+            [
+              290.31,
+              113.09
+            ],
+            [
+              289.62,
+              111.18
+            ]
+          ]
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 161,
+          "rise": 0.93,
+          "material": "roof",
+          "edge": "gutter"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 0.91,
+            "height": 1.44,
+            "sill": 0.84,
+            "perBay": 1,
+            "recess": 0.015,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#b9bfc0",
+            "glass": "clear",
+            "glassColor": "#adc1bc"
+          },
+          "base": {
+            "height": 0.8,
+            "material": "base",
+            "projection": 0.065
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        }
+      },
+      {
+        "name": "South glasshouse",
+        "height": 2.35,
+        "floors": 1,
+        "footprint": {
+          "clip": [
+            [
+              628.46,
+              -10.43
+            ],
+            [
+              646.07,
+              37.78
+            ],
+            [
+              307.93,
+              161.3
+            ],
+            [
+              290.31,
+              113.09
+            ]
+          ]
+        },
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "gutter",
+          "rise": 1.65,
+          "ridge": 71,
+          "overhang": 0.06
+        },
+        "facade": {
+          "base": {
+            "height": 0.8,
+            "material": "base",
+            "projection": 0.065
+          }
+        }
+      },
+      {
+        "name": "South headhouse lean-to",
+        "footprint": [
+          [
+            435.286,
+            40.311
+          ],
+          [
+            442.384,
+            37.718
+          ],
+          [
+            442.36,
+            37.65
+          ],
+          [
+            446.544,
+            36.198
+          ],
+          [
+            452.844,
+            33.897
+          ],
+          [
+            449.55,
+            24.4
+          ],
+          [
+            452.435,
+            32.716
+          ],
+          [
+            434.877,
+            39.13
+          ]
+        ],
+        "height": 2.35,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 0.91,
+            "height": 1.44,
+            "sill": 0.84,
+            "perBay": 1,
+            "recess": 0.015,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#b9bfc0",
+            "glass": "clear",
+            "glassColor": "#adc1bc"
+          },
+          "base": {
+            "height": 0.75,
+            "material": "base"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 71,
+          "rise": 0.74,
+          "material": "roof",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            442.393,
+            45.736
+          ],
+          [
+            442.347,
+            45.604
+          ],
+          [
+            431.587,
+            49.334
+          ],
+          [
+            431.633,
+            49.466
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            455.511,
+            41.281
+          ],
+          [
+            455.463,
+            41.149
+          ],
+          [
+            442.449,
+            45.903
+          ],
+          [
+            442.497,
+            46.035
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            454.016,
+            36.757
+          ],
+          [
+            453.884,
+            36.803
+          ],
+          [
+            455.42,
+            41.238
+          ],
+          [
+            455.553,
+            41.192
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            447.08,
+            39.089
+          ],
+          [
+            447.126,
+            39.221
+          ],
+          [
+            453.973,
+            36.846
+          ],
+          [
+            453.927,
+            36.714
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            430.171,
+            45.265
+          ],
+          [
+            430.219,
+            45.397
+          ],
+          [
+            447.127,
+            39.221
+          ],
+          [
+            447.079,
+            39.089
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            431.544,
+            49.423
+          ],
+          [
+            431.676,
+            49.377
+          ],
+          [
+            430.261,
+            45.308
+          ],
+          [
+            430.129,
+            45.354
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            445.113,
+            54.356
+          ],
+          [
+            445.067,
+            54.224
+          ],
+          [
+            434.197,
+            57.984
+          ],
+          [
+            434.243,
+            58.116
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            458.899,
+            49.418
+          ],
+          [
+            458.851,
+            49.287
+          ],
+          [
+            445.096,
+            54.311
+          ],
+          [
+            445.144,
+            54.443
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            457.106,
+            44.027
+          ],
+          [
+            456.974,
+            44.073
+          ],
+          [
+            458.809,
+            49.375
+          ],
+          [
+            458.941,
+            49.329
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            446.297,
+            47.704
+          ],
+          [
+            446.343,
+            47.836
+          ],
+          [
+            457.063,
+            44.116
+          ],
+          [
+            457.017,
+            43.984
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            432.327,
+            52.595
+          ],
+          [
+            432.375,
+            52.726
+          ],
+          [
+            446.278,
+            47.648
+          ],
+          [
+            446.23,
+            47.516
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            434.154,
+            58.073
+          ],
+          [
+            434.286,
+            58.027
+          ],
+          [
+            432.417,
+            52.638
+          ],
+          [
+            432.285,
+            52.683
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            462.253,
+            58.286
+          ],
+          [
+            462.207,
+            58.154
+          ],
+          [
+            437.757,
+            66.624
+          ],
+          [
+            437.803,
+            66.756
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            459.926,
+            51.347
+          ],
+          [
+            459.794,
+            51.393
+          ],
+          [
+            462.164,
+            58.243
+          ],
+          [
+            462.296,
+            58.197
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            449.177,
+            55.004
+          ],
+          [
+            449.223,
+            55.136
+          ],
+          [
+            459.883,
+            51.436
+          ],
+          [
+            459.837,
+            51.304
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            435.453,
+            59.997
+          ],
+          [
+            435.501,
+            60.129
+          ],
+          [
+            449.218,
+            55.118
+          ],
+          [
+            449.17,
+            54.987
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Cast concrete greenhouse curb",
+        "footprint": [
+          [
+            437.714,
+            66.713
+          ],
+          [
+            437.846,
+            66.667
+          ],
+          [
+            435.543,
+            60.04
+          ],
+          [
+            435.411,
+            60.086
+          ]
+        ],
+        "height": 0.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base"
+        }
+      },
+      {
+        "name": "Low research garden enclosure",
+        "footprint": [
+          [
+            461.223,
+            64.723
+          ],
+          [
+            461.161,
+            64.553
+          ],
+          [
+            445.369,
+            70.315
+          ],
+          [
+            445.431,
+            70.485
+          ]
+        ],
+        "height": 1.88,
+        "floors": 1,
+        "material": "gardenWall",
+        "facade": {
+          "material": "gardenWall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "gardenWall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Low research garden enclosure",
+        "footprint": [
+          [
+            469.167,
+            86.759
+          ],
+          [
+            469.337,
+            86.697
+          ],
+          [
+            461.277,
+            64.607
+          ],
+          [
+            461.107,
+            64.669
+          ]
+        ],
+        "height": 1.51,
+        "floors": 1,
+        "material": "gardenWall",
+        "facade": {
+          "material": "gardenWall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "gardenWall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Low research garden enclosure",
+        "footprint": [
+          [
+            453.429,
+            92.405
+          ],
+          [
+            453.491,
+            92.575
+          ],
+          [
+            469.283,
+            86.813
+          ],
+          [
+            469.221,
+            86.643
+          ]
+        ],
+        "height": 2.41,
+        "floors": 1,
+        "material": "gardenWall",
+        "facade": {
+          "material": "gardenWall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "gardenWall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Low research garden enclosure",
+        "footprint": [
+          [
+            452.002,
+            88.229
+          ],
+          [
+            451.832,
+            88.291
+          ],
+          [
+            453.375,
+            92.521
+          ],
+          [
+            453.545,
+            92.459
+          ]
+        ],
+        "height": 3.03,
+        "floors": 1,
+        "material": "gardenWall",
+        "facade": {
+          "material": "gardenWall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "gardenWall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Low research garden enclosure",
+        "footprint": [
+          [
+            445.485,
+            70.369
+          ],
+          [
+            445.315,
+            70.431
+          ],
+          [
+            451.077,
+            86.223
+          ],
+          [
+            451.247,
+            86.161
+          ]
+        ],
+        "height": 2.68,
+        "floors": 1,
+        "material": "gardenWall",
+        "facade": {
+          "material": "gardenWall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "gardenWall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Pale service hut beside growing beds",
+        "footprint": [
+          [
+            454.172,
+            67.732
+          ],
+          [
+            457.697,
+            66.445
+          ],
+          [
+            459.069,
+            70.205
+          ],
+          [
+            455.544,
+            71.492
+          ]
+        ],
+        "height": 3.51,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "rise": 0.32,
+          "ridge": 70,
+          "material": "metal",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Covered garden work bay",
+        "footprint": [
+          [
+            448.443,
+            69.982
+          ],
+          [
+            452.955,
+            68.336
+          ],
+          [
+            454.087,
+            71.438
+          ],
+          [
+            449.575,
+            73.084
+          ]
+        ],
+        "height": 3.42,
+        "floors": 1,
+        "material": "gardenWall",
+        "facade": {
+          "material": "gardenWall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "headRoof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            448.904,
+            76.791
+          ],
+          [
+            449.872,
+            76.437
+          ],
+          [
+            451.45,
+            80.761
+          ],
+          [
+            450.481,
+            81.115
+          ]
+        ],
+        "height": 2.12,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            451.301,
+            75.916
+          ],
+          [
+            452.269,
+            75.563
+          ],
+          [
+            453.847,
+            79.887
+          ],
+          [
+            452.878,
+            80.24
+          ]
+        ],
+        "height": 2.0,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            453.698,
+            75.041
+          ],
+          [
+            454.666,
+            74.688
+          ],
+          [
+            456.244,
+            79.012
+          ],
+          [
+            455.275,
+            79.365
+          ]
+        ],
+        "height": 1.95,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            456.095,
+            74.167
+          ],
+          [
+            457.063,
+            73.813
+          ],
+          [
+            458.641,
+            78.137
+          ],
+          [
+            457.672,
+            78.491
+          ]
+        ],
+        "height": 1.77,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            458.492,
+            73.292
+          ],
+          [
+            459.46,
+            72.939
+          ],
+          [
+            461.038,
+            77.263
+          ],
+          [
+            460.069,
+            77.616
+          ]
+        ],
+        "height": 1.65,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            460.889,
+            72.417
+          ],
+          [
+            461.857,
+            72.064
+          ],
+          [
+            463.435,
+            76.388
+          ],
+          [
+            462.466,
+            76.741
+          ]
+        ],
+        "height": 1.37,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            451.648,
+            84.311
+          ],
+          [
+            452.616,
+            83.957
+          ],
+          [
+            454.194,
+            88.281
+          ],
+          [
+            453.225,
+            88.635
+          ]
+        ],
+        "height": 2.5,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            454.045,
+            83.436
+          ],
+          [
+            455.013,
+            83.083
+          ],
+          [
+            456.591,
+            87.407
+          ],
+          [
+            455.622,
+            87.76
+          ]
+        ],
+        "height": 2.15,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            456.442,
+            82.561
+          ],
+          [
+            457.41,
+            82.208
+          ],
+          [
+            458.988,
+            86.532
+          ],
+          [
+            458.019,
+            86.885
+          ]
+        ],
+        "height": 2.09,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            458.839,
+            81.687
+          ],
+          [
+            459.807,
+            81.333
+          ],
+          [
+            461.385,
+            85.657
+          ],
+          [
+            460.416,
+            86.011
+          ]
+        ],
+        "height": 1.91,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            461.236,
+            80.812
+          ],
+          [
+            462.204,
+            80.459
+          ],
+          [
+            463.782,
+            84.783
+          ],
+          [
+            462.813,
+            85.136
+          ]
+        ],
+        "height": 1.79,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised growing bed",
+        "footprint": [
+          [
+            463.633,
+            79.937
+          ],
+          [
+            464.601,
+            79.584
+          ],
+          [
+            466.179,
+            83.908
+          ],
+          [
+            465.21,
+            84.261
+          ]
+        ],
+        "height": 1.59,
+        "floors": 1,
+        "material": "bed",
+        "facade": {
+          "material": "bed",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "soil",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "notes": "Each gable has a mostly glazed triangular end and thin rafters and roof glazing bars. The headhouse is opaque-roofed."
+}

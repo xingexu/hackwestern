@@ -1,0 +1,966 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w141710485",
+  "name": "Allyn and Betty Taylor Library",
+  "status": "refined",
+  "confidence": 0.68,
+  "summary": "Allyn and Betty Taylor Library has stepped ochre-buff masonry end walls and two rows of inset windows along its curved north side, a narrow vertical glass slit, a light flat roof, and raised mechanical structures at the south end.",
+  "style": "postmodern",
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#ac9d80",
+      "secondaryColor": "#a09277",
+      "unitSize": [
+        0.4,
+        0.2
+      ],
+      "variation": 0.065,
+      "roughness": 0.83,
+      "bond": "running"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c4cabc"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#baac8d"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "louvres": {
+      "kind": "corrugated-metal",
+      "color": "#686e6a",
+      "surface": "louvred"
+    },
+    "retaining": {
+      "kind": "concrete-smooth",
+      "color": "#828076"
+    },
+    "slit": {
+      "kind": "spandrel-glass",
+      "color": "#394b4b",
+      "unitSize": [
+        0.8,
+        2.8
+      ]
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 4.6,
+    "typicalHeight": 4.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 1.4,
+        "material": "trim",
+        "projection": 0.09
+      },
+      "bays": {
+        "width": 3.45,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "height": 0.64,
+        "type": "coped",
+        "material": "wall"
+      },
+      "blank": true,
+      "bands": [
+        {
+          "at": "floor-lines",
+          "height": 0.19,
+          "depth": 0.04,
+          "material": "trim"
+        }
+      ]
+    },
+    "byWall": {
+      "0": {
+        "blank": true,
+        "windows": {
+          "type": "slot",
+          "width": 0.74,
+          "height": 4,
+          "sill": 0.09,
+          "perBay": 1,
+          "recess": 0.28,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2,
+            "width": 0.055
+          },
+          "frameColor": "#8f918d",
+          "glass": "tinted",
+          "surround": "none",
+          "glassColor": "#425851"
+        },
+        "bays": {
+          "width": 6.97,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        },
+        "sections": [
+          {
+            "start": 0.04,
+            "end": 0.17,
+            "base": 0.65,
+            "top": 13.35,
+            "material": "slit",
+            "horizontalMullions": 6
+          }
+        ]
+      },
+      "4": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "11": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "width": 5,
+          "pattern": "regular",
+          "edgeMargin": 0.25
+        },
+        "sections": [
+          {
+            "start": 0.35,
+            "end": 0.81,
+            "base": 0.65,
+            "top": 13.2,
+            "material": "slit",
+            "horizontalMullions": 5
+          }
+        ]
+      },
+      "15": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "width": 5,
+          "pattern": "regular",
+          "edgeMargin": 0.25
+        },
+        "sections": [
+          {
+            "start": 0.35,
+            "end": 0.81,
+            "base": 0.65,
+            "top": 13.2,
+            "material": "slit",
+            "horizontalMullions": 5
+          }
+        ]
+      },
+      "1": {
+        "blank": false,
+        "bays": {
+          "count": 1
+        },
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "perBay": 1,
+            "width": 0.85,
+            "height": 0.86,
+            "sill": 1.35
+          }
+        }
+      },
+      "9": {
+        "blank": false,
+        "bays": {
+          "count": 1
+        },
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "perBay": 1,
+            "width": 0.85,
+            "height": 0.86,
+            "sill": 1.35
+          }
+        }
+      },
+      "12": {
+        "blank": false,
+        "material": "wall",
+        "bays": {
+          "count": 2,
+          "edgeMargin": 0.13
+        },
+        "windows": {
+          "type": "punched",
+          "perBay": 1,
+          "width": 2.15,
+          "height": 1.3,
+          "sill": 1.4,
+          "recess": 0.25,
+          "glassColor": "#494849",
+          "frameColor": "#675d4d",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0
+          }
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "bands": []
+      },
+      "13": {
+        "blank": false,
+        "material": "wall",
+        "bays": {
+          "count": 2,
+          "edgeMargin": 0.13
+        },
+        "windows": {
+          "type": "punched",
+          "perBay": 1,
+          "width": 2.15,
+          "height": 1.3,
+          "sill": 1.4,
+          "recess": 0.25,
+          "glassColor": "#494849",
+          "frameColor": "#675d4d",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0
+          }
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "bands": []
+      },
+      "14": {
+        "blank": false,
+        "material": "wall",
+        "bays": {
+          "count": 2,
+          "edgeMargin": 0.13
+        },
+        "windows": {
+          "type": "punched",
+          "perBay": 1,
+          "width": 2.15,
+          "height": 1.3,
+          "sill": 1.4,
+          "recess": 0.25,
+          "glassColor": "#494849",
+          "frameColor": "#675d4d",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0
+          }
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "bands": []
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          285.89,
+          14.37
+        ],
+        "size": [
+          4,
+          4.1
+        ],
+        "height": 2.75,
+        "rotation": -21,
+        "material": "plant",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          289.81,
+          12.87
+        ],
+        "size": [
+          4,
+          4.1
+        ],
+        "height": 2.75,
+        "rotation": -21,
+        "material": "plant",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          293.73,
+          11.36
+        ],
+        "size": [
+          4,
+          4.1
+        ],
+        "height": 2.75,
+        "rotation": -21,
+        "material": "plant",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          261.17,
+          14.7
+        ],
+        "size": [
+          2.9,
+          3.6
+        ],
+        "height": 3.5,
+        "rotation": -21,
+        "material": "plant",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          263.97,
+          13.63
+        ],
+        "size": [
+          2.9,
+          3.6
+        ],
+        "height": 3.5,
+        "rotation": -21,
+        "material": "plant",
+        "style": "fan"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          273.2,
+          12.6
+        ],
+        "size": [
+          6.1,
+          9.1
+        ],
+        "height": 6.3,
+        "material": "louvres",
+        "rotation": -21
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          286.8,
+          9.7
+        ],
+        "size": [
+          12.1,
+          2.7
+        ],
+        "height": 2.15,
+        "material": "louvres",
+        "rotation": -21
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          262.2,
+          9.1
+        ],
+        "size": [
+          5.4,
+          4.5
+        ],
+        "height": 3.05,
+        "material": "louvres",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          264.85,
+          15.95
+        ],
+        "size": [
+          7.56,
+          0.66
+        ],
+        "height": 0.62,
+        "rotation": -20.18,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          280.65,
+          13.41
+        ],
+        "size": [
+          10.36,
+          1.1
+        ],
+        "height": 0.62,
+        "rotation": -20.52,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          284.1,
+          15.2
+        ],
+        "size": [
+          16.66,
+          0.75
+        ],
+        "height": 0.62,
+        "rotation": -20.56,
+        "material": "plant",
+        "style": "duct"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 13.54 m, P90 22.00 m, highest return 25.48 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Original reference colour from a mean image patch centred at (114,90) on a 300 by 300 normalized grid in TL. Raw sRGB #62563d. Joint colours and unit sizes estimated."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [276.36, -6.55] averages #c4cabc."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/TL.jpg",
+      "note": "Heavy buff masonry with few openings, a tall narrow glazed vertical joint, stepped parapets and a solid raised concrete retaining base."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414019",
+      "walls": [
+        4,
+        5
+      ],
+      "note": "Natural Sciences and a bus conceal the library on the southern approach, so library windows are taken from the university photograph."
+    },
+    {
+      "kind": "aerial",
+      "note": "The north edge curves between short projecting squared ends. Most mechanical equipment is clustered near the south party wall."
+    },
+    {
+      "kind": "aerial",
+      "note": "The oblique 2025 view resolves two rows of punched rectangular openings between the squared end bays of the north reading room. The public street-level photo shows the largely solid end bay and its narrow vertical slit."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Curved reading room",
+        "footprint": {
+          "clip": [
+            [
+              261.998,
+              30.109
+            ],
+            [
+              251.75,
+              1.25
+            ],
+            [
+              255.175,
+              0.068
+            ],
+            [
+              255.441,
+              0.75
+            ],
+            [
+              262.32,
+              -1.932
+            ],
+            [
+              260.344,
+              -6.99
+            ],
+            [
+              261.29,
+              -5.5
+            ],
+            [
+              263.08,
+              -7.91
+            ],
+            [
+              265.76,
+              -10.72
+            ],
+            [
+              271.99,
+              -12.89
+            ],
+            [
+              277.861,
+              -12.89
+            ],
+            [
+              278.956,
+              -9.127
+            ],
+            [
+              286.376,
+              -11.29
+            ],
+            [
+              284.961,
+              -16.152
+            ],
+            [
+              286.77,
+              -12.25
+            ],
+            [
+              290.08,
+              -13.78
+            ],
+            [
+              303.14,
+              21.02
+            ],
+            [
+              292.881,
+              25.596
+            ],
+            [
+              290.32,
+              19.041
+            ]
+          ]
+        },
+        "height": 13.45,
+        "floors": 3,
+        "material": "wall",
+        "wallProfiles": {
+          "12": {
+            "blank": false,
+            "material": "wall",
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.13
+            },
+            "windows": {
+              "type": "punched",
+              "perBay": 1,
+              "width": 2.15,
+              "height": 1.3,
+              "sill": 1.4,
+              "recess": 0.25,
+              "glassColor": "#494849",
+              "frameColor": "#675d4d",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0
+              }
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "bands": []
+          },
+          "13": {
+            "blank": false,
+            "material": "wall",
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.13
+            },
+            "windows": {
+              "type": "punched",
+              "perBay": 1,
+              "width": 2.15,
+              "height": 1.3,
+              "sill": 1.4,
+              "recess": 0.25,
+              "glassColor": "#494849",
+              "frameColor": "#675d4d",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0
+              }
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "bands": []
+          },
+          "14": {
+            "blank": false,
+            "material": "wall",
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.13
+            },
+            "windows": {
+              "type": "punched",
+              "perBay": 1,
+              "width": 2.15,
+              "height": 1.3,
+              "sill": 1.4,
+              "recess": 0.25,
+              "glassColor": "#494849",
+              "frameColor": "#675d4d",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0
+              }
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "bands": []
+          }
+        }
+      },
+      {
+        "name": "South library plant block",
+        "footprint": {
+          "clip": [
+            [
+              292.67,
+              25.69
+            ],
+            [
+              294.27,
+              30.81
+            ],
+            [
+              285.553,
+              34.217
+            ],
+            [
+              284.097,
+              30.491
+            ],
+            [
+              278.192,
+              32.799
+            ],
+            [
+              279.647,
+              36.525
+            ],
+            [
+              279.647,
+              36.525
+            ],
+            [
+              278.046,
+              32.427
+            ],
+            [
+              264.677,
+              37.652
+            ],
+            [
+              261.998,
+              30.109
+            ],
+            [
+              290.32,
+              19.041
+            ],
+            [
+              292.881,
+              25.596
+            ]
+          ]
+        },
+        "height": 24.2,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Lower southwest service block",
+        "footprint": {
+          "clip": [
+            [
+              279.647,
+              36.525
+            ],
+            [
+              266.15,
+              41.8
+            ],
+            [
+              264.677,
+              37.652
+            ],
+            [
+              278.046,
+              32.427
+            ]
+          ]
+        },
+        "height": 18.8,
+        "floors": 4,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Intermediate service block",
+        "footprint": {
+          "clip": [
+            [
+              285.553,
+              34.217
+            ],
+            [
+              279.647,
+              36.525
+            ],
+            [
+              278.192,
+              32.799
+            ],
+            [
+              284.097,
+              30.491
+            ]
+          ]
+        },
+        "height": 22.3,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Northwest corner bay",
+        "footprint": {
+          "clip": [
+            [
+              255.175,
+              0.068
+            ],
+            [
+              255.43,
+              -0.02
+            ],
+            [
+              253.27,
+              -5.38
+            ],
+            [
+              259.76,
+              -7.91
+            ],
+            [
+              260.344,
+              -6.99
+            ],
+            [
+              262.32,
+              -1.932
+            ],
+            [
+              255.441,
+              0.75
+            ]
+          ]
+        },
+        "height": 14.25,
+        "floors": 3,
+        "material": "wall"
+      },
+      {
+        "name": "Northeast corner bay",
+        "footprint": {
+          "clip": [
+            [
+              284.35,
+              -17.47
+            ],
+            [
+              284.961,
+              -16.152
+            ],
+            [
+              286.376,
+              -11.29
+            ],
+            [
+              278.956,
+              -9.127
+            ],
+            [
+              277.861,
+              -12.89
+            ],
+            [
+              278.49,
+              -12.89
+            ],
+            [
+              277.35,
+              -15.43
+            ]
+          ]
+        },
+        "height": 14.25,
+        "floors": 3,
+        "material": "wall"
+      }
+    ]
+  },
+  "notes": "The library connects internally to Natural Sciences. The near-continuous curved rear wall and narrow vertical glass joints span floor lines. Visible rooftop machinery includes three circular fan housings side by side. Bay counts on obscured faces and dimensions of openings are estimates. The enclosure and doors on the joined south side cannot be verified from the road.",
+  "entrances": [
+    {
+      "wall": 7,
+      "position": 0.14,
+      "type": "doors-double",
+      "width": 2.2,
+      "height": 2.6
+    },
+    {
+      "wall": 4,
+      "position": 0.75,
+      "type": "service-door",
+      "width": 1.2,
+      "height": 2.25
+    }
+  ],
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          253.4,
+          -0.5
+        ],
+        [
+          253.05,
+          -3.7
+        ],
+        [
+          255.0,
+          -6.55
+        ],
+        [
+          259.85,
+          -8.25
+        ],
+        [
+          261.22,
+          -8.8
+        ],
+        [
+          263.5,
+          -11.05
+        ],
+        [
+          266.2,
+          -13.02
+        ],
+        [
+          269.2,
+          -14.25
+        ],
+        [
+          272.1,
+          -14.85
+        ],
+        [
+          275.1,
+          -14.97
+        ],
+        [
+          277.85,
+          -14.7
+        ]
+      ],
+      "width": 0.28,
+      "height": 1.05,
+      "material": "retaining"
+    }
+  ]
+}

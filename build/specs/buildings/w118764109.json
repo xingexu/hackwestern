@@ -1,0 +1,1123 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764109",
+  "name": "Lawson Hall",
+  "status": "refined",
+  "confidence": 0.79,
+  "summary": "Southern section of joined halls with a stone library front on Oxford Drive featuring a Tudor doorway, buttresses, divided windows, and a raised basement.",
+  "style": "collegiate-gothic",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#979488",
+      "secondaryColor": "#aaa597",
+      "variation": 0.235,
+      "unitSize": [
+        0.57,
+        0.255
+      ],
+      "bond": "coursed-rubble",
+      "roughness": 0.82,
+      "weathering": 0.18
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#b9b4a5",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#bbc0b3"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    },
+    "equipment": {
+      "kind": "metal-panel",
+      "color": "#999c98",
+      "roughness": 0.69,
+      "unitSize": [
+        0.6,
+        1.2
+      ]
+    },
+    "stack": {
+      "kind": "precast-panel",
+      "color": "#c8bba4",
+      "secondaryColor": "#beb29d",
+      "unitSize": [
+        3.7,
+        2.6
+      ]
+    },
+    "skylight": {
+      "kind": "glass-block",
+      "color": "#a9b3ae"
+    },
+    "porchRoof": {
+      "kind": "membrane",
+      "color": "#706c60",
+      "roughness": 0.9
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 4.1,
+    "typicalHeight": 3.8,
+    "raisedGround": 1.18
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 2.3,
+        "height": 2.05,
+        "sill": 0.8,
+        "perBay": 1,
+        "recess": 0.17,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 2,
+          "width": 0.075
+        },
+        "frameColor": "#d0c8b8",
+        "glass": "tinted",
+        "glassColor": "#636964",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "bays": {
+        "width": 4.4,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "parapet": {
+        "height": 0.38,
+        "type": "coped",
+        "material": "wall"
+      },
+      "cornice": {
+        "height": 0.23,
+        "depth": 0.1,
+        "material": "trim"
+      },
+      "base": {
+        "height": 1.25,
+        "projection": 0.11,
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4.09,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 4.72,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 4.37,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 9
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.35,
+          "height": 2.12,
+          "sill": 0.7,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#beb8a8",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "transom": true
+        },
+        "buttresses": {
+          "every": 1,
+          "width": 0.67,
+          "depth": 0.53,
+          "stepped": true
+        },
+        "bands": [
+          {
+            "at": [
+              1.48,
+              4.46
+            ],
+            "height": 0.2,
+            "depth": 0.1,
+            "material": "trim"
+          }
+        ],
+        "topFloor": {
+          "windows": {
+            "type": "tudor-arch",
+            "width": 2.63,
+            "height": 3.64,
+            "sill": 0.3,
+            "perBay": 1,
+            "recess": 0.17,
+            "mullions": {
+              "vertical": 3,
+              "horizontal": 2,
+              "width": 0.065
+            },
+            "frameColor": "#c9c2b4",
+            "glass": "leaded",
+            "glassColor": "#4b504a",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "hoodMould": true,
+            "tracery": true
+          }
+        },
+        "parapet": {
+          "type": "crenellated",
+          "height": 0.83,
+          "material": "trim"
+        },
+        "cornice": {
+          "height": 0.12,
+          "depth": 0.08
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.45,
+            "height": 1.13,
+            "sill": 0.35,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.065
+            }
+          }
+        },
+        "segments": [
+          {
+            "range": [
+              0.73,
+              1
+            ],
+            "topFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 2.64,
+                "height": 2.14,
+                "sill": 0.67,
+                "perBay": 1,
+                "mullions": {
+                  "vertical": 3,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "transom": true
+              }
+            },
+            "buttresses": {
+              "width": 0.78,
+              "depth": 0.69,
+              "every": 1,
+              "material": "trim",
+              "fullHeight": true
+            }
+          }
+        ]
+      },
+      "3": {
+        "bays": {
+          "width": 3.95,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "parapet": {
+          "type": "crenellated",
+          "height": 0.83,
+          "material": "trim"
+        },
+        "cornice": {
+          "height": 0.12,
+          "depth": 0.08
+        },
+        "buttresses": {
+          "width": 0.67,
+          "depth": 0.53,
+          "stepped": true,
+          "every": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.35,
+          "height": 2.12,
+          "sill": 0.7,
+          "perBay": 1,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "transom": true,
+          "frameColor": "#beb8a8",
+          "surround": "stone"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.45,
+            "height": 1.13,
+            "sill": 0.35,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.065
+            }
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              1.48,
+              4.46
+            ],
+            "height": 0.2,
+            "depth": 0.1,
+            "material": "trim"
+          }
+        ]
+      },
+      "4": {
+        "bays": {
+          "width": 4.22,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 8
+        },
+        "parapet": {
+          "type": "crenellated",
+          "height": 0.83,
+          "material": "trim"
+        },
+        "cornice": {
+          "height": 0.12,
+          "depth": 0.08
+        },
+        "buttresses": {
+          "width": 0.67,
+          "depth": 0.53,
+          "stepped": true,
+          "every": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.35,
+          "height": 2.12,
+          "sill": 0.7,
+          "perBay": 1,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "transom": true,
+          "frameColor": "#beb8a8",
+          "surround": "stone"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.45,
+            "height": 1.13,
+            "sill": 0.35,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.065
+            }
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              1.48,
+              4.46
+            ],
+            "height": 0.2,
+            "depth": 0.1,
+            "material": "trim"
+          }
+        ]
+      },
+      "5": {
+        "bays": {
+          "width": 4.46,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 5
+        },
+        "parapet": {
+          "type": "crenellated",
+          "height": 0.83,
+          "material": "trim"
+        },
+        "cornice": {
+          "height": 0.12,
+          "depth": 0.08
+        },
+        "buttresses": {
+          "width": 0.67,
+          "depth": 0.53,
+          "stepped": true,
+          "every": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.35,
+          "height": 2.12,
+          "sill": 0.7,
+          "perBay": 1,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "transom": true,
+          "frameColor": "#beb8a8",
+          "surround": "stone"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.45,
+            "height": 1.13,
+            "sill": 0.35,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.065
+            }
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              1.48,
+              4.46
+            ],
+            "height": 0.2,
+            "depth": 0.1,
+            "material": "trim"
+          }
+        ]
+      },
+      "6": {
+        "bays": {
+          "width": 4.43,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 4.67,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        },
+        "parapet": {
+          "type": "crenellated",
+          "height": 0.83,
+          "material": "trim"
+        },
+        "cornice": {
+          "height": 0.12,
+          "depth": 0.08
+        },
+        "buttresses": {
+          "width": 0.67,
+          "depth": 0.53,
+          "stepped": true,
+          "every": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.35,
+          "height": 2.12,
+          "sill": 0.7,
+          "perBay": 1,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "transom": true,
+          "frameColor": "#beb8a8",
+          "surround": "stone"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.45,
+            "height": 1.13,
+            "sill": 0.35,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.065
+            }
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              1.48,
+              4.46
+            ],
+            "height": 0.2,
+            "depth": 0.1,
+            "material": "trim"
+          }
+        ]
+      },
+      "8": {
+        "bays": {
+          "width": 4.59,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 4.51,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          205.867,
+          305.898
+        ],
+        "size": [
+          3.9,
+          5.7
+        ],
+        "height": 0.95,
+        "rotation": 10,
+        "material": "equipment"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          212.123,
+          306.494
+        ],
+        "size": [
+          3,
+          3
+        ],
+        "height": 1.25,
+        "rotation": 10,
+        "material": "equipment"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          211.7,
+          278.4
+        ],
+        "size": [
+          2.3,
+          1.4
+        ],
+        "height": 0.4,
+        "material": "skylight",
+        "rotation": 10
+      },
+      {
+        "type": "skylight",
+        "center": [
+          224.5,
+          283.7
+        ],
+        "size": [
+          2.3,
+          1.4
+        ],
+        "height": 0.4,
+        "material": "skylight",
+        "rotation": 10
+      },
+      {
+        "type": "skylight",
+        "center": [
+          210.3,
+          319.5
+        ],
+        "size": [
+          2.3,
+          1.4
+        ],
+        "height": 0.4,
+        "material": "skylight",
+        "rotation": 10
+      }
+    ],
+    "overhang": 0
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "note": "Facilities Management photograph of the exterior and its openings.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/LWH.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory core-1m surface percentiles above ground: median 13.25 m, 90th percentile 16.95 m, maximum 18.38 m."
+    },
+    {
+      "kind": "photo",
+      "note": "Western campus map places Stevenson Hall on the north side of the joined complex and Lawson Hall to the south. Inventory names are reversed; geometry follows the physical footprint.",
+      "url": "https://welcome.uwo.ca/pdf/2026-WesternU-SOH-map.pdf"
+    },
+    {
+      "kind": "osm",
+      "note": "Entrance positions are aligned to mapped footpath, service or stair endpoints where those meet the outer wall. Door and step dimensions are estimates."
+    },
+    {
+      "kind": "aerial",
+      "note": "Lawson occupies the southern footprint. Flat parallel roofs adjoin the north complex; a smaller higher rooftop block sits toward the south."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Bay counts, opening dimensions and storey heights on unseen elevations are architectural estimates. Wall and roof hues are image samples, subject to exposure and shadows."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/LWH.jpg",
+      "note": "PIL mean patches for wall and trim centred at (91.2%, 44%) and (79.7%, 49.5%) of the photo. Exposure multipliers 1.56 and 1.48 approximate daylight across the source views."
+    },
+    {
+      "kind": "photo",
+      "note": "The old library shows a raised basement and carved, arched upper reading-room windows along Oxford Drive. The service storey behind it is plain and light coloured.",
+      "url": "https://www.uwo.ca/fm/client_services/building_info.html"
+    },
+    {
+      "kind": "lidar",
+      "note": "A continuous row of 3.5–3.8 m returns at x=230–234 and z=291–298 stops sharply against the east wall. The 2025 roof photo resolves adjoining rectangular porch caps. The longer west roof casts a northwesterly relief displacement above its mapped wall."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.49,
+      "type": "gothic-portal",
+      "width": 3.2,
+      "height": 3.95,
+      "recess": 0.76,
+      "steps": 7,
+      "surround": "trim"
+    },
+    {
+      "wall": 4,
+      "position": 0.48,
+      "type": "doors-double",
+      "width": 2.2,
+      "height": 2.6,
+      "steps": 4
+    },
+    {
+      "wall": 7,
+      "type": "doors-single",
+      "position": 0.5625,
+      "at": [
+        233.366,
+        297.193
+      ],
+      "width": 1.12,
+      "height": 2.38,
+      "recess": 0.25,
+      "surround": "trim",
+      "doorColor": "#665746"
+    },
+    {
+      "wall": 7,
+      "type": "doors-single",
+      "position": 0.7935,
+      "at": [
+        234.607,
+        293.03
+      ],
+      "width": 1.12,
+      "height": 2.38,
+      "recess": 0.25,
+      "surround": "trim",
+      "doorColor": "#665746"
+    }
+  ],
+  "notes": "Inventory w118764109 is labelled Stevenson. The Oxford Drive front here has the stone library entrance, carved dressings and traceried upper glazing. Other elevations are inferred from the adjoining ranges.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Set-back southern service block",
+        "height": 17.15,
+        "floors": 1,
+        "baseOffset": 12.72,
+        "material": "stack",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "stack",
+          "piers": {
+            "width": 0.01,
+            "depth": 0.01,
+            "every": 999,
+            "material": "trim",
+            "fullHeight": true
+          },
+          "bands": [],
+          "buttresses": {
+            "width": 0.01,
+            "depth": 0.01,
+            "every": 999,
+            "material": "trim",
+            "fullHeight": true
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.18,
+            "material": "stack"
+          },
+          "cornice": {
+            "height": 0.07,
+            "depth": 0.06,
+            "material": "stack"
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "segments": [],
+          "topFloor": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "groundFloor": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "quoins": false
+        },
+        "footprint": {
+          "clip": [
+            [
+              204.20572,
+              313.791
+            ],
+            [
+              206.27381,
+              314.15566
+            ],
+            [
+              204.97145,
+              321.54172
+            ],
+            [
+              220.82685,
+              324.33745
+            ],
+            [
+              222.16395,
+              316.75443
+            ],
+            [
+              219.99737,
+              316.37241
+            ],
+            [
+              222.13324,
+              304.25927
+            ],
+            [
+              206.37632,
+              301.4809
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Upper northwest service step",
+        "height": 17.8,
+        "floors": 1,
+        "baseOffset": 17.15,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "buttresses": {
+            "width": 0.01,
+            "depth": 0.01,
+            "every": 999,
+            "material": "trim",
+            "fullHeight": true
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.18,
+            "material": "stack"
+          },
+          "cornice": {
+            "height": 0.07,
+            "depth": 0.06,
+            "material": "stack"
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "segments": [],
+          "topFloor": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "groundFloor": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "quoins": false
+        },
+        "material": "stack",
+        "footprint": {
+          "clip": [
+            [
+              211.71261,
+              309.22519
+            ],
+            [
+              212.84132,
+              302.82394
+            ],
+            [
+              207.12943,
+              301.81678
+            ],
+            [
+              206.00072,
+              308.21803
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Former library at street level",
+        "height": 12.72,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              197.03,
+              312.2
+            ],
+            [
+              194.82,
+              323.84
+            ],
+            [
+              210.68,
+              326.74
+            ],
+            [
+              228.05,
+              329.74
+            ],
+            [
+              231.62,
+              307.73
+            ],
+            [
+              227.29,
+              306.8
+            ],
+            [
+              230.49,
+              288.4
+            ],
+            [
+              234.98,
+              289.37
+            ],
+            [
+              237.47,
+              276.05
+            ],
+            [
+              236.12,
+              275.87
+            ],
+            [
+              222.4377,
+              273.73877
+            ],
+            [
+              217.3568,
+              302.55395
+            ],
+            [
+              201.69764,
+              299.79281
+            ],
+            [
+              199.24,
+              312.71
+            ]
+          ]
+        }
+      },
+      {
+        "name": "West library roof and northern parapet",
+        "height": 13.25,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              206.71,
+              273.42
+            ],
+            [
+              203.03,
+              292.79
+            ],
+            [
+              201.69764,
+              299.79281
+            ],
+            [
+              217.3568,
+              302.55395
+            ],
+            [
+              222.4377,
+              273.73877
+            ],
+            [
+              221.29,
+              273.56
+            ],
+            [
+              220.68,
+              275.81
+            ],
+            [
+              210.99,
+              273.95
+            ]
+          ]
+        }
+      },
+      {
+        "name": "East-side stone entrance porch",
+        "height": 3.65,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "porchRoof",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            228.45314,
+            298.24438
+          ],
+          [
+            229.09634,
+            294.54598
+          ],
+          [
+            233.68737,
+            295.34424
+          ],
+          [
+            233.04417,
+            299.04264
+          ]
+        ]
+      },
+      {
+        "name": "East-side stone entrance porch",
+        "height": 3.65,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "porchRoof",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            229.19874,
+            293.95718
+          ],
+          [
+            229.82914,
+            290.33238
+          ],
+          [
+            234.92262,
+            291.21801
+          ],
+          [
+            234.29222,
+            294.8428
+          ]
+        ]
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          203.1776,
+          290.660875
+        ],
+        [
+          200.37776,
+          290.12821
+        ]
+      ],
+      "width": 0.33,
+      "height": 0.75,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          202.3559,
+          294.982775
+        ],
+        [
+          199.55606,
+          294.45011
+        ]
+      ],
+      "width": 0.33,
+      "height": 0.75,
+      "material": "trim"
+    }
+  ]
+}

@@ -1,0 +1,1778 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w119875057",
+  "name": "Sarnia Road gambrel apartments",
+  "status": "refined",
+  "confidence": 0.82,
+  "summary": "Three brick storeys partly screened by rising north grade with attic dormers along both long eaves, shallow bays, pale lintels, and a full brick gable end rising to a shallow ridge under a two-pitch gambrel roof.",
+  "style": "residential-brick",
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "128912113",
+      "walls": [
+        0
+      ],
+      "note": "West end photo 128912113 shows two vertical stacks of three visible windows counting the high row alongside the upper roof slope."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "148668563",
+      "walls": [
+        0,
+        3
+      ],
+      "note": "The long dark roof carries dormers, while the brick end elevation rises to the ridge."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "148668615",
+      "walls": [
+        1
+      ],
+      "note": "The close apartment elevation shows shallow multi-window bays with pale sills, narrow adjacent windows and small gabled dormers. The automatic sheet assigns this image to the neighbouring childcare site."
+    },
+    {
+      "kind": "aerial",
+      "note": "Aerial imagery confirms a dark grey long roof with a continuous ridge, small ridge vents, and narrow steep side slopes."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 12.76 / 13.56 / 13.69 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#a96349",
+      "secondaryColor": "#ac9582",
+      "unitSize": [
+        0.203,
+        0.073
+      ],
+      "variation": 0.12,
+      "bond": "running"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d0c4ac",
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#414448",
+      "secondaryColor": "#35383b",
+      "unitSize": [
+        0.31,
+        0.14
+      ],
+      "variation": 0.12,
+      "roughness": 0.95
+    },
+    "vent": {
+      "kind": "painted-metal",
+      "color": "#acaaa3",
+      "roughness": 0.72
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 3.1,
+    "typicalHeight": 2.86
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.6,
+        "pattern": "regular",
+        "edgeMargin": 0.27
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.05,
+        "height": 1.58,
+        "sill": 0.83,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "frameColor": "#d5ccbc",
+        "glass": "tinted",
+        "glassColor": "#57636a",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "lintel": true,
+        "sillProjecting": true
+      },
+      "cornice": {
+        "height": 0.18,
+        "depth": 0.27,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 9.69,
+          "pattern": "regular",
+          "edgeMargin": 2.1,
+          "count": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.32,
+          "height": 1.45,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "frameColor": "#d5ccbc",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none",
+          "surroundMaterial": "trim",
+          "lintel": true,
+          "sillProjecting": true
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 19,
+          "edgeMargin": 0.87,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.56,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d8ccbc",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none",
+          "surroundMaterial": "trim",
+          "lintel": true,
+          "sillProjecting": true
+        },
+        "bands": []
+      },
+      "2": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 19,
+          "edgeMargin": 0.87,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.56,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d8ccbc",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none",
+          "surroundMaterial": "trim",
+          "lintel": true,
+          "sillProjecting": true
+        },
+        "bands": []
+      }
+    }
+  },
+  "roof": {
+    "form": "gambrel",
+    "rise": 4.44,
+    "ridge": 68,
+    "material": "roof",
+    "edge": "gutter",
+    "overhang": 0.25,
+    "features": [
+      {
+        "type": "dormers",
+        "center": [
+          -114.265,
+          1097.144
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -107.528,
+          1113.824
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -110.461,
+          1095.614
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -103.724,
+          1112.294
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -106.101,
+          1093.859
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -99.364,
+          1110.539
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -101.647,
+          1092.068
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -94.911,
+          1108.748
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -98.029,
+          1090.612
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -91.293,
+          1107.292
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -93.762,
+          1088.895
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -87.025,
+          1105.575
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -89.958,
+          1087.364
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -83.221,
+          1104.045
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -85.691,
+          1085.647
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -78.954,
+          1102.328
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -81.423,
+          1083.93
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -74.686,
+          1100.61
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -77.248,
+          1082.251
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -70.512,
+          1098.931
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -73.166,
+          1080.608
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -66.43,
+          1097.288
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -68.899,
+          1078.891
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": -22,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -62.162,
+          1095.571
+        ],
+        "size": [
+          1.8,
+          1.66
+        ],
+        "height": 2.28,
+        "rotation": 158,
+        "material": "trim",
+        "style": "paired glazed gabled dormer"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -113.6,
+          1103.3
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -112.68,
+          1106.0
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -103.8,
+          1099.6
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -102.88,
+          1102.3
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -100.3,
+          1098.4
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -99.38,
+          1101.1
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -91.7,
+          1096
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -90.78,
+          1098.7
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -88.8,
+          1095
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -87.88,
+          1097.7
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -79.7,
+          1091.5
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -78.78,
+          1094.2
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -76.7,
+          1090.5
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -75.78,
+          1093.2
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -68.7,
+          1087.5
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -67.78,
+          1090.2
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -65.5,
+          1086.6
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -64.58,
+          1089.3
+        ],
+        "size": [
+          0.39,
+          0.39
+        ],
+        "height": 0.27,
+        "material": "vent",
+        "rotation": -22,
+        "style": "vent pipe"
+      }
+    ]
+  },
+  "notes": "Window bay spacing varies across the elevations and exact dormer positions are estimated.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "footprint": "inventory",
+        "height": 9.18,
+        "floors": 3
+      },
+      {
+        "name": "Canted brick window bay 1.0",
+        "footprint": [
+          [
+            -107.81,
+            1114.611
+          ],
+          [
+            -104.915,
+            1113.447
+          ],
+          [
+            -105.115,
+            1114.395
+          ],
+          [
+            -107.008,
+            1115.157
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 1.1",
+        "footprint": [
+          [
+            -104.107,
+            1113.122
+          ],
+          [
+            -101.213,
+            1111.957
+          ],
+          [
+            -101.413,
+            1112.906
+          ],
+          [
+            -103.305,
+            1113.667
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 1.2",
+        "footprint": [
+          [
+            -90.409,
+            1107.61
+          ],
+          [
+            -87.514,
+            1106.446
+          ],
+          [
+            -87.714,
+            1107.394
+          ],
+          [
+            -89.607,
+            1108.156
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 1.3",
+        "footprint": [
+          [
+            -86.707,
+            1106.12
+          ],
+          [
+            -83.812,
+            1104.956
+          ],
+          [
+            -84.012,
+            1105.904
+          ],
+          [
+            -85.905,
+            1106.666
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 1.4",
+        "footprint": [
+          [
+            -73.22,
+            1100.694
+          ],
+          [
+            -70.325,
+            1099.53
+          ],
+          [
+            -70.525,
+            1100.478
+          ],
+          [
+            -72.418,
+            1101.24
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 1.5",
+        "footprint": [
+          [
+            -69.517,
+            1099.204
+          ],
+          [
+            -66.623,
+            1098.04
+          ],
+          [
+            -66.823,
+            1098.988
+          ],
+          [
+            -68.715,
+            1099.75
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 3.0",
+        "footprint": [
+          [
+            -67.46,
+            1077.639
+          ],
+          [
+            -70.355,
+            1078.803
+          ],
+          [
+            -70.155,
+            1077.855
+          ],
+          [
+            -68.262,
+            1077.093
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 3.1",
+        "footprint": [
+          [
+            -71.163,
+            1079.128
+          ],
+          [
+            -74.057,
+            1080.293
+          ],
+          [
+            -73.857,
+            1079.344
+          ],
+          [
+            -71.965,
+            1078.583
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 3.2",
+        "footprint": [
+          [
+            -84.861,
+            1084.64
+          ],
+          [
+            -87.756,
+            1085.804
+          ],
+          [
+            -87.556,
+            1084.856
+          ],
+          [
+            -85.663,
+            1084.094
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 3.3",
+        "footprint": [
+          [
+            -88.563,
+            1086.13
+          ],
+          [
+            -91.458,
+            1087.294
+          ],
+          [
+            -91.258,
+            1086.346
+          ],
+          [
+            -89.365,
+            1085.584
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 3.4",
+        "footprint": [
+          [
+            -102.05,
+            1091.556
+          ],
+          [
+            -104.945,
+            1092.72
+          ],
+          [
+            -104.745,
+            1091.772
+          ],
+          [
+            -102.852,
+            1091.01
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Canted brick window bay 3.5",
+        "footprint": [
+          [
+            -105.753,
+            1093.046
+          ],
+          [
+            -108.647,
+            1094.21
+          ],
+          [
+            -108.447,
+            1093.262
+          ],
+          [
+            -106.555,
+            1092.5
+          ]
+        ],
+        "height": 9.12,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.08
+        },
+        "facade": {
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.11
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.65,
+            "height": 1.68,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.053
+            },
+            "frameColor": "#d5ccbc",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none",
+            "surroundMaterial": "trim",
+            "lintel": true,
+            "sillProjecting": true
+          },
+          "blank": false,
+          "bands": [],
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.1,
+            "material": "trim"
+          },
+          "segments": [],
+          "material": "wall"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.315,
+      "type": "arched-portal",
+      "width": 1.35,
+      "height": 2.25,
+      "recess": 0.18,
+      "surround": "trim"
+    },
+    {
+      "wall": 1,
+      "position": 0.651,
+      "type": "arched-portal",
+      "width": 1.35,
+      "height": 2.25,
+      "recess": 0.18,
+      "surround": "trim"
+    },
+    {
+      "wall": 3,
+      "position": 0.86,
+      "type": "arched-portal",
+      "width": 1.38,
+      "height": 2.34,
+      "surround": "trim",
+      "recess": 0.23
+    }
+  ],
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -73.475,
+          1079.698
+        ],
+        [
+          -74.106,
+          1078.13
+        ]
+      ],
+      "height": 0.53,
+      "width": 0.18,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -82.995,
+          1083.528
+        ],
+        [
+          -83.626,
+          1081.96
+        ]
+      ],
+      "height": 0.53,
+      "width": 0.18,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -91.987,
+          1087.146
+        ],
+        [
+          -92.618,
+          1085.578
+        ]
+      ],
+      "height": 0.53,
+      "width": 0.18,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -102.036,
+          1091.189
+        ],
+        [
+          -102.667,
+          1089.621
+        ]
+      ],
+      "height": 0.53,
+      "width": 0.18,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -112.085,
+          1095.232
+        ],
+        [
+          -112.716,
+          1093.664
+        ]
+      ],
+      "height": 0.53,
+      "width": 0.18,
+      "material": "trim"
+    }
+  ]
+}

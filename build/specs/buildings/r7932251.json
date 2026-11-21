@@ -1,0 +1,3416 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r7932251",
+  "name": "Biological & Geological Sciences",
+  "style": "gothic-revival-modern",
+  "confidence": 0.85,
+  "status": "refined",
+  "summary": "Biological and Geological Sciences comprises flat-roofed interconnected stone laboratory wings with grouped rectangular stone-framed windows, showing three exposed rows on the bus court, five levels on the low side, rooftop stacks and exposed ducts, and one low eastern wing.",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#c9baa2",
+      "unitSize": [
+        0.48,
+        0.2
+      ],
+      "secondaryColor": "#ad9f89",
+      "variation": 0.17,
+      "bond": "coursed-rubble"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#b7bbac",
+      "roughness": 0.74,
+      "variation": 0.1
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#efe0cc"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "stack": {
+      "kind": "metal-panel",
+      "color": "#c8c9c4",
+      "roughness": 0.55,
+      "metalness": 0.43
+    },
+    "duct": {
+      "kind": "painted-metal",
+      "color": "#d9d9cd"
+    },
+    "louvre": {
+      "kind": "corrugated-metal",
+      "color": "#6e716a",
+      "secondaryColor": "#858780",
+      "unitSize": [
+        1.15,
+        0.13
+      ],
+      "surface": "louvred"
+    },
+    "porchCoping": {
+      "kind": "limestone-smooth",
+      "color": "#a49c8a",
+      "variation": 0.07
+    }
+  },
+  "floors": {
+    "count": 5,
+    "groundFloorHeight": 4.2,
+    "typicalHeight": 3.55
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 2.25,
+        "height": 1.65,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 3,
+          "horizontal": 2,
+          "width": 0.058
+        },
+        "surround": "stone",
+        "glass": "clear",
+        "frameColor": "#dedcd2",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true,
+        "hoodMould": true
+      },
+      "bays": {
+        "width": 3.75,
+        "pattern": "grouped",
+        "groupSize": 2
+      },
+      "parapet": {
+        "type": "crenellated",
+        "height": 0.6,
+        "material": "wall"
+      },
+      "base": {
+        "height": 0.55,
+        "projection": 0.04,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": [
+            3.4
+          ],
+          "height": 0.2,
+          "depth": 0.09,
+          "material": "trim"
+        }
+      ],
+      "cornice": {
+        "height": 0.13,
+        "depth": 0.075,
+        "material": "trim"
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 2.1,
+          "height": 1.24,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d9dbd2",
+          "surround": "stone",
+          "sillProjecting": true
+        }
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 8,
+          "width": 3.91
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 2,
+          "width": 3.38
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 2,
+          "width": 2.88
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 4,
+          "width": 4.01
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 3,
+          "width": 3.81
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.55,
+          "height": 1.8,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#deded8",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true,
+          "transom": true
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "bands": [],
+            "piers": {
+              "every": 0
+            }
+          }
+        },
+        "buttresses": {
+          "every": 3,
+          "width": 0.65,
+          "depth": 0.8,
+          "stepped": true
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 2,
+          "width": 3.19
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.25,
+          "height": 1.65,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#dedcd2",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true,
+          "transom": true
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "bands": [],
+            "piers": {
+              "every": 0
+            }
+          }
+        },
+        "buttresses": {
+          "every": 3,
+          "width": 0.65,
+          "depth": 0.8,
+          "stepped": true
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 6,
+          "width": 3.73
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.55,
+          "height": 1.8,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#deded8",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true,
+          "transom": true
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "1": {
+            "windows": {
+              "width": 2.3,
+              "height": 1.45,
+              "sill": 0.62
+            }
+          },
+          "2": {
+            "windows": {
+              "sill": 1.26
+            }
+          },
+          "3": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.65,
+          "depth": 0.8,
+          "stepped": true
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.27,
+          "material": "porchCoping"
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 8,
+          "width": 3.81
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.55,
+          "height": 1.8,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#deded8",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true,
+          "transom": true
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.65,
+          "depth": 0.8,
+          "stepped": true
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 2,
+          "width": 3.12
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "buttresses": {
+          "every": 3,
+          "width": 0.65,
+          "depth": 0.8,
+          "stepped": true
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.25,
+          "height": 1.65,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 2,
+            "width": 0.058
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#dedcd2",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 2,
+          "width": 4.18
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.55,
+          "height": 1.8,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#deded8",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true,
+          "transom": true
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "buttresses": {
+          "every": 3,
+          "width": 0.65,
+          "depth": 0.8,
+          "stepped": true
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 3,
+          "width": 3.86
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.55,
+          "height": 1.8,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#deded8",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true,
+          "transom": true
+        },
+        "floorOverrides": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "buttresses": {
+          "every": 3,
+          "width": 0.65,
+          "depth": 0.8,
+          "stepped": true
+        }
+      },
+      "11": {
+        "bays": {
+          "count": 4,
+          "width": 3.52
+        }
+      },
+      "12": {
+        "bays": {
+          "count": 1,
+          "width": 3.05
+        }
+      },
+      "13": {
+        "bays": {
+          "count": 6,
+          "width": 3.79
+        }
+      },
+      "14": {
+        "bays": {
+          "count": 4,
+          "width": 3.98
+        }
+      },
+      "15": {
+        "bays": {
+          "count": 6,
+          "width": 3.48
+        }
+      },
+      "16": {
+        "bays": {
+          "count": 4,
+          "width": 3.33
+        }
+      },
+      "17": {
+        "bays": {
+          "count": 8,
+          "width": 3.74
+        }
+      },
+      "18": {
+        "bays": {
+          "count": 8,
+          "width": 3.71
+        }
+      },
+      "19": {
+        "bays": {
+          "count": 2,
+          "width": 4.37
+        }
+      },
+      "20": {
+        "bays": {
+          "count": 1,
+          "width": 3.22
+        }
+      },
+      "21": {
+        "bays": {
+          "count": 5,
+          "width": 3.62
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.65,
+          "depth": 0.8,
+          "stepped": true
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.25,
+          "height": 1.65,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 2,
+            "width": 0.058
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#dedcd2",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true
+        }
+      },
+      "22": {
+        "bays": {
+          "count": 5,
+          "width": 4.16
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.65,
+          "depth": 0.8,
+          "stepped": true
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.25,
+          "height": 1.65,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 2,
+            "width": 0.058
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#dedcd2",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true
+        }
+      },
+      "23": {
+        "bays": {
+          "count": 2,
+          "width": 3.96
+        }
+      },
+      "24": {
+        "bays": {
+          "count": 4,
+          "width": 3.95
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "25": {
+        "bays": {
+          "count": 2,
+          "width": 4.24
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "26": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "27": {
+        "bays": {
+          "count": 4,
+          "width": 4.16
+        }
+      },
+      "28": {
+        "bays": {
+          "count": 1,
+          "width": 3.34
+        }
+      },
+      "29": {
+        "bays": {
+          "count": 4,
+          "width": 3.48
+        }
+      },
+      "30": {
+        "bays": {
+          "count": 1,
+          "width": 3.31
+        }
+      },
+      "31": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "32": {
+        "bays": {
+          "count": 1,
+          "width": 5.34
+        }
+      },
+      "33": {
+        "bays": {
+          "count": 5,
+          "width": 3.99
+        }
+      },
+      "34": {
+        "bays": {
+          "count": 7,
+          "width": 3.62
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.65,
+          "depth": 0.49,
+          "stepped": true
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.25,
+          "height": 1.65,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 2,
+            "width": 0.058
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#dedcd2",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true
+        }
+      },
+      "35": {
+        "bays": {
+          "count": 2,
+          "width": 3.27
+        }
+      },
+      "36": {
+        "bays": {
+          "count": 1,
+          "width": 4.21
+        }
+      },
+      "37": {
+        "bays": {
+          "count": 1,
+          "width": 3.02
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "38": {
+        "bays": {
+          "count": 3,
+          "width": 4.19
+        }
+      },
+      "39": {
+        "bays": {
+          "count": 1,
+          "width": 5.02
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "40": {
+        "bays": {
+          "count": 5,
+          "width": 3.95
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          377,
+          34
+        ],
+        "size": [
+          26,
+          8
+        ],
+        "height": 4.8,
+        "rotation": 69,
+        "material": "wall"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          335,
+          43
+        ],
+        "size": [
+          20,
+          7
+        ],
+        "height": 4.3,
+        "rotation": 69,
+        "material": "wall"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          390,
+          80
+        ],
+        "size": [
+          23,
+          7
+        ],
+        "height": 4.3,
+        "rotation": 69,
+        "material": "wall"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          332,
+          37
+        ],
+        "size": [
+          0.95,
+          0.95
+        ],
+        "height": 7.95,
+        "material": "stack",
+        "style": "round metal stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          335,
+          45
+        ],
+        "size": [
+          0.95,
+          0.95
+        ],
+        "height": 10.25,
+        "material": "stack",
+        "style": "round metal stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          375,
+          48
+        ],
+        "size": [
+          0.95,
+          0.95
+        ],
+        "height": 8.65,
+        "material": "stack",
+        "style": "round metal stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          389,
+          65
+        ],
+        "size": [
+          0.95,
+          0.95
+        ],
+        "height": 9.55,
+        "material": "stack",
+        "style": "round metal stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          384,
+          68
+        ],
+        "size": [
+          0.95,
+          0.95
+        ],
+        "height": 9.65,
+        "material": "stack",
+        "style": "round metal stack"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          340.45,
+          60.075
+        ],
+        "size": [
+          13.66,
+          0.98
+        ],
+        "height": 1.1,
+        "rotation": 68.98,
+        "style": "exhaust duct",
+        "material": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          345.9,
+          65.525
+        ],
+        "size": [
+          6.28,
+          0.98
+        ],
+        "height": 1.1,
+        "rotation": -17.14,
+        "style": "exhaust duct",
+        "material": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          350.725,
+          68.525
+        ],
+        "size": [
+          8.66,
+          0.98
+        ],
+        "height": 1.1,
+        "rotation": 65.06,
+        "style": "exhaust duct",
+        "material": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          360.775,
+          69.55000000000001
+        ],
+        "size": [
+          17.44,
+          0.98
+        ],
+        "height": 1.1,
+        "rotation": -19.42,
+        "style": "exhaust duct",
+        "material": "duct"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          329,
+          34
+        ],
+        "size": [
+          3.1,
+          1.8
+        ],
+        "height": 1.05,
+        "rotation": -21,
+        "material": "duct"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          339.7,
+          47
+        ],
+        "size": [
+          2.7,
+          2.1
+        ],
+        "height": 1.05,
+        "rotation": -21,
+        "material": "duct"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          378.1,
+          39
+        ],
+        "size": [
+          2.7,
+          1.9
+        ],
+        "height": 1.05,
+        "rotation": -21,
+        "material": "duct"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          387.3,
+          71.5
+        ],
+        "size": [
+          3.25,
+          1.8
+        ],
+        "height": 1.05,
+        "rotation": -21,
+        "material": "duct"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          394,
+          89
+        ],
+        "size": [
+          3.1,
+          2.1
+        ],
+        "height": 1.05,
+        "rotation": -21,
+        "material": "duct"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface minus local ground: median 18.91 m, 90th percentile 22.26 m, maximum 28.27 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/BGSB.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Three tiers of pale window groups around the bus court. The return at right has deeper shade.",
+      "frame": "131414011",
+      "walls": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Sunlit stone coursing, pale multipane sash, and raised central bay with drip mould.",
+      "frame": "138018929",
+      "walls": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "The service-court side exposes additional levels below the high street side; roof plant and stacks clear the parapet.",
+      "frame": "138045511",
+      "walls": [
+        21,
+        22
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "Two long north-south laboratory ranges, east green-rooflight wing and an open court. Broad ducts run along the roofs."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Mean 7 by 7 pixel PIL sample centred at normalized (0.343, 0.460) on the sunlit stone gives #ddceba.",
+      "frame": "131414011",
+      "walls": [
+        6
+      ]
+    },
+    {
+      "kind": "lidar",
+      "walls": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "note": "Core terrain stands 4.2–6.4 m above the building datum along the bus court. Wall-adjacent roof samples are 17.8–18.4 m. Three upper window rows are exposed there."
+    },
+    {
+      "kind": "lidar",
+      "note": "Five compact core-lidar peaks align with the roof exhaust groups in the orthophoto. Their highest returns are 26.0, 28.3, 26.7, 27.6 and 27.7 metres above datum."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Two projecting stone flanks have pointed caps and frame the recessed entrance in the bus court.",
+      "frame": "66668399",
+      "walls": [
+        6
+      ]
+    },
+    {
+      "kind": "lidar",
+      "note": "At wall 6 the median surface drops from 18.4 m at the mapped wall to 6.4 m two metres outside. The low eastern lab roof also ends within two metres of mapped wall 18."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Three rows of windows face the bus court. The middle group sits in a raised bay with a single three-light window at its head and pointed stone caps on the two projecting flanks.",
+      "frame": "66668399",
+      "walls": [
+        6
+      ]
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Low east laboratory",
+        "height": 5.0,
+        "floors": 1,
+        "footprint": [
+          [
+            419.699,
+            53.81
+          ],
+          [
+            416.32,
+            44.85
+          ],
+          [
+            388.62,
+            55.44
+          ],
+          [
+            391.91,
+            63.79
+          ],
+          [
+            406.79,
+            58.13
+          ]
+        ],
+        "facade": {
+          "windows": {
+            "type": "ribbon",
+            "width": 3.5,
+            "height": 1.5,
+            "sill": 0.85,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 3,
+              "horizontal": 1,
+              "width": 0.055
+            }
+          }
+        }
+      },
+      {
+        "name": "Connected multistorey laboratory wings",
+        "height": 18.35,
+        "floors": 5,
+        "footprint": [
+          [
+            334.75,
+            59.77
+          ],
+          [
+            337.37,
+            66.01
+          ],
+          [
+            331.96,
+            68.02
+          ],
+          [
+            337.8,
+            82.97
+          ],
+          [
+            348.4,
+            78.69
+          ],
+          [
+            348.64,
+            79.36
+          ],
+          [
+            351.57,
+            78.19
+          ],
+          [
+            354.57,
+            77.0
+          ],
+          [
+            354.36,
+            76.42
+          ],
+          [
+            375.31,
+            68.57
+          ],
+          [
+            376.24,
+            70.83
+          ],
+          [
+            376.92,
+            70.58
+          ],
+          [
+            387.93,
+            99.04
+          ],
+          [
+            387.22,
+            99.34
+          ],
+          [
+            389.47,
+            105.18
+          ],
+          [
+            393.44,
+            103.92
+          ],
+          [
+            394.75,
+            103.36
+          ],
+          [
+            397.31,
+            102.24
+          ],
+          [
+            396.82,
+            101.23
+          ],
+          [
+            407.69,
+            97.25
+          ],
+          [
+            402.83,
+            84.06
+          ],
+          [
+            399.94,
+            85.03
+          ],
+          [
+            391.91,
+            63.79
+          ],
+          [
+            388.62,
+            55.44
+          ],
+          [
+            385.46,
+            47.29
+          ],
+          [
+            388.45,
+            46.08
+          ],
+          [
+            382.11,
+            29.14
+          ],
+          [
+            382.82,
+            28.84
+          ],
+          [
+            376.73,
+            12.77
+          ],
+          [
+            376.14,
+            11.42
+          ],
+          [
+            375.66,
+            10.33
+          ],
+          [
+            375.3,
+            9.43
+          ],
+          [
+            374.53,
+            9.74
+          ],
+          [
+            372.6,
+            4.13
+          ],
+          [
+            371.86,
+            2.28
+          ],
+          [
+            357.15,
+            8.05
+          ],
+          [
+            360.29,
+            15.92
+          ],
+          [
+            357.85,
+            17.08
+          ],
+          [
+            359.39,
+            21.28
+          ],
+          [
+            363.59,
+            32.71
+          ],
+          [
+            365.66,
+            31.8
+          ],
+          [
+            366.84,
+            34.93
+          ],
+          [
+            364.84,
+            35.95
+          ],
+          [
+            369.89,
+            48.93
+          ],
+          [
+            373.0,
+            47.77
+          ],
+          [
+            373.96,
+            50.24
+          ],
+          [
+            369.0,
+            52.23
+          ],
+          [
+            369.41,
+            53.34
+          ],
+          [
+            350.81,
+            60.58
+          ],
+          [
+            341.64,
+            36.96
+          ],
+          [
+            347.74,
+            34.6
+          ],
+          [
+            346.12,
+            30.71
+          ],
+          [
+            346.9,
+            30.13
+          ],
+          [
+            345.99,
+            27.25
+          ],
+          [
+            345.14,
+            27.36
+          ],
+          [
+            344.93,
+            26.78
+          ],
+          [
+            340.8,
+            15.57
+          ],
+          [
+            336.14,
+            17.45
+          ],
+          [
+            322.05,
+            31.26
+          ],
+          [
+            333.32,
+            60.44
+          ]
+        ]
+      },
+      {
+        "name": "Glazed east growing range",
+        "footprint": [
+          [
+            406.79,
+            58.13
+          ],
+          [
+            414.41,
+            77.59
+          ],
+          [
+            426.88,
+            72.85
+          ],
+          [
+            419.699,
+            53.81
+          ]
+        ],
+        "height": 4.15,
+        "floors": 1,
+        "material": "glass",
+        "facade": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2,
+            "height": 3.4,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 2,
+              "width": 0.06
+            },
+            "sill": 0.62
+          },
+          "base": {
+            "height": 0.65,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0.1,
+            "depth": 0.08,
+            "material": "metal"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "rise": 1.55,
+          "ridge": 159,
+          "material": "glass",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Raised stone pavilion on wall 6",
+        "footprint": [
+          [
+            359.866,
+            72.114
+          ],
+          [
+            366.235,
+            69.728
+          ],
+          [
+            367.172,
+            72.228
+          ],
+          [
+            360.803,
+            74.614
+          ]
+        ],
+        "height": 19.5,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.65,
+            "height": 1.8,
+            "sill": 0.85,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.056
+            },
+            "surround": "stone",
+            "glass": "clear",
+            "frameColor": "#c7c4b7",
+            "surroundMaterial": "porchCoping",
+            "sillProjecting": true,
+            "lintel": true,
+            "hoodMould": true,
+            "transom": true,
+            "glassColor": "#7c8177"
+          },
+          "floorOverrides": {
+            "0": {
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "1": {
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "3": {
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "buttresses": {
+            "every": 2,
+            "width": 0.44,
+            "depth": 0.43,
+            "stepped": true
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.27,
+            "material": "porchCoping"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Raised stone pavilion on wall 5",
+        "footprint": [
+          [
+            347.764,
+            77.448
+          ],
+          [
+            353.657,
+            75.103
+          ],
+          [
+            354.643,
+            77.584
+          ],
+          [
+            348.751,
+            79.929
+          ]
+        ],
+        "height": 19.5,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 2
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.25,
+            "height": 1.65,
+            "sill": 0.85,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.056
+            },
+            "surround": "stone",
+            "glass": "clear",
+            "frameColor": "#c7c4b7",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true,
+            "hoodMould": true,
+            "transom": true,
+            "glassColor": "#7c8177"
+          },
+          "floorOverrides": {
+            "0": {
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "buttresses": {
+            "every": 2,
+            "width": 0.44,
+            "depth": 0.43,
+            "stepped": true
+          },
+          "parapet": {
+            "type": "crenellated",
+            "height": 0.6,
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Raised stone pavilion on wall 9",
+        "footprint": [
+          [
+            389.757,
+            102.829
+          ],
+          [
+            395.705,
+            100.599
+          ],
+          [
+            396.642,
+            103.099
+          ],
+          [
+            390.695,
+            105.33
+          ]
+        ],
+        "height": 19.5,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 2
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.85,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.056
+            },
+            "surround": "stone",
+            "glass": "clear",
+            "frameColor": "#c7c4b7",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true,
+            "hoodMould": true,
+            "transom": true,
+            "glassColor": "#7c8177"
+          },
+          "floorOverrides": {
+            "0": {
+              "blank": true,
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "buttresses": {
+            "every": 2,
+            "width": 0.44,
+            "depth": 0.43,
+            "stepped": true
+          },
+          "parapet": {
+            "type": "crenellated",
+            "height": 0.6,
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Louvre bank on the mechanical penthouse",
+        "footprint": [
+          [
+            384.097,
+            41.302
+          ],
+          [
+            384.185,
+            41.268
+          ],
+          [
+            377.477,
+            23.791
+          ],
+          [
+            377.388,
+            23.825
+          ]
+        ],
+        "height": 22.8,
+        "floors": 1,
+        "material": "louvre",
+        "facade": {
+          "blank": true,
+          "material": "louvre",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "louvre"
+        },
+        "baseOffset": 19.8
+      },
+      {
+        "name": "Louvre bank on the mechanical penthouse",
+        "footprint": [
+          [
+            376.523,
+            44.209
+          ],
+          [
+            376.612,
+            44.175
+          ],
+          [
+            369.903,
+            26.698
+          ],
+          [
+            369.815,
+            26.732
+          ]
+        ],
+        "height": 22.8,
+        "floors": 1,
+        "material": "louvre",
+        "facade": {
+          "blank": true,
+          "material": "louvre",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "louvre"
+        },
+        "baseOffset": 19.8
+      },
+      {
+        "name": "Louvre bank on the mechanical penthouse",
+        "footprint": [
+          [
+            340.849,
+            48.467
+          ],
+          [
+            340.938,
+            48.433
+          ],
+          [
+            335.777,
+            34.989
+          ],
+          [
+            335.689,
+            35.023
+          ]
+        ],
+        "height": 22.8,
+        "floors": 1,
+        "material": "louvre",
+        "facade": {
+          "blank": true,
+          "material": "louvre",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "louvre"
+        },
+        "baseOffset": 19.8
+      },
+      {
+        "name": "Louvre bank on the mechanical penthouse",
+        "footprint": [
+          [
+            334.223,
+            51.011
+          ],
+          [
+            334.311,
+            50.977
+          ],
+          [
+            329.151,
+            37.533
+          ],
+          [
+            329.062,
+            37.567
+          ]
+        ],
+        "height": 22.8,
+        "floors": 1,
+        "material": "louvre",
+        "facade": {
+          "blank": true,
+          "material": "louvre",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "louvre"
+        },
+        "baseOffset": 19.8
+      },
+      {
+        "name": "Louvre bank on the mechanical penthouse",
+        "footprint": [
+          [
+            396.236,
+            86.475
+          ],
+          [
+            396.325,
+            86.441
+          ],
+          [
+            390.39,
+            70.981
+          ],
+          [
+            390.302,
+            71.015
+          ]
+        ],
+        "height": 22.8,
+        "floors": 1,
+        "material": "louvre",
+        "facade": {
+          "blank": true,
+          "material": "louvre",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "louvre"
+        },
+        "baseOffset": 19.8
+      },
+      {
+        "name": "Louvre bank on the mechanical penthouse",
+        "footprint": [
+          [
+            389.61,
+            89.019
+          ],
+          [
+            389.698,
+            88.985
+          ],
+          [
+            383.764,
+            73.525
+          ],
+          [
+            383.675,
+            73.559
+          ]
+        ],
+        "height": 22.8,
+        "floors": 1,
+        "material": "louvre",
+        "facade": {
+          "blank": true,
+          "material": "louvre",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "louvre"
+        },
+        "baseOffset": 19.8
+      },
+      {
+        "name": "Pointed stone flank of the bus-court porch",
+        "footprint": [
+          [
+            361.473,
+            74.043
+          ],
+          [
+            362.52,
+            73.651
+          ],
+          [
+            363.145,
+            75.317
+          ],
+          [
+            362.098,
+            75.71
+          ]
+        ],
+        "height": 12.45,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 159.5,
+          "rise": 1.26,
+          "material": "porchCoping",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Pointed stone flank of the bus-court porch",
+        "footprint": [
+          [
+            365.244,
+            72.63
+          ],
+          [
+            366.291,
+            72.238
+          ],
+          [
+            366.916,
+            73.904
+          ],
+          [
+            365.869,
+            74.297
+          ]
+        ],
+        "height": 12.45,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 159.5,
+          "rise": 1.26,
+          "material": "porchCoping",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            339.772,
+            46.274
+          ],
+          [
+            337.188,
+            45.123
+          ],
+          [
+            332.529,
+            32.987
+          ],
+          [
+            331.237,
+            32.412
+          ],
+          [
+            329.187,
+            27.071
+          ],
+          [
+            327.927,
+            27.555
+          ],
+          [
+            330.178,
+            33.417
+          ],
+          [
+            331.47,
+            33.993
+          ],
+          [
+            336.128,
+            46.129
+          ],
+          [
+            338.712,
+            47.28
+          ],
+          [
+            341.121,
+            53.554
+          ],
+          [
+            342.381,
+            53.07
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            343.008,
+            46.906
+          ],
+          [
+            341.048,
+            41.799
+          ],
+          [
+            340.171,
+            42.136
+          ],
+          [
+            341.794,
+            46.365
+          ],
+          [
+            339.432,
+            47.271
+          ],
+          [
+            339.769,
+            48.149
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            331.593,
+            39.617
+          ],
+          [
+            330.312,
+            36.28
+          ],
+          [
+            329.519,
+            36.584
+          ],
+          [
+            331.104,
+            40.715
+          ],
+          [
+            334.302,
+            39.488
+          ],
+          [
+            333.997,
+            38.694
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            336.28,
+            32.223
+          ],
+          [
+            334.72,
+            28.161
+          ],
+          [
+            333.88,
+            28.483
+          ],
+          [
+            335.188,
+            31.89
+          ],
+          [
+            332.1,
+            34.055
+          ],
+          [
+            332.616,
+            34.792
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            339.27,
+            51.315
+          ],
+          [
+            338.465,
+            49.217
+          ],
+          [
+            337.718,
+            49.504
+          ],
+          [
+            338.346,
+            51.14
+          ],
+          [
+            337.004,
+            52.608
+          ],
+          [
+            337.595,
+            53.148
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            393.855,
+            92.229
+          ],
+          [
+            395.363,
+            90.578
+          ],
+          [
+            392.434,
+            82.948
+          ],
+          [
+            389.634,
+            84.023
+          ],
+          [
+            386.928,
+            76.975
+          ],
+          [
+            388.795,
+            76.258
+          ],
+          [
+            385.149,
+            66.761
+          ],
+          [
+            382.924,
+            66.544
+          ],
+          [
+            381.293,
+            62.294
+          ],
+          [
+            379.939,
+            62.814
+          ],
+          [
+            381.891,
+            67.9
+          ],
+          [
+            384.117,
+            68.117
+          ],
+          [
+            386.922,
+            75.424
+          ],
+          [
+            385.055,
+            76.141
+          ],
+          [
+            388.8,
+            85.897
+          ],
+          [
+            391.6,
+            84.821
+          ],
+          [
+            393.689,
+            90.261
+          ],
+          [
+            392.18,
+            91.912
+          ],
+          [
+            394.491,
+            97.931
+          ],
+          [
+            395.844,
+            97.412
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            391.206,
+            94.399
+          ],
+          [
+            389.943,
+            91.108
+          ],
+          [
+            389.056,
+            91.448
+          ],
+          [
+            390.66,
+            95.626
+          ],
+          [
+            393.904,
+            94.381
+          ],
+          [
+            393.564,
+            93.494
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            397.224,
+            87.751
+          ],
+          [
+            395.62,
+            83.573
+          ],
+          [
+            394.733,
+            83.913
+          ],
+          [
+            395.996,
+            87.204
+          ],
+          [
+            393.639,
+            88.109
+          ],
+          [
+            393.979,
+            88.996
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            385.256,
+            81.687
+          ],
+          [
+            383.634,
+            77.463
+          ],
+          [
+            382.747,
+            77.803
+          ],
+          [
+            384.709,
+            82.914
+          ],
+          [
+            387.953,
+            81.669
+          ],
+          [
+            387.613,
+            80.782
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            389.058,
+            69.409
+          ],
+          [
+            387.831,
+            66.211
+          ],
+          [
+            387.037,
+            66.516
+          ],
+          [
+            387.96,
+            68.92
+          ],
+          [
+            385.556,
+            69.843
+          ],
+          [
+            385.861,
+            70.636
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            379.479,
+            66.847
+          ],
+          [
+            378.547,
+            64.419
+          ],
+          [
+            377.8,
+            64.706
+          ],
+          [
+            379.018,
+            67.88
+          ],
+          [
+            382.193,
+            66.662
+          ],
+          [
+            381.906,
+            65.915
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            346.538,
+            71.74
+          ],
+          [
+            347.469,
+            74.168
+          ],
+          [
+            353.977,
+            71.67
+          ],
+          [
+            354.194,
+            69.444
+          ],
+          [
+            365.283,
+            65.187
+          ],
+          [
+            365.858,
+            63.895
+          ],
+          [
+            369.36,
+            62.551
+          ],
+          [
+            368.93,
+            61.431
+          ],
+          [
+            364.964,
+            62.953
+          ],
+          [
+            364.389,
+            64.245
+          ],
+          [
+            353.072,
+            68.589
+          ],
+          [
+            352.855,
+            70.815
+          ],
+          [
+            348.16,
+            72.617
+          ],
+          [
+            347.228,
+            70.19
+          ],
+          [
+            341.066,
+            72.555
+          ],
+          [
+            341.496,
+            73.676
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            350.168,
+            75.06
+          ],
+          [
+            354.276,
+            73.483
+          ],
+          [
+            353.989,
+            72.736
+          ],
+          [
+            350.628,
+            74.026
+          ],
+          [
+            350.055,
+            72.532
+          ],
+          [
+            349.308,
+            72.819
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            355.93,
+            65.473
+          ],
+          [
+            359.277,
+            64.188
+          ],
+          [
+            358.98,
+            63.413
+          ],
+          [
+            354.858,
+            64.996
+          ],
+          [
+            356.046,
+            68.09
+          ],
+          [
+            356.821,
+            67.793
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            379.305,
+            42.377
+          ],
+          [
+            377.639,
+            41.945
+          ],
+          [
+            372.16,
+            27.671
+          ],
+          [
+            374.602,
+            25.663
+          ],
+          [
+            372.304,
+            19.674
+          ],
+          [
+            371.23,
+            20.086
+          ],
+          [
+            373.232,
+            25.301
+          ],
+          [
+            370.789,
+            27.31
+          ],
+          [
+            376.778,
+            42.91
+          ],
+          [
+            378.443,
+            43.342
+          ],
+          [
+            379.771,
+            46.8
+          ],
+          [
+            380.844,
+            46.388
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            378.766,
+            36.929
+          ],
+          [
+            377.539,
+            33.732
+          ],
+          [
+            376.745,
+            34.036
+          ],
+          [
+            377.668,
+            36.44
+          ],
+          [
+            375.264,
+            37.363
+          ],
+          [
+            375.569,
+            38.157
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      },
+      {
+        "name": "Galvanized exhaust trunk with elbow",
+        "footprint": [
+          [
+            369.822,
+            29.812
+          ],
+          [
+            368.182,
+            25.541
+          ],
+          [
+            367.389,
+            25.845
+          ],
+          [
+            369.333,
+            30.91
+          ],
+          [
+            372.344,
+            29.754
+          ],
+          [
+            372.039,
+            28.961
+          ]
+        ],
+        "height": 19.810000000000002,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "material": "duct",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "duct",
+          "edge": "none"
+        },
+        "baseOffset": 18.76
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 6,
+      "position": 0.45,
+      "type": "gothic-portal",
+      "width": 2.38,
+      "height": 3.2,
+      "recess": 0.28,
+      "surround": "porchCoping",
+      "at": [
+        363.988,
+        73.421
+      ]
+    }
+  ],
+  "notes": "The site slope conceals lower storeys at the bus court. White exhaust pipes turn at right angles and join several stacks. The low eastern range has a long glazed roof strip."
+}

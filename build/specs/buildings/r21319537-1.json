@@ -1,0 +1,275 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r21319537-1",
+  "name": "Perth Drive Complex stair tower",
+  "status": "refined",
+  "confidence": 0.9,
+  "summary": "Freestanding five-level buff textured masonry stair tower linked to Building D by a high-level walkway, with an angled face of tall dark glass and pale horizontal landings.",
+  "style": "mid-century-modern",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#ab9f80",
+      "secondaryColor": "#8f8466",
+      "unitSize": [
+        0.68,
+        0.25
+      ],
+      "variation": 0.12,
+      "bond": "random-ashlar"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c6cab3",
+      "secondaryColor": "#a5a698"
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#d4d3c8",
+      "secondaryColor": "#a7a79a",
+      "unitSize": [
+        2.4,
+        0.42
+      ]
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#455052"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#4b4844"
+    }
+  },
+  "floors": {
+    "count": 5,
+    "groundFloorHeight": 3.45,
+    "typicalHeight": 3.13
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Detached stair and landing tower",
+        "height": 16.63,
+        "floors": 5,
+        "footprint": "inventory"
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "bands": [
+        {
+          "at": "floor-lines",
+          "height": 0.13,
+          "depth": 0.03,
+          "material": "trim"
+        }
+      ],
+      "cornice": {
+        "material": "trim",
+        "height": 1.02,
+        "depth": 0.095
+      },
+      "parapet": {
+        "height": 0.07,
+        "type": "plain",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "blank": false,
+        "bays": {
+          "count": 1,
+          "width": 7.57,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 2.1,
+          "height": 2.85,
+          "sill": 0.18,
+          "perBay": 1,
+          "recess": 0.09,
+          "frameColor": "#464948",
+          "glass": "tinted",
+          "glassColor": "#424f51",
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 0,
+            "width": 0.07
+          }
+        }
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "sections": [
+          {
+            "start": 0.06,
+            "end": 0.94,
+            "base": 3.57,
+            "top": 6.44,
+            "material": "glass",
+            "horizontalMullions": 0,
+            "verticalMullionSpacing": 0.95
+          },
+          {
+            "start": 0.06,
+            "end": 0.94,
+            "base": 6.699999999999999,
+            "top": 9.57,
+            "material": "glass",
+            "horizontalMullions": 0,
+            "verticalMullionSpacing": 0.95
+          },
+          {
+            "start": 0.06,
+            "end": 0.94,
+            "base": 9.83,
+            "top": 12.7,
+            "material": "glass",
+            "horizontalMullions": 0,
+            "verticalMullionSpacing": 0.95
+          },
+          {
+            "start": 0.06,
+            "end": 0.94,
+            "base": 12.96,
+            "top": 15.58,
+            "material": "glass",
+            "horizontalMullions": 0,
+            "verticalMullionSpacing": 0.95
+          }
+        ]
+      },
+      "4": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "sections": [
+          {
+            "start": 0.06,
+            "end": 0.94,
+            "base": 3.57,
+            "top": 6.44,
+            "material": "glass",
+            "horizontalMullions": 0,
+            "verticalMullionSpacing": 0.95
+          },
+          {
+            "start": 0.06,
+            "end": 0.94,
+            "base": 6.699999999999999,
+            "top": 9.57,
+            "material": "glass",
+            "horizontalMullions": 0,
+            "verticalMullionSpacing": 0.95
+          },
+          {
+            "start": 0.06,
+            "end": 0.94,
+            "base": 9.83,
+            "top": 12.7,
+            "material": "glass",
+            "horizontalMullions": 0,
+            "verticalMullionSpacing": 0.95
+          },
+          {
+            "start": 0.06,
+            "end": 0.94,
+            "base": 12.96,
+            "top": 15.58,
+            "material": "glass",
+            "horizontalMullions": 0,
+            "verticalMullionSpacing": 0.95
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.42,
+      "type": "doors-double",
+      "width": 1.84,
+      "height": 2.16
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "39252548",
+      "walls": [
+        2,
+        3,
+        4
+      ],
+      "note": "The buff block side has horizontal bands. Tall dark glass wraps the chamfer facing Perth Drive with pale floor edges visible through the glass."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "66576809",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "Five stacked landings and a flat, light fascia by the smaller timber gazebo."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "552818230",
+      "walls": [
+        0,
+        4
+      ],
+      "note": "Tower rises separately in front of the office and parking block."
+    },
+    {
+      "kind": "photo",
+      "note": "The construction photograph shows the tower at the end of a tall, open-framed pedestrian link.",
+      "url": "https://www.haymanconstruction.com/University-Hospital-Parking-Garage.htm"
+    },
+    {
+      "kind": "aerial",
+      "note": "The small polygon is the roof of the detached stair. The narrow link returns to the larger garage to its north."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 16.47 m, P90 16.63 m and maximum 16.65 m establish a flat, five-level volume."
+    },
+    {
+      "kind": "osm",
+      "note": "The relation includes both this tower and the Perth Drive Complex. The mapped door lies on wall 0."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "39252548",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "The southern chamfer carries four glazed levels above a masonry ground-storey plinth on the gazebo side."
+    }
+  ],
+  "notes": "The link belongs to the r21319537-0 attachment. Alternating runs of stairs are visible between the levels of the chamfered glazed face."
+}

@@ -1,0 +1,440 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w237299258",
+  "name": "Apps International House",
+  "status": "refined",
+  "confidence": 0.92,
+  "summary": "Apps House is built of buff rock-faced coursed stone with a five-bay street front, paired upper centre sash, a white portico with railing, an external gable stack, and a dark shingle roof.",
+  "style": "house",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#a99a78",
+      "secondaryColor": "#897c60",
+      "unitSize": [
+        0.47,
+        0.205
+      ],
+      "variation": 0.24,
+      "bond": "coursed-rubble",
+      "surface": "rock-faced"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#393b3c",
+      "roughness": 0.82,
+      "unitSize": [
+        0.32,
+        0.145
+      ],
+      "secondaryColor": "#303234",
+      "variation": 0.12
+    },
+    "trim": {
+      "kind": "wood-siding",
+      "color": "#e2ded4"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#414346",
+      "roughness": 0.48
+    },
+    "chimney": {
+      "kind": "brick",
+      "color": "#856950",
+      "unitSize": [
+        0.21,
+        0.066
+      ]
+    },
+    "bayRoof": {
+      "kind": "copper-patina",
+      "color": "#748b79",
+      "secondaryColor": "#657f70"
+    },
+    "gutter": {
+      "kind": "copper-patina",
+      "color": "#778975"
+    },
+    "patio": {
+      "kind": "concrete-smooth",
+      "color": "#aaa99a"
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 3.15,
+    "typicalHeight": 2.95,
+    "raisedGround": 0.42
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.03,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1,
+        "height": 1.46,
+        "sill": 0.8,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.065
+        },
+        "frameColor": "#e4e0d5",
+        "glass": "clear",
+        "surround": "stone",
+        "sillProjecting": true,
+        "surroundMaterial": "trim",
+        "lintel": true,
+        "glassColor": "#909da0"
+      },
+      "cornice": {
+        "height": 0.14,
+        "depth": 0.13,
+        "material": "gutter"
+      }
+    },
+    "byWall": {
+      "3": {
+        "bays": {
+          "count": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1,
+          "height": 1.46,
+          "sill": 0.8,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "stone",
+          "sillProjecting": true,
+          "surroundMaterial": "trim",
+          "lintel": true,
+          "glassColor": "#909da0"
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 5
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.15,
+          "height": 1.48,
+          "sill": 0.8,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.075
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "stone",
+          "sillProjecting": true,
+          "surroundMaterial": "trim",
+          "lintel": true,
+          "glassColor": "#909da0"
+        },
+        "segments": [
+          {
+            "range": [
+              0,
+              0.325
+            ],
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "width": 1.04,
+              "height": 1.5
+            }
+          },
+          {
+            "range": [
+              0.325,
+              0.675
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.55,
+              "height": 1.48,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1
+              }
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none"
+              }
+            },
+            "balconies": {
+              "floors": [
+                1
+              ],
+              "depth": 1,
+              "rail": "metal",
+              "infill": "open",
+              "material": "trim"
+            }
+          },
+          {
+            "range": [
+              0.675,
+              1
+            ],
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "width": 1.04,
+              "height": 1.5
+            }
+          }
+        ]
+      },
+      "6": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular",
+          "width": 6.23
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1,
+          "height": 1.46,
+          "sill": 0.8,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "stone",
+          "sillProjecting": true,
+          "surroundMaterial": "trim",
+          "lintel": true,
+          "glassColor": "#909da0"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.85,
+          "height": 1.35
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "rise": 3.45,
+    "ridge": 157,
+    "material": "roof",
+    "edge": "gutter",
+    "overhang": 0.24,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "127904755",
+      "walls": [
+        3,
+        5
+      ],
+      "note": "Apps House is built of buff rock-faced coursed stone with a five-bay street front, paired upper centre sash, a white portico with railing, an external gable stack, and a dark shingle roof."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414079",
+      "walls": [
+        3,
+        5,
+        6
+      ],
+      "note": "Low garage continues past the north end of the two-storey house."
+    },
+    {
+      "kind": "aerial",
+      "note": "The dark pitched main ridge runs parallel to the five-bay road front. The small north garage is a separate inventory footprint."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 7.59 m, P90 9.76 m and maximum 10.2 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Wall colour sampled with PIL. KartaView 127904755 at normalized pixel (0.835, 0.548). Roof tone sampled from the 2025 orthophoto. Dimensions and bay counts on obscured elevations are estimates."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Orthophoto rectified along the street wall shows a straight main ridge and open ground inside the west inventory projection. Main roof colour sampled on frame 127904701 at (0.282, 0.475)."
+    }
+  ],
+  "notes": "Road views leave the copper-capped west rear projection poorly exposed, while wall indexing confirms the south gable stack belongs on wall 2. The front fanlight, sidelights, portico column capitals, and gable chimney cap remain simplified.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Stone house",
+        "footprint": [
+          [
+            -82.059,
+            131.468
+          ],
+          [
+            -72.397,
+            127.357
+          ],
+          [
+            -78.965,
+            111.916
+          ],
+          [
+            -88.628,
+            116.027
+          ]
+        ],
+        "height": 6.95,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "rise": 3.45,
+          "ridge": 157,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24,
+          "features": [
+            {
+              "type": "chimney",
+              "center": [
+                -81.7,
+                120.2
+              ],
+              "size": [
+                0.9,
+                1.12
+              ],
+              "height": 1.02,
+              "material": "chimney"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Copper-capped rear projection",
+        "footprint": [
+          [
+            -83.9174,
+            125.1599
+          ],
+          [
+            -85.8965,
+            126.0
+          ],
+          [
+            -87.3226,
+            122.6401
+          ],
+          [
+            -85.3435,
+            121.8
+          ]
+        ],
+        "height": 3.5,
+        "floors": 1,
+        "roof": {
+          "form": "hip",
+          "rise": 0.7,
+          "ridge": 157,
+          "material": "bayRoof",
+          "edge": "gutter",
+          "overhang": 0.13
+        },
+        "material": "wall"
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 5,
+      "position": 0.269,
+      "type": "doors-single",
+      "width": 1.32,
+      "height": 2.32,
+      "steps": 2,
+      "surround": "trim",
+      "canopy": {
+        "type": "portico",
+        "depth": 1.05,
+        "width": 3.2,
+        "columns": 2,
+        "material": "trim"
+      },
+      "doorColor": "#665949"
+    }
+  ],
+  "attachments": [
+    {
+      "type": "chimney-stack",
+      "walls": [
+        2
+      ],
+      "path": [
+        [
+          -77.95,
+          129.84
+        ],
+        [
+          -76.46,
+          129.2
+        ]
+      ],
+      "width": 0.74,
+      "height": 11.05,
+      "material": "wall"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -89.2,
+          121.1
+        ],
+        [
+          -86.2,
+          128.1
+        ]
+      ],
+      "width": 3.25,
+      "height": 0.19,
+      "material": "patio"
+    }
+  ]
+}

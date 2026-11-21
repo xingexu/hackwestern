@@ -1,0 +1,121 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3844",
+  "name": "Unnamed utility-yard structure",
+  "status": "refined",
+  "confidence": 0.45,
+  "summary": "A low rectangular utility-yard enclosure with a muted grey-brown roof, whose side walls are inferred due to minimal aerial visibility.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#8f918c",
+      "unitSize": [
+        0.78,
+        3.0100000000000002
+      ],
+      "variation": 0.06
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#777971",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#797975",
+      "unitSize": [
+        0.65,
+        1.8
+      ],
+      "variation": 0.09,
+      "weathering": 0.14,
+      "secondaryColor": "#72736e",
+      "roughness": 0.84
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.91,
+    "typicalHeight": 2.91
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall",
+      "base": {
+        "height": 0.12,
+        "projection": 0.03,
+        "material": "base"
+      },
+      "cornice": {
+        "height": 0.105,
+        "depth": 0.09,
+        "material": "trim"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.075,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Muted roof panel between the longer enclosure and the south fence. Its short north-west shadow separates it from the pavement. Roof patch sampled #898471."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 2.77 m, P90 3.04 m, maximum 3.17 m above inventory ground. 2.77 m median and 3.17 m maximum."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131662987",
+      "walls": [
+        0
+      ],
+      "note": "View towards the utility yard is screened by roadside vegetation. No opening or wall material can be resolved."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Enclosure",
+        "footprint": "inventory",
+        "height": 2.91,
+        "floors": 1
+      }
+    ]
+  },
+  "notes": "Wall finish inferred from the aerial context. No unobstructed view supports a specific door or window position. Access panel placement is inferred from the paved side of the enclosure.",
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.54,
+      "width": 1.05,
+      "height": 2.07,
+      "type": "service-door",
+      "recess": 0.09
+    }
+  ]
+}

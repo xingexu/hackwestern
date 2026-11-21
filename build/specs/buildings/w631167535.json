@@ -1,0 +1,445 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w631167535",
+  "name": "Benson House",
+  "status": "refined",
+  "confidence": 0.89,
+  "summary": "Benson consists of two red brick gabled volumes with offset roof ridges, white window trim, a central arched door hood, and a brick chimney.",
+  "style": "house",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#906050",
+      "secondaryColor": "#bbb0a1",
+      "unitSize": [
+        0.21,
+        0.067
+      ],
+      "variation": 0.18,
+      "bond": "running"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#4b4c50",
+      "roughness": 0.82,
+      "unitSize": [
+        0.32,
+        0.145
+      ],
+      "secondaryColor": "#37393d",
+      "variation": 0.12
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#dedad1"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#414346",
+      "roughness": 0.48
+    },
+    "stack": {
+      "kind": "brick",
+      "color": "#975b4b",
+      "secondaryColor": "#8b776c",
+      "unitSize": [
+        0.21,
+        0.067
+      ]
+    },
+    "rearRoof": {
+      "kind": "membrane",
+      "color": "#bcbcb2"
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 2.9,
+    "typicalHeight": 2.72
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.04,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.61,
+        "height": 1.22,
+        "sill": 0.78,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 0,
+          "width": 0.08
+        },
+        "frameColor": "#e4e0d5",
+        "glass": "clear",
+        "surround": "brick-soldier",
+        "sillProjecting": true
+      },
+      "topFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 0.87,
+          "height": 1.12,
+          "sill": 0.63,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          }
+        }
+      }
+    },
+    "byWall": {
+      "1": {
+        "bays": {
+          "count": 3,
+          "pattern": "regular",
+          "width": 3.7
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.61,
+          "height": 1.22,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.08
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "brick-soldier",
+          "sillProjecting": true
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 0.87,
+            "height": 1.12,
+            "sill": 0.63,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        },
+        "groundFloor": {
+          "windows": {
+            "width": 1.68
+          }
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular",
+          "width": 3.56
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.61,
+          "height": 1.22,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.08
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "brick-soldier",
+          "sillProjecting": true
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 0.87,
+            "height": 1.12,
+            "sill": 0.63,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 5,
+          "pattern": "regular",
+          "width": 3.64
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.61,
+          "height": 1.22,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.08
+          },
+          "frameColor": "#e4e0d5",
+          "glass": "clear",
+          "surround": "brick-soldier",
+          "sillProjecting": true
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 0.87,
+            "height": 1.12,
+            "sill": 0.63,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "rise": 2.55,
+    "ridge": 159,
+    "material": "roof",
+    "edge": "gutter",
+    "overhang": 0.24,
+    "features": [
+      {
+        "type": "chimney",
+        "center": [
+          -80,
+          147.8
+        ],
+        "size": [
+          0.85,
+          0.7
+        ],
+        "height": 1.87,
+        "material": "stack"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "127904755",
+      "walls": [
+        1,
+        2
+      ],
+      "note": "Red brick residence to the left of the buff house. White arched door hood, pale lintel accents, paired windows, and brick chimney."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34490519",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "Road approach provides an oblique end view through trees."
+    },
+    {
+      "kind": "aerial",
+      "note": "Two offset gable volumes share a long axis. A pale slab extends west of the house and the shingle roof changes height across the middle."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 7.29 m, P90 8.33 m and maximum 8.52 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Wall colour sampled with PIL. KartaView 127904755 at normalized pixel (0.378, 0.633). Roof tone sampled from the 2025 orthophoto. Dimensions and bay counts on obscured elevations are estimates."
+    },
+    {
+      "kind": "knowledge",
+      "note": "The street photograph resolves pale paired sashes, solid brickwork between openings and a slender brick stack. The shingle colour is sampled on 127904755 at (0.258, 0.504)."
+    }
+  ],
+  "notes": "Shadow evidence and nearby 2.5 to 4.2 m lidar samples indicate a low west annex, but adjacent tree canopy prevents a precise height reading. The rear projection height is the least certain part.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "North lower wing",
+        "footprint": {
+          "clip": [
+            [
+              -75.64,
+              145.88
+            ],
+            [
+              -76.96,
+              146.34
+            ],
+            [
+              -79.32,
+              139.64
+            ],
+            [
+              -86.99,
+              142.33
+            ],
+            [
+              -84.574,
+              149.191
+            ],
+            [
+              -75.535,
+              146.178
+            ]
+          ]
+        },
+        "height": 4.65,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "rise": 2.1,
+          "ridge": 159,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        },
+        "facade": {
+          "topFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 0.87,
+              "height": 1.12,
+              "sill": 0.63,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.065
+              }
+            }
+          },
+          "groundFloor": {
+            "windows": {
+              "width": 1.2
+            }
+          }
+        }
+      },
+      {
+        "name": "South principal block",
+        "footprint": {
+          "clip": [
+            [
+              -84.57388695954158,
+              149.1909623198472
+            ],
+            [
+              -80.94,
+              159.51
+            ],
+            [
+              -71.95,
+              156.35
+            ],
+            [
+              -75.535,
+              146.178
+            ]
+          ]
+        },
+        "height": 5.75,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "rise": 2.55,
+          "ridge": 159,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        }
+      },
+      {
+        "name": "Low pale roof on the west side",
+        "footprint": [
+          [
+            -85.7338,
+            144.6404
+          ],
+          [
+            -84.0315,
+            149.0749
+          ],
+          [
+            -89.3062,
+            151.0996
+          ],
+          [
+            -91.0085,
+            146.6651
+          ]
+        ],
+        "height": 2.65,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "rearRoof",
+          "edge": "fascia"
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          }
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.49,
+      "type": "doors-single",
+      "width": 1.05,
+      "height": 2.14,
+      "steps": 2,
+      "canopy": {
+        "type": "arched",
+        "depth": 0.95,
+        "width": 1.8,
+        "columns": 0,
+        "material": "trim"
+      },
+      "doorColor": "#62524b"
+    },
+    {
+      "wall": 2,
+      "position": 0.21,
+      "type": "doors-single",
+      "width": 0.92,
+      "height": 2.05,
+      "recess": 0.42,
+      "doorColor": "#62524b",
+      "canopy": {
+        "type": "flat",
+        "depth": 0.7,
+        "width": 1.35,
+        "columns": 0,
+        "material": "metal"
+      }
+    }
+  ]
+}

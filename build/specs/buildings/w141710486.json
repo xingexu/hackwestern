@@ -1,0 +1,2735 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w141710486",
+  "name": "University Community Center",
+  "status": "refined",
+  "confidence": 0.83,
+  "summary": "The stepped University Community Centre features a largely blank west facade of warm vertically scored precast panels, a curved south plan, and an east plaza elevation with dark gridded glass between pale horizontal bands, a tall semicircular mirrored arch, and a rounded balcony above grouped red doors.",
+  "style": "postmodern",
+  "materials": {
+    "wall": {
+      "kind": "concrete-board-formed",
+      "color": "#bdb4a1",
+      "secondaryColor": "#b4aa98",
+      "unitSize": [
+        0.32,
+        3.5
+      ],
+      "variation": 0.06,
+      "surface": "vertically scored concrete"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#afb1a2",
+      "roughness": 0.82
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d2c9b8",
+      "unitSize": [
+        0.8,
+        0.28
+      ]
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#414346",
+      "roughness": 0.48
+    },
+    "plaza": {
+      "kind": "precast-panel",
+      "color": "#b6b7bb",
+      "secondaryColor": "#aaa8a5",
+      "unitSize": [
+        1.65,
+        1.15
+      ],
+      "variation": 0.035
+    },
+    "portal": {
+      "kind": "precast-panel",
+      "color": "#7d7a82",
+      "unitSize": [
+        1.55,
+        1.18
+      ],
+      "secondaryColor": "#858289",
+      "variation": 0.035
+    },
+    "westRoof": {
+      "kind": "gravel-ballast",
+      "color": "#929185",
+      "roughness": 0.95,
+      "secondaryColor": "#77796f"
+    },
+    "roofLight": {
+      "kind": "glass-curtain",
+      "color": "#434c4a",
+      "secondaryColor": "#525b57",
+      "unitSize": [
+        1.05,
+        2.45
+      ]
+    },
+    "bronze": {
+      "kind": "spandrel-glass",
+      "color": "#493d36",
+      "secondaryColor": "#65554a"
+    },
+    "plazaBuff": {
+      "kind": "precast-panel",
+      "color": "#b8a78d",
+      "unitSize": [
+        2.8,
+        1.2
+      ]
+    },
+    "monitor": {
+      "kind": "metal-panel",
+      "color": "#c2bbae",
+      "unitSize": [
+        0.65,
+        3.2
+      ]
+    },
+    "monitorGlass": {
+      "kind": "glass-curtain",
+      "color": "#65716e",
+      "secondaryColor": "#4e5655"
+    },
+    "shelterRoof": {
+      "kind": "painted-metal",
+      "color": "#7a6689",
+      "unitSize": [
+        0.65,
+        0.75
+      ]
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.35,
+    "typicalHeight": 3.5
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.4,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "ribbon",
+        "width": 3.9,
+        "height": 2,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 0,
+          "width": 0.065
+        },
+        "frameColor": "#45494a",
+        "glass": "tinted",
+        "surround": "none"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.35,
+        "material": "wall"
+      },
+      "bands": [
+        {
+          "at": "floor-lines",
+          "height": 0.73,
+          "depth": 0.07,
+          "material": "wall"
+        }
+      ]
+    },
+    "byWall": {
+      "0": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "2": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "4": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "5": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 1
+        },
+        "windows": {
+          "type": "slot",
+          "width": 2.7,
+          "height": 3.1,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.95,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "frameColor": "#45494a",
+          "glass": "dark",
+          "surround": "none",
+          "glassColor": "#35383a"
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none"
+          }
+        }
+      },
+      "7": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 1
+        },
+        "windows": {
+          "type": "slot",
+          "width": 2.7,
+          "height": 3.1,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.95,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "frameColor": "#45494a",
+          "glass": "dark",
+          "surround": "none",
+          "glassColor": "#35383a"
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none"
+          }
+        }
+      },
+      "9": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "17": {
+        "bays": {
+          "count": 8,
+          "pattern": "regular",
+          "width": 3.37
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.1,
+          "height": 3.5,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.06,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "reflective",
+          "surround": "none"
+        },
+        "material": "plaza",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.66,
+            "depth": 0.065,
+            "material": "plaza"
+          }
+        ]
+      },
+      "18": {
+        "bays": {
+          "count": 1,
+          "pattern": "regular",
+          "width": 11.5
+        },
+        "windows": {
+          "type": "round-arch",
+          "width": 8.4,
+          "height": 7.6,
+          "sill": 0.6,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 4,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "reflective",
+          "surround": "none",
+          "glassColor": "#785760"
+        },
+        "balconies": {
+          "floors": [
+            1
+          ],
+          "every": 1,
+          "depth": 1.65,
+          "rail": "glass"
+        },
+        "material": "portal",
+        "bands": [],
+        "floorOverrides": {
+          "0": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "2": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "3": {
+            "windows": {
+              "type": "none"
+            }
+          }
+        }
+      },
+      "19": {
+        "bays": {
+          "count": 6,
+          "pattern": "regular",
+          "width": 3.51
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 3.51,
+          "height": 1.95,
+          "sill": 0.82,
+          "perBay": 1,
+          "recess": 0.06,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#514942",
+          "glass": "dark",
+          "surround": "none",
+          "glassColor": "#493f35"
+        },
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        }
+      },
+      "20": {
+        "bays": {
+          "count": 6,
+          "pattern": "regular",
+          "width": 3.24
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 3.24,
+          "height": 1.95,
+          "sill": 0.82,
+          "perBay": 1,
+          "recess": 0.06,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#514942",
+          "glass": "dark",
+          "surround": "none",
+          "glassColor": "#493f35"
+        },
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        }
+      },
+      "21": {
+        "bays": {
+          "count": 7,
+          "pattern": "regular",
+          "width": 3.17
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 3.17,
+          "height": 1.95,
+          "sill": 0.82,
+          "perBay": 1,
+          "recess": 0.06,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#514942",
+          "glass": "dark",
+          "surround": "none",
+          "glassColor": "#493f35"
+        },
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        }
+      },
+      "10-16": {
+        "windows": {
+          "type": "ribbon",
+          "width": 3.2,
+          "height": 1.85,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "tinted",
+          "surround": "none"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 3.3,
+            "height": 3.1,
+            "sill": 0.1,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "frameColor": "#45494a",
+            "glass": "tinted",
+            "surround": "none"
+          }
+        }
+      },
+      "10": {
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 4.4,
+          "height": 1.95,
+          "sill": 0.82,
+          "glass": "dark",
+          "glassColor": "#493f35",
+          "frameColor": "#514942"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "recess": 0.7,
+            "height": 3.15,
+            "sill": 0.1
+          }
+        }
+      },
+      "11": {
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 4.4,
+          "height": 1.95,
+          "sill": 0.82,
+          "glass": "dark",
+          "glassColor": "#493f35",
+          "frameColor": "#514942"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "recess": 0.7,
+            "height": 3.15,
+            "sill": 0.1
+          }
+        }
+      },
+      "12": {
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 4.4,
+          "height": 1.95,
+          "sill": 0.82,
+          "glass": "dark",
+          "glassColor": "#493f35",
+          "frameColor": "#514942"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "recess": 0.7,
+            "height": 3.15,
+            "sill": 0.1
+          }
+        }
+      },
+      "13": {
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 4.4,
+          "height": 1.95,
+          "sill": 0.82,
+          "glass": "dark",
+          "glassColor": "#493f35",
+          "frameColor": "#514942"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "recess": 0.7,
+            "height": 3.15,
+            "sill": 0.1
+          }
+        }
+      },
+      "14": {
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 4.4,
+          "height": 1.95,
+          "sill": 0.82,
+          "glass": "dark",
+          "glassColor": "#493f35",
+          "frameColor": "#514942"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "recess": 0.7,
+            "height": 3.15,
+            "sill": 0.1
+          }
+        }
+      },
+      "15": {
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 4.4,
+          "height": 1.95,
+          "sill": 0.82,
+          "glass": "dark",
+          "glassColor": "#493f35",
+          "frameColor": "#514942"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "recess": 0.7,
+            "height": 3.15,
+            "sill": 0.1
+          }
+        }
+      },
+      "16": {
+        "material": "plazaBuff",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.73,
+            "depth": 0.1,
+            "material": "plazaBuff"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "bronze"
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 4.4,
+          "height": 1.95,
+          "sill": 0.82,
+          "glass": "dark",
+          "glassColor": "#493f35",
+          "frameColor": "#514942"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "recess": 0.7,
+            "height": 3.15,
+            "sill": 0.1
+          }
+        }
+      },
+      "22": {
+        "material": "plaza",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.66,
+            "depth": 0.065,
+            "material": "plaza"
+          }
+        ]
+      },
+      "23": {
+        "material": "plaza",
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 0.66,
+            "depth": 0.065,
+            "material": "plaza"
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          18,
+          248
+        ],
+        "size": [
+          18.5,
+          10
+        ],
+        "height": 2.1,
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          24,
+          282
+        ],
+        "size": [
+          2.5,
+          3.4
+        ],
+        "height": 1.1
+      },
+      {
+        "type": "skylight",
+        "center": [
+          23,
+          281
+        ],
+        "size": [
+          3.6,
+          4.8
+        ],
+        "height": 0.45,
+        "rotation": 10,
+        "material": "monitorGlass"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          22.5,
+          288
+        ],
+        "size": [
+          3.6,
+          4.8
+        ],
+        "height": 0.45,
+        "rotation": 10,
+        "material": "monitorGlass"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          22,
+          295
+        ],
+        "size": [
+          3.6,
+          4.8
+        ],
+        "height": 0.45,
+        "rotation": 10,
+        "material": "monitorGlass"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          48,
+          254
+        ],
+        "size": [
+          2.3,
+          2.8
+        ],
+        "height": 1.1,
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          48,
+          260
+        ],
+        "size": [
+          2.3,
+          2.8
+        ],
+        "height": 1.1,
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          49,
+          266
+        ],
+        "size": [
+          2.3,
+          2.8
+        ],
+        "height": 1.1,
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          80,
+          260
+        ],
+        "size": [
+          2.3,
+          2.8
+        ],
+        "height": 1.1,
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          86,
+          259
+        ],
+        "size": [
+          2.3,
+          2.8
+        ],
+        "height": 1.1,
+        "rotation": 10
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "128912251",
+      "walls": [
+        0,
+        2,
+        4
+      ],
+      "note": "Sunlit west corner has nearly blind tan scored panels with horizontal construction joints."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "552818826",
+      "walls": [
+        6,
+        8
+      ],
+      "note": "Dark recessed opening interrupts the lower western blocks."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/UCC.jpg",
+      "note": "Plaza portal with round arch, shallow curved upper balcony and rectangular glazing on either side.",
+      "walls": [
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "kind": "photo",
+      "url": "https://westernusc.ca/wp-content/uploads/2023/11/F2024-USC-Budget-Book.pdf",
+      "note": "Cover shows mirrored radial soffit, red doors and glass balcony rail in the portal."
+    },
+    {
+      "kind": "aerial",
+      "note": "The south wall follows a broad arc on walls 10–16. The western box, glazed plaza wings and long raised rooflight have distinct roof edges."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 13.45 m, P90 15.6 m and maximum 17.82 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Wall colour sampled with PIL. KartaView 128912251 at normalized pixel (0.985, 0.586). Roof tone sampled from the 2025 orthophoto. Dimensions and bay counts on obscured elevations are estimates."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Western service block has tan precast. Plaza spandrels and the portal surround use separate colours sampled from the Western Facilities photograph. The semicircular recess spans the upper floors."
+    }
+  ],
+  "notes": "The repetitive punched windows were replaced with isolated dark recessed service openings while the blank vertically scored concrete stretches were kept. The vaulted reflective soffit, curved balcony, and red door bank read as a small shallow opening from the southeast.",
+  "entrances": [
+    {
+      "wall": 18,
+      "position": 0.49,
+      "type": "arched-portal",
+      "width": 7.2,
+      "height": 3.3,
+      "recess": 1.5,
+      "doorColor": "#93383e"
+    },
+    {
+      "wall": 5,
+      "position": 0.77,
+      "type": "service-door",
+      "width": 1.4,
+      "height": 2.2
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Western precast block",
+        "footprint": {
+          "clip": [
+            [
+              -4.84,
+              242.03
+            ],
+            [
+              -8.61,
+              241.54
+            ],
+            [
+              -9.83,
+              248.31
+            ],
+            [
+              -6.05,
+              249.3
+            ],
+            [
+              -8.29,
+              261.52
+            ],
+            [
+              -9.08,
+              266.26
+            ],
+            [
+              -2.47,
+              267.4
+            ],
+            [
+              -4.22,
+              278.24
+            ],
+            [
+              -0.46,
+              279.06
+            ],
+            [
+              -3.75,
+              299.14
+            ],
+            [
+              2.09,
+              300.15
+            ],
+            [
+              11.832,
+              301.844
+            ],
+            [
+              16.0,
+              266.0
+            ],
+            [
+              43.0,
+              270.0
+            ],
+            [
+              45.851,
+              243.869
+            ],
+            [
+              -3.47,
+              234.99
+            ]
+          ]
+        },
+        "height": 9.2,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "westRoof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Eastern plaza wing",
+        "footprint": [
+          [
+            68.28,
+            289.31
+          ],
+          [
+            72.85,
+            286.1
+          ],
+          [
+            93.56,
+            289.93
+          ],
+          [
+            109.38,
+            278.61
+          ],
+          [
+            112.22,
+            260.8
+          ],
+          [
+            112.98,
+            256.69
+          ],
+          [
+            105.01,
+            255.21
+          ],
+          [
+            105.37,
+            252.83
+          ],
+          [
+            91.21,
+            250.27
+          ],
+          [
+            89.57,
+            251.34
+          ],
+          [
+            59.15,
+            246.33
+          ],
+          [
+            52.64,
+            245.02
+          ],
+          [
+            45.97,
+            243.89
+          ],
+          [
+            44.733,
+            243.667
+          ],
+          [
+            45.851,
+            243.869
+          ],
+          [
+            43.0,
+            270.0
+          ],
+          [
+            41.412,
+            269.765
+          ],
+          [
+            41.0,
+            273.0
+          ],
+          [
+            66.0,
+            301.0
+          ],
+          [
+            69.252,
+            301.407
+          ],
+          [
+            63.53,
+            292.85
+          ]
+        ],
+        "height": 13.6,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Curved southern wing",
+        "footprint": {
+          "clip": [
+            [
+              28.96,
+              311.02
+            ],
+            [
+              34.21,
+              317.27
+            ],
+            [
+              40.14,
+              322.14
+            ],
+            [
+              48.17,
+              325.23
+            ],
+            [
+              52.7,
+              325.56
+            ],
+            [
+              57.22,
+              325.73
+            ],
+            [
+              63.27,
+              324.07
+            ],
+            [
+              67.3,
+              322.63
+            ],
+            [
+              71.63,
+              319.72
+            ],
+            [
+              78.51,
+              315.25
+            ],
+            [
+              69.252,
+              301.407
+            ],
+            [
+              66.0,
+              301.0
+            ],
+            [
+              41.0,
+              273.0
+            ],
+            [
+              41.412,
+              269.765
+            ],
+            [
+              16.0,
+              266.0
+            ],
+            [
+              11.832,
+              301.844
+            ],
+            [
+              23.48,
+              303.87
+            ],
+            [
+              26.21,
+              304.35
+            ]
+          ]
+        },
+        "height": 13.65,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Raised L-shaped plaza block",
+        "footprint": [
+          [
+            52.0,
+            271.0
+          ],
+          [
+            73.0,
+            275.0
+          ],
+          [
+            74.0,
+            266.0
+          ],
+          [
+            88.0,
+            268.0
+          ],
+          [
+            90.0,
+            256.0
+          ],
+          [
+            55.0,
+            250.0
+          ]
+        ],
+        "height": 15.95,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "baseOffset": 13.6,
+        "facade": {
+          "windows": {
+            "type": "none"
+          },
+          "blank": true,
+          "bands": []
+        }
+      },
+      {
+        "name": "North metal apron of monitor",
+        "footprint": [
+          [
+            62.557,
+            281.82
+          ],
+          [
+            28.976,
+            276.501
+          ],
+          [
+            28.732,
+            278.042
+          ],
+          [
+            62.313,
+            283.361
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 14.25,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 1.47,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "South metal slope of monitor",
+        "footprint": [
+          [
+            61.916,
+            285.869
+          ],
+          [
+            28.334,
+            280.55
+          ],
+          [
+            27.443,
+            286.18
+          ],
+          [
+            61.024,
+            291.499
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 14.12,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 3.74,
+          "ridge": 279,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Glazed north slope",
+        "footprint": [
+          [
+            62.313,
+            283.361
+          ],
+          [
+            28.732,
+            278.042
+          ],
+          [
+            28.334,
+            280.55
+          ],
+          [
+            61.916,
+            285.869
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.72,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "roofLight",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 1",
+        "footprint": [
+          [
+            28.825,
+            278.051
+          ],
+          [
+            28.759,
+            278.041
+          ],
+          [
+            28.36,
+            280.56
+          ],
+          [
+            28.426,
+            280.57
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 2",
+        "footprint": [
+          [
+            30.219,
+            278.272
+          ],
+          [
+            30.153,
+            278.262
+          ],
+          [
+            29.754,
+            280.78
+          ],
+          [
+            29.82,
+            280.791
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 3",
+        "footprint": [
+          [
+            31.613,
+            278.493
+          ],
+          [
+            31.547,
+            278.483
+          ],
+          [
+            31.148,
+            281.001
+          ],
+          [
+            31.215,
+            281.012
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 4",
+        "footprint": [
+          [
+            33.008,
+            278.714
+          ],
+          [
+            32.942,
+            278.703
+          ],
+          [
+            32.543,
+            281.222
+          ],
+          [
+            32.609,
+            281.233
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 5",
+        "footprint": [
+          [
+            34.402,
+            278.935
+          ],
+          [
+            34.336,
+            278.924
+          ],
+          [
+            33.937,
+            281.443
+          ],
+          [
+            34.003,
+            281.453
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 6",
+        "footprint": [
+          [
+            35.796,
+            279.156
+          ],
+          [
+            35.73,
+            279.145
+          ],
+          [
+            35.331,
+            281.664
+          ],
+          [
+            35.397,
+            281.674
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 7",
+        "footprint": [
+          [
+            37.191,
+            279.376
+          ],
+          [
+            37.124,
+            279.366
+          ],
+          [
+            36.726,
+            281.885
+          ],
+          [
+            36.792,
+            281.895
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 8",
+        "footprint": [
+          [
+            38.585,
+            279.597
+          ],
+          [
+            38.519,
+            279.587
+          ],
+          [
+            38.12,
+            282.105
+          ],
+          [
+            38.186,
+            282.116
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 9",
+        "footprint": [
+          [
+            39.979,
+            279.818
+          ],
+          [
+            39.913,
+            279.808
+          ],
+          [
+            39.514,
+            282.326
+          ],
+          [
+            39.58,
+            282.337
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 10",
+        "footprint": [
+          [
+            41.374,
+            280.039
+          ],
+          [
+            41.307,
+            280.028
+          ],
+          [
+            40.908,
+            282.547
+          ],
+          [
+            40.975,
+            282.558
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 11",
+        "footprint": [
+          [
+            42.768,
+            280.26
+          ],
+          [
+            42.702,
+            280.249
+          ],
+          [
+            42.303,
+            282.768
+          ],
+          [
+            42.369,
+            282.778
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 12",
+        "footprint": [
+          [
+            44.162,
+            280.481
+          ],
+          [
+            44.096,
+            280.47
+          ],
+          [
+            43.697,
+            282.989
+          ],
+          [
+            43.763,
+            282.999
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 13",
+        "footprint": [
+          [
+            45.556,
+            280.701
+          ],
+          [
+            45.49,
+            280.691
+          ],
+          [
+            45.091,
+            283.21
+          ],
+          [
+            45.157,
+            283.22
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 14",
+        "footprint": [
+          [
+            46.951,
+            280.922
+          ],
+          [
+            46.884,
+            280.912
+          ],
+          [
+            46.486,
+            283.43
+          ],
+          [
+            46.552,
+            283.441
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 15",
+        "footprint": [
+          [
+            48.345,
+            281.143
+          ],
+          [
+            48.279,
+            281.133
+          ],
+          [
+            47.88,
+            283.651
+          ],
+          [
+            47.946,
+            283.662
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 16",
+        "footprint": [
+          [
+            49.739,
+            281.364
+          ],
+          [
+            49.673,
+            281.353
+          ],
+          [
+            49.274,
+            283.872
+          ],
+          [
+            49.34,
+            283.883
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 17",
+        "footprint": [
+          [
+            51.134,
+            281.585
+          ],
+          [
+            51.067,
+            281.574
+          ],
+          [
+            50.668,
+            284.093
+          ],
+          [
+            50.735,
+            284.103
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 18",
+        "footprint": [
+          [
+            52.528,
+            281.806
+          ],
+          [
+            52.462,
+            281.795
+          ],
+          [
+            52.063,
+            284.314
+          ],
+          [
+            52.129,
+            284.324
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 19",
+        "footprint": [
+          [
+            53.922,
+            282.026
+          ],
+          [
+            53.856,
+            282.016
+          ],
+          [
+            53.457,
+            284.535
+          ],
+          [
+            53.523,
+            284.545
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 20",
+        "footprint": [
+          [
+            55.316,
+            282.247
+          ],
+          [
+            55.25,
+            282.237
+          ],
+          [
+            54.851,
+            284.755
+          ],
+          [
+            54.917,
+            284.766
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 21",
+        "footprint": [
+          [
+            56.711,
+            282.468
+          ],
+          [
+            56.644,
+            282.458
+          ],
+          [
+            56.246,
+            284.976
+          ],
+          [
+            56.312,
+            284.987
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 22",
+        "footprint": [
+          [
+            58.105,
+            282.689
+          ],
+          [
+            58.039,
+            282.678
+          ],
+          [
+            57.64,
+            285.197
+          ],
+          [
+            57.706,
+            285.208
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 23",
+        "footprint": [
+          [
+            59.499,
+            282.91
+          ],
+          [
+            59.433,
+            282.899
+          ],
+          [
+            59.034,
+            285.418
+          ],
+          [
+            59.1,
+            285.428
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 24",
+        "footprint": [
+          [
+            60.894,
+            283.131
+          ],
+          [
+            60.827,
+            283.12
+          ],
+          [
+            60.428,
+            285.639
+          ],
+          [
+            60.495,
+            285.649
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Rooflight glazing bar 25",
+        "footprint": [
+          [
+            62.288,
+            283.351
+          ],
+          [
+            62.222,
+            283.341
+          ],
+          [
+            61.823,
+            285.86
+          ],
+          [
+            61.889,
+            285.87
+          ]
+        ],
+        "baseOffset": 13.55,
+        "height": 15.76,
+        "floors": 1,
+        "material": "monitor",
+        "facade": {
+          "material": "monitor",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "material": "monitor",
+          "rise": 2.14,
+          "ridge": 99,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Purple plaza shelter curved roof 1",
+        "footprint": [
+          [
+            99.736,
+            306.234
+          ],
+          [
+            98.104,
+            307.355
+          ],
+          [
+            93.596,
+            300.795
+          ],
+          [
+            95.228,
+            299.673
+          ]
+        ],
+        "baseOffset": 2.48,
+        "height": 2.69,
+        "floors": 1,
+        "material": "shelterRoof",
+        "facade": {
+          "material": "shelterRoof",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.49,
+          "ridge": 145.51004336926863,
+          "material": "shelterRoof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Purple plaza shelter curved roof 2",
+        "footprint": [
+          [
+            98.104,
+            307.355
+          ],
+          [
+            96.472,
+            308.477
+          ],
+          [
+            91.964,
+            301.916
+          ],
+          [
+            93.596,
+            300.795
+          ]
+        ],
+        "baseOffset": 2.48,
+        "height": 2.69,
+        "floors": 1,
+        "material": "shelterRoof",
+        "facade": {
+          "material": "shelterRoof",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "barrel",
+          "rise": 0.49,
+          "ridge": 145.51004336926863,
+          "material": "shelterRoof",
+          "edge": "fascia"
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          66.4,
+          293.9
+        ],
+        [
+          69.6,
+          298.7
+        ],
+        [
+          75.5,
+          307.3
+        ],
+        [
+          80.1,
+          313.1
+        ],
+        [
+          84.3,
+          310.3
+        ]
+      ],
+      "width": 0.42,
+      "height": 0.8,
+      "material": "trim"
+    },
+    {
+      "type": "ramp",
+      "path": [
+        [
+          80,
+          312
+        ],
+        [
+          76.1,
+          306.2
+        ],
+        [
+          68.8,
+          295.7
+        ]
+      ],
+      "width": 1.72,
+      "height": 0.78,
+      "material": "plaza",
+      "rail": "metal"
+    },
+    {
+      "type": "exterior-stair",
+      "path": [
+        [
+          81.6,
+          313.6
+        ],
+        [
+          85.2,
+          311.1
+        ]
+      ],
+      "width": 2.25,
+      "height": 0.83,
+      "material": "trim",
+      "rail": "metal"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          66.35,
+          288.0
+        ],
+        [
+          67.49,
+          287.85
+        ],
+        [
+          68.62,
+          288.02
+        ],
+        [
+          69.61,
+          288.49
+        ],
+        [
+          70.31,
+          289.2
+        ],
+        [
+          70.65,
+          290.06
+        ],
+        [
+          70.57,
+          290.96
+        ],
+        [
+          70.1,
+          291.77
+        ],
+        [
+          69.28,
+          292.41
+        ],
+        [
+          68.23,
+          292.78
+        ],
+        [
+          67.07,
+          292.83
+        ],
+        [
+          65.97,
+          292.57
+        ],
+        [
+          65.05,
+          292.02
+        ]
+      ],
+      "width": 0.34,
+      "height": 0.91,
+      "material": "plaza"
+    },
+    {
+      "type": "covered-walkway",
+      "path": [
+        [
+          93.6,
+          300.8
+        ],
+        [
+          98.1,
+          307.35
+        ]
+      ],
+      "width": 4.1,
+      "height": 2.55,
+      "material": "shelterRoof",
+      "columns": 4,
+      "columnDiameter": 0.12,
+      "columnShape": "round"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-plant-yard",
+  "name": "University service plant enclosure",
+  "status": "auto",
+  "confidence": 0.32,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "aerial",
+      "note": "Survey footprint"
+    }
+  ],
+  "style": "industrial-utility",
+  "floors": {
+    "count": 1,
+    "typicalHeight": 5.4,
+    "groundFloorHeight": 5.4
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 3.71,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#b9afa1",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c0beac"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5
+      },
+      "windows": {
+        "type": "slot",
+        "width": 1,
+        "height": 0.9,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#69828e",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

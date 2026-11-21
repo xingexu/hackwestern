@@ -1,0 +1,60 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3781",
+  "name": "South Valley lawn west",
+  "status": "refined",
+  "confidence": 0.96,
+  "style": "industrial-utility",
+  "summary": "Absent footprint showing grass with trees and a footpath beyond the survey rectangle, so omit the historical city footprint from the building mesh.",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#898981"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#7e7758"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c2b9a8"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 0,
+    "typicalHeight": 0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 1,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The 2025 orthophoto shows grass, with trees and a footpath beyond the survey rectangle. No roof edge or building shadow falls within the footprint."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 0.44 m, 90th percentile 0.59 m, maximum 0.67 m."
+    }
+  ],
+  "present": false,
+  "notes": "Omit the historical city footprint from the building mesh."
+}

@@ -1,0 +1,1302 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r7932252",
+  "name": "Chemistry Building",
+  "status": "refined",
+  "confidence": 0.77,
+  "summary": "Chemistry Building has a long low north lab block with alternating light cladding and dark window bands, taller stone south lab wings, and crowded flat roofs with silver ducts and flues.",
+  "style": "mid-century-modern",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#9a9890",
+      "secondaryColor": "#83817a",
+      "unitSize": [
+        0.43,
+        0.22
+      ],
+      "variation": 0.23,
+      "roughness": 0.83,
+      "bond": "random-ashlar"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#3a3b35"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#b3b0a7"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#babebd"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "lightLabRoof": {
+      "kind": "membrane",
+      "color": "#b4b3a9"
+    },
+    "northPrecast": {
+      "kind": "precast-panel",
+      "color": "#a49d91",
+      "secondaryColor": "#8d887c",
+      "unitSize": [
+        3.4,
+        1.25
+      ]
+    },
+    "stack": {
+      "kind": "painted-metal",
+      "color": "#c8cbca",
+      "metalness": 0.65
+    },
+    "labPlantCladding": {
+      "kind": "corrugated-metal",
+      "color": "#383b3c",
+      "unitSize": [
+        0.29,
+        3.9
+      ],
+      "variation": 0.035
+    }
+  },
+  "floors": {
+    "count": 5,
+    "groundFloorHeight": 4.5,
+    "typicalHeight": 4.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.045
+      },
+      "bays": {
+        "width": 3.55,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "punched",
+        "width": 2.15,
+        "height": 1.7,
+        "sill": 0.89,
+        "perBay": 1,
+        "recess": 0.16,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "frameColor": "#8f918d",
+        "glass": "tinted",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.45,
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4.4,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.14,
+          "height": 1.8,
+          "perBay": 2,
+          "spacing": 0.19,
+          "frameColor": "#d5d3c8",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2
+          }
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 4.36,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 3.47,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 15
+        }
+      },
+      "3": {
+        "material": "northPrecast",
+        "windows": {
+          "type": "ribbon",
+          "width": 6.3,
+          "height": 1.48,
+          "sill": 1.05,
+          "recess": 0.3,
+          "glassColor": "#364344",
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.05
+          }
+        },
+        "bays": {
+          "width": 7.0,
+          "groupSize": 2,
+          "pattern": "grouped",
+          "groupGap": 0.65
+        }
+      },
+      "4": {
+        "material": "northPrecast",
+        "windows": {
+          "type": "ribbon",
+          "width": 6.3,
+          "height": 1.48,
+          "sill": 1.05,
+          "recess": 0.3,
+          "glassColor": "#364344",
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.05
+          }
+        },
+        "bays": {
+          "width": 7.0,
+          "groupSize": 2,
+          "pattern": "grouped",
+          "groupGap": 0.65
+        }
+      },
+      "5": {
+        "material": "northPrecast",
+        "windows": {
+          "type": "ribbon",
+          "width": 6.3,
+          "height": 1.48,
+          "sill": 1.05,
+          "recess": 0.3,
+          "glassColor": "#364344",
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.05
+          }
+        },
+        "bays": {
+          "width": 7.0,
+          "groupSize": 2,
+          "pattern": "grouped",
+          "groupGap": 0.65
+        }
+      },
+      "6": {
+        "material": "northPrecast",
+        "windows": {
+          "type": "ribbon",
+          "width": 6.3,
+          "height": 1.48,
+          "sill": 1.05,
+          "recess": 0.3,
+          "glassColor": "#364344",
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.05
+          }
+        },
+        "bays": {
+          "width": 7.0,
+          "groupSize": 2,
+          "pattern": "grouped",
+          "groupGap": 0.65
+        }
+      },
+      "7": {
+        "material": "northPrecast",
+        "windows": {
+          "type": "ribbon",
+          "width": 6.3,
+          "height": 1.48,
+          "sill": 1.05,
+          "recess": 0.3,
+          "glassColor": "#364344",
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.05
+          }
+        },
+        "bays": {
+          "width": 7.0,
+          "groupSize": 2,
+          "pattern": "grouped",
+          "groupGap": 0.65
+        }
+      },
+      "8": {
+        "material": "northPrecast",
+        "windows": {
+          "type": "ribbon",
+          "width": 6.3,
+          "height": 1.48,
+          "sill": 1.05,
+          "recess": 0.3,
+          "glassColor": "#364344",
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.05
+          }
+        },
+        "bays": {
+          "width": 7.0,
+          "groupSize": 2,
+          "pattern": "grouped",
+          "groupGap": 0.65
+        }
+      },
+      "9": {
+        "material": "northPrecast",
+        "windows": {
+          "type": "ribbon",
+          "width": 6.3,
+          "height": 1.48,
+          "sill": 1.05,
+          "recess": 0.3,
+          "glassColor": "#364344",
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.05
+          }
+        },
+        "bays": {
+          "width": 7.0,
+          "groupSize": 2,
+          "pattern": "grouped",
+          "groupGap": 0.65
+        }
+      },
+      "10": {
+        "material": "northPrecast",
+        "windows": {
+          "type": "ribbon",
+          "width": 6.3,
+          "height": 1.48,
+          "sill": 1.05,
+          "recess": 0.3,
+          "glassColor": "#364344",
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.05
+          }
+        },
+        "bays": {
+          "width": 7.0,
+          "groupSize": 2,
+          "pattern": "grouped",
+          "groupGap": 0.65
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 3.38,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 8
+        }
+      },
+      "12": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "13": {
+        "bays": {
+          "width": 3.55,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 4.4,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.14,
+          "height": 1.8,
+          "perBay": 2,
+          "spacing": 0.19,
+          "frameColor": "#d5d3c8",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2
+          }
+        }
+      },
+      "15": {
+        "windows": {
+          "width": 1.14,
+          "height": 1.8,
+          "perBay": 2,
+          "spacing": 0.19,
+          "frameColor": "#d5d3c8",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2
+          }
+        },
+        "bays": {
+          "width": 4.4,
+          "pattern": "paired"
+        }
+      },
+      "16": {
+        "bays": {
+          "width": 4.4,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.14,
+          "height": 1.8,
+          "perBay": 2,
+          "spacing": 0.19,
+          "frameColor": "#d5d3c8",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2
+          }
+        }
+      },
+      "17": {
+        "windows": {
+          "width": 1.14,
+          "height": 1.8,
+          "perBay": 2,
+          "spacing": 0.19,
+          "frameColor": "#d5d3c8",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2
+          }
+        },
+        "bays": {
+          "width": 4.4,
+          "pattern": "paired"
+        }
+      },
+      "18": {
+        "bays": {
+          "width": 4.4,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.14,
+          "height": 1.8,
+          "perBay": 2,
+          "spacing": 0.19,
+          "frameColor": "#d5d3c8",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2
+          }
+        }
+      },
+      "19": {
+        "windows": {
+          "width": 1.14,
+          "height": 1.8,
+          "perBay": 2,
+          "spacing": 0.19,
+          "frameColor": "#d5d3c8",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2
+          }
+        },
+        "bays": {
+          "width": 4.4,
+          "pattern": "paired"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          320.94,
+          -0.76
+        ],
+        "size": [
+          7.5,
+          24
+        ],
+        "height": 3.65,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          312.18,
+          -12.4
+        ],
+        "size": [
+          5.2,
+          7.3
+        ],
+        "height": 2.2,
+        "material": "plant",
+        "rotation": -21,
+        "style": "paired cooling fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          325.88,
+          17.69
+        ],
+        "size": [
+          5.6,
+          7
+        ],
+        "height": 2,
+        "material": "plant",
+        "rotation": -21,
+        "style": "paired cooling fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          332.23,
+          -38.31
+        ],
+        "size": [
+          5,
+          7.7
+        ],
+        "height": 2.6,
+        "material": "plant",
+        "rotation": -21,
+        "style": "paired cooling fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          308.31,
+          -14.13
+        ],
+        "size": [
+          3.7,
+          4
+        ],
+        "height": 1.4,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          309.67,
+          -5.01
+        ],
+        "size": [
+          2.1,
+          5
+        ],
+        "height": 1.8,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          315.98,
+          8.64
+        ],
+        "size": [
+          3.4,
+          4.3
+        ],
+        "height": 1.6,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          326.95,
+          20.49
+        ],
+        "size": [
+          3.8,
+          2.5
+        ],
+        "height": 1.4,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          326.62,
+          -22.23
+        ],
+        "size": [
+          3.9,
+          3.3
+        ],
+        "height": 1.7,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          326.91,
+          -29.84
+        ],
+        "size": [
+          3,
+          4
+        ],
+        "height": 2.1,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          334.53,
+          -43.47
+        ],
+        "size": [
+          2.5,
+          3.9
+        ],
+        "height": 1.5,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          318.32,
+          -66.17
+        ],
+        "size": [
+          4.1,
+          3.3
+        ],
+        "height": 1.9,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          315.1,
+          -74.57
+        ],
+        "size": [
+          3,
+          2.4
+        ],
+        "height": 1.3,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          312.11,
+          -7.02
+        ],
+        "size": [
+          0.62,
+          0.65
+        ],
+        "height": 2.6,
+        "rotation": -21,
+        "material": "plant",
+        "style": "round metal exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          317.05,
+          11.44
+        ],
+        "size": [
+          0.62,
+          0.65
+        ],
+        "height": 2.6,
+        "rotation": -21,
+        "material": "plant",
+        "style": "round metal exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          325.67,
+          5.99
+        ],
+        "size": [
+          0.62,
+          0.65
+        ],
+        "height": 2.6,
+        "rotation": -21,
+        "material": "plant",
+        "style": "round metal exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          328.13,
+          -23.88
+        ],
+        "size": [
+          0.62,
+          0.65
+        ],
+        "height": 2.6,
+        "rotation": -21,
+        "material": "plant",
+        "style": "round metal exhaust stack"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          329.8,
+          -66.5
+        ],
+        "size": [
+          19.4,
+          7.7
+        ],
+        "height": 4.1,
+        "material": "labPlantCladding",
+        "rotation": 24
+      },
+      {
+        "type": "stair-tower",
+        "center": [
+          344.61,
+          -68.25
+        ],
+        "size": [
+          1.6,
+          1.4
+        ],
+        "height": 2.95,
+        "material": "northPrecast",
+        "rotation": 24
+      },
+      {
+        "type": "stair-tower",
+        "center": [
+          330.85,
+          -74.35
+        ],
+        "size": [
+          1.6,
+          1.4
+        ],
+        "height": 2.95,
+        "material": "northPrecast",
+        "rotation": 24
+      },
+      {
+        "type": "stair-tower",
+        "center": [
+          315.49,
+          -81.16
+        ],
+        "size": [
+          1.6,
+          1.4
+        ],
+        "height": 2.95,
+        "material": "northPrecast",
+        "rotation": 24
+      },
+      {
+        "type": "stair-tower",
+        "center": [
+          345.97,
+          -63.73
+        ],
+        "size": [
+          1.6,
+          1.4
+        ],
+        "height": 2.95,
+        "material": "northPrecast",
+        "rotation": 24
+      },
+      {
+        "type": "chimney",
+        "center": [
+          334.25,
+          -49.79
+        ],
+        "size": [
+          1.45,
+          1.45
+        ],
+        "height": 21.6,
+        "material": "stack",
+        "rotation": 0,
+        "style": "round"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          339.6,
+          -62.2
+        ],
+        "size": [
+          4,
+          6.1
+        ],
+        "height": 3.55,
+        "material": "labPlantCladding",
+        "rotation": 24
+      },
+      {
+        "type": "hvac",
+        "center": [
+          324.8,
+          -67.9
+        ],
+        "size": [
+          1.35,
+          4
+        ],
+        "height": 1.45,
+        "material": "plant",
+        "rotation": 24,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          335.6,
+          -63.3
+        ],
+        "size": [
+          0.8,
+          4.9
+        ],
+        "height": 1.45,
+        "material": "plant",
+        "rotation": 24,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          321.9,
+          -62.5
+        ],
+        "size": [
+          30.81,
+          1.05
+        ],
+        "height": 0.95,
+        "rotation": 23.74,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          337.25,
+          -59.2
+        ],
+        "size": [
+          6.32,
+          1
+        ],
+        "height": 0.95,
+        "rotation": -66.68,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          325.6,
+          -67.6
+        ],
+        "size": [
+          24.08,
+          0.75
+        ],
+        "height": 0.95,
+        "rotation": 24.01,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          331.2,
+          -32.55
+        ],
+        "size": [
+          24.28,
+          1.0
+        ],
+        "height": 0.95,
+        "rotation": 113.29,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          326.0,
+          -35.05
+        ],
+        "size": [
+          19.71,
+          0.85
+        ],
+        "height": 0.95,
+        "rotation": 113.31,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          312.15,
+          -3.1
+        ],
+        "size": [
+          23.07,
+          1.1
+        ],
+        "height": 0.95,
+        "rotation": 69.44,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          320.65,
+          6.1
+        ],
+        "size": [
+          9.46,
+          0.78
+        ],
+        "height": 0.95,
+        "rotation": -19.78,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          325.55,
+          10.55
+        ],
+        "size": [
+          16.92,
+          0.85
+        ],
+        "height": 0.95,
+        "rotation": 68.14,
+        "material": "plant",
+        "style": "duct"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 21.22 m, P90 27.87 m, highest return 31.77 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Original reference colour from a mean image patch centred at (87,112) on a 300 by 300 normalized grid in MSA. Raw sRGB #797871. Joint colours and unit sizes estimated."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [334.48, -65.95] averages #3a3b35."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/CHB.jpg",
+      "note": "University facilities oblique reference shows the two-storey banded Perth Drive block with a pedestrian path on the northeast lawn and a taller stone-clad laboratory wing behind."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/MSA.jpg",
+      "note": "Adjacent laboratory elevations at the south end have small multi-light windows, pale masonry, flat parapets and an elevated glazed connection."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "33520350",
+      "walls": [
+        5,
+        6
+      ],
+      "note": "The low banded range on the right side of the street has broad pale bays, continuous dark horizontal glazing and a prominent narrow silver exhaust stack. The tall building across the road is separate."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131413927",
+      "walls": [
+        3,
+        5
+      ],
+      "note": "Pale bands turn the road-facing corner. Upper service zone is dark. The doors and northern yard are partly occluded."
+    },
+    {
+      "kind": "aerial",
+      "note": "Continuous silver duct runs follow the long axes of the three laboratory roofs. At the north they cross to the central plant rooms. The orthophoto and roof grid support the low north block behind its tall equipment."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "North low laboratory range",
+        "footprint": {
+          "clip": [
+            [
+              344.71,
+              -65.42
+            ],
+            [
+              355.22,
+              -60.49
+            ],
+            [
+              346.91,
+              -41.71
+            ],
+            [
+              332.52,
+              -45.92
+            ],
+            [
+              330.69,
+              -46.73
+            ],
+            [
+              332.78,
+              -51.64
+            ],
+            [
+              302.32,
+              -64.77
+            ],
+            [
+              305.92,
+              -73.38
+            ],
+            [
+              303.9,
+              -74.35
+            ],
+            [
+              305.5,
+              -77.87
+            ],
+            [
+              311,
+              -75.19
+            ],
+            [
+              314.29,
+              -82.78
+            ],
+            [
+              346.29,
+              -68.6
+            ]
+          ]
+        },
+        "height": 8.65,
+        "floors": 2,
+        "material": "northPrecast",
+        "facade": {
+          "windows": {
+            "type": "ribbon",
+            "width": 6.3,
+            "height": 1.48,
+            "sill": 1.05,
+            "recess": 0.3,
+            "glassColor": "#364344",
+            "mullions": {
+              "vertical": 3,
+              "horizontal": 0,
+              "width": 0.05
+            }
+          },
+          "bays": {
+            "width": 7.0,
+            "groupSize": 2,
+            "pattern": "grouped",
+            "groupGap": 0.65
+          },
+          "material": "northPrecast",
+          "parapet": {
+            "type": "coped",
+            "height": 0.7,
+            "material": "northPrecast"
+          }
+        }
+      },
+      {
+        "name": "South stone laboratory block",
+        "footprint": {
+          "clip": [
+            [
+              319.21,
+              -26.88
+            ],
+            [
+              319.64,
+              -25.74
+            ],
+            [
+              319.88,
+              -25.84
+            ],
+            [
+              326.43,
+              -8.76
+            ],
+            [
+              336.14,
+              17.45
+            ],
+            [
+              322.05,
+              31.26
+            ],
+            [
+              319.03,
+              32.16
+            ],
+            [
+              316.95,
+              32.77
+            ],
+            [
+              315.83,
+              29.68
+            ],
+            [
+              314.56,
+              26.14
+            ],
+            [
+              311.16,
+              16.71
+            ],
+            [
+              305.72,
+              2.83
+            ],
+            [
+              310.39,
+              0.9
+            ],
+            [
+              302.89,
+              -18.79
+            ],
+            [
+              316.35,
+              -24.56
+            ],
+            [
+              315.92,
+              -25.62
+            ]
+          ]
+        },
+        "height": 24.7,
+        "floors": 5,
+        "material": "wall",
+        "roof": {
+          "material": "lightLabRoof"
+        }
+      },
+      {
+        "name": "Middle connecting laboratory wing",
+        "footprint": {
+          "clip": [
+            [
+              326.43,
+              -8.76
+            ],
+            [
+              319.88,
+              -25.84
+            ],
+            [
+              322.21,
+              -26.79
+            ],
+            [
+              330.69,
+              -46.73
+            ],
+            [
+              332.52,
+              -45.92
+            ],
+            [
+              346.91,
+              -41.71
+            ],
+            [
+              334.18,
+              -12.92
+            ],
+            [
+              326.09,
+              -9.68
+            ]
+          ]
+        },
+        "height": 20.9,
+        "floors": 4,
+        "material": "wall",
+        "roof": {
+          "material": "lightLabRoof"
+        }
+      },
+      {
+        "name": "Middle connecting laboratory wing",
+        "footprint": {
+          "clip": [
+            [
+              319.21,
+              -26.88
+            ],
+            [
+              315.92,
+              -25.62
+            ],
+            [
+              315.6,
+              -26.43
+            ],
+            [
+              318.89,
+              -27.75
+            ]
+          ]
+        },
+        "height": 20.9,
+        "floors": 4,
+        "material": "wall",
+        "roof": {
+          "material": "lightLabRoof"
+        }
+      },
+      {
+        "name": "Low mechanical link",
+        "height": 7.0,
+        "floors": 2,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": []
+        },
+        "footprint": [
+          [
+            303.1,
+            7.0
+          ],
+          [
+            311.65,
+            29.5
+          ],
+          [
+            315.279,
+            28.1441
+          ],
+          [
+            314.56,
+            26.14
+          ],
+          [
+            311.16,
+            16.71
+          ],
+          [
+            306.8935,
+            5.824
+          ]
+        ]
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 5,
+      "position": 0.58,
+      "type": "doors-double",
+      "width": 2,
+      "height": 2.6,
+      "recess": 0.45
+    }
+  ],
+  "notes": "Location of north door and stack are approximate. Paired rooftop ducts follow the longitudinal roof strips and join several raised rectangular plant rooms. The north bay widths and southern windows are estimates. Bay counts on obscured faces and dimensions of openings are estimates. Secondary pipework, utility conduits and individual court-side bays are approximate."
+}

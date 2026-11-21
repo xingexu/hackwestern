@@ -1,0 +1,81 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-north-tennis",
+  "name": "Northern tennis dome",
+  "status": "authored",
+  "confidence": 0.77,
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "membrane",
+      "color": "#f6f6f2"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#f6f6f2"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#8a8e89"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#747975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.2,
+    "typicalHeight": 2.2
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "barrel",
+    "material": "roof",
+    "rise": 9.35,
+    "ridge": 94.4,
+    "edge": "none",
+    "endShape": "rounded"
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Northern tennis dome",
+        "footprint": "inventory",
+        "height": 1.95,
+        "floors": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof corners and orientation traced in the London 2025 orthophoto in local campus coordinates."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The earlier bare-earth and surface rasters do not resolve the full small structure. The roof profile and dimensions use its 2025 orthophoto footprint and shadow.",
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.3,
+      "type": "doors-double",
+      "height": 1.9,
+      "width": 1.65,
+      "canopy": {
+        "type": "arched",
+        "width": 2.7,
+        "depth": 1.6,
+        "material": "wall"
+      }
+    }
+  ]
+}

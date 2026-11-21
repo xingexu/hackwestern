@@ -1,0 +1,101 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714478",
+  "name": "",
+  "status": "auto",
+  "confidence": 0.32,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    }
+  ],
+  "style": "house",
+  "floors": {
+    "count": 1,
+    "typicalHeight": 3,
+    "groundFloorHeight": 3
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 3.69,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#b5b8a7",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#dfe1d4"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.8,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#58737e",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.5,
+      "width": 1.1,
+      "height": 2.6,
+      "type": "doors-single",
+      "recess": 0.32
+    }
+  ]
+}

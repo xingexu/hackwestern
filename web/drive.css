@@ -1,0 +1,147 @@
+#drive-ui { display: none; }
+html[data-mode="drive"] #map-ui, html[data-mode="drive"] #credits { display: none; }
+html[data-mode="drive"] #view { cursor: default; }
+#drive-link {
+  position: fixed; top: 102px; left: max(28px, env(safe-area-inset-left));
+  padding: 9px 13px; border-radius: 4px; background: #283d34; color: #fff7df;
+  font: 650 12px system-ui, sans-serif; text-decoration: none;
+}
+#drive-link span { margin-left: 14px; color: #eed8a1; }
+html[data-mode="drive"] #drive-ui {
+  display: block; position: fixed; inset: 0; pointer-events: none; color: #fcf7e6;
+  font: 500 13px/1.3 ui-monospace, Menlo, monospace;
+  --ink: #172822; --cream: #f1edde; --gold: #f9c35c;
+}
+#drive-ui small { font: bold 10px/1.4 ui-monospace, Menlo, monospace; letter-spacing: .16em; }
+.course-card, .route-card, .instruments, .drive-help {
+  position: absolute; background: rgb(23 40 34 / 94%);
+  box-shadow: 0 2px 0 #1a211f4d; border-radius: 3px;
+}
+.course-card { left: 22px; top: 20px; overflow: hidden; }
+.course-title { padding: 12px 17px 12px 12px; display: flex; align-items: center; gap: 11px; }
+.course-title small { color: #d4d5b9; }
+.course-mark { display: grid; place-items: center; color: var(--ink); background: var(--gold); height: 39px; width: 39px; font: 900 italic 25px Georgia, serif; }
+.course-title h2 { margin: 1px 0 0; font: 600 24px/.99 Georgia, serif; letter-spacing: -.035em; }
+.course-card nav { display: flex; border-top: 1px solid #6c7769; }
+.course-card nav > * { flex: 1; text-align: center; padding: 7px; background: transparent; border: 0; border-radius: 0; color: var(--cream); font: inherit; font-size: 11px; text-decoration: none; pointer-events: auto; }
+.course-card nav > * + * { border-left: 1px solid #6c7769; }
+.course-card nav > *:hover, .course-card nav > *:focus-visible { background: #425445; }
+.course-card kbd { color: var(--gold); }
+.route-card { right: 22px; top: 20px; width: 164px; padding: 8px 12px 10px; }
+.route-card canvas { display: block; width: 100%; height: auto; }
+.route-card div { display: flex; justify-content: space-between; font-size: 10px; }
+.route-card div span + span { color: #c4c5ae; }
+.route-card progress { display: block; margin-top: 4px; width: 100%; height: 3px; accent-color: var(--gold); border: 0; }
+.route-card progress::-webkit-progress-bar { background: #5e6c5d; }
+.route-card progress::-webkit-progress-value { background: var(--gold); }
+.drive-help { left: 22px; bottom: 20px; padding: 8px 11px; font-size: 11px; }
+.instruments { right: 22px; bottom: 20px; display: flex; align-items: center; gap: 17px; padding: 11px 16px; font-variant-numeric: tabular-nums; }
+.instruments > div + div { display: grid; gap: 1px; border-left: 1px solid #697266; padding-left: 15px; }
+.instruments small { display: block; color: #d1d1b9; }
+.instruments strong { font: bold 40px/1 ui-monospace, Menlo, monospace; letter-spacing: -.09em; }
+.instruments span { font-size: 10px; margin-left: 4px; }
+#surface { color: #dfc785; margin: 0; }
+#drive-message { position: absolute; bottom: 54px; left: 22px; text-align: left; white-space: nowrap; }
+#drive-message:not(:empty) { background: var(--ink); border-bottom: 2px solid var(--gold); padding: 7px 13px; }
+#finish:not([hidden]) { position: absolute; inset: 0; display: grid; place-items: center; background: #14221a50; pointer-events: auto; }
+#finish > div { display: grid; justify-items: center; gap: 8px; min-width: 240px; padding: 25px; border-top: 4px solid var(--gold); background: var(--ink); }
+#finish h2 { font: 500 40px/1 Georgia, serif; margin: 0; }
+#finish output { font-size: 21px; }
+#finish button { padding: 8px 16px; margin-top: 7px; background: var(--gold); color: var(--ink); }
+@media(max-width: 680px), (max-height: 550px) {
+  .course-card, .drive-help { left: 8px; }
+  .course-card, .route-card { top: 8px; }
+  .route-card, .instruments { right: 8px; }
+  .instruments, .drive-help { bottom: 8px; }
+  .route-card { width: 116px; }
+  .course-title { padding: 7px; }
+  .course-title h2 { font-size: 18px; }
+  .instruments { padding: 7px 9px; gap: 8px; }
+  .instruments strong { font-size: 30px; }
+  .drive-help { max-width: 41vw; }
+  #drive-link { left: 12px; top: 75px; }
+}
+html[data-mode="drive"] body { background: linear-gradient(#2f6fd0, #5d9ae6 38%, #c4d8e6 62%, #a9bfa9); height: 100dvh; }
+
+#region-view { position: fixed; top: 102px; left: max(164px, calc(env(safe-area-inset-left) + 164px)); padding: 8px 10px; font: 650 12px system-ui,sans-serif; }
+@media(max-width:680px) { #region-view { left: 144px; top: 75px; } }
+#powertrain { color: var(--gold); font-size: 9px; letter-spacing: .05em; }
+.course-card nav > * { white-space: nowrap; }
+#roam-link { position: fixed; top: 145px; left: max(28px, env(safe-area-inset-left)); color: #283d34; background: #f3eedc; padding: 7px 12px; border-radius: 3px; font: 650 12px system-ui,sans-serif; text-decoration: none; }
+#drive-course, #spawn { pointer-events: auto; color: #fcf7e6; background: #21352b; border: 0; cursor: pointer; }
+#drive-course { display: block; margin-left: -4px; padding-right: 4px; font: 600 22px/1.15 Georgia,serif; }
+#roam-start:not([hidden]) { display: flex; align-items: center; gap: 8px; padding: 0 12px 8px; color: #cdd5bc; font-size: 10px; }
+#spawn { max-width: 180px; padding: 3px; font: inherit; }
+#touch-drive { display: none; }
+#drive-ui [hidden] { display: none; }
+@media (max-width:680px) {
+  #roam-link { top:111px; left:12px; }
+  #drive-course { font-size: 16px; max-width: 43vw; }
+  .course-card nav { flex-wrap:wrap; }
+  .course-card nav > * { padding: 5px 4px; font-size: 10px; }
+  .route-card { width:83px; padding:6px; }
+  #roam-start:not([hidden]) { display:block; padding-left:7px; }
+  #spawn {max-width:40vw; }
+}
+@media (pointer:coarse) {
+  #touch-drive { position:absolute; display:flex; justify-content:space-between; align-items:end; inset:auto 10px 10px; }
+  #touch-drive div { display:flex; gap:5px; }
+  #touch-drive button { pointer-events:auto; touch-action:none; user-select:none; background:#243a30ea; border:1px solid #849283; color:#f1edde; border-radius:5px; padding:12px; font:600 14px system-ui; min-width:44px; min-height:44px; }
+  #touch-drive button:active { background:#6d6845; }
+  .drive-help { display:none; }
+  .instruments { bottom:64px; }
+  #drive-message { bottom:66px; max-width:43vw; white-space:normal; }
+}
+
+#touch-drive #tilt { position:absolute; bottom:51px; left:0; font-size:11px; min-height:28px; padding:5px 8px; }
+@media (pointer:coarse) { #drive-message { bottom:98px; } }
+
+#map-sources { position:fixed; z-index:3; bottom:3px; left:50%; transform:translateX(-50%); color:#f6f5e8; background:#20352ce6; border-radius:3px; font:10px/1.45 system-ui,sans-serif; }
+#map-sources summary { padding:2px 7px; cursor:pointer; }
+#map-sources[open] { width:min(315px,86vw); margin-bottom:4px; }
+#map-sources[open] summary { font-weight:700; }
+#map-sources div { display:grid; gap:5px; padding:4px 9px 10px; }
+#map-sources a { color:inherit; }
+@media(pointer:coarse) { #map-sources { bottom:3px; } }
+
+#graphics-control { display:flex;align-items:center;gap:6px;grid-column:1 / -1; }
+#graphics-control select { font:inherit;color:inherit;background:transparent;border:1px solid currentColor;border-radius:3px;cursor:pointer; }
+#graphics-control option { color:#24332c;background:white; }
+#drive-graphics { padding:0 12px 6px;color:#dae2da;font-size:10px; }
+#drive-graphics select { pointer-events:auto; }
+html[data-mode="drive"],html[data-mode="drive"] body { overscroll-behavior:none; touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
+#trial-setup { background:#172822; color:#fcf7e6; border:1px solid #809081; border-top:4px solid #f9c35c; padding:20px; border-radius:4px; }
+#trial-setup::backdrop { background:#101e1bb0; }
+#trial-setup form,#trial-results { display:grid; gap:9px; }
+#trial-setup h2 { margin:0; font:600 26px Georgia,serif; }
+#trial-setup label { display:flex; align-items:center; gap:6px; }
+#trial-notice,#trial-results p { margin:0; font-size:12px; }
+#trial-setup button,#trial-setup select { min-height:36px; }
+#trial-results { text-align:center; }
+#trial-results input { max-width:120px; user-select:text; }
+#trial-splits { display:block; margin-top:5px; color:#f9db9b; font-size:11px; font-variant-numeric:tabular-nums; }
+#phone-settings { position:absolute; bottom:57px; left:min(148px,29vw); pointer-events:auto; color:#f4eed9; font:600 12px system-ui; }
+#phone-settings summary { padding:8px; background:#243a30ed; border-radius:5px; }
+#phone-settings section { position:absolute; bottom:100%; min-width:155px; background:#20332c; display:grid; gap:5px; padding:9px; border-radius:5px; }
+#phone-settings label { display:flex; gap:4px; align-items:center; }
+#phone-settings input[type=range] { width:75px; }
+#touch-drive #thumb-wheel { width:112px; border-radius:24px; font-size:24px; transform:rotate(var(--angle,0deg)); }
+@media (pointer:coarse) {
+  #touch-drive { inset:auto max(12px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left)); }
+  #touch-drive [data-key] { min-width:57px; min-height:52px; border-radius:12px; }
+  #touch-drive [data-key=ArrowUp] { background:#426047; }
+  #touch-drive #tilt { bottom:57px; min-height:33px; max-width:145px; }
+  .course-card { top:max(8px,env(safe-area-inset-top)); left:max(8px,env(safe-area-inset-left)); }
+  .instruments { right:max(8px,env(safe-area-inset-right)); bottom:calc(68px + env(safe-area-inset-bottom)); }
+  .route-card { right:max(8px,env(safe-area-inset-right)); top:max(8px,env(safe-area-inset-top)); }
+  #drive-message { left:max(12px,env(safe-area-inset-left)); bottom:calc(98px + env(safe-area-inset-bottom)); }
+}
+
+@media (pointer:coarse) and (max-width:600px) {
+  .course-card { max-width:calc(100vw - 117px - env(safe-area-inset-left) - env(safe-area-inset-right)); }
+  .course-card nav > * { min-width:50px; }
+  #finish > div { padding:14px; min-width:0; max-width:calc(100vw - 32px); }
+  #trial-results output { font-size:16px; }
+}
+
+@media (pointer:coarse) { #trial-nickname { font-size:16px; } }

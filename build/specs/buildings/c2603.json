@@ -1,0 +1,66 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2603",
+  "name": "Diane Circle former gazebo footprint",
+  "status": "authored",
+  "confidence": 0.69,
+  "summary": "Former footprint of a square timber shelter shown beside the P4 garage in older street photos. The 2025 aerial shows a paved strip against the garage in its place.",
+  "present": false,
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "wood-siding",
+      "color": "#514232"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#64584a"
+    }
+  },
+  "floors": {
+    "count": 1
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    }
+  },
+  "roof": {
+    "form": "pyramid",
+    "material": "roof",
+    "edge": "none"
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The 2025 image shows the edge of the garage deck, a narrow strip and vehicle markings on the drive. There is no distinct square pavilion roof."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34487484",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "A square timber shelter with a pitched brown roof stands along the garage wall in 2017."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34487485",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "The setback outside the garage is visible obliquely. The entrance canopy on the opposite side of the drive is a separate structure."
+    },
+    {
+      "kind": "lidar",
+      "note": "P90 9.81 m and maximum 10.45 m exceed the scale of the small shelter in the 2017 view. Returns on this frontage include garage geometry."
+    }
+  ],
+  "notes": "The 2017 shelter is historical evidence only. Garage overhang and image displacement reduce confidence in the precise date of removal."
+}

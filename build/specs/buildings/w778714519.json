@@ -1,0 +1,475 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714519",
+  "name": "Philip Aziz house",
+  "status": "refined",
+  "confidence": 0.73,
+  "summary": "A low brick farmhouse faces the wooded courtyard. Its long pitched roof features a hipped courtyard projection and a chimney.",
+  "style": "house",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#baa481",
+      "bond": "running",
+      "variation": 0.14,
+      "roughness": 0.83,
+      "unitSize": [
+        0.2,
+        0.067
+      ],
+      "secondaryColor": "#9a9284"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#655f56",
+      "variation": 0.075,
+      "unitSize": [
+        0.37,
+        0.16
+      ],
+      "secondaryColor": "#5c584f",
+      "roughness": 0.9
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#b9b4a3",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "chimney": {
+      "kind": "brick",
+      "color": "#897b6b",
+      "bond": "running",
+      "variation": 0.14,
+      "roughness": 0.83,
+      "unitSize": [
+        0.2,
+        0.067
+      ],
+      "secondaryColor": "#a2957f"
+    },
+    "foundation": {
+      "kind": "rubble-stone",
+      "color": "#928a79",
+      "roughness": 0.92
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.3,
+    "typicalHeight": 2.7
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.6,
+        "pattern": "irregular"
+      },
+      "windows": {
+        "type": "segmental-arch",
+        "width": 0.9,
+        "height": 1.64,
+        "sill": 0.74,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glass": "clear",
+        "frameColor": "#ccc8b6",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "cornice": {
+        "height": 0.18,
+        "depth": 0.22,
+        "material": "trim"
+      },
+      "base": {
+        "height": 0.34,
+        "projection": 0.035,
+        "material": "foundation"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "gutter",
+    "ridge": 69,
+    "rise": 2.15,
+    "overhang": 0.3,
+    "features": [
+      {
+        "type": "chimney",
+        "center": [
+          125.4,
+          1005.8
+        ],
+        "size": [
+          0.85,
+          0.68
+        ],
+        "height": 0.92,
+        "material": "chimney"
+      },
+      {
+        "type": "antenna",
+        "center": [
+          128.83,
+          1000.11
+        ],
+        "size": [
+          0.15,
+          0.15
+        ],
+        "height": 0.24,
+        "material": "trim",
+        "style": "short roof vent"
+      },
+      {
+        "type": "antenna",
+        "center": [
+          135.28,
+          997.64
+        ],
+        "size": [
+          0.15,
+          0.15
+        ],
+        "height": 0.24,
+        "material": "trim",
+        "style": "short roof vent"
+      },
+      {
+        "type": "antenna",
+        "center": [
+          138.36,
+          996.46
+        ],
+        "size": [
+          0.15,
+          0.15
+        ],
+        "height": 0.24,
+        "material": "trim",
+        "style": "short roof vent"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "House roof has a long ENE–WSW ridge, a small projecting south gable and dark chimney near the west end. South roof patch sampled at (135,1003)."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 5.01 m, P90 5.71 m, maximum 6.5 m. Main roof elevation is about 5–6 m with a sheltered ground floor and attic under the ridge."
+    },
+    {
+      "kind": "photo",
+      "note": "Municipal designation identifies the circa 1875 one-and-a-half-storey brick house and adjoining historic courtyard.",
+      "url": "https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=15471&pid=0"
+    },
+    {
+      "kind": "kartaview",
+      "note": "Mature roadside trees and the brick entrance piers hide the house.",
+      "frame": "66557115",
+      "walls": [
+        0,
+        1
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Winter view is heavily screened by hedge, evergreens and trunks.",
+      "frame": "189360697",
+      "walls": [
+        0,
+        1
+      ]
+    }
+  ],
+  "notes": "The upper accommodation is in the roof. Masonry colour, fenestration and courtyard door are inferred. The narrow pierced brick walls surrounding the courtyard have carved stone details. The walls beneath the tree canopy are inferred. No attic windows or dormers are confirmed.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "West north slope",
+        "footprint": [
+          [
+            123.511,
+            1003.778
+          ],
+          [
+            133.536,
+            999.947
+          ],
+          [
+            132.588,
+            997.466
+          ],
+          [
+            127.73,
+            999.23
+          ],
+          [
+            127.24,
+            997.88
+          ],
+          [
+            125.36,
+            998.56
+          ],
+          [
+            125.78,
+            999.71
+          ],
+          [
+            122.48,
+            1000.91
+          ]
+        ],
+        "height": 3.37,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "rise": 2.65,
+          "ridge": 69,
+          "edge": "gutter",
+          "overhang": 0.13,
+          "material": "roof"
+        }
+      },
+      {
+        "name": "West south slope",
+        "footprint": [
+          [
+            125.79,
+            1010.12
+          ],
+          [
+            128.16,
+            1009.25
+          ],
+          [
+            128.7,
+            1010.74
+          ],
+          [
+            131.42,
+            1009.75
+          ],
+          [
+            130.91,
+            1008.35
+          ],
+          [
+            136.03,
+            1006.47
+          ],
+          [
+            133.536,
+            999.947
+          ],
+          [
+            123.511,
+            1003.778
+          ]
+        ],
+        "height": 3.37,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "rise": 2.65,
+          "ridge": 249,
+          "edge": "gutter",
+          "overhang": 0.13,
+          "material": "roof"
+        }
+      },
+      {
+        "name": "East north slope",
+        "footprint": [
+          [
+            139.96,
+            994.79
+          ],
+          [
+            132.588,
+            997.466
+          ],
+          [
+            133.536,
+            999.947
+          ],
+          [
+            140.816,
+            997.164
+          ]
+        ],
+        "height": 3.71,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "rise": 2.701,
+          "ridge": 69,
+          "edge": "gutter",
+          "overhang": 0.13,
+          "material": "roof"
+        }
+      },
+      {
+        "name": "East south slope",
+        "footprint": [
+          [
+            136.63,
+            1006.25
+          ],
+          [
+            137.41,
+            1008.4
+          ],
+          [
+            142.06,
+            1006.71
+          ],
+          [
+            141.23,
+            1004.41
+          ],
+          [
+            143.17,
+            1003.69
+          ],
+          [
+            140.816,
+            997.164
+          ],
+          [
+            133.536,
+            999.947
+          ],
+          [
+            136.03,
+            1006.47
+          ]
+        ],
+        "height": 3.71,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "rise": 2.701,
+          "ridge": 249,
+          "edge": "gutter",
+          "overhang": 0.13,
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Courtyard hipped projection",
+        "footprint": {
+          "clip": [
+            [
+              136.8,
+              1001.5
+            ],
+            [
+              141.3,
+              1003.5
+            ],
+            [
+              142.4,
+              1006.8
+            ],
+            [
+              135.5,
+              1009.7
+            ],
+            [
+              134.3,
+              1005.4
+            ]
+          ]
+        },
+        "height": 3.35,
+        "floors": 1,
+        "roof": {
+          "form": "hip",
+          "material": "roof",
+          "edge": "gutter",
+          "ridge": 159,
+          "rise": 1.82,
+          "overhang": 0.2
+        },
+        "baseOffset": 3.17,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          }
+        }
+      },
+      {
+        "name": "Small north gabled projection",
+        "footprint": [
+          [
+            127.73,
+            999.23
+          ],
+          [
+            127.24,
+            997.88
+          ],
+          [
+            125.4,
+            998.545
+          ],
+          [
+            126.494,
+            1001.407
+          ],
+          [
+            129.296,
+            1000.336
+          ],
+          [
+            128.734,
+            998.866
+          ]
+        ],
+        "height": 3.65,
+        "floors": 1,
+        "baseOffset": 3.26,
+        "roof": {
+          "form": "gable",
+          "rise": 1.02,
+          "ridge": 159,
+          "edge": "fascia",
+          "material": "roof"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 4,
+      "position": 0.46,
+      "type": "doors-single",
+      "width": 0.96,
+      "height": 2.08,
+      "steps": 1,
+      "recess": 0.1,
+      "canopy": {
+        "type": "flat",
+        "width": 4.5,
+        "depth": 1.6,
+        "columns": 2,
+        "material": "trim"
+      }
+    }
+  ]
+}

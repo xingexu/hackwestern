@@ -1,0 +1,313 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w1300081894",
+  "name": "Ronald D. Schmeichel Building for Entrepreneurship and Innovation",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131415135"
+    }
+  ],
+  "style": "contemporary-glass",
+  "floors": {
+    "count": 1,
+    "typicalHeight": 4.1,
+    "groundFloorHeight": 4.1
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 4.84,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              23.197,
+              386.3
+            ],
+            [
+              25.281,
+              390.469
+            ],
+            [
+              32.924,
+              388.941
+            ],
+            [
+              32.786,
+              388.666
+            ],
+            [
+              23.44,
+              374.74
+            ],
+            [
+              7.38,
+              384.5
+            ],
+            [
+              8.575,
+              386.3
+            ]
+          ]
+        },
+        "height": 9.94,
+        "baseOffset": 4.84,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              33.849,
+              400.622
+            ],
+            [
+              29.381,
+              399.505
+            ],
+            [
+              25.462,
+              406.037
+            ],
+            [
+              28.364,
+              410.39
+            ],
+            [
+              45.895,
+              408.198
+            ],
+            [
+              41.072,
+              401.011
+            ],
+            [
+              39.3,
+              401.897
+            ],
+            [
+              39.3,
+              398.371
+            ],
+            [
+              39.062,
+              398.016
+            ]
+          ]
+        },
+        "height": 9.94,
+        "baseOffset": 4.84,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              20.479,
+              457.159
+            ],
+            [
+              19.664,
+              449.009
+            ],
+            [
+              19.319,
+              449.044
+            ],
+            [
+              8.22,
+              450.33
+            ],
+            [
+              8.897,
+              458.317
+            ],
+            [
+              8.897,
+              458.317
+            ]
+          ]
+        },
+        "height": 9.94,
+        "baseOffset": 4.84,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              55.3,
+              442.88
+            ],
+            [
+              55.3,
+              435.899
+            ],
+            [
+              46.931,
+              434.504
+            ],
+            [
+              45.827,
+              441.133
+            ],
+            [
+              39.7,
+              444.197
+            ],
+            [
+              39.7,
+              449.937
+            ],
+            [
+              48.873,
+              452.995
+            ],
+            [
+              49.555,
+              456.401
+            ],
+            [
+              46.555,
+              458.401
+            ],
+            [
+              48.724,
+              469.248
+            ],
+            [
+              58.502,
+              468.902
+            ],
+            [
+              59.53,
+              466.846
+            ],
+            [
+              59.24,
+              463.18
+            ],
+            [
+              60.91,
+              462.057
+            ],
+            [
+              57.853,
+              458.235
+            ],
+            [
+              61.412,
+              455.566
+            ],
+            [
+              60.173,
+              448.133
+            ],
+            [
+              53.41,
+              444.752
+            ],
+            [
+              51.649,
+              446.513
+            ],
+            [
+              50.3,
+              446.063
+            ],
+            [
+              50.3,
+              444.88
+            ]
+          ]
+        },
+        "height": 9.94,
+        "baseOffset": 4.84,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#948c6c",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#f4f6ef"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.7
+      },
+      "windows": {
+        "type": "curtain-wall",
+        "width": 2.6,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#54575b",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

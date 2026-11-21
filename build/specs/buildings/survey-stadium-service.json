@@ -1,0 +1,74 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-stadium-service",
+  "name": "Western Alumni Stadium field service hut",
+  "status": "authored",
+  "confidence": 0.77,
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "painted-metal",
+      "color": "#b7b9b1"
+    },
+    "roof": {
+      "kind": "standing-seam-metal",
+      "color": "#c8cbc4"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#8a8e89"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#747975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.35,
+    "typicalHeight": 2.35
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "shed",
+    "material": "roof",
+    "rise": 0.4,
+    "ridge": 55,
+    "edge": "none"
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Western Alumni Stadium field service hut",
+        "footprint": "inventory",
+        "height": 2.35,
+        "floors": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof corners and orientation traced in the London 2025 orthophoto in local campus coordinates."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The earlier bare-earth and surface rasters do not resolve the full small structure. The roof profile and dimensions use its 2025 orthophoto footprint and shadow.",
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.57,
+      "type": "doors-double",
+      "width": 1.7,
+      "height": 2.05
+    }
+  ]
+}

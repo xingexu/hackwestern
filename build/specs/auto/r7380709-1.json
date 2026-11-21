@@ -1,0 +1,191 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r7380709-1",
+  "name": "John Labatt Visual Art Centre",
+  "status": "auto",
+  "confidence": 0.32,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    }
+  ],
+  "style": "mid-century-modern",
+  "floors": {
+    "count": 3,
+    "typicalHeight": 3.7,
+    "groundFloorHeight": 3.7
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 10.41,
+        "floors": 3
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              536.133,
+              33.64
+            ],
+            [
+              534.598,
+              35.852
+            ],
+            [
+              529.78,
+              42.8
+            ],
+            [
+              519.35,
+              57.83
+            ],
+            [
+              519.35,
+              57.83
+            ],
+            [
+              523.32,
+              60.59
+            ],
+            [
+              520.75,
+              64.3
+            ],
+            [
+              520.75,
+              64.3
+            ],
+            [
+              532.33,
+              72.32
+            ],
+            [
+              552.02,
+              85.98
+            ],
+            [
+              571.371,
+              58.088
+            ]
+          ]
+        },
+        "height": 15.51,
+        "baseOffset": 10.41,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              556.087,
+              80.117
+            ],
+            [
+              524.814,
+              58.435
+            ],
+            [
+              523.242,
+              60.703
+            ],
+            [
+              520.75,
+              64.3
+            ],
+            [
+              532.33,
+              72.32
+            ],
+            [
+              552.02,
+              85.98
+            ],
+            [
+              554.729,
+              82.076
+            ]
+          ]
+        },
+        "height": 19.76,
+        "baseOffset": 15.51,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#b9afa1",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#979483"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.8,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#69828e",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 6,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

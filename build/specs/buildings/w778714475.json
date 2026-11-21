@@ -1,0 +1,496 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714475",
+  "name": "Hospital service-yard tank compound",
+  "status": "refined",
+  "confidence": 0.79,
+  "summary": "The hospital service-yard tank compound holds a tall white cylinder and a smaller white vessel on an open rectangular hardstand beside the access lane.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#96958a",
+      "secondaryColor": "#90908a",
+      "unitSize": [
+        1,
+        1
+      ],
+      "variation": 0.065,
+      "roughness": 0.93
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#f6faf6"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c5c4bc"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "tank": {
+      "kind": "painted-metal",
+      "color": "#f0f0ea",
+      "roughness": 0.34
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 0.24,
+    "typicalHeight": 0.24
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.45,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "height": 0,
+        "type": "plain",
+        "material": "wall"
+      },
+      "blank": true
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "none",
+    "material": "wall",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 7.30 m, P90 9.39 m, highest return 10.56 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [110.79, -74.15] averages #f6faf6."
+    },
+    {
+      "kind": "aerial",
+      "note": "Two separate white round caps, a long narrow northwest cast shadow, exposed concrete between the vessels and rectangular edges. The mapped perimeter describes the pad."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Raised rectangular pad",
+        "footprint": "inventory",
+        "height": 0.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "type": "metal-rail",
+            "height": 1.4,
+            "material": "metal"
+          }
+        },
+        "roof": {
+          "edge": "parapet",
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Large vertical vessel",
+        "footprint": [
+          [
+            112.48,
+            -74.35
+          ],
+          [
+            112.43,
+            -73.94
+          ],
+          [
+            112.27,
+            -73.56
+          ],
+          [
+            112.02,
+            -73.23
+          ],
+          [
+            111.69,
+            -72.98
+          ],
+          [
+            111.31,
+            -72.82
+          ],
+          [
+            110.9,
+            -72.77
+          ],
+          [
+            110.49,
+            -72.82
+          ],
+          [
+            110.11,
+            -72.98
+          ],
+          [
+            109.78,
+            -73.23
+          ],
+          [
+            109.53,
+            -73.56
+          ],
+          [
+            109.37,
+            -73.94
+          ],
+          [
+            109.32,
+            -74.35
+          ],
+          [
+            109.37,
+            -74.76
+          ],
+          [
+            109.53,
+            -75.14
+          ],
+          [
+            109.78,
+            -75.47
+          ],
+          [
+            110.11,
+            -75.72
+          ],
+          [
+            110.49,
+            -75.88
+          ],
+          [
+            110.9,
+            -75.93
+          ],
+          [
+            111.31,
+            -75.88
+          ],
+          [
+            111.69,
+            -75.72
+          ],
+          [
+            112.02,
+            -75.47
+          ],
+          [
+            112.27,
+            -75.14
+          ],
+          [
+            112.43,
+            -74.76
+          ]
+        ],
+        "baseOffset": 0.18,
+        "height": 9.32,
+        "floors": 1,
+        "material": "tank",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "dome",
+          "rise": 0.5688,
+          "edge": "none",
+          "material": "tank"
+        }
+      },
+      {
+        "name": "Smaller vertical vessel",
+        "footprint": [
+          [
+            113.8,
+            -72.53
+          ],
+          [
+            113.77,
+            -72.28
+          ],
+          [
+            113.67,
+            -72.06
+          ],
+          [
+            113.52,
+            -71.86
+          ],
+          [
+            113.32,
+            -71.71
+          ],
+          [
+            113.1,
+            -71.61
+          ],
+          [
+            112.85,
+            -71.58
+          ],
+          [
+            112.6,
+            -71.61
+          ],
+          [
+            112.37,
+            -71.71
+          ],
+          [
+            112.18,
+            -71.86
+          ],
+          [
+            112.03,
+            -72.06
+          ],
+          [
+            111.93,
+            -72.28
+          ],
+          [
+            111.9,
+            -72.53
+          ],
+          [
+            111.93,
+            -72.78
+          ],
+          [
+            112.03,
+            -73
+          ],
+          [
+            112.18,
+            -73.2
+          ],
+          [
+            112.37,
+            -73.35
+          ],
+          [
+            112.6,
+            -73.45
+          ],
+          [
+            112.85,
+            -73.48
+          ],
+          [
+            113.1,
+            -73.45
+          ],
+          [
+            113.32,
+            -73.35
+          ],
+          [
+            113.52,
+            -73.2
+          ],
+          [
+            113.67,
+            -73
+          ],
+          [
+            113.77,
+            -72.78
+          ]
+        ],
+        "baseOffset": 0.18,
+        "height": 5.85,
+        "floors": 1,
+        "material": "tank",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "dome",
+          "rise": 0.34199999999999997,
+          "edge": "none",
+          "material": "tank"
+        }
+      },
+      {
+        "name": "Small equipment plinth beside vessels",
+        "footprint": [
+          [
+            106.65,
+            -75.15
+          ],
+          [
+            107.9,
+            -75.65
+          ],
+          [
+            108.35,
+            -74.55
+          ],
+          [
+            107.1,
+            -74.05
+          ]
+        ],
+        "height": 1.18,
+        "baseOffset": 0.18,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "flat",
+          "material": "plant",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "West pump skid",
+        "footprint": [
+          [
+            108.682,
+            -74.939
+          ],
+          [
+            109.13,
+            -73.772
+          ],
+          [
+            108.318,
+            -73.461
+          ],
+          [
+            107.87,
+            -74.628
+          ]
+        ],
+        "height": 1.17,
+        "floors": 1,
+        "baseOffset": 0.18,
+        "material": "metal",
+        "roof": {
+          "material": "metal",
+          "edge": "none"
+        },
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          }
+        }
+      },
+      {
+        "name": "South pump skid",
+        "footprint": [
+          [
+            109.101,
+            -73.111
+          ],
+          [
+            109.373,
+            -72.401
+          ],
+          [
+            108.299,
+            -71.989
+          ],
+          [
+            108.027,
+            -72.699
+          ]
+        ],
+        "height": 0.96,
+        "floors": 1,
+        "baseOffset": 0.18,
+        "material": "metal",
+        "roof": {
+          "material": "metal",
+          "edge": "none"
+        },
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          }
+        }
+      },
+      {
+        "name": "Pipe rack",
+        "footprint": [
+          [
+            112.862,
+            -73.717
+          ],
+          [
+            112.966,
+            -73.446
+          ],
+          [
+            111.238,
+            -72.783
+          ],
+          [
+            111.134,
+            -73.054
+          ]
+        ],
+        "height": 0.87,
+        "floors": 1,
+        "baseOffset": 0.18,
+        "material": "metal",
+        "roof": {
+          "material": "metal",
+          "edge": "none"
+        },
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          }
+        }
+      }
+    ]
+  },
+  "notes": "The orthophoto resolves equipment footprints and a pale perimeter edge. Rail height, pipes and pump details are inferred."
+}

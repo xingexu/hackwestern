@@ -1,0 +1,346 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2752",
+  "name": "Unnamed wooded footprint",
+  "style": "industrial-utility",
+  "confidence": 0.25,
+  "status": "refined",
+  "summary": "Low 1.1 m concrete perimeter walls enclose an open dark centre beneath a surrounding tree canopy that conceals the structure's exact material, use, and contents.",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#a9a69c",
+      "surface": "weathered"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#79766d",
+      "roughness": 0.74
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#968f82"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "soil": {
+      "kind": "gravel-ballast",
+      "color": "#4a463e",
+      "secondaryColor": "#666153",
+      "variation": 0.14
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 1.1,
+    "typicalHeight": 1.1
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "material": "wall",
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "bands": [],
+      "parapet": {
+        "type": "plain",
+        "height": 0
+      },
+      "cornice": {
+        "height": 0,
+        "depth": 0
+      },
+      "base": {
+        "height": 0,
+        "projection": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "none",
+    "material": "wall",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface minus local ground: median 16.84 m, 90th percentile 17.07 m, maximum 17.09 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "Branches obscure the tiny squared footprint just east of the yard; a pale edge is visible below the canopy. No unambiguous roof or wall sample is available."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Low concrete perimeter 1",
+        "footprint": [
+          [
+            684.935,
+            217.666
+          ],
+          [
+            681.635,
+            218.366
+          ],
+          [
+            681.6,
+            218.2
+          ],
+          [
+            684.9,
+            217.5
+          ]
+        ],
+        "height": 1.1,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Low concrete perimeter 2",
+        "footprint": [
+          [
+            681.766,
+            218.165
+          ],
+          [
+            682.566,
+            221.965
+          ],
+          [
+            682.4,
+            222.0
+          ],
+          [
+            681.6,
+            218.2
+          ]
+        ],
+        "height": 1.1,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Low concrete perimeter 3",
+        "footprint": [
+          [
+            682.37,
+            221.833
+          ],
+          [
+            685.67,
+            221.233
+          ],
+          [
+            685.7,
+            221.4
+          ],
+          [
+            682.4,
+            222.0
+          ]
+        ],
+        "height": 1.1,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Low concrete perimeter 4",
+        "footprint": [
+          [
+            685.533,
+            221.434
+          ],
+          [
+            684.733,
+            217.534
+          ],
+          [
+            684.9,
+            217.5
+          ],
+          [
+            685.7,
+            221.4
+          ]
+        ],
+        "height": 1.1,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Ground beneath the enclosure",
+        "footprint": [
+          [
+            684.776,
+            217.69
+          ],
+          [
+            681.789,
+            218.323
+          ],
+          [
+            682.525,
+            221.815
+          ],
+          [
+            685.51,
+            221.272
+          ]
+        ],
+        "height": 0.065,
+        "floors": 1,
+        "material": "soil",
+        "facade": {
+          "blank": true,
+          "material": "soil",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "soil"
+        }
+      }
+    ]
+  },
+  "lidarTrusted": false,
+  "lidarNote": "The 16–17 m return continues across many metres of forest outside the footprint. It measures the tree canopy. The model uses a provisional 1.1 m height.",
+  "notes": "The light rim encloses a dark centre. Height, function and material beneath the tree canopy are provisional."
+}

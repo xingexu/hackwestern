@@ -1,0 +1,731 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w1300081894",
+  "name": "Ronald D. Schmeichel Building for Entrepreneurship and Innovation",
+  "status": "refined",
+  "confidence": 0.87,
+  "summary": "Schmeichel is a four-storey building with pale deep splayed stone window frames, tall paired glazing above a transparent ground floor, and a concave two-storey lobby facing a landscaped court.",
+  "style": "contemporary-stone",
+  "materials": {
+    "wall": {
+      "kind": "limestone-smooth",
+      "color": "#c2baa7",
+      "secondaryColor": "#a6a095",
+      "unitSize": [
+        1.2,
+        0.6
+      ],
+      "variation": 0.24
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#f6f8f2",
+      "roughness": 0.82
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d2c9b8",
+      "unitSize": [
+        0.8,
+        0.28
+      ]
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#414346",
+      "roughness": 0.48
+    },
+    "plant": {
+      "kind": "metal-panel",
+      "color": "#bbbdb6",
+      "unitSize": [
+        0.65,
+        2.5
+      ]
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.7,
+    "typicalHeight": 4
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.65,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "punched",
+        "width": 3.4,
+        "height": 3.28,
+        "sill": 0.3,
+        "perBay": 1,
+        "recess": 0.52,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 0,
+          "width": 0.065
+        },
+        "frameColor": "#45494a",
+        "glass": "reflective",
+        "surround": "stone",
+        "surroundMaterial": "wall"
+      },
+      "parapet": {
+        "height": 0.5,
+        "type": "plain",
+        "material": "wall"
+      },
+      "groundFloor": {
+        "height": 4.7,
+        "windows": {
+          "type": "curtain-wall",
+          "width": 4.3,
+          "height": 4.25,
+          "sill": 0.05,
+          "perBay": 1,
+          "recess": 0.35,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#333c3b",
+          "glass": "clear",
+          "surround": "none",
+          "glassColor": "#718982"
+        }
+      },
+      "piers": {
+        "width": 0.52,
+        "depth": 0.4,
+        "every": 1,
+        "material": "wall",
+        "fullHeight": true
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 20,
+          "pattern": "regular",
+          "width": 4.67
+        },
+        "windows": {
+          "type": "punched",
+          "width": 3.4,
+          "height": 3.52,
+          "sill": 0.3,
+          "perBay": 1,
+          "recess": 0.52,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "frameColor": "#5c6967",
+          "glass": "reflective",
+          "surround": "stone",
+          "surroundMaterial": "wall",
+          "glassColor": "#7d9298",
+          "projectEvery": 2,
+          "projection": 0.25,
+          "rake": -0.35
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.24,
+          "material": "trim"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 4,
+          "pattern": "regular",
+          "width": 4.7
+        },
+        "windows": {
+          "type": "punched",
+          "width": 3.45,
+          "height": 3.52,
+          "sill": 0.3,
+          "perBay": 1,
+          "recess": 0.52,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "frameColor": "#5c6967",
+          "glass": "reflective",
+          "surround": "stone",
+          "surroundMaterial": "wall",
+          "glassColor": "#7d9298",
+          "projectEvery": 2,
+          "projection": 0.25,
+          "rake": -0.35
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.24,
+          "material": "trim"
+        },
+        "floorOverrides": {
+          "2": {
+            "windows": {
+              "type": "punched",
+              "sill": 0.23,
+              "height": 7.4,
+              "width": 3.42,
+              "recess": 0.57,
+              "rake": -0.42,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.045
+              }
+            }
+          },
+          "3": {
+            "windows": {
+              "type": "none"
+            }
+          }
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 12,
+          "pattern": "regular",
+          "width": 4.53
+        },
+        "windows": {
+          "type": "punched",
+          "width": 3.4,
+          "height": 3.52,
+          "sill": 0.3,
+          "perBay": 1,
+          "recess": 0.52,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "frameColor": "#5c6967",
+          "glass": "reflective",
+          "surround": "stone",
+          "surroundMaterial": "wall",
+          "glassColor": "#7d9298",
+          "projectEvery": 2,
+          "projection": 0.25,
+          "rake": -0.35
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.24,
+          "material": "trim"
+        },
+        "spandrelMaterial": "metal",
+        "groundFloor": {
+          "material": "metal",
+          "windows": {
+            "type": "storefront",
+            "width": 3.7,
+            "height": 4.4,
+            "sill": 0.06,
+            "recess": 0.38,
+            "frameColor": "#59635f",
+            "glass": "clear",
+            "glassColor": "#829a96",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.048
+            }
+          }
+        }
+      },
+      "3": {
+        "groundFloor": {
+          "material": "metal",
+          "windows": {
+            "type": "storefront",
+            "width": 3.7,
+            "height": 4.4,
+            "sill": 0.06,
+            "recess": 0.38,
+            "frameColor": "#59635f",
+            "glass": "clear",
+            "glassColor": "#829a96",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.048
+            }
+          }
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "windows": {
+          "recess": 0.52,
+          "height": 3.52,
+          "projectEvery": 2,
+          "projection": 0.25,
+          "rake": -0.35
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.24,
+          "material": "trim"
+        },
+        "spandrelMaterial": "metal"
+      },
+      "4": {
+        "groundFloor": {
+          "material": "metal",
+          "windows": {
+            "type": "storefront",
+            "width": 3.7,
+            "height": 4.4,
+            "sill": 0.06,
+            "recess": 0.38,
+            "frameColor": "#59635f",
+            "glass": "clear",
+            "glassColor": "#829a96",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.048
+            }
+          }
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "windows": {
+          "recess": 0.52,
+          "height": 3.52,
+          "projectEvery": 2,
+          "projection": 0.25,
+          "rake": -0.35
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.24,
+          "material": "trim"
+        },
+        "spandrelMaterial": "metal"
+      },
+      "5": {
+        "groundFloor": {
+          "material": "metal",
+          "windows": {
+            "type": "storefront",
+            "width": 3.7,
+            "height": 4.4,
+            "sill": 0.06,
+            "recess": 0.38,
+            "frameColor": "#59635f",
+            "glass": "clear",
+            "glassColor": "#829a96",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.048
+            }
+          }
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "windows": {
+          "recess": 0.52,
+          "height": 3.52,
+          "projectEvery": 2,
+          "projection": 0.25,
+          "rake": -0.35
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.24,
+          "material": "trim"
+        },
+        "spandrelMaterial": "metal"
+      },
+      "6": {
+        "bays": {
+          "count": 4,
+          "pattern": "regular",
+          "width": 5.09
+        },
+        "windows": {
+          "type": "punched",
+          "width": 3.4,
+          "height": 3.52,
+          "sill": 0.3,
+          "perBay": 1,
+          "recess": 0.52,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "frameColor": "#5c6967",
+          "glass": "reflective",
+          "surround": "stone",
+          "surroundMaterial": "wall",
+          "glassColor": "#7d9298",
+          "projectEvery": 2,
+          "projection": 0.25,
+          "rake": -0.35
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.24,
+          "material": "trim"
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 11,
+          "pattern": "regular",
+          "width": 4.53
+        },
+        "windows": {
+          "type": "punched",
+          "width": 3.4,
+          "height": 3.52,
+          "sill": 0.3,
+          "perBay": 1,
+          "recess": 0.52,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "frameColor": "#5c6967",
+          "glass": "reflective",
+          "surround": "stone",
+          "surroundMaterial": "wall",
+          "glassColor": "#7d9298",
+          "projectEvery": 2,
+          "projection": 0.25,
+          "rake": -0.35
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.24,
+          "material": "trim"
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 5,
+          "pattern": "regular",
+          "width": 4.15
+        },
+        "windows": {
+          "type": "punched",
+          "width": 3.4,
+          "height": 3.28,
+          "sill": 0.3,
+          "perBay": 1,
+          "recess": 0.52,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "frameColor": "#5c6967",
+          "glass": "reflective",
+          "surround": "stone",
+          "surroundMaterial": "wall",
+          "glassColor": "#7d9298"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          55,
+          437
+        ],
+        "size": [
+          26.4,
+          10.6
+        ],
+        "height": 2.3,
+        "rotation": 55.4,
+        "material": "plant"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          45.5,
+          423
+        ],
+        "size": [
+          4.8,
+          3.9
+        ],
+        "height": 0.65,
+        "rotation": 55
+      },
+      {
+        "type": "hvac",
+        "center": [
+          62,
+          449
+        ],
+        "size": [
+          2.8,
+          2.2
+        ],
+        "height": 1.05,
+        "rotation": 55
+      },
+      {
+        "type": "hvac",
+        "center": [
+          64,
+          451.7
+        ],
+        "size": [
+          1.9,
+          1.6
+        ],
+        "height": 0.8,
+        "rotation": 55
+      },
+      {
+        "type": "hvac",
+        "center": [
+          62.2,
+          436.55
+        ],
+        "size": [
+          2.5,
+          1.35
+        ],
+        "height": 1.05,
+        "rotation": 56,
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          64,
+          440.1
+        ],
+        "size": [
+          2.9,
+          1.6
+        ],
+        "height": 0.98,
+        "rotation": 56,
+        "fanGrid": [
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "url": "https://perkinswill.com/wp-content/uploads/2025/06/project_western-u-seib_01.png",
+      "note": "Glazed ground level follows the concave plaza edge beneath deep angled pale frames.",
+      "walls": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "kind": "photo",
+      "url": "https://perkinswill.com/wp-content/uploads/2025/06/SEIB_NorthEntry.jpg",
+      "note": "North entry has a projecting stone screen, double-height upper windows and a glazed ground level.",
+      "walls": [
+        1
+      ]
+    },
+    {
+      "kind": "photo",
+      "url": "https://perkinswill.com/project/western-university-ronald-d-schmeichel-building-for-entrepreneurship-and-innovation/",
+      "note": "Architect identifies the two-storey lobby on the plaza."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "73870281",
+      "walls": [
+        9
+      ],
+      "note": "2017 view shows the approach before construction and supplies no current facade details."
+    },
+    {
+      "kind": "aerial",
+      "note": "Bright continuous membrane follows the angled long wing and southern return. The inside edge wraps the landscaped forecourt."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 1.72 m, P90 9.28 m and maximum 13.15 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Wall colour sampled with PIL. Photo https://perkinswill.com/wp-content/uploads/2025/06/SEIB_NorthEntry.jpg at normalized pixel (0.362, 0.336). Roof tone sampled from the 2025 orthophoto. Dimensions and bay counts on obscured elevations are estimates."
+    },
+    {
+      "kind": "knowledge",
+      "note": "The Perkins and Will north-entry detail shows four structural bays, a nearly transparent base and dark slim frames. The cross-joint across the upper glazing has no deep horizontal stone transom."
+    }
+  ],
+  "notes": "Architect and aerial imagery cover the completed north end, plaza, and roof, while street views predate completion.",
+  "lidarTrusted": false,
+  "lidarNote": "The lidar and 2017 street views predate the present building. Heights are estimates from completed elevations and storey counts.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Stone-framed teaching wings",
+        "footprint": [
+          [
+            23.44,
+            374.74
+          ],
+          [
+            7.38,
+            384.5
+          ],
+          [
+            32.2,
+            421.9
+          ],
+          [
+            36.54,
+            430.39
+          ],
+          [
+            34.95,
+            441.85
+          ],
+          [
+            28.24,
+            448.01
+          ],
+          [
+            8.22,
+            450.33
+          ],
+          [
+            9.94,
+            470.62
+          ],
+          [
+            36.6713,
+            469.6743
+          ],
+          [
+            36.6333,
+            468.6
+          ],
+          [
+            40.8807,
+            468.4497
+          ],
+          [
+            40.9187,
+            469.5241
+          ],
+          [
+            59.69,
+            468.86
+          ],
+          [
+            59.24,
+            463.18
+          ],
+          [
+            68.52,
+            456.94
+          ],
+          [
+            76.45,
+            451.6
+          ],
+          [
+            54.87,
+            421.57
+          ]
+        ],
+        "height": 17.65,
+        "floors": 4,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.52,
+      "type": "glass-vestibule",
+      "width": 3.25,
+      "height": 3.4,
+      "recess": 1.5,
+      "surround": "trim",
+      "canopy": {
+        "type": "cantilever",
+        "width": 9.05,
+        "depth": 1.45,
+        "material": "trim"
+      }
+    },
+    {
+      "wall": 4,
+      "position": 0.55,
+      "type": "glass-vestibule",
+      "width": 3.6,
+      "height": 3.8,
+      "recess": 0.65
+    },
+    {
+      "wall": 9,
+      "position": 0.45,
+      "type": "doors-double",
+      "width": 2.3,
+      "height": 2.6
+    }
+  ]
+}

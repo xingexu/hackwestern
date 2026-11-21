@@ -1,0 +1,56 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778713855",
+  "name": "Westminster grounds, former footprint",
+  "status": "authored",
+  "confidence": 0.95,
+  "summary": "Former footprint showing continuous lawn and tree branches in 2025 imagery. The foreground garage in the selected older street frame is a separate footprint.",
+  "present": false,
+  "style": "house",
+  "materials": {
+    "wall": {
+      "kind": "stucco",
+      "color": "#aeaaa0"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#77746e"
+    }
+  },
+  "floors": {
+    "count": 1
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none"
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The 2025 image shows lawn and a branching tree across the footprint. No eaves or roof surfaces."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373917288",
+      "walls": [
+        0
+      ],
+      "note": "Foreground wide garage matches w778713980 only 19 m from this camera. This footprint is about 71 m away and behind it."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 5.74 m and P90 6.27 m may preserve an earlier roof. The present orthophoto shows lawn."
+    }
+  ],
+  "notes": "The survey models the landscape shown in the 2025 orthophoto. The former building has no established name or facade finish."
+}

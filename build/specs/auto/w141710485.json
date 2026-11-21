@@ -1,0 +1,310 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w141710485",
+  "name": "Taylor Library",
+  "status": "auto",
+  "confidence": 0.32,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    }
+  ],
+  "style": "mid-century-modern",
+  "floors": {
+    "count": 4,
+    "typicalHeight": 3.7,
+    "groundFloorHeight": 3.7
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 13.29,
+        "floors": 4
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              258.41,
+              6.341
+            ],
+            [
+              261.13,
+              14.5
+            ],
+            [
+              268.3,
+              13.066
+            ],
+            [
+              268.3,
+              6.304
+            ],
+            [
+              264.093,
+              3.5
+            ]
+          ]
+        },
+        "height": 18.39,
+        "baseOffset": 13.29,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              281.344,
+              16.682
+            ],
+            [
+              278.468,
+              6.614
+            ],
+            [
+              268.23,
+              9.539
+            ],
+            [
+              271.107,
+              19.607
+            ]
+          ]
+        },
+        "height": 18.39,
+        "baseOffset": 13.29,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              260.472,
+              25.811
+            ],
+            [
+              266.15,
+              41.8
+            ],
+            [
+              294.27,
+              30.81
+            ],
+            [
+              292.67,
+              25.69
+            ],
+            [
+              293.48,
+              25.329
+            ],
+            [
+              292.78,
+              23.231
+            ],
+            [
+              283.195,
+              27.491
+            ],
+            [
+              278.221,
+              23.512
+            ],
+            [
+              272.93,
+              25.628
+            ],
+            [
+              265.93,
+              23.628
+            ]
+          ]
+        },
+        "height": 18.39,
+        "baseOffset": 13.29,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              260.472,
+              25.811
+            ],
+            [
+              264.52,
+              37.21
+            ],
+            [
+              275.304,
+              34.514
+            ],
+            [
+              276.855,
+              37.616
+            ],
+            [
+              294.27,
+              30.81
+            ],
+            [
+              292.67,
+              25.69
+            ],
+            [
+              294.133,
+              25.037
+            ],
+            [
+              294.007,
+              24.408
+            ],
+            [
+              281.309,
+              27.583
+            ],
+            [
+              276.07,
+              23.391
+            ],
+            [
+              270.695,
+              26.974
+            ],
+            [
+              270.028,
+              24.972
+            ],
+            [
+              265.959,
+              23.616
+            ]
+          ]
+        },
+        "height": 22.64,
+        "baseOffset": 18.39,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              271.972,
+              24.972
+            ],
+            [
+              271.063,
+              27.7
+            ],
+            [
+              270.937,
+              27.7
+            ],
+            [
+              269.896,
+              24.578
+            ],
+            [
+              260.453,
+              25.758
+            ],
+            [
+              264.519,
+              37.207
+            ],
+            [
+              280.116,
+              33.048
+            ],
+            [
+              281.469,
+              26.281
+            ],
+            [
+              276.1,
+              23.596
+            ]
+          ]
+        },
+        "height": 26.89,
+        "baseOffset": 22.64,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#bbaf98",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#b7baab"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.8,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#566b75",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

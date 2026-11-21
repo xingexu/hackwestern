@@ -1,0 +1,851 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w562894113",
+  "name": "Dr. Don Rix Clinical Skills Learning Building",
+  "status": "refined",
+  "confidence": 0.89,
+  "summary": "Clinical Skills is a three-storey pale coursed stone building with regular small upper openings, horizontal sill and head courses, shallow arched ground-floor windows, and an emphasized portal near the east end.",
+  "style": "gothic-revival-modern",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#cfc1a8",
+      "secondaryColor": "#c0b198",
+      "unitSize": [
+        0.69,
+        0.35
+      ],
+      "variation": 0.12,
+      "surface": "rock-faced"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#b7bbac",
+      "roughness": 0.82
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d6cbb5",
+      "unitSize": [
+        0.8,
+        0.28
+      ]
+    },
+    "metal": {
+      "kind": "metal-panel",
+      "color": "#a5a7a4",
+      "unitSize": [
+        0.8,
+        2.4
+      ]
+    },
+    "link": {
+      "kind": "metal-panel",
+      "color": "#c8ccc8",
+      "unitSize": [
+        1.3,
+        2.3
+      ],
+      "variation": 0.035
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 4.6,
+    "typicalHeight": 4.15
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.65,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.21,
+        "height": 1.69,
+        "sill": 0.91,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.065
+        },
+        "frameColor": "#a0a8a1",
+        "glass": "tinted",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.35,
+        "material": "wall"
+      },
+      "bands": [
+        {
+          "at": [
+            4.55,
+            8.68,
+            12.58
+          ],
+          "height": 0.19,
+          "depth": 0.11,
+          "material": "trim"
+        },
+        {
+          "at": [
+            0.85
+          ],
+          "height": 0.14,
+          "depth": 0.08,
+          "material": "trim"
+        }
+      ],
+      "groundFloor": {
+        "height": 4.6,
+        "windows": {
+          "type": "segmental-arch",
+          "width": 2.74,
+          "height": 3.4,
+          "sill": 0.45,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 1,
+            "width": 0.075
+          },
+          "frameColor": "#c7c9b9",
+          "glass": "tinted",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "tracery": false,
+          "glassColor": "#638376"
+        }
+      }
+    },
+    "byWall": {
+      "0": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 14
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.21,
+          "height": 1.85,
+          "sill": 0.91,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#dcd8c9",
+          "glass": "tinted",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "glassColor": "#6b9289"
+        },
+        "cornice": {
+          "height": 0.25,
+          "depth": 0.19,
+          "material": "trim"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.5,
+          "material": "trim"
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.27,
+            "height": 1.32,
+            "sill": 1.06,
+            "frameColor": "#d9d6c9",
+            "glassColor": "#6d8e83"
+          }
+        }
+      },
+      "2": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "4": {
+        "material": "metal",
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.9,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#ccd1cb",
+          "glass": "tinted",
+          "surround": "metal"
+        },
+        "piers": {
+          "every": 1,
+          "width": 0.12,
+          "depth": 0.085,
+          "material": "link"
+        }
+      },
+      "5": {
+        "material": "metal",
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.9,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#ccd1cb",
+          "glass": "tinted",
+          "surround": "metal"
+        },
+        "piers": {
+          "every": 1,
+          "width": 0.12,
+          "depth": 0.085,
+          "material": "link"
+        }
+      },
+      "6": {
+        "material": "metal",
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.9,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#ccd1cb",
+          "glass": "tinted",
+          "surround": "metal"
+        },
+        "piers": {
+          "every": 1,
+          "width": 0.12,
+          "depth": 0.085,
+          "material": "link"
+        }
+      },
+      "7": {
+        "material": "metal",
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.9,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#ccd1cb",
+          "glass": "tinted",
+          "surround": "metal"
+        },
+        "piers": {
+          "every": 1,
+          "width": 0.12,
+          "depth": 0.085,
+          "material": "link"
+        }
+      },
+      "8": {
+        "material": "metal",
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.9,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#ccd1cb",
+          "glass": "tinted",
+          "surround": "metal"
+        },
+        "piers": {
+          "every": 1,
+          "width": 0.12,
+          "depth": 0.085,
+          "material": "link"
+        }
+      },
+      "9": {
+        "windows": {
+          "type": "punched",
+          "width": 1.1,
+          "height": 1.6,
+          "sill": 0.8,
+          "perBay": 1
+        },
+        "bays": {
+          "count": 2,
+          "width": 4.86
+        },
+        "cornice": {
+          "height": 0.25,
+          "depth": 0.19,
+          "material": "trim"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.5,
+          "material": "trim"
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 1,
+          "width": 3.17
+        },
+        "windows": {
+          "type": "none"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "none"
+          }
+        },
+        "topFloor": {
+          "windows": {
+            "type": "slot",
+            "width": 0.36,
+            "height": 2.05,
+            "perBay": 3,
+            "spacing": 0.21,
+            "sill": 0.22,
+            "glass": "dark"
+          }
+        },
+        "piers": {
+          "every": 1,
+          "width": 0.2,
+          "depth": 0.16,
+          "material": "trim"
+        },
+        "segments": [
+          {
+            "range": [
+              0.1,
+              0.9
+            ],
+            "sections": [
+              {
+                "start": 0,
+                "end": 1,
+                "base": 3.15,
+                "top": 7.45,
+                "material": "trim"
+              }
+            ]
+          }
+        ]
+      },
+      "11": {
+        "bays": {
+          "count": 11,
+          "pattern": "regular",
+          "width": 3.64
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.21,
+          "height": 1.85,
+          "sill": 0.91,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#dcd8c9",
+          "glass": "tinted",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "glassColor": "#6b9289"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "segmental-arch",
+            "width": 2.74,
+            "height": 3.4,
+            "sill": 0.45,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 3,
+              "horizontal": 1,
+              "width": 0.075
+            },
+            "frameColor": "#c7c9b9",
+            "glass": "tinted",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true,
+            "tracery": false,
+            "glassColor": "#638376"
+          }
+        },
+        "cornice": {
+          "height": 0.25,
+          "depth": 0.19,
+          "material": "trim"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.5,
+          "material": "trim"
+        },
+        "piers": {
+          "every": 3,
+          "width": 0.5,
+          "depth": 0.33,
+          "aboveRoof": 0.25,
+          "material": "trim"
+        },
+        "buttresses": {
+          "every": 3,
+          "width": 0.48,
+          "depth": 0.29,
+          "stepped": true,
+          "material": "wall"
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.27,
+            "height": 1.32,
+            "sill": 1.06,
+            "frameColor": "#d9d6c9",
+            "glassColor": "#6d8e83"
+          }
+        }
+      },
+      "12": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "13": {
+        "cornice": {
+          "height": 0.25,
+          "depth": 0.19,
+          "material": "trim"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.5,
+          "material": "trim"
+        },
+        "piers": {
+          "every": 3,
+          "width": 0.5,
+          "depth": 0.33,
+          "aboveRoof": 0.25,
+          "material": "trim"
+        },
+        "buttresses": {
+          "every": 3,
+          "width": 0.48,
+          "depth": 0.29,
+          "stepped": true,
+          "material": "wall"
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.27,
+            "height": 1.32,
+            "sill": 1.06,
+            "frameColor": "#d9d6c9",
+            "glassColor": "#6d8e83"
+          }
+        },
+        "windows": {
+          "height": 1.85,
+          "glassColor": "#6b9289",
+          "frameColor": "#dcd8c9"
+        }
+      },
+      "14": {
+        "cornice": {
+          "height": 0.25,
+          "depth": 0.19,
+          "material": "trim"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.5,
+          "material": "trim"
+        },
+        "piers": {
+          "every": 3,
+          "width": 0.5,
+          "depth": 0.33,
+          "aboveRoof": 0.25,
+          "material": "trim"
+        },
+        "buttresses": {
+          "every": 3,
+          "width": 0.48,
+          "depth": 0.29,
+          "stepped": true,
+          "material": "wall"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "segmental-arch",
+            "width": 2.74,
+            "height": 3.4,
+            "sill": 0.45,
+            "mullions": {
+              "vertical": 3,
+              "horizontal": 1,
+              "width": 0.075
+            },
+            "tracery": false,
+            "frameColor": "#c7c9b9",
+            "surroundMaterial": "trim",
+            "glassColor": "#638376"
+          }
+        },
+        "quoins": true
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "146586519",
+      "walls": [
+        11,
+        13
+      ],
+      "note": "South stone facade shows three rows with a narrow regular top row above projecting string courses."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414053",
+      "walls": [
+        9,
+        10,
+        11
+      ],
+      "note": "Ground-floor shallow arches with tall mullions, stone portal and a narrow grouping of openings in the east bay."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/CSB.jpg",
+      "note": "Three-storey block, decorative central portal and modern metal-panelled connector."
+    },
+    {
+      "kind": "aerial",
+      "note": "Long flat-roofed three-storey bar with an eastern link and a slightly projecting entrance pavilion. The long wall parallels the road."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 13.1 m, P90 13.39 m and maximum 13.87 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Wall colour sampled with PIL. KartaView 146586519 at normalized pixel (0.953, 0.348). Roof tone sampled from the 2025 orthophoto. Dimensions and bay counts on obscured elevations are estimates."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Western Facilities shows the eastern link has a pale metal upper wall with vertical ribs and glazing at grade. The masonry portal has three narrow, recessed stone openings above the doors."
+    },
+    {
+      "kind": "knowledge",
+      "note": "The short south-facing stone bay on wall 10 lies between the long classroom elevation and the lower link. It carries the portal rather than the adjoining panelled frontage."
+    }
+  ],
+  "notes": "Western Facilities photography confirms a rectangular portal door and lidar caps height at 13.87 m, while rear bay rhythm and relief remain less certain. The carved blind panel, stone tracery, and buttress set-offs remain simplified.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Eastern connector",
+        "footprint": {
+          "clip": [
+            [
+              176.69,
+              141.86
+            ],
+            [
+              177.79,
+              134.4
+            ],
+            [
+              181.25,
+              134.94
+            ],
+            [
+              181.59,
+              132.86
+            ],
+            [
+              181.82,
+              131.45
+            ],
+            [
+              178.45,
+              130.89
+            ],
+            [
+              179.1,
+              126.36
+            ],
+            [
+              171.583,
+              125.194
+            ],
+            [
+              169.554,
+              140.753
+            ]
+          ]
+        },
+        "height": 9.1,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "material": "link",
+        "facade": {
+          "material": "link",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "link",
+            "windows": {
+              "type": "ribbon",
+              "width": 1.15,
+              "height": 2.45,
+              "sill": 0.55,
+              "frameColor": "#b3bab4",
+              "glassColor": "#748a79",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.07
+              }
+            }
+          },
+          "topFloor": {
+            "material": "link",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.14,
+            "every": 1,
+            "material": "link"
+          },
+          "bays": {
+            "width": 1.35
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Clinical teaching block",
+        "footprint": [
+          [
+            125.01,
+            130.49
+          ],
+          [
+            124.57,
+            133.32
+          ],
+          [
+            163.1748,
+            139.3621
+          ],
+          [
+            163.7824,
+            135.5011
+          ],
+          [
+            168.8401,
+            136.2971
+          ],
+          [
+            168.1727,
+            140.5378
+          ],
+          [
+            168.63,
+            140.61
+          ],
+          [
+            169.554,
+            140.753
+          ],
+          [
+            171.583,
+            125.194
+          ],
+          [
+            169.79,
+            124.91
+          ],
+          [
+            169.66,
+            125.79
+          ],
+          [
+            166.61,
+            125.31
+          ],
+          [
+            166.75,
+            124.41
+          ],
+          [
+            126.92,
+            118.19
+          ],
+          [
+            126.61,
+            120.16
+          ],
+          [
+            123.76,
+            119.7
+          ],
+          [
+            122.14,
+            130.04
+          ]
+        ],
+        "height": 13.35,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Short stone entrance pavilion",
+        "footprint": [
+          [
+            164.12,
+            139.51
+          ],
+          [
+            164.22,
+            138.86
+          ],
+          [
+            167.27,
+            139.34
+          ],
+          [
+            167.11,
+            140.37
+          ],
+          [
+            168.1727,
+            140.5378
+          ],
+          [
+            168.8401,
+            136.2971
+          ],
+          [
+            163.7824,
+            135.5011
+          ],
+          [
+            163.1748,
+            139.3621
+          ]
+        ],
+        "height": 13.77,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 10,
+      "position": 0.5,
+      "type": "doors-double",
+      "width": 2.0,
+      "height": 2.6,
+      "recess": 0.35,
+      "surround": "trim",
+      "doorColor": "#697b71"
+    }
+  ]
+}

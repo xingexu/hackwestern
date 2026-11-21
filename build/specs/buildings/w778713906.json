@@ -1,0 +1,56 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778713906",
+  "name": "Westminster grounds, former footprint",
+  "status": "authored",
+  "confidence": 0.9,
+  "summary": "Former footprint occupied by grass and a mature tree in the 2025 aerial. A light-coloured house appears roughly in that direction in 2019, with identity unconfirmed.",
+  "present": false,
+  "style": "house",
+  "materials": {
+    "wall": {
+      "kind": "stucco",
+      "color": "#aeaaa0"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#77746e"
+    }
+  },
+  "floors": {
+    "count": 1
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none"
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Open grass and bare branches extend across the notched polygon in 2025."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373917268",
+      "walls": [
+        2
+      ],
+      "note": "March 2019 street image includes a low light house beyond the lawn in the direction of the footprint."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 6.31 m, P90 13.46 m and peak 15.72 m. Tree cover and the newer orthophoto preclude a reliable current eave height."
+    }
+  ],
+  "notes": "The survey models the landscape shown in the 2025 orthophoto. The former building has no established name or facade finish."
+}

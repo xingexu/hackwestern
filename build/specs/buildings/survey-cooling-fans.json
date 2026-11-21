@@ -1,0 +1,107 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-cooling-fans",
+  "name": "Hospital cooling fan bank",
+  "status": "authored",
+  "confidence": 0.77,
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "painted-metal",
+      "color": "#b7b9b1"
+    },
+    "roof": {
+      "kind": "standing-seam-metal",
+      "color": "#ced1c8"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#8a8e89"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#747975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.2,
+    "typicalHeight": 2.2
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none",
+    "features": [
+      {
+        "type": "hvac",
+        "style": "circular cooling fan",
+        "center": [
+          10.99,
+          -80.14
+        ],
+        "size": [
+          5.908000000000001,
+          5.104
+        ],
+        "height": 0.97,
+        "rotation": 21
+      },
+      {
+        "type": "hvac",
+        "style": "circular cooling fan",
+        "center": [
+          17.1,
+          -77.8
+        ],
+        "size": [
+          5.908000000000001,
+          5.104
+        ],
+        "height": 0.97,
+        "rotation": 21
+      },
+      {
+        "type": "hvac",
+        "style": "circular cooling fan",
+        "center": [
+          23.21,
+          -75.46
+        ],
+        "size": [
+          5.908000000000001,
+          5.104
+        ],
+        "height": 0.97,
+        "rotation": 21
+      }
+    ]
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Hospital cooling fan bank",
+        "footprint": "inventory",
+        "height": 1.2,
+        "floors": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof corners and orientation traced in the London 2025 orthophoto in local campus coordinates."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The earlier bare-earth and surface rasters do not resolve the full small structure. The roof profile and dimensions use its 2025 orthophoto footprint and shadow."
+}

@@ -1,0 +1,1529 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r7380709-0",
+  "name": "John Labatt Visual Art Centre",
+  "style": "industrial-utility",
+  "confidence": 0.62,
+  "status": "refined",
+  "summary": "A circular drum of pale horizontally coursed split-face block over a darker base carries a dark rim, light rooftop units, a paved apron, and an open white steel post-and-beam frame on its east side.",
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#c9bfa7",
+      "unitSize": [
+        0.4,
+        0.2
+      ],
+      "secondaryColor": "#b7ad98",
+      "variation": 0.065,
+      "bond": "running"
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#5b5c53",
+      "roughness": 0.74
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#fcf9e8"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "cap": {
+      "kind": "painted-metal",
+      "color": "#646d65"
+    },
+    "paver": {
+      "kind": "concrete-smooth",
+      "color": "#c9c5b7"
+    },
+    "box": {
+      "kind": "painted-metal",
+      "color": "#dbdbd1"
+    },
+    "interior": {
+      "kind": "concrete-smooth",
+      "color": "#9e9c8d"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 9.7,
+    "typicalHeight": 9.7
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "bays": {
+        "width": 4,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "plain",
+        "height": 0.23,
+        "material": "cap"
+      },
+      "base": {
+        "height": 0.38,
+        "material": "paver"
+      },
+      "blank": true
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          553.55,
+          2.25
+        ],
+        "size": [
+          1.1,
+          0.7
+        ],
+        "height": 0.43,
+        "material": "box",
+        "rotation": 27
+      },
+      {
+        "type": "hvac",
+        "center": [
+          555.15,
+          2.8
+        ],
+        "size": [
+          1,
+          0.7
+        ],
+        "height": 0.43,
+        "material": "box",
+        "rotation": 27
+      },
+      {
+        "type": "hvac",
+        "center": [
+          549.4,
+          -0.45
+        ],
+        "size": [
+          0.6,
+          0.55
+        ],
+        "height": 0.43,
+        "material": "box",
+        "rotation": 27
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface minus local ground: median 9.84 m, 90th percentile 9.95 m, maximum 10.59 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "A nearly circular opaque drum stands apart from the studios. There are two small white objects near the rounded roof edge and an open steel frame to the southeast."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P90 of 9.95 m correctly measures the drum. Its polygon excludes the freestanding steel frame included in this model. Regional DSM samples outside the footprint give 26.7 m at (572,6) and 28.9 m at (572,8), defining the upper frame level independently."
+    },
+    {
+      "kind": "lidar",
+      "note": "West and north 1 m roof returns extend several metres outside the inventory polygon; translating the drum northwest and slightly increasing its diameter matches the 9.8–10.6 m plateau. The dark grid across the roof is the shadow of the separate east frame."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "height": 9.8,
+        "floors": 1,
+        "footprint": [
+          [
+            556.778,
+            8.049
+          ],
+          [
+            552.829,
+            7.528
+          ],
+          [
+            549.639,
+            5.933
+          ],
+          [
+            546.84,
+            3.112
+          ],
+          [
+            544.974,
+            -1.467
+          ],
+          [
+            544.995,
+            -5.438
+          ],
+          [
+            546.536,
+            -9.463
+          ],
+          [
+            549.194,
+            -12.436
+          ],
+          [
+            553.925,
+            -14.628
+          ],
+          [
+            557.907,
+            -14.758
+          ],
+          [
+            559.957,
+            -14.27
+          ],
+          [
+            563.44,
+            -12.349
+          ],
+          [
+            565.068,
+            -10.765
+          ],
+          [
+            567.053,
+            -7.315
+          ],
+          [
+            567.737,
+            -3.279
+          ],
+          [
+            566.999,
+            0.638
+          ],
+          [
+            564.862,
+            4.197
+          ],
+          [
+            562.117,
+            6.454
+          ]
+        ]
+      },
+      {
+        "name": "Continuous paved apron",
+        "footprint": [
+          [
+            540.7,
+            -10.2
+          ],
+          [
+            546.6,
+            -17.4
+          ],
+          [
+            556.4,
+            -17.15
+          ],
+          [
+            571.0,
+            -9.65
+          ],
+          [
+            572.7,
+            6.7
+          ],
+          [
+            560.0,
+            13.1
+          ],
+          [
+            548.3,
+            11.5
+          ],
+          [
+            538.7,
+            3.25
+          ]
+        ],
+        "height": 0.115,
+        "floors": 1,
+        "material": "paver",
+        "facade": {
+          "blank": true,
+          "material": "paver",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "paver"
+        }
+      },
+      {
+        "name": "White steel upright 1",
+        "footprint": [
+          [
+            571.641,
+            4.547
+          ],
+          [
+            571.641,
+            4.817
+          ],
+          [
+            571.371,
+            4.817
+          ],
+          [
+            571.371,
+            4.547
+          ]
+        ],
+        "height": 28.8,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        }
+      },
+      {
+        "name": "White steel upright 2",
+        "footprint": [
+          [
+            575.003,
+            6.893
+          ],
+          [
+            575.003,
+            7.163
+          ],
+          [
+            574.733,
+            7.163
+          ],
+          [
+            574.733,
+            6.893
+          ]
+        ],
+        "height": 28.8,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        }
+      },
+      {
+        "name": "White steel upright 3",
+        "footprint": [
+          [
+            572.429,
+            10.583
+          ],
+          [
+            572.429,
+            10.853
+          ],
+          [
+            572.159,
+            10.853
+          ],
+          [
+            572.159,
+            10.583
+          ]
+        ],
+        "height": 28.8,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        }
+      },
+      {
+        "name": "White steel upright 4",
+        "footprint": [
+          [
+            569.067,
+            8.237
+          ],
+          [
+            569.067,
+            8.507
+          ],
+          [
+            568.797,
+            8.507
+          ],
+          [
+            568.797,
+            8.237
+          ]
+        ],
+        "height": 28.8,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        }
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            574.814,
+            7.106
+          ],
+          [
+            574.922,
+            6.95
+          ],
+          [
+            571.56,
+            4.604
+          ],
+          [
+            571.452,
+            4.76
+          ]
+        ],
+        "height": 6.0249999999999995,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 5.8
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            574.814,
+            7.106
+          ],
+          [
+            574.922,
+            6.95
+          ],
+          [
+            571.56,
+            4.604
+          ],
+          [
+            571.452,
+            4.76
+          ]
+        ],
+        "height": 11.674999999999999,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 11.45
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            574.814,
+            7.106
+          ],
+          [
+            574.922,
+            6.95
+          ],
+          [
+            571.56,
+            4.604
+          ],
+          [
+            571.452,
+            4.76
+          ]
+        ],
+        "height": 17.325000000000003,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 17.1
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            574.814,
+            7.106
+          ],
+          [
+            574.922,
+            6.95
+          ],
+          [
+            571.56,
+            4.604
+          ],
+          [
+            571.452,
+            4.76
+          ]
+        ],
+        "height": 23.025000000000002,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 22.8
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            574.814,
+            7.106
+          ],
+          [
+            574.922,
+            6.95
+          ],
+          [
+            571.56,
+            4.604
+          ],
+          [
+            571.452,
+            4.76
+          ]
+        ],
+        "height": 28.775000000000002,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 28.55
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            572.216,
+            10.663
+          ],
+          [
+            572.372,
+            10.772
+          ],
+          [
+            574.946,
+            7.082
+          ],
+          [
+            574.79,
+            6.973
+          ]
+        ],
+        "height": 6.0249999999999995,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 5.8
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            572.216,
+            10.663
+          ],
+          [
+            572.372,
+            10.772
+          ],
+          [
+            574.946,
+            7.082
+          ],
+          [
+            574.79,
+            6.973
+          ]
+        ],
+        "height": 11.674999999999999,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 11.45
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            572.216,
+            10.663
+          ],
+          [
+            572.372,
+            10.772
+          ],
+          [
+            574.946,
+            7.082
+          ],
+          [
+            574.79,
+            6.973
+          ]
+        ],
+        "height": 17.325000000000003,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 17.1
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            572.216,
+            10.663
+          ],
+          [
+            572.372,
+            10.772
+          ],
+          [
+            574.946,
+            7.082
+          ],
+          [
+            574.79,
+            6.973
+          ]
+        ],
+        "height": 23.025000000000002,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 22.8
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            572.216,
+            10.663
+          ],
+          [
+            572.372,
+            10.772
+          ],
+          [
+            574.946,
+            7.082
+          ],
+          [
+            574.79,
+            6.973
+          ]
+        ],
+        "height": 28.775000000000002,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 28.55
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            568.986,
+            8.294
+          ],
+          [
+            568.878,
+            8.45
+          ],
+          [
+            572.24,
+            10.796
+          ],
+          [
+            572.348,
+            10.64
+          ]
+        ],
+        "height": 6.0249999999999995,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 5.8
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            568.986,
+            8.294
+          ],
+          [
+            568.878,
+            8.45
+          ],
+          [
+            572.24,
+            10.796
+          ],
+          [
+            572.348,
+            10.64
+          ]
+        ],
+        "height": 11.674999999999999,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 11.45
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            568.986,
+            8.294
+          ],
+          [
+            568.878,
+            8.45
+          ],
+          [
+            572.24,
+            10.796
+          ],
+          [
+            572.348,
+            10.64
+          ]
+        ],
+        "height": 17.325000000000003,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 17.1
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            568.986,
+            8.294
+          ],
+          [
+            568.878,
+            8.45
+          ],
+          [
+            572.24,
+            10.796
+          ],
+          [
+            572.348,
+            10.64
+          ]
+        ],
+        "height": 23.025000000000002,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 22.8
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            568.986,
+            8.294
+          ],
+          [
+            568.878,
+            8.45
+          ],
+          [
+            572.24,
+            10.796
+          ],
+          [
+            572.348,
+            10.64
+          ]
+        ],
+        "height": 28.775000000000002,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 28.55
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            571.584,
+            4.737
+          ],
+          [
+            571.428,
+            4.628
+          ],
+          [
+            568.854,
+            8.318
+          ],
+          [
+            569.01,
+            8.427
+          ]
+        ],
+        "height": 6.0249999999999995,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 5.8
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            571.584,
+            4.737
+          ],
+          [
+            571.428,
+            4.628
+          ],
+          [
+            568.854,
+            8.318
+          ],
+          [
+            569.01,
+            8.427
+          ]
+        ],
+        "height": 11.674999999999999,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 11.45
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            571.584,
+            4.737
+          ],
+          [
+            571.428,
+            4.628
+          ],
+          [
+            568.854,
+            8.318
+          ],
+          [
+            569.01,
+            8.427
+          ]
+        ],
+        "height": 17.325000000000003,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 17.1
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            571.584,
+            4.737
+          ],
+          [
+            571.428,
+            4.628
+          ],
+          [
+            568.854,
+            8.318
+          ],
+          [
+            569.01,
+            8.427
+          ]
+        ],
+        "height": 23.025000000000002,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 22.8
+      },
+      {
+        "name": "Steel perimeter tie",
+        "footprint": [
+          [
+            571.584,
+            4.737
+          ],
+          [
+            571.428,
+            4.628
+          ],
+          [
+            568.854,
+            8.318
+          ],
+          [
+            569.01,
+            8.427
+          ]
+        ],
+        "height": 28.775000000000002,
+        "floors": 1,
+        "material": "box",
+        "facade": {
+          "blank": true,
+          "material": "box",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "box"
+        },
+        "baseOffset": 28.55
+      }
+    ]
+  },
+  "notes": "The height map supports a flat lid. The adjacent white open truss casts a shadow on the drum; a solid skybridge would give the wrong silhouette. The drum function is unknown.",
+  "attachments": [],
+  "lidarTrusted": false,
+  "lidarNote": "Inventory P90 of 9.95 m correctly measures the drum. Its polygon excludes the freestanding steel frame included in this model. Regional DSM samples outside the footprint give 26.7 m at (572,6) and 28.9 m at (572,8), defining the upper frame level independently."
+}

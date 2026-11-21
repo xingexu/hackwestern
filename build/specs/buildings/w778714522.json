@@ -1,0 +1,119 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714522",
+  "name": "West grandstand south annex, east",
+  "status": "refined",
+  "confidence": 0.55,
+  "summary": "A low rectangular pavilion sits at the south end of the home stand. Its grey gable roof runs roughly north to south.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#b6b7a9",
+      "unitSize": [
+        0.2,
+        3.68
+      ],
+      "secondaryColor": "#aaa99b",
+      "surface": "vertical-rib"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#92958d",
+      "variation": 0.08,
+      "unitSize": [
+        0.9,
+        0.32
+      ],
+      "secondaryColor": "#84877f"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#9a9f95",
+      "roughness": 0.42,
+      "metalness": 0.52
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.68,
+    "typicalHeight": 3.68
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "fascia",
+    "rise": 1.55,
+    "ridge": 8,
+    "overhang": 0.18
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Two separate rectangular roofs lie immediately below the west grandstand in plan. Each has a central ridge with a darker west slope. PIL sample (175,1312)."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 4.61 m, P90 5.18 m, maximum 5.27 m. Roof peaks agree with shallow pitches on these approximately 13 m-wide pavilions."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Search to 120 m found no oriented street view of a wall. Cladding, surface finish and the single service opening on the paved side are inferred."
+    }
+  ],
+  "notes": "Roof and footprint are visible. The dark narrow gap separates the two pavilions. Wall construction, service door and eaves are estimates. A small object against the east wall may be a service door or utility cabinet. Roof finish and both door positions are inferred.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Single-storey gabled volume",
+        "footprint": "inventory",
+        "height": 3.68,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "fascia",
+          "rise": 1.55,
+          "ridge": 8,
+          "overhang": 0.18
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.5,
+      "type": "doors-single",
+      "width": 1.05,
+      "height": 2.1,
+      "fanlight": false,
+      "sidelights": false,
+      "doorColor": "#7e847c",
+      "surround": "trim"
+    },
+    {
+      "wall": 1,
+      "position": 0.5,
+      "type": "doors-single",
+      "width": 0.96,
+      "height": 2.09,
+      "fanlight": false,
+      "sidelights": false,
+      "doorColor": "#7e847c",
+      "surround": "trim"
+    }
+  ]
+}

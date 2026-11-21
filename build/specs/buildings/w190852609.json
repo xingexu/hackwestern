@@ -1,0 +1,55 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w190852609",
+  "name": "Yellow Cottage (former site)",
+  "status": "authored",
+  "confidence": 0.95,
+  "summary": "The mapped cottage footprint appears as bare yard in the 2025 orthophoto.",
+  "style": "house",
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. Bare yard continues through the red cottage outline. The silver arched shelter and rust-coloured shed lie primarily west of it and are recorded separately."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 0.84 m, P90 2.04 m, maximum 2.5 m. Median is 0.84 m and the maximum is only 2.5 m. There is no coherent pitched roof surface."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://www.uwo.ca/about/maps/Campus-Map-April2019.pdf",
+      "note": "Older Western campus map labels Yellow Cottage in this area."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "gravel-ballast",
+      "color": "#a2937a",
+      "variation": 0.09
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#978c78",
+      "variation": 0.09
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.8,
+    "typicalHeight": 2.8
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "material": "wall"
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "notes": "Historical footprint only. Omit building geometry.",
+  "present": false
+}

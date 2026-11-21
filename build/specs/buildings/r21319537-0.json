@@ -1,0 +1,1909 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r21319537-0",
+  "name": "Perth Drive Complex (University Hospital Building D)",
+  "status": "refined",
+  "confidence": 0.93,
+  "summary": "Four open concrete parking levels under ribbon-glazed offices behind a pale fascia, with projecting rectangular Perth Drive bays, buff masonry, glazed stair, two roof recesses, rooftop equipment, and a walkway to the detached stair tower.",
+  "style": "brutalist",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#9a9482",
+      "secondaryColor": "#78776d",
+      "unitSize": [
+        6.8,
+        1.24
+      ],
+      "weathering": 0.42
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#d1cec4",
+      "secondaryColor": "#aaa89c",
+      "unitSize": [
+        6.8,
+        0.48
+      ]
+    },
+    "stair": {
+      "kind": "split-face-block",
+      "color": "#c0beab",
+      "secondaryColor": "#9a9886",
+      "unitSize": [
+        0.39,
+        0.19
+      ],
+      "bond": "running"
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#aba692",
+      "secondaryColor": "#beb9a5"
+    },
+    "plant": {
+      "kind": "metal-panel",
+      "color": "#c4c5bd",
+      "secondaryColor": "#929792",
+      "unitSize": [
+        1.15,
+        0.8
+      ],
+      "surface": "louvred"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#57564f"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#495758"
+    },
+    "strip": {
+      "kind": "membrane",
+      "color": "#cdcbb9",
+      "secondaryColor": "#b8b6a5"
+    }
+  },
+  "floors": {
+    "count": 5,
+    "groundFloorHeight": 3.6,
+    "typicalHeight": 3.5
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Perth Drive frontage",
+        "height": 18.65,
+        "floors": 5,
+        "footprint": [
+          [
+            203.32,
+            -303.57
+          ],
+          [
+            208.91,
+            -289.09
+          ],
+          [
+            208.41264,
+            -290.37834
+          ],
+          [
+            210.84851,
+            -291.32316
+          ],
+          [
+            213.4522,
+            -284.61043
+          ],
+          [
+            210.77818,
+            -283.57324
+          ],
+          [
+            230.93,
+            -231.21
+          ],
+          [
+            233.82,
+            -232.34
+          ],
+          [
+            249.10868,
+            -238.20287
+          ],
+          [
+            218.62607,
+            -316.68298
+          ],
+          [
+            200.92,
+            -309.8
+          ]
+        ]
+      },
+      {
+        "name": "North office wing",
+        "height": 18.55,
+        "floors": 5,
+        "footprint": {
+          "clip": [
+            [
+              217.542,
+              -319.474
+            ],
+            [
+              250.162,
+              -332.144
+            ],
+            [
+              261.565,
+              -302.786
+            ],
+            [
+              242.2726,
+              -295.2926
+            ],
+            [
+              246.4356,
+              -284.5746
+            ],
+            [
+              233.108,
+              -279.398
+            ]
+          ]
+        }
+      },
+      {
+        "name": "South office wing",
+        "height": 18.55,
+        "floors": 5,
+        "footprint": {
+          "clip": [
+            [
+              238.357,
+              -265.884
+            ],
+            [
+              251.6846,
+              -271.0606
+            ],
+            [
+              247.3406,
+              -282.2446
+            ],
+            [
+              261.6934,
+              -287.8194
+            ],
+            [
+              256.6254,
+              -300.8674
+            ],
+            [
+              261.565,
+              -302.786
+            ],
+            [
+              283.828,
+              -245.468
+            ],
+            [
+              251.208,
+              -232.798
+            ]
+          ]
+        }
+      },
+      {
+        "name": "West recessed court deck",
+        "height": 11.25,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              233.108,
+              -279.398
+            ],
+            [
+              246.4356,
+              -284.5746
+            ],
+            [
+              251.6846,
+              -271.0606
+            ],
+            [
+              238.357,
+              -265.884
+            ]
+          ]
+        }
+      },
+      {
+        "name": "East recessed court deck",
+        "height": 11.25,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              242.2726,
+              -295.2926
+            ],
+            [
+              256.6254,
+              -300.8674
+            ],
+            [
+              261.6934,
+              -287.8194
+            ],
+            [
+              247.3406,
+              -282.2446
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Enclosed west stair at the Perth Drive frontage notch",
+        "footprint": [
+          [
+            213.4522,
+            -284.61043
+          ],
+          [
+            210.84851,
+            -291.32316
+          ],
+          [
+            208.41264,
+            -290.37834
+          ],
+          [
+            208.91,
+            -289.09
+          ],
+          [
+            207.42,
+            -285.77
+          ],
+          [
+            210.46,
+            -284.4
+          ],
+          [
+            210.77818,
+            -283.57324
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.95,
+        "floors": 5,
+        "material": "stair",
+        "facade": {
+          "material": "stair",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "stair",
+          "features": []
+        },
+        "wallProfiles": {
+          "3": {
+            "sections": [
+              {
+                "start": 0.08,
+                "end": 0.92,
+                "base": 1.15,
+                "top": 17.35,
+                "material": "glass",
+                "horizontalMullions": 4,
+                "verticalMullionSpacing": 0.82
+              }
+            ]
+          },
+          "4": {
+            "sections": [
+              {
+                "start": 0.08,
+                "end": 0.92,
+                "base": 1.15,
+                "top": 17.35,
+                "material": "glass",
+                "horizontalMullions": 4,
+                "verticalMullionSpacing": 0.82
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Pale longitudinal roof membrane strip",
+        "footprint": [
+          [
+            217.8824,
+            -316.3884
+          ],
+          [
+            214.9,
+            -315.23
+          ],
+          [
+            245.37446,
+            -236.77088
+          ],
+          [
+            248.36184,
+            -237.91647
+          ]
+        ],
+        "baseOffset": 18.65,
+        "height": 18.73,
+        "floors": 1,
+        "material": "strip",
+        "facade": {
+          "material": "strip",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "strip",
+          "features": []
+        }
+      },
+      {
+        "name": "Bridge level 2 slab edge east",
+        "footprint": [
+          [
+            232.94226,
+            -231.96322
+          ],
+          [
+            239.74226,
+            -214.76322
+          ],
+          [
+            239.62136,
+            -214.71542
+          ],
+          [
+            232.82136,
+            -231.91542
+          ]
+        ],
+        "baseOffset": 6.590000000000001,
+        "height": 6.8100000000000005,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bridge level 2 slab edge west",
+        "footprint": [
+          [
+            235.65774,
+            -233.03678
+          ],
+          [
+            242.45774,
+            -215.83678
+          ],
+          [
+            242.57864,
+            -215.88458
+          ],
+          [
+            235.77864,
+            -233.08458
+          ]
+        ],
+        "baseOffset": 6.590000000000001,
+        "height": 6.8100000000000005,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bridge level 3 slab edge east",
+        "footprint": [
+          [
+            232.94226,
+            -231.96322
+          ],
+          [
+            239.74226,
+            -214.76322
+          ],
+          [
+            239.62136,
+            -214.71542
+          ],
+          [
+            232.82136,
+            -231.91542
+          ]
+        ],
+        "baseOffset": 9.719999999999999,
+        "height": 9.94,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bridge level 3 slab edge west",
+        "footprint": [
+          [
+            235.65774,
+            -233.03678
+          ],
+          [
+            242.45774,
+            -215.83678
+          ],
+          [
+            242.57864,
+            -215.88458
+          ],
+          [
+            235.77864,
+            -233.08458
+          ]
+        ],
+        "baseOffset": 9.719999999999999,
+        "height": 9.94,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bridge level 4 slab edge east",
+        "footprint": [
+          [
+            232.94226,
+            -231.96322
+          ],
+          [
+            239.74226,
+            -214.76322
+          ],
+          [
+            239.62136,
+            -214.71542
+          ],
+          [
+            232.82136,
+            -231.91542
+          ]
+        ],
+        "baseOffset": 12.85,
+        "height": 13.07,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Bridge level 4 slab edge west",
+        "footprint": [
+          [
+            235.65774,
+            -233.03678
+          ],
+          [
+            242.45774,
+            -215.83678
+          ],
+          [
+            242.57864,
+            -215.88458
+          ],
+          [
+            235.77864,
+            -233.08458
+          ]
+        ],
+        "baseOffset": 12.85,
+        "height": 13.07,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Pale membrane flashing at office wing 1, court 1, run 1",
+        "footprint": [
+          [
+            246.35587,
+            -284.58654
+          ],
+          [
+            246.39577,
+            -284.67714
+          ],
+          [
+            246.39049,
+            -284.69073
+          ],
+          [
+            246.35595,
+            -284.77967
+          ],
+          [
+            233.02835,
+            -279.60307
+          ],
+          [
+            233.108,
+            -279.398
+          ],
+          [
+            246.4356,
+            -284.5746
+          ],
+          [
+            246.42112,
+            -284.61189
+          ]
+        ],
+        "baseOffset": 18.55,
+        "height": 18.592000000000002,
+        "material": "strip",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "strip",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Pale membrane flashing at office wing 1, court 2, run 1",
+        "footprint": [
+          [
+            246.39831,
+            -284.56012
+          ],
+          [
+            246.4356,
+            -284.5746
+          ],
+          [
+            242.2726,
+            -295.2926
+          ],
+          [
+            256.66269,
+            -300.88188
+          ],
+          [
+            256.58303,
+            -301.08696
+          ],
+          [
+            241.98787,
+            -295.41802
+          ],
+          [
+            246.23053,
+            -284.49495
+          ],
+          [
+            246.33306,
+            -284.53477
+          ],
+          [
+            246.37297,
+            -284.62537
+          ]
+        ],
+        "baseOffset": 18.55,
+        "height": 18.592000000000002,
+        "material": "strip",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "strip",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Pale membrane flashing at office wing 2, court 1, run 1",
+        "footprint": [
+          [
+            238.39683,
+            -265.78146
+          ],
+          [
+            238.43029,
+            -265.69532
+          ],
+          [
+            238.43665,
+            -265.67893
+          ],
+          [
+            251.96933,
+            -270.93518
+          ],
+          [
+            247.54567,
+            -282.32425
+          ],
+          [
+            247.44314,
+            -282.28443
+          ],
+          [
+            247.40323,
+            -282.19383
+          ],
+          [
+            247.37789,
+            -282.25908
+          ],
+          [
+            247.3406,
+            -282.2446
+          ],
+          [
+            251.6846,
+            -271.0606
+          ],
+          [
+            238.357,
+            -265.884
+          ],
+          [
+            238.37148,
+            -265.84671
+          ],
+          [
+            238.43673,
+            -265.87206
+          ]
+        ],
+        "baseOffset": 18.55,
+        "height": 18.592000000000002,
+        "material": "strip",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "strip",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Pale membrane flashing at office wing 2, court 2, run 1",
+        "footprint": [
+          [
+            247.38043,
+            -282.14206
+          ],
+          [
+            247.42025,
+            -282.03953
+          ],
+          [
+            261.97813,
+            -287.69398
+          ],
+          [
+            256.83047,
+            -300.94705
+          ],
+          [
+            256.66269,
+            -300.88188
+          ],
+          [
+            256.6254,
+            -300.8674
+          ],
+          [
+            261.6934,
+            -287.8194
+          ],
+          [
+            247.3406,
+            -282.2446
+          ],
+          [
+            247.35508,
+            -282.20731
+          ],
+          [
+            247.42033,
+            -282.23266
+          ]
+        ],
+        "baseOffset": 18.55,
+        "height": 18.592000000000002,
+        "material": "strip",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "strip",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Transverse roof panel joint 1, wing 1, strip 1",
+        "footprint": [
+          [
+            229.71606,
+            -288.13084
+          ],
+          [
+            229.83914,
+            -287.81396
+          ],
+          [
+            243.16674,
+            -292.99056
+          ],
+          [
+            243.04366,
+            -293.30744
+          ]
+        ],
+        "baseOffset": 18.55,
+        "height": 18.6,
+        "material": "strip",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "strip",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Transverse roof panel joint 3, wing 2, strip 1",
+        "footprint": [
+          [
+            269.08434,
+            -272.38076
+          ],
+          [
+            268.96126,
+            -272.69764
+          ],
+          [
+            240.06926,
+            -261.47564
+          ],
+          [
+            240.19234,
+            -261.15876
+          ]
+        ],
+        "baseOffset": 18.55,
+        "height": 18.6,
+        "material": "strip",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "strip",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Long fine roof panel seam 1, wing 2, strip 1",
+        "footprint": [
+          [
+            246.12804,
+            -284.45514
+          ],
+          [
+            231.64469,
+            -321.74377
+          ],
+          [
+            231.32784,
+            -321.6206
+          ],
+          [
+            245.81116,
+            -284.33206
+          ]
+        ],
+        "baseOffset": 18.55,
+        "height": 18.598,
+        "material": "strip",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "strip",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Long fine roof panel seam 1, wing 3, strip 1",
+        "footprint": [
+          [
+            251.06016,
+            -270.81806
+          ],
+          [
+            261.34096,
+            -244.34926
+          ],
+          [
+            261.65784,
+            -244.47234
+          ],
+          [
+            251.37704,
+            -270.94114
+          ]
+        ],
+        "baseOffset": 18.55,
+        "height": 18.598,
+        "material": "strip",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "strip",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Long fine roof panel seam 2, wing 1, strip 1",
+        "footprint": [
+          [
+            233.92016,
+            -235.41486
+          ],
+          [
+            234.23704,
+            -235.53794
+          ],
+          [
+            204.80644,
+            -311.30954
+          ],
+          [
+            204.48956,
+            -311.18646
+          ]
+        ],
+        "baseOffset": 18.65,
+        "height": 18.697999999999997,
+        "material": "strip",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "strip",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "strip",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "none",
+          "features": []
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "ribbon",
+        "width": 6.7,
+        "height": 1.55,
+        "sill": 1.27,
+        "perBay": 1,
+        "recess": 0.47,
+        "frameColor": "#635f55",
+        "glass": "dark",
+        "glassColor": "#303331",
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 0,
+          "width": 0.06
+        }
+      },
+      "bays": {
+        "width": 7.1,
+        "pattern": "regular"
+      },
+      "bands": [
+        {
+          "at": "floor-lines",
+          "height": 0.28,
+          "depth": 0.12,
+          "material": "trim"
+        }
+      ],
+      "groundFloor": {
+        "windows": {
+          "type": "ribbon",
+          "width": 6.7,
+          "height": 2.6,
+          "sill": 0.37,
+          "perBay": 1,
+          "recess": 0.47,
+          "frameColor": "#635f55",
+          "glass": "dark",
+          "glassColor": "#303331",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.06
+          }
+        }
+      },
+      "topFloor": {
+        "material": "trim",
+        "windows": {
+          "type": "ribbon",
+          "width": 6.9,
+          "height": 1.72,
+          "sill": 0.82,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#424644",
+          "glass": "tinted",
+          "mullions": {
+            "vertical": 4,
+            "horizontal": 0,
+            "width": 0.06
+          },
+          "glassColor": "#444f50",
+          "rake": 0.48
+        }
+      },
+      "cornice": {
+        "height": 2.4,
+        "depth": 0.09,
+        "material": "trim"
+      },
+      "parapet": {
+        "height": 0.9,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 7,
+          "width": 7.27,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 8,
+          "width": 7.13,
+          "pattern": "regular"
+        },
+        "balconies": {
+          "every": 3,
+          "floors": [
+            1,
+            2,
+            3
+          ],
+          "depth": 1.55,
+          "rail": "solid",
+          "endPanels": true,
+          "infill": "solid",
+          "material": "wall",
+          "bayPattern": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        "floorOverrides": {
+          "2": {
+            "windows": {
+              "type": "ribbon",
+              "height": 1.15,
+              "sill": 1.55,
+              "mullions": {
+                "vertical": 5,
+                "horizontal": 0,
+                "width": 0.055
+              },
+              "glassColor": "#444945"
+            }
+          },
+          "3": {
+            "windows": {
+              "type": "ribbon",
+              "height": 1.15,
+              "sill": 1.55,
+              "mullions": {
+                "vertical": 5,
+                "horizontal": 0,
+                "width": 0.055
+              },
+              "glassColor": "#444945"
+            }
+          }
+        }
+      },
+      "2": {
+        "material": "stair",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 1.9,
+          "height": 2.7,
+          "sill": 0.15,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484945",
+          "glass": "tinted",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.06
+          }
+        },
+        "bays": {
+          "count": 1,
+          "width": 3.3,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "material": "stair",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 1.9,
+          "height": 2.7,
+          "sill": 0.15,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484945",
+          "glass": "tinted",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.06
+          }
+        },
+        "bays": {
+          "count": 1,
+          "width": 3.3,
+          "pattern": "regular"
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 3,
+          "width": 7.4,
+          "pattern": "regular"
+        },
+        "balconies": {
+          "every": 3,
+          "floors": [
+            1,
+            2,
+            3
+          ],
+          "depth": 1.55,
+          "rail": "solid",
+          "endPanels": true,
+          "infill": "solid",
+          "material": "wall",
+          "bayPattern": [
+            0,
+            1,
+            0
+          ]
+        },
+        "floorOverrides": {
+          "2": {
+            "windows": {
+              "type": "ribbon",
+              "height": 1.15,
+              "sill": 1.55,
+              "mullions": {
+                "vertical": 5,
+                "horizontal": 0,
+                "width": 0.055
+              },
+              "glassColor": "#444945"
+            }
+          },
+          "3": {
+            "windows": {
+              "type": "ribbon",
+              "height": 1.15,
+              "sill": 1.55,
+              "mullions": {
+                "vertical": 5,
+                "horizontal": 0,
+                "width": 0.055
+              },
+              "glassColor": "#444945"
+            }
+          }
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 7,
+          "width": 7.21,
+          "pattern": "regular"
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 2,
+          "width": 8.45,
+          "pattern": "regular"
+        }
+      },
+      "7": {
+        "material": "stair",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 1.9,
+          "height": 2.7,
+          "sill": 0.15,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484945",
+          "glass": "tinted",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.06
+          }
+        },
+        "bays": {
+          "count": 1,
+          "width": 3.3,
+          "pattern": "regular"
+        }
+      },
+      "8": {
+        "material": "stair",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 1.9,
+          "height": 2.7,
+          "sill": 0.15,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484945",
+          "glass": "tinted",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.06
+          }
+        },
+        "bays": {
+          "count": 1,
+          "width": 3.3,
+          "pattern": "regular"
+        }
+      },
+      "9": {
+        "material": "stair",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 1.9,
+          "height": 2.7,
+          "sill": 0.15,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484945",
+          "glass": "tinted",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.06
+          }
+        },
+        "bays": {
+          "count": 1,
+          "width": 3.3,
+          "pattern": "regular"
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 9,
+          "width": 6.97,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          214.5,
+          -305.7
+        ],
+        "size": [
+          2.8,
+          5.4
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant",
+        "style": "louvred rectangular rooftop plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          221,
+          -289.5
+        ],
+        "size": [
+          2.8,
+          5.4
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant",
+        "style": "louvred rectangular rooftop plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          225.7,
+          -277.7
+        ],
+        "size": [
+          2.8,
+          5.4
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant",
+        "style": "louvred rectangular rooftop plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          235.1,
+          -252.3
+        ],
+        "size": [
+          2.8,
+          5.4
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant",
+        "style": "louvred rectangular rooftop plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          231.9,
+          -244.7
+        ],
+        "size": [
+          2.8,
+          5.4
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant",
+        "style": "louvred rectangular rooftop plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          250.4,
+          -251.4
+        ],
+        "size": [
+          2.8,
+          5.4
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant",
+        "style": "louvred rectangular rooftop plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          263.7,
+          -262.9
+        ],
+        "size": [
+          2.8,
+          5.4
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant",
+        "style": "louvred rectangular rooftop plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          231.6,
+          -299.8
+        ],
+        "size": [
+          2.8,
+          5.4
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant",
+        "style": "louvred rectangular rooftop plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          244.8,
+          -311
+        ],
+        "size": [
+          2.8,
+          5.4
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant",
+        "style": "louvred rectangular rooftop plant"
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.94,
+      "type": "doors-double",
+      "width": 2,
+      "height": 2.3
+    },
+    {
+      "wall": 4,
+      "position": 0.7,
+      "type": "garage",
+      "width": 5.4,
+      "height": 2.7
+    },
+    {
+      "wall": 0,
+      "position": 0.53,
+      "type": "garage",
+      "width": 5.4,
+      "height": 2.7
+    }
+  ],
+  "attachments": [
+    {
+      "type": "skybridge",
+      "walls": [
+        0
+      ],
+      "path": [
+        [
+          234.3,
+          -232.5
+        ],
+        [
+          241.1,
+          -215.3
+        ]
+      ],
+      "width": 2.9,
+      "height": 12.5,
+      "baseOffset": 3.6,
+      "material": "glass"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "66579701",
+      "walls": [
+        1,
+        4
+      ],
+      "note": "West elevation has projecting parapet-sided bays above open parking slots and a glazed stair with a buff masonry edge."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "73881175",
+      "walls": [
+        1,
+        4
+      ],
+      "note": "Long west side has four parking tiers, pale horizontal dividers and a continuous dark office window band under a cream fascia."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "39252548",
+      "walls": [
+        0,
+        1
+      ],
+      "note": "Southwest corner and road frontage visible behind the detached glazed stair tower."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373917166",
+      "walls": [
+        1,
+        2,
+        3
+      ],
+      "note": "Sunlit stair block sample #c0beab. Slab edges interrupt the vertically stacked stair glazing."
+    },
+    {
+      "kind": "aerial",
+      "note": "Nine light rooftop units flank two offset rectangular recesses in the office storey."
+    },
+    {
+      "kind": "lidar",
+      "note": "Main roof P50 18.46 m and P90 19.39 m. Two separate 2 m DSM depressions bottom near 11.2 m."
+    },
+    {
+      "kind": "photo",
+      "note": "Builder's overhead photograph shows four parking levels, a top office floor and a tall framed link to the detached stair tower.",
+      "url": "https://www.haymanconstruction.com/University-Hospital-Parking-Garage.htm"
+    },
+    {
+      "kind": "knowledge",
+      "note": "LHSC calls this Zone D building the Perth Drive Complex.",
+      "url": "https://www.lhsc.on.ca/media/14821/download?attachment="
+    },
+    {
+      "kind": "osm",
+      "note": "Entry locations follow the mapped door and two parking entrance nodes."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "73881175",
+      "walls": [
+        1,
+        4
+      ],
+      "note": "Several narrower bays project outside the main deck fascia on the three upper parking tiers. The highest parking openings read as narrow, vertically divided slots behind the spandrels."
+    }
+  ],
+  "notes": "The deep projecting parking bays interrupt only portions of the street frontage. Vertical screen bars and a rail cap follow the open parking floors. Several levels of glazed or open framing share the bridge between the tower and garage."
+}

@@ -1,0 +1,4843 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w119875073",
+  "name": "Essex Hall",
+  "status": "refined",
+  "confidence": 0.9,
+  "summary": "Essex Hall has long buff-brick residential wings turning around the entrance court, six visible levels broken up by shallow projecting window bays and pale masonry bands, and a lower wing extending behind the main block.",
+  "style": "residential-brick",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#d1bea0",
+      "bond": "running",
+      "variation": 0.14,
+      "roughness": 0.83,
+      "unitSize": [
+        0.2,
+        0.067
+      ],
+      "secondaryColor": "#c8b794"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c3c9bb"
+    },
+    "base": {
+      "kind": "split-face-block",
+      "color": "#b2aa99",
+      "bond": "running",
+      "variation": 0.13,
+      "unitSize": [
+        0.39,
+        0.19
+      ],
+      "secondaryColor": "#c5bcad"
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#ddd2bd",
+      "unitSize": [
+        1.5,
+        0.32
+      ]
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#9da3a3",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "green": {
+      "kind": "painted-metal",
+      "color": "#41615c",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "plant": {
+      "kind": "metal-panel",
+      "color": "#b3b7ae"
+    },
+    "recessedBrick": {
+      "kind": "brick",
+      "color": "#b39e82",
+      "bond": "running",
+      "variation": 0.14,
+      "roughness": 0.9,
+      "unitSize": [
+        0.2,
+        0.067
+      ],
+      "secondaryColor": "#c8b794"
+    }
+  },
+  "floors": {
+    "count": 6,
+    "groundFloorHeight": 3.55,
+    "typicalHeight": 3.05
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.6,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.55,
+        "height": 1.47,
+        "sill": 0.83,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "frameColor": "#a4a6a5",
+        "glassColor": "#5c6a72",
+        "glass": "tinted",
+        "surround": "none",
+        "sillProjecting": true
+      },
+      "base": {
+        "height": 0.22,
+        "material": "base",
+        "projection": 0.07
+      },
+      "parapet": {
+        "height": 0.32,
+        "type": "coped",
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": [
+            3.55
+          ],
+          "height": 0.3,
+          "depth": 0.25,
+          "material": "trim"
+        },
+        {
+          "at": [
+            6.38,
+            15.45
+          ],
+          "height": 0.14,
+          "depth": 0.09,
+          "material": "trim"
+        }
+      ]
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.47,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a4a6a5",
+          "glassColor": "#5c6a72",
+          "glass": "tinted",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.34,
+          "depth": 0.34,
+          "every": 3,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "punched",
+            "width": 1.55,
+            "height": 1.98,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#a4a6a5",
+            "glassColor": "#5c6a72",
+            "glass": "tinted",
+            "surround": "none",
+            "sillProjecting": true
+          }
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 7.0,
+          "pattern": "paired"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.53,
+          "sill": 0.83,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a4a6a5",
+          "glassColor": "#5c6a72",
+          "glass": "tinted",
+          "surround": "none",
+          "sillProjecting": true,
+          "spacing": 0.63
+        },
+        "piers": {
+          "width": 0.52,
+          "depth": 0.41,
+          "every": 2,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "groundFloor": {
+          "material": "base",
+          "windows": {
+            "type": "storefront",
+            "width": 3.0,
+            "height": 2.5,
+            "sill": 0.1,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.055
+            }
+          }
+        },
+        "spandrelMaterial": "recessedBrick",
+        "sections": [
+          {
+            "start": 0.1,
+            "end": 0.14,
+            "base": 0,
+            "top": 3.5,
+            "material": "base"
+          },
+          {
+            "start": 0.23,
+            "end": 0.27,
+            "base": 0,
+            "top": 3.5,
+            "material": "base"
+          }
+        ]
+      },
+      "2": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.47,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a4a6a5",
+          "glassColor": "#5c6a72",
+          "glass": "tinted",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.52,
+          "depth": 0.41,
+          "every": 2,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "segments": [
+          {
+            "range": [
+              0.86,
+              1
+            ],
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        ],
+        "spandrelMaterial": "recessedBrick",
+        "sections": [
+          {
+            "start": 0.1,
+            "end": 0.14,
+            "base": 0,
+            "top": 3.5,
+            "material": "base"
+          },
+          {
+            "start": 0.23,
+            "end": 0.27,
+            "base": 0,
+            "top": 3.5,
+            "material": "base"
+          }
+        ],
+        "groundFloor": {
+          "material": "base"
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.47,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a4a6a5",
+          "glassColor": "#5c6a72",
+          "glass": "tinted",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "punched",
+            "width": 1.55,
+            "height": 1.98,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#a4a6a5",
+            "glassColor": "#5c6a72",
+            "glass": "tinted",
+            "surround": "none",
+            "sillProjecting": true
+          }
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.47,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a4a6a5",
+          "glassColor": "#5c6a72",
+          "glass": "tinted",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.52,
+          "depth": 0.41,
+          "every": 2,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "spandrelMaterial": "recessedBrick"
+      },
+      "15": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular",
+          "count": 4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.47,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a4a6a5",
+          "glassColor": "#5c6a72",
+          "glass": "tinted",
+          "surround": "none",
+          "sillProjecting": true
+        }
+      },
+      "16": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular",
+          "count": 4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.47,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a4a6a5",
+          "glassColor": "#5c6a72",
+          "glass": "tinted",
+          "surround": "none",
+          "sillProjecting": true
+        }
+      },
+      "17": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.55,
+          "height": 1.47,
+          "sill": 0.83,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a4a6a5",
+          "glassColor": "#5c6a72",
+          "glass": "tinted",
+          "surround": "none",
+          "sillProjecting": true
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 7.2,
+          "pattern": "regular",
+          "count": 2
+        },
+        "windows": {
+          "type": "bay-window",
+          "width": 2.25,
+          "height": 1.57,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a4a6a5"
+        },
+        "bands": [
+          {
+            "at": [
+              3.1,
+              6.38
+            ],
+            "height": 0.15,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        ],
+        "groundFloor": {
+          "material": "base",
+          "windows": {
+            "type": "punched",
+            "width": 1.55,
+            "height": 1.98,
+            "sill": 0.83,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#a4a6a5",
+            "glassColor": "#5c6a72",
+            "glass": "tinted",
+            "surround": "none",
+            "sillProjecting": true
+          }
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 5,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.25,
+          "sill": 1.1,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          }
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 5,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.25,
+          "sill": 1.1,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          }
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 5,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.25,
+          "sill": 1.1,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          }
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 5,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.25,
+          "sill": 1.1,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          }
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 5,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.25,
+          "sill": 1.1,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          }
+        }
+      },
+      "12": {
+        "bays": {
+          "width": 5,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.25,
+          "sill": 1.1,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          }
+        }
+      },
+      "13": {
+        "bays": {
+          "width": 5,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.5,
+          "height": 1.25,
+          "sill": 1.1,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          }
+        }
+      },
+      "5": {
+        "piers": {
+          "width": 0.52,
+          "depth": 0.41,
+          "every": 2,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "spandrelMaterial": "recessedBrick"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          80,
+          1111
+        ],
+        "size": [
+          4.1,
+          2.3
+        ],
+        "height": 1.4,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          91,
+          1110
+        ],
+        "size": [
+          4.5,
+          2.5
+        ],
+        "height": 1.5,
+        "material": "plant"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          102,
+          1110
+        ],
+        "size": [
+          7.5,
+          4.9
+        ],
+        "height": 2.1,
+        "material": "wall"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          114,
+          1150
+        ],
+        "size": [
+          4.1,
+          2.5
+        ],
+        "height": 1.4,
+        "material": "plant"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          70.8,
+          1030.2
+        ],
+        "size": [
+          9.6,
+          4.4
+        ],
+        "height": 2.6,
+        "material": "wall",
+        "rotation": -24
+      },
+      {
+        "type": "hvac",
+        "center": [
+          107.8,
+          1126
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          119.9,
+          1126
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          108.25,
+          1134
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          120.33,
+          1134
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          108.7,
+          1142
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          120.76,
+          1142
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          109.14,
+          1150
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          121.2,
+          1150
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          109.59,
+          1158
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          121.63,
+          1158
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          110.04,
+          1166
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          122.06,
+          1166
+        ],
+        "size": [
+          1.1,
+          0.87
+        ],
+        "height": 0.83,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          60.9,
+          1043.0
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          62.1,
+          1042.925
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          61.132,
+          1047.0
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          62.332,
+          1046.925
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          61.364,
+          1051.0
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          62.564,
+          1050.925
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          62.002,
+          1062.0
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          63.202,
+          1061.925
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          62.292,
+          1067.0
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          63.492,
+          1066.925
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          62.872,
+          1077.0
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          64.072,
+          1076.925
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          63.104,
+          1081.0
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          64.304,
+          1080.925
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          63.916,
+          1095.0
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          65.116,
+          1094.925
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          64.148,
+          1099.0
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          65.348,
+          1098.925
+        ],
+        "size": [
+          1.18,
+          1.18
+        ],
+        "height": 0.91,
+        "material": "plant",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          64.4,
+          1074
+        ],
+        "size": [
+          0.36,
+          62
+        ],
+        "height": 0.35,
+        "material": "plant",
+        "rotation": -3.5,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          72.7,
+          1109
+        ],
+        "size": [
+          0.41,
+          19.8
+        ],
+        "height": 0.35,
+        "material": "plant",
+        "rotation": -3.5,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          115.5,
+          1146
+        ],
+        "size": [
+          0.36,
+          48.6
+        ],
+        "height": 0.35,
+        "material": "plant",
+        "rotation": -3.5,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          111.6,
+          1110.6
+        ],
+        "size": [
+          11.1,
+          0.41
+        ],
+        "height": 0.35,
+        "material": "plant",
+        "rotation": -3.5,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          71,
+          1107.8
+        ],
+        "size": [
+          7.9,
+          0.42
+        ],
+        "height": 0.35,
+        "material": "plant",
+        "rotation": -3.5,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          117.1,
+          1091.7
+        ],
+        "size": [
+          2.05,
+          2.45
+        ],
+        "height": 1.18,
+        "material": "plant",
+        "rotation": -19,
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          118.4,
+          1095
+        ],
+        "size": [
+          2.05,
+          2.45
+        ],
+        "height": 1.18,
+        "material": "plant",
+        "rotation": -19,
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          119.6,
+          1098.5
+        ],
+        "size": [
+          2.05,
+          2.45
+        ],
+        "height": 1.18,
+        "material": "plant",
+        "rotation": -19,
+        "fanGrid": [
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "A dogleg west range, broad cross wing and long southeast range border the court. Lower pale roof behind the central range, rooftop service boxes along the elbow. Clean roof sample at local (69,1062)."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 18.31 m, P90 19.48 m, maximum 22.4 m. Main wings sample 18–20 m. The lower rear court-side volume samples 4–5 m. Tallest equipment and cores are about 22 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Long west range, repeated bedroom windows, bay projections and pale horizontal string courses.",
+      "frame": "33519596",
+      "walls": [
+        0
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Five rows over the glazed ground level face the forecourt. Paired narrow windows alternate with wider suites between full-height masonry piers. Buff brick sampled on the sunlit wall at (0.54,0.35).",
+      "frame": "130394519",
+      "walls": [
+        1,
+        2
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "The lower storey uses coarse masonry. Projecting stacked window bays have flat pale aprons. A short canopy protects the glazed entrance.",
+      "frame": "138541247",
+      "walls": [
+        1,
+        2
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "End wall seen from the drive is nearly blind in the middle and has projecting corner glazing.",
+      "frame": "130394513",
+      "walls": [
+        3,
+        4
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "North end steps up above the parapet with aerials above it, partially obscured from the intersection.",
+      "frame": "146586353",
+      "walls": [
+        0,
+        17
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "Entrance elevation shows stepped parapets at the vertical bays, tall slim stair windows, a rough faced plinth and a shallow canopy.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/EHR.jpg"
+    },
+    {
+      "kind": "photo",
+      "note": "Housing lists six residential floors plus ground across the two wings. The entrance court photographs expose six window levels including the entrance level.",
+      "url": "https://residence.uwo.ca/buildings/essex_hall"
+    },
+    {
+      "kind": "knowledge",
+      "note": "Frames 138541247 and 130394519 show two-window groups in the main south court facade, a rough masonry ground storey pierced by glazing and a shallow entrance canopy below the projecting left bay. The plinth is only the low projecting course."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "130394505",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "Across the full western face of the southeast range, the last roughly eight metres of the elevation are uninterrupted brick. Windows turn the south corner. The closer oblique frame 130394513 confirms the blind end bay."
+    }
+  ],
+  "notes": "Storeys describe exterior rows at the court. The ground level varies with the site. Selected bays project and wrap the corners. The detached green forecourt shelter has its own footprint w778714547. Paired condensers follow the west parapet beside the bedroom projections. Lidar over the south stair tower rises from about 18.3 to 21.2 m.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "North end of Western Road wing",
+        "footprint": {
+          "clip": [
+            [
+              28.09,
+              993.7
+            ],
+            [
+              148.58,
+              985.87
+            ],
+            [
+              153.95,
+              1068.52
+            ],
+            [
+              33.46,
+              1076.35
+            ]
+          ]
+        },
+        "height": 19.2,
+        "floors": 6
+      },
+      {
+        "name": "Western Road range",
+        "footprint": {
+          "clip": [
+            [
+              33.46,
+              1076.35
+            ],
+            [
+              74.79,
+              1073.66
+            ],
+            [
+              83.66,
+              1210.09
+            ],
+            [
+              42.33,
+              1212.77
+            ]
+          ]
+        },
+        "height": 18.9,
+        "floors": 6,
+        "wallProfiles": {
+          "0": {
+            "bays": {
+              "width": 3.65,
+              "pattern": "regular"
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.55,
+              "height": 1.47,
+              "sill": 0.83,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.055
+              },
+              "frameColor": "#a4a6a5",
+              "glassColor": "#5c6a72",
+              "glass": "tinted",
+              "surround": "none",
+              "sillProjecting": true
+            },
+            "piers": {
+              "width": 0.34,
+              "depth": 0.34,
+              "every": 3,
+              "material": "wall",
+              "fullHeight": true
+            },
+            "groundFloor": {
+              "material": "wall",
+              "windows": {
+                "type": "punched",
+                "width": 1.55,
+                "height": 1.98,
+                "sill": 0.83,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.055
+                },
+                "frameColor": "#a4a6a5",
+                "glassColor": "#5c6a72",
+                "glass": "tinted",
+                "surround": "none",
+                "sillProjecting": true
+              }
+            },
+            "segments": [
+              {
+                "range": [
+                  0.82,
+                  1
+                ],
+                "blank": true,
+                "windows": {
+                  "type": "none"
+                },
+                "piers": {
+                  "width": 0,
+                  "depth": 0
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "none"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Low rear wing",
+        "footprint": {
+          "clip": [
+            [
+              74.79,
+              1073.66
+            ],
+            [
+              153.95,
+              1068.52
+            ],
+            [
+              155.9,
+              1098.39
+            ],
+            [
+              76.73,
+              1103.54
+            ]
+          ]
+        },
+        "height": 4.65,
+        "floors": 1
+      },
+      {
+        "name": "Courtyard cross range",
+        "footprint": {
+          "clip": [
+            [
+              76.73,
+              1103.54
+            ],
+            [
+              120.05,
+              1100.72
+            ],
+            [
+              121.08,
+              1116.65
+            ],
+            [
+              77.77,
+              1119.47
+            ]
+          ]
+        },
+        "height": 19.8,
+        "floors": 6
+      },
+      {
+        "name": "Rear service return",
+        "footprint": {
+          "clip": [
+            [
+              120.05,
+              1100.72
+            ],
+            [
+              159.88,
+              1098.13
+            ],
+            [
+              160.91,
+              1114.07
+            ],
+            [
+              121.08,
+              1116.65
+            ]
+          ]
+        },
+        "height": 5.0,
+        "floors": 1
+      },
+      {
+        "name": "Southeast residence",
+        "footprint": {
+          "clip": [
+            [
+              77.77,
+              1119.47
+            ],
+            [
+              77.9187,
+              1121.7577
+            ],
+            [
+              104.87,
+              1119.52
+            ],
+            [
+              107.6495,
+              1167.6215
+            ],
+            [
+              124.2808,
+              1166.6619
+            ],
+            [
+              122.29,
+              1121.23
+            ],
+            [
+              129.76,
+              1118.89
+            ],
+            [
+              128.6349,
+              1116.1608
+            ]
+          ]
+        },
+        "height": 18.8,
+        "floors": 6,
+        "facade": {
+          "blank": false
+        }
+      },
+      {
+        "name": "South terminal bay",
+        "footprint": [
+          [
+            112.052,
+            1175.759
+          ],
+          [
+            112.2,
+            1178.2
+          ],
+          [
+            121.3,
+            1177.65
+          ],
+          [
+            121.058,
+            1174.951
+          ],
+          [
+            124.63,
+            1174.63
+          ],
+          [
+            124.281,
+            1166.662
+          ],
+          [
+            107.65,
+            1167.621
+          ],
+          [
+            108.14,
+            1176.11
+          ]
+        ],
+        "floors": 6,
+        "height": 19.7
+      },
+      {
+        "name": "Raised bedroom bay 0.1",
+        "footprint": [
+          [
+            57.096,
+            1030.772
+          ],
+          [
+            56.668,
+            1031.492
+          ],
+          [
+            56.802,
+            1033.751
+          ],
+          [
+            57.312,
+            1034.416
+          ],
+          [
+            58.62,
+            1034.338
+          ],
+          [
+            58.404,
+            1030.695
+          ]
+        ],
+        "height": 20.25,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 0.2",
+        "footprint": [
+          [
+            57.908,
+            1044.499
+          ],
+          [
+            57.48,
+            1045.219
+          ],
+          [
+            57.614,
+            1047.478
+          ],
+          [
+            58.124,
+            1048.143
+          ],
+          [
+            59.432,
+            1048.066
+          ],
+          [
+            59.216,
+            1044.422
+          ]
+        ],
+        "height": 19.76,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 0.3",
+        "footprint": [
+          [
+            58.748,
+            1058.7
+          ],
+          [
+            58.32,
+            1059.42
+          ],
+          [
+            58.454,
+            1061.679
+          ],
+          [
+            58.964,
+            1062.343
+          ],
+          [
+            60.272,
+            1062.266
+          ],
+          [
+            60.056,
+            1058.622
+          ]
+        ],
+        "height": 20.25,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 0.4",
+        "footprint": [
+          [
+            59.588,
+            1072.9
+          ],
+          [
+            59.16,
+            1073.62
+          ],
+          [
+            59.294,
+            1075.879
+          ],
+          [
+            59.804,
+            1076.544
+          ],
+          [
+            61.112,
+            1076.467
+          ],
+          [
+            60.896,
+            1072.823
+          ]
+        ],
+        "height": 19.76,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 0.5",
+        "footprint": [
+          [
+            60.484,
+            1088.048
+          ],
+          [
+            60.056,
+            1088.768
+          ],
+          [
+            60.19,
+            1091.027
+          ],
+          [
+            60.7,
+            1091.691
+          ],
+          [
+            62.008,
+            1091.614
+          ],
+          [
+            61.792,
+            1087.97
+          ]
+        ],
+        "height": 20.25,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 0.6",
+        "footprint": [
+          [
+            61.38,
+            1103.195
+          ],
+          [
+            60.952,
+            1103.915
+          ],
+          [
+            61.086,
+            1106.174
+          ],
+          [
+            61.596,
+            1106.838
+          ],
+          [
+            62.904,
+            1106.761
+          ],
+          [
+            62.688,
+            1103.117
+          ]
+        ],
+        "height": 19.76,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 0.7",
+        "footprint": [
+          [
+            62.164,
+            1116.449
+          ],
+          [
+            61.736,
+            1117.169
+          ],
+          [
+            61.87,
+            1119.428
+          ],
+          [
+            62.38,
+            1120.092
+          ],
+          [
+            63.688,
+            1120.015
+          ],
+          [
+            63.472,
+            1116.371
+          ]
+        ],
+        "height": 20.25,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 1.1",
+        "footprint": [
+          [
+            64.343,
+            1124.139
+          ],
+          [
+            65.073,
+            1124.55
+          ],
+          [
+            67.329,
+            1124.363
+          ],
+          [
+            67.981,
+            1123.837
+          ],
+          [
+            67.873,
+            1122.532
+          ],
+          [
+            64.235,
+            1122.834
+          ]
+        ],
+        "height": 21.35,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 1.2",
+        "footprint": [
+          [
+            78.923,
+            1122.929
+          ],
+          [
+            79.653,
+            1123.34
+          ],
+          [
+            81.909,
+            1123.153
+          ],
+          [
+            82.561,
+            1122.627
+          ],
+          [
+            82.452,
+            1121.321
+          ],
+          [
+            78.815,
+            1121.623
+          ]
+        ],
+        "height": 19.36,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 1.3",
+        "footprint": [
+          [
+            91.655,
+            1121.872
+          ],
+          [
+            92.385,
+            1122.283
+          ],
+          [
+            94.641,
+            1122.096
+          ],
+          [
+            95.293,
+            1121.57
+          ],
+          [
+            95.184,
+            1120.264
+          ],
+          [
+            91.547,
+            1120.566
+          ]
+        ],
+        "height": 19.849999999999998,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 1.4",
+        "footprint": [
+          [
+            100.69,
+            1121.121
+          ],
+          [
+            101.42,
+            1121.532
+          ],
+          [
+            103.676,
+            1121.345
+          ],
+          [
+            104.328,
+            1120.819
+          ],
+          [
+            104.22,
+            1119.514
+          ],
+          [
+            100.582,
+            1119.816
+          ]
+        ],
+        "height": 21.35,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 2.1",
+        "footprint": [
+          [
+            103.697,
+            1120.882
+          ],
+          [
+            103.268,
+            1121.601
+          ],
+          [
+            103.398,
+            1123.861
+          ],
+          [
+            103.907,
+            1124.526
+          ],
+          [
+            105.215,
+            1124.451
+          ],
+          [
+            105.004,
+            1120.807
+          ]
+        ],
+        "height": 21.35,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 2.2",
+        "footprint": [
+          [
+            104.465,
+            1134.181
+          ],
+          [
+            104.036,
+            1134.9
+          ],
+          [
+            104.167,
+            1137.16
+          ],
+          [
+            104.676,
+            1137.825
+          ],
+          [
+            105.983,
+            1137.75
+          ],
+          [
+            105.773,
+            1134.106
+          ]
+        ],
+        "height": 19.36,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 2.3",
+        "footprint": [
+          [
+            105.283,
+            1148.329
+          ],
+          [
+            104.854,
+            1149.048
+          ],
+          [
+            104.984,
+            1151.308
+          ],
+          [
+            105.493,
+            1151.973
+          ],
+          [
+            106.801,
+            1151.897
+          ],
+          [
+            106.59,
+            1148.253
+          ]
+        ],
+        "height": 19.849999999999998,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 2.4",
+        "footprint": [
+          [
+            106.067,
+            1161.91
+          ],
+          [
+            105.638,
+            1162.629
+          ],
+          [
+            105.769,
+            1164.889
+          ],
+          [
+            106.278,
+            1165.554
+          ],
+          [
+            107.586,
+            1165.479
+          ],
+          [
+            107.375,
+            1161.835
+          ]
+        ],
+        "height": 19.36,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 3.1",
+        "footprint": [
+          [
+            109.402,
+            1177.252
+          ],
+          [
+            110.135,
+            1177.658
+          ],
+          [
+            112.389,
+            1177.455
+          ],
+          [
+            113.038,
+            1176.925
+          ],
+          [
+            112.921,
+            1175.621
+          ],
+          [
+            109.285,
+            1175.947
+          ]
+        ],
+        "height": 19.849999999999998,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 3.2",
+        "footprint": [
+          [
+            119.296,
+            1176.364
+          ],
+          [
+            120.029,
+            1176.77
+          ],
+          [
+            122.283,
+            1176.567
+          ],
+          [
+            122.932,
+            1176.037
+          ],
+          [
+            122.815,
+            1174.733
+          ],
+          [
+            119.179,
+            1175.059
+          ]
+        ],
+        "height": 19.36,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 4.1",
+        "footprint": [
+          [
+            125.795,
+            1172.661
+          ],
+          [
+            126.234,
+            1171.948
+          ],
+          [
+            126.135,
+            1169.686
+          ],
+          [
+            125.635,
+            1169.014
+          ],
+          [
+            124.326,
+            1169.071
+          ],
+          [
+            124.486,
+            1172.718
+          ]
+        ],
+        "height": 19.849999999999998,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 4.2",
+        "footprint": [
+          [
+            125.163,
+            1158.243
+          ],
+          [
+            125.602,
+            1157.53
+          ],
+          [
+            125.503,
+            1155.268
+          ],
+          [
+            125.003,
+            1154.596
+          ],
+          [
+            123.695,
+            1154.653
+          ],
+          [
+            123.854,
+            1158.3
+          ]
+        ],
+        "height": 19.36,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 4.3",
+        "footprint": [
+          [
+            124.531,
+            1143.825
+          ],
+          [
+            124.97,
+            1143.112
+          ],
+          [
+            124.871,
+            1140.85
+          ],
+          [
+            124.371,
+            1140.178
+          ],
+          [
+            123.063,
+            1140.235
+          ],
+          [
+            123.223,
+            1143.882
+          ]
+        ],
+        "height": 19.849999999999998,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 4.4",
+        "footprint": [
+          [
+            123.899,
+            1129.407
+          ],
+          [
+            124.338,
+            1128.694
+          ],
+          [
+            124.24,
+            1126.432
+          ],
+          [
+            123.74,
+            1125.76
+          ],
+          [
+            122.431,
+            1125.817
+          ],
+          [
+            122.591,
+            1129.464
+          ]
+        ],
+        "height": 19.36,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 5.1",
+        "footprint": [
+          [
+            124.657,
+            1121.799
+          ],
+          [
+            125.459,
+            1122.04
+          ],
+          [
+            127.619,
+            1121.363
+          ],
+          [
+            128.14,
+            1120.707
+          ],
+          [
+            127.749,
+            1119.457
+          ],
+          [
+            124.266,
+            1120.548
+          ]
+        ],
+        "height": 19.849999999999998,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 14.1",
+        "footprint": [
+          [
+            76.74,
+            1084.326
+          ],
+          [
+            77.165,
+            1083.604
+          ],
+          [
+            77.02,
+            1081.346
+          ],
+          [
+            76.506,
+            1080.684
+          ],
+          [
+            75.199,
+            1080.768
+          ],
+          [
+            75.433,
+            1084.41
+          ]
+        ],
+        "height": 19.849999999999998,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 14.2",
+        "footprint": [
+          [
+            75.807,
+            1069.776
+          ],
+          [
+            76.232,
+            1069.054
+          ],
+          [
+            76.087,
+            1066.796
+          ],
+          [
+            75.573,
+            1066.134
+          ],
+          [
+            74.266,
+            1066.218
+          ],
+          [
+            74.5,
+            1069.86
+          ]
+        ],
+        "height": 19.36,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 14.3",
+        "footprint": [
+          [
+            74.812,
+            1054.256
+          ],
+          [
+            75.237,
+            1053.534
+          ],
+          [
+            75.092,
+            1051.276
+          ],
+          [
+            74.578,
+            1050.614
+          ],
+          [
+            73.271,
+            1050.698
+          ],
+          [
+            73.504,
+            1054.34
+          ]
+        ],
+        "height": 19.849999999999998,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 17.1",
+        "footprint": [
+          [
+            76.699,
+            1018.522
+          ],
+          [
+            75.873,
+            1018.38
+          ],
+          [
+            73.811,
+            1019.312
+          ],
+          [
+            73.373,
+            1020.026
+          ],
+          [
+            73.913,
+            1021.219
+          ],
+          [
+            77.239,
+            1019.715
+          ]
+        ],
+        "height": 20.25,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Raised bedroom bay 17.2",
+        "footprint": [
+          [
+            64.003,
+            1024.264
+          ],
+          [
+            63.177,
+            1024.122
+          ],
+          [
+            61.115,
+            1025.054
+          ],
+          [
+            60.677,
+            1025.768
+          ],
+          [
+            61.217,
+            1026.961
+          ],
+          [
+            64.543,
+            1025.457
+          ]
+        ],
+        "height": 19.76,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "segments": [],
+          "sections": [],
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.73,
+            "height": 1.64,
+            "sill": 0.72,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1
+            },
+            "glassColor": "#56636b",
+            "surround": "none"
+          },
+          "spandrelMaterial": "trim",
+          "piers": {
+            "width": 0.19,
+            "depth": 0.13,
+            "every": 1,
+            "material": "wall"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.7,
+              "height": 1.92,
+              "perBay": 1,
+              "glassColor": "#56636b",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1
+              }
+            }
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Entrance vestibule",
+        "footprint": [
+          [
+            67.95,
+            1123.589
+          ],
+          [
+            73.78,
+            1123.105
+          ],
+          [
+            73.692,
+            1122.048
+          ],
+          [
+            67.862,
+            1122.533
+          ]
+        ],
+        "height": 3.22,
+        "floors": 1,
+        "facade": {
+          "material": "base",
+          "windows": {
+            "type": "storefront",
+            "width": 3.8,
+            "height": 2.5,
+            "sill": 0.07,
+            "glassColor": "#566665"
+          },
+          "bays": {
+            "count": 1
+          }
+        }
+      },
+      {
+        "name": "South stair tower of west range",
+        "footprint": [
+          [
+            61.65,
+            1113.15
+          ],
+          [
+            69.16,
+            1112.7
+          ],
+          [
+            69.75,
+            1122.41
+          ],
+          [
+            62.22,
+            1122.87
+          ]
+        ],
+        "height": 21.25,
+        "floors": 1,
+        "baseOffset": 18.9,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0.19,
+            "type": "coped",
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Court corner tower",
+        "footprint": [
+          [
+            100.04,
+            1114.8
+          ],
+          [
+            106.1,
+            1114.4
+          ],
+          [
+            106.67,
+            1122.7
+          ],
+          [
+            100.62,
+            1123.37
+          ]
+        ],
+        "height": 21.6,
+        "floors": 1,
+        "baseOffset": 19.4,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0.19,
+            "type": "coped",
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "North telecom panel 1.1",
+        "footprint": [
+          [
+            63.61,
+            1029.65
+          ],
+          [
+            63.61,
+            1029.89
+          ],
+          [
+            63.27,
+            1029.89
+          ],
+          [
+            63.27,
+            1029.65
+          ]
+        ],
+        "height": 23.299999999999997,
+        "floors": 1,
+        "baseOffset": 21.3,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "plant",
+          "form": "flat",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North telecom panel 1.2",
+        "footprint": [
+          [
+            64.471,
+            1029.509
+          ],
+          [
+            64.245,
+            1029.591
+          ],
+          [
+            64.129,
+            1029.271
+          ],
+          [
+            64.355,
+            1029.189
+          ]
+        ],
+        "height": 23.299999999999997,
+        "floors": 1,
+        "baseOffset": 21.3,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "plant",
+          "form": "flat",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North telecom panel 2.1",
+        "footprint": [
+          [
+            70.448,
+            1026.755
+          ],
+          [
+            70.324,
+            1026.96
+          ],
+          [
+            70.032,
+            1026.785
+          ],
+          [
+            70.156,
+            1026.58
+          ]
+        ],
+        "height": 23.299999999999997,
+        "floors": 1,
+        "baseOffset": 21.3,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "plant",
+          "form": "flat",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North telecom panel 2.2",
+        "footprint": [
+          [
+            71.185,
+            1026.58
+          ],
+          [
+            70.95,
+            1026.534
+          ],
+          [
+            71.015,
+            1026.2
+          ],
+          [
+            71.25,
+            1026.246
+          ]
+        ],
+        "height": 23.299999999999997,
+        "floors": 1,
+        "baseOffset": 21.3,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "plant",
+          "form": "flat",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North telecom panel 3.1",
+        "footprint": [
+          [
+            77.226,
+            1024.364
+          ],
+          [
+            77.014,
+            1024.476
+          ],
+          [
+            76.854,
+            1024.176
+          ],
+          [
+            77.066,
+            1024.064
+          ]
+        ],
+        "height": 23.299999999999997,
+        "floors": 1,
+        "baseOffset": 21.3,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "plant",
+          "form": "flat",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North telecom panel 3.2",
+        "footprint": [
+          [
+            77.875,
+            1024.097
+          ],
+          [
+            77.697,
+            1023.936
+          ],
+          [
+            77.925,
+            1023.683
+          ],
+          [
+            78.103,
+            1023.844
+          ]
+        ],
+        "height": 23.299999999999997,
+        "floors": 1,
+        "baseOffset": 21.3,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "plant",
+          "form": "flat",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North telecom panel 4.1",
+        "footprint": [
+          [
+            80.551,
+            1030.946
+          ],
+          [
+            80.311,
+            1030.933
+          ],
+          [
+            80.329,
+            1030.594
+          ],
+          [
+            80.569,
+            1030.607
+          ]
+        ],
+        "height": 23.299999999999997,
+        "floors": 1,
+        "baseOffset": 21.3,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "plant",
+          "form": "flat",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North telecom panel 4.2",
+        "footprint": [
+          [
+            81.173,
+            1030.554
+          ],
+          [
+            81.102,
+            1030.325
+          ],
+          [
+            81.427,
+            1030.226
+          ],
+          [
+            81.498,
+            1030.455
+          ]
+        ],
+        "height": 23.299999999999997,
+        "floors": 1,
+        "baseOffset": 21.3,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "material": "plant",
+          "form": "flat",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "East service court equipment enclosure",
+        "footprint": [
+          [
+            113.9,
+            1088.9
+          ],
+          [
+            119.1,
+            1087.25
+          ],
+          [
+            123.6,
+            1100.12
+          ],
+          [
+            118.5,
+            1101.7
+          ]
+        ],
+        "height": 4.82,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Courtyard stair enclosure return 2",
+        "footprint": [
+          [
+            100.62,
+            1123.37
+          ],
+          [
+            103.352,
+            1123.067
+          ],
+          [
+            103.268,
+            1121.601
+          ],
+          [
+            103.407,
+            1121.367
+          ],
+          [
+            101.42,
+            1121.532
+          ],
+          [
+            100.69,
+            1121.121
+          ],
+          [
+            100.587,
+            1119.876
+          ],
+          [
+            100.385,
+            1119.892
+          ]
+        ],
+        "height": 19.4,
+        "floors": 6,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Courtyard stair enclosure return 3",
+        "footprint": [
+          [
+            104.225,
+            1119.574
+          ],
+          [
+            104.328,
+            1120.819
+          ],
+          [
+            104.292,
+            1120.848
+          ],
+          [
+            104.945,
+            1120.81
+          ],
+          [
+            104.87,
+            1119.52
+          ]
+        ],
+        "height": 19.4,
+        "floors": 6,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Galvanized antenna mast 1",
+        "footprint": [
+          [
+            63.972,
+            1029.528
+          ],
+          [
+            63.972,
+            1029.672
+          ],
+          [
+            63.828,
+            1029.672
+          ],
+          [
+            63.828,
+            1029.528
+          ]
+        ],
+        "height": 23.7,
+        "floors": 1,
+        "baseOffset": 19.2,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Antenna mounting bracket 1.1",
+        "footprint": [
+          [
+            63.924,
+            1029.655
+          ],
+          [
+            64.328,
+            1029.443
+          ],
+          [
+            64.272,
+            1029.337
+          ],
+          [
+            63.876,
+            1029.545
+          ],
+          [
+            63.419,
+            1029.714
+          ],
+          [
+            63.461,
+            1029.826
+          ]
+        ],
+        "height": 21.685000000000002,
+        "floors": 1,
+        "baseOffset": 21.6,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Antenna mounting bracket 1.2",
+        "footprint": [
+          [
+            63.924,
+            1029.655
+          ],
+          [
+            64.328,
+            1029.443
+          ],
+          [
+            64.272,
+            1029.337
+          ],
+          [
+            63.876,
+            1029.545
+          ],
+          [
+            63.419,
+            1029.714
+          ],
+          [
+            63.461,
+            1029.826
+          ]
+        ],
+        "height": 22.935000000000002,
+        "floors": 1,
+        "baseOffset": 22.85,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Galvanized antenna mast 2",
+        "footprint": [
+          [
+            70.772,
+            1026.528
+          ],
+          [
+            70.772,
+            1026.672
+          ],
+          [
+            70.628,
+            1026.672
+          ],
+          [
+            70.628,
+            1026.528
+          ]
+        ],
+        "height": 23.7,
+        "floors": 1,
+        "baseOffset": 19.2,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Antenna mounting bracket 2.1",
+        "footprint": [
+          [
+            70.724,
+            1026.655
+          ],
+          [
+            71.128,
+            1026.443
+          ],
+          [
+            71.072,
+            1026.337
+          ],
+          [
+            70.676,
+            1026.545
+          ],
+          [
+            70.219,
+            1026.714
+          ],
+          [
+            70.261,
+            1026.826
+          ]
+        ],
+        "height": 21.685000000000002,
+        "floors": 1,
+        "baseOffset": 21.6,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Antenna mounting bracket 2.2",
+        "footprint": [
+          [
+            70.724,
+            1026.655
+          ],
+          [
+            71.128,
+            1026.443
+          ],
+          [
+            71.072,
+            1026.337
+          ],
+          [
+            70.676,
+            1026.545
+          ],
+          [
+            70.219,
+            1026.714
+          ],
+          [
+            70.261,
+            1026.826
+          ]
+        ],
+        "height": 22.935000000000002,
+        "floors": 1,
+        "baseOffset": 22.85,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Galvanized antenna mast 3",
+        "footprint": [
+          [
+            77.572,
+            1024.028
+          ],
+          [
+            77.572,
+            1024.172
+          ],
+          [
+            77.428,
+            1024.172
+          ],
+          [
+            77.428,
+            1024.028
+          ]
+        ],
+        "height": 23.7,
+        "floors": 1,
+        "baseOffset": 19.2,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Antenna mounting bracket 3.1",
+        "footprint": [
+          [
+            77.524,
+            1024.155
+          ],
+          [
+            77.928,
+            1023.943
+          ],
+          [
+            77.872,
+            1023.837
+          ],
+          [
+            77.476,
+            1024.045
+          ],
+          [
+            77.019,
+            1024.214
+          ],
+          [
+            77.061,
+            1024.326
+          ]
+        ],
+        "height": 21.685000000000002,
+        "floors": 1,
+        "baseOffset": 21.6,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Antenna mounting bracket 3.2",
+        "footprint": [
+          [
+            77.524,
+            1024.155
+          ],
+          [
+            77.928,
+            1023.943
+          ],
+          [
+            77.872,
+            1023.837
+          ],
+          [
+            77.476,
+            1024.045
+          ],
+          [
+            77.019,
+            1024.214
+          ],
+          [
+            77.061,
+            1024.326
+          ]
+        ],
+        "height": 22.935000000000002,
+        "floors": 1,
+        "baseOffset": 22.85,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Galvanized antenna mast 4",
+        "footprint": [
+          [
+            80.972,
+            1030.528
+          ],
+          [
+            80.972,
+            1030.672
+          ],
+          [
+            80.828,
+            1030.672
+          ],
+          [
+            80.828,
+            1030.528
+          ]
+        ],
+        "height": 23.7,
+        "floors": 1,
+        "baseOffset": 19.2,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Antenna mounting bracket 4.1",
+        "footprint": [
+          [
+            80.924,
+            1030.655
+          ],
+          [
+            81.328,
+            1030.443
+          ],
+          [
+            81.272,
+            1030.337
+          ],
+          [
+            80.876,
+            1030.545
+          ],
+          [
+            80.419,
+            1030.714
+          ],
+          [
+            80.461,
+            1030.826
+          ]
+        ],
+        "height": 21.685000000000002,
+        "floors": 1,
+        "baseOffset": 21.6,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Antenna mounting bracket 4.2",
+        "footprint": [
+          [
+            80.924,
+            1030.655
+          ],
+          [
+            81.328,
+            1030.443
+          ],
+          [
+            81.272,
+            1030.337
+          ],
+          [
+            80.876,
+            1030.545
+          ],
+          [
+            80.419,
+            1030.714
+          ],
+          [
+            80.461,
+            1030.826
+          ]
+        ],
+        "height": 22.935000000000002,
+        "floors": 1,
+        "baseOffset": 22.85,
+        "material": "frame",
+        "facade": {
+          "material": "frame",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "frame",
+          "overhang": 0
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.17,
+      "type": "doors-double",
+      "width": 2.25,
+      "height": 2.5,
+      "recess": 0.4,
+      "steps": 0,
+      "canopy": {
+        "type": "glass",
+        "width": 6,
+        "depth": 2.5,
+        "material": "green",
+        "columns": 0,
+        "form": "shed",
+        "rise": 0.52
+      },
+      "at": [
+        70.865,
+        1123.347
+      ]
+    },
+    {
+      "wall": 2,
+      "position": 0.17,
+      "type": "doors-double",
+      "width": 2.0,
+      "height": 2.3,
+      "recess": 0.2
+    }
+  ]
+}

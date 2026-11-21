@@ -1,0 +1,380 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668552",
+  "name": "Hume Cronyn Memorial Observatory",
+  "status": "refined",
+  "confidence": 0.95,
+  "style": "collegiate-gothic",
+  "summary": "A ribbed metal telescope dome rises from the north end of a small stone building with narrow Gothic openings, a carved entrance, and a ramp facing the approach from Lambton Drive.",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#ad9e86",
+      "unitSize": [
+        0.52,
+        0.22
+      ],
+      "secondaryColor": "#938574",
+      "bond": "coursed-rubble",
+      "variation": 0.31,
+      "roughness": 0.88
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#847e6b"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c9baa2"
+    },
+    "dome": {
+      "kind": "copper-patina",
+      "color": "#667064",
+      "unitSize": [
+        0.6,
+        1.5
+      ],
+      "secondaryColor": "#727d71",
+      "metalness": 0.3,
+      "roughness": 0.79,
+      "weathering": 0.45
+    },
+    "shutter": {
+      "kind": "painted-metal",
+      "color": "#707b6d",
+      "metalness": 0.32,
+      "roughness": 0.65
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 3.6,
+    "typicalHeight": 3.45
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.4,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.08,
+        "height": 1.35,
+        "sill": 0.75,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 2,
+          "width": 0.055
+        },
+        "glass": "tinted",
+        "frameColor": "#575751",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true
+      },
+      "base": {
+        "height": 0.54,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": [
+            3.45
+          ],
+          "height": 0.18,
+          "depth": 0.07,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "height": 0.34,
+        "type": "coped",
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 2,
+          "width": 3.8,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.63,
+          "height": 1.4,
+          "sill": 1.0,
+          "recess": 0.18,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 3,
+            "width": 0.069
+          },
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "frameColor": "#d6cbb9",
+          "glass": "clear"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 1,
+          "width": 4.64,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.9,
+          "height": 1.33,
+          "sill": 0.95,
+          "recess": 0.2,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 3,
+            "width": 0.069
+          },
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "frameColor": "#d6cbb9",
+          "glass": "clear"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 2,
+          "width": 3.8,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.63,
+          "height": 1.4,
+          "sill": 1.0,
+          "recess": 0.18,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 3,
+            "width": 0.069
+          },
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "frameColor": "#d6cbb9",
+          "glass": "clear"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 1,
+          "width": 9.09,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The circular dome occupies the northern square. A rectangular lower roof continues south."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 9.34 m, 90th percentile 11.36 m, maximum 12.16 m."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "67799849",
+      "walls": [
+        1,
+        2
+      ],
+      "note": "Lower rectangular block with grouped stone-framed windows to the south. Taller stone drum block, metal roof rail and ribbed dome to the north."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "138538259",
+      "walls": [
+        0,
+        3
+      ],
+      "note": "Dome silhouette rises over the entrance approach."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/CO.jpg",
+      "note": "A ramp and steps approach the portal beneath carved stone panels, the metal dome and its raised shutter."
+    },
+    {
+      "kind": "photo",
+      "url": "https://cronyn.uwo.ca/about-us/observatory-highlights/",
+      "note": "Observatory account identifies the telescope dome and the architectural treatment."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Main wall colour sampled with PIL from Western Facilities exterior photograph. 300 × 300 pixel reference, patch centred at (103, 159), 7 × 7 pixels."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://www.rasc.ca/sites/default/files/ardocuments/GA-1979-Guide.pdf",
+      "note": "The Royal Astronomical Society guide describes an 18-foot dome circle, approximately 5.5 metres."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://cronyn.uwo.ca/about-us/observatory-highlights/",
+      "note": "The observatory identifies Credit Valley limestone walling and Indiana sandstone trim."
+    },
+    {
+      "kind": "kartaview",
+      "note": "The close view shows a three-light upper sash over a ground-floor door in the south wing on the east elevation.",
+      "walls": [
+        2
+      ],
+      "frame": "67799849"
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Dome room",
+        "height": 8.15,
+        "floors": 2,
+        "footprint": {
+          "clip": [
+            [
+              118,
+              611
+            ],
+            [
+              142,
+              609
+            ],
+            [
+              142,
+              625
+            ],
+            [
+              118,
+              627
+            ]
+          ]
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "roof"
+        },
+        "facade": {
+          "parapet": {
+            "height": 0.58,
+            "type": "metal-rail",
+            "material": "dome"
+          }
+        }
+      },
+      {
+        "name": "South wing",
+        "height": 6.45,
+        "floors": 2,
+        "footprint": {
+          "clip": [
+            [
+              118,
+              627
+            ],
+            [
+              142,
+              625
+            ],
+            [
+              142,
+              641
+            ],
+            [
+              118,
+              642
+            ]
+          ]
+        },
+        "wallProfiles": {
+          "2": {
+            "windows": {
+              "type": "punched",
+              "width": 1.88,
+              "height": 1.4,
+              "sill": 0.86,
+              "frameColor": "#dbd1be",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.065
+              },
+              "glass": "clear",
+              "surround": "stone"
+            },
+            "bays": {
+              "count": 1
+            }
+          }
+        }
+      }
+    ]
+  },
+  "towers": [
+    {
+      "name": "Telescope dome and drum",
+      "plan": "round",
+      "at": [
+        127.75,
+        620.3
+      ],
+      "size": [
+        5.65,
+        5.65
+      ],
+      "height": 9.1,
+      "material": "dome",
+      "top": {
+        "type": "dome",
+        "height": 2.9,
+        "material": "dome"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.5,
+      "width": 1.7,
+      "height": 2.4,
+      "type": "gothic-portal",
+      "steps": 3,
+      "ramp": true,
+      "surround": "trim",
+      "recess": 0.4
+    },
+    {
+      "wall": 2,
+      "position": 0.235,
+      "width": 1.02,
+      "height": 2.11,
+      "type": "doors-single",
+      "surround": "trim",
+      "recess": 0.19
+    }
+  ],
+  "notes": "The longitudinal shutter stands proud of the segmented dome. A thin guardrail runs around the square dome deck. The carved celestial relief above the north door is unique."
+}

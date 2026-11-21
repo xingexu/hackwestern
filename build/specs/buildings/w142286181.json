@@ -1,0 +1,2278 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w142286181",
+  "name": "University Hospital Visitor and Staff Parking Garage (P4)",
+  "status": "refined",
+  "confidence": 0.92,
+  "summary": "Seven parking levels including an open roof deck, pale grey precast horizontal rails, dark metal upper screening, open lower gaps, tall glazed corner stairs, recessed west side, roof ramp, and a fine inward-bending roof fence.",
+  "style": "parking-structure",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#a9aba6",
+      "secondaryColor": "#8b9289",
+      "unitSize": [
+        7,
+        1.1
+      ],
+      "variation": 0.07,
+      "weathering": 0.13
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#b3b5b0",
+      "secondaryColor": "#949890",
+      "unitSize": [
+        3,
+        3.15
+      ],
+      "surface": "board-formed"
+    },
+    "roof": {
+      "kind": "concrete-smooth",
+      "color": "#b5b3a7",
+      "secondaryColor": "#98978e",
+      "unitSize": [
+        7.2,
+        3.2
+      ],
+      "weathering": 0.32,
+      "variation": 0.12
+    },
+    "mesh": {
+      "kind": "painted-metal",
+      "color": "#606565"
+    },
+    "stairGlass": {
+      "kind": "glass-curtain",
+      "color": "#334b53"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#a89363"
+    },
+    "bronze": {
+      "kind": "painted-metal",
+      "color": "#aa9465",
+      "secondaryColor": "#88774e",
+      "metalness": 0.34,
+      "unitSize": [
+        1.45,
+        0.61
+      ]
+    },
+    "apron": {
+      "kind": "concrete-smooth",
+      "color": "#898981",
+      "secondaryColor": "#777870",
+      "unitSize": [
+        4.5,
+        4.5
+      ],
+      "weathering": 0.29
+    }
+  },
+  "floors": {
+    "count": 7,
+    "groundFloorHeight": 3.2,
+    "typicalHeight": 2.77
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Parking decks around the central ramp",
+        "footprint": [
+          [
+            83.9907,
+            -299.15965
+          ],
+          [
+            83.21159,
+            -297.62758
+          ],
+          [
+            84.92,
+            -291.11
+          ],
+          [
+            86.33,
+            -285.77
+          ],
+          [
+            87.77,
+            -281.97
+          ],
+          [
+            91.26208,
+            -272.76522
+          ],
+          [
+            90.58929,
+            -271.29686
+          ],
+          [
+            79.94071,
+            -267.42314
+          ],
+          [
+            79.195,
+            -265.92988
+          ],
+          [
+            80.145,
+            -262.81012
+          ],
+          [
+            79.41905,
+            -261.26628
+          ],
+          [
+            77.81095,
+            -260.59372
+          ],
+          [
+            77.1543,
+            -259.07341
+          ],
+          [
+            95.23,
+            -210.94
+          ],
+          [
+            99.2,
+            -212.38
+          ],
+          [
+            104.12,
+            -214.17
+          ],
+          [
+            108.92,
+            -215.92
+          ],
+          [
+            127.53,
+            -222.61
+          ],
+          [
+            101.66,
+            -290.68
+          ],
+          [
+            118.82,
+            -297.36
+          ],
+          [
+            144.92,
+            -228.99
+          ],
+          [
+            158.68929,
+            -234.00894
+          ],
+          [
+            156.4315,
+            -239.8218
+          ],
+          [
+            163.55331,
+            -242.58799
+          ],
+          [
+            159.26,
+            -253.55
+          ],
+          [
+            136.0997,
+            -312.85274
+          ],
+          [
+            129.8642,
+            -310.4308
+          ],
+          [
+            127.60272,
+            -316.25317
+          ]
+        ],
+        "height": 19.65,
+        "floors": 7
+      },
+      {
+        "name": "Transverse deck beyond the foot of the ramp",
+        "footprint": [
+          [
+            144.92,
+            -228.99
+          ],
+          [
+            141.52,
+            -239.98
+          ],
+          [
+            124.31,
+            -233.27
+          ],
+          [
+            127.53,
+            -222.61
+          ]
+        ],
+        "height": 20.08,
+        "floors": 7
+      },
+      {
+        "name": "Central descending vehicle ramp",
+        "footprint": [
+          [
+            124.31,
+            -233.27
+          ],
+          [
+            141.52,
+            -239.98
+          ],
+          [
+            118.82,
+            -297.36
+          ],
+          [
+            101.66,
+            -290.68
+          ]
+        ],
+        "height": 17.52,
+        "floors": 7,
+        "roof": {
+          "form": "shed",
+          "rise": 2.32,
+          "ridge": 248.8,
+          "material": "roof",
+          "edge": "none"
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Northeast glazed stair shaft",
+        "footprint": [
+          [
+            131.70838,
+            -317.03508
+          ],
+          [
+            130.9822,
+            -316.75038
+          ],
+          [
+            130.89095,
+            -316.98313
+          ],
+          [
+            130.1927,
+            -316.70938
+          ],
+          [
+            130.28395,
+            -316.47663
+          ],
+          [
+            129.10158,
+            -316.01308
+          ],
+          [
+            128.93733,
+            -316.43203
+          ],
+          [
+            128.43459,
+            -316.23493
+          ],
+          [
+            128.59884,
+            -315.81598
+          ],
+          [
+            127.88173,
+            -315.53484
+          ],
+          [
+            129.8642,
+            -310.4308
+          ],
+          [
+            136.0997,
+            -312.85274
+          ],
+          [
+            134.77311,
+            -316.24953
+          ],
+          [
+            132.38363,
+            -315.31273
+          ]
+        ],
+        "height": 22.13,
+        "floors": 7,
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "floorOverrides": {
+            "1": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0.14,
+            "type": "coped",
+            "material": "trim"
+          }
+        },
+        "wallProfiles": {},
+        "material": "trim"
+      },
+      {
+        "name": "Southeast stair and lift shaft",
+        "footprint": [
+          [
+            159.27,
+            -234.22
+          ],
+          [
+            160.1,
+            -232.0
+          ],
+          [
+            163.67,
+            -233.32
+          ],
+          [
+            165.00439,
+            -233.81369
+          ],
+          [
+            161.67263,
+            -241.85751
+          ],
+          [
+            156.4315,
+            -239.8218
+          ],
+          [
+            158.68929,
+            -234.00894
+          ]
+        ],
+        "height": 23.48,
+        "floors": 7,
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "floorOverrides": {
+            "1": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0.14,
+            "type": "coped",
+            "material": "trim"
+          }
+        },
+        "wallProfiles": {
+          "7": {
+            "sections": [
+              {
+                "start": 0.29,
+                "end": 0.51,
+                "base": 0.4,
+                "top": 24.95,
+                "material": "stairGlass",
+                "horizontalMullions": 10,
+                "verticalMullionSpacing": 0.8
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Northeast stair concrete pier 1",
+        "footprint": [
+          [
+            131.33243,
+            -317.99401
+          ],
+          [
+            130.60625,
+            -317.70931
+          ],
+          [
+            130.9822,
+            -316.75038
+          ],
+          [
+            131.70838,
+            -317.03508
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 22.57,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair concrete pier 2",
+        "footprint": [
+          [
+            129.908,
+            -317.43556
+          ],
+          [
+            128.72563,
+            -316.97201
+          ],
+          [
+            129.10158,
+            -316.01308
+          ],
+          [
+            130.28395,
+            -316.47663
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 22.39,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair concrete pier 3",
+        "footprint": [
+          [
+            128.22289,
+            -316.77491
+          ],
+          [
+            127.46878,
+            -316.47926
+          ],
+          [
+            127.84473,
+            -315.52033
+          ],
+          [
+            128.59884,
+            -315.81598
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 22.18,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair corner window bay",
+        "footprint": [
+          [
+            132.38363,
+            -315.31273
+          ],
+          [
+            134.77311,
+            -316.24953
+          ],
+          [
+            133.82,
+            -318.69
+          ],
+          [
+            131.42724,
+            -317.75217
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 22.62,
+        "material": "bronze",
+        "floors": 7,
+        "facade": {
+          "blank": false,
+          "material": "bronze",
+          "windows": {
+            "type": "curtain-wall",
+            "perBay": 1,
+            "width": 2.4,
+            "height": 2.48,
+            "sill": 0.52,
+            "recess": 0.075,
+            "frameColor": "#a18a5d",
+            "glass": "dark",
+            "glassColor": "#344951",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.058
+            },
+            "spanFloors": 1
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.045
+          },
+          "groundFloor": {
+            "material": "bronze",
+            "blank": false,
+            "windows": {
+              "type": "curtain-wall",
+              "perBay": 1,
+              "width": 2.4,
+              "height": 2.48,
+              "sill": 0.52,
+              "recess": 0.075,
+              "frameColor": "#a18a5d",
+              "glass": "dark",
+              "glassColor": "#344951",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.058
+              },
+              "spanFloors": 1
+            }
+          },
+          "topFloor": {
+            "material": "bronze",
+            "blank": false,
+            "windows": {
+              "type": "curtain-wall",
+              "perBay": 1,
+              "width": 2.4,
+              "height": 2.48,
+              "sill": 0.52,
+              "recess": 0.075,
+              "frameColor": "#a18a5d",
+              "glass": "dark",
+              "glassColor": "#344951",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.058
+              },
+              "spanFloors": 1
+            }
+          },
+          "floorOverrides": {
+            "1": {
+              "material": "bronze",
+              "blank": false,
+              "windows": {
+                "type": "curtain-wall",
+                "perBay": 1,
+                "width": 2.4,
+                "height": 2.48,
+                "sill": 0.52,
+                "recess": 0.075,
+                "frameColor": "#a18a5d",
+                "glass": "dark",
+                "glassColor": "#344951",
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.058
+                },
+                "spanFloors": 1
+              }
+            }
+          },
+          "base": {
+            "height": 0.12,
+            "material": "bronze"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "fascia",
+          "features": []
+        }
+      },
+      {
+        "name": "Southeast stair raised lift overrun",
+        "footprint": [
+          [
+            165.00439,
+            -233.81369
+          ],
+          [
+            167.4,
+            -234.7
+          ],
+          [
+            166.25,
+            -241.89
+          ],
+          [
+            164.14,
+            -241.09
+          ],
+          [
+            163.55331,
+            -242.58799
+          ],
+          [
+            161.67263,
+            -241.85751
+          ]
+        ],
+        "height": 26.48,
+        "floors": 7,
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "floorOverrides": {
+            "1": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0.14,
+            "type": "coped",
+            "material": "trim"
+          }
+        },
+        "wallProfiles": {
+          "7": {
+            "sections": [
+              {
+                "start": 0.29,
+                "end": 0.51,
+                "base": 0.4,
+                "top": 24.95,
+                "material": "stairGlass",
+                "horizontalMullions": 10,
+                "verticalMullionSpacing": 0.8
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Northwest stair headhouse",
+        "footprint": [
+          [
+            88.40972,
+            -296.20325
+          ],
+          [
+            87.12018,
+            -299.51075
+          ],
+          [
+            83.41149,
+            -298.06479
+          ],
+          [
+            83.19376,
+            -297.63665
+          ],
+          [
+            83.19292,
+            -297.63475
+          ],
+          [
+            83.19228,
+            -297.63278
+          ],
+          [
+            83.19184,
+            -297.63075
+          ],
+          [
+            83.19162,
+            -297.62868
+          ],
+          [
+            83.19161,
+            -297.62661
+          ],
+          [
+            83.19182,
+            -297.62454
+          ],
+          [
+            83.19224,
+            -297.62251
+          ],
+          [
+            84.01354,
+            -294.48925
+          ]
+        ],
+        "baseOffset": 19.65,
+        "height": 22.27,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": []
+        }
+      },
+      {
+        "name": "Southwest stair headhouse",
+        "footprint": [
+          [
+            101.23846,
+            -214.08405
+          ],
+          [
+            99.80362,
+            -217.76423
+          ],
+          [
+            93.56006,
+            -215.32996
+          ],
+          [
+            94.94884,
+            -211.63182
+          ]
+        ],
+        "baseOffset": 19.65,
+        "height": 23.48,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 1, level 1",
+        "footprint": [
+          [
+            130.87635,
+            -317.02037
+          ],
+          [
+            130.1781,
+            -316.74662
+          ],
+          [
+            130.21825,
+            -316.64421
+          ],
+          [
+            130.9165,
+            -316.91796
+          ]
+        ],
+        "baseOffset": 0.93,
+        "height": 2.5,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 1, level 2",
+        "footprint": [
+          [
+            130.87635,
+            -317.02037
+          ],
+          [
+            130.1781,
+            -316.74662
+          ],
+          [
+            130.21825,
+            -316.64421
+          ],
+          [
+            130.9165,
+            -316.91796
+          ]
+        ],
+        "baseOffset": 4.04,
+        "height": 5.609999999999999,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 1, level 3",
+        "footprint": [
+          [
+            130.87635,
+            -317.02037
+          ],
+          [
+            130.1781,
+            -316.74662
+          ],
+          [
+            130.21825,
+            -316.64421
+          ],
+          [
+            130.9165,
+            -316.91796
+          ]
+        ],
+        "baseOffset": 7.1499999999999995,
+        "height": 8.719999999999999,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 1, level 4",
+        "footprint": [
+          [
+            130.87635,
+            -317.02037
+          ],
+          [
+            130.1781,
+            -316.74662
+          ],
+          [
+            130.21825,
+            -316.64421
+          ],
+          [
+            130.9165,
+            -316.91796
+          ]
+        ],
+        "baseOffset": 10.26,
+        "height": 11.83,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 1, level 5",
+        "footprint": [
+          [
+            130.87635,
+            -317.02037
+          ],
+          [
+            130.1781,
+            -316.74662
+          ],
+          [
+            130.21825,
+            -316.64421
+          ],
+          [
+            130.9165,
+            -316.91796
+          ]
+        ],
+        "baseOffset": 13.37,
+        "height": 14.94,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 1, level 6",
+        "footprint": [
+          [
+            130.87635,
+            -317.02037
+          ],
+          [
+            130.1781,
+            -316.74662
+          ],
+          [
+            130.21825,
+            -316.64421
+          ],
+          [
+            130.9165,
+            -316.91796
+          ]
+        ],
+        "baseOffset": 16.48,
+        "height": 18.049999999999997,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 1, level 7",
+        "footprint": [
+          [
+            130.87635,
+            -317.02037
+          ],
+          [
+            130.1781,
+            -316.74662
+          ],
+          [
+            130.21825,
+            -316.64421
+          ],
+          [
+            130.9165,
+            -316.91796
+          ]
+        ],
+        "baseOffset": 19.59,
+        "height": 21.16,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 2, level 1",
+        "footprint": [
+          [
+            128.93003,
+            -316.45065
+          ],
+          [
+            128.42729,
+            -316.25355
+          ],
+          [
+            128.47109,
+            -316.14183
+          ],
+          [
+            128.97383,
+            -316.33893
+          ]
+        ],
+        "baseOffset": 0.93,
+        "height": 2.5,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 2, level 2",
+        "footprint": [
+          [
+            128.93003,
+            -316.45065
+          ],
+          [
+            128.42729,
+            -316.25355
+          ],
+          [
+            128.47109,
+            -316.14183
+          ],
+          [
+            128.97383,
+            -316.33893
+          ]
+        ],
+        "baseOffset": 4.04,
+        "height": 5.609999999999999,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 2, level 3",
+        "footprint": [
+          [
+            128.93003,
+            -316.45065
+          ],
+          [
+            128.42729,
+            -316.25355
+          ],
+          [
+            128.47109,
+            -316.14183
+          ],
+          [
+            128.97383,
+            -316.33893
+          ]
+        ],
+        "baseOffset": 7.1499999999999995,
+        "height": 8.719999999999999,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 2, level 4",
+        "footprint": [
+          [
+            128.93003,
+            -316.45065
+          ],
+          [
+            128.42729,
+            -316.25355
+          ],
+          [
+            128.47109,
+            -316.14183
+          ],
+          [
+            128.97383,
+            -316.33893
+          ]
+        ],
+        "baseOffset": 10.26,
+        "height": 11.83,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 2, level 5",
+        "footprint": [
+          [
+            128.93003,
+            -316.45065
+          ],
+          [
+            128.42729,
+            -316.25355
+          ],
+          [
+            128.47109,
+            -316.14183
+          ],
+          [
+            128.97383,
+            -316.33893
+          ]
+        ],
+        "baseOffset": 13.37,
+        "height": 14.94,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 2, level 6",
+        "footprint": [
+          [
+            128.93003,
+            -316.45065
+          ],
+          [
+            128.42729,
+            -316.25355
+          ],
+          [
+            128.47109,
+            -316.14183
+          ],
+          [
+            128.97383,
+            -316.33893
+          ]
+        ],
+        "baseOffset": 16.48,
+        "height": 18.049999999999997,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Northeast stair recessed window stack 2, level 7",
+        "footprint": [
+          [
+            128.93003,
+            -316.45065
+          ],
+          [
+            128.42729,
+            -316.25355
+          ],
+          [
+            128.47109,
+            -316.14183
+          ],
+          [
+            128.97383,
+            -316.33893
+          ]
+        ],
+        "baseOffset": 19.59,
+        "height": 21.16,
+        "material": "stairGlass",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "stairGlass",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "stairGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stairGlass",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Curved lower vehicle apron at west parking entrance",
+        "footprint": [
+          [
+            71.8,
+            -280.7
+          ],
+          [
+            75.4,
+            -282.28
+          ],
+          [
+            80.67,
+            -283.3
+          ],
+          [
+            86.75,
+            -285.15
+          ],
+          [
+            87.78,
+            -282.14
+          ],
+          [
+            91.4,
+            -271.82
+          ],
+          [
+            89.2,
+            -271.22
+          ],
+          [
+            79.1,
+            -267.55
+          ],
+          [
+            78.0,
+            -266.0
+          ],
+          [
+            77.45,
+            -264.4
+          ],
+          [
+            77.29,
+            -262.62
+          ],
+          [
+            77.75,
+            -259.92
+          ],
+          [
+            75.28,
+            -257.12
+          ],
+          [
+            73.8,
+            -261.17
+          ],
+          [
+            72.93,
+            -264.62
+          ],
+          [
+            72.38,
+            -268.2
+          ],
+          [
+            72.58,
+            -270.85
+          ],
+          [
+            73.1,
+            -273.55
+          ],
+          [
+            74.15,
+            -275.22
+          ],
+          [
+            75.2,
+            -276.4
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.027,
+        "material": "apron",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "apron",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "apron",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "apron",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "apron",
+          "edge": "none",
+          "features": []
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.22,
+        "material": "trim"
+      },
+      "bays": {
+        "width": 7,
+        "pattern": "regular",
+        "edgeMargin": 0.18
+      },
+      "windows": {
+        "type": "ribbon",
+        "width": 6.75,
+        "height": 1.53,
+        "sill": 1.11,
+        "perBay": 1,
+        "recess": 0.22,
+        "frameColor": "#52595b",
+        "glass": "dark",
+        "glassColor": "#414949",
+        "mullions": {
+          "vertical": 5,
+          "horizontal": 0,
+          "width": 0.055
+        },
+        "surround": "none"
+      },
+      "groundFloor": {
+        "height": 3.2,
+        "windows": {
+          "type": "ribbon",
+          "width": 6.75,
+          "height": 1.53,
+          "sill": 1.11,
+          "perBay": 1,
+          "recess": 0.65,
+          "frameColor": "#52595b",
+          "glass": "dark",
+          "glassColor": "#414949",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.05
+          },
+          "surround": "none"
+        }
+      },
+      "floorOverrides": {
+        "1": {
+          "windows": {
+            "type": "ribbon",
+            "width": 6.75,
+            "height": 1.53,
+            "sill": 1.11,
+            "perBay": 1,
+            "recess": 0.65,
+            "frameColor": "#52595b",
+            "glass": "dark",
+            "glassColor": "#414949",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 0,
+              "width": 0.05
+            },
+            "surround": "none"
+          }
+        }
+      },
+      "topFloor": {
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "bands": [
+        {
+          "at": "floor-lines",
+          "height": 0.24,
+          "depth": 0.14,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "height": 1.8,
+        "type": "metal-rail",
+        "material": "mesh"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 8,
+          "width": 6.83,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 4,
+          "width": 7.1,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 2,
+          "width": 6.82,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 1,
+          "width": 5.56,
+          "pattern": "regular"
+        }
+      },
+      "4": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 7,
+          "width": 7.51,
+          "pattern": "regular"
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 9,
+          "width": 7.58,
+          "pattern": "regular"
+        }
+      },
+      "7": {
+        "material": "trim",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 4.2,
+          "height": 2.52,
+          "sill": 0.24,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#766e5b",
+          "glass": "tinted",
+          "glassColor": "#4a686e",
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.07
+          }
+        },
+        "bays": {
+          "count": 1,
+          "width": 7.8,
+          "pattern": "regular"
+        }
+      },
+      "8": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "trim"
+      },
+      "9": {
+        "bays": {
+          "count": 12,
+          "width": 6.95,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.47,
+      "type": "garage",
+      "width": 6,
+      "height": 2.7
+    },
+    {
+      "wall": 6,
+      "position": 0.14,
+      "type": "garage",
+      "width": 3.4,
+      "height": 2.6
+    },
+    {
+      "wall": 6,
+      "position": 0.21,
+      "type": "garage",
+      "width": 3.4,
+      "height": 2.6
+    },
+    {
+      "wall": 9,
+      "position": 0.16,
+      "type": "garage",
+      "width": 5.8,
+      "height": 2.7
+    },
+    {
+      "wall": 7,
+      "position": 0.49,
+      "type": "doors-double",
+      "width": 1.9,
+      "height": 2.25,
+      "canopy": {
+        "type": "cantilever",
+        "material": "trim",
+        "width": 5.05,
+        "depth": 1.55
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "104143719",
+      "walls": [
+        0,
+        9
+      ],
+      "note": "Pale precast bands, a glazed corner shaft and mesh above two largely open lower tiers. Sunlit precast has a green camera cast."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34487474",
+      "walls": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "note": "Decks wrap the stepped west elevation. Thin perimeter fencing bends inward over the top."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34487476",
+      "walls": [
+        5,
+        6
+      ],
+      "note": "Upper screen has close vertical divisions. Lower openings show slab depth and columns."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34487484",
+      "walls": [
+        6,
+        7,
+        8
+      ],
+      "note": "South corner has a broad concrete stair shaft with narrow vertical lights."
+    },
+    {
+      "kind": "aerial",
+      "note": "Exposed upper parking slab, light poles, long ramp cut and small corner enclosures. Deck sample near (116, -240) is #c8c3af."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 19.67 m and P90 20.45 m set the upper deck. The 26.26 m maximum occurs at the southeast stair head."
+    },
+    {
+      "kind": "osm",
+      "note": "Parking and entrance nodes on the perimeter locate the vehicle passages."
+    },
+    {
+      "kind": "knowledge",
+      "note": "LHSC identifies P4 and lists seven parking levels.",
+      "url": "https://www.lhsc.on.ca/patients-visitors/accessibility-at-university-hospital"
+    },
+    {
+      "kind": "lidar",
+      "note": "A longitudinal 2 m DSM profile through the central ramp falls from 18.9 m at the north to 17.7 m at the south. The transverse deck beyond it returns to about 20.1 m."
+    },
+    {
+      "kind": "lidar",
+      "walls": [
+        0,
+        6,
+        7,
+        9
+      ],
+      "note": "The 1 m roof grid resolves 22.0–22.9 m returns at the northeast stair, 22.0–22.4 m in the northwest and 23.1–23.7 m in the southwest. Two southeast roof levels reach about 23.5 and 26.6 m."
+    }
+  ],
+  "notes": "The bronze-framed northeast corner bay turns onto both faces beside stepped concrete piers. Light standards stand on the open deck. The lower western drive follows a curve through the shadow of the garage. The curb and its grade belong to the road surface."
+}

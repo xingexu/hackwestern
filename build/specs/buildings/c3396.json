@@ -1,0 +1,181 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3396",
+  "name": "North maintenance-yard shed",
+  "status": "refined",
+  "confidence": 0.59,
+  "summary": "Square service shed with a bright metal east roof slope and a dark west slope, adjoined by open working space on the east side.",
+  "style": "industrial-utility",
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. Unambiguous rectangular ribbed roof: centre ridge parallel to the east and west walls. Opposite roof fields differ strongly in tone. Both sampled from the orthophoto."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 2.28 m, P90 5.36 m, maximum 6.6 m. Some footprint pixels are close to ground. The southern sector reaches 5–6.6 m, consistent with a small shed."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Campus frame search out to 130 m found no usable street-facing image. Finish and bay estimates on screened walls are provisional."
+    },
+    {
+      "kind": "aerial",
+      "note": "The two roof fields meet along a bright-to-charcoal break. Their ends differ in length. The pale strip beyond the south eave reads as apron, without a second roof edge or canopy shadow."
+    },
+    {
+      "kind": "aerial",
+      "note": "Orthophoto of the north maintenance shed shows a charcoal west half and a pale galvanized metal east half, and the slight roof displacement does not establish a wall displacement."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#b7b6aa",
+      "variation": 0.09,
+      "secondaryColor": "#8d8f88",
+      "unitSize": [
+        0.76,
+        2.5
+      ],
+      "bond": "stack"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#dedbd2",
+      "variation": 0.09
+    },
+    "roof": {
+      "kind": "corrugated-metal",
+      "color": "#e0e2d9",
+      "variation": 0.09,
+      "secondaryColor": "#bfc2b9",
+      "unitSize": [
+        0.24,
+        7
+      ]
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b7afa2",
+      "variation": 0.09
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#797b73",
+      "variation": 0.09
+    },
+    "dark": {
+      "kind": "corrugated-metal",
+      "color": "#3d423c",
+      "variation": 0.09,
+      "secondaryColor": "#333a33",
+      "unitSize": [
+        0.23,
+        7
+      ],
+      "bond": "stack"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.45,
+    "typicalHeight": 3.45
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "base": {
+        "material": "base",
+        "height": 0.2,
+        "projection": 0.035
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "fascia",
+    "ridge": 351,
+    "rise": 1.85,
+    "overhang": 0.15
+  },
+  "notes": "Roof colour changes across the ridge. Wall finish and service opening are inferred from the yard context.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "West charcoal shed roof",
+        "footprint": [
+          [
+            -589.823,
+            506.41
+          ],
+          [
+            -583.353,
+            505.385
+          ],
+          [
+            -581.406,
+            517.682
+          ],
+          [
+            -587.875,
+            518.706
+          ]
+        ],
+        "height": 3.26,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "dark",
+          "ridge": 351,
+          "rise": 2.16,
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "East silver shed roof",
+        "footprint": [
+          [
+            -583.455,
+            504.743
+          ],
+          [
+            -577.134,
+            503.742
+          ],
+          [
+            -575.045,
+            516.928
+          ],
+          [
+            -581.367,
+            517.929
+          ]
+        ],
+        "height": 3.48,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "ridge": 171,
+          "rise": 1.94,
+          "edge": "gutter"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.55,
+      "type": "garage",
+      "width": 3.45,
+      "height": 3.12,
+      "doorColor": "#91948c"
+    }
+  ]
+}

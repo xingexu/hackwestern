@@ -1,0 +1,86 @@
+import assert from 'node:assert/strict';
+import { existsSync, realpathSync } from 'node:fs';
+import { mkdir } from 'node:fs/promises';
+import { dirname, delimiter, join, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+const web = fileURLToPath(new URL('../', import.meta.url));
+const executable = process.env.PATH.split(delimiter).map(dir => join(dir, 'playwright')).find(existsSync);
+assert.ok(executable, 'Run this check with the Playwright CLI on PATH.');
+const { chromium } = await import(pathToFileURL(join(dirname(realpathSync(executable)), 'index.mjs')));
+const browser = await chromium.launch({ args: process.platform === 'darwin' ? ['--use-angle=metal'] : [] });
+const shots = join(web, 'dev/shots');
+await mkdir(shots, { recursive: true });
+try {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, offline: true });
+  const errors = [], network = [];
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+  page.on('request', request => { if (/^https?:/.test(request.url())) network.push(request.url()); });
+  await page.goto(pathToFileURL(resolve(web, 'dist/uc-hill-sprint.html')).href + '?diagnostics');
+  await page.waitForFunction(() => window.driveMetrics?.frames >= 2);
+  assert.equal(await page.title(), 'UC Hill Sprint · Western University');
+  const screenshot = name => page.screenshot({ path: join(shots, 'drive-' + name + '.png') });
+  const chase = await screenshot('grid');
+  const raster = await page.locator('#view').evaluate(canvas => canvas.width);
+  assert.equal(raster, 1280);
+  await page.getByRole('button', { name: 'Driver view' }).click();
+  assert.equal(await page.getByRole('button', { name: 'Chase view' }).getAttribute('aria-pressed'), 'true');
+  assert.ok(!chase.equals(await screenshot('driver-eye')));
+  await page.getByRole('button', { name: 'Chase view' }).click();
+  await page.keyboard.down('ArrowUp');
+  await page.waitForFunction(() => Number(document.querySelector('#meters').textContent.split(' ')[0]) >= 25);
+  await page.keyboard.down('ArrowRight');
+  await page.waitForFunction(() => window.driveMetrics.car.steer < -.05);
+  await page.keyboard.up('ArrowRight');
+  await page.keyboard.up('ArrowUp');
+  await screenshot('run');
+  const fast = await page.locator('#speed').textContent();
+  await page.keyboard.down('ArrowDown');
+  await page.waitForFunction(before => Number(document.querySelector('#speed').textContent) < before - 8, Number(fast));
+  await page.keyboard.up('ArrowDown');
+  await page.keyboard.press('r');
+  await page.waitForFunction(() => document.querySelector('#speed').textContent === '0' && document.querySelector('#meters').textContent === '0 m');
+
+  await page.evaluate(() => {
+    const route = JSON.parse(document.querySelector('#embedded-drive-route').textContent);
+    const wrap = value => Math.atan2(Math.sin(value), Math.cos(value));
+    const buttons = Array.from({ length: 17 }, () => ({ value: 0, pressed: false }));
+    const pad = { connected: true, mapping: 'standard', axes: [0], buttons };
+    const spacing = route.at(-1).distance / (route.length - 1);
+    Object.defineProperty(navigator, 'getGamepads', { value() {
+      const car = window.driveMetrics.car;
+      const i = Math.min(route.length - 1, Math.floor(car.distance / spacing));
+      const ahead = route[Math.min(route.length - 1, i + 12)];
+      const curve = Math.abs(wrap(ahead.heading - route[i].heading)) / (12 * spacing);
+      const limit = Math.min(15, Math.sqrt(7 / Math.max(.003, curve)));
+      const aim = route[Math.min(route.length - 1, i + Math.ceil(3 + car.speed * .29))];
+      const target = Math.max(-1, Math.min(1, 4.9 * wrap(Math.atan2(aim.x - car.x, aim.z - car.z) - car.heading)));
+      pad.axes[0] = -Math.sign(target) * (.12 + .88 * Math.abs(target));
+      buttons[7].value = Number(car.speed < limit);
+      buttons[6].value = car.speed > limit + 1.5 ? .5 : 0;
+      return [pad];
+    } });
+  });
+  await page.waitForFunction(() => window.driveMetrics.car.distance >= 330, undefined, { timeout: 90000 });
+  await screenshot('hill');
+  await page.waitForFunction(() => window.driveMetrics.car.distance >= 575, undefined, { timeout: 60000 });
+  await screenshot('kent');
+  await page.getByRole('button', { name: 'Drive again' }).waitFor({ timeout: 45000 });
+  assert.equal(await page.locator('#meters').textContent(), '646 m');
+  const result = await page.locator('#result').textContent();
+  assert.match(result, /^0:4\d\.\d\d$/);
+  await screenshot('finish');
+  await page.getByRole('button', { name: 'Drive again' }).click();
+  await page.waitForFunction(() => document.querySelector('#finish').hidden && window.driveMetrics.car.distance < 1);
+  await page.getByRole('link', { name: 'Campus map' }).click();
+  await page.waitForFunction(() => document.querySelector('#status')?.hidden === true && document.documentElement.dataset.mode === 'map');
+  await page.getByRole('link', { name: 'Drive UC Hill' }).click();
+  await page.waitForFunction(() => document.querySelector('#status')?.hidden === true && document.documentElement.dataset.mode === 'drive');
+  assert.equal(await page.locator('#speed').textContent(), '0');
+  assert.deepEqual(errors, []);
+  assert.deepEqual(network, []);
+  console.log('Offline Chromium drive passed: keyboard acceleration, steering, braking and reset; virtual gamepad completed 646 m in ' + result + '; restart and map round-trip passed with zero external requests.');
+} finally {
+  await browser.close();
+}

@@ -1,0 +1,312 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714536",
+  "name": "Philip Aziz studio and gallery",
+  "status": "refined",
+  "confidence": 0.69,
+  "summary": "A tall, narrow brick studio sits among trees behind the house. Reused round-topped windows and carved stone capitals break up the plain walls.",
+  "style": "mid-century-modern",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#ac9473",
+      "bond": "running",
+      "variation": 0.31,
+      "roughness": 0.93,
+      "unitSize": [
+        0.2,
+        0.067
+      ],
+      "secondaryColor": "#a57f62"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#716c61"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#948979",
+      "unitSize": [
+        0.4,
+        0.24
+      ]
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 5.75,
+    "typicalHeight": 5.75
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.8,
+        "pattern": "irregular"
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.1,
+        "height": 1.7,
+        "sill": 0.7,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 2,
+          "width": 0.055
+        },
+        "frameColor": "#aba292",
+        "glass": "clear",
+        "surround": "brick-soldier",
+        "sillProjecting": true
+      },
+      "parapet": {
+        "height": 0.12,
+        "type": "coped",
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 5.5,
+          "pattern": "irregular",
+          "count": 5
+        },
+        "windows": {
+          "type": "round-arch",
+          "width": 1.85,
+          "height": 3.65,
+          "sill": 0.32,
+          "perBay": 1,
+          "recess": 0.31,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "glass": "dark",
+          "surround": "brick-soldier",
+          "frameColor": "#493d32"
+        },
+        "piers": {
+          "width": 0.44,
+          "depth": 0.12,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": false
+        },
+        "base": {
+          "height": 0.36,
+          "material": "trim",
+          "projection": 0.05
+        }
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "2": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.1,
+          "height": 1.7,
+          "sill": 0.7,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 2,
+            "width": 0.055
+          },
+          "frameColor": "#aba292",
+          "glass": "clear",
+          "surround": "brick-soldier",
+          "sillProjecting": true
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.1,
+          "height": 1.7,
+          "sill": 0.7,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 2,
+            "width": 0.055
+          },
+          "frameColor": "#aba292",
+          "glass": "clear",
+          "surround": "brick-soldier",
+          "sillProjecting": true
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.1,
+          "height": 1.7,
+          "sill": 0.7,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 2,
+            "width": 0.055
+          },
+          "frameColor": "#aba292",
+          "glass": "clear",
+          "surround": "brick-soldier",
+          "sillProjecting": true
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "skylight",
+        "center": [
+          115,
+          1035.2
+        ],
+        "size": [
+          1.3,
+          1.3
+        ],
+        "height": 0.45,
+        "material": "trim",
+        "style": "circular domed rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          117.3,
+          1040.9
+        ],
+        "size": [
+          1.3,
+          1.3
+        ],
+        "height": 0.45,
+        "material": "trim",
+        "style": "circular domed rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          110.7,
+          1024.7
+        ],
+        "size": [
+          2,
+          0.9
+        ],
+        "height": 0.28,
+        "material": "trim",
+        "rotation": -20
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Long irregular footprint on the west side of the wooded courtyard. Tree crowns occupy most of the roof image. Roof colour and level are estimates."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 12.98 m, P90 15.8 m, maximum 20.69 m. Tree returns range up to 20.69 m, far above the documented studio walls. Lower returns and the exterior photograph support a tall single room."
+    },
+    {
+      "kind": "photo",
+      "note": "City designation identifies the 1957 studio, salvaged window assemblies and the carved stone capitals on its west elevation.",
+      "url": "https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=15471&pid=0"
+    },
+    {
+      "kind": "photo",
+      "note": "City photograph shows the box-shaped upper wall, tall arched openings and heterogeneous brick seen through trees. Brick is in open shade.",
+      "url": "https://www.historicplaces.ca/hpimages/Thumbnails/63385_Medium.jpg"
+    },
+    {
+      "kind": "kartaview",
+      "note": "Foliage obscures the studio from the road.",
+      "frame": "137106829",
+      "walls": [
+        1,
+        3
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Leaf-off route still shows mostly trunks and the perimeter enclosure.",
+      "frame": "373912868",
+      "walls": [
+        1,
+        3
+      ]
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.historicplaces.ca/hpimages/Thumbnails/63387_Medium.Jpg",
+      "note": "PIL mean for the shaded brick beside the carved capital at (0.148,0.432) is #93907d. Daylight approximation lightens the sample by 19 levels."
+    }
+  ],
+  "notes": "Roof surface, door position and window spacing behind foliage are approximate. The salvaged windows differ in shape and the capitals are incorporated into brickwork.",
+  "lidarTrusted": false,
+  "lidarNote": "Dense tree canopy covers the studio in the orthophoto and produces the 13–21 m surface returns.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Gallery",
+        "footprint": "inventory",
+        "height": 5.9,
+        "floors": 1
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 4,
+      "position": 0.45,
+      "type": "arched-portal",
+      "width": 1.65,
+      "height": 2.85,
+      "recess": 0.35,
+      "surround": "wall",
+      "doorColor": "#47674d"
+    }
+  ]
+}

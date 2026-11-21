@@ -1,0 +1,1150 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w119875069",
+  "name": "Barakat footprint",
+  "status": "refined",
+  "confidence": 0.8,
+  "summary": "A two-storey commercial block features deep red-brown vertical surrounds on the street elevation, with awnings shading the ground-floor glazing. The grey side wall steps down to a narrow single-storey projection.",
+  "style": "postmodern",
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "138540847",
+      "walls": [
+        3,
+        4
+      ],
+      "note": "The north elevation has narrow upper openings, small air-conditioning units, a roof ladder and a lower wall in front."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "138540851",
+      "walls": [
+        3
+      ],
+      "note": "The street elevation has stacked broad openings, dark red surrounds and projecting striped awnings."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "127904849",
+      "walls": [
+        4
+      ],
+      "note": "The broad grey north return is nearly blank at ground level, with the upper mass set back behind the lower strip."
+    },
+    {
+      "kind": "aerial",
+      "note": "The flat grey roof supports several packaged units, and a narrow lower band follows the north wall."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 8.17 / 8.78 / 9.2 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "stucco",
+      "color": "#958e83",
+      "secondaryColor": "#857f76",
+      "unitSize": [
+        2.3,
+        1.3
+      ],
+      "variation": 0.055
+    },
+    "accent": {
+      "kind": "brick",
+      "color": "#a94c3b",
+      "secondaryColor": "#81574a",
+      "unitSize": [
+        0.208,
+        0.073
+      ],
+      "variation": 0.11,
+      "bond": "running"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#595454",
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#74786d",
+      "variation": 0.12,
+      "weathering": 0.36
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#959893",
+      "variation": 0.12
+    },
+    "plinth": {
+      "kind": "stucco",
+      "color": "#615e58"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#63787b"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#373a37"
+    },
+    "awning": {
+      "kind": "painted-metal",
+      "color": "#474740",
+      "roughness": 0.9
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 4,
+    "typicalHeight": 3.65
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 0.76,
+        "height": 1.18,
+        "sill": 1.05,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 0,
+          "width": 0.055
+        },
+        "frameColor": "#515356",
+        "glass": "tinted",
+        "glassColor": "#57636a",
+        "surround": "none"
+      },
+      "bays": {
+        "width": 4,
+        "pattern": "regular",
+        "edgeMargin": 0.27
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.42,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.35,
+        "depth": 0.24,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "base": {
+          "height": 0.42,
+          "projection": 0.035,
+          "material": "plinth"
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 0.105,
+          "material": "trim"
+        }
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "material": "wall",
+        "bays": {
+          "count": 3,
+          "width": 5.7
+        },
+        "windows": {
+          "type": "round-arch",
+          "width": 2.78,
+          "height": 3.04,
+          "sill": 0.29,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.06
+          },
+          "frameColor": "#49494b",
+          "glass": "tinted",
+          "glassColor": "#384b53",
+          "surround": "brick-soldier",
+          "surroundMaterial": "accent"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 3.98,
+            "height": 2.74,
+            "sill": 0.17,
+            "perBay": 1,
+            "recess": 0.11,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#474a47",
+            "glass": "tinted",
+            "glassColor": "#45535b",
+            "surround": "none"
+          }
+        },
+        "piers": {
+          "width": 0.44,
+          "depth": 0.18,
+          "material": "accent",
+          "every": 1,
+          "fullHeight": true
+        },
+        "bands": [
+          {
+            "at": [
+              3.16
+            ],
+            "height": 0.3,
+            "depth": 0.09,
+            "material": "accent"
+          }
+        ],
+        "sections": [
+          {
+            "start": 0.04,
+            "end": 0.277,
+            "base": 0.16,
+            "top": 2.93,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.32,
+            "end": 0.555,
+            "base": 0.16,
+            "top": 2.93,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.6,
+            "end": 0.82,
+            "base": 0.16,
+            "top": 2.93,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.855,
+            "end": 0.98,
+            "base": 0.16,
+            "top": 2.93,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 1
+          }
+        ],
+        "base": {
+          "height": 0.17,
+          "material": "plinth",
+          "projection": 0.035
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 4,
+          "width": 4.55
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "slot",
+            "width": 0.5,
+            "height": 0.9,
+            "sill": 1.6,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 0,
+              "width": 0.055
+            },
+            "frameColor": "#b5b6ae",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none"
+          }
+        },
+        "base": {
+          "height": 0.8,
+          "material": "plinth",
+          "projection": 0.05
+        },
+        "segments": [
+          {
+            "range": [
+              0,
+              0.38
+            ],
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          {
+            "range": [
+              0.38,
+              0.73
+            ],
+            "blank": false,
+            "bays": {
+              "count": 3
+            },
+            "windows": {
+              "type": "punched",
+              "width": 0.6,
+              "height": 1.3,
+              "sill": 1.05,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0,
+                "width": 0.055
+              },
+              "frameColor": "#515356",
+              "glass": "tinted",
+              "glassColor": "#57636a",
+              "surround": "none"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none"
+              }
+            }
+          },
+          {
+            "range": [
+              0.73,
+              1
+            ],
+            "blank": false,
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 0.64,
+                "height": 0.85,
+                "sill": 1.05,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 0,
+                  "width": 0.055
+                },
+                "frameColor": "#515356",
+                "glass": "tinted",
+                "glassColor": "#57636a",
+                "surround": "none"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -11.5,
+          1164.8
+        ],
+        "size": [
+          2,
+          1.2
+        ],
+        "height": 0.79,
+        "material": "plant",
+        "rotation": -3,
+        "style": "box RTU",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -11.1,
+          1166.5
+        ],
+        "size": [
+          1.6,
+          1.15
+        ],
+        "height": 0.79,
+        "material": "plant",
+        "rotation": -3,
+        "style": "box RTU",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -7.7,
+          1165
+        ],
+        "size": [
+          1.85,
+          2.1
+        ],
+        "height": 0.79,
+        "material": "plant",
+        "rotation": -3,
+        "style": "box RTU",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -8.2,
+          1167.5
+        ],
+        "size": [
+          1.15,
+          1.55
+        ],
+        "height": 0.79,
+        "material": "plant",
+        "rotation": -3,
+        "style": "box RTU",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -3.9,
+          1165.1
+        ],
+        "size": [
+          1.15,
+          4.75
+        ],
+        "height": 0.45,
+        "material": "plant",
+        "rotation": -3,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          0.05,
+          1162.4
+        ],
+        "size": [
+          1.25,
+          1.4
+        ],
+        "height": 0.79,
+        "material": "plant",
+        "rotation": -3,
+        "style": "box RTU",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          1.7,
+          1164.4
+        ],
+        "size": [
+          1.1,
+          1.05
+        ],
+        "height": 0.79,
+        "material": "plant",
+        "rotation": -3,
+        "style": "box RTU",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          4.5,
+          1162.4
+        ],
+        "size": [
+          1.35,
+          1.04
+        ],
+        "height": 0.79,
+        "material": "plant",
+        "rotation": -3,
+        "style": "box RTU",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -3.1,
+          1155.778
+        ],
+        "size": [
+          0.66,
+          0.72
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": 0,
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -4.767,
+          1155.914
+        ],
+        "size": [
+          0.66,
+          0.72
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": 0,
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -6.851,
+          1156.084
+        ],
+        "size": [
+          0.66,
+          0.72
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": 0,
+        "fanGrid": [
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "notes": "The photographed facade has three tall red arches, sloped awnings and a projecting cornice, with small condensers modelled on the low roof against the upper side wall. The awning stripe and ladder cage remain unresolved.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Lower north strip",
+        "footprint": {
+          "clip": [
+            [
+              -16.9,
+              1152.98
+            ],
+            [
+              13.06,
+              1151.41
+            ],
+            [
+              13.32,
+              1156.5
+            ],
+            [
+              -16.64,
+              1158.07
+            ]
+          ]
+        },
+        "height": 4.3,
+        "floors": 1,
+        "wallProfiles": {
+          "3": {
+            "piers": {
+              "every": 99,
+              "width": 0,
+              "depth": 0
+            },
+            "windows": {
+              "type": "none"
+            },
+            "sections": [
+              {
+                "start": 0.86,
+                "end": 0.99,
+                "base": 0.2,
+                "top": 2.7,
+                "material": "glass",
+                "verticalMullionSpacing": 0.86,
+                "horizontalMullions": 1
+              }
+            ],
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 1.51,
+                "height": 2.52,
+                "sill": 0.24
+              }
+            },
+            "bands": []
+          }
+        },
+        "facade": {
+          "cornice": {
+            "height": 0.42,
+            "depth": 0.31,
+            "material": "trim"
+          },
+          "base": {
+            "height": 0.8,
+            "material": "plinth",
+            "projection": 0.05
+          }
+        }
+      },
+      {
+        "name": "Two-storey shop block",
+        "footprint": {
+          "clip": [
+            [
+              -16.64,
+              1158.07
+            ],
+            [
+              13.32,
+              1156.5
+            ],
+            [
+              13.996,
+              1169.422
+            ],
+            [
+              -15.964,
+              1170.992
+            ]
+          ]
+        },
+        "height": 8.65,
+        "floors": 2,
+        "wallProfiles": {
+          "3": {
+            "segments": [
+              {
+                "range": [
+                  0,
+                  1
+                ],
+                "bays": {
+                  "count": 3
+                }
+              }
+            ],
+            "windows": {
+              "type": "round-arch",
+              "width": 2.49,
+              "height": 2.94,
+              "sill": 0.29,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.06
+              },
+              "frameColor": "#49494b",
+              "glass": "tinted",
+              "glassColor": "#384b53",
+              "surround": "brick-soldier",
+              "surroundMaterial": "accent"
+            },
+            "piers": {
+              "width": 0.35,
+              "depth": 0.18,
+              "material": "accent",
+              "every": 1,
+              "fullHeight": true
+            }
+          }
+        }
+      },
+      {
+        "name": "Low south return",
+        "footprint": {
+          "clip": [
+            [
+              -15.964,
+              1170.992
+            ],
+            [
+              13.996,
+              1169.422
+            ],
+            [
+              14.36,
+              1176.38
+            ],
+            [
+              -15.6,
+              1177.95
+            ]
+          ]
+        },
+        "height": 4.25,
+        "floors": 1,
+        "wallProfiles": {
+          "3": {
+            "piers": {
+              "every": 99,
+              "width": 0,
+              "depth": 0
+            },
+            "windows": {
+              "type": "none"
+            },
+            "sections": [
+              {
+                "start": 0.86,
+                "end": 0.99,
+                "base": 0.2,
+                "top": 2.7,
+                "material": "glass",
+                "verticalMullionSpacing": 0.86,
+                "horizontalMullions": 1
+              }
+            ],
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 1.51,
+                "height": 2.52,
+                "sill": 0.24
+              }
+            },
+            "bands": []
+          }
+        },
+        "facade": {
+          "cornice": {
+            "height": 0.42,
+            "depth": 0.31,
+            "material": "trim"
+          },
+          "base": {
+            "height": 0.8,
+            "material": "plinth",
+            "projection": 0.05
+          }
+        }
+      },
+      {
+        "name": "Sloped shop awning 1",
+        "footprint": [
+          [
+            7.046,
+            1169.647
+          ],
+          [
+            6.801,
+            1165.514
+          ],
+          [
+            7.714,
+            1165.46
+          ],
+          [
+            7.959,
+            1169.593
+          ]
+        ],
+        "height": 2.92,
+        "baseOffset": 2.84,
+        "floors": 1,
+        "material": "awning",
+        "roof": {
+          "form": "shed",
+          "rise": 0.44,
+          "ridge": 3,
+          "material": "awning",
+          "edge": "none",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "awning"
+        }
+      },
+      {
+        "name": "Sloped shop awning 2",
+        "footprint": [
+          [
+            6.762,
+            1164.853
+          ],
+          [
+            6.526,
+            1160.886
+          ],
+          [
+            7.439,
+            1160.832
+          ],
+          [
+            7.675,
+            1164.799
+          ]
+        ],
+        "height": 2.92,
+        "baseOffset": 2.84,
+        "floors": 1,
+        "material": "awning",
+        "roof": {
+          "form": "shed",
+          "rise": 0.44,
+          "ridge": 3,
+          "material": "awning",
+          "edge": "none",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "awning"
+        }
+      },
+      {
+        "name": "Sloped shop awning 3",
+        "footprint": [
+          [
+            6.497,
+            1160.39
+          ],
+          [
+            6.267,
+            1156.505
+          ],
+          [
+            7.18,
+            1156.451
+          ],
+          [
+            7.41,
+            1160.336
+          ]
+        ],
+        "height": 2.92,
+        "baseOffset": 2.84,
+        "floors": 1,
+        "material": "awning",
+        "roof": {
+          "form": "shed",
+          "rise": 0.44,
+          "ridge": 3,
+          "material": "awning",
+          "edge": "none",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "awning"
+        }
+      },
+      {
+        "name": "Sloped shop awning 4",
+        "footprint": [
+          [
+            6.245,
+            1156.142
+          ],
+          [
+            6.117,
+            1153.976
+          ],
+          [
+            7.03,
+            1153.922
+          ],
+          [
+            7.158,
+            1156.088
+          ]
+        ],
+        "height": 2.92,
+        "baseOffset": 2.84,
+        "floors": 1,
+        "material": "awning",
+        "roof": {
+          "form": "shed",
+          "rise": 0.44,
+          "ridge": 3,
+          "material": "awning",
+          "edge": "none",
+          "features": [],
+          "overhang": 0
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "awning"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.29,
+      "type": "doors-single",
+      "width": 1.07,
+      "height": 2.25,
+      "recess": 0.18
+    },
+    {
+      "wall": 3,
+      "position": 0.62,
+      "type": "doors-single",
+      "width": 1.07,
+      "height": 2.25,
+      "recess": 0.18
+    },
+    {
+      "wall": 3,
+      "position": 0.92,
+      "type": "doors-single",
+      "width": 0.94,
+      "height": 2.15
+    },
+    {
+      "wall": 4,
+      "position": 0.91,
+      "type": "service-door",
+      "width": 0.97,
+      "height": 2.16
+    }
+  ]
+}

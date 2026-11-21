@@ -1,0 +1,240 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3102",
+  "name": "North hospital drive shelter",
+  "status": "refined",
+  "confidence": 0.55,
+  "summary": "The octagonal grounds shelter on the north hospital drive has a small faceted roof beside benches at the drive corner in building shadow, with unclear walls below.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "wood-siding",
+      "color": "#776952",
+      "secondaryColor": "#655946",
+      "unitSize": [
+        0.14,
+        2
+      ],
+      "variation": 0.065,
+      "roughness": 0.91
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#918974"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#8a7a5f"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.4,
+    "typicalHeight": 2.4
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.45,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "blank": true
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "pyramid",
+    "edge": "fascia",
+    "material": "roof",
+    "rise": 1.5,
+    "overhang": 0.23,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 3.13 m, P90 3.72 m, highest return 4.03 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [89.25, -214.6] averages #aea890."
+    },
+    {
+      "kind": "aerial",
+      "note": "Compact polygonal eave with visible hip facets. Two benches stand nearby at the edge of the drive. The large shadow belongs to the neighbouring building."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34487475",
+      "walls": [],
+      "note": "Parking structure fills the sightline from the southeast. Shelter details rely on the orthophoto."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Shelter eave band",
+        "footprint": "inventory",
+        "baseOffset": 2.19,
+        "height": 2.35,
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "pyramid",
+          "edge": "fascia",
+          "material": "roof",
+          "rise": 1.5,
+          "overhang": 0.23
+        }
+      },
+      {
+        "name": "Paved floor under the open shelter",
+        "footprint": [
+          [
+            89.31,
+            -218.02
+          ],
+          [
+            87.55,
+            -217.36
+          ],
+          [
+            86.78,
+            -215.6
+          ],
+          [
+            87.55,
+            -213.85
+          ],
+          [
+            89.09,
+            -213.19
+          ],
+          [
+            90.95,
+            -213.84
+          ],
+          [
+            91.72,
+            -215.49
+          ],
+          [
+            91.06,
+            -217.25
+          ]
+        ],
+        "height": 0.105,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "rise": 0,
+          "overhang": 0
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          89.3,
+          -217.8
+        ],
+        [
+          87.7,
+          -217.2
+        ],
+        [
+          87,
+          -215.6
+        ],
+        [
+          87.7,
+          -214
+        ],
+        [
+          89.1,
+          -213.4
+        ],
+        [
+          90.8,
+          -214
+        ],
+        [
+          91.5,
+          -215.5
+        ],
+        [
+          90.9,
+          -217.1
+        ],
+        [
+          89.3,
+          -217.8
+        ]
+      ],
+      "width": 0.2,
+      "height": 2.35,
+      "material": "wall",
+      "columns": 8
+    }
+  ],
+  "notes": "Open sides and post material are inferred. Use the octagonal eave polygon for the pyramidal roof and keep the space under it open."
+}

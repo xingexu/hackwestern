@@ -1,0 +1,1954 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668520",
+  "name": "Bayfield Hall (Residence)",
+  "status": "refined",
+  "confidence": 0.93,
+  "summary": "A ten-storey T-shaped tan-brick apartment block with a glazed lobby tucked into the re-entrant corner and nine upper levels of projecting concrete balconies with pale horizontal rails and dark infill.",
+  "style": "residential-brick",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#c39c72",
+      "secondaryColor": "#b69271",
+      "unitSize": [
+        0.203,
+        0.067
+      ],
+      "bond": "running",
+      "variation": 0.13,
+      "roughness": 0.85
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#c4c3b9",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    },
+    "accent": {
+      "kind": "brick",
+      "color": "#9f8067",
+      "secondaryColor": "#a29483",
+      "unitSize": [
+        0.203,
+        0.067
+      ],
+      "bond": "running",
+      "variation": 0.13,
+      "roughness": 0.85
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#7a796b",
+      "variation": 0.05,
+      "weathering": 0.12,
+      "roughness": 0.84
+    },
+    "rail": {
+      "kind": "painted-metal",
+      "color": "#292d33",
+      "secondaryColor": "#393d40"
+    },
+    "lobbyFrame": {
+      "kind": "precast-panel",
+      "color": "#d2cfc4",
+      "secondaryColor": "#bfbfb6",
+      "unitSize": [
+        1.9,
+        1.5
+      ]
+    },
+    "lobbyGlass": {
+      "kind": "glass-curtain",
+      "color": "#6d8484",
+      "secondaryColor": "#7f8988",
+      "unitSize": [
+        1.25,
+        1.9
+      ]
+    },
+    "roofMetal": {
+      "kind": "metal-panel",
+      "color": "#999b93",
+      "secondaryColor": "#81827e",
+      "unitSize": [
+        0.66,
+        2.55
+      ],
+      "roughness": 0.75
+    }
+  },
+  "floors": {
+    "count": 10,
+    "groundFloorHeight": 2.63,
+    "typicalHeight": 2.66
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.4,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.15,
+        "height": 1.22,
+        "sill": 0.86,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.045
+        },
+        "frameColor": "#504334",
+        "glass": "tinted",
+        "glassColor": "#526768",
+        "surround": "none",
+        "sillProjecting": false,
+        "transom": true
+      },
+      "base": {
+        "material": "base",
+        "height": 0.28,
+        "projection": 0.04
+      },
+      "parapet": {
+        "height": 0.28,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 8.05,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.95,
+          "height": 1.12,
+          "sill": 0.94,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#504334",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false,
+          "transom": true
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 4.03,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 6.65,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 3.71,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 7.46,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 3.54,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 3.3,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 4.59,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 3
+        },
+        "material": "accent",
+        "windows": {
+          "type": "punched",
+          "width": 0.94,
+          "height": 1.39,
+          "sill": 0.77,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#554435",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false,
+          "spacing": 0.22
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 6.1,
+            "height": 2.15,
+            "sill": 0.15,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 4,
+              "horizontal": 1,
+              "width": 0.045
+            },
+            "frameColor": "#585954",
+            "glass": "tinted",
+            "glassColor": "#526768",
+            "surround": "metal",
+            "sillProjecting": true
+          },
+          "material": "trim"
+        },
+        "spandrelMaterial": "accent",
+        "piers": {
+          "width": 0.25,
+          "depth": 0.09,
+          "material": "wall",
+          "every": 1,
+          "fullHeight": true
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 3.48,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 4.1,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 3.6,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "12": {
+        "bays": {
+          "width": 7.55,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "13": {
+        "bays": {
+          "width": 3.77,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 7.58,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "15": {
+        "bays": {
+          "width": 3.68,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "16": {
+        "bays": {
+          "width": 3.45,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "17": {
+        "bays": {
+          "width": 3.47,
+          "count": 5,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "18": {
+        "bays": {
+          "width": 3.44,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "19": {
+        "bays": {
+          "width": 4.25,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "20": {
+        "bays": {
+          "width": 6.3,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "21": {
+        "bays": {
+          "width": 3.96,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "22": {
+        "bays": {
+          "width": 6.98,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "23": {
+        "bays": {
+          "width": 3.96,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "24": {
+        "bays": {
+          "width": 3.86,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "25": {
+        "bays": {
+          "width": 3.52,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "26": {
+        "bays": {
+          "count": 4
+        },
+        "material": "accent",
+        "windows": {
+          "type": "punched",
+          "width": 0.94,
+          "height": 1.39,
+          "sill": 0.8,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.045
+          },
+          "frameColor": "#554435",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false,
+          "spacing": 0.22
+        },
+        "piers": {
+          "width": 0.25,
+          "depth": 0.09,
+          "material": "wall",
+          "every": 1,
+          "fullHeight": true
+        },
+        "spandrelMaterial": "accent"
+      },
+      "27": {
+        "bays": {
+          "width": 3.5,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "28": {
+        "bays": {
+          "width": 7.94,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "29": {
+        "bays": {
+          "width": 3.49,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "30": {
+        "bays": {
+          "width": 7.04,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "31": {
+        "bays": {
+          "width": 2.54,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "32": {
+        "bays": {
+          "width": 3.47,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "33": {
+        "bays": {
+          "width": 3.73,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "34": {
+        "bays": {
+          "width": 2.78,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "35": {
+        "bays": {
+          "width": 3.1,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "36": {
+        "bays": {
+          "width": 5.27,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "37": {
+        "bays": {
+          "width": 3.93,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "38": {
+        "bays": {
+          "width": 6.57,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "39": {
+        "bays": {
+          "width": 3.69,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "40": {
+        "bays": {
+          "width": 8.03,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "41": {
+        "bays": {
+          "width": 3.32,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "42": {
+        "bays": {
+          "width": 7.96,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "43": {
+        "bays": {
+          "width": 3.56,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "44": {
+        "bays": {
+          "width": 7.72,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "45": {
+        "bays": {
+          "width": 3.63,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.38,
+          "depth": 0.08,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "46": {
+        "bays": {
+          "width": 6.37,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.35,
+          "height": 1.98,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#605c51",
+          "glass": "tinted",
+          "glassColor": "#526768",
+          "surround": "none",
+          "sillProjecting": false
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "depth": 2.23,
+          "rail": "metal",
+          "endPanels": true,
+          "infill": "lower-panel",
+          "divider": true,
+          "material": "rail",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.36,
+            "sill": 0.54,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.05
+            },
+            "frameColor": "#585954",
+            "glass": "clear",
+            "glassColor": "#657779",
+            "surround": "none",
+            "sillProjecting": true,
+            "spacing": 0.36
+          }
+        },
+        "cornice": {
+          "height": 0.18,
+          "depth": 2.16,
+          "material": "base"
+        }
+      },
+      "47": {
+        "bays": {
+          "width": 4.14,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -159,
+          -198
+        ],
+        "size": [
+          1.23,
+          1.1
+        ],
+        "height": 0.68,
+        "material": "trim",
+        "rotation": -21,
+        "style": "roof vent"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -148,
+          -161
+        ],
+        "size": [
+          1.23,
+          1.1
+        ],
+        "height": 0.68,
+        "material": "trim",
+        "rotation": -21,
+        "style": "roof vent"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -163,
+          -176
+        ],
+        "size": [
+          1.23,
+          1.1
+        ],
+        "height": 0.68,
+        "material": "trim",
+        "rotation": -21,
+        "style": "roof vent"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -136,
+          -185
+        ],
+        "size": [
+          1.23,
+          1.1
+        ],
+        "height": 0.68,
+        "material": "trim",
+        "rotation": -21,
+        "style": "roof vent"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -147.872,
+          -170.438
+        ],
+        "size": [
+          2.8,
+          1.48
+        ],
+        "height": 0.79,
+        "material": "roofMetal",
+        "rotation": -22,
+        "style": "junction service roof"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -144.15,
+          -176.709
+        ],
+        "size": [
+          1.2,
+          1.15
+        ],
+        "height": 0.64,
+        "material": "roofMetal",
+        "rotation": -22,
+        "style": "junction service roof"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "98467773",
+      "walls": [
+        8,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "note": "Nine balcony rows above low ground-floor windows. Two contiguous stacks alternate with brick piers and small punched openings."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "102315795",
+      "walls": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "note": "Concrete balconies have pale horizontal rails, dark opaque infill and a central divider. Clean sunlit brick sampled #c7a97d."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "102315799",
+      "walls": [
+        3,
+        4
+      ],
+      "note": "Low windows at grade and double-width balcony above. Tilted bay faces turn at each stack."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414165",
+      "walls": [
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "note": "Similar balcony stacks repeat along the tree-lined north side."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "102315797",
+      "walls": [
+        8,
+        28
+      ],
+      "note": "Short steps with metal rails lead to broad glazed lobby in the inside corner."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/BAHR.jpg",
+      "note": "The complete courtyard face shows nine balcony slabs above the garden level and a brown window strip beside the lobby."
+    },
+    {
+      "kind": "aerial",
+      "note": "Flat T-shaped roof with serrated edges and a small raised plant box over the junction."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 26.85 m, P90 26.99 m, maximum 30.61 m above inventory ground. Roof is consistently 26.9–27.0 m with a local 30.6 m peak at the core. This supports ten visible levels."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 8,
+      "position": 0.57,
+      "type": "glass-vestibule",
+      "width": 4.95,
+      "height": 2.44,
+      "recess": 0.6,
+      "steps": 3,
+      "ramp": true,
+      "surround": "trim",
+      "canopy": {
+        "type": "flat",
+        "width": 7.6,
+        "depth": 1.2,
+        "material": "lobbyFrame"
+      },
+      "at": [
+        -157.893,
+        -166.56
+      ]
+    }
+  ],
+  "notes": "Each long balcony belongs to two apartments. A divider splits the slab and a dark panel fills the lower part of the pale horizontal rail. The angled 7–8 m wall segments approximate the sawtooth facade. The far-side stacks are inferred from the footprint and north-side photograph.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Residential wings",
+        "footprint": "inventory",
+        "height": 26.93,
+        "floors": 10
+      },
+      {
+        "name": "Glazed entrance lobby facing courtyard",
+        "footprint": [
+          [
+            -155.987,
+            -172.086
+          ],
+          [
+            -153.116,
+            -164.899
+          ],
+          [
+            -156.664,
+            -163.484
+          ],
+          [
+            -159.535,
+            -170.672
+          ]
+        ],
+        "height": 3.11,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "lobbyGlass",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "material": "lobbyGlass",
+          "cornice": {
+            "height": 0.59,
+            "depth": 0.21,
+            "material": "lobbyFrame"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.11,
+            "material": "lobbyFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0.25
+        }
+      },
+      {
+        "name": "Central lift headhouse",
+        "footprint": [
+          [
+            -154.636,
+            -179.759
+          ],
+          [
+            -152.688,
+            -174.938
+          ],
+          [
+            -159.364,
+            -172.241
+          ],
+          [
+            -161.312,
+            -177.062
+          ]
+        ],
+        "baseOffset": 26.93,
+        "height": 30.38,
+        "floors": 1,
+        "material": "roofMetal",
+        "facade": {
+          "blank": true,
+          "material": "roofMetal",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofMetal"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofMetal"
+          },
+          "topFloor": {
+            "material": "roofMetal"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Low service roof on east side of connecting neck",
+        "footprint": [
+          [
+            -154.651,
+            -176.219
+          ],
+          [
+            -147.302,
+            -177.301
+          ],
+          [
+            -143.004,
+            -180.278
+          ],
+          [
+            -141.344,
+            -176.171
+          ],
+          [
+            -146.073,
+            -174.26
+          ],
+          [
+            -143.78,
+            -168.586
+          ],
+          [
+            -150.475,
+            -165.881
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 4.32,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      }
+    ]
+  }
+}

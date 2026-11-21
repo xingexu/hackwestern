@@ -1,0 +1,22 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "drive-western",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "../web/dist/app",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "none"
+  },
+  "durable_objects": {
+    "bindings": [
+      {"name": "ROOMS", "class_name": "Room"},
+      {"name": "LEADERS", "class_name": "Leaderboard"}
+    ]
+  },
+  "migrations": [{"tag":"v1","new_sqlite_classes":["Room","Leaderboard"]}],
+  "dev": {"ip":"127.0.0.1","port":8787}
+}

@@ -1,0 +1,1938 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668554",
+  "name": "Biotron Experimental Climate Change Research Centre",
+  "style": "contemporary-stone",
+  "confidence": 0.85,
+  "status": "refined",
+  "summary": "Biotron is a flat-fronted masonry laboratory block with tall grouped window bays, louvers, and glass-enclosed rooftop biomes.",
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#aa9c88",
+      "unitSize": [
+        0.4,
+        0.2
+      ],
+      "secondaryColor": "#968b79",
+      "variation": 0.11,
+      "bond": "running"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#837f6d",
+      "roughness": 0.74
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#cec4b1"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "louver": {
+      "kind": "corrugated-metal",
+      "color": "#454845",
+      "unitSize": [
+        1,
+        0.1
+      ]
+    },
+    "spandrel": {
+      "kind": "spandrel-glass",
+      "color": "#c3d0d2"
+    },
+    "biomeGlass": {
+      "kind": "glass-curtain",
+      "color": "#b4c9ca",
+      "secondaryColor": "#839e9d",
+      "unitSize": [
+        0.56,
+        0.76
+      ],
+      "roughness": 0.21
+    }
+  },
+  "floors": {
+    "count": 5,
+    "groundFloorHeight": 5.1,
+    "typicalHeight": 5.08
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 3.95,
+        "height": 3.68,
+        "sill": 0.43,
+        "perBay": 1,
+        "recess": 0.075,
+        "mullions": {
+          "vertical": 3,
+          "horizontal": 2,
+          "width": 0.065
+        },
+        "surround": "metal",
+        "glass": "tinted",
+        "frameColor": "#d2dbd6",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true,
+        "glassColor": "#859e9c"
+      },
+      "bays": {
+        "width": 5.55,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.38,
+        "material": "wall"
+      },
+      "base": {
+        "height": 0.55,
+        "projection": 0.04,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 1.28,
+        "depth": 0.16,
+        "material": "wall",
+        "every": 1,
+        "fullHeight": true
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 1.24,
+          "height": 1.2,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.06
+          },
+          "perBay": 2,
+          "sill": 0.85
+        }
+      },
+      "bands": [
+        {
+          "at": [
+            3.5
+          ],
+          "height": 0.4,
+          "depth": 0.08,
+          "material": "trim"
+        }
+      ],
+      "topFloor": {
+        "material": "wall",
+        "windows": {
+          "type": "ribbon",
+          "width": 4.4,
+          "height": 2.85,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 8,
+            "width": 0.06
+          },
+          "glassColor": "#423f3c",
+          "frameColor": "#514e47",
+          "sill": 0.65
+        }
+      },
+      "spandrelMaterial": "spandrel"
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 4,
+          "width": 4.93
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 2,
+          "width": 4.8
+        }
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 6,
+          "width": 5.46
+        },
+        "blank": true,
+        "sections": [
+          {
+            "start": 0.02,
+            "end": 0.14666666666666667,
+            "base": 5.0,
+            "top": 9.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.02,
+            "end": 0.14666666666666667,
+            "base": 9.8,
+            "top": 11.1,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.02,
+            "end": 0.14666666666666667,
+            "base": 11.1,
+            "top": 15.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.02,
+            "end": 0.14666666666666667,
+            "base": 15.8,
+            "top": 17.2,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.02,
+            "end": 0.14666666666666667,
+            "base": 20.0,
+            "top": 23.1,
+            "material": "louver"
+          },
+          {
+            "start": 0.18666666666666668,
+            "end": 0.3133333333333333,
+            "base": 5.0,
+            "top": 9.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.18666666666666668,
+            "end": 0.3133333333333333,
+            "base": 9.8,
+            "top": 11.1,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.18666666666666668,
+            "end": 0.3133333333333333,
+            "base": 11.1,
+            "top": 15.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.18666666666666668,
+            "end": 0.3133333333333333,
+            "base": 15.8,
+            "top": 17.2,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.18666666666666668,
+            "end": 0.3133333333333333,
+            "base": 20.0,
+            "top": 23.1,
+            "material": "louver"
+          },
+          {
+            "start": 0.35333333333333333,
+            "end": 0.48,
+            "base": 5.0,
+            "top": 9.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.35333333333333333,
+            "end": 0.48,
+            "base": 9.8,
+            "top": 11.1,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.35333333333333333,
+            "end": 0.48,
+            "base": 11.1,
+            "top": 15.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.35333333333333333,
+            "end": 0.48,
+            "base": 15.8,
+            "top": 17.2,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.35333333333333333,
+            "end": 0.48,
+            "base": 20.0,
+            "top": 23.1,
+            "material": "louver"
+          },
+          {
+            "start": 0.52,
+            "end": 0.6466666666666666,
+            "base": 5.0,
+            "top": 9.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.52,
+            "end": 0.6466666666666666,
+            "base": 9.8,
+            "top": 11.1,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.52,
+            "end": 0.6466666666666666,
+            "base": 11.1,
+            "top": 15.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.52,
+            "end": 0.6466666666666666,
+            "base": 15.8,
+            "top": 17.2,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.52,
+            "end": 0.6466666666666666,
+            "base": 20.0,
+            "top": 23.1,
+            "material": "louver"
+          },
+          {
+            "start": 0.6866666666666666,
+            "end": 0.8133333333333334,
+            "base": 5.0,
+            "top": 9.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.6866666666666666,
+            "end": 0.8133333333333334,
+            "base": 9.8,
+            "top": 11.1,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.6866666666666666,
+            "end": 0.8133333333333334,
+            "base": 11.1,
+            "top": 15.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.6866666666666666,
+            "end": 0.8133333333333334,
+            "base": 15.8,
+            "top": 17.2,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.6866666666666666,
+            "end": 0.8133333333333334,
+            "base": 20.0,
+            "top": 23.1,
+            "material": "louver"
+          },
+          {
+            "start": 0.8533333333333334,
+            "end": 0.98,
+            "base": 5.0,
+            "top": 9.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.8533333333333334,
+            "end": 0.98,
+            "base": 9.8,
+            "top": 11.1,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.8533333333333334,
+            "end": 0.98,
+            "base": 11.1,
+            "top": 15.8,
+            "material": "glass",
+            "verticalMullionSpacing": 1.05,
+            "horizontalMullions": 2
+          },
+          {
+            "start": 0.8533333333333334,
+            "end": 0.98,
+            "base": 15.8,
+            "top": 17.2,
+            "material": "spandrel"
+          },
+          {
+            "start": 0.8533333333333334,
+            "end": 0.98,
+            "base": 20.0,
+            "top": 23.1,
+            "material": "louver"
+          },
+          {
+            "start": 0,
+            "end": 1,
+            "base": 17.25,
+            "top": 18.4,
+            "material": "trim"
+          },
+          {
+            "start": 0.014,
+            "end": 0.026,
+            "base": 5.0,
+            "top": 16.3,
+            "material": "glass"
+          }
+        ],
+        "groundFloor": {
+          "blank": false,
+          "windows": {
+            "type": "punched",
+            "width": 1.24,
+            "height": 1.2,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.06
+            },
+            "perBay": 2,
+            "sill": 0.85
+          }
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 3,
+          "width": 6.6
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 8,
+          "width": 5.25
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.2,
+          "height": 1.25,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.06
+          },
+          "perBay": 2,
+          "sill": 1.1
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.2,
+            "height": 1.3,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.06
+            },
+            "perBay": 2
+          }
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "stair-tower",
+        "center": [
+          386,
+          1.5
+        ],
+        "size": [
+          6.7,
+          7.3
+        ],
+        "height": 1.8,
+        "rotation": -7,
+        "material": "wall"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          402,
+          -9
+        ],
+        "size": [
+          2.8,
+          2.8
+        ],
+        "height": 1.2,
+        "material": "metal",
+        "rotation": -7,
+        "style": "paired fan unit"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          410,
+          -9
+        ],
+        "size": [
+          2.8,
+          2.8
+        ],
+        "height": 1.2,
+        "material": "metal",
+        "rotation": -7,
+        "style": "paired fan unit"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          416,
+          -10
+        ],
+        "size": [
+          3.8,
+          2.85
+        ],
+        "height": 1.1,
+        "material": "metal",
+        "rotation": -7,
+        "style": "paired fan unit"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          397,
+          -5
+        ],
+        "size": [
+          0.85,
+          0.85
+        ],
+        "height": 0.68,
+        "material": "metal",
+        "rotation": -7,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          400,
+          -5.3
+        ],
+        "size": [
+          0.8,
+          0.8
+        ],
+        "height": 0.68,
+        "material": "metal",
+        "rotation": -7,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          418,
+          -6
+        ],
+        "size": [
+          0.9,
+          0.85
+        ],
+        "height": 0.75,
+        "material": "metal",
+        "rotation": -7,
+        "style": "round exhaust vent pipe"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          415.15,
+          -10.1
+        ],
+        "size": [
+          0.67,
+          0.67
+        ],
+        "height": 1.7,
+        "material": "metal",
+        "rotation": 0,
+        "style": "round exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          416.83,
+          -10.3
+        ],
+        "size": [
+          0.67,
+          0.67
+        ],
+        "height": 1.65,
+        "material": "metal",
+        "rotation": 0,
+        "style": "round exhaust stack"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface minus local ground: median 25.8 m, 90th percentile 27.25 m, maximum 27.52 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/BIO.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "kartaview",
+      "note": "The tall glazed slab in the foreground is WIRB. Biotron is a separate lower mass farther along the road; the university exterior photo resolves the facade.",
+      "frame": "373914092",
+      "walls": [
+        5
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "The university identifies six glass-walled rooftop biomes.",
+      "url": "https://www.uwo.ca/sci/research/biotron/environmental_chambers/biomes/index.html"
+    },
+    {
+      "kind": "aerial",
+      "note": "Long glazed structure on the south roof edge beside a parallel opaque equipment range. The repeated glazed top extends above the louvred facade."
+    },
+    {
+      "kind": "photo",
+      "note": "PIL mean wall or glazing sample, source-pixel rectangle (x, y, width, height) (38, 138, 4, 4) gives #766c63.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/BIO.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "The six south ranges give roof returns at 26–27 m, dropping to about 0.5 m four metres outside wall 4. Valley bars mark the divisions visible in the overhead photograph."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Central laboratory and high plant storey",
+        "height": 25.55,
+        "floors": 5,
+        "footprint": [
+          [
+            381.46,
+            8.04
+          ],
+          [
+            381.8,
+            9.31
+          ],
+          [
+            382.14,
+            10.59
+          ],
+          [
+            391.72,
+            9.79
+          ],
+          [
+            391.54,
+            7.0
+          ],
+          [
+            423.89,
+            3.47
+          ],
+          [
+            422.036,
+            -10.639
+          ],
+          [
+            380.302,
+            -5.847
+          ],
+          [
+            379.82,
+            -11.63
+          ]
+        ]
+      },
+      {
+        "name": "Lower north research wing",
+        "footprint": [
+          [
+            380.302,
+            -5.847
+          ],
+          [
+            422.036,
+            -10.639
+          ],
+          [
+            421.28,
+            -16.39
+          ],
+          [
+            379.82,
+            -11.63
+          ]
+        ],
+        "height": 20.25,
+        "floors": 4,
+        "material": "wall",
+        "facade": {
+          "material": "wall"
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Rooftop biome 1",
+        "footprint": [
+          [
+            390.743,
+            -0.307
+          ],
+          [
+            396.135,
+            -0.895
+          ],
+          [
+            396.908,
+            6.193
+          ],
+          [
+            391.516,
+            6.781
+          ]
+        ],
+        "height": 26.55,
+        "floors": 1,
+        "material": "biomeGlass",
+        "facade": {
+          "material": "biomeGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "height": 1.05,
+            "sill": 0.07,
+            "recess": 0.02,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 7,
+              "horizontal": 2,
+              "width": 0.047
+            },
+            "glassColor": "#abbdc1",
+            "frameColor": "#dce2dd",
+            "surround": "none"
+          },
+          "bays": {
+            "width": 5.32
+          },
+          "topFloor": {
+            "windows": {
+              "type": "curtain-wall",
+              "height": 1.05,
+              "sill": 0.07,
+              "recess": 0.02,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 7,
+                "horizontal": 2,
+                "width": 0.047
+              },
+              "glassColor": "#abbdc1",
+              "frameColor": "#dce2dd",
+              "surround": "none"
+            }
+          },
+          "piers": {
+            "width": 0.18,
+            "depth": 0.07,
+            "every": 1,
+            "material": "metal"
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "metal"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 174,
+          "rise": 0.87,
+          "material": "biomeGlass",
+          "edge": "gutter"
+        },
+        "baseOffset": 25.55
+      },
+      {
+        "name": "Rooftop biome 2",
+        "footprint": [
+          [
+            396.135,
+            -0.895
+          ],
+          [
+            401.527,
+            -1.483
+          ],
+          [
+            402.299,
+            5.605
+          ],
+          [
+            396.908,
+            6.193
+          ]
+        ],
+        "height": 26.55,
+        "floors": 1,
+        "material": "biomeGlass",
+        "facade": {
+          "material": "biomeGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "height": 1.05,
+            "sill": 0.07,
+            "recess": 0.02,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 7,
+              "horizontal": 2,
+              "width": 0.047
+            },
+            "glassColor": "#abbdc1",
+            "frameColor": "#dce2dd",
+            "surround": "none"
+          },
+          "bays": {
+            "width": 5.32
+          },
+          "topFloor": {
+            "windows": {
+              "type": "curtain-wall",
+              "height": 1.05,
+              "sill": 0.07,
+              "recess": 0.02,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 7,
+                "horizontal": 2,
+                "width": 0.047
+              },
+              "glassColor": "#abbdc1",
+              "frameColor": "#dce2dd",
+              "surround": "none"
+            }
+          },
+          "piers": {
+            "width": 0.18,
+            "depth": 0.07,
+            "every": 1,
+            "material": "metal"
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "metal"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 174,
+          "rise": 0.87,
+          "material": "biomeGlass",
+          "edge": "gutter"
+        },
+        "baseOffset": 25.55
+      },
+      {
+        "name": "Rooftop biome 3",
+        "footprint": [
+          [
+            401.527,
+            -1.483
+          ],
+          [
+            406.918,
+            -2.072
+          ],
+          [
+            407.691,
+            5.016
+          ],
+          [
+            402.299,
+            5.605
+          ]
+        ],
+        "height": 26.55,
+        "floors": 1,
+        "material": "biomeGlass",
+        "facade": {
+          "material": "biomeGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "height": 1.05,
+            "sill": 0.07,
+            "recess": 0.02,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 7,
+              "horizontal": 2,
+              "width": 0.047
+            },
+            "glassColor": "#abbdc1",
+            "frameColor": "#dce2dd",
+            "surround": "none"
+          },
+          "bays": {
+            "width": 5.32
+          },
+          "topFloor": {
+            "windows": {
+              "type": "curtain-wall",
+              "height": 1.05,
+              "sill": 0.07,
+              "recess": 0.02,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 7,
+                "horizontal": 2,
+                "width": 0.047
+              },
+              "glassColor": "#abbdc1",
+              "frameColor": "#dce2dd",
+              "surround": "none"
+            }
+          },
+          "piers": {
+            "width": 0.18,
+            "depth": 0.07,
+            "every": 1,
+            "material": "metal"
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "metal"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 174,
+          "rise": 0.87,
+          "material": "biomeGlass",
+          "edge": "gutter"
+        },
+        "baseOffset": 25.55
+      },
+      {
+        "name": "Rooftop biome 4",
+        "footprint": [
+          [
+            406.918,
+            -2.072
+          ],
+          [
+            412.31,
+            -2.66
+          ],
+          [
+            413.083,
+            4.428
+          ],
+          [
+            407.691,
+            5.016
+          ]
+        ],
+        "height": 26.55,
+        "floors": 1,
+        "material": "biomeGlass",
+        "facade": {
+          "material": "biomeGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "height": 1.05,
+            "sill": 0.07,
+            "recess": 0.02,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 7,
+              "horizontal": 2,
+              "width": 0.047
+            },
+            "glassColor": "#abbdc1",
+            "frameColor": "#dce2dd",
+            "surround": "none"
+          },
+          "bays": {
+            "width": 5.32
+          },
+          "topFloor": {
+            "windows": {
+              "type": "curtain-wall",
+              "height": 1.05,
+              "sill": 0.07,
+              "recess": 0.02,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 7,
+                "horizontal": 2,
+                "width": 0.047
+              },
+              "glassColor": "#abbdc1",
+              "frameColor": "#dce2dd",
+              "surround": "none"
+            }
+          },
+          "piers": {
+            "width": 0.18,
+            "depth": 0.07,
+            "every": 1,
+            "material": "metal"
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "metal"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 174,
+          "rise": 0.87,
+          "material": "biomeGlass",
+          "edge": "gutter"
+        },
+        "baseOffset": 25.55
+      },
+      {
+        "name": "Rooftop biome 5",
+        "footprint": [
+          [
+            412.31,
+            -2.66
+          ],
+          [
+            417.702,
+            -3.248
+          ],
+          [
+            418.474,
+            3.84
+          ],
+          [
+            413.083,
+            4.428
+          ]
+        ],
+        "height": 26.55,
+        "floors": 1,
+        "material": "biomeGlass",
+        "facade": {
+          "material": "biomeGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "height": 1.05,
+            "sill": 0.07,
+            "recess": 0.02,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 7,
+              "horizontal": 2,
+              "width": 0.047
+            },
+            "glassColor": "#abbdc1",
+            "frameColor": "#dce2dd",
+            "surround": "none"
+          },
+          "bays": {
+            "width": 5.32
+          },
+          "topFloor": {
+            "windows": {
+              "type": "curtain-wall",
+              "height": 1.05,
+              "sill": 0.07,
+              "recess": 0.02,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 7,
+                "horizontal": 2,
+                "width": 0.047
+              },
+              "glassColor": "#abbdc1",
+              "frameColor": "#dce2dd",
+              "surround": "none"
+            }
+          },
+          "piers": {
+            "width": 0.18,
+            "depth": 0.07,
+            "every": 1,
+            "material": "metal"
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "metal"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 174,
+          "rise": 0.87,
+          "material": "biomeGlass",
+          "edge": "gutter"
+        },
+        "baseOffset": 25.55
+      },
+      {
+        "name": "Rooftop biome 6",
+        "footprint": [
+          [
+            417.702,
+            -3.248
+          ],
+          [
+            423.093,
+            -3.837
+          ],
+          [
+            423.866,
+            3.251
+          ],
+          [
+            418.474,
+            3.84
+          ]
+        ],
+        "height": 26.55,
+        "floors": 1,
+        "material": "biomeGlass",
+        "facade": {
+          "material": "biomeGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "height": 1.05,
+            "sill": 0.07,
+            "recess": 0.02,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 7,
+              "horizontal": 2,
+              "width": 0.047
+            },
+            "glassColor": "#abbdc1",
+            "frameColor": "#dce2dd",
+            "surround": "none"
+          },
+          "bays": {
+            "width": 5.32
+          },
+          "topFloor": {
+            "windows": {
+              "type": "curtain-wall",
+              "height": 1.05,
+              "sill": 0.07,
+              "recess": 0.02,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 7,
+                "horizontal": 2,
+                "width": 0.047
+              },
+              "glassColor": "#abbdc1",
+              "frameColor": "#dce2dd",
+              "surround": "none"
+            }
+          },
+          "piers": {
+            "width": 0.18,
+            "depth": 0.07,
+            "every": 1,
+            "material": "metal"
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "metal"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 174,
+          "rise": 0.87,
+          "material": "biomeGlass",
+          "edge": "gutter"
+        },
+        "baseOffset": 25.55
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            391.575,
+            6.631
+          ],
+          [
+            391.694,
+            6.618
+          ],
+          [
+            390.967,
+            -0.2
+          ],
+          [
+            390.848,
+            -0.188
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            396.684,
+            6.086
+          ],
+          [
+            396.803,
+            6.074
+          ],
+          [
+            396.076,
+            -0.745
+          ],
+          [
+            395.957,
+            -0.732
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            396.967,
+            6.043
+          ],
+          [
+            397.086,
+            6.03
+          ],
+          [
+            396.359,
+            -0.788
+          ],
+          [
+            396.239,
+            -0.776
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            402.076,
+            5.498
+          ],
+          [
+            402.195,
+            5.486
+          ],
+          [
+            401.468,
+            -1.333
+          ],
+          [
+            401.349,
+            -1.321
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            402.358,
+            5.455
+          ],
+          [
+            402.477,
+            5.442
+          ],
+          [
+            401.75,
+            -1.377
+          ],
+          [
+            401.631,
+            -1.364
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            407.467,
+            4.91
+          ],
+          [
+            407.587,
+            4.897
+          ],
+          [
+            406.859,
+            -1.922
+          ],
+          [
+            406.74,
+            -1.909
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            407.75,
+            4.866
+          ],
+          [
+            407.869,
+            4.853
+          ],
+          [
+            407.142,
+            -1.965
+          ],
+          [
+            407.023,
+            -1.953
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            412.859,
+            4.321
+          ],
+          [
+            412.978,
+            4.309
+          ],
+          [
+            412.251,
+            -2.51
+          ],
+          [
+            412.132,
+            -2.497
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            413.142,
+            4.278
+          ],
+          [
+            413.261,
+            4.265
+          ],
+          [
+            412.534,
+            -2.553
+          ],
+          [
+            412.414,
+            -2.541
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            418.251,
+            3.733
+          ],
+          [
+            418.37,
+            3.721
+          ],
+          [
+            417.643,
+            -3.098
+          ],
+          [
+            417.524,
+            -3.086
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            418.533,
+            3.69
+          ],
+          [
+            418.652,
+            3.677
+          ],
+          [
+            417.925,
+            -3.142
+          ],
+          [
+            417.806,
+            -3.129
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      },
+      {
+        "name": "Aluminium valley at biome divide",
+        "footprint": [
+          [
+            423.642,
+            3.145
+          ],
+          [
+            423.762,
+            3.132
+          ],
+          [
+            423.034,
+            -3.687
+          ],
+          [
+            422.915,
+            -3.674
+          ]
+        ],
+        "height": 26.634999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 26.49
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 5,
+      "position": 0.7,
+      "type": "service-door",
+      "width": 1.1,
+      "height": 2.2
+    },
+    {
+      "wall": 4,
+      "position": 0.445,
+      "type": "doors-double",
+      "width": 1.95,
+      "height": 2.35
+    }
+  ],
+  "notes": "The six biomes form one continuous transparent rooftop enclosure with fine glazing bars. The facade mixes horizontal louvres, opaque pale spandrels and vertically grouped windows. The north wall has no verified ground-level view. The darker rear roof sits below the light plant roof and six greenhouse ridges."
+}

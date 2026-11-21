@@ -1,0 +1,1059 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r7380709-1",
+  "name": "John Labatt Visual Art Centre",
+  "style": "postmodern",
+  "confidence": 0.85,
+  "status": "refined",
+  "summary": "John Labatt Visual Arts presents a high curving windowless pale masonry wall facing the road, accented by a copper canopy, red-framed glass panels, and studio rooflights.",
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#c7beaa",
+      "unitSize": [
+        0.4,
+        0.2
+      ],
+      "secondaryColor": "#b9b09f",
+      "variation": 0.095,
+      "bond": "running"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#8f8c7c",
+      "roughness": 0.74
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#aea6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "copper": {
+      "kind": "copper-new",
+      "color": "#2d2928",
+      "roughness": 0.65,
+      "variation": 0.035
+    },
+    "red": {
+      "kind": "painted-metal",
+      "color": "#863c39"
+    },
+    "canopyTop": {
+      "kind": "copper-patina",
+      "color": "#788580",
+      "secondaryColor": "#6c7772",
+      "unitSize": [
+        0.54,
+        5.4
+      ],
+      "roughness": 0.72
+    },
+    "louvre": {
+      "kind": "corrugated-metal",
+      "color": "#737771",
+      "unitSize": [
+        1.1,
+        0.12
+      ],
+      "surface": "horizontal louvres"
+    },
+    "annexRoof": {
+      "kind": "membrane",
+      "color": "#938e7d",
+      "variation": 0.12
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 5.0,
+    "typicalHeight": 4.6
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 2.65,
+        "height": 2.05,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "surround": "metal",
+        "glass": "clear",
+        "frameColor": "#dedcd2",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "bays": {
+        "width": 4.3,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.38,
+        "material": "wall"
+      },
+      "base": {
+        "height": 0.55,
+        "projection": 0.04,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.23,
+        "depth": 0.16,
+        "material": "metal"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 6.4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.9,
+          "height": 1.8,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#7c3734"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.65,
+            "sill": 1.0,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#7c3734"
+          }
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 4,
+          "width": 4.71
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 2.7,
+          "height": 3.6,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 2,
+            "width": 0.055
+          },
+          "frameColor": "#813d39"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 5,
+          "width": 4.09
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 2,
+          "width": 3.29
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 2.7,
+          "height": 3.6,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 2,
+            "width": 0.055
+          },
+          "frameColor": "#813d39"
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 2,
+          "width": 4.42
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 4,
+          "width": 4.36
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 2.7,
+          "height": 3.6,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 2,
+            "width": 0.055
+          },
+          "frameColor": "#813d39"
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 6.4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.28,
+          "height": 1.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.06
+          },
+          "sill": 1.9
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 1.65,
+            "sill": 1.0,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#7c3734"
+          }
+        },
+        "sections": [
+          {
+            "start": 0.847,
+            "end": 0.861,
+            "base": 1.55,
+            "top": 12.2,
+            "material": "red",
+            "verticalMullionSpacing": 0.32,
+            "horizontalMullions": 6
+          },
+          {
+            "start": 0.789,
+            "end": 0.829,
+            "base": 1.0,
+            "top": 3.95,
+            "material": "louvre",
+            "horizontalMullions": 17
+          }
+        ]
+      },
+      "7": {
+        "bays": {
+          "count": 9,
+          "width": 4.23
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "cornice": {
+          "height": 0.1,
+          "depth": 0.06,
+          "material": "trim"
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 1,
+          "width": 4.51
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 1,
+          "width": 4.84
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "clerestory",
+        "center": [
+          538,
+          66
+        ],
+        "size": [
+          32,
+          2.8
+        ],
+        "height": 1.53,
+        "rotation": 35,
+        "material": "glass",
+        "style": "shed monitor"
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          549,
+          54
+        ],
+        "size": [
+          12,
+          2.8
+        ],
+        "height": 1.53,
+        "rotation": 35,
+        "material": "glass",
+        "style": "shed monitor"
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          561,
+          42
+        ],
+        "size": [
+          11,
+          2.8
+        ],
+        "height": 1.53,
+        "rotation": 35,
+        "material": "glass",
+        "style": "shed monitor"
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          566,
+          36
+        ],
+        "size": [
+          12,
+          2.8
+        ],
+        "height": 1.53,
+        "rotation": 35,
+        "material": "glass",
+        "style": "shed monitor"
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          582,
+          17
+        ],
+        "size": [
+          9,
+          2.8
+        ],
+        "height": 1.53,
+        "rotation": 35,
+        "material": "glass",
+        "style": "shed monitor"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          555,
+          41
+        ],
+        "size": [
+          4.2,
+          4.2
+        ],
+        "height": 2.05,
+        "rotation": 35,
+        "material": "glass",
+        "style": "pyramid"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface minus local ground: median 11.03 m, 90th percentile 16.85 m, maximum 20.24 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/VAC.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "kartaview",
+      "note": "At the corner a tall red-framed glazed stair interrupts the pale masonry. A deep dark roof projects beyond the nearly blank wall.",
+      "frame": "89741039",
+      "walls": [
+        6,
+        7
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Entrance opening sits at the end of a short railed approach in the curved wall below the upswept eave.",
+      "frame": "89741037",
+      "walls": [
+        7
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "Curved masonry and copper canopy described at the front.",
+      "url": "https://www.uwo.ca/visarts/research/2011-12/special_spaces/kk/kaur.htm"
+    },
+    {
+      "kind": "aerial",
+      "note": "Long parallel rooflights cross the studio roofs. The street gallery has the tallest roof; the stepped rear ends by a separate round structure."
+    },
+    {
+      "kind": "photo",
+      "note": "PIL mean wall or glazing sample, source-pixel rectangle (x, y, width, height) (180, 186, 4, 4) gives #9c9491.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/VAC.jpg"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "89741039",
+      "walls": [
+        6,
+        7
+      ],
+      "note": "A full-height, red-framed glazed stair projects from the side wall immediately behind the street gallery. The canopy has a dark copper underside; the upper surface behind it is pale in the orthophoto."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/visarts/research/2011-12/special_spaces/kk/Kaur2.jpg",
+      "walls": [
+        6,
+        7
+      ],
+      "note": "The continuous dark copper soffit sits proud of the bowed masonry. The roadway roof edge is higher than its rear edge. Lidar along wall 7 approaches 20 m inside that outer edge and 15.5 m farther back."
+    },
+    {
+      "kind": "kartaview",
+      "walls": [
+        7
+      ],
+      "frame": "39252442",
+      "note": "A nine-by-nine pixel patch at (1808, 984) on the gallery masonry averages #7d7a79 under the canopy. The whole street face is in shade in this frame. Neutral daylight colour was estimated with the brighter Facilities exterior."
+    },
+    {
+      "kind": "kartaview",
+      "walls": [
+        7
+      ],
+      "frame": "66567099",
+      "note": "A nine-by-nine pixel patch at (1004, 547) on the gallery masonry averages #747568 under the canopy. The whole street face is in shade in this frame. Neutral daylight colour was estimated with the brighter Facilities exterior."
+    },
+    {
+      "kind": "aerial",
+      "note": "The small southeast entry projection has a distinct light coping and square dark roof. The row of strips behind it belongs to the studio monitors."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 7,
+      "position": 0.55,
+      "type": "doors-double",
+      "width": 3.4,
+      "height": 3.15,
+      "recess": 2.4,
+      "ramp": true,
+      "surround": "trim",
+      "canopy": {
+        "type": "portico",
+        "width": 4.9,
+        "depth": 2.0,
+        "material": "trim",
+        "columns": 2
+      },
+      "at": [
+        535.955,
+        72.421
+      ]
+    },
+    {
+      "wall": 6,
+      "position": 0.3,
+      "type": "service-door",
+      "width": 1.15,
+      "height": 2.3
+    },
+    {
+      "wall": 6,
+      "position": 0.3113,
+      "at": [
+        589.41,
+        39.193
+      ],
+      "type": "doors-double",
+      "width": 1.85,
+      "height": 2.4,
+      "recess": 0.31
+    }
+  ],
+  "attachments": [
+    {
+      "type": "ramp",
+      "walls": 7,
+      "path": [
+        [
+          530.747,
+          80.601
+        ],
+        [
+          536.131,
+          72.835
+        ]
+      ],
+      "width": 3.15,
+      "height": 0.55,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          532.404,
+          81.141
+        ],
+        [
+          537.418,
+          73.909
+        ]
+      ],
+      "width": 0.18,
+      "height": 0.75,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          529.66,
+          79.238
+        ],
+        [
+          534.674,
+          72.007
+        ]
+      ],
+      "width": 0.18,
+      "height": 0.75,
+      "material": "trim"
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Street gallery and entrance hall",
+        "height": 16.55,
+        "floors": 3,
+        "footprint": [
+          [
+            523.32,
+            60.59
+          ],
+          [
+            521.683,
+            62.953
+          ],
+          [
+            530.986,
+            69.571
+          ],
+          [
+            538.281,
+            73.741
+          ],
+          [
+            546.319,
+            80.178
+          ],
+          [
+            553.269,
+            84.18
+          ],
+          [
+            560.595,
+            73.621
+          ],
+          [
+            525.379,
+            49.142
+          ],
+          [
+            519.35,
+            57.83
+          ]
+        ],
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "blank": true
+        }
+      },
+      {
+        "name": "Lower studio and workshop roofs",
+        "height": 9.75,
+        "floors": 2,
+        "footprint": [
+          [
+            601.48,
+            14.69
+          ],
+          [
+            587.13,
+            4.75
+          ],
+          [
+            582.09,
+            12.0
+          ],
+          [
+            576.69,
+            8.25
+          ],
+          [
+            565.04,
+            25.04
+          ],
+          [
+            549.55,
+            14.29
+          ],
+          [
+            529.78,
+            42.8
+          ],
+          [
+            519.35,
+            57.83
+          ],
+          [
+            525.379,
+            49.142
+          ],
+          [
+            560.595,
+            73.621
+          ]
+        ]
+      },
+      {
+        "name": "Red-framed projecting stair enclosure",
+        "height": 12.35,
+        "footprint": [
+          [
+            560.115,
+            74.154
+          ],
+          [
+            558.12,
+            77.03
+          ],
+          [
+            559.221,
+            77.793
+          ],
+          [
+            561.216,
+            74.917
+          ]
+        ],
+        "facade": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.8,
+            "height": 11.9,
+            "sill": 0.12,
+            "frameColor": "#793d3a",
+            "glassColor": "#839da1",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 5,
+              "width": 0.09
+            },
+            "recess": 0.055
+          },
+          "bays": {
+            "count": 1,
+            "width": 3.1
+          },
+          "parapet": {
+            "height": 0.14,
+            "type": "plain",
+            "material": "metal"
+          }
+        },
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0
+        },
+        "material": "glass"
+      },
+      {
+        "name": "Upswept copper canopy over street gallery",
+        "footprint": [
+          [
+            556.863,
+            84.471
+          ],
+          [
+            520.215,
+            59.062
+          ],
+          [
+            515.827,
+            65.389
+          ],
+          [
+            552.476,
+            90.798
+          ]
+        ],
+        "height": 18.0,
+        "baseOffset": 16.68,
+        "floors": 1,
+        "material": "copper",
+        "facade": {
+          "blank": true,
+          "material": "copper",
+          "windows": {
+            "type": "none"
+          },
+          "cornice": {
+            "height": 0.05,
+            "depth": 0.02,
+            "material": "copper"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "copper"
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 125,
+          "rise": 1.96,
+          "material": "canopyTop",
+          "edge": "none",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Set-back central studio block",
+        "footprint": [
+          [
+            558.178,
+            71.139
+          ],
+          [
+            576.924,
+            44.12
+          ],
+          [
+            554.245,
+            28.388
+          ],
+          [
+            535.5,
+            55.407
+          ]
+        ],
+        "height": 16.6,
+        "floors": 2,
+        "material": "wall",
+        "facade": {
+          "windows": {
+            "type": "punched",
+            "width": 1.35,
+            "height": 1.2,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.06
+            },
+            "sill": 1.6
+          },
+          "bays": {
+            "width": 5.5
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof"
+        },
+        "baseOffset": 9.75
+      },
+      {
+        "name": "Glazed stair projection 6",
+        "height": 10.8,
+        "footprint": [
+          [
+            570.6,
+            58.936
+          ],
+          [
+            568.804,
+            61.524
+          ],
+          [
+            570.095,
+            62.419
+          ],
+          [
+            571.89,
+            59.831
+          ]
+        ],
+        "facade": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.8,
+            "height": 11.9,
+            "sill": 0.12,
+            "frameColor": "#793d3a",
+            "glassColor": "#839da1",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 5,
+              "width": 0.09
+            },
+            "recess": 0.055
+          },
+          "bays": {
+            "count": 1,
+            "width": 3.1
+          },
+          "parapet": {
+            "height": 0.14,
+            "type": "plain",
+            "material": "metal"
+          }
+        },
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0
+        },
+        "material": "glass"
+      },
+      {
+        "name": "Glazed stair projection 2",
+        "height": 10.3,
+        "footprint": [
+          [
+            569.534,
+            18.827
+          ],
+          [
+            571.045,
+            16.649
+          ],
+          [
+            569.755,
+            15.754
+          ],
+          [
+            568.244,
+            17.932
+          ]
+        ],
+        "facade": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.8,
+            "height": 11.9,
+            "sill": 0.12,
+            "frameColor": "#793d3a",
+            "glassColor": "#839da1",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 5,
+              "width": 0.09
+            },
+            "recess": 0.055
+          },
+          "bays": {
+            "count": 1,
+            "width": 3.1
+          },
+          "parapet": {
+            "height": 0.14,
+            "type": "plain",
+            "material": "metal"
+          }
+        },
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0
+        },
+        "material": "glass"
+      },
+      {
+        "name": "Stepped street-end masonry fin",
+        "footprint": [
+          [
+            554.896,
+            77.098
+          ],
+          [
+            552.423,
+            80.663
+          ],
+          [
+            555.233,
+            82.612
+          ],
+          [
+            557.706,
+            79.048
+          ]
+        ],
+        "height": 16.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Low southeast studio entrance annex",
+        "footprint": [
+          [
+            587.663,
+            33.904
+          ],
+          [
+            583.843,
+            39.409
+          ],
+          [
+            587.5,
+            41.946
+          ],
+          [
+            591.319,
+            36.44
+          ]
+        ],
+        "height": 3.35,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "bays": {
+            "count": 1
+          },
+          "windows": {
+            "type": "none"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.21,
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "annexRoof",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "notes": "The street facade bows in plan inside the mapped chord. The deep projecting canopy sweeps upward and the sides include individual full-height red-framed glass stair boxes."
+}

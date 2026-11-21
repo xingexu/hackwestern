@@ -1,0 +1,275 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2578",
+  "name": "Western Interdisciplinary Research Building utility-yard screen",
+  "status": "authored",
+  "confidence": 0.53,
+  "summary": "Narrow L-shaped light-coloured structure along the opposite edge of the equipment yard. Roof and cast shadow are visible, and the sides and exact use remain uncertain.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#b5bcb4",
+      "secondaryColor": "#9aa297",
+      "unitSize": [
+        1,
+        2.15
+      ]
+    },
+    "roof": {
+      "kind": "metal-panel",
+      "color": "#e8ede6",
+      "secondaryColor": "#b8c1b7",
+      "unitSize": [
+        1.05,
+        3
+      ]
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#abb1a9"
+    },
+    "unit": {
+      "kind": "metal-panel",
+      "color": "#959992",
+      "secondaryColor": "#646963",
+      "surface": "louvred"
+    },
+    "paving": {
+      "kind": "concrete-smooth",
+      "color": "#a39e8f",
+      "secondaryColor": "#918c7e",
+      "unitSize": [
+        3.2,
+        3.2
+      ],
+      "weathering": 0.36
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.72
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "L-shaped enclosure at yard edge",
+        "height": 2.8,
+        "floors": 1,
+        "footprint": "inventory"
+      },
+      {
+        "name": "Yard equipment cabinet 1",
+        "footprint": [
+          [
+            444.02023,
+            -111.48279
+          ],
+          [
+            445.55559,
+            -110.12442
+          ],
+          [
+            443.77977,
+            -108.11721
+          ],
+          [
+            442.24441,
+            -109.47558
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 1.24,
+        "floors": 1,
+        "material": "unit",
+        "facade": {
+          "material": "unit",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "unit",
+          "features": [
+            {
+              "type": "hvac",
+              "center": [
+                443.9,
+                -109.8
+              ],
+              "size": [
+                1.9,
+                2.5
+              ],
+              "height": 0.4,
+              "rotation": 41.5,
+              "material": "unit"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Yard equipment cabinet 2",
+        "footprint": [
+          [
+            448.77023,
+            -107.48279
+          ],
+          [
+            450.30559,
+            -106.12442
+          ],
+          [
+            448.52977,
+            -104.11721
+          ],
+          [
+            446.99441,
+            -105.47558
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 1.24,
+        "floors": 1,
+        "material": "unit",
+        "facade": {
+          "material": "unit",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "unit",
+          "features": [
+            {
+              "type": "hvac",
+              "center": [
+                448.65,
+                -105.8
+              ],
+              "size": [
+                1.9,
+                2.5
+              ],
+              "height": 0.4,
+              "rotation": 41.5,
+              "material": "unit"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Concrete equipment yard apron",
+        "footprint": [
+          [
+            445.37,
+            -118.88
+          ],
+          [
+            442.42,
+            -115.56
+          ],
+          [
+            437.6,
+            -105.5
+          ],
+          [
+            445.7,
+            -98.4
+          ],
+          [
+            447.4,
+            -99.5
+          ],
+          [
+            455.95,
+            -109.39
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.09,
+        "floors": 1,
+        "material": "paving",
+        "facade": {
+          "material": "paving",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "paving",
+          "features": []
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall",
+      "cornice": {
+        "height": 0.09,
+        "depth": 0.06,
+        "material": "trim"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.05
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Light, narrow capped runs form an L around one edge of a paved equipment yard. Two objects cast distinct shadows on the paving between this structure and the longer enclosure to the northeast."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 3.25 m, P90 4.82 m, peak 5.91 m. The runs are narrower than the 2 m surface grid, beside trees and equipment. The height is approximate."
+    }
+  ],
+  "notes": "No clear street photograph or name. The L-shaped object may be a capped equipment screen or cabinets. Side materials and height are inferred."
+}

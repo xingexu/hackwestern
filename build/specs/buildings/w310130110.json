@@ -1,0 +1,1840 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w310130110",
+  "name": "Clare Hall and Mercato Dining Pavilion",
+  "status": "refined",
+  "confidence": 0.89,
+  "summary": "Four- and five-storey residence wings combine pale fieldstone-faced bays with grey metal panels. Facing the lawn, the lower Mercato pavilion presents a tall glass wall beneath a shallow folded roof.",
+  "style": "contemporary-stone",
+  "evidence": [
+    {
+      "kind": "knowledge",
+      "url": "https://tvsef.ca/wp-content/uploads/2023/03/brescia_map-TVSEF.pdf",
+      "note": "Resident entrance is on the south drop-off. Mercato occupies the lower northeast block."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/CH.jpg",
+      "note": "Main entry at base of a tall rectangular panelled bay, pale grey metal window and spandrel strips and brown-grey irregular masonry piers. Colours sampled from photograph."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.haymanconstruction.com/Educational.htm",
+      "note": "Contractor photographs from the old residence show room bays, a metal-clad end and a separate glazed dining pavilion with a folded eave. Contractor confirms four- and five-floor wings."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "146585439",
+      "walls": [
+        19,
+        20
+      ],
+      "note": "A small portion of the dining pavilion glazing is visible at the left of Ursuline Hall, across the lawn. Residence wings are screened."
+    },
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. White membrane roofs, staggered projections facing the court, square plant room near the northwest bend, lower dining volume to east and vehicle drop-off along wall 22."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 15.03 m, P90 19.44 m, maximum 26.23 m. Dining roof roughly 7–8 m, long residential ranges around 15–17 m and northern wing near 19–20 m. Highest local returns cluster at mechanical equipment."
+    },
+    {
+      "kind": "aerial",
+      "note": "Clare Hall sets its southwest bay and recessed glass entry behind the lay-by paving, while its eastern service wing extends further toward the drive."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#918775",
+      "variation": 0.32,
+      "secondaryColor": "#a29b8b",
+      "unitSize": [
+        0.44,
+        0.24
+      ],
+      "bond": "coursed-rubble"
+    },
+    "trim": {
+      "kind": "metal-panel",
+      "color": "#b5b9ba",
+      "variation": 0.09,
+      "secondaryColor": "#9ca1a3",
+      "unitSize": [
+        1.08,
+        3.03
+      ],
+      "bond": "stack",
+      "metalness": 0.39
+    },
+    "spandrel": {
+      "kind": "spandrel-glass",
+      "color": "#a8afb0",
+      "variation": 0.09,
+      "secondaryColor": "#939a97",
+      "unitSize": [
+        1.57,
+        1.0
+      ],
+      "bond": "stack"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#515f61",
+      "variation": 0.09,
+      "secondaryColor": "#d1d3cd",
+      "unitSize": [
+        1.55,
+        7.4
+      ],
+      "bond": "stack"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#f1f1e9",
+      "variation": 0.09
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a49f",
+      "variation": 0.09
+    },
+    "white": {
+      "kind": "painted-metal",
+      "color": "#e5e7e2"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#e1e4df"
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.5,
+    "typicalHeight": 3.5
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 2.13,
+        "height": 1.8,
+        "sill": 0.72,
+        "perBay": 1,
+        "recess": 0.16,
+        "frameColor": "#b0b3ac",
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "glass": "clear",
+        "surround": "metal",
+        "surroundMaterial": "trim"
+      },
+      "bays": {
+        "width": 3.35,
+        "pattern": "regular",
+        "edgeMargin": 0.24
+      },
+      "parapet": {
+        "height": 0.33,
+        "type": "coped",
+        "material": "trim"
+      },
+      "piers": {
+        "width": 1.04,
+        "depth": 0.34,
+        "every": 1,
+        "material": "wall",
+        "fullHeight": true
+      },
+      "bands": [],
+      "verticalSpandrels": {
+        "every": 1,
+        "width": 2.18,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 14,
+          "width": 3.42,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "segments": [
+          {
+            "range": [
+              0.23,
+              0.35
+            ],
+            "material": "trim",
+            "piers": {
+              "width": 0.12,
+              "depth": 0.1,
+              "material": "trim"
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 2
+            }
+          },
+          {
+            "range": [
+              0.61,
+              0.74
+            ],
+            "material": "trim",
+            "piers": {
+              "width": 0.12,
+              "depth": 0.1,
+              "material": "trim"
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 2
+            }
+          }
+        ]
+      },
+      "1": {
+        "bays": {
+          "count": 3,
+          "width": 2.9,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "trim"
+      },
+      "2": {
+        "bays": {
+          "count": 1,
+          "width": 3.82,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "trim"
+      },
+      "3": {
+        "bays": {
+          "count": 1,
+          "width": 4.68,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "trim"
+      },
+      "4": {
+        "bays": {
+          "count": 9,
+          "width": 3.31,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "segments": [
+          {
+            "range": [
+              0.04,
+              0.175
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.29,
+              0.425
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.54,
+              0.675
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.79,
+              0.925
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          }
+        ]
+      },
+      "5": {
+        "bays": {
+          "count": 2,
+          "width": 4.12,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 1,
+          "width": 2.95,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "blank": true
+      },
+      "7": {
+        "bays": {
+          "count": 4,
+          "width": 3.74,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "segments": [
+          {
+            "range": [
+              0.24,
+              0.56
+            ],
+            "material": "trim",
+            "piers": {
+              "width": 0.12,
+              "depth": 0.1,
+              "material": "trim"
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 2
+            }
+          }
+        ]
+      },
+      "8": {
+        "bays": {
+          "count": 1,
+          "width": 2.95,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "blank": true
+      },
+      "9": {
+        "bays": {
+          "count": 2,
+          "width": 2.9,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 4,
+          "width": 3.16,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "11": {
+        "bays": {
+          "count": 1,
+          "width": 3.39,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "trim"
+      },
+      "12": {
+        "bays": {
+          "count": 1,
+          "width": 5.04,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "trim"
+      },
+      "13": {
+        "bays": {
+          "count": 7,
+          "width": 3.36,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "14": {
+        "bays": {
+          "count": 1,
+          "width": 4.44,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "trim"
+      },
+      "15": {
+        "bays": {
+          "count": 3,
+          "width": 3.39,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "16": {
+        "bays": {
+          "count": 2,
+          "width": 3.85,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "trim"
+      },
+      "17": {
+        "bays": {
+          "count": 1,
+          "width": 3.1,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "glass",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 2.75,
+          "height": 6.35,
+          "sill": 0.18,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#666c6c",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "glassColor": "#81979b"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.75,
+            "height": 6.35,
+            "sill": 0.18,
+            "perBay": 1,
+            "recess": 0.14,
+            "frameColor": "#666c6c",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "glass": "clear",
+            "glassColor": "#81979b"
+          }
+        },
+        "piers": {
+          "width": 0.2,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim"
+        },
+        "bands": []
+      },
+      "18": {
+        "bays": {
+          "count": 6,
+          "width": 3.32,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "glass",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 2.75,
+          "height": 6.35,
+          "sill": 0.18,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#666c6c",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "glassColor": "#81979b"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.75,
+            "height": 6.35,
+            "sill": 0.18,
+            "perBay": 1,
+            "recess": 0.14,
+            "frameColor": "#666c6c",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "glass": "clear",
+            "glassColor": "#81979b"
+          }
+        },
+        "piers": {
+          "width": 0.2,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim"
+        },
+        "bands": []
+      },
+      "19": {
+        "bays": {
+          "count": 13,
+          "width": 3.36,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "glass",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 2.75,
+          "height": 6.35,
+          "sill": 0.18,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#666c6c",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "glassColor": "#81979b"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.75,
+            "height": 6.35,
+            "sill": 0.18,
+            "perBay": 1,
+            "recess": 0.14,
+            "frameColor": "#666c6c",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "glass": "clear",
+            "glassColor": "#81979b"
+          }
+        },
+        "piers": {
+          "width": 0.2,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim"
+        },
+        "bands": []
+      },
+      "20": {
+        "bays": {
+          "count": 6,
+          "width": 3.26,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "glass",
+        "windows": {
+          "type": "curtain-wall",
+          "width": 2.75,
+          "height": 6.35,
+          "sill": 0.18,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#666c6c",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "glassColor": "#81979b"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.75,
+            "height": 6.35,
+            "sill": 0.18,
+            "perBay": 1,
+            "recess": 0.14,
+            "frameColor": "#666c6c",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "glass": "clear",
+            "glassColor": "#81979b"
+          }
+        },
+        "piers": {
+          "width": 0.2,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim"
+        },
+        "bands": []
+      },
+      "21": {
+        "bays": {
+          "count": 8,
+          "width": 3.42,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "22": {
+        "bays": {
+          "count": 24,
+          "width": 3.38,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "segments": [
+          {
+            "range": [
+              0.01333,
+              0.05833
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.09667,
+              0.14167
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.18,
+              0.225
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.26333,
+              0.30833
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.34667,
+              0.39167
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.43,
+              0.475
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.51333,
+              0.55833
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.59667,
+              0.64167
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.68,
+              0.725
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.76333,
+              0.80833
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.84667,
+              0.89167
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          {
+            "range": [
+              0.93,
+              0.975
+            ],
+            "material": "trim",
+            "piers": {
+              "every": 0
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          }
+        ],
+        "sections": [
+          {
+            "start": 0.665,
+            "end": 0.715,
+            "base": 4.15,
+            "top": 15.35,
+            "material": "trim"
+          }
+        ]
+      },
+      "23": {
+        "bays": {
+          "count": 3,
+          "width": 3.07,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "trim"
+      },
+      "24": {
+        "bays": {
+          "count": 9,
+          "width": 3.58,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "25": {
+        "bays": {
+          "count": 2,
+          "width": 2.69,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "26": {
+        "bays": {
+          "count": 8,
+          "width": 3.6,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "segments": [
+          {
+            "range": [
+              0.34,
+              0.5
+            ],
+            "material": "trim",
+            "piers": {
+              "width": 0.12,
+              "depth": 0.1,
+              "material": "trim"
+            },
+            "windows": {
+              "width": 2.25,
+              "projection": 0.56,
+              "projectEvery": 1,
+              "surroundMaterial": "trim"
+            },
+            "bays": {
+              "count": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          -564.431,
+          825.67
+        ],
+        "size": [
+          8.6,
+          8.3
+        ],
+        "height": 1.48,
+        "material": "trim",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -551.972,
+          815.6740000000001
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -547.058,
+          821.6360000000001
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -571.099,
+          831.281
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -566.361,
+          847.413
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -563.904,
+          854.777
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -536.178,
+          878.449
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -532.493,
+          875.468
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -508.277,
+          870.383
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -498.45,
+          865.298
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -483.183,
+          860.564
+        ],
+        "size": [
+          1.65,
+          2.55
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          -483.078,
+          859.469
+        ],
+        "size": [
+          6.0,
+          10.5
+        ],
+        "height": 4.05,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          -500.896,
+          866.63
+        ],
+        "size": [
+          5.5,
+          6.9
+        ],
+        "height": 3.25,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -551.724,
+          818.766
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -550.417,
+          818.265
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -549.11,
+          817.763
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -549.645,
+          822.788
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -548.338,
+          822.287
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -547.031,
+          821.785
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -534.375,
+          879.589
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -533.068,
+          879.087
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -531.761,
+          878.585
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -508.458,
+          869.533
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -507.151,
+          869.031
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -505.844,
+          868.529
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -565.365,
+          851.317
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -564.058,
+          850.815
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -562.751,
+          850.313
+        ],
+        "size": [
+          1.11,
+          1.72
+        ],
+        "height": 1.15,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -537.494,
+          883.464
+        ],
+        "size": [
+          2.03,
+          1.08
+        ],
+        "height": 0.34,
+        "material": "glass",
+        "rotation": -21
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -528.883,
+          880.083
+        ],
+        "size": [
+          2.03,
+          1.08
+        ],
+        "height": 0.34,
+        "material": "glass",
+        "rotation": -21
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -500.361,
+          869.531
+        ],
+        "size": [
+          2.03,
+          1.08
+        ],
+        "height": 0.34,
+        "material": "glass",
+        "rotation": -21
+      }
+    ]
+  },
+  "notes": "Masonry and silver panels alternate within individual wall lengths. The dining pavilion features a double-height glazed elevation and broad folded roof planes. Resident-room bay counts are estimated from repeated room width.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Five-floor north residence",
+        "footprint": [
+          [
+            -560.722,
+            832.742
+          ],
+          [
+            -561.05,
+            831.86
+          ],
+          [
+            -533.12,
+            821.43
+          ],
+          [
+            -534.76,
+            817.04
+          ],
+          [
+            -531.19,
+            815.71
+          ],
+          [
+            -534.23,
+            807.55
+          ],
+          [
+            -571.945,
+            821.621
+          ],
+          [
+            -566.799,
+            835.027
+          ]
+        ],
+        "height": 19.45,
+        "floors": 5
+      },
+      {
+        "name": "Four-floor west residence",
+        "footprint": {
+          "clip": [
+            [
+              -597.12,
+              846.43
+            ],
+            [
+              -556.872,
+              831.294
+            ],
+            [
+              -541.736,
+              871.542
+            ],
+            [
+              -581.984,
+              886.678
+            ]
+          ]
+        },
+        "height": 15.85,
+        "floors": 4
+      },
+      {
+        "name": "Four-floor south entrance range",
+        "footprint": [
+          [
+            -551.659,
+            891.365
+          ],
+          [
+            -541.991,
+            887.654
+          ],
+          [
+            -541.597,
+            888.681
+          ],
+          [
+            -534.875,
+            886.1
+          ],
+          [
+            -535.395,
+            884.747
+          ],
+          [
+            -496.422,
+            870.193
+          ],
+          [
+            -496.128,
+            870.959
+          ],
+          [
+            -486.418,
+            867.232
+          ],
+          [
+            -491.951,
+            852.819
+          ],
+          [
+            -526.321,
+            865.745
+          ],
+          [
+            -525.35,
+            868.35
+          ],
+          [
+            -547.35,
+            876.57
+          ],
+          [
+            -548.304,
+            874.012
+          ],
+          [
+            -559.007,
+            878.037
+          ],
+          [
+            -555.87,
+            886.45
+          ],
+          [
+            -553.78,
+            885.67
+          ]
+        ],
+        "height": 15.7,
+        "floors": 4,
+        "wallProfiles": {
+          "22": {
+            "bays": {
+              "width": 3.62,
+              "edgeMargin": 0.23,
+              "pattern": "regular"
+            }
+          }
+        }
+      },
+      {
+        "name": "Mercato dining pavilion facing the lawn",
+        "footprint": [
+          [
+            -488.78,
+            821.16
+          ],
+          [
+            -512.13,
+            828.57
+          ],
+          [
+            -529.92,
+            835.84
+          ],
+          [
+            -525.0207,
+            848.9564
+          ],
+          [
+            -484.0749,
+            834.3457
+          ],
+          [
+            -483.8873,
+            834.2787
+          ]
+        ],
+        "height": 8.5,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "fascia",
+          "rise": 0.92,
+          "ridge": 69,
+          "overhang": 0.95
+        },
+        "facade": {
+          "material": "white",
+          "windows": {
+            "type": "storefront",
+            "width": 2.95,
+            "height": 7.31,
+            "sill": 0.13,
+            "recess": 0.05,
+            "frameColor": "#e2e5e0",
+            "glassColor": "#536163",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.075
+            }
+          },
+          "piers": {
+            "width": 0.14,
+            "depth": 0.31,
+            "every": 1,
+            "material": "white",
+            "fullHeight": true
+          },
+          "bands": [],
+          "verticalSpandrels": {
+            "width": 0.14,
+            "every": 1,
+            "material": "white"
+          },
+          "cornice": {
+            "height": 0.26,
+            "depth": 0.14,
+            "material": "white"
+          },
+          "parapet": {
+            "height": 0.07,
+            "type": "plain",
+            "material": "white"
+          }
+        }
+      },
+      {
+        "name": "Lower Mercato entrance link",
+        "footprint": [
+          [
+            -481.94,
+            839.5
+          ],
+          [
+            -483.8873,
+            834.2787
+          ],
+          [
+            -484.0749,
+            834.3457
+          ],
+          [
+            -525.0207,
+            848.9564
+          ],
+          [
+            -522.95,
+            854.5
+          ],
+          [
+            -520.04,
+            853.41
+          ],
+          [
+            -517.36,
+            860.63
+          ],
+          [
+            -526.9,
+            864.19
+          ],
+          [
+            -526.3207,
+            865.7448
+          ],
+          [
+            -480.9388,
+            848.6781
+          ],
+          [
+            -484.07,
+            840.29
+          ]
+        ],
+        "height": 7.2,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "roof"
+        },
+        "facade": {
+          "material": "white",
+          "windows": {
+            "type": "storefront",
+            "width": 2.95,
+            "height": 7.31,
+            "sill": 0.13,
+            "recess": 0.05,
+            "frameColor": "#e2e5e0",
+            "glassColor": "#536163",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.075
+            }
+          },
+          "piers": {
+            "width": 0.14,
+            "depth": 0.31,
+            "every": 1,
+            "material": "white",
+            "fullHeight": true
+          },
+          "bands": [],
+          "verticalSpandrels": {
+            "width": 0.14,
+            "every": 1,
+            "material": "white"
+          },
+          "cornice": {
+            "height": 0.26,
+            "depth": 0.14,
+            "material": "white"
+          },
+          "parapet": {
+            "height": 0.07,
+            "type": "plain",
+            "material": "white"
+          }
+        }
+      },
+      {
+        "name": "Low east dining service range",
+        "footprint": [
+          [
+            -474.51,
+            865.9
+          ],
+          [
+            -480.939,
+            848.678
+          ],
+          [
+            -491.951,
+            852.819
+          ],
+          [
+            -485.373,
+            869.955
+          ]
+        ],
+        "height": 7.65,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "West residence corner",
+        "footprint": [
+          [
+            -566.799,
+            835.027
+          ],
+          [
+            -571.945,
+            821.621
+          ],
+          [
+            -579.07,
+            824.28
+          ],
+          [
+            -574.043,
+            837.752
+          ]
+        ],
+        "height": 18.95,
+        "floors": 5,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 22,
+      "position": 0.7,
+      "type": "doors-double",
+      "width": 3.9,
+      "height": 3.1,
+      "recess": 0.76,
+      "canopy": {
+        "type": "flat",
+        "width": 4.1,
+        "depth": 1.3,
+        "material": "trim"
+      },
+      "at": [
+        -528.951,
+        882.559
+      ]
+    },
+    {
+      "wall": 19,
+      "position": 0.53,
+      "type": "doors-double",
+      "width": 2.1,
+      "height": 2.5,
+      "steps": 3
+    }
+  ],
+  "attachments": [
+    {
+      "type": "terrace",
+      "walls": 19,
+      "width": 3.9,
+      "height": 0.45,
+      "material": "trim"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -486.764,
+          870.218
+        ],
+        [
+          -543.809,
+          891.51
+        ]
+      ],
+      "width": 3.4,
+      "height": 0.15,
+      "material": "trim"
+    }
+  ]
+}

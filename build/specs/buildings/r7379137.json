@@ -1,0 +1,4648 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r7379137",
+  "name": "Richard Ivey Building",
+  "status": "refined",
+  "confidence": 0.88,
+  "summary": "Three-storey quadrangle flanked by low rough-stone pavilions, with tall dark-framed glass bays along Western Road and rows of narrower office windows on the south elevation.",
+  "style": "contemporary-stone",
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "34490888",
+      "walls": [
+        9,
+        10,
+        11
+      ],
+      "note": "Low roughly coursed stone wall with a recessed group of ground windows. Two-storey glazing has narrow dark vertical members and broad smooth end panels."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "89743163",
+      "walls": [
+        11,
+        14
+      ],
+      "note": "Upper glazing in a deep rectangular stone frame above the lawn."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "137106669",
+      "walls": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "note": "South approach shows repeated tall single and grouped punched office windows over a more continuous ground-floor band."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/IVEY.jpg",
+      "note": "Daylight photograph of the glazed projections, pale smooth returns, rough base and deep horizontal entrance overhang. Wall colour sampled from frame 34490888."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://www.ivey.uwo.ca/news/news-ivey/2016/6/richard-ivey-building-honoured-with-top-architectural-awards/",
+      "note": "Ivey identifies a three-storey building around a central courtyard, built with local limestone, flagstone, rubble stone and copper."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://www.ivey.uwo.ca/behaviourallab/the-lab/directions-to-the-lab/",
+      "note": "Pedestrian entry by the Western Road and Brescia intersection."
+    },
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. Open landscaped court, projecting flat-roofed pavilions, a dark L-shaped pitched roof, long strips of glazing, and rooftop plant on the southwest projection."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 13.37 m, P90 15.71 m, maximum 17.03 m. Outer stone pavilions sample around 5–6 m, southwest block near 9 m, office roof about 13–14 m and north/west roof rises to 16–17 m."
+    },
+    {
+      "kind": "lidar",
+      "note": "Richard Ivey drops from 16.8 m at the outer west range to 14.2 m near the courtyard along a constant-v lidar transect, and the north range also falls toward its courtyard terrace."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#878985",
+      "variation": 0.25,
+      "roughness": 0.91,
+      "secondaryColor": "#a29f98",
+      "unitSize": [
+        0.38,
+        0.105
+      ],
+      "bond": "coursed-rubble"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c6c2b9",
+      "variation": 0.09,
+      "secondaryColor": "#aaa9a1",
+      "unitSize": [
+        1.15,
+        0.49
+      ],
+      "bond": "running"
+    },
+    "brick": {
+      "kind": "brick",
+      "color": "#5e5650",
+      "variation": 0.19,
+      "secondaryColor": "#6e6762",
+      "unitSize": [
+        0.3,
+        0.09
+      ],
+      "bond": "running"
+    },
+    "copper": {
+      "kind": "metal-panel",
+      "color": "#67574c",
+      "variation": 0.1,
+      "metalness": 0.58,
+      "secondaryColor": "#493d36",
+      "unitSize": [
+        0.54,
+        2.1
+      ],
+      "bond": "stack"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#536b78",
+      "variation": 0.09,
+      "secondaryColor": "#323d42",
+      "unitSize": [
+        1.22,
+        4.06
+      ],
+      "bond": "stack"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#cbcbbf",
+      "variation": 0.09,
+      "weathering": 0.54,
+      "secondaryColor": "#9c9f94"
+    },
+    "darkRoof": {
+      "kind": "standing-seam-metal",
+      "color": "#70736a",
+      "variation": 0.09,
+      "secondaryColor": "#666464",
+      "unitSize": [
+        0.48,
+        3.2
+      ],
+      "weathering": 0.34
+    },
+    "ballast": {
+      "kind": "gravel-ballast",
+      "color": "#939287",
+      "variation": 0.22,
+      "weathering": 0.34,
+      "secondaryColor": "#777970"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#868985",
+      "variation": 0.09
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b5aea1",
+      "variation": 0.09
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#3b4549"
+    },
+    "sedum": {
+      "kind": "green-roof",
+      "color": "#77715b",
+      "variation": 0.26,
+      "secondaryColor": "#69664d"
+    },
+    "coping": {
+      "kind": "painted-metal",
+      "color": "#444646"
+    },
+    "screen": {
+      "kind": "painted-metal",
+      "surface": "perforated",
+      "color": "#727770",
+      "roughness": 0.82
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 4.8,
+    "typicalHeight": 4.15
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.48,
+        "height": 2.5,
+        "sill": 0.48,
+        "perBay": 1,
+        "recess": 0.14,
+        "frameColor": "#484944",
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "glass": "clear",
+        "sillProjecting": false,
+        "glassColor": "#728084"
+      },
+      "bays": {
+        "width": 3.15,
+        "pattern": "regular",
+        "edgeMargin": 0.24
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "ribbon",
+          "width": 2.85,
+          "height": 2.55,
+          "sill": 0.67,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#4a4b47",
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "glass": "clear"
+        },
+        "material": "wall"
+      },
+      "parapet": {
+        "height": 0.3,
+        "type": "coped",
+        "material": "trim"
+      },
+      "cornice": {
+        "material": "trim",
+        "height": 0.16,
+        "depth": 0.07
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 2,
+          "width": 3.81,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 1,
+          "width": 3.03,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 1,
+          "width": 4.49,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 1,
+          "width": 3.02,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 3,
+          "width": 2.88,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 3,
+          "width": 3.19,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 2,
+          "width": 3.83,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 1,
+          "width": 4.32,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 1,
+          "width": 3.56,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 3,
+          "width": 2.73,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.12,
+          "height": 4.36,
+          "sill": 0.075,
+          "perBay": 1,
+          "recess": 0.1,
+          "frameColor": "#333c3e",
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.063
+          },
+          "glass": "clear",
+          "glassColor": "#799196",
+          "surround": "none"
+        },
+        "material": "glass",
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "storefront",
+            "width": 2.8,
+            "height": 3.1,
+            "sill": 0.14,
+            "perBay": 1,
+            "recess": 0.42,
+            "frameColor": "#404545",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.055
+            },
+            "glass": "clear",
+            "glassColor": "#566164"
+          }
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 3,
+          "width": 3.36,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.12,
+          "height": 4.36,
+          "sill": 0.075,
+          "perBay": 1,
+          "recess": 0.1,
+          "frameColor": "#333c3e",
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.063
+          },
+          "glass": "clear",
+          "glassColor": "#799196",
+          "surround": "none"
+        },
+        "material": "glass",
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "storefront",
+            "width": 2.8,
+            "height": 3.1,
+            "sill": 0.14,
+            "perBay": 1,
+            "recess": 0.42,
+            "frameColor": "#404545",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.055
+            },
+            "glass": "clear",
+            "glassColor": "#566164"
+          }
+        }
+      },
+      "11": {
+        "bays": {
+          "count": 6,
+          "width": 3.28,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.12,
+          "height": 4.36,
+          "sill": 0.075,
+          "perBay": 1,
+          "recess": 0.1,
+          "frameColor": "#333c3e",
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.063
+          },
+          "glass": "clear",
+          "glassColor": "#799196",
+          "surround": "none"
+        },
+        "material": "glass",
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          }
+        }
+      },
+      "12": {
+        "bays": {
+          "count": 1,
+          "width": 3.97,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "13": {
+        "bays": {
+          "count": 5,
+          "width": 3.14,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "14": {
+        "bays": {
+          "count": 18,
+          "width": 3.14,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.12,
+          "height": 4.36,
+          "sill": 0.075,
+          "perBay": 1,
+          "recess": 0.1,
+          "frameColor": "#333c3e",
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.063
+          },
+          "glass": "clear",
+          "glassColor": "#799196",
+          "surround": "none"
+        },
+        "material": "glass",
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "storefront",
+            "width": 2.85,
+            "height": 3.1,
+            "sill": 0.25,
+            "perBay": 1,
+            "recess": 0.14,
+            "frameColor": "#434746",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.055
+            },
+            "glass": "clear"
+          }
+        }
+      },
+      "15": {
+        "bays": {
+          "count": 6,
+          "width": 3.2,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.12,
+          "height": 4.36,
+          "sill": 0.075,
+          "perBay": 1,
+          "recess": 0.1,
+          "frameColor": "#333c3e",
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.063
+          },
+          "glass": "clear",
+          "glassColor": "#799196",
+          "surround": "none"
+        },
+        "material": "glass",
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "storefront",
+            "width": 2.85,
+            "height": 3.1,
+            "sill": 0.25,
+            "perBay": 1,
+            "recess": 0.14,
+            "frameColor": "#434746",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.055
+            },
+            "glass": "clear"
+          }
+        }
+      },
+      "16": {
+        "bays": {
+          "count": 3,
+          "width": 3.21,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "17": {
+        "bays": {
+          "count": 1,
+          "width": 4.62,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "18": {
+        "bays": {
+          "count": 1,
+          "width": 2.94,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "19": {
+        "bays": {
+          "count": 4,
+          "width": 3.6,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "punched",
+          "width": 1.48,
+          "height": 2.5,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484944",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "sillProjecting": false,
+          "glassColor": "#728084"
+        },
+        "parapet": {
+          "height": 0.11,
+          "type": "coped",
+          "material": "coping"
+        },
+        "cornice": {
+          "height": 0.05,
+          "depth": 0.035,
+          "material": "coping"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.37
+            ],
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.75,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.37,
+              0.56
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.54,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.56,
+              1.0
+            ],
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.15,
+              "perBay": 2,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          }
+        ]
+      },
+      "20": {
+        "bays": {
+          "count": 4,
+          "width": 3.39,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "punched",
+          "width": 1.48,
+          "height": 2.5,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484944",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "sillProjecting": false,
+          "glassColor": "#728084"
+        },
+        "parapet": {
+          "height": 0.11,
+          "type": "coped",
+          "material": "coping"
+        },
+        "cornice": {
+          "height": 0.05,
+          "depth": 0.035,
+          "material": "coping"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.37
+            ],
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.75,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.37,
+              0.56
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.54,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.56,
+              1.0
+            ],
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.15,
+              "perBay": 2,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          }
+        ]
+      },
+      "21": {
+        "bays": {
+          "count": 5,
+          "width": 2.94,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "punched",
+          "width": 1.48,
+          "height": 2.5,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484944",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "sillProjecting": false,
+          "glassColor": "#728084"
+        },
+        "parapet": {
+          "height": 0.11,
+          "type": "coped",
+          "material": "coping"
+        },
+        "cornice": {
+          "height": 0.05,
+          "depth": 0.035,
+          "material": "coping"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.37
+            ],
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.75,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.37,
+              0.56
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.54,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.56,
+              1.0
+            ],
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.15,
+              "perBay": 2,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          }
+        ]
+      },
+      "22": {
+        "bays": {
+          "count": 4,
+          "width": 3.32,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "punched",
+          "width": 1.48,
+          "height": 2.5,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484944",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "sillProjecting": false,
+          "glassColor": "#728084"
+        },
+        "parapet": {
+          "height": 0.11,
+          "type": "coped",
+          "material": "coping"
+        },
+        "cornice": {
+          "height": 0.05,
+          "depth": 0.035,
+          "material": "coping"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.37
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.75,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.37,
+              0.56
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.54,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.56,
+              1.0
+            ],
+            "bays": {
+              "count": 2
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.15,
+              "perBay": 2,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          }
+        ]
+      },
+      "23": {
+        "bays": {
+          "count": 1,
+          "width": 2.79,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "blank": true
+      },
+      "24": {
+        "bays": {
+          "count": 2,
+          "width": 3.23,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "punched",
+          "width": 1.48,
+          "height": 2.5,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484944",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "sillProjecting": false,
+          "glassColor": "#728084"
+        },
+        "parapet": {
+          "height": 0.11,
+          "type": "coped",
+          "material": "coping"
+        },
+        "cornice": {
+          "height": 0.05,
+          "depth": 0.035,
+          "material": "coping"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.37
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.75,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.37,
+              0.56
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.54,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.56,
+              1.0
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.15,
+              "perBay": 2,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          }
+        ]
+      },
+      "25": {
+        "bays": {
+          "count": 1,
+          "width": 3.28,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "parapet": {
+          "height": 0.11,
+          "type": "coped",
+          "material": "coping"
+        },
+        "cornice": {
+          "height": 0.05,
+          "depth": 0.035,
+          "material": "coping"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.37
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.75,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.37,
+              0.56
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.54,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.56,
+              1.0
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.15,
+              "perBay": 2,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          }
+        ]
+      },
+      "26": {
+        "bays": {
+          "count": 1,
+          "width": 4.5,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "punched",
+          "width": 1.48,
+          "height": 2.5,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#484944",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "sillProjecting": false,
+          "glassColor": "#728084"
+        },
+        "parapet": {
+          "height": 0.11,
+          "type": "coped",
+          "material": "coping"
+        },
+        "cornice": {
+          "height": 0.05,
+          "depth": 0.035,
+          "material": "coping"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.37
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.75,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.37,
+              0.56
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.54,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.56,
+              1.0
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.15,
+              "perBay": 2,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          }
+        ]
+      },
+      "27": {
+        "bays": {
+          "count": 1,
+          "width": 4.17,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "parapet": {
+          "height": 0.11,
+          "type": "coped",
+          "material": "coping"
+        },
+        "cornice": {
+          "height": 0.05,
+          "depth": 0.035,
+          "material": "coping"
+        },
+        "segments": [
+          {
+            "range": [
+              0.0,
+              0.37
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.75,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.37,
+              0.56
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.54,
+              "perBay": 1,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          },
+          {
+            "range": [
+              0.56,
+              1.0
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.15,
+              "perBay": 2,
+              "height": 2.16,
+              "sill": 0.84,
+              "frameColor": "#3f4140"
+            }
+          }
+        ]
+      },
+      "28": {
+        "bays": {
+          "count": 2,
+          "width": 2.5,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "29": {
+        "bays": {
+          "count": 10,
+          "width": 3.22,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "30": {
+        "bays": {
+          "count": 2,
+          "width": 2.78,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "31": {
+        "bays": {
+          "count": 7,
+          "width": 3.1,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "32": {
+        "bays": {
+          "count": 9,
+          "width": 3.16,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "33": {
+        "bays": {
+          "count": 1,
+          "width": 3.25,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "34": {
+        "bays": {
+          "count": 4,
+          "width": 3.3,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "35": {
+        "bays": {
+          "count": 5,
+          "width": 3.01,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "36": {
+        "bays": {
+          "count": 6,
+          "width": 3.13,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "37": {
+        "bays": {
+          "count": 3,
+          "width": 3.34,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "38": {
+        "bays": {
+          "count": 2,
+          "width": 3.35,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "39": {
+        "bays": {
+          "count": 4,
+          "width": 3.1,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "40": {
+        "bays": {
+          "count": 3,
+          "width": 2.89,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "41": {
+        "bays": {
+          "count": 2,
+          "width": 2.98,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "42": {
+        "bays": {
+          "count": 2,
+          "width": 3.5,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "43": {
+        "bays": {
+          "count": 3,
+          "width": 3.35,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "44": {
+        "bays": {
+          "count": 3,
+          "width": 3.57,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "45": {
+        "bays": {
+          "count": 12,
+          "width": 3.31,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "46": {
+        "bays": {
+          "count": 1,
+          "width": 3.01,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "47": {
+        "bays": {
+          "count": 4,
+          "width": 3.41,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "48": {
+        "bays": {
+          "count": 5,
+          "width": 2.88,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "49": {
+        "bays": {
+          "count": 4,
+          "width": 3.33,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "50": {
+        "bays": {
+          "count": 6,
+          "width": 2.95,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "51": {
+        "bays": {
+          "count": 1,
+          "width": 4.18,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "brick"
+      },
+      "52": {
+        "bays": {
+          "count": 2,
+          "width": 3.82,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "53": {
+        "bays": {
+          "count": 6,
+          "width": 3.14,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "54": {
+        "bays": {
+          "count": 8,
+          "width": 3.2,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      },
+      "55": {
+        "bays": {
+          "count": 6,
+          "width": 3.17,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "material": "wall",
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 2.55,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#434747",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear"
+        }
+      }
+    },
+    "courtyard": {
+      "material": "frame",
+      "windows": {
+        "type": "curtain-wall",
+        "width": 2.25,
+        "height": 3.45,
+        "sill": 0.13,
+        "frameColor": "#41494b"
+      },
+      "groundFloor": {
+        "material": "frame",
+        "windows": {
+          "type": "curtain-wall",
+          "height": 3.58,
+          "sill": 0.13
+        }
+      },
+      "spandrelMaterial": "copper",
+      "bands": [
+        {
+          "at": [
+            4.45,
+            8.86
+          ],
+          "height": 0.24,
+          "depth": 0.09,
+          "material": "copper"
+        }
+      ],
+      "base": {
+        "height": 0.64,
+        "material": "wall",
+        "projection": 0.07
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "skylight",
+        "center": [
+          -88.898,
+          783.555
+        ],
+        "size": [
+          26,
+          2.35
+        ],
+        "height": 0.44,
+        "material": "glass",
+        "rotation": -21
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -65.106,
+          773.118
+        ],
+        "size": [
+          20,
+          2.4
+        ],
+        "height": 0.52,
+        "material": "glass",
+        "rotation": -21
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -52.96,
+          731.56
+        ],
+        "size": [
+          21.3,
+          1.87
+        ],
+        "height": 0.55,
+        "material": "glass",
+        "rotation": 69
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -51.049,
+          754.438
+        ],
+        "size": [
+          6.2,
+          1.45
+        ],
+        "height": 0.38,
+        "material": "glass",
+        "rotation": 69
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -38.204,
+          765.575
+        ],
+        "size": [
+          5.8,
+          1.35
+        ],
+        "height": 0.4,
+        "material": "glass",
+        "rotation": 69
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -56.98,
+          720.67
+        ],
+        "size": [
+          3.15,
+          3.0
+        ],
+        "height": 1.13,
+        "material": "glass",
+        "rotation": 69
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          -56.85,
+          714.64
+        ],
+        "size": [
+          6.28,
+          3.15
+        ],
+        "height": 2.65,
+        "material": "plant",
+        "rotation": 69
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -78.1,
+          789.2
+        ],
+        "size": [
+          12.2,
+          3.28
+        ],
+        "height": 0.39,
+        "material": "glass",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -136.15,
+          798.5
+        ],
+        "size": [
+          2.48,
+          4.56
+        ],
+        "height": 1.59,
+        "material": "plant",
+        "rotation": 69,
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -133.53,
+          797.47
+        ],
+        "size": [
+          2.48,
+          4.56
+        ],
+        "height": 1.59,
+        "material": "plant",
+        "rotation": 69,
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -130.16,
+          796.12
+        ],
+        "size": [
+          2.48,
+          4.56
+        ],
+        "height": 1.59,
+        "material": "plant",
+        "rotation": 69,
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -127.38,
+          795.04
+        ],
+        "size": [
+          2.48,
+          4.56
+        ],
+        "height": 1.59,
+        "material": "plant",
+        "rotation": 69,
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -38.18,
+          723.82
+        ],
+        "size": [
+          1.17,
+          0.86
+        ],
+        "height": 0.23,
+        "material": "glass",
+        "rotation": 69
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -37.25,
+          726.16
+        ],
+        "size": [
+          1.17,
+          0.86
+        ],
+        "height": 0.23,
+        "material": "glass",
+        "rotation": 69
+      }
+    ]
+  },
+  "notes": "Limestone end panels separate glazed upper bays. The exact frontage bay depths and the extent of the planted eastern roof remain approximate.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "North projecting pavilion",
+        "footprint": {
+          "clip": [
+            [
+              -212.4,
+              714.96
+            ],
+            [
+              -87.912,
+              668.144
+            ],
+            [
+              -74.184,
+              704.648
+            ],
+            [
+              -198.672,
+              751.464
+            ]
+          ]
+        },
+        "height": 5.7,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "parapet"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "coped",
+            "height": 0.12,
+            "material": "trim"
+          }
+        },
+        "wallProfiles": {
+          "40": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "44": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "47": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "52": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "54": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          }
+        }
+      },
+      {
+        "name": "West projecting pavilions",
+        "footprint": {
+          "clip": [
+            [
+              -198.672,
+              751.464
+            ],
+            [
+              -157.02,
+              735.8
+            ],
+            [
+              -136.604,
+              790.088
+            ],
+            [
+              -178.256,
+              805.752
+            ]
+          ]
+        },
+        "height": 5.1,
+        "floors": 1,
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "coped",
+            "height": 0.12,
+            "material": "trim"
+          }
+        },
+        "wallProfiles": {
+          "40": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "44": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "47": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "52": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "54": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          }
+        }
+      },
+      {
+        "name": "Southwest service wing",
+        "footprint": [
+          [
+            -150.7,
+            796.83
+          ],
+          [
+            -146.84,
+            818.16
+          ],
+          [
+            -142.15,
+            821.14
+          ],
+          [
+            -116.103,
+            806.251
+          ],
+          [
+            -122.565,
+            789.067
+          ],
+          [
+            -123.054,
+            789.255
+          ],
+          [
+            -124.484,
+            785.53
+          ],
+          [
+            -124.566,
+            785.561
+          ],
+          [
+            -124.26,
+            786.33
+          ]
+        ],
+        "height": 8.9,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Eastern hall",
+        "footprint": [
+          [
+            -47.463,
+            775.703
+          ],
+          [
+            -46.07,
+            775.15
+          ],
+          [
+            -47.15,
+            772.42
+          ],
+          [
+            -42.85,
+            770.71
+          ],
+          [
+            -39.28,
+            779.67
+          ],
+          [
+            -21.44,
+            772.59
+          ],
+          [
+            -42.3,
+            720.06
+          ],
+          [
+            -39.925,
+            719.042
+          ],
+          [
+            -48.385,
+            696.544
+          ],
+          [
+            -49.38,
+            696.94
+          ],
+          [
+            -49.976,
+            695.435
+          ],
+          [
+            -74.158,
+            704.718
+          ]
+        ],
+        "height": 14.15,
+        "floors": 2,
+        "facade": {
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0.36,
+            "depth": 0.16,
+            "material": "trim"
+          }
+        },
+        "wallProfiles": {
+          "9": {
+            "sections": [
+              {
+                "start": 0.05,
+                "end": 0.75,
+                "base": 5.04,
+                "top": 13.68,
+                "material": "glass",
+                "verticalMullionSpacing": 1.03,
+                "horizontalMullions": 1,
+                "recess": 0.21,
+                "surroundMaterial": "trim"
+              }
+            ]
+          },
+          "10": {
+            "sections": [
+              {
+                "start": 0.1,
+                "end": 0.82,
+                "base": 5.04,
+                "top": 13.68,
+                "material": "glass",
+                "verticalMullionSpacing": 1.03,
+                "horizontalMullions": 1,
+                "recess": 0.21,
+                "surroundMaterial": "trim"
+              }
+            ]
+          },
+          "11": {
+            "sections": [
+              {
+                "start": 0.05,
+                "end": 0.69,
+                "base": 5.04,
+                "top": 13.68,
+                "material": "glass",
+                "verticalMullionSpacing": 1.03,
+                "horizontalMullions": 1,
+                "recess": 0.21,
+                "surroundMaterial": "trim"
+              }
+            ]
+          },
+          "14": {
+            "sections": [
+              {
+                "start": 0.025,
+                "end": 0.325,
+                "base": 5.04,
+                "top": 13.68,
+                "material": "glass",
+                "verticalMullionSpacing": 1.03,
+                "horizontalMullions": 1,
+                "recess": 0.21,
+                "surroundMaterial": "trim"
+              },
+              {
+                "start": 0.37,
+                "end": 0.645,
+                "base": 5.04,
+                "top": 13.68,
+                "material": "glass",
+                "verticalMullionSpacing": 1.03,
+                "horizontalMullions": 1,
+                "recess": 0.21,
+                "surroundMaterial": "trim"
+              },
+              {
+                "start": 0.7,
+                "end": 0.965,
+                "base": 5.04,
+                "top": 13.68,
+                "material": "glass",
+                "verticalMullionSpacing": 1.03,
+                "horizontalMullions": 1,
+                "recess": 0.21,
+                "surroundMaterial": "trim"
+              }
+            ]
+          },
+          "15": {
+            "sections": [
+              {
+                "start": 0.06,
+                "end": 0.81,
+                "base": 5.04,
+                "top": 13.68,
+                "material": "glass",
+                "verticalMullionSpacing": 1.03,
+                "horizontalMullions": 1,
+                "recess": 0.21,
+                "surroundMaterial": "trim"
+              }
+            ]
+          }
+        },
+        "baseOffset": 4.82
+      },
+      {
+        "name": "Eastern stone projection",
+        "footprint": [
+          [
+            -27.86,
+            713.87
+          ],
+          [
+            -26.783,
+            713.383
+          ],
+          [
+            -26.035,
+            712.802
+          ],
+          [
+            -25.617,
+            712.128
+          ],
+          [
+            -25.529,
+            711.361
+          ],
+          [
+            -25.77,
+            710.5
+          ],
+          [
+            -31.77,
+            691.73
+          ],
+          [
+            -41.15,
+            695.45
+          ],
+          [
+            -41.76,
+            693.91
+          ],
+          [
+            -48.385,
+            696.544
+          ],
+          [
+            -39.925,
+            719.042
+          ]
+        ],
+        "height": 5.15,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "sedum",
+          "edge": "parapet"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        },
+        "wallProfiles": {
+          "10": {
+            "windows": {
+              "type": "none"
+            },
+            "sections": [
+              {
+                "start": 0.04,
+                "end": 0.83,
+                "base": 0.18,
+                "top": 3.65,
+                "material": "glass",
+                "verticalMullionSpacing": 1.6,
+                "horizontalMullions": 0,
+                "recess": 0.38,
+                "surroundMaterial": "trim"
+              }
+            ]
+          },
+          "13": {
+            "windows": {
+              "type": "none"
+            },
+            "sections": [
+              {
+                "start": 0.58,
+                "end": 0.95,
+                "base": 0.16,
+                "top": 3.64,
+                "material": "glass",
+                "verticalMullionSpacing": 1.64,
+                "horizontalMullions": 0,
+                "recess": 0.38,
+                "surroundMaterial": "trim"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Low north stone frontage",
+        "footprint": {
+          "clip": [
+            [
+              -157.02,
+              735.8
+            ],
+            [
+              -74.184,
+              704.648
+            ],
+            [
+              -72.1424,
+              710.0768
+            ],
+            [
+              -154.9784,
+              741.2288
+            ]
+          ]
+        },
+        "height": 5.25,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "parapet"
+        },
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "coped",
+            "height": 0.12,
+            "material": "trim"
+          }
+        },
+        "wallProfiles": {
+          "40": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "44": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "47": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "52": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          },
+          "54": {
+            "blank": false,
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.18,
+                "height": 2.75,
+                "recess": 0.4,
+                "sill": 0.4
+              }
+            },
+            "bays": {
+              "count": 1
+            }
+          }
+        }
+      },
+      {
+        "name": "Limestone-framed projecting upper hall bay",
+        "footprint": [
+          [
+            -41.069,
+            720.666
+          ],
+          [
+            -34.353,
+            737.581
+          ],
+          [
+            -35.301,
+            737.957
+          ],
+          [
+            -42.017,
+            721.042
+          ]
+        ],
+        "height": 14.15,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia"
+        },
+        "baseOffset": 4.82,
+        "facade": {
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        },
+        "wallProfiles": {
+          "14": {
+            "sections": [
+              {
+                "start": 0.018,
+                "end": 0.982,
+                "base": 5.08,
+                "top": 13.76,
+                "material": "glass",
+                "verticalMullionSpacing": 1.07,
+                "horizontalMullions": 1,
+                "recess": 0.22,
+                "surroundMaterial": "trim"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Limestone-framed projecting upper hall bay",
+        "footprint": [
+          [
+            -27.093,
+            755.861
+          ],
+          [
+            -21.065,
+            771.042
+          ],
+          [
+            -22.013,
+            771.419
+          ],
+          [
+            -28.041,
+            756.238
+          ]
+        ],
+        "height": 14.15,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia"
+        },
+        "baseOffset": 4.82,
+        "facade": {
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        },
+        "wallProfiles": {
+          "14": {
+            "sections": [
+              {
+                "start": 0.018,
+                "end": 0.982,
+                "base": 5.08,
+                "top": 13.76,
+                "material": "glass",
+                "verticalMullionSpacing": 1.07,
+                "horizontalMullions": 1,
+                "recess": 0.22,
+                "surroundMaterial": "trim"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "North entrance volume",
+        "footprint": [
+          [
+            -74.158,
+            704.718
+          ],
+          [
+            -49.976,
+            695.435
+          ],
+          [
+            -50.69,
+            693.63
+          ],
+          [
+            -54.7,
+            695.23
+          ],
+          [
+            -57.54,
+            688.1
+          ],
+          [
+            -66.42,
+            691.63
+          ],
+          [
+            -63.24,
+            699.66
+          ],
+          [
+            -65.22,
+            700.44
+          ],
+          [
+            -66.34,
+            697.63
+          ],
+          [
+            -70.51,
+            699.28
+          ],
+          [
+            -69.39,
+            702.1
+          ],
+          [
+            -74.33,
+            704.04
+          ],
+          [
+            -74.402,
+            704.069
+          ]
+        ],
+        "height": 6.55,
+        "floors": 1,
+        "facade": {
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "sections": [
+            {
+              "start": 0.07,
+              "end": 0.93,
+              "base": 0.2,
+              "top": 6.279999999999999,
+              "material": "glass",
+              "verticalMullionSpacing": 1.32,
+              "horizontalMullions": 1,
+              "recess": 0.38,
+              "surroundMaterial": "trim"
+            }
+          ]
+        },
+        "wallProfiles": {},
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Low courtyard rooflight bay",
+        "footprint": [
+          [
+            -126.05,
+            749.57
+          ],
+          [
+            -129.7,
+            751.012
+          ],
+          [
+            -129.097,
+            752.585
+          ],
+          [
+            -125.415,
+            751.172
+          ]
+        ],
+        "height": 4.38,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "fascia",
+          "features": [
+            {
+              "type": "skylight",
+              "center": [
+                -127.55802142387178,
+                751.092
+              ],
+              "size": [
+                2.589092022312083,
+                1.36
+              ],
+              "height": 0.23,
+              "material": "glass",
+              "rotation": -21
+            }
+          ]
+        },
+        "facade": {
+          "material": "base",
+          "windows": {
+            "type": "storefront",
+            "sill": 0.85,
+            "height": 2.84,
+            "width": 2.22
+          },
+          "base": {
+            "material": "wall",
+            "height": 0.63
+          }
+        }
+      },
+      {
+        "name": "Low courtyard rooflight bay",
+        "footprint": [
+          [
+            -119.13,
+            745.65
+          ],
+          [
+            -108.0,
+            741.22
+          ],
+          [
+            -108.318,
+            740.431
+          ],
+          [
+            -119.5,
+            744.724
+          ]
+        ],
+        "height": 4.38,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "fascia",
+          "features": [
+            {
+              "type": "skylight",
+              "center": [
+                -113.66915397368479,
+                742.972
+              ],
+              "size": [
+                3.326653874390833,
+                1.36
+              ],
+              "height": 0.23,
+              "material": "glass",
+              "rotation": -21
+            }
+          ]
+        },
+        "facade": {
+          "material": "base",
+          "windows": {
+            "type": "storefront",
+            "sill": 0.85,
+            "height": 2.84,
+            "width": 2.22
+          },
+          "base": {
+            "material": "wall",
+            "height": 0.63
+          }
+        }
+      },
+      {
+        "name": "Low courtyard rooflight bay",
+        "footprint": [
+          [
+            -104.69,
+            742.35
+          ],
+          [
+            -96.45,
+            739.08
+          ],
+          [
+            -97.552,
+            736.299
+          ],
+          [
+            -105.831,
+            739.477
+          ]
+        ],
+        "height": 4.38,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "fascia",
+          "features": [
+            {
+              "type": "skylight",
+              "center": [
+                -101.13204192792382,
+                739.2785
+              ],
+              "size": [
+                5,
+                1.36
+              ],
+              "height": 0.23,
+              "material": "glass",
+              "rotation": -21
+            }
+          ]
+        },
+        "facade": {
+          "material": "base",
+          "windows": {
+            "type": "storefront",
+            "sill": 0.85,
+            "height": 2.84,
+            "width": 2.22
+          },
+          "base": {
+            "material": "wall",
+            "height": 0.63
+          }
+        }
+      },
+      {
+        "name": "Low courtyard rooflight bay",
+        "footprint": [
+          [
+            -93.8,
+            738.13
+          ],
+          [
+            -89.88,
+            736.57
+          ],
+          [
+            -90.76,
+            734.34
+          ],
+          [
+            -88.69,
+            733.51
+          ],
+          [
+            -88.13,
+            734.9
+          ],
+          [
+            -79.38,
+            731.43
+          ],
+          [
+            -79.94,
+            730.04
+          ],
+          [
+            -80.112,
+            729.604
+          ],
+          [
+            -94.93,
+            735.292
+          ]
+        ],
+        "height": 4.38,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "fascia",
+          "features": [
+            {
+              "type": "skylight",
+              "center": [
+                -87.09711613418197,
+                733.925
+              ],
+              "size": [
+                5,
+                1.36
+              ],
+              "height": 0.23,
+              "material": "glass",
+              "rotation": -21
+            }
+          ]
+        },
+        "facade": {
+          "material": "base",
+          "windows": {
+            "type": "storefront",
+            "sill": 0.85,
+            "height": 2.84,
+            "width": 2.22
+          },
+          "base": {
+            "material": "wall",
+            "height": 0.63
+          }
+        }
+      },
+      {
+        "name": "Low courtyard rooflight bay",
+        "footprint": [
+          [
+            -67.461,
+            728.926
+          ],
+          [
+            -66.36,
+            728.503
+          ],
+          [
+            -67.758,
+            724.862
+          ],
+          [
+            -68.898,
+            725.3
+          ]
+        ],
+        "height": 4.38,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "fascia",
+          "features": [
+            {
+              "type": "skylight",
+              "center": [
+                -67.61911552814118,
+                726.9014999999999
+              ],
+              "size": [
+                2.1636937167723356,
+                1.36
+              ],
+              "height": 0.23,
+              "material": "glass",
+              "rotation": -21
+            }
+          ]
+        },
+        "facade": {
+          "material": "base",
+          "windows": {
+            "type": "storefront",
+            "sill": 0.85,
+            "height": 2.84,
+            "width": 2.22
+          },
+          "base": {
+            "material": "wall",
+            "height": 0.63
+          }
+        }
+      },
+      {
+        "name": "Lower south perimeter strip",
+        "footprint": [
+          [
+            -98.39,
+            794.99
+          ],
+          [
+            -97.36,
+            797.59
+          ],
+          [
+            -85.02,
+            792.69
+          ],
+          [
+            -84.41,
+            794.21
+          ],
+          [
+            -70.74,
+            788.78
+          ],
+          [
+            -71.34,
+            787.26
+          ],
+          [
+            -58.74,
+            782.26
+          ],
+          [
+            -59.45,
+            780.46
+          ],
+          [
+            -47.463,
+            775.703
+          ],
+          [
+            -47.863,
+            774.639
+          ],
+          [
+            -99.616,
+            794.505
+          ],
+          [
+            -99.292,
+            795.348
+          ]
+        ],
+        "height": 9.05,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Glazed service stair",
+        "footprint": [
+          [
+            -124.738,
+            784.868
+          ],
+          [
+            -121.004,
+            783.434
+          ],
+          [
+            -119.32,
+            787.822
+          ],
+          [
+            -123.054,
+            789.255
+          ]
+        ],
+        "height": 15.95,
+        "floors": 4,
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "fascia"
+        },
+        "facade": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "height": 3.45
+          },
+          "bands": [
+            {
+              "at": [
+                4.3,
+                8.65,
+                12.8
+              ],
+              "height": 0.18,
+              "depth": 0.1,
+              "material": "frame"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Recessed Western Road ground floor",
+        "footprint": [
+          [
+            -46.07,
+            775.15
+          ],
+          [
+            -47.15,
+            772.42
+          ],
+          [
+            -42.85,
+            770.71
+          ],
+          [
+            -39.28,
+            779.67
+          ],
+          [
+            -22.76,
+            773.114
+          ],
+          [
+            -44.663,
+            717.957
+          ],
+          [
+            -40.895,
+            716.462
+          ],
+          [
+            -48.385,
+            696.544
+          ],
+          [
+            -49.38,
+            696.94
+          ],
+          [
+            -49.976,
+            695.435
+          ],
+          [
+            -74.158,
+            704.718
+          ],
+          [
+            -47.463,
+            775.703
+          ]
+        ],
+        "height": 4.82,
+        "floors": 1,
+        "facade": {
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0.18,
+            "depth": 0.04,
+            "material": "frame"
+          }
+        },
+        "wallProfiles": {
+          "14": {
+            "sections": [
+              {
+                "start": 0.014,
+                "end": 0.986,
+                "base": 0.28,
+                "top": 4.38,
+                "material": "glass",
+                "verticalMullionSpacing": 1.42,
+                "horizontalMullions": 1,
+                "recess": 0.11,
+                "surroundMaterial": "trim"
+              }
+            ]
+          },
+          "15": {
+            "sections": [
+              {
+                "start": 0.1,
+                "end": 0.84,
+                "base": 0.4,
+                "top": 3.85,
+                "material": "glass",
+                "verticalMullionSpacing": 1.42,
+                "horizontalMullions": 1,
+                "recess": 0.12,
+                "surroundMaterial": "trim"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "North standing-seam slope",
+        "footprint": [
+          [
+            -143.031,
+            745.723
+          ],
+          [
+            -130.811,
+            750.095
+          ],
+          [
+            -132.167,
+            749.61
+          ],
+          [
+            -133.178,
+            746.975
+          ],
+          [
+            -67.716,
+            721.847
+          ],
+          [
+            -66.44,
+            725.239
+          ],
+          [
+            -72.142,
+            710.077
+          ],
+          [
+            -154.978,
+            741.229
+          ],
+          [
+            -154.331,
+            742.95
+          ]
+        ],
+        "height": 13.94,
+        "floors": 3,
+        "roof": {
+          "form": "shed",
+          "material": "darkRoof",
+          "ridge": 249,
+          "rise": 3.13,
+          "edge": "none"
+        },
+        "material": "wall"
+      },
+      {
+        "name": "West standing-seam slope",
+        "footprint": [
+          [
+            -148.498,
+            756.061
+          ],
+          [
+            -148.46,
+            756.075
+          ],
+          [
+            -141.541,
+            773.492
+          ],
+          [
+            -141.555,
+            773.53
+          ],
+          [
+            -142.666,
+            773.969
+          ],
+          [
+            -137.429,
+            787.897
+          ],
+          [
+            -119.223,
+            780.908
+          ],
+          [
+            -130.811,
+            750.095
+          ],
+          [
+            -143.031,
+            745.723
+          ],
+          [
+            -154.331,
+            742.95
+          ],
+          [
+            -149.283,
+            756.373
+          ]
+        ],
+        "height": 13.93,
+        "floors": 3,
+        "roof": {
+          "form": "shed",
+          "material": "darkRoof",
+          "ridge": 159,
+          "rise": 3.18,
+          "edge": "none"
+        },
+        "material": "wall"
+      },
+      {
+        "name": "North courtyard terrace",
+        "height": 4.38,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -130.811,
+            750.095
+          ],
+          [
+            -131.013,
+            749.533
+          ],
+          [
+            -130.463,
+            749.317
+          ],
+          [
+            -130.749,
+            748.608
+          ],
+          [
+            -130.735,
+            748.57
+          ],
+          [
+            -119.732,
+            744.209
+          ],
+          [
+            -119.7,
+            744.225
+          ],
+          [
+            -119.421,
+            744.923
+          ],
+          [
+            -119.5,
+            744.724
+          ],
+          [
+            -108.318,
+            740.431
+          ],
+          [
+            -108.569,
+            739.808
+          ],
+          [
+            -108.56,
+            739.773
+          ],
+          [
+            -106.128,
+            738.811
+          ],
+          [
+            -106.09,
+            738.825
+          ],
+          [
+            -105.831,
+            739.477
+          ],
+          [
+            -97.552,
+            736.299
+          ],
+          [
+            -97.331,
+            736.857
+          ],
+          [
+            -97.849,
+            735.548
+          ],
+          [
+            -97.844,
+            735.517
+          ],
+          [
+            -95.278,
+            734.501
+          ],
+          [
+            -95.24,
+            734.515
+          ],
+          [
+            -94.79,
+            735.644
+          ],
+          [
+            -94.93,
+            735.292
+          ],
+          [
+            -80.112,
+            729.604
+          ],
+          [
+            -80.289,
+            729.158
+          ],
+          [
+            -80.275,
+            729.12
+          ],
+          [
+            -69.162,
+            724.699
+          ],
+          [
+            -69.13,
+            724.715
+          ],
+          [
+            -68.6,
+            726.052
+          ],
+          [
+            -68.898,
+            725.3
+          ],
+          [
+            -67.758,
+            724.862
+          ],
+          [
+            -67.465,
+            725.625
+          ],
+          [
+            -66.44,
+            725.24
+          ],
+          [
+            -67.716,
+            721.847
+          ],
+          [
+            -133.178,
+            746.975
+          ],
+          [
+            -132.167,
+            749.61
+          ]
+        ]
+      },
+      {
+        "name": "West roof abutment",
+        "height": 8.95,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -137.372,
+            788.047
+          ],
+          [
+            -125.482,
+            783.319
+          ],
+          [
+            -125.45,
+            783.335
+          ],
+          [
+            -124.565,
+            785.561
+          ],
+          [
+            -124.484,
+            785.53
+          ],
+          [
+            -124.738,
+            784.868
+          ],
+          [
+            -121.004,
+            783.434
+          ],
+          [
+            -120.74,
+            784.122
+          ],
+          [
+            -118.352,
+            783.224
+          ],
+          [
+            -118.352,
+            783.223
+          ],
+          [
+            -130.811,
+            750.095
+          ],
+          [
+            -119.223,
+            780.908
+          ],
+          [
+            -137.429,
+            787.897
+          ],
+          [
+            -142.666,
+            773.969
+          ]
+        ]
+      },
+      {
+        "name": "South offices and courtyard returns",
+        "footprint": [
+          [
+            -111.62,
+            800.25
+          ],
+          [
+            -107.44,
+            798.59
+          ],
+          [
+            -106.61,
+            800.67
+          ],
+          [
+            -103.56,
+            799.46
+          ],
+          [
+            -104.39,
+            797.37
+          ],
+          [
+            -99.292,
+            795.348
+          ],
+          [
+            -99.616,
+            794.505
+          ],
+          [
+            -47.863,
+            774.639
+          ],
+          [
+            -66.44,
+            725.24
+          ],
+          [
+            -67.465,
+            725.625
+          ],
+          [
+            -66.36,
+            728.503
+          ],
+          [
+            -67.461,
+            728.926
+          ],
+          [
+            -61.72,
+            743.41
+          ],
+          [
+            -64.59,
+            744.54
+          ],
+          [
+            -62.32,
+            750.25
+          ],
+          [
+            -61.43,
+            749.9
+          ],
+          [
+            -59.51,
+            754.74
+          ],
+          [
+            -63.222,
+            756.212
+          ],
+          [
+            -62.198,
+            758.879
+          ],
+          [
+            -75.442,
+            763.963
+          ],
+          [
+            -74.72,
+            765.79
+          ],
+          [
+            -79.49,
+            767.68
+          ],
+          [
+            -80.235,
+            765.803
+          ],
+          [
+            -91.13,
+            769.985
+          ],
+          [
+            -90.58,
+            771.39
+          ],
+          [
+            -91.9,
+            771.92
+          ],
+          [
+            -92.465,
+            770.498
+          ],
+          [
+            -96.945,
+            772.217
+          ],
+          [
+            -96.36,
+            773.69
+          ],
+          [
+            -98.55,
+            774.55
+          ],
+          [
+            -99.145,
+            773.062
+          ],
+          [
+            -107.4,
+            776.231
+          ],
+          [
+            -107.12,
+            776.94
+          ],
+          [
+            -109.0,
+            777.68
+          ],
+          [
+            -109.288,
+            776.955
+          ],
+          [
+            -113.567,
+            778.598
+          ],
+          [
+            -116.49,
+            779.75
+          ],
+          [
+            -116.5,
+            779.724
+          ],
+          [
+            -119.269,
+            780.787
+          ],
+          [
+            -118.352,
+            783.224
+          ],
+          [
+            -120.74,
+            784.122
+          ],
+          [
+            -119.32,
+            787.822
+          ],
+          [
+            -122.565,
+            789.067
+          ],
+          [
+            -116.103,
+            806.251
+          ],
+          [
+            -114.16,
+            805.14
+          ],
+          [
+            -116.01,
+            800.49
+          ],
+          [
+            -112.13,
+            798.94
+          ]
+        ],
+        "height": 13.45,
+        "floors": 3
+      },
+      {
+        "name": "South offices and courtyard returns",
+        "footprint": [
+          [
+            -130.463,
+            749.317
+          ],
+          [
+            -131.024,
+            749.528
+          ],
+          [
+            -130.586,
+            750.693
+          ],
+          [
+            -130.0,
+            750.468
+          ]
+        ],
+        "height": 13.45,
+        "floors": 3
+      },
+      {
+        "name": "West courtyard terrace",
+        "height": 4.38,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -112.95,
+            776.69
+          ],
+          [
+            -112.38,
+            778.13
+          ],
+          [
+            -113.548,
+            778.59
+          ],
+          [
+            -110.744,
+            777.514
+          ],
+          [
+            -111.31,
+            776.038
+          ]
+        ]
+      },
+      {
+        "name": "West courtyard terrace",
+        "height": 4.38,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -122.14,
+            765.5
+          ],
+          [
+            -120.1,
+            764.69
+          ],
+          [
+            -121.79,
+            760.43
+          ],
+          [
+            -125.47,
+            761.9
+          ],
+          [
+            -126.2,
+            760.06
+          ],
+          [
+            -122.48,
+            758.58
+          ],
+          [
+            -125.415,
+            751.172
+          ],
+          [
+            -129.097,
+            752.585
+          ],
+          [
+            -129.7,
+            751.012
+          ],
+          [
+            -129.77,
+            751.04
+          ],
+          [
+            -130.0,
+            750.468
+          ],
+          [
+            -130.586,
+            750.693
+          ],
+          [
+            -119.269,
+            780.786
+          ],
+          [
+            -116.5,
+            779.724
+          ]
+        ]
+      },
+      {
+        "name": "South court paving and low parapet",
+        "height": 0.46,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -68.63,
+            756.4
+          ],
+          [
+            -77.1,
+            759.77
+          ],
+          [
+            -75.442,
+            763.963
+          ],
+          [
+            -62.198,
+            758.879
+          ],
+          [
+            -63.222,
+            756.212
+          ],
+          [
+            -67.96,
+            758.09
+          ]
+        ]
+      },
+      {
+        "name": "South court paving and low parapet",
+        "height": 0.46,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -91.37,
+            769.37
+          ],
+          [
+            -91.13,
+            769.985
+          ],
+          [
+            -80.235,
+            765.803
+          ],
+          [
+            -80.53,
+            765.06
+          ]
+        ]
+      },
+      {
+        "name": "South court paving and low parapet",
+        "height": 0.46,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -97.85,
+            769.94
+          ],
+          [
+            -96.945,
+            772.217
+          ],
+          [
+            -92.465,
+            770.498
+          ],
+          [
+            -93.39,
+            768.17
+          ]
+        ]
+      },
+      {
+        "name": "South court paving and low parapet",
+        "height": 0.46,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -108.19,
+            774.23
+          ],
+          [
+            -107.4,
+            776.231
+          ],
+          [
+            -99.145,
+            773.062
+          ],
+          [
+            -99.98,
+            770.97
+          ]
+        ]
+      },
+      {
+        "name": "South court paving and low parapet",
+        "height": 0.46,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -111.31,
+            776.038
+          ],
+          [
+            -110.744,
+            777.514
+          ],
+          [
+            -113.567,
+            778.598
+          ],
+          [
+            -109.288,
+            776.955
+          ],
+          [
+            -109.88,
+            775.47
+          ]
+        ]
+      },
+      {
+        "name": "Eastern entry terrace",
+        "height": 0.55,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "fascia",
+          "features": []
+        },
+        "baseOffset": 0,
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          }
+        },
+        "footprint": [
+          [
+            -42.25,
+            719.98
+          ],
+          [
+            -37.63,
+            718.24
+          ],
+          [
+            -33.94,
+            727.55
+          ],
+          [
+            -38.54,
+            729.41
+          ]
+        ]
+      },
+      {
+        "name": "North glass stair and upper landing",
+        "footprint": [
+          [
+            -66.195,
+            691.541
+          ],
+          [
+            -63.168,
+            699.428
+          ],
+          [
+            -55.325,
+            696.417
+          ],
+          [
+            -58.388,
+            688.437
+          ]
+        ],
+        "height": 13.78,
+        "floors": 2,
+        "facade": {
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "sections": [
+            {
+              "start": 0.035,
+              "end": 0.965,
+              "base": 6.89,
+              "top": 13.36,
+              "material": "glass",
+              "verticalMullionSpacing": 1.2,
+              "horizontalMullions": 1,
+              "recess": 0.12,
+              "surroundMaterial": "trim"
+            }
+          ]
+        },
+        "wallProfiles": {},
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "baseOffset": 6.55
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 13,
+      "position": 0.76,
+      "type": "glass-vestibule",
+      "width": 4.4,
+      "height": 3.25,
+      "recess": 1.65,
+      "canopy": {
+        "type": "cantilever",
+        "depth": 2.4,
+        "width": 7.8,
+        "material": "copper"
+      }
+    },
+    {
+      "wall": 15,
+      "position": 0.58,
+      "type": "doors-double",
+      "width": 2.5,
+      "height": 2.8,
+      "recess": 0.75,
+      "canopy": {
+        "type": "flat",
+        "width": 5.4,
+        "depth": 5.2,
+        "material": "coping"
+      }
+    },
+    {
+      "wall": 29,
+      "position": 0.69,
+      "type": "loading-dock",
+      "width": 3.4,
+      "height": 3.6
+    },
+    {
+      "wall": 21,
+      "position": 0.5,
+      "type": "glass-vestibule",
+      "width": 3.8,
+      "height": 3.1,
+      "canopy": {
+        "type": "glass",
+        "width": 8.2,
+        "depth": 2.0,
+        "material": "glass"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "type": "terrace",
+      "walls": [
+        12,
+        13
+      ],
+      "width": 4.4,
+      "height": 0.35,
+      "material": "base"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -40.698,
+          721.248
+        ],
+        [
+          -34.649,
+          736.482
+        ]
+      ],
+      "width": 0.44,
+      "height": 1.03,
+      "material": "wall"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -33.189,
+          740.159
+        ],
+        [
+          -26.722,
+          756.444
+        ]
+      ],
+      "width": 0.44,
+      "height": 1.03,
+      "material": "wall"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -25.471,
+          759.595
+        ],
+        [
+          -21.299,
+          770.101
+        ]
+      ],
+      "width": 0.44,
+      "height": 1.03,
+      "material": "wall"
+    },
+    {
+      "type": "covered-walkway",
+      "path": [
+        [
+          -127.492,
+          752.719
+        ],
+        [
+          -118.461,
+          776.245
+        ]
+      ],
+      "width": 2.25,
+      "height": 1.02,
+      "material": "frame",
+      "cover": "open-slats",
+      "slatSpacing": 0.58,
+      "columns": 5,
+      "baseOffset": 4.38
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -139.38,
+          795.64
+        ],
+        [
+          -127.804,
+          791.196
+        ],
+        [
+          -124.865,
+          798.852
+        ],
+        [
+          -136.441,
+          803.296
+        ],
+        [
+          -139.38,
+          795.64
+        ]
+      ],
+      "width": 0.13,
+      "height": 0.97,
+      "material": "screen",
+      "baseOffset": 8.9
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -117,
+          692.1
+        ],
+        [
+          -116.52,
+          690.86
+        ],
+        [
+          -111,
+          688.75
+        ],
+        [
+          -100,
+          684.45
+        ],
+        [
+          -92,
+          680.85
+        ],
+        [
+          -83.4,
+          676.24
+        ],
+        [
+          -75.75,
+          671.5
+        ],
+        [
+          -69.2,
+          666.2
+        ],
+        [
+          -63.6,
+          660.6
+        ],
+        [
+          -58,
+          654.55
+        ]
+      ],
+      "width": 0.34,
+      "height": 0.65,
+      "material": "base"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -75.5,
+          694.15
+        ],
+        [
+          -67.0,
+          690.68
+        ]
+      ],
+      "width": 4.5,
+      "height": 0.16,
+      "material": "base"
+    }
+  ]
+}

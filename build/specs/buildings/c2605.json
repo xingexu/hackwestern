@@ -1,0 +1,91 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2605",
+  "name": "West Ivey projecting wall",
+  "status": "refined",
+  "confidence": 0.76,
+  "summary": "Narrow, flat-capped projection positioned between the low west pavilions of the Richard Ivey Building.",
+  "style": "contemporary-stone",
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. Narrow capped strip with a long shadow between two wider Ivey roofs. Paving continues beyond its west end. No separate enclosed building is apparent."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 3.23 m, P90 3.89 m, maximum 4.23 m. Strip median 3.23 m, P90 3.89 m and maximum 4.23 m, below the neighbouring pavilion."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Campus frame search out to 130 m found no usable street-facing image. Finish and bay estimates on screened walls are provisional."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#878985",
+      "variation": 0.25,
+      "roughness": 0.91,
+      "secondaryColor": "#a29f98",
+      "unitSize": [
+        0.38,
+        0.105
+      ],
+      "bond": "coursed-rubble"
+    },
+    "roof": {
+      "kind": "concrete-smooth",
+      "color": "#84897c",
+      "variation": 0.09,
+      "secondaryColor": "#ada99d",
+      "unitSize": [
+        1.2,
+        0.6
+      ],
+      "bond": "stack"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#d8dcdc"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.65,
+    "typicalHeight": 3.65
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "cornice": {
+        "height": 0.105,
+        "depth": 0.065,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.1,
+        "material": "trim"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia"
+  },
+  "notes": "Treat this strip as a wall-like Ivey projection. Aerial imagery does not resolve whether the cap spans a passage, and blocky stone is inferred from the immediately adjoining pavilions.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Capped projection",
+        "footprint": "inventory",
+        "height": 3.8,
+        "floors": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714479",
+  "name": "Unnamed service-yard outbuilding",
+  "status": "refined",
+  "confidence": 0.38,
+  "summary": "This unnamed outbuilding is a small rectangular service-yard structure with a pale pitched roof, where the facades are hidden and the siding and openings are inferred.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#b5b1a6",
+      "secondaryColor": "#9a9892",
+      "unitSize": [
+        0.23,
+        2.4
+      ],
+      "variation": 0.06
+    },
+    "roof": {
+      "kind": "corrugated-metal",
+      "color": "#f9fbf6",
+      "roughness": 0.82
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d2c9b8",
+      "unitSize": [
+        0.8,
+        0.28
+      ]
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#414346",
+      "roughness": 0.48
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.1,
+    "typicalHeight": 3.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "blank": true
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "gable",
+    "rise": 1.3,
+    "ridge": 67,
+    "material": "roof",
+    "edge": "gutter",
+    "overhang": 0.24
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Two pale roof planes meet along the long axis of a roughly nine-by-eight metre rectangle on the edge of the service yard."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 3.97 m, P90 4.45 m and maximum 5.66 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Wall finish estimated. Roof tone sampled from the 2025 orthophoto. Dimensions and bay counts on obscured elevations are estimates."
+    }
+  ],
+  "notes": "The aerial image resolves the rectangular gable and its ridge direction. No ground-level view confirms the finish, door type or opening position. A simple yard-facing metal service door is an inference.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Service shed",
+        "footprint": "inventory",
+        "height": 3.2,
+        "floors": 1,
+        "roof": {
+          "form": "gable",
+          "rise": 1.3,
+          "ridge": 67,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.52,
+      "type": "service-door",
+      "width": 1.35,
+      "height": 2.2,
+      "surround": "metal",
+      "doorColor": "#797b78"
+    }
+  ]
+}

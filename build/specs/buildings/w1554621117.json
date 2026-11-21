@@ -1,0 +1,1669 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w1554621117",
+  "name": "Biomedical Research Facility",
+  "status": "refined",
+  "confidence": 0.77,
+  "summary": "The Biomedical Research Facility follows the slope between the Medical Sciences parking lot and West Valley. A single low stone storey faces the drive, with high horizontal windows, dressed buttress caps and a stepped side-facing door landing. Two lower floors follow the slope.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#b9bbb6",
+      "secondaryColor": "#a8aaa5",
+      "unitSize": [
+        3,
+        1
+      ],
+      "variation": 0.065,
+      "roughness": 0.83
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c3c9bb"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#cfcec6"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "serviceRoof": {
+      "kind": "membrane",
+      "color": "#c1c7b8"
+    },
+    "bridge": {
+      "kind": "metal-panel",
+      "color": "#e5e5dd",
+      "unitSize": [
+        3.45,
+        1.25
+      ]
+    },
+    "housing": {
+      "kind": "metal-panel",
+      "color": "#d9dcd8",
+      "metalness": 0.45
+    },
+    "fan": {
+      "kind": "painted-metal",
+      "color": "#7f9fb0"
+    },
+    "stone": {
+      "kind": "ashlar-stone",
+      "color": "#a39686",
+      "secondaryColor": "#b1a699",
+      "variation": 0.19,
+      "unitSize": [
+        0.61,
+        0.25
+      ],
+      "bond": "random-ashlar"
+    },
+    "dressing": {
+      "kind": "limestone-smooth",
+      "color": "#c9c5b9"
+    },
+    "linkRoof": {
+      "kind": "gravel-ballast",
+      "color": "#777771"
+    },
+    "linkGlass": {
+      "kind": "glass-curtain",
+      "color": "#93a7a2",
+      "secondaryColor": "#657879",
+      "roughness": 0.28
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 3.4,
+    "typicalHeight": 3.3
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.045
+      },
+      "bays": {
+        "width": 3.45,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "height": 0.58,
+        "type": "coped",
+        "material": "trim"
+      },
+      "blank": true
+    },
+    "byWall": {
+      "0": {
+        "material": "stone",
+        "blank": false,
+        "base": {
+          "height": 0.2,
+          "material": "stone"
+        },
+        "bands": [],
+        "bays": {
+          "count": 7,
+          "edgeMargin": 0.8
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.8,
+          "height": 1.07,
+          "sill": 8.18,
+          "perBay": 1,
+          "surround": "stone",
+          "surroundMaterial": "dressing",
+          "recess": 0.16,
+          "frameColor": "#cbc9c0",
+          "glassColor": "#505455",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "glass": "dark"
+        },
+        "cornice": {
+          "height": 0.16,
+          "depth": 0.12,
+          "material": "dressing"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.17,
+          "material": "stone"
+        },
+        "piers": {
+          "width": 0.56,
+          "depth": 0.36,
+          "every": 2,
+          "material": "stone",
+          "fullHeight": true
+        },
+        "segments": [
+          {
+            "range": [
+              0,
+              0.35
+            ],
+            "bays": {
+              "count": 2
+            }
+          },
+          {
+            "range": [
+              0.35,
+              0.7
+            ],
+            "bays": {
+              "count": 3
+            }
+          },
+          {
+            "range": [
+              0.7,
+              1
+            ],
+            "bays": {
+              "count": 2
+            }
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          118.15,
+          28.55
+        ],
+        "size": [
+          9.7,
+          18.4
+        ],
+        "height": 3.45,
+        "material": "housing",
+        "rotation": -3
+      },
+      {
+        "type": "hvac",
+        "center": [
+          110.13,
+          16.16
+        ],
+        "size": [
+          1.9,
+          2.4
+        ],
+        "height": 2.15,
+        "rotation": -3,
+        "material": "fan",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          112.43,
+          16.04
+        ],
+        "size": [
+          1.9,
+          2.4
+        ],
+        "height": 2.15,
+        "rotation": -3,
+        "material": "fan",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          114.73,
+          15.92
+        ],
+        "size": [
+          1.9,
+          2.4
+        ],
+        "height": 2.15,
+        "rotation": -3,
+        "material": "fan",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          117.02,
+          15.8
+        ],
+        "size": [
+          1.9,
+          2.4
+        ],
+        "height": 2.15,
+        "rotation": -3,
+        "material": "fan",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          120.64,
+          12.2
+        ],
+        "size": [
+          2,
+          1.8
+        ],
+        "height": 2.05,
+        "rotation": -3,
+        "material": "fan",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          120.75,
+          14.4
+        ],
+        "size": [
+          2,
+          1.8
+        ],
+        "height": 2.05,
+        "rotation": -3,
+        "material": "fan",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          120.87,
+          16.6
+        ],
+        "size": [
+          2,
+          1.8
+        ],
+        "height": 2.05,
+        "rotation": -3,
+        "material": "fan",
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          120.5,
+          10.2
+        ],
+        "size": [
+          2,
+          1.8
+        ],
+        "height": 2.1,
+        "material": "fan",
+        "rotation": -3,
+        "style": "fan"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          119,
+          17.5
+        ],
+        "size": [
+          3.7,
+          0.75
+        ],
+        "height": 0.75,
+        "material": "housing",
+        "rotation": -3,
+        "style": "duct"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface heights above inventory ground. Median 16.15 m, P90 28.13 m, highest return 31.83 m. These returns describe the site before construction."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [125.22, 55.62] averages #c3c9bb."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "103297209",
+      "walls": [
+        0
+      ],
+      "note": "White elevated enclosed link with continuous dark triangular glazed intervals. Brick and stone buildings occupy much of the view and attribution of the low south face is uncertain."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131413433",
+      "walls": [
+        0
+      ],
+      "note": "Link spans the open drive with daylight underneath. Its roofline is lower than the medical sciences mass behind it."
+    },
+    {
+      "kind": "aerial",
+      "note": "Rectangular south roof, narrow crosswise link and a plant-filled northern roof with bright sheet metal, an L-shaped fan array and ducts."
+    },
+    {
+      "kind": "photo",
+      "url": "https://norlon.ca/wp-content/uploads/2023/10/WesternBioMed-web-1-1.jpg",
+      "walls": [
+        0,
+        3
+      ],
+      "note": "Completion photograph. The single exposed storey has high rectangular stone-framed lights, projecting masonry piers with pale stepped caps and a raised landing in front of a grey door."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/univsec/pdf/board/minutes/2023/a23June29bg_PGN_website.pdf#page=26",
+      "walls": [
+        0
+      ],
+      "note": "June 2023 capital project photograph identifies the south facade. The long rough-faced stone wall rises behind stairs and a glass guard."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/projects/880x300_biomed.jpg",
+      "note": "Facilities elevation shows stone-clad terraces stepping down the slope toward dark-framed glazing. The existing skywalk meets the upper end."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://www.uwo.ca/fm/projects/capital_projects/biomedical_research.html",
+      "note": "Western records construction beginning after 2019 excavation and three levels, two below the Elgin Road side."
+    },
+    {
+      "kind": "lidar",
+      "note": "2017 ground survey puts the bridge drive about 5.5 m above the inventory datum. A 10.75 m soffit therefore clears the drive by approximately 5.25 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.balanengineering.com/projects/western-bridge",
+      "note": "The 2024 construction photographs show a white rectangular trussed span beside the finished stone frontage. Continuous blue glass and white diagonal members are visible in the exterior view of the east link."
+    },
+    {
+      "kind": "aerial",
+      "note": "Narrow enclosed roof crosses the open yard on a separate north–south line east of the plant. Its southern landing and the short western connection are visible in the orthophoto. Elevations of these links are approximate."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Northern plant building",
+        "footprint": {
+          "clip": [
+            [
+              107.322,
+              12.088
+            ],
+            [
+              107.322,
+              12.088
+            ],
+            [
+              108.8,
+              12.01
+            ],
+            [
+              110.979,
+              11.896
+            ],
+            [
+              110.98,
+              11.896
+            ],
+            [
+              110.981,
+              11.896
+            ],
+            [
+              110.982,
+              11.896
+            ],
+            [
+              110.983,
+              11.895
+            ],
+            [
+              110.984,
+              11.895
+            ],
+            [
+              110.985,
+              11.894
+            ],
+            [
+              110.986,
+              11.894
+            ],
+            [
+              110.986,
+              11.893
+            ],
+            [
+              110.987,
+              11.892
+            ],
+            [
+              110.987,
+              11.891
+            ],
+            [
+              110.988,
+              11.89
+            ],
+            [
+              110.988,
+              11.889
+            ],
+            [
+              110.989,
+              11.888
+            ],
+            [
+              110.989,
+              11.888
+            ],
+            [
+              110.989,
+              11.887
+            ],
+            [
+              110.989,
+              11.886
+            ],
+            [
+              110.772,
+              9.088
+            ],
+            [
+              110.772,
+              9.088
+            ],
+            [
+              110.772,
+              9.088
+            ],
+            [
+              116.51,
+              8.74
+            ],
+            [
+              129.57,
+              7.94
+            ],
+            [
+              129.57,
+              7.94
+            ],
+            [
+              129.57,
+              7.94
+            ],
+            [
+              131.35,
+              37.28
+            ],
+            [
+              131.486,
+              39.487
+            ],
+            [
+              131.486,
+              39.487
+            ],
+            [
+              131.486,
+              39.487
+            ],
+            [
+              113.203,
+              40.461
+            ],
+            [
+              113.203,
+              40.461
+            ],
+            [
+              113.203,
+              40.461
+            ],
+            [
+              111.531,
+              18.887
+            ],
+            [
+              111.531,
+              18.886
+            ],
+            [
+              111.531,
+              18.885
+            ],
+            [
+              111.531,
+              18.884
+            ],
+            [
+              111.53,
+              18.883
+            ],
+            [
+              111.53,
+              18.882
+            ],
+            [
+              111.529,
+              18.881
+            ],
+            [
+              111.529,
+              18.881
+            ],
+            [
+              111.528,
+              18.88
+            ],
+            [
+              111.527,
+              18.879
+            ],
+            [
+              111.526,
+              18.879
+            ],
+            [
+              111.525,
+              18.878
+            ],
+            [
+              111.525,
+              18.878
+            ],
+            [
+              111.524,
+              18.878
+            ],
+            [
+              111.523,
+              18.878
+            ],
+            [
+              111.522,
+              18.878
+            ],
+            [
+              111.521,
+              18.878
+            ],
+            [
+              108.8,
+              19.02
+            ],
+            [
+              107.688,
+              19.078
+            ],
+            [
+              107.688,
+              19.078
+            ],
+            [
+              107.688,
+              19.078
+            ],
+            [
+              107.322,
+              12.088
+            ]
+          ]
+        },
+        "height": 10.1,
+        "floors": 3,
+        "material": "stone",
+        "roof": {
+          "material": "serviceRoof"
+        },
+        "facade": {
+          "blank": false,
+          "windows": {
+            "type": "punched",
+            "width": 1.25,
+            "height": 1.15,
+            "sill": 1.25,
+            "perBay": 1,
+            "frameColor": "#a9aea7"
+          },
+          "bands": [],
+          "topFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.4,
+              "height": 1.2,
+              "perBay": 1
+            }
+          },
+          "material": "stone",
+          "bays": {
+            "width": 5
+          }
+        },
+        "baseOffset": -2.4
+      },
+      {
+        "name": "Cross-link at the change of roof",
+        "footprint": {
+          "clip": [
+            [
+              107.73,
+              46.53
+            ],
+            [
+              107.377,
+              40.771
+            ],
+            [
+              131.486,
+              39.487
+            ],
+            [
+              131.84,
+              45.26
+            ],
+            [
+              131.84,
+              45.26
+            ],
+            [
+              131.84,
+              45.26
+            ],
+            [
+              107.73,
+              46.53
+            ],
+            [
+              107.73,
+              46.53
+            ]
+          ]
+        },
+        "height": 13.9,
+        "floors": 2,
+        "material": "stone",
+        "facade": {
+          "blank": false,
+          "material": "stone",
+          "windows": {
+            "type": "punched",
+            "width": 1.23,
+            "height": 1.35,
+            "sill": 1.32,
+            "perBay": 1
+          },
+          "bays": {
+            "width": 5.4
+          }
+        }
+      },
+      {
+        "name": "Low southern block",
+        "footprint": {
+          "clip": [
+            [
+              107.73,
+              46.53
+            ],
+            [
+              131.84,
+              45.26
+            ],
+            [
+              133,
+              64.42
+            ],
+            [
+              108.91,
+              65.89
+            ]
+          ]
+        },
+        "height": 10.8,
+        "floors": 1,
+        "material": "stone",
+        "facade": {
+          "material": "stone",
+          "blank": false,
+          "base": {
+            "height": 0.2,
+            "material": "stone"
+          },
+          "bands": [],
+          "bays": {
+            "count": 7,
+            "edgeMargin": 0.8
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.8,
+            "height": 1.07,
+            "sill": 8.18,
+            "perBay": 1,
+            "surround": "stone",
+            "surroundMaterial": "dressing",
+            "recess": 0.16,
+            "frameColor": "#cbc9c0",
+            "glassColor": "#424c49",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 0
+            }
+          },
+          "cornice": {
+            "height": 0.16,
+            "depth": 0.12,
+            "material": "dressing"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.17,
+            "material": "stone"
+          }
+        },
+        "wallProfiles": {
+          "0": {
+            "material": "stone",
+            "blank": false,
+            "base": {
+              "height": 0.2,
+              "material": "stone"
+            },
+            "bands": [],
+            "bays": {
+              "count": 7,
+              "edgeMargin": 0.8
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.8,
+              "height": 1.07,
+              "sill": 8.18,
+              "perBay": 1,
+              "surround": "stone",
+              "surroundMaterial": "dressing",
+              "recess": 0.16,
+              "frameColor": "#cbc9c0",
+              "glassColor": "#505455",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              },
+              "glass": "dark"
+            },
+            "cornice": {
+              "height": 0.16,
+              "depth": 0.12,
+              "material": "dressing"
+            },
+            "parapet": {
+              "type": "coped",
+              "height": 0.17,
+              "material": "stone"
+            },
+            "piers": {
+              "width": 0.56,
+              "depth": 0.36,
+              "every": 2,
+              "material": "stone",
+              "fullHeight": true
+            },
+            "segments": [
+              {
+                "range": [
+                  0,
+                  0.35
+                ],
+                "bays": {
+                  "count": 2
+                }
+              },
+              {
+                "range": [
+                  0.35,
+                  0.7
+                ],
+                "bays": {
+                  "count": 3
+                }
+              },
+              {
+                "range": [
+                  0.7,
+                  1
+                ],
+                "bays": {
+                  "count": 2
+                }
+              }
+            ]
+          },
+          "3": {
+            "material": "stone",
+            "blank": false,
+            "base": {
+              "height": 0.2,
+              "material": "stone"
+            },
+            "bands": [],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "cornice": {
+              "height": 0.16,
+              "depth": 0.12,
+              "material": "dressing"
+            },
+            "parapet": {
+              "type": "coped",
+              "height": 0.17,
+              "material": "stone"
+            }
+          }
+        }
+      },
+      {
+        "name": "West roof terrace beside plant",
+        "footprint": {
+          "clip": [
+            [
+              108.8,
+              40.695
+            ],
+            [
+              107.377,
+              40.771
+            ],
+            [
+              107.24,
+              38.54
+            ],
+            [
+              105.46,
+              9.41
+            ],
+            [
+              108.8,
+              9.208
+            ],
+            [
+              108.8,
+              12.01
+            ],
+            [
+              107.322,
+              12.088
+            ],
+            [
+              107.688,
+              19.078
+            ],
+            [
+              108.8,
+              19.02
+            ],
+            [
+              108.8,
+              27.492
+            ],
+            [
+              106.988,
+              27.587
+            ],
+            [
+              107.616,
+              39.57
+            ],
+            [
+              108.8,
+              39.508
+            ]
+          ]
+        },
+        "height": 7.8,
+        "floors": 2,
+        "material": "stone",
+        "roof": {
+          "material": "serviceRoof"
+        },
+        "baseOffset": -1,
+        "facade": {
+          "material": "stone",
+          "blank": false,
+          "bays": {
+            "width": 4.2
+          },
+          "windows": {
+            "type": "punched",
+            "perBay": 1,
+            "width": 1.08,
+            "height": 1.35,
+            "sill": 1.1,
+            "glass": "dark",
+            "frameColor": "#8d918d",
+            "recess": 0.14
+          }
+        }
+      },
+      {
+        "name": "West roof terrace beside plant",
+        "footprint": {
+          "clip": [
+            [
+              113.203,
+              40.461
+            ],
+            [
+              108.8,
+              40.695
+            ],
+            [
+              108.8,
+              39.508
+            ],
+            [
+              110.612,
+              39.413
+            ],
+            [
+              109.984,
+              27.43
+            ],
+            [
+              108.8,
+              27.492
+            ],
+            [
+              108.8,
+              19.02
+            ],
+            [
+              111.531,
+              18.877
+            ]
+          ]
+        },
+        "height": 7.8,
+        "floors": 2,
+        "material": "stone",
+        "roof": {
+          "material": "serviceRoof"
+        },
+        "baseOffset": -1,
+        "facade": {
+          "material": "stone",
+          "blank": false,
+          "bays": {
+            "width": 4.2
+          },
+          "windows": {
+            "type": "punched",
+            "perBay": 1,
+            "width": 1.08,
+            "height": 1.35,
+            "sill": 1.1,
+            "glass": "dark",
+            "frameColor": "#8d918d",
+            "recess": 0.14
+          }
+        }
+      },
+      {
+        "name": "Recessed western service bay",
+        "footprint": {
+          "clip": [
+            [
+              106.988,
+              27.587
+            ],
+            [
+              109.984,
+              27.43
+            ],
+            [
+              110.612,
+              39.413
+            ],
+            [
+              107.616,
+              39.57
+            ]
+          ]
+        },
+        "height": 5.9,
+        "floors": 1,
+        "material": "stone",
+        "roof": {
+          "material": "serviceRoof"
+        },
+        "facade": {
+          "material": "stone",
+          "blank": false,
+          "bays": {
+            "width": 4.2
+          },
+          "windows": {
+            "type": "punched",
+            "perBay": 1,
+            "width": 1.08,
+            "height": 1.35,
+            "sill": 1.1,
+            "glass": "dark",
+            "frameColor": "#8d918d",
+            "recess": 0.14
+          }
+        }
+      },
+      {
+        "name": "Rectangular support under enclosed bridge",
+        "footprint": [
+          [
+            148.671,
+            36.122
+          ],
+          [
+            149.14,
+            38.425
+          ],
+          [
+            147.817,
+            38.694
+          ],
+          [
+            147.348,
+            36.391
+          ]
+        ],
+        "height": 10.75,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Rectangular support under enclosed bridge",
+        "footprint": [
+          [
+            169.868,
+            31.776
+          ],
+          [
+            170.337,
+            34.079
+          ],
+          [
+            169.014,
+            34.348
+          ],
+          [
+            168.545,
+            32.045
+          ]
+        ],
+        "height": 10.75,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "trim"
+        }
+      },
+      {
+        "name": "West roof terrace beside plant",
+        "footprint": {
+          "clip": [
+            [
+              110.772,
+              9.088
+            ],
+            [
+              110.99,
+              11.896
+            ],
+            [
+              108.8,
+              12.01
+            ],
+            [
+              108.8,
+              9.208
+            ]
+          ]
+        },
+        "height": 7.8,
+        "floors": 2,
+        "material": "stone",
+        "roof": {
+          "material": "serviceRoof"
+        },
+        "baseOffset": -1,
+        "facade": {
+          "material": "stone",
+          "blank": false,
+          "bays": {
+            "width": 4.2
+          },
+          "windows": {
+            "type": "punched",
+            "perBay": 1,
+            "width": 1.08,
+            "height": 1.35,
+            "sill": 1.1,
+            "glass": "dark",
+            "frameColor": "#8d918d",
+            "recess": 0.14
+          }
+        }
+      },
+      {
+        "name": "Stone pilaster and dressed weathering",
+        "footprint": [
+          [
+            109.342,
+            65.834
+          ],
+          [
+            109.92,
+            65.798
+          ],
+          [
+            109.946,
+            66.218
+          ],
+          [
+            109.367,
+            66.253
+          ]
+        ],
+        "height": 9.46,
+        "floors": 1,
+        "material": "stone",
+        "facade": {
+          "blank": true,
+          "cornice": {
+            "height": 0.34,
+            "depth": 0.09,
+            "material": "dressing"
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "dressing",
+          "form": "shed",
+          "rise": 0.2,
+          "ridge": 87
+        }
+      },
+      {
+        "name": "Stone pilaster and dressed weathering",
+        "footprint": [
+          [
+            117.291,
+            65.348
+          ],
+          [
+            117.87,
+            65.313
+          ],
+          [
+            117.895,
+            65.732
+          ],
+          [
+            117.317,
+            65.768
+          ]
+        ],
+        "height": 9.46,
+        "floors": 1,
+        "material": "stone",
+        "facade": {
+          "blank": true,
+          "cornice": {
+            "height": 0.34,
+            "depth": 0.09,
+            "material": "dressing"
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "dressing",
+          "form": "shed",
+          "rise": 0.2,
+          "ridge": 87
+        }
+      },
+      {
+        "name": "Stone pilaster and dressed weathering",
+        "footprint": [
+          [
+            125.482,
+            64.849
+          ],
+          [
+            126.06,
+            64.813
+          ],
+          [
+            126.086,
+            65.233
+          ],
+          [
+            125.508,
+            65.268
+          ]
+        ],
+        "height": 9.46,
+        "floors": 1,
+        "material": "stone",
+        "facade": {
+          "blank": true,
+          "cornice": {
+            "height": 0.34,
+            "depth": 0.09,
+            "material": "dressing"
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "dressing",
+          "form": "shed",
+          "rise": 0.2,
+          "ridge": 87
+        }
+      },
+      {
+        "name": "Stone pilaster and dressed weathering",
+        "footprint": [
+          [
+            132.227,
+            64.437
+          ],
+          [
+            132.805,
+            64.402
+          ],
+          [
+            132.831,
+            64.821
+          ],
+          [
+            132.253,
+            64.856
+          ]
+        ],
+        "height": 9.46,
+        "floors": 1,
+        "material": "stone",
+        "facade": {
+          "blank": true,
+          "cornice": {
+            "height": 0.34,
+            "depth": 0.09,
+            "material": "dressing"
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "dressing",
+          "form": "shed",
+          "rise": 0.2,
+          "ridge": 87
+        }
+      },
+      {
+        "name": "White enclosed bridge above the medical drive",
+        "footprint": [
+          [
+            183.8,
+            32.16
+          ],
+          [
+            183.0,
+            28.24
+          ],
+          [
+            131.3,
+            38.84
+          ],
+          [
+            132.1,
+            42.76
+          ]
+        ],
+        "height": 14.0,
+        "floors": 1,
+        "material": "bridge",
+        "facade": {
+          "material": "bridge",
+          "blank": false,
+          "windows": {
+            "type": "none"
+          },
+          "sections": [
+            {
+              "start": 0.015,
+              "end": 0.985,
+              "base": 11.18,
+              "top": 13.66,
+              "material": "linkGlass",
+              "verticalMullionSpacing": 1.47,
+              "horizontalMullions": 1,
+              "surroundMaterial": "bridge"
+            }
+          ],
+          "piers": {
+            "every": 2,
+            "width": 0.105,
+            "depth": 0.16,
+            "material": "bridge",
+            "fullHeight": true
+          },
+          "bays": {
+            "width": 1.48
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0.12,
+            "material": "bridge"
+          },
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.09,
+            "material": "bridge"
+          },
+          "soffitBeams": {
+            "width": 0.16,
+            "height": 0.19,
+            "spacing": 3.2,
+            "depth": 3.9,
+            "material": "bridge"
+          }
+        },
+        "baseOffset": 10.75,
+        "roof": {
+          "material": "linkRoof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "North approach link across the service court",
+        "footprint": [
+          [
+            137.47,
+            30.28
+          ],
+          [
+            139.99,
+            30.72
+          ],
+          [
+            145.71,
+            -1.48
+          ],
+          [
+            143.19,
+            -1.92
+          ]
+        ],
+        "height": 8.7,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": false,
+          "windows": {
+            "type": "none"
+          },
+          "sections": [
+            {
+              "start": 0.015,
+              "end": 0.985,
+              "base": 6.25,
+              "top": 8.36,
+              "material": "linkGlass",
+              "verticalMullionSpacing": 1.47,
+              "horizontalMullions": 1,
+              "surroundMaterial": "metal"
+            }
+          ],
+          "piers": {
+            "every": 2,
+            "width": 0.105,
+            "depth": 0.16,
+            "material": "metal",
+            "fullHeight": true
+          },
+          "bays": {
+            "width": 1.48
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0.12,
+            "material": "metal"
+          },
+          "cornice": {
+            "height": 0.12,
+            "depth": 0.09,
+            "material": "metal"
+          },
+          "soffitBeams": {
+            "width": 0.16,
+            "height": 0.19,
+            "spacing": 3.2,
+            "depth": 2.5,
+            "material": "metal"
+          }
+        },
+        "baseOffset": 5.82,
+        "roof": {
+          "material": "linkRoof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Court-side landing of the north link",
+        "footprint": [
+          [
+            136.63,
+            33.3
+          ],
+          [
+            139.87,
+            33.9
+          ],
+          [
+            140.55,
+            30.25
+          ],
+          [
+            137.31,
+            29.65
+          ]
+        ],
+        "height": 8.7,
+        "floors": 1,
+        "material": "stone",
+        "facade": {
+          "material": "stone",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "linkRoof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "West service connection beside the plant",
+        "footprint": [
+          [
+            101.6,
+            18.45
+          ],
+          [
+            106.08,
+            18.2
+          ],
+          [
+            106.48,
+            23.15
+          ],
+          [
+            101.91,
+            23.46
+          ]
+        ],
+        "height": 7.4,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "windows": {
+            "type": "none"
+          },
+          "blank": true
+        },
+        "roof": {
+          "material": "serviceRoof"
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "terrace",
+      "path": [
+        [
+          122.22,
+          66.08
+        ],
+        [
+          125.834,
+          65.859
+        ]
+      ],
+      "width": 1.5,
+      "height": 0.75,
+      "material": "dressing"
+    }
+  ],
+  "notes": "Northern roof heights, mechanical housings and service openings are estimates. The 2023 completion photograph verifies the south masonry, high window band, entrance and steps. The 2025 orthophoto establishes roof and bridge positions.",
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.631,
+      "type": "service-door",
+      "width": 1.15,
+      "height": 2.25,
+      "steps": 5,
+      "doorColor": "#51605a",
+      "recess": 0.15
+    },
+    {
+      "wall": 1,
+      "position": 0.19,
+      "type": "service-door",
+      "width": 1.1,
+      "height": 2.15
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The 2017 roof grid predates late-2019 excavation. The 28–32 m northern returns sample the preconstruction slope and tree canopy. Heights use the 2023 exterior, the bridge, 2025 roof plates and road grade."
+}

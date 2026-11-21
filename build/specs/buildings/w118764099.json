@@ -1,0 +1,743 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764099",
+  "name": "Middlesex College",
+  "status": "refined",
+  "confidence": 0.86,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "138045837"
+    },
+    {
+      "kind": "photo",
+      "note": "Western Facilities MC.jpg"
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://saner2020.csd.uwo.ca/socialEvents.php"
+    },
+    {
+      "kind": "aerial",
+      "note": "Two different flat roofs meet by the clock tower. A narrow green-grey pitched roof connects them to the light octagonal south roof. The rounded northwest end and the mapped clock tower remain distinct."
+    },
+    {
+      "kind": "aerial",
+      "note": "Light paving and freestanding tables follow the east wall outside the southeast range. The patio has an irregular planted outer edge."
+    }
+  ],
+  "style": "collegiate-gothic",
+  "floors": {
+    "count": 3,
+    "raisedGround": 0.65,
+    "groundFloorHeight": 4.3,
+    "typicalHeight": 4.05
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": [
+          [
+            494.32,
+            168.68
+          ],
+          [
+            500.18,
+            173.17
+          ],
+          [
+            525.628,
+            192.612
+          ],
+          [
+            537.137,
+            176.522
+          ],
+          [
+            513.96,
+            160.47
+          ],
+          [
+            515.72,
+            156.36
+          ],
+          [
+            509.58,
+            151.91
+          ],
+          [
+            503.7,
+            148.99
+          ],
+          [
+            498.19,
+            157.21
+          ],
+          [
+            491.81,
+            153.1
+          ],
+          [
+            491.24,
+            153.75
+          ],
+          [
+            486.93,
+            158.75
+          ],
+          [
+            496.44,
+            165.09
+          ]
+        ],
+        "height": 17.45,
+        "roof": {
+          "form": "flat",
+          "material": "northRoof",
+          "edge": "parapet"
+        },
+        "floors": 4,
+        "name": "Northwest stone teaching range"
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              570.0,
+              209.0
+            ],
+            [
+              570.0,
+              239.0
+            ],
+            [
+              460.0,
+              239.0
+            ],
+            [
+              460.0,
+              209.0
+            ]
+          ]
+        },
+        "height": 14.6,
+        "roof": {
+          "form": "gable",
+          "rise": 4.15,
+          "ridge": 6,
+          "material": "seam"
+        },
+        "floors": 3,
+        "name": "Green-grey pitched connecting range"
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              570.0,
+              239.0
+            ],
+            [
+              570.0,
+              265.0
+            ],
+            [
+              460.0,
+              265.0
+            ],
+            [
+              460.0,
+              239.0
+            ]
+          ]
+        },
+        "height": 16.8,
+        "floors": 4,
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "eastRoof"
+        },
+        "name": "Octagonal laboratory end",
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.55,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "North rotunda",
+        "height": 17.85,
+        "floors": 4,
+        "footprint": [
+          [
+            486.23,
+            161.2
+          ],
+          [
+            482.65,
+            153.8
+          ],
+          [
+            483.0,
+            148.4
+          ],
+          [
+            485.4,
+            145.1
+          ],
+          [
+            495.0,
+            138.0
+          ],
+          [
+            498.1,
+            137
+          ],
+          [
+            501.0,
+            137.4
+          ],
+          [
+            504.4,
+            139.1
+          ],
+          [
+            506.9,
+            141.6
+          ],
+          [
+            508.6,
+            145
+          ],
+          [
+            509.4,
+            148.7
+          ],
+          [
+            509,
+            152
+          ],
+          [
+            508.2,
+            154.6
+          ],
+          [
+            503,
+            151.44
+          ],
+          [
+            497.49,
+            159.66
+          ],
+          [
+            491.11,
+            155.55
+          ]
+        ],
+        "facade": {
+          "blank": true,
+          "bands": [
+            {
+              "at": [
+                15.6
+              ],
+              "height": 0.16,
+              "depth": 0.11,
+              "material": "trim"
+            }
+          ],
+          "parapet": {
+            "type": "coped",
+            "height": 1.1
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "northRoof"
+        }
+      },
+      {
+        "name": "Pale southeast roof beside the clock tower",
+        "footprint": [
+          [
+            529.63,
+            201.42
+          ],
+          [
+            533.36,
+            206.7
+          ],
+          [
+            534.13,
+            207.79
+          ],
+          [
+            533.41,
+            208.1
+          ],
+          [
+            533.39,
+            209.0
+          ],
+          [
+            554.4,
+            209.0
+          ],
+          [
+            557.69,
+            200.931
+          ],
+          [
+            556.94,
+            197.15
+          ],
+          [
+            553.56,
+            190.3
+          ],
+          [
+            549.69,
+            185.85
+          ],
+          [
+            545.55,
+            182.42
+          ],
+          [
+            543.31,
+            180.72
+          ],
+          [
+            541.92,
+            182.77
+          ],
+          [
+            536.437,
+            178.972
+          ],
+          [
+            524.928,
+            195.062
+          ],
+          [
+            525.41,
+            195.43
+          ]
+        ],
+        "height": 17.42,
+        "floors": 4,
+        "material": "wall",
+        "facade": {
+          "material": "wall"
+        },
+        "roof": {
+          "form": "flat",
+          "material": "eastRoof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Cafe patio east of the southeast range",
+        "footprint": [
+          [
+            543.55,
+            180.62
+          ],
+          [
+            545.96,
+            182.43
+          ],
+          [
+            550.08,
+            185.77
+          ],
+          [
+            553.88,
+            190.18
+          ],
+          [
+            557.19,
+            196.85
+          ],
+          [
+            558.14,
+            200.63
+          ],
+          [
+            564.73,
+            198.77
+          ],
+          [
+            565.16,
+            192.54
+          ],
+          [
+            562.51,
+            184.45
+          ],
+          [
+            559.18,
+            177.2
+          ],
+          [
+            555.17,
+            172.92
+          ],
+          [
+            551.24,
+            172.61
+          ]
+        ],
+        "height": 0.21,
+        "floors": 1,
+        "material": "patioPaving",
+        "facade": {
+          "material": "patioPaving",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "patioPaving",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#baad96",
+      "secondaryColor": "#877e6c",
+      "variation": 0.42,
+      "bond": "coursed-rubble",
+      "unitSize": [
+        0.45,
+        0.22
+      ],
+      "weathering": 0.3
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d2c6ac"
+    },
+    "roof": {
+      "kind": "slate",
+      "color": "#5c6065"
+    },
+    "copper": {
+      "kind": "copper-patina",
+      "color": "#3f4f49",
+      "roughness": 0.57,
+      "metalness": 0.3
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#b8b3a6"
+    },
+    "gravel": {
+      "kind": "gravel-ballast",
+      "color": "#777770"
+    },
+    "seam": {
+      "kind": "standing-seam-metal",
+      "color": "#87938a",
+      "secondaryColor": "#6e7d74"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#989991"
+    },
+    "northRoof": {
+      "kind": "membrane",
+      "color": "#676965",
+      "secondaryColor": "#50534f",
+      "variation": 0.16
+    },
+    "eastRoof": {
+      "kind": "gravel-ballast",
+      "color": "#a5a69c",
+      "secondaryColor": "#91948b",
+      "variation": 0.12
+    },
+    "patioPaving": {
+      "kind": "concrete-smooth",
+      "color": "#a29784",
+      "secondaryColor": "#b1a794",
+      "variation": 0.1
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.7,
+        "edgeMargin": 0.45
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.9,
+        "height": 2.2,
+        "sill": 0.84,
+        "recess": 0.21,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1
+        },
+        "glass": "clear",
+        "frameColor": "#bcb6a4",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true,
+        "glassColor": "#738086"
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": [
+            1.5
+          ],
+          "height": 0.16,
+          "depth": 0.11,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 1,
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0-2": {
+        "bays": {
+          "pattern": "paired",
+          "width": 5.7
+        }
+      },
+      "3": {
+        "buttresses": {
+          "every": 1,
+          "width": 0.72,
+          "depth": 0.62,
+          "stepped": true,
+          "material": "wall"
+        },
+        "parapet": {
+          "type": "crenellated",
+          "height": 1.05
+        },
+        "bands": [
+          {
+            "at": [
+              16.14
+            ],
+            "height": 0.16,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ]
+      },
+      "23-26": {
+        "buttresses": {
+          "every": 1,
+          "width": 0.72,
+          "depth": 0.62,
+          "stepped": true,
+          "material": "wall"
+        },
+        "parapet": {
+          "type": "crenellated",
+          "height": 1.05
+        },
+        "bands": [
+          {
+            "at": [
+              16.14
+            ],
+            "height": 0.16,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ]
+      },
+      "27-28": {
+        "bays": {
+          "pattern": "paired",
+          "width": 5.7
+        }
+      },
+      "29-32": {
+        "blank": true,
+        "bands": [
+          {
+            "at": [
+              15.1
+            ],
+            "height": 0.16,
+            "depth": 0.11,
+            "material": "trim"
+          }
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 1.2
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          537,
+          203
+        ],
+        "size": [
+          6,
+          5,
+          2.5
+        ],
+        "rotation": -35,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          547,
+          198
+        ],
+        "size": [
+          3.6,
+          2.4,
+          1.2
+        ],
+        "rotation": -35,
+        "style": "fan housing",
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          552,
+          204
+        ],
+        "size": [
+          3.1,
+          1.7,
+          1.3
+        ],
+        "rotation": -12,
+        "style": "air handler",
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          540,
+          188
+        ],
+        "size": [
+          4,
+          1.5,
+          0.9
+        ],
+        "rotation": -35,
+        "style": "duct",
+        "material": "plant"
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.39,
+      "at": [
+        525.7,
+        198.7
+      ],
+      "type": "gothic-portal",
+      "width": 3.05,
+      "height": 4.5,
+      "recess": 0.73,
+      "steps": 2
+    }
+  ],
+  "towers": [
+    {
+      "name": "Middlesex clock tower",
+      "at": [
+        530.1,
+        199.4
+      ],
+      "plan": "square",
+      "size": [
+        9.7,
+        9.7
+      ],
+      "rotation": -35,
+      "height": 37.35,
+      "top": {
+        "type": "spire",
+        "height": 19.6,
+        "material": "copper"
+      },
+      "clockFaces": 4,
+      "pinnacles": 4,
+      "belfry": true,
+      "buttresses": true,
+      "windows": {
+        "type": "lancet",
+        "width": 1.4,
+        "height": 3.1
+      }
+    }
+  ]
+}

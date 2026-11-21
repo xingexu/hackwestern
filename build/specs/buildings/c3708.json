@@ -1,0 +1,192 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3708",
+  "name": "South Valley parking-edge shelter",
+  "status": "refined",
+  "confidence": 0.65,
+  "style": "industrial-utility",
+  "summary": "A low narrow roof follows the parking stalls and casts a short shadow onto the concrete pad.",
+  "materials": {
+    "wall": {
+      "kind": "painted-metal",
+      "color": "#87847c",
+      "metalness": 0.55,
+      "roughness": 0.45
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#646660",
+      "secondaryColor": "#535655",
+      "surface": "opaque",
+      "roughness": 0.94,
+      "metalness": 0.015
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#b6b6a9"
+    },
+    "pad": {
+      "kind": "concrete-smooth",
+      "color": "#c5c2b7"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.45,
+    "typicalHeight": 2.45
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.1,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "shed",
+    "material": "roof",
+    "edge": "fascia",
+    "features": [],
+    "pitch": 4
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Dark continuous roof aligned with the long southern curb. Regular small projections are visible along the pad toward the cars."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 0.1 m, 90th percentile 0.13 m, maximum 0.13 m."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "Regional lidar reads the ground. The 2025 orthophoto shows a roof with its own cast shadow.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Shelter roof",
+        "height": 2.65,
+        "floors": 1,
+        "footprint": "inventory",
+        "baseOffset": 2.43,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Southeast end screen",
+        "footprint": [
+          [
+            245.965,
+            649.525
+          ],
+          [
+            245.835,
+            649.475
+          ],
+          [
+            244.535,
+            652.875
+          ],
+          [
+            244.665,
+            652.925
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 2.43,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Concrete shelter pad",
+        "footprint": [
+          [
+            229.858,
+            642.856
+          ],
+          [
+            228.258,
+            647.041
+          ],
+          [
+            244.842,
+            653.444
+          ],
+          [
+            246.442,
+            649.259
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.11,
+        "floors": 1,
+        "material": "pad",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "flat",
+          "material": "pad",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "walls": 1,
+      "path": [
+        [
+          228.8,
+          646.8
+        ],
+        [
+          244.6,
+          652.9
+        ]
+      ],
+      "width": 0.1,
+      "height": 2.43,
+      "columns": 5,
+      "material": "wall",
+      "columnDiameter": 0.11
+    },
+    {
+      "type": "colonnade",
+      "walls": 3,
+      "path": [
+        [
+          245.9,
+          649.5
+        ],
+        [
+          230.1,
+          643.4
+        ]
+      ],
+      "width": 0.1,
+      "height": 2.43,
+      "columns": 5,
+      "material": "wall",
+      "columnDiameter": 0.11
+    }
+  ],
+  "notes": "Uprights, degree of enclosure and use are inferred. The roof is the only clearly resolved element."
+}

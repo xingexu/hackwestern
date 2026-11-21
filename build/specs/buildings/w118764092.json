@@ -1,0 +1,701 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764092",
+  "name": "University College",
+  "status": "refined",
+  "confidence": 0.86,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "photo",
+      "note": "University College"
+    },
+    {
+      "kind": "photo",
+      "note": "Western Facilities 880x500_uc.jpg shows the Memorial Tower, Conron Hall tracery and the stepped buttresses"
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://www.ivey.uwo.ca/about/history/virtual-history/archives/campus-foundations/1924-1991/1924-university-college/"
+    },
+    {
+      "kind": "lidar",
+      "note": "Conron Hall has the same transverse roof profile all the way to the south hip. The ridge is about 19.4–19.6 m and the adjacent brown roof near 16 m. The 2025 image shows the longitudinal dark green-grey seams, brown border, and two pale elbowed duct runs on the flat ranges."
+    }
+  ],
+  "style": "collegiate-gothic",
+  "floors": {
+    "count": 3,
+    "raisedGround": 0.65,
+    "groundFloorHeight": 4.8,
+    "typicalHeight": 4.6
+  },
+  "massing": {
+    "parts": [
+      {
+        "name": "North range",
+        "footprint": {
+          "clip": [
+            [
+              257.14,
+              210.448
+            ],
+            [
+              300.077,
+              218.019
+            ],
+            [
+              291.933,
+              264.207
+            ],
+            [
+              248.996,
+              256.636
+            ]
+          ]
+        },
+        "height": 11.5,
+        "floors": 3
+      },
+      {
+        "name": "North spine",
+        "footprint": {
+          "clip": [
+            [
+              300.077,
+              218.019
+            ],
+            [
+              311.6,
+              220.051
+            ],
+            [
+              303.456,
+              266.239
+            ],
+            [
+              291.933,
+              264.207
+            ]
+          ]
+        },
+        "height": 15,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "northCap",
+          "edge": "parapet",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "East projection",
+        "footprint": {
+          "clip": [
+            [
+              311.6,
+              220.051
+            ],
+            [
+              335.924,
+              224.34
+            ],
+            [
+              327.78,
+              270.528
+            ],
+            [
+              303.456,
+              266.239
+            ]
+          ]
+        },
+        "height": 11.5,
+        "floors": 3
+      },
+      {
+        "name": "West wing and spine",
+        "footprint": {
+          "clip": [
+            [
+              248.996,
+              256.636
+            ],
+            [
+              297.941,
+              265.266
+            ],
+            [
+              289.779,
+              311.552
+            ],
+            [
+              240.834,
+              302.922
+            ]
+          ]
+        },
+        "height": 16,
+        "floors": 3
+      },
+      {
+        "name": "East gallery",
+        "footprint": {
+          "clip": [
+            [
+              297.941,
+              265.266
+            ],
+            [
+              327.78,
+              270.528
+            ],
+            [
+              319.619,
+              316.814
+            ],
+            [
+              289.779,
+              311.552
+            ]
+          ]
+        },
+        "height": 11.8,
+        "floors": 3
+      },
+      {
+        "name": "West service range",
+        "footprint": {
+          "clip": [
+            [
+              240.834,
+              302.922
+            ],
+            [
+              278.06,
+              309.486
+            ],
+            [
+              271.444,
+              347.007
+            ],
+            [
+              234.218,
+              340.443
+            ]
+          ]
+        },
+        "height": 16.5,
+        "floors": 3
+      },
+      {
+        "name": "Low brown roof",
+        "footprint": {
+          "clip": [
+            [
+              278.06,
+              309.486
+            ],
+            [
+              283.969,
+              310.528
+            ],
+            [
+              277.353,
+              348.049
+            ],
+            [
+              271.444,
+              347.007
+            ]
+          ]
+        },
+        "height": 16.0,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Conron Hall with brown membrane perimeter",
+        "height": 16.37,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "strip",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "wallProfiles": {
+          "11": {
+            "bays": {
+              "count": 5
+            }
+          }
+        },
+        "footprint": [
+          [
+            280.131,
+            332.292
+          ],
+          [
+            278.58226,
+            341.07658
+          ],
+          [
+            279.9,
+            341.34
+          ],
+          [
+            296.87,
+            344.23
+          ],
+          [
+            298.22761,
+            335.48289
+          ],
+          [
+            301.52,
+            314.27
+          ],
+          [
+            304.87,
+            314.57
+          ],
+          [
+            304.93743,
+            314.22527
+          ],
+          [
+            283.969,
+            310.528
+          ]
+        ]
+      },
+      {
+        "name": "Full hipped copper roof over Conron Hall",
+        "height": 16.72,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "hip",
+          "ridge": 10,
+          "rise": 3.02,
+          "material": "hallRoof",
+          "edge": "gutter",
+          "overhang": 0.04
+        },
+        "baseOffset": 16.37,
+        "footprint": [
+          [
+            279.12518,
+            341.04417
+          ],
+          [
+            294.53742,
+            343.76177
+          ],
+          [
+            299.83369,
+            313.72513
+          ],
+          [
+            284.42145,
+            311.00754
+          ]
+        ]
+      }
+    ]
+  },
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#9e998c",
+      "secondaryColor": "#7f7a6e",
+      "variation": 0.47,
+      "bond": "coursed-rubble",
+      "unitSize": [
+        0.45,
+        0.22
+      ],
+      "weathering": 0.38
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c9c4b6"
+    },
+    "roof": {
+      "kind": "slate",
+      "color": "#4f5956"
+    },
+    "copper": {
+      "kind": "copper-patina",
+      "color": "#638f83",
+      "roughness": 0.57,
+      "metalness": 0.48
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#3a3833"
+    },
+    "roofMembrane": {
+      "kind": "gravel-ballast",
+      "color": "#a09f93",
+      "variation": 0.26
+    },
+    "strip": {
+      "kind": "membrane",
+      "color": "#84756b"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#b2b6af"
+    },
+    "hallRoof": {
+      "kind": "copper-patina",
+      "color": "#667872",
+      "secondaryColor": "#56655f",
+      "unitSize": [
+        0.48,
+        4.5
+      ],
+      "variation": 0.07,
+      "roughness": 0.78
+    },
+    "northCap": {
+      "kind": "membrane",
+      "color": "#79796d",
+      "roughness": 0.88
+    },
+    "ductWhite": {
+      "kind": "painted-metal",
+      "color": "#d1d3c9",
+      "roughness": 0.74
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.4,
+        "edgeMargin": 0.45
+      },
+      "windows": {
+        "type": "punched",
+        "width": 2.42,
+        "height": 2.55,
+        "sill": 0.84,
+        "recess": 0.21,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1
+        },
+        "glass": "leaded",
+        "frameColor": "#3a3833",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": [
+            1.4
+          ],
+          "height": 0.16,
+          "depth": 0.11,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 0.7,
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "11": {
+        "bays": {
+          "count": 6,
+          "edgeMargin": 0.55
+        },
+        "buttresses": {
+          "every": 1,
+          "width": 0.7,
+          "depth": 0.86,
+          "stepped": true,
+          "pinnacles": true
+        },
+        "topFloor": {
+          "windows": {
+            "type": "tudor-arch",
+            "width": 3.6,
+            "height": 4.2,
+            "tracery": true,
+            "hoodMould": true,
+            "glass": "leaded"
+          }
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "type": "tudor-arch",
+              "width": 3.25,
+              "height": 6.8,
+              "sill": 0.5,
+              "mullions": {
+                "vertical": 3,
+                "horizontal": 2
+              },
+              "glass": "leaded",
+              "tracery": true,
+              "spanFloors": 2,
+              "hoodMould": true
+            }
+          },
+          "2": {
+            "windows": {
+              "type": "tudor-arch",
+              "width": 3.25,
+              "height": 4.2,
+              "sill": 0.25,
+              "mullions": {
+                "vertical": 3,
+                "horizontal": 1
+              }
+            }
+          }
+        }
+      },
+      "25-28": {
+        "parapet": {
+          "type": "crenellated",
+          "height": 0.8
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roofMembrane",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          268.9,
+          332.5
+        ],
+        "size": [
+          3.2,
+          2.6,
+          1.2
+        ],
+        "rotation": 10,
+        "style": "ventilation unit",
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          280.1,
+          319.8
+        ],
+        "size": [
+          1.2,
+          5.6,
+          0.65
+        ],
+        "rotation": 10,
+        "style": "duct",
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          286.485,
+          263.985
+        ],
+        "size": [
+          4.69,
+          1.04
+        ],
+        "height": 0.8,
+        "rotation": 275.26,
+        "material": "ductWhite",
+        "style": "white rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          289.55,
+          260.225
+        ],
+        "size": [
+          6.37,
+          1.04
+        ],
+        "height": 0.8,
+        "rotation": 333.43,
+        "material": "ductWhite",
+        "style": "white rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          289.3,
+          264.85
+        ],
+        "size": [
+          3.45,
+          1.04
+        ],
+        "height": 0.8,
+        "rotation": 280.01,
+        "material": "ductWhite",
+        "style": "white rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          291.6,
+          262.175
+        ],
+        "size": [
+          4.45,
+          1.04
+        ],
+        "height": 0.8,
+        "rotation": 334.01,
+        "material": "ductWhite",
+        "style": "white rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          270.1,
+          329.325
+        ],
+        "size": [
+          7.7,
+          1.04
+        ],
+        "height": 0.8,
+        "rotation": 9.34,
+        "material": "ductWhite",
+        "style": "white rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          275.725,
+          328.075
+        ],
+        "size": [
+          5.23,
+          1.04
+        ],
+        "height": 0.8,
+        "rotation": 314.23,
+        "material": "ductWhite",
+        "style": "white rectangular duct"
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 13,
+      "position": 0.5,
+      "type": "gothic-portal",
+      "width": 3.2,
+      "height": 4.6,
+      "recess": 0.65,
+      "steps": 4
+    },
+    {
+      "wall": 10,
+      "position": 0.6,
+      "type": "gothic-portal",
+      "width": 3.2,
+      "height": 4.6,
+      "recess": 0.7,
+      "steps": 5
+    }
+  ],
+  "towers": [
+    {
+      "name": "Middlesex County Memorial Tower",
+      "at": [
+        300.6,
+        309.5
+      ],
+      "plan": "square",
+      "size": [
+        9.4,
+        9.4
+      ],
+      "rotation": 10,
+      "height": 37.4,
+      "top": {
+        "type": "battlements",
+        "height": 1.4,
+        "material": "wall"
+      },
+      "belfry": true,
+      "pinnacles": 0,
+      "buttresses": true,
+      "flagpole": true,
+      "windows": {
+        "type": "lancet",
+        "width": 1.4,
+        "height": 6,
+        "tracery": true,
+        "topStage": true
+      },
+      "cornerTurrets": {
+        "width": 1.8,
+        "height": 2.0
+      }
+    }
+  ]
+}

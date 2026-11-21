@@ -1,0 +1,1414 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w213344476",
+  "name": "Power Plant",
+  "status": "refined",
+  "confidence": 0.94,
+  "style": "industrial-utility",
+  "summary": "Two boiler-house volumes stand behind four tall cylindrical stacks, pairing an older buff masonry block with arched window heads and a pale panelled addition with tall equipment windows and external flues.",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#c3bcb1",
+      "unitSize": [
+        5.9,
+        4.05
+      ],
+      "secondaryColor": "#afa99f"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#938f7c"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c2b9a8"
+    },
+    "brick": {
+      "kind": "ashlar-stone",
+      "color": "#baaa8c",
+      "unitSize": [
+        0.46,
+        0.19
+      ],
+      "secondaryColor": "#a39a85",
+      "bond": "coursed-rubble",
+      "variation": 0.24
+    },
+    "stack": {
+      "kind": "brick",
+      "color": "#b37065",
+      "unitSize": [
+        0.22,
+        0.07
+      ],
+      "bond": "running"
+    },
+    "steel": {
+      "kind": "metal-panel",
+      "color": "#c9c5b8",
+      "metalness": 0.74,
+      "roughness": 0.27
+    },
+    "white": {
+      "kind": "painted-metal",
+      "color": "#e3e2e3",
+      "metalness": 0.55,
+      "roughness": 0.45
+    },
+    "plantGlass": {
+      "kind": "glass-curtain",
+      "color": "#56696e"
+    },
+    "grille": {
+      "kind": "corrugated-metal",
+      "color": "#575956",
+      "unitSize": [
+        1.6,
+        0.16
+      ]
+    },
+    "rail": {
+      "kind": "painted-metal",
+      "color": "#baa149"
+    },
+    "pipes": {
+      "kind": "copper-new",
+      "color": "#ab7957"
+    },
+    "link": {
+      "kind": "metal-panel",
+      "color": "#404749",
+      "surface": "opaque"
+    },
+    "pipeJacket": {
+      "kind": "painted-metal",
+      "color": "#abaaa0",
+      "metalness": 0.42,
+      "roughness": 0.46
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 6.3,
+    "typicalHeight": 5.85
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 5.5,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "punched",
+        "width": 2.5,
+        "height": 4.4,
+        "sill": 0.55,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 3,
+          "horizontal": 3,
+          "width": 0.055
+        },
+        "glass": "tinted",
+        "frameColor": "#575751"
+      },
+      "parapet": {
+        "height": 0.35,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "4": {
+        "bays": {
+          "count": 3,
+          "width": 6.62,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "segmental-arch",
+          "width": 2.65,
+          "height": 2.65,
+          "sill": 0.95,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 3,
+            "width": 0.055
+          },
+          "glass": "tinted",
+          "frameColor": "#575751",
+          "surround": "stone",
+          "surroundMaterial": "trim"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "sill": 0.5,
+            "width": 2.1,
+            "height": 2.5
+          }
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 5,
+          "width": 6.12,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "segmental-arch",
+          "width": 2.65,
+          "height": 2.65,
+          "sill": 0.95,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 3,
+            "width": 0.055
+          },
+          "glass": "tinted",
+          "frameColor": "#575751",
+          "surround": "stone",
+          "surroundMaterial": "trim"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "sill": 0.5,
+            "width": 2.1,
+            "height": 2.5
+          }
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 4,
+          "width": 6.08,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "segmental-arch",
+          "width": 2.65,
+          "height": 2.65,
+          "sill": 0.95,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 3,
+            "width": 0.055
+          },
+          "glass": "tinted",
+          "frameColor": "#575751",
+          "surround": "stone",
+          "surroundMaterial": "trim"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "sill": 0.5,
+            "width": 2.1,
+            "height": 2.5
+          }
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 3,
+          "width": 4.99,
+          "pattern": "regular"
+        },
+        "material": "brick",
+        "windows": {
+          "type": "segmental-arch",
+          "width": 2.65,
+          "height": 2.65,
+          "sill": 0.95,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 3,
+            "width": 0.055
+          },
+          "glass": "tinted",
+          "frameColor": "#575751",
+          "surround": "stone",
+          "surroundMaterial": "trim"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "sill": 0.5,
+            "width": 2.1,
+            "height": 2.5
+          }
+        }
+      },
+      "0": {
+        "bays": {
+          "count": 3,
+          "width": 9.53,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "groundFloor": {
+          "height": 8.1
+        },
+        "blank": true,
+        "sections": [
+          {
+            "start": 0.67,
+            "end": 0.73,
+            "base": 3.5,
+            "top": 4.5,
+            "material": "grille",
+            "horizontalMullions": 4
+          }
+        ]
+      },
+      "1": {
+        "bays": {
+          "count": 4,
+          "width": 7.04,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "groundFloor": {
+          "height": 8.1
+        },
+        "blank": true,
+        "sections": [
+          {
+            "start": 0.072,
+            "end": 0.15,
+            "base": 2.0,
+            "top": 8.8,
+            "material": "plantGlass",
+            "horizontalMullions": 4,
+            "verticalMullionSpacing": 1.1
+          },
+          {
+            "start": 0.072,
+            "end": 0.15,
+            "base": 8.81,
+            "top": 10.0,
+            "material": "grille",
+            "horizontalMullions": 4
+          },
+          {
+            "start": 0.32,
+            "end": 0.398,
+            "base": 2.0,
+            "top": 8.8,
+            "material": "plantGlass",
+            "horizontalMullions": 4,
+            "verticalMullionSpacing": 1.1
+          },
+          {
+            "start": 0.32,
+            "end": 0.398,
+            "base": 8.81,
+            "top": 10.0,
+            "material": "grille",
+            "horizontalMullions": 4
+          },
+          {
+            "start": 0.568,
+            "end": 0.646,
+            "base": 2.0,
+            "top": 8.8,
+            "material": "plantGlass",
+            "horizontalMullions": 4,
+            "verticalMullionSpacing": 1.1
+          },
+          {
+            "start": 0.568,
+            "end": 0.646,
+            "base": 8.81,
+            "top": 10.0,
+            "material": "grille",
+            "horizontalMullions": 4
+          },
+          {
+            "start": 0.816,
+            "end": 0.894,
+            "base": 2.0,
+            "top": 8.8,
+            "material": "plantGlass",
+            "horizontalMullions": 4,
+            "verticalMullionSpacing": 1.1
+          },
+          {
+            "start": 0.816,
+            "end": 0.894,
+            "base": 8.81,
+            "top": 10.0,
+            "material": "grille",
+            "horizontalMullions": 4
+          }
+        ]
+      },
+      "2": {
+        "material": "brick",
+        "piers": {
+          "every": 1,
+          "width": 0.5,
+          "depth": 0.25,
+          "material": "brick",
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "bays": {
+          "width": 5.9
+        },
+        "base": {
+          "height": 1.1,
+          "material": "trim"
+        }
+      },
+      "3": {
+        "material": "brick",
+        "piers": {
+          "every": 1,
+          "width": 0.5,
+          "depth": 0.25,
+          "material": "brick",
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "bays": {
+          "width": 5.9
+        },
+        "base": {
+          "height": 1.1,
+          "material": "trim"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          247.5,
+          553.25
+        ],
+        "size": [
+          8.9,
+          4.5
+        ],
+        "height": 2.4,
+        "material": "steel",
+        "rotation": -16,
+        "style": "cooling tower fans",
+        "fanGrid": [
+          2,
+          2
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          258,
+          550.6
+        ],
+        "size": [
+          9.2,
+          4.5
+        ],
+        "height": 2.4,
+        "material": "steel",
+        "rotation": -16,
+        "style": "cooling tower fans",
+        "fanGrid": [
+          2,
+          2
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          243.5,
+          597
+        ],
+        "size": [
+          8.75,
+          6.6
+        ],
+        "height": 3.7,
+        "material": "steel",
+        "rotation": -16,
+        "style": "cooling tower fans",
+        "fanGrid": [
+          3,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          253,
+          594.6
+        ],
+        "size": [
+          8.6,
+          6.75
+        ],
+        "height": 3.4,
+        "material": "steel",
+        "rotation": -16,
+        "style": "cooling tower fans",
+        "fanGrid": [
+          3,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          239.1,
+          581.5
+        ],
+        "size": [
+          2.2,
+          3.3
+        ],
+        "height": 1.4,
+        "material": "steel",
+        "rotation": -16,
+        "style": "condenser fan",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          248.2,
+          580.8
+        ],
+        "size": [
+          3,
+          2.8
+        ],
+        "height": 1.4,
+        "material": "steel",
+        "rotation": -16,
+        "style": "condenser fan",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "chimney",
+        "center": [
+          249,
+          584.5
+        ],
+        "size": [
+          0.98,
+          0.98
+        ],
+        "height": 2.15,
+        "material": "white",
+        "rotation": 0,
+        "style": "metal round vent stack"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          239.2,
+          586.6
+        ],
+        "size": [
+          5.7,
+          1.34
+        ],
+        "height": 1.35,
+        "material": "steel",
+        "rotation": 74,
+        "style": "supply duct"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "One broad brick stack occupies the north-west corner. Three narrow stacks run along the eastern side of the newer south block. Rooftop fans are grouped at the outer ends and linked by exposed pipes."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 12.34 m, 90th percentile 15.83 m, maximum 29.73 m."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "136656567",
+      "walls": [
+        0,
+        1,
+        6,
+        7
+      ],
+      "note": "One red brick stack, two stainless flues and a white flue. South wall has four tall louvred equipment windows and a loading ramp; older brick wing has segmental arches."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "79749131",
+      "walls": [
+        6,
+        7
+      ],
+      "note": "Boiler-house corner and flue silhouettes."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/PP.jpg",
+      "note": "Four vertically glazed bays with louvred heads, a raised service platform and rooftop cooler screens."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Main wall colour sampled with PIL from KartaView 136656567. 800 × 600 pixel reference, patch centred at (369, 342), 7 × 7 pixels."
+    },
+    {
+      "kind": "kartaview",
+      "note": "The upper wall has irregular buff masonry courses and smooth pale voussoirs. A second overhead door is visible beyond the parked trucks.",
+      "walls": [
+        6,
+        7
+      ],
+      "frame": "136656567"
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Early boiler house",
+        "height": 11.9,
+        "floors": 2,
+        "footprint": {
+          "clip": [
+            [
+              204,
+              533
+            ],
+            [
+              282,
+              526
+            ],
+            [
+              284,
+              573
+            ],
+            [
+              220,
+              590
+            ]
+          ]
+        },
+        "material": "brick"
+      },
+      {
+        "name": "Recessed north stack bay",
+        "height": 11.55,
+        "floors": 2,
+        "footprint": [
+          [
+            252.229,
+            581.439
+          ],
+          [
+            254.279,
+            588.856
+          ],
+          [
+            260.352,
+            587.178
+          ],
+          [
+            258.319,
+            579.821
+          ]
+        ],
+        "material": "link",
+        "facade": {
+          "material": "link",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "wallProfiles": {
+          "0": {
+            "sections": [
+              {
+                "start": 0.01,
+                "end": 0.37,
+                "base": 1.7,
+                "top": 9.55,
+                "material": "plantGlass",
+                "horizontalMullions": 3,
+                "verticalMullionSpacing": 1.22
+              },
+              {
+                "start": 0.01,
+                "end": 0.37,
+                "base": 9.65,
+                "top": 10.8,
+                "material": "grille",
+                "horizontalMullions": 5
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Boiler and chiller addition",
+        "height": 13.1,
+        "floors": 2,
+        "footprint": [
+          [
+            261.991,
+            586.725
+          ],
+          [
+            254.279,
+            588.856
+          ],
+          [
+            252.229,
+            581.439
+          ],
+          [
+            232.725,
+            586.62
+          ],
+          [
+            239.76,
+            612.06
+          ],
+          [
+            266.92,
+            604.56
+          ]
+        ],
+        "wallProfiles": {
+          "2": {
+            "parapet": {
+              "type": "metal-rail",
+              "height": 0.93,
+              "material": "steel"
+            }
+          }
+        }
+      },
+      {
+        "name": "Cooling plant external header",
+        "footprint": [
+          [
+            257.016,
+            596.852
+          ],
+          [
+            257.118,
+            597.207
+          ],
+          [
+            240.584,
+            601.948
+          ],
+          [
+            240.482,
+            601.593
+          ]
+        ],
+        "baseOffset": 15.27,
+        "height": 15.65,
+        "floors": 1,
+        "material": "pipes",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "flat",
+          "material": "pipes",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North fan header",
+        "footprint": [
+          [
+            246.246,
+            558.605
+          ],
+          [
+            246.265,
+            558.6
+          ],
+          [
+            246.284,
+            558.592
+          ],
+          [
+            246.302,
+            558.583
+          ],
+          [
+            246.32,
+            558.573
+          ],
+          [
+            246.336,
+            558.56
+          ],
+          [
+            246.351,
+            558.546
+          ],
+          [
+            246.364,
+            558.531
+          ],
+          [
+            246.376,
+            558.514
+          ],
+          [
+            246.386,
+            558.497
+          ],
+          [
+            246.395,
+            558.478
+          ],
+          [
+            246.402,
+            558.459
+          ],
+          [
+            246.406,
+            558.439
+          ],
+          [
+            246.409,
+            558.419
+          ],
+          [
+            246.796,
+            554.167
+          ],
+          [
+            257.152,
+            551.503
+          ],
+          [
+            257.048,
+            551.097
+          ],
+          [
+            246.548,
+            553.797
+          ],
+          [
+            246.529,
+            553.802
+          ],
+          [
+            246.51,
+            553.81
+          ],
+          [
+            246.493,
+            553.819
+          ],
+          [
+            246.476,
+            553.83
+          ],
+          [
+            246.461,
+            553.843
+          ],
+          [
+            246.447,
+            553.857
+          ],
+          [
+            246.434,
+            553.872
+          ],
+          [
+            246.422,
+            553.888
+          ],
+          [
+            246.413,
+            553.905
+          ],
+          [
+            246.405,
+            553.923
+          ],
+          [
+            246.398,
+            553.942
+          ],
+          [
+            246.394,
+            553.961
+          ],
+          [
+            246.391,
+            553.981
+          ],
+          [
+            246.005,
+            558.228
+          ],
+          [
+            243.454,
+            558.795
+          ],
+          [
+            243.546,
+            559.205
+          ]
+        ],
+        "height": 15.08,
+        "baseOffset": 14.7,
+        "floors": 1,
+        "material": "pipeJacket",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "pipeJacket",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Return from north plant",
+        "footprint": [
+          [
+            245.999,
+            570.132
+          ],
+          [
+            244.409,
+            564.765
+          ],
+          [
+            244.21,
+            560.59
+          ],
+          [
+            243.79,
+            560.61
+          ],
+          [
+            243.99,
+            564.81
+          ],
+          [
+            243.993,
+            564.835
+          ],
+          [
+            243.999,
+            564.86
+          ],
+          [
+            245.599,
+            570.26
+          ],
+          [
+            245.605,
+            570.277
+          ],
+          [
+            249.105,
+            579.177
+          ],
+          [
+            249.495,
+            579.023
+          ]
+        ],
+        "height": 14.33,
+        "baseOffset": 13.95,
+        "floors": 1,
+        "material": "pipeJacket",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "pipeJacket",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Southern cooling return",
+        "footprint": [
+          [
+            241.693,
+            591.533
+          ],
+          [
+            241.697,
+            591.553
+          ],
+          [
+            241.703,
+            591.573
+          ],
+          [
+            241.711,
+            591.592
+          ],
+          [
+            241.721,
+            591.61
+          ],
+          [
+            241.732,
+            591.626
+          ],
+          [
+            241.745,
+            591.642
+          ],
+          [
+            241.76,
+            591.657
+          ],
+          [
+            241.776,
+            591.669
+          ],
+          [
+            241.793,
+            591.681
+          ],
+          [
+            241.811,
+            591.69
+          ],
+          [
+            241.83,
+            591.698
+          ],
+          [
+            241.85,
+            591.704
+          ],
+          [
+            241.87,
+            591.708
+          ],
+          [
+            241.89,
+            591.71
+          ],
+          [
+            241.911,
+            591.71
+          ],
+          [
+            241.931,
+            591.708
+          ],
+          [
+            241.951,
+            591.704
+          ],
+          [
+            247.352,
+            590.353
+          ],
+          [
+            250.198,
+            600.656
+          ],
+          [
+            250.204,
+            600.675
+          ],
+          [
+            250.212,
+            600.694
+          ],
+          [
+            250.222,
+            600.712
+          ],
+          [
+            250.234,
+            600.729
+          ],
+          [
+            250.247,
+            600.744
+          ],
+          [
+            250.262,
+            600.758
+          ],
+          [
+            250.278,
+            600.771
+          ],
+          [
+            250.296,
+            600.782
+          ],
+          [
+            250.314,
+            600.791
+          ],
+          [
+            250.333,
+            600.799
+          ],
+          [
+            250.353,
+            600.805
+          ],
+          [
+            250.373,
+            600.808
+          ],
+          [
+            250.393,
+            600.81
+          ],
+          [
+            250.414,
+            600.81
+          ],
+          [
+            250.434,
+            600.807
+          ],
+          [
+            250.454,
+            600.803
+          ],
+          [
+            256.654,
+            599.153
+          ],
+          [
+            256.546,
+            598.747
+          ],
+          [
+            250.547,
+            600.344
+          ],
+          [
+            247.702,
+            590.044
+          ],
+          [
+            247.696,
+            590.025
+          ],
+          [
+            247.688,
+            590.006
+          ],
+          [
+            247.678,
+            589.989
+          ],
+          [
+            247.666,
+            589.972
+          ],
+          [
+            247.653,
+            589.956
+          ],
+          [
+            247.639,
+            589.942
+          ],
+          [
+            247.623,
+            589.93
+          ],
+          [
+            247.606,
+            589.919
+          ],
+          [
+            247.588,
+            589.909
+          ],
+          [
+            247.569,
+            589.902
+          ],
+          [
+            247.55,
+            589.896
+          ],
+          [
+            247.53,
+            589.892
+          ],
+          [
+            247.509,
+            589.89
+          ],
+          [
+            247.489,
+            589.89
+          ],
+          [
+            247.469,
+            589.892
+          ],
+          [
+            247.449,
+            589.896
+          ],
+          [
+            242.071,
+            591.241
+          ],
+          [
+            241.307,
+            586.467
+          ],
+          [
+            240.893,
+            586.533
+          ]
+        ],
+        "height": 15.08,
+        "baseOffset": 14.7,
+        "floors": 1,
+        "material": "pipeJacket",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "pipeJacket",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "towers": [
+    {
+      "name": "Original tapered brick chimney",
+      "at": [
+        242.3,
+        564.1
+      ],
+      "plan": "round",
+      "size": [
+        3.8,
+        3.8
+      ],
+      "height": 39,
+      "material": "stack",
+      "top": {
+        "type": "flat",
+        "height": 0.15,
+        "material": "stack"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    {
+      "name": "North steel flue",
+      "at": [
+        264.2,
+        582.6
+      ],
+      "plan": "round",
+      "size": [
+        1.4,
+        1.4
+      ],
+      "height": 36,
+      "material": "steel",
+      "top": {
+        "type": "flat",
+        "height": 0.15,
+        "material": "steel"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    {
+      "name": "Middle steel flue",
+      "at": [
+        266.7,
+        591.7
+      ],
+      "plan": "round",
+      "size": [
+        1.55,
+        1.55
+      ],
+      "height": 37,
+      "material": "steel",
+      "top": {
+        "type": "flat",
+        "height": 0.15,
+        "material": "steel"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    {
+      "name": "Painted south flue",
+      "at": [
+        261.8,
+        600.3
+      ],
+      "plan": "round",
+      "size": [
+        1.35,
+        1.35
+      ],
+      "height": 33.5,
+      "material": "white",
+      "top": {
+        "type": "flat",
+        "height": 0.15,
+        "material": "white"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.68,
+      "width": 2.6,
+      "height": 3.8,
+      "type": "loading-dock",
+      "steps": 0,
+      "ramp": true
+    },
+    {
+      "wall": 7,
+      "position": 0.19,
+      "width": 3.12,
+      "height": 3.18,
+      "type": "garage",
+      "steps": 0
+    },
+    {
+      "wall": 7,
+      "position": 0.84,
+      "width": 2.7,
+      "height": 3.1,
+      "type": "garage"
+    }
+  ],
+  "attachments": [
+    {
+      "type": "loading-bay",
+      "walls": 1,
+      "path": [
+        [
+          245,
+          613
+        ],
+        [
+          261,
+          608
+        ]
+      ],
+      "width": 2.75,
+      "height": 0.95,
+      "material": "trim"
+    },
+    {
+      "type": "ramp",
+      "path": [
+        [
+          240.4,
+          613.3
+        ],
+        [
+          256.8,
+          608.8
+        ]
+      ],
+      "width": 2.35,
+      "height": 1.0,
+      "material": "trim"
+    }
+  ],
+  "notes": "The red chimney tapers and the flues have open bores, collars and brackets. Thin stacks undersample in the 2 m lidar, so their heights are scale estimates from the street photograph. The service face has large louvres and exposed overhead pipes."
+}

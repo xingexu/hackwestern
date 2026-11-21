@@ -1,0 +1,16 @@
+#online-menu { font: 15px/1.4 system-ui,sans-serif; color: #f4f4e8; background: #20332d; border: 1px solid #778777; border-radius: 10px; width: min(350px,90vw); max-height: 85dvh; padding: 20px }
+#online-menu::backdrop { background: #101a18a8 }
+#online-menu h2 { font: 25px Georgia,serif; margin: 0 }
+#online-menu .heading,#online-menu .actions { position:static; display:flex; align-items:center; justify-content:space-between; gap:8px }
+#online-menu label,#online-menu fieldset { display:grid; gap:4px; margin:8px 0 }
+#online-menu fieldset { border:0; padding:0 }
+#online-menu input,#online-menu select,#online-menu button { padding:7px 10px; border-radius:4px; border:1px solid #7e8a7b; font:inherit }
+#online-menu input[type=color] { padding:2px; width:100% }
+#online-menu .profile { display:grid; grid-template-columns:1fr 54px; gap:8px }
+#online-menu input { min-width:0 }
+#online-menu button { background:#e9e7d4; color:#20332d; cursor:pointer }
+#online-menu [hidden] {display:none}
+#online-menu img {display:block;width:120px;height:120px}
+#online-menu output,#online-menu a {color:#f8d488;overflow-wrap:anywhere}
+#online-menu ul {list-style:none;padding:0}
+#race-banner {position:absolute;top:22%;left:50%;transform:translateX(-50%);padding:8px 14px;background:#20332de8;color:#fff8db;font:bold 16px system-ui;border-radius:4px}

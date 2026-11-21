@@ -1,0 +1,800 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w147379448",
+  "name": "Marie Rosier Wing",
+  "status": "refined",
+  "confidence": 0.46,
+  "summary": "Two-storey L-shaped annex set behind Ursuline Hall, featuring a level roof, light buff walls, and a sheltered garden within the inside corner.",
+  "style": "mid-century-modern",
+  "evidence": [
+    {
+      "kind": "knowledge",
+      "url": "https://tvsef.ca/wp-content/uploads/2023/03/brescia_map-TVSEF.pdf",
+      "note": "The L-shaped wing directly west of Ursuline Hall is labelled Marie Rosier Wing."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://www.uwo.ca/fm/client_services/building_info.html",
+      "note": "Western dates the Marie Rosier addition to 1971."
+    },
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. L-shaped pale grey membrane, continuous coping, small vents and buff-coloured wall strips along the garden. Wall colour averaged on the visible garden-side face. Brick bond and opening dimensions are inferred."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "146585449",
+      "walls": [
+        6
+      ],
+      "note": "The sightline to the wing is screened by Ursuline Hall. No openings can be counted from this approach."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 9.72 m, P90 9.82 m, maximum 10.34 m. Roof median 9.72 m and P90 9.82 m indicate a nearly constant parapet level."
+    },
+    {
+      "kind": "aerial",
+      "note": "A narrow lower roof meets the east end. Two wall projections face the garden and service side. The small circular objects and rectangular curb are distinguishable in the weathered membrane."
+    },
+    {
+      "kind": "aerial",
+      "note": "Marie Rosier Wing shows dark weathering concentrated over the west side and around the roof fittings, with pale concrete bordering the planted garden on two sides."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#c4b89b",
+      "variation": 0.15,
+      "secondaryColor": "#a89c83",
+      "unitSize": [
+        0.22,
+        0.075
+      ],
+      "bond": "running"
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#c8bda7",
+      "variation": 0.09,
+      "secondaryColor": "#ada594",
+      "unitSize": [
+        1.65,
+        0.54
+      ],
+      "bond": "stack"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#a6a69a",
+      "variation": 0.17,
+      "weathering": 0.6,
+      "secondaryColor": "#878980"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#685f55",
+      "variation": 0.09
+    },
+    "westRoof": {
+      "kind": "membrane",
+      "color": "#777970",
+      "variation": 0.09,
+      "weathering": 0.69,
+      "secondaryColor": "#5f615b"
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 4.65,
+    "typicalHeight": 4.5
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.55,
+        "height": 1.8,
+        "sill": 0.95,
+        "perBay": 1,
+        "recess": 0.14,
+        "frameColor": "#756c60",
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "glass": "clear"
+      },
+      "bays": {
+        "width": 3.2,
+        "pattern": "regular",
+        "edgeMargin": 0.24
+      },
+      "base": {
+        "height": 0.48,
+        "material": "trim",
+        "projection": 0.05
+      },
+      "parapet": {
+        "height": 0.32,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 5,
+          "width": 3.25,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 1,
+          "width": 2.63,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "blank": true
+      },
+      "2": {
+        "bays": {
+          "count": 4,
+          "width": 3.8,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 4,
+          "width": 3.29,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "perBay": 2,
+          "width": 0.76,
+          "height": 1.98,
+          "sill": 0.85,
+          "recess": 0.16,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1
+          }
+        },
+        "piers": {
+          "every": 1,
+          "width": 0.32,
+          "depth": 0.16,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bands": [
+          {
+            "at": [
+              4.66
+            ],
+            "height": 0.14,
+            "depth": 0.065,
+            "material": "trim"
+          }
+        ]
+      },
+      "4": {
+        "bays": {
+          "count": 5,
+          "width": 3.22,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "perBay": 2,
+          "width": 0.76,
+          "height": 1.98,
+          "sill": 0.85,
+          "recess": 0.16,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1
+          }
+        },
+        "piers": {
+          "every": 1,
+          "width": 0.32,
+          "depth": 0.16,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bands": [
+          {
+            "at": [
+              4.66
+            ],
+            "height": 0.14,
+            "depth": 0.065,
+            "material": "trim"
+          }
+        ]
+      },
+      "5": {
+        "bays": {
+          "count": 5,
+          "width": 3.64,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "perBay": 2,
+          "width": 0.76,
+          "height": 1.98,
+          "sill": 0.85,
+          "recess": 0.16,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1
+          }
+        },
+        "piers": {
+          "every": 1,
+          "width": 0.32,
+          "depth": 0.16,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bands": [
+          {
+            "at": [
+              4.66
+            ],
+            "height": 0.14,
+            "depth": 0.065,
+            "material": "trim"
+          }
+        ]
+      },
+      "6": {
+        "bays": {
+          "count": 4,
+          "width": 3.12,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 7,
+          "width": 3.5,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 1,
+          "width": 2.84,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "blank": true
+      },
+      "9": {
+        "bays": {
+          "count": 3,
+          "width": 3.16,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -546.671,
+          777.262
+        ],
+        "size": [
+          0.52,
+          0.52
+        ],
+        "height": 0.32,
+        "material": "frame",
+        "rotation": 0
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -544.624,
+          777.012
+        ],
+        "size": [
+          0.47,
+          0.47
+        ],
+        "height": 0.32,
+        "material": "frame",
+        "rotation": 0
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -552.197,
+          774.027
+        ],
+        "size": [
+          0.42,
+          0.42
+        ],
+        "height": 0.32,
+        "material": "frame",
+        "rotation": 0
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -526.56,
+          765.472
+        ],
+        "size": [
+          0.52,
+          0.52
+        ],
+        "height": 0.32,
+        "material": "frame",
+        "rotation": 0
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -537.768,
+          778.129
+        ],
+        "size": [
+          0.38,
+          0.38
+        ],
+        "height": 0.32,
+        "material": "frame",
+        "rotation": 0
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -537.046,
+          771.639
+        ],
+        "size": [
+          1.7,
+          1.35
+        ],
+        "height": 0.32,
+        "material": "frame",
+        "rotation": -21
+      }
+    ]
+  },
+  "notes": "No clear ground-level elevation is available. The rectangular window rhythm is inferred from a 1971 institutional wing, and a short link joins the northeast end to Ursuline Hall.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Lower enclosed east return",
+        "footprint": [
+          [
+            -518.48,
+            769.76
+          ],
+          [
+            -522.86,
+            758.09
+          ],
+          [
+            -525.761,
+            759.181
+          ],
+          [
+            -521.294,
+            770.817
+          ]
+        ],
+        "height": 4.55,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Enclosed link to Ursuline",
+        "footprint": [
+          [
+            -522.93,
+            759.58
+          ],
+          [
+            -517.516,
+            757.501
+          ],
+          [
+            -516.727,
+            759.555
+          ],
+          [
+            -522.142,
+            761.633
+          ]
+        ],
+        "height": 3.65,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Garden entry vestibule",
+        "footprint": [
+          [
+            -533.694,
+            778.399
+          ],
+          [
+            -534.544,
+            776.136
+          ],
+          [
+            -535.593,
+            776.529
+          ],
+          [
+            -534.742,
+            778.793
+          ]
+        ],
+        "height": 3.04,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia"
+        },
+        "facade": {
+          "windows": {
+            "type": "storefront",
+            "height": 2.2
+          }
+        }
+      },
+      {
+        "name": "West service recess",
+        "footprint": [
+          [
+            -547.967,
+            763.578
+          ],
+          [
+            -553.739,
+            765.749
+          ],
+          [
+            -553.405,
+            766.639
+          ],
+          [
+            -547.633,
+            764.468
+          ]
+        ],
+        "height": 2.9,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Low west jog",
+        "footprint": [
+          [
+            -549.383,
+            783.022
+          ],
+          [
+            -547.439,
+            782.296
+          ],
+          [
+            -547.735,
+            781.509
+          ],
+          [
+            -549.678,
+            782.236
+          ]
+        ],
+        "height": 2.66,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "fascia",
+          "features": []
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "West weathered membrane",
+        "footprint": [
+          [
+            -547.51,
+            781.66
+          ],
+          [
+            -542.17,
+            795.87
+          ],
+          [
+            -540.653,
+            795.301
+          ],
+          [
+            -541.244,
+            790.282
+          ],
+          [
+            -545.602,
+            780.493
+          ],
+          [
+            -545.046,
+            776.638
+          ],
+          [
+            -547.098,
+            771.963
+          ],
+          [
+            -546.948,
+            767.889
+          ],
+          [
+            -548.479,
+            764.679
+          ],
+          [
+            -555.66,
+            767.38
+          ],
+          [
+            -549.97,
+            782.58
+          ]
+        ],
+        "height": 9.805,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "westRoof",
+          "edge": "none",
+          "features": []
+        },
+        "facade": {
+          "material": "westRoof",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "westRoof",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "cornice": {
+            "depth": 0,
+            "height": 0,
+            "material": "westRoof"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "westRoof"
+          }
+        },
+        "baseOffset": 9.777
+      },
+      {
+        "name": "Garden wing",
+        "footprint": [
+          [
+            -535.5,
+            776.15
+          ],
+          [
+            -521.294,
+            770.817
+          ],
+          [
+            -525.761,
+            759.181
+          ],
+          [
+            -545.79,
+            766.71
+          ],
+          [
+            -546.78,
+            764.04
+          ],
+          [
+            -555.66,
+            767.38
+          ],
+          [
+            -549.97,
+            782.58
+          ],
+          [
+            -547.51,
+            781.66
+          ],
+          [
+            -542.17,
+            795.87
+          ],
+          [
+            -529.83,
+            791.24
+          ]
+        ],
+        "height": 9.79,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet",
+          "features": []
+        },
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.27,
+            "material": "trim"
+          }
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 5,
+      "position": 0.9,
+      "type": "doors-single",
+      "width": 1.05,
+      "height": 2.2,
+      "recess": 0.25
+    },
+    {
+      "wall": 4,
+      "position": 0.914,
+      "width": 1.72,
+      "height": 2.2,
+      "type": "doors-double",
+      "recess": 0.16,
+      "canopy": {
+        "type": "flat",
+        "width": 2.35,
+        "depth": 0.95,
+        "material": "trim"
+      },
+      "at": [
+        -534.17,
+        777.131
+      ]
+    }
+  ],
+  "attachments": [
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -533.966,
+          776.873
+        ],
+        [
+          -520.709,
+          771.784
+        ]
+      ],
+      "width": 2.35,
+      "height": 0.18,
+      "material": "trim"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -534.073,
+          778.157
+        ],
+        [
+          -529.214,
+          790.816
+        ]
+      ],
+      "width": 1.4,
+      "height": 0.15,
+      "material": "trim"
+    }
+  ]
+}

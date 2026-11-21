@@ -1,0 +1,192 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764095",
+  "name": "Thames Hall",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "102315651"
+    }
+  ],
+  "style": "collegiate-gothic",
+  "floors": {
+    "count": 2,
+    "typicalHeight": 3.9,
+    "groundFloorHeight": 3.9
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 9.23,
+        "floors": 2
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              164.901,
+              504.132
+            ],
+            [
+              212.527,
+              512.238
+            ],
+            [
+              212.53,
+              512.22
+            ],
+            [
+              214.15,
+              502.93
+            ],
+            [
+              215.879,
+              503.234
+            ],
+            [
+              216.561,
+              499.826
+            ],
+            [
+              204.526,
+              498.823
+            ],
+            [
+              211.505,
+              458.939
+            ],
+            [
+              175.627,
+              452.789
+            ],
+            [
+              174.571,
+              451.733
+            ],
+            [
+              172.04,
+              451.29
+            ],
+            [
+              170.77,
+              458.63
+            ],
+            [
+              169.46,
+              466.12
+            ],
+            [
+              171.02,
+              466.4
+            ],
+            [
+              165.02,
+              500.65
+            ],
+            [
+              164.174,
+              500.5
+            ]
+          ]
+        },
+        "height": 14.33,
+        "baseOffset": 9.23,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#b6a17e",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#bec3b4"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.1
+      },
+      "windows": {
+        "type": "tudor-arch",
+        "width": 1.8,
+        "height": 2.25,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1
+        },
+        "glassColor": "#535c53",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 0.46,
+        "depth": 0.24,
+        "every": 2,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.13,
+          "depth": 0.07,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 7,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "gothic-portal",
+      "recess": 0.32
+    }
+  ]
+}

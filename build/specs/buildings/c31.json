@@ -1,0 +1,306 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c31",
+  "name": "Southern tennis dome",
+  "status": "refined",
+  "confidence": 0.84,
+  "summary": "A white air-supported tennis enclosure spans the southern pair of courts. Its long crown runs roughly east–west.",
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "membrane",
+      "color": "#fafafb",
+      "secondaryColor": "#e0e2e1",
+      "variation": 0.055,
+      "unitSize": [
+        2.8,
+        13.4
+      ],
+      "bond": "stack",
+      "roughness": 0.87,
+      "weathering": 0.18,
+      "surface": "vertical ribbed welded fabric seams"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#f4f5f6",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#f8f8f8",
+      "bond": "stack",
+      "unitSize": [
+        2.8,
+        13.4
+      ],
+      "variation": 0.055,
+      "surface": "vertical ribbed welded fabric seams",
+      "secondaryColor": "#e0e2e1",
+      "roughness": 0.87
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    },
+    "meshFence": {
+      "kind": "painted-metal",
+      "color": "#70716b",
+      "surface": "perforated",
+      "opacity": 0.28
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.8,
+    "typicalHeight": 3.8,
+    "raisedGround": 0
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "barrel",
+    "ridge": 94.4,
+    "rise": 9.35,
+    "material": "roof",
+    "edge": "none",
+    "features": [],
+    "endShape": "rounded"
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Inventory regional-2m surface percentiles above ground: median 3.96 m, 90th percentile 4.96 m, maximum 7.82 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Winter view from the south shows the white air-supported enclosure rising directly behind the sidewalk and bare trees; no separate outbuilding appears at its base.",
+      "frame": "373912936",
+      "walls": [
+        1
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "The triangular polygon follows the southern skirt of a much larger white dome. Its exact northern edge follows the core data boundary at z=557 m."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373912936",
+      "walls": [
+        1
+      ],
+      "note": "PIL mean patches for wall and trim centred at (60.9%, 58.6%) and (63.5%, 60%) of the photo. Exposure multipliers 1 and 1 approximate daylight across the source views."
+    },
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 ortho over x=510..628, z=451..569 matches the full southern footprint of city OBJECTID 1311517 in data/region/city-0.json. The inventory polygon was trimmed against the core boundary."
+    },
+    {
+      "kind": "lidar",
+      "note": "One-metre surface samples at x=574 across z=529..553 range from 7.6 to 11.3 to 7.8 m. The fabric rounds downward both at the ends and at the sides."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Frame 373912936 shows the small dark south door under a white hood, vertical fabric seams and chain-link fencing. The opening position is estimated from the oblique winter view.",
+      "frame": "373912936",
+      "walls": [
+        1
+      ]
+    },
+    {
+      "kind": "lidar",
+      "note": "The municipal photo shows two distinct white enclosures meeting at a narrow service gap and small central airlock. The northern enclosure and its court pad are separate city geometry. The winter photograph resolves light transverse fabric seams and the hood at the southern gate."
+    }
+  ],
+  "notes": "The air-supported fabric tapers at both ends. A chain-link fence follows the court perimeter, with a gate at the south entry. The separate northern dome is City OBJECTID 1311510.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Southern air-supported tennis enclosure",
+        "footprint": [
+          [
+            593.52,
+            559.95
+          ],
+          [
+            596.17,
+            525.33
+          ],
+          [
+            576.43,
+            523.81
+          ],
+          [
+            576.49,
+            523.03
+          ],
+          [
+            574.02,
+            522.84
+          ],
+          [
+            573.95,
+            523.73
+          ],
+          [
+            550.71,
+            521.94
+          ],
+          [
+            548.08,
+            556.45
+          ]
+        ],
+        "height": 1.95,
+        "floors": 1
+      },
+      {
+        "name": "Low airlock at the join between court enclosures",
+        "height": 2.4,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            570.3,
+            522.1
+          ],
+          [
+            573.98,
+            522.3
+          ],
+          [
+            573.9,
+            524.2
+          ],
+          [
+            570.16,
+            523.9
+          ]
+        ]
+      }
+    ]
+  },
+  "lidarTrusted": false,
+  "lidarNote": "Inventory percentiles describe only the strip south of z=557 m. The intact core DSM over the city footprint gives 11.2–11.3 m near the crown and 4–6 m near the south perimeter.",
+  "entrances": [
+    {
+      "wall": 1,
+      "type": "doors-single",
+      "position": 0.43,
+      "width": 1.28,
+      "height": 1.92,
+      "recess": 0.24,
+      "doorColor": "#474841",
+      "surround": "trim",
+      "canopy": {
+        "type": "arched",
+        "width": 2.15,
+        "depth": 1.52,
+        "material": "wall"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          595.2694461521897,
+          561.989470068569
+        ],
+        [
+          598.269932656762,
+          522.7906614693663
+        ]
+      ],
+      "width": 0.055,
+      "height": 2.4,
+      "material": "meshFence"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          549.0278464841734,
+          519.0214087727365
+        ],
+        [
+          546.0273599796146,
+          558.220217371927
+        ]
+      ],
+      "width": 0.055,
+      "height": 2.4,
+      "material": "meshFence"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          546.0273599796146,
+          558.220217371927
+        ],
+        [
+          569.9263408964825,
+          560.0495732191224
+        ]
+      ],
+      "width": 0.055,
+      "height": 2.4,
+      "material": "meshFence"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          573.1170071876478,
+          560.2938038855468
+        ],
+        [
+          595.2694461521897,
+          561.989470068569
+        ]
+      ],
+      "width": 0.055,
+      "height": 2.4,
+      "material": "meshFence"
+    }
+  ]
+}

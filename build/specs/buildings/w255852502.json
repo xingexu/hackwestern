@@ -1,0 +1,2177 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w255852502",
+  "name": "Western Centre for Public Health and Family Medicine",
+  "status": "refined",
+  "confidence": 0.88,
+  "summary": "Four visible levels with vertical-seamed grey zinc panels over a rough stone base, irregular narrow punched windows, a deep two-storey stone-finned parking-side recess, a projecting glass bay on another face, and set-back roof plant.",
+  "style": "contemporary-stone",
+  "materials": {
+    "wall": {
+      "kind": "standing-seam-metal",
+      "color": "#7d878c",
+      "secondaryColor": "#6c767b",
+      "unitSize": [
+        0.43,
+        3.25
+      ],
+      "metalness": 0.35,
+      "roughness": 0.55,
+      "variation": 0.09
+    },
+    "base": {
+      "kind": "rubble-stone",
+      "color": "#9c978e",
+      "secondaryColor": "#b0aba2",
+      "unitSize": [
+        0.74,
+        0.3
+      ],
+      "variation": 0.35,
+      "bond": "coursed-rubble"
+    },
+    "trim": {
+      "kind": "metal-panel",
+      "color": "#828b8c",
+      "secondaryColor": "#60696c",
+      "unitSize": [
+        1.05,
+        0.52
+      ]
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#cbcdbd",
+      "secondaryColor": "#afb0a6"
+    },
+    "plant": {
+      "kind": "corrugated-metal",
+      "color": "#686c6d",
+      "secondaryColor": "#5a5d5f",
+      "unitSize": [
+        2.2,
+        0.08
+      ],
+      "surface": "horizontal louvres"
+    },
+    "fin": {
+      "kind": "precast-panel",
+      "color": "#a8a093",
+      "secondaryColor": "#999387",
+      "unitSize": [
+        0.56,
+        2.24
+      ]
+    },
+    "recessGlass": {
+      "kind": "glass-curtain",
+      "color": "#2e3a40"
+    },
+    "silver": {
+      "kind": "painted-metal",
+      "color": "#b5b9ba"
+    },
+    "equipment": {
+      "kind": "metal-panel",
+      "color": "#adaba2",
+      "secondaryColor": "#97998f",
+      "unitSize": [
+        1.1,
+        0.85
+      ]
+    },
+    "plantRoof": {
+      "kind": "membrane",
+      "color": "#c0bfaf",
+      "secondaryColor": "#a9aa9c"
+    },
+    "patio": {
+      "kind": "concrete-smooth",
+      "color": "#c8bfa9",
+      "secondaryColor": "#afa691",
+      "unitSize": [
+        2.2,
+        2.25
+      ],
+      "roughness": 0.91
+    },
+    "bench": {
+      "kind": "wood-siding",
+      "color": "#77664e",
+      "secondaryColor": "#574d3f",
+      "unitSize": [
+        0.1,
+        1.52
+      ]
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.65,
+    "typicalHeight": 4.48
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Recessed stone ground storey",
+        "footprint": [
+          [
+            490.0523,
+            -388.50638
+          ],
+          [
+            497.27552,
+            -370.21666
+          ],
+          [
+            511.37146,
+            -376.05466
+          ],
+          [
+            513.69224,
+            -376.74754
+          ],
+          [
+            516.05101,
+            -376.74846
+          ],
+          [
+            518.31673,
+            -376.02434
+          ],
+          [
+            520.43644,
+            -374.6171
+          ],
+          [
+            522.36749,
+            -372.61778
+          ],
+          [
+            535.35144,
+            -358.13935
+          ],
+          [
+            552.32079,
+            -374.01183
+          ],
+          [
+            526.36473,
+            -402.23029
+          ],
+          [
+            526.60417,
+            -401.61989
+          ],
+          [
+            520.11667,
+            -399.07506
+          ],
+          [
+            519.70037,
+            -400.13633
+          ]
+        ],
+        "height": 4.65,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "groundFloor": {
+            "height": 4.65,
+            "material": "base",
+            "windows": {
+              "type": "punched",
+              "perBay": 1,
+              "height": 3.4,
+              "sill": 0.18,
+              "width": 2.7,
+              "frameColor": "#637278",
+              "glassColor": "#657b79",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "recess": 0.2
+            }
+          },
+          "windows": {
+            "type": "punched",
+            "perBay": 1,
+            "height": 3.4,
+            "sill": 0.18,
+            "width": 2.7,
+            "frameColor": "#637278",
+            "glassColor": "#657b79",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.055
+            },
+            "recess": 0.2
+          },
+          "bays": {
+            "width": 6.3,
+            "edgeMargin": 0.52,
+            "pattern": "regular"
+          },
+          "parapet": {
+            "height": 0.0
+          }
+        }
+      },
+      {
+        "name": "Three zinc-clad storeys around north facade recess",
+        "height": 19.5,
+        "baseOffset": 4.65,
+        "floors": 3,
+        "footprint": [
+          [
+            526.28,
+            -403.77
+          ],
+          [
+            515.5925,
+            -399.57765
+          ],
+          [
+            516.32285,
+            -397.71577
+          ],
+          [
+            509.01035,
+            -394.84732
+          ],
+          [
+            508.28,
+            -396.7092
+          ],
+          [
+            488.78,
+            -389.06
+          ],
+          [
+            496.73,
+            -368.93
+          ],
+          [
+            511.7,
+            -375.13
+          ],
+          [
+            513.8356,
+            -375.7676
+          ],
+          [
+            515.8984,
+            -375.7684
+          ],
+          [
+            517.8884,
+            -375.1324
+          ],
+          [
+            519.8056,
+            -373.8596
+          ],
+          [
+            521.65,
+            -371.95
+          ],
+          [
+            535.29,
+            -356.74
+          ],
+          [
+            553.7,
+            -373.96
+          ]
+        ],
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "groundFloor": {
+            "height": 4.5,
+            "material": "wall",
+            "windows": {
+              "type": "slot",
+              "width": 1.2,
+              "height": 2.78,
+              "sill": 0.82,
+              "perBay": 1,
+              "recess": 0.1,
+              "frameColor": "#565e60",
+              "glass": "tinted",
+              "glassColor": "#526e77",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 2,
+                "width": 0.056
+              }
+            }
+          },
+          "bands": [
+            {
+              "at": [
+                4.85
+              ],
+              "height": 0.7,
+              "depth": 0.35,
+              "material": "trim"
+            },
+            {
+              "at": "floor-lines",
+              "height": 0.84,
+              "depth": 0.08,
+              "material": "wall"
+            }
+          ]
+        },
+        "wallProfiles": {
+          "1": {
+            "sections": [
+              {
+                "start": 0.285,
+                "end": 0.48,
+                "base": 4.65,
+                "top": 14.56,
+                "material": "recessGlass",
+                "horizontalMullions": 2,
+                "verticalMullionSpacing": 1.5
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Zinc top storey over the two-storey entrance recess",
+        "height": 19.5,
+        "baseOffset": 14.56,
+        "floors": 1,
+        "footprint": [
+          [
+            515.5925,
+            -399.57765
+          ],
+          [
+            508.28,
+            -396.7092
+          ],
+          [
+            509.01035,
+            -394.84732
+          ],
+          [
+            516.32285,
+            -397.71577
+          ]
+        ],
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "groundFloor": {
+            "height": 4.5,
+            "material": "wall",
+            "windows": {
+              "type": "slot",
+              "width": 1.2,
+              "height": 2.78,
+              "sill": 0.82,
+              "perBay": 1,
+              "recess": 0.1,
+              "frameColor": "#565e60",
+              "glass": "tinted",
+              "glassColor": "#526e77",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 2,
+                "width": 0.056
+              }
+            }
+          },
+          "bands": [
+            {
+              "at": [
+                4.85
+              ],
+              "height": 0.7,
+              "depth": 0.35,
+              "material": "trim"
+            },
+            {
+              "at": "floor-lines",
+              "height": 0.84,
+              "depth": 0.08,
+              "material": "wall"
+            }
+          ],
+          "bays": {
+            "count": 3,
+            "edgeMargin": 0.25
+          }
+        }
+      },
+      {
+        "name": "Glazed back of the two-storey entrance recess",
+        "footprint": [
+          [
+            516.29364,
+            -397.79025
+          ],
+          [
+            508.98114,
+            -394.9218
+          ],
+          [
+            509.01035,
+            -394.84732
+          ],
+          [
+            516.32285,
+            -397.71577
+          ]
+        ],
+        "baseOffset": 4.65,
+        "height": 14.56,
+        "floors": 1,
+        "material": "recessGlass",
+        "facade": {
+          "material": "recessGlass",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "groundFloor": {
+            "material": "recessGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "recessGlass",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "recessGlass",
+          "features": []
+        },
+        "wallProfiles": {
+          "1": {
+            "sections": [
+              {
+                "start": 0.285,
+                "end": 0.48,
+                "base": 4.65,
+                "top": 14.56,
+                "material": "recessGlass",
+                "horizontalMullions": 2,
+                "verticalMullionSpacing": 1.55
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Stone entrance fin 1",
+        "footprint": [
+          [
+            514.06202,
+            -398.71948
+          ],
+          [
+            513.64201,
+            -398.55473
+          ],
+          [
+            514.26646,
+            -396.96283
+          ],
+          [
+            514.68647,
+            -397.12758
+          ]
+        ],
+        "baseOffset": 4.65,
+        "height": 14.56,
+        "floors": 1,
+        "material": "fin",
+        "facade": {
+          "material": "fin",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "groundFloor": {
+            "material": "fin",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "fin",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "fin",
+          "features": []
+        }
+      },
+      {
+        "name": "Stone entrance fin 2",
+        "footprint": [
+          [
+            512.23389,
+            -398.00237
+          ],
+          [
+            511.81389,
+            -397.83762
+          ],
+          [
+            512.43834,
+            -396.24572
+          ],
+          [
+            512.85834,
+            -396.41047
+          ]
+        ],
+        "baseOffset": 4.65,
+        "height": 14.56,
+        "floors": 1,
+        "material": "fin",
+        "facade": {
+          "material": "fin",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "groundFloor": {
+            "material": "fin",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "fin",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "fin",
+          "features": []
+        }
+      },
+      {
+        "name": "Stone entrance fin 3",
+        "footprint": [
+          [
+            510.40576,
+            -397.28526
+          ],
+          [
+            509.98576,
+            -397.12051
+          ],
+          [
+            510.61021,
+            -395.52861
+          ],
+          [
+            511.03021,
+            -395.69336
+          ]
+        ],
+        "baseOffset": 4.65,
+        "height": 14.56,
+        "floors": 1,
+        "material": "fin",
+        "facade": {
+          "material": "fin",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "groundFloor": {
+            "material": "fin",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "fin",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "fin",
+          "features": []
+        }
+      },
+      {
+        "name": "Thin zinc canopy above the north entrance",
+        "footprint": [
+          [
+            523.95203,
+            -402.53455
+          ],
+          [
+            489.52703,
+            -389.03077
+          ],
+          [
+            489.08891,
+            -390.14797
+          ],
+          [
+            523.51391,
+            -403.65175
+          ]
+        ],
+        "baseOffset": 4.3,
+        "height": 4.59,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "fascia",
+          "material": "trim",
+          "features": []
+        }
+      },
+      {
+        "name": "Set-back western roof plant",
+        "height": 23.65,
+        "floors": 1,
+        "footprint": {
+          "clip": [
+            [
+              492.6,
+              -387.3
+            ],
+            [
+              517,
+              -396.8
+            ],
+            [
+              523,
+              -379.65
+            ],
+            [
+              499.6,
+              -370.1
+            ]
+          ]
+        },
+        "baseOffset": 19.5,
+        "material": "plant",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "plant",
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet",
+          "features": [
+            {
+              "type": "chimney",
+              "center": [
+                506,
+                -389
+              ],
+              "size": [
+                0.26,
+                0.26
+              ],
+              "height": 0.65,
+              "material": "plant"
+            },
+            {
+              "type": "chimney",
+              "center": [
+                510.4,
+                -390.5
+              ],
+              "size": [
+                0.26,
+                0.26
+              ],
+              "height": 0.65,
+              "material": "plant"
+            },
+            {
+              "type": "chimney",
+              "center": [
+                514.6,
+                -392.3
+              ],
+              "size": [
+                0.26,
+                0.26
+              ],
+              "height": 0.65,
+              "material": "plant"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Silver-framed two-storey oriel adjoining the entrance elevation",
+        "footprint": [
+          [
+            540.4316,
+            -389.27119
+          ],
+          [
+            536.1815,
+            -393.89174
+          ],
+          [
+            535.74358,
+            -393.48893
+          ],
+          [
+            539.99368,
+            -388.86838
+          ]
+        ],
+        "baseOffset": 4.95,
+        "height": 14.28,
+        "floors": 1,
+        "material": "silver",
+        "facade": {
+          "material": "silver",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "groundFloor": {
+            "material": "silver",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "silver",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "silver",
+          "features": []
+        },
+        "wallProfiles": {
+          "0": {
+            "sections": [
+              {
+                "start": 0.504,
+                "end": 0.651,
+                "base": 5.12,
+                "top": 14.12,
+                "material": "recessGlass",
+                "horizontalMullions": 1,
+                "verticalMullionSpacing": 1.26
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Lower louvred plant screen side 1",
+        "footprint": [
+          [
+            516.89965,
+            -394.70484
+          ],
+          [
+            522.64117,
+            -396.9088
+          ],
+          [
+            522.69851,
+            -396.75942
+          ],
+          [
+            516.95699,
+            -394.55546
+          ]
+        ],
+        "baseOffset": 19.5,
+        "height": 22.47,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "plant",
+          "features": []
+        }
+      },
+      {
+        "name": "Lower louvred plant screen side 2",
+        "footprint": [
+          [
+            522.74453,
+            -396.86278
+          ],
+          [
+            528.92637,
+            -380.75852
+          ],
+          [
+            528.77699,
+            -380.70118
+          ],
+          [
+            522.59515,
+            -396.80544
+          ]
+        ],
+        "baseOffset": 19.5,
+        "height": 22.47,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "plant",
+          "features": []
+        }
+      },
+      {
+        "name": "Lower louvred plant screen side 3",
+        "footprint": [
+          [
+            528.88035,
+            -380.65516
+          ],
+          [
+            523.13883,
+            -378.4512
+          ],
+          [
+            523.08149,
+            -378.60058
+          ],
+          [
+            528.82301,
+            -380.80454
+          ]
+        ],
+        "baseOffset": 19.5,
+        "height": 22.47,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "plant",
+          "features": []
+        }
+      },
+      {
+        "name": "Lower louvred plant screen side 4",
+        "footprint": [
+          [
+            523.03547,
+            -378.49722
+          ],
+          [
+            516.85363,
+            -394.60148
+          ],
+          [
+            517.00301,
+            -394.65882
+          ],
+          [
+            523.18485,
+            -378.55456
+          ]
+        ],
+        "baseOffset": 19.5,
+        "height": 22.47,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "plant",
+          "features": []
+        }
+      },
+      {
+        "name": "Equipment bed within the louvred roof screen",
+        "footprint": [
+          [
+            516.92832,
+            -394.63015
+          ],
+          [
+            522.66984,
+            -396.83411
+          ],
+          [
+            528.85168,
+            -380.72985
+          ],
+          [
+            523.11016,
+            -378.52589
+          ]
+        ],
+        "baseOffset": 19.5,
+        "height": 20.65,
+        "floors": 1,
+        "material": "plantRoof",
+        "facade": {
+          "material": "plantRoof",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "plantRoof",
+          "features": [
+            {
+              "type": "hvac",
+              "center": [
+                520.5409,
+                -393.79962
+              ],
+              "size": [
+                4.55,
+                2.3
+              ],
+              "height": 1.36,
+              "rotation": -21,
+              "material": "equipment"
+            },
+            {
+              "type": "hvac",
+              "center": [
+                521.71545,
+                -390.73981
+              ],
+              "size": [
+                4.55,
+                2.3
+              ],
+              "height": 1.36,
+              "rotation": -21,
+              "material": "equipment"
+            },
+            {
+              "type": "hvac",
+              "center": [
+                522.89,
+                -387.68
+              ],
+              "size": [
+                4.55,
+                2.3
+              ],
+              "height": 1.36,
+              "rotation": -21,
+              "material": "equipment"
+            },
+            {
+              "type": "hvac",
+              "center": [
+                524.06455,
+                -384.62019
+              ],
+              "size": [
+                4.55,
+                2.3
+              ],
+              "height": 1.36,
+              "rotation": -21,
+              "material": "equipment"
+            },
+            {
+              "type": "hvac",
+              "center": [
+                525.2391,
+                -381.56038
+              ],
+              "size": [
+                4.55,
+                2.3
+              ],
+              "height": 1.36,
+              "rotation": -21,
+              "material": "equipment"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Curved concrete paving on the south seating patio",
+        "footprint": [
+          [
+            508.35,
+            -374.8
+          ],
+          [
+            511.37,
+            -376.05
+          ],
+          [
+            513.69,
+            -376.75
+          ],
+          [
+            516.05,
+            -376.75
+          ],
+          [
+            518.32,
+            -376.02
+          ],
+          [
+            520.44,
+            -374.62
+          ],
+          [
+            523.46,
+            -371.35
+          ],
+          [
+            524.12,
+            -366.13
+          ],
+          [
+            523.24,
+            -365.83
+          ],
+          [
+            521.74,
+            -365.65
+          ],
+          [
+            519.9,
+            -365.66
+          ],
+          [
+            518.15,
+            -365.92
+          ],
+          [
+            516.14,
+            -366.42
+          ],
+          [
+            514.34,
+            -367.08
+          ],
+          [
+            512.39,
+            -367.98
+          ],
+          [
+            510.72,
+            -369.03
+          ],
+          [
+            509.27,
+            -370.18
+          ],
+          [
+            508.5,
+            -371.35
+          ],
+          [
+            508.28,
+            -372.72
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.12,
+        "material": "patio",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "patio",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "patio",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "patio",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "patio",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "South patio bench 1 seat",
+        "footprint": [
+          [
+            510.99315,
+            -370.08438
+          ],
+          [
+            512.19526,
+            -369.27355
+          ],
+          [
+            511.92685,
+            -368.87562
+          ],
+          [
+            510.72474,
+            -369.68645
+          ]
+        ],
+        "baseOffset": 0.45,
+        "height": 0.54,
+        "material": "bench",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "bench",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "bench",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "bench",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "bench",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "South patio bench 1 support 1",
+        "footprint": [
+          [
+            511.11805,
+            -369.94586
+          ],
+          [
+            511.2507,
+            -369.85639
+          ],
+          [
+            511.03261,
+            -369.53306
+          ],
+          [
+            510.89996,
+            -369.62253
+          ]
+        ],
+        "baseOffset": 0.12,
+        "height": 0.45,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "South patio bench 1 support 2",
+        "footprint": [
+          [
+            511.8874,
+            -369.42694
+          ],
+          [
+            512.02005,
+            -369.33747
+          ],
+          [
+            511.80196,
+            -369.01414
+          ],
+          [
+            511.66931,
+            -369.10361
+          ]
+        ],
+        "baseOffset": 0.12,
+        "height": 0.45,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "South patio bench 2 seat",
+        "footprint": [
+          [
+            515.3753,
+            -367.95413
+          ],
+          [
+            516.69994,
+            -367.36437
+          ],
+          [
+            516.5047,
+            -366.92587
+          ],
+          [
+            515.18006,
+            -367.51563
+          ]
+        ],
+        "baseOffset": 0.45,
+        "height": 0.54,
+        "material": "bench",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "bench",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "bench",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "bench",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "bench",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "South patio bench 2 support 1",
+        "footprint": [
+          [
+            515.52235,
+            -367.8394
+          ],
+          [
+            515.66852,
+            -367.77432
+          ],
+          [
+            515.50989,
+            -367.41804
+          ],
+          [
+            515.36372,
+            -367.48312
+          ]
+        ],
+        "baseOffset": 0.12,
+        "height": 0.45,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "South patio bench 2 support 2",
+        "footprint": [
+          [
+            516.37011,
+            -367.46196
+          ],
+          [
+            516.51628,
+            -367.39688
+          ],
+          [
+            516.35765,
+            -367.0406
+          ],
+          [
+            516.21148,
+            -367.10568
+          ]
+        ],
+        "baseOffset": 0.12,
+        "height": 0.45,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "South patio bench 3 seat",
+        "footprint": [
+          [
+            520.00406,
+            -366.89447
+          ],
+          [
+            521.44612,
+            -366.7429
+          ],
+          [
+            521.39594,
+            -366.26553
+          ],
+          [
+            519.95388,
+            -366.4171
+          ]
+        ],
+        "baseOffset": 0.45,
+        "height": 0.54,
+        "material": "bench",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "bench",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "bench",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "bench",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "bench",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "South patio bench 3 support 1",
+        "footprint": [
+          [
+            520.17936,
+            -366.8308
+          ],
+          [
+            520.33848,
+            -366.81408
+          ],
+          [
+            520.29772,
+            -366.42622
+          ],
+          [
+            520.1386,
+            -366.44294
+          ]
+        ],
+        "baseOffset": 0.12,
+        "height": 0.45,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "South patio bench 3 support 2",
+        "footprint": [
+          [
+            521.10228,
+            -366.73379
+          ],
+          [
+            521.2614,
+            -366.71707
+          ],
+          [
+            521.22064,
+            -366.32921
+          ],
+          [
+            521.06152,
+            -366.34593
+          ]
+        ],
+        "baseOffset": 0.12,
+        "height": 0.45,
+        "material": "trim",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none",
+          "features": []
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "slot",
+        "width": 1.2,
+        "height": 2.78,
+        "sill": 0.82,
+        "perBay": 1,
+        "recess": 0.1,
+        "frameColor": "#565e60",
+        "glass": "tinted",
+        "glassColor": "#526e77",
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 2,
+          "width": 0.056
+        }
+      },
+      "bays": {
+        "width": 3.16,
+        "pattern": "irregular",
+        "edgeMargin": 0.64
+      },
+      "groundFloor": {
+        "height": 4.65,
+        "material": "base",
+        "windows": {
+          "type": "storefront",
+          "perBay": 1,
+          "height": 3.4,
+          "sill": 0.18,
+          "width": 2.7,
+          "frameColor": "#637278",
+          "glassColor": "#657b79",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 2,
+            "width": 0.055
+          },
+          "recess": 0.2
+        }
+      },
+      "bands": [
+        {
+          "at": [
+            4.85
+          ],
+          "height": 0.7,
+          "depth": 0.35,
+          "material": "trim"
+        },
+        {
+          "at": "floor-lines",
+          "height": 0.84,
+          "depth": 0.08,
+          "material": "wall"
+        }
+      ],
+      "parapet": {
+        "height": 0.38,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 3.38,
+          "pattern": "irregular"
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 3.05,
+          "pattern": "irregular",
+          "edgeMargin": 0.45
+        },
+        "groundFloor": {
+          "material": "base",
+          "windows": {
+            "type": "storefront",
+            "perBay": 1,
+            "height": 3.4,
+            "sill": 0.18,
+            "width": 2.7,
+            "frameColor": "#637278",
+            "glassColor": "#657b79",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.055
+            },
+            "recess": 0.2
+          }
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 3.61,
+          "pattern": "irregular"
+        },
+        "groundFloor": {
+          "material": "base",
+          "windows": {
+            "type": "punched",
+            "perBay": 1,
+            "height": 3.4,
+            "sill": 0.18,
+            "width": 1.35,
+            "frameColor": "#637278",
+            "glassColor": "#657b79",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.055
+            },
+            "recess": 0.2
+          }
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 3.52,
+          "pattern": "irregular"
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 6.47,
+          "pattern": "irregular"
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 4.9,
+          "height": 2.8,
+          "sill": 0.46,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#666b68",
+          "glass": "tinted",
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 1,
+            "width": 0.07
+          }
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 3.41,
+          "pattern": "irregular"
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 3.6,
+          "pattern": "irregular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": []
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.8,
+      "type": "glass-vestibule",
+      "width": 2.5,
+      "height": 2.85,
+      "recess": 1.1,
+      "steps": 0
+    },
+    {
+      "wall": 1,
+      "position": 0.39,
+      "type": "doors-double",
+      "width": 2.2,
+      "height": 2.55,
+      "recess": 0.4,
+      "steps": 0,
+      "doorColor": "#68818a"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "373917244",
+      "walls": [
+        1,
+        2
+      ],
+      "note": "Three upper rows of narrow glazing above a rough stone plinth. Deeper recess interrupts the two lowest zinc-clad rows in the north elevation."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373917254",
+      "walls": [
+        1,
+        2
+      ],
+      "note": "From the parking lot the zinc volume overhangs the ground storey. A lower roof and a set-back plant enclosure step the skyline."
+    },
+    {
+      "kind": "photo",
+      "note": "Western's exterior photo supplies blue-grey zinc #727d82 and warmer stone #a5a29b samples. Large glass bay and recessed entry visible.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/PHFM.jpg"
+    },
+    {
+      "kind": "knowledge",
+      "note": "The project's panel fabricator identifies pre-patinated zinc, vertical standing seams and four storeys.",
+      "url": "https://agwaymetals.com/thinking-zinc-examining-the-cladding-options/"
+    },
+    {
+      "kind": "aerial",
+      "note": "Bent footprint with rounded inner elbow. White flat main roof and a large raised block over the west arm, with a separate equipment strip."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 19.99 m. Roof over the west arm reaches 23.68 m at P90 and 24 m at maximum."
+    },
+    {
+      "kind": "photo",
+      "url": "https://designandbuildwithmetal.com/images/default-source/suppliers/RHEINZINK-America-Inc-/western-centre/western-centre-1.jpg",
+      "walls": [
+        1,
+        2
+      ],
+      "note": "RHEINZINK project photograph. Sparse large divided windows and glazed doors below a thin canopy, tall stone fins in a genuine two-storey recess, and a louvred penthouse. Zinc sample #859daa, stone #8b7e77, fins #898e96."
+    }
+  ],
+  "notes": "Observed physical elements include the enlarged penthouse, louvred rooftop screen with five equipment assemblies, small flues, rounded south elbow, recessed stone base, zinc fascia, and an inferred two-storey projecting oriel on wall 0 based on the adjoining corner with wall 1. The exact oriel placement, unmeasured stack positions, and east and south bay spacing remain inferred rather than directly measured, and plant louvers and variable stone courses read weakly in render."
+}

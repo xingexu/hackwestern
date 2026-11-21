@@ -1,0 +1,1730 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w147379378",
+  "name": "Ursuline Hall",
+  "status": "refined",
+  "confidence": 0.94,
+  "summary": "Brown and grey fieldstone wings flank a square battlemented entrance tower above the sloping front lawn. Stepped gables, pale stone sills, white sash windows, and small gabled dormers articulate the elevations.",
+  "style": "collegiate-gothic",
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "146585449",
+      "walls": [
+        14,
+        16,
+        18,
+        19,
+        22
+      ],
+      "note": "Front elevation. Rubble masonry, paired and single white windows, acute arches on the southern first floor and individual gabled dormers. Central tower is scaffolded in this frame."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "146585451",
+      "walls": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "note": "Projecting end has a stepped gable and narrow attic opening. Stone stringcourses run around the corner. Main approach climbs through the lawn."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "146585439",
+      "walls": [
+        14,
+        16,
+        18,
+        19,
+        22
+      ],
+      "note": "Axial approach shows the tower projecting in front of the wings and the level difference to the drive."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/UH.jpg",
+      "note": "Clear view without scaffolding. Top of the tower has paired open arches, battlements and taller corners. Repeated window pairs sit under gabled dormers."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/visarts/research/2011-12/special_spaces/bk/Kestle2.jpg",
+      "note": "Straight-on tower, recessed Gothic doorway and broad outdoor stair in flights with black rails."
+    },
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. A broad level roof is edged by dark slopes with dormer and gable projections. The square tower sits on the east approach. A lower flat-roof north addition steps back to the west."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 15.46 m, P90 17.31 m, maximum 25.04 m. Main roof approximately 16–17 m. The north addition reads around 12 m. Tower peaks at approximately 25 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/img/about/bnr/brescia-bnr.jpg",
+      "walls": [
+        14,
+        16,
+        18,
+        19,
+        22
+      ],
+      "note": "Campus panorama resolves six twin-window dormers, three on either side of the tower. Tall pointed chapel windows line the south wing, paired rectangular windows the north. The lawn-side flight reaches the tower portal. Sunlit masonry and portal stone sampled here."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/img/about/bnr/brescia-bnr.jpg",
+      "walls": [
+        14,
+        16,
+        18,
+        19,
+        22
+      ],
+      "note": "The tower crown has a taller blunt corner shaft and cross. The six principal dormers sit at the slope edge on the east front."
+    },
+    {
+      "kind": "aerial",
+      "note": "Ursuline Hall has small flat north and south return roofs with light grey membrane and pale stone coping, with a paved forecourt beyond the south wall."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#837e70",
+      "variation": 0.36,
+      "secondaryColor": "#a59d89",
+      "unitSize": [
+        0.55,
+        0.235
+      ],
+      "bond": "coursed-rubble",
+      "roughness": 0.95
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#a49e8d",
+      "variation": 0.11,
+      "secondaryColor": "#b8b1a0",
+      "unitSize": [
+        0.54,
+        0.26
+      ],
+      "bond": "running"
+    },
+    "roof": {
+      "kind": "slate",
+      "color": "#646b65",
+      "variation": 0.16,
+      "secondaryColor": "#4f5954",
+      "unitSize": [
+        0.32,
+        0.23
+      ],
+      "bond": "running",
+      "weathering": 0.32
+    },
+    "flat": {
+      "kind": "membrane",
+      "color": "#97988b",
+      "variation": 0.09
+    },
+    "base": {
+      "kind": "rubble-stone",
+      "color": "#807d70",
+      "variation": 0.33,
+      "secondaryColor": "#a89e8a",
+      "unitSize": [
+        0.52,
+        0.3
+      ],
+      "bond": "coursed-rubble"
+    },
+    "lightRoof": {
+      "kind": "membrane",
+      "color": "#b4b4a8",
+      "secondaryColor": "#a1a29b",
+      "weathering": 0.42,
+      "roughness": 0.94
+    },
+    "greenCap": {
+      "kind": "copper-patina",
+      "color": "#488578"
+    },
+    "finial": {
+      "kind": "painted-metal",
+      "color": "#d9d9ce",
+      "metalness": 0.45
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 3.65,
+    "typicalHeight": 4.55,
+    "raisedGround": 0.37
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.05,
+        "height": 1.85,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.14,
+        "frameColor": "#eeeae0",
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "glass": "clear",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "bays": {
+        "width": 3.1,
+        "pattern": "regular",
+        "edgeMargin": 0.24
+      },
+      "bands": [
+        {
+          "at": [
+            4.23,
+            12.99
+          ],
+          "height": 0.19,
+          "depth": 0.1,
+          "material": "trim"
+        }
+      ],
+      "base": {
+        "height": 0.85,
+        "material": "base",
+        "projection": 0.11
+      },
+      "cornice": {
+        "height": 0.26,
+        "depth": 0.19,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 3,
+          "width": 3.75,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 3,
+          "width": 3.55,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 1,
+          "width": 4.91,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 1,
+          "width": 4.9,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 2,
+          "width": 2.96,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 2,
+          "width": 3.63,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 2,
+          "width": 3.82,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 1,
+          "width": 2.86,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 5,
+          "width": 3.41,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 8,
+          "width": 3.36,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.85,
+          "sill": 0.85,
+          "perBay": 2,
+          "recess": 0.14,
+          "frameColor": "#eeeae0",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 1,
+          "width": 3.71,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "11": {
+        "bays": {
+          "count": 2,
+          "width": 3.62,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "12": {
+        "bays": {
+          "count": 1,
+          "width": 3.37,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "13": {
+        "bays": {
+          "count": 4,
+          "width": 3.06,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "14": {
+        "bays": {
+          "count": 3,
+          "width": 4.37,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.08,
+          "height": 1.85,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#eeeae0",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        },
+        "gables": {
+          "type": "stepped",
+          "count": 1
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.05,
+            "height": 1.85,
+            "sill": 0.85,
+            "perBay": 1,
+            "recess": 0.14,
+            "frameColor": "#eeeae0",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "glass": "clear",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true
+          }
+        }
+      },
+      "15": {
+        "bays": {
+          "count": 1,
+          "width": 3.62,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "16": {
+        "bays": {
+          "count": 7,
+          "width": 2.65,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.99,
+          "height": 1.85,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#eeeae0",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "lancet",
+            "width": 1.45,
+            "height": 3.2,
+            "sill": 0.54,
+            "perBay": 1,
+            "recess": 0.14,
+            "frameColor": "#d8cfc0",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.055
+            },
+            "glass": "clear",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "tracery": true,
+            "hoodMould": true
+          }
+        }
+      },
+      "17": {
+        "bays": {
+          "count": 1,
+          "width": 3.07,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "18": {
+        "bays": {
+          "count": 1
+        },
+        "windows": {
+          "type": "none"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "none"
+          }
+        }
+      },
+      "19": {
+        "bays": {
+          "count": 3,
+          "width": 3.65,
+          "pattern": "paired"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.91,
+          "height": 1.85,
+          "sill": 0.85,
+          "perBay": 2,
+          "recess": 0.14,
+          "frameColor": "#eeeae0",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        }
+      },
+      "20": {
+        "bays": {
+          "count": 1,
+          "width": 3.15,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "21": {
+        "bays": {
+          "count": 1,
+          "width": 3.64,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "22": {
+        "bays": {
+          "count": 3,
+          "width": 3.91,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.08,
+          "height": 1.85,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.14,
+          "frameColor": "#eeeae0",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "clear",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "spacing": 0.19
+        },
+        "gables": {
+          "type": "stepped",
+          "count": 1
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.05,
+            "height": 1.85,
+            "sill": 0.85,
+            "perBay": 1,
+            "recess": 0.14,
+            "frameColor": "#eeeae0",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "glass": "clear",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true
+          }
+        }
+      },
+      "23": {
+        "bays": {
+          "count": 3,
+          "width": 3.04,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "24": {
+        "bays": {
+          "count": 1,
+          "width": 2.82,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "25": {
+        "bays": {
+          "count": 1,
+          "width": 3.3,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "26": {
+        "bays": {
+          "count": 4,
+          "width": 3.85,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "27": {
+        "bays": {
+          "count": 3,
+          "width": 3.68,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "28": {
+        "bays": {
+          "count": 3,
+          "width": 3.69,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "29": {
+        "bays": {
+          "count": 2,
+          "width": 4.24,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "mansard",
+    "material": "roof",
+    "edge": "cornice",
+    "rise": 3.35,
+    "features": [
+      {
+        "type": "dormers",
+        "center": [
+          -476.37,
+          792.56
+        ],
+        "walls": 16,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": -111,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -478.51,
+          786.81
+        ],
+        "walls": 16,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": -111,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -480.58,
+          781.24
+        ],
+        "walls": 16,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": -111,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -500.56,
+          778.2
+        ],
+        "walls": 8,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": 69,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -492.85,
+          792.72
+        ],
+        "walls": 9,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": 69,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -490.05,
+          800.27
+        ],
+        "walls": 9,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": 69,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -489.315,
+          802.626
+        ],
+        "walls": 9,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": 69,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -484.252,
+          765.978
+        ],
+        "walls": 19,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": -111,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -485.781,
+          761.744
+        ],
+        "walls": 19,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": -111,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -486.88,
+          757.346
+        ],
+        "walls": 19,
+        "size": [
+          2.92,
+          2.55
+        ],
+        "rotation": -111,
+        "height": 2.42,
+        "material": "wall",
+        "style": "Twin white sash below a pointed stone gable on the roof edge."
+      }
+    ]
+  },
+  "notes": "The two projecting gables flank a pale, flat-crowned roof. The entrance tower has blunt, unequal corner shafts and a cross. Paired belfry arches, the sculpted figure, roof-edge twin sashes and stair rails require finer detail.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main range with dormered roof",
+        "footprint": [
+          [
+            -512.63,
+            761.14
+          ],
+          [
+            -510.56,
+            766.68
+          ],
+          [
+            -503.75,
+            764.16
+          ],
+          [
+            -501.09,
+            771.31
+          ],
+          [
+            -503.77,
+            772.3
+          ],
+          [
+            -497.83,
+            788.27
+          ],
+          [
+            -495.8,
+            787.51
+          ],
+          [
+            -486.663,
+            812.105
+          ],
+          [
+            -466.982,
+            804.551
+          ],
+          [
+            -478.708,
+            809.051
+          ],
+          [
+            -482.9,
+            798.129
+          ],
+          [
+            -471.064,
+            793.586
+          ],
+          [
+            -471.07,
+            793.57
+          ],
+          [
+            -474.46,
+            794.82
+          ],
+          [
+            -480.94,
+            777.41
+          ],
+          [
+            -478.05,
+            776.35
+          ],
+          [
+            -481.25,
+            767.76
+          ],
+          [
+            -482.95,
+            768.4
+          ],
+          [
+            -486.72,
+            758.26
+          ],
+          [
+            -483.77,
+            757.15
+          ],
+          [
+            -485.04,
+            753.75
+          ],
+          [
+            -487.15,
+            754.53
+          ],
+          [
+            -487.506,
+            753.569
+          ],
+          [
+            -498.4,
+            757.751
+          ],
+          [
+            -502.322,
+            747.534
+          ],
+          [
+            -521.17,
+            754.622
+          ],
+          [
+            -519.72,
+            758.53
+          ],
+          [
+            -509.74,
+            754.83
+          ],
+          [
+            -508.03,
+            759.43
+          ]
+        ],
+        "height": 13.7,
+        "floors": 3,
+        "roof": {
+          "form": "mansard",
+          "material": "roof",
+          "edge": "cornice",
+          "rise": 3.35,
+          "features": [
+            {
+              "type": "dormers",
+              "center": [
+                -476.37,
+                792.56
+              ],
+              "walls": 16,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": -111,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            },
+            {
+              "type": "dormers",
+              "center": [
+                -478.51,
+                786.81
+              ],
+              "walls": 16,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": -111,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            },
+            {
+              "type": "dormers",
+              "center": [
+                -480.58,
+                781.24
+              ],
+              "walls": 16,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": -111,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            },
+            {
+              "type": "dormers",
+              "center": [
+                -500.56,
+                778.2
+              ],
+              "walls": 8,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": 69,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            },
+            {
+              "type": "dormers",
+              "center": [
+                -492.85,
+                792.72
+              ],
+              "walls": 9,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": 69,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            },
+            {
+              "type": "dormers",
+              "center": [
+                -490.05,
+                800.27
+              ],
+              "walls": 9,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": 69,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            },
+            {
+              "type": "dormers",
+              "center": [
+                -489.315,
+                802.626
+              ],
+              "walls": 9,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": 69,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            },
+            {
+              "type": "dormers",
+              "center": [
+                -484.252,
+                765.978
+              ],
+              "walls": 19,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": -111,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            },
+            {
+              "type": "dormers",
+              "center": [
+                -485.781,
+                761.744
+              ],
+              "walls": 19,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": -111,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            },
+            {
+              "type": "dormers",
+              "center": [
+                -486.88,
+                757.346
+              ],
+              "walls": 19,
+              "size": [
+                2.92,
+                2.55
+              ],
+              "rotation": -111,
+              "height": 2.42,
+              "material": "wall",
+              "style": "Twin white sash below a pointed stone gable on the roof edge."
+            }
+          ],
+          "ridge": 159
+        }
+      },
+      {
+        "name": "Lower north addition",
+        "footprint": [
+          [
+            -499.805,
+            746.583
+          ],
+          [
+            -501.602,
+            744.402
+          ],
+          [
+            -504.71,
+            745.552
+          ],
+          [
+            -510.814,
+            731.411
+          ],
+          [
+            -521.16,
+            735.264
+          ],
+          [
+            -518.296,
+            742.948
+          ],
+          [
+            -517.97,
+            742.823
+          ],
+          [
+            -512.828,
+            751.486
+          ]
+        ],
+        "height": 11.95,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "lightRoof",
+          "edge": "parapet"
+        },
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.23,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "Low south end return",
+        "footprint": [
+          [
+            -486.45,
+            812.68
+          ],
+          [
+            -484.96,
+            812.12
+          ],
+          [
+            -483.66,
+            815.6
+          ],
+          [
+            -476.88,
+            813.07
+          ],
+          [
+            -478.06,
+            809.91
+          ],
+          [
+            -466.58,
+            805.63
+          ],
+          [
+            -466.982,
+            804.551
+          ],
+          [
+            -486.663,
+            812.105
+          ]
+        ],
+        "height": 12.84,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "lightRoof",
+          "edge": "parapet"
+        },
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.22,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "Lower north-west annex",
+        "footprint": [
+          [
+            -512.828,
+            751.486
+          ],
+          [
+            -517.97,
+            742.823
+          ],
+          [
+            -518.296,
+            742.948
+          ],
+          [
+            -517.292,
+            745.648
+          ],
+          [
+            -525.238,
+            748.612
+          ],
+          [
+            -521.215,
+            754.641
+          ]
+        ],
+        "height": 8.65,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "lightRoof",
+          "edge": "parapet"
+        },
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.23,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "South projecting gabled pavilion",
+        "footprint": [
+          [
+            -471.064,
+            793.586
+          ],
+          [
+            -482.9,
+            798.129
+          ],
+          [
+            -478.708,
+            809.051
+          ],
+          [
+            -466.982,
+            804.551
+          ]
+        ],
+        "height": 13.4,
+        "floors": 3,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "cornice",
+          "ridge": 69,
+          "rise": 3.42
+        },
+        "wallProfiles": {
+          "14": {
+            "gables": {
+              "type": "stepped",
+              "count": 1
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.03,
+                "height": 1.55
+              }
+            },
+            "windows": {
+              "perBay": 2,
+              "width": 0.91,
+              "height": 1.61
+            },
+            "bays": {
+              "count": 2
+            }
+          }
+        }
+      },
+      {
+        "name": "North projecting gabled pavilion",
+        "footprint": [
+          [
+            -491.22,
+            743.54
+          ],
+          [
+            -499.76,
+            746.71
+          ],
+          [
+            -499.806,
+            746.588
+          ],
+          [
+            -502.322,
+            747.534
+          ],
+          [
+            -498.4,
+            757.751
+          ],
+          [
+            -487.506,
+            753.569
+          ]
+        ],
+        "height": 13.4,
+        "floors": 3,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "cornice",
+          "ridge": 69,
+          "rise": 3.42
+        },
+        "wallProfiles": {
+          "22": {
+            "gables": {
+              "type": "stepped",
+              "count": 1
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.03,
+                "height": 1.55
+              }
+            },
+            "windows": {
+              "perBay": 2,
+              "width": 0.91,
+              "height": 1.61
+            },
+            "bays": {
+              "count": 2
+            }
+          }
+        }
+      },
+      {
+        "name": "Level membrane crown",
+        "footprint": [
+          [
+            -509.476,
+            762.581
+          ],
+          [
+            -509.12,
+            763.535
+          ],
+          [
+            -502.307,
+            761.013
+          ],
+          [
+            -497.938,
+            772.757
+          ],
+          [
+            -500.618,
+            773.747
+          ],
+          [
+            -496.39,
+            785.115
+          ],
+          [
+            -494.359,
+            784.354
+          ],
+          [
+            -485.229,
+            808.93
+          ],
+          [
+            -481.873,
+            807.642
+          ],
+          [
+            -486.065,
+            796.72
+          ],
+          [
+            -477.579,
+            793.463
+          ],
+          [
+            -484.095,
+            775.958
+          ],
+          [
+            -481.205,
+            774.898
+          ],
+          [
+            -482.688,
+            770.919
+          ],
+          [
+            -484.389,
+            771.56
+          ],
+          [
+            -489.778,
+            757.065
+          ],
+          [
+            -499.809,
+            760.916
+          ],
+          [
+            -503.737,
+            750.684
+          ],
+          [
+            -508.063,
+            752.31
+          ],
+          [
+            -504.88,
+            760.873
+          ]
+        ],
+        "height": 17.06,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "lightRoof",
+          "edge": "none",
+          "features": []
+        },
+        "baseOffset": 17.015,
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Projecting stone portal surround",
+        "footprint": [
+          [
+            -476.909,
+            773.283
+          ],
+          [
+            -478.413,
+            769.246
+          ],
+          [
+            -479.331,
+            769.588
+          ],
+          [
+            -477.827,
+            773.626
+          ]
+        ],
+        "height": 5.4,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "flat",
+          "edge": "cornice",
+          "features": []
+        },
+        "facade": {
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "trim",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        }
+      },
+      {
+        "name": "Blunt south corner shaft above tower battlements",
+        "footprint": [
+          [
+            -479.26,
+            775.522
+          ],
+          [
+            -478.233,
+            775.128
+          ],
+          [
+            -477.821,
+            776.202
+          ],
+          [
+            -478.848,
+            776.596
+          ]
+        ],
+        "height": 25.69,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "wall",
+          "edge": "none",
+          "features": []
+        },
+        "baseOffset": 22.93,
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        }
+      }
+    ]
+  },
+  "towers": [
+    {
+      "name": "Entrance tower",
+      "at": [
+        -482.362,
+        772.968
+      ],
+      "plan": "square",
+      "size": [
+        8.35,
+        8.75
+      ],
+      "rotation": -21,
+      "height": 23.5,
+      "top": {
+        "type": "battlements",
+        "height": 1.5,
+        "material": "wall"
+      },
+      "pinnacles": 0,
+      "belfry": true,
+      "material": "wall",
+      "buttresses": true,
+      "windows": {
+        "type": "lancet",
+        "width": 1.54,
+        "height": 5.3,
+        "perBay": 2,
+        "spacing": 0.21,
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "topStage": true
+      }
+    },
+    {
+      "name": "Polygonal chapel projection",
+      "at": [
+        -479.001,
+        781.446
+      ],
+      "size": [
+        2.75,
+        2.75
+      ],
+      "plan": "octagon",
+      "height": 6.38,
+      "top": {
+        "type": "pyramid",
+        "height": 1.44,
+        "material": "greenCap"
+      },
+      "material": "wall",
+      "pinnacles": 0
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 18,
+      "position": 0.5,
+      "type": "gothic-portal",
+      "width": 2.62,
+      "height": 3.65,
+      "recess": 0.62,
+      "steps": 1,
+      "surround": "trim",
+      "at": [
+        -477.661,
+        771.265
+      ]
+    },
+    {
+      "wall": 2,
+      "position": 0.56,
+      "type": "doors-single",
+      "width": 1.05,
+      "height": 2.15
+    }
+  ],
+  "attachments": [
+    {
+      "type": "exterior-stair",
+      "walls": 18,
+      "path": [
+        [
+          -471.83,
+          769.09
+        ],
+        [
+          -477.389,
+          771.163
+        ]
+      ],
+      "gradeEntry": 0,
+      "width": 3.35,
+      "height": 2.32,
+      "baseOffset": -2.32,
+      "landing": true,
+      "material": "trim"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -483.11,
+          817.115
+        ],
+        [
+          -465.839,
+          810.485
+        ]
+      ],
+      "width": 3.25,
+      "height": 0.16,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -477.47,
+          810.88
+        ],
+        [
+          -468.508,
+          807.439
+        ]
+      ],
+      "width": 0.28,
+      "height": 0.49,
+      "material": "wall"
+    },
+    {
+      "type": "chimney-stack",
+      "path": [
+        [
+          -478.823,
+          771.499
+        ],
+        [
+          -478.751,
+          771.685
+        ]
+      ],
+      "width": 0.18,
+      "height": 3.34,
+      "material": "finial",
+      "baseOffset": 23.48
+    },
+    {
+      "type": "chimney-stack",
+      "path": [
+        [
+          -479.063,
+          770.873
+        ],
+        [
+          -478.511,
+          772.311
+        ]
+      ],
+      "width": 0.18,
+      "height": 0.18,
+      "material": "finial",
+      "baseOffset": 25.91
+    }
+  ]
+}

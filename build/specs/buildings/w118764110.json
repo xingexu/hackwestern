@@ -1,0 +1,2365 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764110",
+  "name": "Spencer Engineering Building",
+  "status": "refined",
+  "confidence": 0.81,
+  "style": "collegiate-gothic",
+  "summary": "North entrance tower rises above a two-storey grey stone wing with flat-roofed laboratory additions stepping down the hill to the south.",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#aaa08c",
+      "unitSize": [
+        0.74,
+        0.28
+      ],
+      "secondaryColor": "#9a9183",
+      "bond": "random-ashlar",
+      "variation": 0.31,
+      "roughness": 0.88
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#8b8674"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#cfc5b1"
+    },
+    "precast": {
+      "kind": "precast-panel",
+      "color": "#d5c8ad",
+      "unitSize": [
+        1.45,
+        3.8
+      ],
+      "secondaryColor": "#beb39e"
+    },
+    "wellGlass": {
+      "kind": "spandrel-glass",
+      "color": "#758779"
+    },
+    "plantMetal": {
+      "kind": "painted-metal",
+      "color": "#adada4",
+      "metalness": 0.24,
+      "roughness": 0.7
+    },
+    "cricket": {
+      "kind": "painted-metal",
+      "color": "#d1cfc0",
+      "metalness": 0.16,
+      "roughness": 0.77
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 4.5,
+    "typicalHeight": 3.85
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.2,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "punched",
+        "width": 0.81,
+        "height": 2.05,
+        "sill": 0.82,
+        "perBay": 2,
+        "recess": 0.22,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 2,
+          "width": 0.09
+        },
+        "glass": "leaded",
+        "frameColor": "#bdb39e",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true,
+        "spacing": 0.17
+      },
+      "parapet": {
+        "height": 0.62,
+        "type": "coped",
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.13,
+          "depth": 0.07,
+          "material": "trim"
+        }
+      ],
+      "base": {
+        "height": 0.65,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 2,
+          "width": 4.8,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 4,
+          "width": 4.21,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 4,
+          "width": 3.88,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 4,
+          "width": 4.62,
+          "pattern": "regular"
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 3,
+          "width": 4.19,
+          "pattern": "regular"
+        }
+      },
+      "25": {
+        "bays": {
+          "count": 9,
+          "width": 4.43,
+          "pattern": "regular"
+        }
+      },
+      "30": {
+        "bays": {
+          "count": 4,
+          "width": 5.1,
+          "pattern": "regular"
+        }
+      },
+      "32": {
+        "bays": {
+          "count": 4,
+          "width": 5.22,
+          "pattern": "regular"
+        }
+      },
+      "41": {
+        "bays": {
+          "count": 3,
+          "width": 5.07,
+          "pattern": "regular"
+        }
+      },
+      "42": {
+        "bays": {
+          "count": 5,
+          "width": 4.45,
+          "pattern": "regular"
+        }
+      },
+      "43": {
+        "bays": {
+          "count": 2,
+          "width": 4.42,
+          "pattern": "regular"
+        }
+      },
+      "45": {
+        "bays": {
+          "count": 3,
+          "width": 5.49,
+          "pattern": "regular"
+        }
+      },
+      "17": {
+        "windows": {
+          "type": "slot",
+          "width": 0.55,
+          "height": 3.45,
+          "sill": 0.2,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "perBay": 1
+        },
+        "bays": {
+          "width": 2.65
+        },
+        "material": "precast",
+        "piers": {
+          "every": 1,
+          "width": 1.2,
+          "depth": 1.0,
+          "material": "precast",
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "base": {
+          "height": 2.6,
+          "material": "wall"
+        },
+        "bands": [],
+        "blank": false
+      },
+      "18": {
+        "windows": {
+          "type": "slot",
+          "width": 0.55,
+          "height": 3.45,
+          "sill": 0.2,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "perBay": 1
+        },
+        "bays": {
+          "width": 2.65
+        },
+        "material": "precast",
+        "piers": {
+          "every": 1,
+          "width": 1.2,
+          "depth": 1.0,
+          "material": "precast",
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "base": {
+          "height": 2.6,
+          "material": "wall"
+        },
+        "bands": [],
+        "blank": false
+      },
+      "19": {
+        "windows": {
+          "type": "slot",
+          "width": 0.55,
+          "height": 3.45,
+          "sill": 0.2,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "perBay": 1
+        },
+        "bays": {
+          "width": 2.65
+        },
+        "material": "precast",
+        "piers": {
+          "every": 1,
+          "width": 1.2,
+          "depth": 1.0,
+          "material": "precast",
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "base": {
+          "height": 2.6,
+          "material": "wall"
+        },
+        "bands": [],
+        "blank": false
+      },
+      "20": {
+        "windows": {
+          "type": "slot",
+          "width": 0.55,
+          "height": 3.45,
+          "sill": 0.2,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "perBay": 1
+        },
+        "bays": {
+          "width": 2.65
+        },
+        "material": "precast",
+        "piers": {
+          "every": 1,
+          "width": 1.2,
+          "depth": 1.0,
+          "material": "precast",
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "base": {
+          "height": 2.6,
+          "material": "wall"
+        },
+        "bands": [],
+        "blank": false
+      },
+      "22": {
+        "windows": {
+          "type": "slot",
+          "width": 0.55,
+          "height": 3.45,
+          "sill": 0.2,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "perBay": 1
+        },
+        "bays": {
+          "width": 2.65
+        },
+        "material": "precast",
+        "piers": {
+          "every": 1,
+          "width": 1.2,
+          "depth": 1.0,
+          "material": "precast",
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "base": {
+          "height": 2.6,
+          "material": "wall"
+        },
+        "bands": [],
+        "blank": false
+      },
+      "21": {
+        "blank": false,
+        "windows": {
+          "type": "slot",
+          "width": 0.55,
+          "height": 3.45,
+          "sill": 0.2,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "perBay": 1
+        },
+        "material": "precast",
+        "piers": {
+          "every": 1,
+          "width": 1.2,
+          "depth": 1.0,
+          "material": "precast",
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "base": {
+          "height": 2.6,
+          "material": "wall"
+        },
+        "bays": {
+          "width": 2.65
+        },
+        "bands": []
+      },
+      "23": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "26": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "wall"
+      },
+      "27": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "31": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "33": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "35": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "36": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "16": {
+        "material": "precast",
+        "windows": {
+          "type": "slot",
+          "width": 0.55,
+          "height": 3.45,
+          "sill": 0.2,
+          "frameColor": "#565c5d",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "perBay": 1
+        },
+        "piers": {
+          "every": 1,
+          "width": 1.2,
+          "depth": 1.0,
+          "material": "precast",
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "base": {
+          "height": 2.6,
+          "material": "wall"
+        },
+        "bays": {
+          "width": 2.65
+        },
+        "bands": [],
+        "blank": false
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          42,
+          713
+        ],
+        "size": [
+          5,
+          8
+        ],
+        "height": 1.65,
+        "material": "trim",
+        "rotation": 0
+      },
+      {
+        "type": "hvac",
+        "center": [
+          70,
+          689
+        ],
+        "size": [
+          7,
+          3
+        ],
+        "height": 1.0,
+        "material": "trim",
+        "rotation": 0
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          62.5,
+          636
+        ],
+        "size": [
+          5.2,
+          6.4
+        ],
+        "height": 2.25,
+        "rotation": -4,
+        "material": "roof"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          73.4,
+          628.1
+        ],
+        "size": [
+          6,
+          2.8
+        ],
+        "height": 1.2,
+        "rotation": -4,
+        "material": "trim"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          44,
+          629
+        ],
+        "size": [
+          2.6,
+          3.6
+        ],
+        "height": 0.34,
+        "material": "wellGlass",
+        "rotation": -4
+      },
+      {
+        "type": "skylight",
+        "center": [
+          63,
+          626
+        ],
+        "size": [
+          2.6,
+          3.6
+        ],
+        "height": 0.34,
+        "material": "wellGlass",
+        "rotation": -4
+      },
+      {
+        "type": "hvac",
+        "center": [
+          89.65,
+          685.8
+        ],
+        "size": [
+          1.1,
+          2.1
+        ],
+        "height": 1.1,
+        "material": "plantMetal",
+        "rotation": -4,
+        "style": "condenser fan",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          90.2,
+          691.2
+        ],
+        "size": [
+          1.1,
+          1.7
+        ],
+        "height": 0.84,
+        "material": "plantMetal",
+        "rotation": -4,
+        "style": "condenser fan",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          96.2,
+          688.5
+        ],
+        "size": [
+          2.2,
+          3.0
+        ],
+        "height": 1.3,
+        "material": "plantMetal",
+        "rotation": -4,
+        "style": "condenser fan",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "skylight",
+        "center": [
+          72.3,
+          696.25
+        ],
+        "size": [
+          6.7,
+          1.28
+        ],
+        "height": 0.43,
+        "material": "wellGlass",
+        "rotation": -4
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The small square roof at the north entrance lies between the west and cross wings. The centre link is long and narrow. The south roofs step up around laboratory plant."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 15.7 m, 90th percentile 21.23 m, maximum 27.93 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://commons.wikimedia.org/wiki/File:SEB_Front_Tower.jpg",
+      "note": "The entrance has an open traceried belfry, battlements, arch, paired corner shafts and two rows of multi-light stone windows to the west."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/SEB.jpg",
+      "note": "Axial approach to the tower and the east wing."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "146585525",
+      "walls": [
+        41,
+        42,
+        43
+      ],
+      "note": "Trees obscure most of the north elevation from the road."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "67820751",
+      "walls": [
+        23,
+        24
+      ],
+      "note": "The prominent ribbed stone facade belongs to the adjoining pavilion. It obscures this return."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Main wall colour sampled with PIL from Wikimedia tower photograph. 511 × 520 pixel reference, patch centred at (184, 231), 7 × 7 pixels."
+    },
+    {
+      "kind": "lidar",
+      "walls": [
+        0,
+        1,
+        41,
+        42,
+        43,
+        45
+      ],
+      "note": "Ground along the original northwest wing sits 5.0–6.0 m above the inventory datum. The lower floor is buried from Lambton Drive; two rows face the approach."
+    },
+    {
+      "kind": "kartaview",
+      "note": "The camera is west and south of wall 17. Cream sawtooth fins and a darker base fill its right edge.",
+      "frame": "138539175",
+      "walls": [
+        17,
+        18
+      ]
+    },
+    {
+      "kind": "lidar",
+      "note": "First returns cross the belfry at z 618–625. The central raised laboratory roof reaches 21–22 m above datum and the narrow service strip immediately east of it measures 16 m. The eastern auditorium aisle is about one metre below the main roof. The door at the paved link notch is inferred from the path terminus."
+    },
+    {
+      "kind": "lidar",
+      "note": "The tower corner shoulders are square and finish close to the 27–28 m belfry parapet. The isolated higher return aligns with the flagpole."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "West return",
+        "height": 15.3,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              0,
+              637
+            ],
+            [
+              49,
+              637
+            ],
+            [
+              49,
+              659
+            ],
+            [
+              0,
+              659
+            ]
+          ]
+        },
+        "facade": {
+          "groundFloor": {
+            "height": 5.1,
+            "windows": {
+              "type": "punched",
+              "width": 1.95,
+              "height": 0.94,
+              "sill": 1.0,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "glass": "tinted",
+              "frameColor": "#575751",
+              "surround": "stone",
+              "surroundMaterial": "trim",
+              "sillProjecting": true,
+              "lintel": true
+            }
+          }
+        }
+      },
+      {
+        "name": "East auditorium wing",
+        "height": 12.9,
+        "floors": 2,
+        "footprint": [
+          [
+            96.34,
+            635.68
+          ],
+          [
+            96.8,
+            642.45
+          ],
+          [
+            98.9,
+            642.29
+          ],
+          [
+            116.851,
+            641.268
+          ],
+          [
+            114.952,
+            613.008
+          ],
+          [
+            113.23,
+            613.14
+          ],
+          [
+            113.15,
+            612.13
+          ],
+          [
+            110.1,
+            611.31
+          ],
+          [
+            106.02,
+            611.1
+          ],
+          [
+            102.14,
+            611.96
+          ],
+          [
+            99.38,
+            612.81
+          ],
+          [
+            99.42,
+            613.97
+          ],
+          [
+            97.0,
+            614.14
+          ],
+          [
+            97.63,
+            623.67
+          ],
+          [
+            93.68,
+            623.97
+          ],
+          [
+            91.0,
+            624.112
+          ],
+          [
+            91.0,
+            636.102
+          ]
+        ],
+        "facade": {
+          "piers": {
+            "every": 1,
+            "width": 0.45,
+            "depth": 0.32,
+            "material": "wall",
+            "fullHeight": true,
+            "aboveRoof": 0
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 2.0,
+            "sill": 0.7,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      {
+        "name": "Lower eastern auditorium aisle",
+        "height": 11.95,
+        "floors": 2,
+        "footprint": [
+          [
+            117.17,
+            641.25
+          ],
+          [
+            117.07,
+            638.79
+          ],
+          [
+            120.01,
+            638.53
+          ],
+          [
+            118.47,
+            617.7
+          ],
+          [
+            115.62,
+            617.8
+          ],
+          [
+            115.18,
+            612.99
+          ],
+          [
+            114.952,
+            613.008
+          ],
+          [
+            116.851,
+            641.268
+          ]
+        ],
+        "facade": {
+          "piers": {
+            "every": 1,
+            "width": 0.45,
+            "depth": 0.32,
+            "material": "wall",
+            "fullHeight": true,
+            "aboveRoof": 0
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 2.0,
+            "sill": 0.7,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      {
+        "name": "Lower east side of connecting range",
+        "height": 8.6,
+        "floors": 2,
+        "footprint": [
+          [
+            91.0,
+            679.0
+          ],
+          [
+            91.0,
+            673.371
+          ],
+          [
+            76.13,
+            674.48
+          ],
+          [
+            73.182,
+            637.0
+          ],
+          [
+            70.0,
+            637.0
+          ],
+          [
+            70.0,
+            679.0
+          ]
+        ],
+        "facade": {
+          "piers": {
+            "every": 1,
+            "width": 0.45,
+            "depth": 0.32,
+            "material": "wall",
+            "fullHeight": true,
+            "aboveRoof": 0
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 2.0,
+            "sill": 0.7,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      {
+        "name": "Central link",
+        "height": 15.4,
+        "floors": 3,
+        "footprint": [
+          [
+            53.48,
+            657.33
+          ],
+          [
+            53.86,
+            663.55
+          ],
+          [
+            49.0,
+            663.808
+          ],
+          [
+            49.0,
+            679.0
+          ],
+          [
+            70.0,
+            679.0
+          ],
+          [
+            70.0,
+            637.0
+          ],
+          [
+            57.232,
+            637.0
+          ],
+          [
+            58.52,
+            652.77
+          ],
+          [
+            58.89,
+            657.0
+          ]
+        ],
+        "facade": {
+          "piers": {
+            "every": 1,
+            "width": 0.45,
+            "depth": 0.32,
+            "material": "wall",
+            "fullHeight": true,
+            "aboveRoof": 0
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.6,
+            "height": 2.0,
+            "sill": 0.7,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      {
+        "name": "Low west laboratory",
+        "height": 8.4,
+        "floors": 1,
+        "footprint": [
+          [
+            36.48,
+            678.14
+          ],
+          [
+            36.538,
+            679.0
+          ],
+          [
+            49,
+            679
+          ],
+          [
+            49,
+            663.808
+          ],
+          [
+            41.98,
+            664.18
+          ],
+          [
+            39.45,
+            671.75
+          ],
+          [
+            40.12,
+            671.88
+          ],
+          [
+            38.78,
+            676.42
+          ],
+          [
+            36.94,
+            676.55
+          ]
+        ]
+      },
+      {
+        "footprint": [
+          [
+            63.84,
+            710.73
+          ],
+          [
+            64.0,
+            710.719
+          ],
+          [
+            64.0,
+            697.0
+          ],
+          [
+            35.0,
+            697.0
+          ],
+          [
+            35.0,
+            722.0
+          ],
+          [
+            64.0,
+            722.0
+          ],
+          [
+            64.0,
+            713.026
+          ]
+        ],
+        "name": "Raised southwest laboratory",
+        "height": 21.2,
+        "floors": 4,
+        "facade": {
+          "material": "precast",
+          "windows": {
+            "type": "slot",
+            "width": 0.55,
+            "height": 3.45,
+            "sill": 0.2,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          },
+          "piers": {
+            "every": 1,
+            "width": 0.28,
+            "depth": 0.64,
+            "material": "precast",
+            "fullHeight": true,
+            "aboveRoof": 0
+          },
+          "base": {
+            "height": 2.6,
+            "material": "wall"
+          },
+          "bays": {
+            "width": 2.65
+          },
+          "bands": []
+        },
+        "material": "precast"
+      },
+      {
+        "footprint": [
+          [
+            31.67,
+            729.02
+          ],
+          [
+            52.59,
+            727.43
+          ],
+          [
+            64.96,
+            726.8
+          ],
+          [
+            64.625,
+            722.0
+          ],
+          [
+            64.0,
+            722.0
+          ],
+          [
+            35.0,
+            722.0
+          ],
+          [
+            31.187,
+            722.0
+          ]
+        ],
+        "name": "Lower south laboratory perimeter",
+        "height": 14.7,
+        "floors": 3,
+        "facade": {
+          "material": "precast",
+          "windows": {
+            "type": "slot",
+            "width": 0.55,
+            "height": 3.45,
+            "sill": 0.2,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          },
+          "piers": {
+            "every": 1,
+            "width": 0.28,
+            "depth": 0.64,
+            "material": "precast",
+            "fullHeight": true,
+            "aboveRoof": 0
+          },
+          "base": {
+            "height": 2.6,
+            "material": "wall"
+          },
+          "bays": {
+            "width": 2.65
+          },
+          "bands": []
+        },
+        "material": "precast"
+      },
+      {
+        "footprint": [
+          [
+            36.8,
+            696.57
+          ],
+          [
+            29.48,
+            697.22
+          ],
+          [
+            31.187,
+            722.0
+          ],
+          [
+            35.0,
+            722.0
+          ],
+          [
+            35.0,
+            697.0
+          ],
+          [
+            56.0,
+            697.0
+          ],
+          [
+            56.0,
+            695.0
+          ],
+          [
+            36.913,
+            695.0
+          ]
+        ],
+        "name": "West laboratory perimeter",
+        "height": 16.1,
+        "floors": 3,
+        "facade": {
+          "material": "precast",
+          "windows": {
+            "type": "slot",
+            "width": 0.55,
+            "height": 3.45,
+            "sill": 0.2,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          },
+          "piers": {
+            "every": 1,
+            "width": 0.28,
+            "depth": 0.64,
+            "material": "precast",
+            "fullHeight": true,
+            "aboveRoof": 0
+          },
+          "base": {
+            "height": 2.6,
+            "material": "wall"
+          },
+          "bays": {
+            "width": 2.65
+          },
+          "bands": []
+        },
+        "material": "precast"
+      },
+      {
+        "footprint": [
+          [
+            36.913,
+            695.0
+          ],
+          [
+            56.0,
+            695.0
+          ],
+          [
+            56.0,
+            679.0
+          ],
+          [
+            36.538,
+            679.0
+          ],
+          [
+            36.98,
+            685.58
+          ],
+          [
+            46.82,
+            684.91
+          ],
+          [
+            47.5,
+            693.97
+          ],
+          [
+            36.93,
+            694.76
+          ]
+        ],
+        "name": "Lower west laboratory",
+        "height": 8.4,
+        "floors": 1,
+        "facade": {
+          "bays": {
+            "width": 4.5
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.7,
+            "height": 1.85,
+            "sill": 0.7,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      {
+        "footprint": [
+          [
+            95.37,
+            708.52
+          ],
+          [
+            95.21,
+            706.25
+          ],
+          [
+            99.44,
+            705.94
+          ],
+          [
+            97.394,
+            679.0
+          ],
+          [
+            92.0,
+            679.0
+          ],
+          [
+            92.0,
+            708.756
+          ]
+        ],
+        "name": "East laboratory strip",
+        "height": 21.15,
+        "floors": 4,
+        "facade": {
+          "bays": {
+            "width": 4.5
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.7,
+            "height": 1.85,
+            "sill": 0.7,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      {
+        "footprint": [
+          [
+            64.0,
+            710.719
+          ],
+          [
+            83.249,
+            709.37
+          ],
+          [
+            92.0,
+            708.756
+          ],
+          [
+            92.0,
+            679.0
+          ],
+          [
+            56.0,
+            679.0
+          ],
+          [
+            56.0,
+            695.0
+          ],
+          [
+            56.0,
+            697.0
+          ],
+          [
+            64.0,
+            697.0
+          ]
+        ],
+        "name": "Central laboratory",
+        "height": 16.1,
+        "floors": 3
+      },
+      {
+        "footprint": [
+          [
+            64.0,
+            722.0
+          ],
+          [
+            64.625,
+            722.0
+          ],
+          [
+            64.18,
+            715.602
+          ],
+          [
+            64.0,
+            713.026
+          ]
+        ],
+        "name": "Central laboratory",
+        "height": 16.1,
+        "floors": 3
+      },
+      {
+        "name": "Recessed north lightwell",
+        "height": 11.3,
+        "floors": 2,
+        "footprint": [
+          [
+            41.93,
+            626.639
+          ],
+          [
+            42.279,
+            631.626
+          ],
+          [
+            46.07,
+            631.361
+          ],
+          [
+            45.721,
+            626.374
+          ]
+        ],
+        "facade": {
+          "groundFloor": {
+            "height": 5.1,
+            "windows": {
+              "type": "punched",
+              "width": 1.95,
+              "height": 0.94,
+              "sill": 1.0,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "glass": "tinted",
+              "frameColor": "#575751",
+              "surround": "stone",
+              "surroundMaterial": "trim",
+              "sillProjecting": true,
+              "lintel": true
+            }
+          },
+          "piers": {
+            "width": 0.46,
+            "depth": 0.24,
+            "every": 2,
+            "material": "wall",
+            "fullHeight": true
+          }
+        }
+      },
+      {
+        "name": "Original west and cross wings",
+        "height": 15.3,
+        "floors": 3,
+        "footprint": [
+          [
+            26.404,
+            637.0
+          ],
+          [
+            44.0,
+            637.0
+          ],
+          [
+            44.0,
+            631.506
+          ],
+          [
+            42.279,
+            631.626
+          ],
+          [
+            41.93,
+            626.639
+          ],
+          [
+            44.0,
+            626.494
+          ],
+          [
+            44.0,
+            617.981
+          ],
+          [
+            43.22,
+            618.03
+          ],
+          [
+            42.75,
+            610.89
+          ],
+          [
+            26.33,
+            611.87
+          ],
+          [
+            26.88,
+            621.47
+          ],
+          [
+            25.67,
+            621.54
+          ]
+        ],
+        "facade": {
+          "groundFloor": {
+            "height": 5.1,
+            "windows": {
+              "type": "punched",
+              "width": 1.95,
+              "height": 0.94,
+              "sill": 1.0,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "glass": "tinted",
+              "frameColor": "#575751",
+              "surround": "stone",
+              "surroundMaterial": "trim",
+              "sillProjecting": true,
+              "lintel": true
+            }
+          },
+          "piers": {
+            "width": 0.46,
+            "depth": 0.24,
+            "every": 2,
+            "material": "wall",
+            "fullHeight": true
+          }
+        }
+      },
+      {
+        "name": "Recessed north lightwell",
+        "height": 11.3,
+        "floors": 2,
+        "footprint": [
+          [
+            60.93,
+            623.639
+          ],
+          [
+            61.279,
+            628.626
+          ],
+          [
+            65.07,
+            628.361
+          ],
+          [
+            64.721,
+            623.374
+          ]
+        ],
+        "facade": {
+          "groundFloor": {
+            "height": 5.1,
+            "windows": {
+              "type": "punched",
+              "width": 1.95,
+              "height": 0.94,
+              "sill": 1.0,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "glass": "tinted",
+              "frameColor": "#575751",
+              "surround": "stone",
+              "surroundMaterial": "trim",
+              "sillProjecting": true,
+              "lintel": true
+            }
+          },
+          "piers": {
+            "width": 0.46,
+            "depth": 0.24,
+            "every": 2,
+            "material": "wall",
+            "fullHeight": true
+          }
+        }
+      },
+      {
+        "name": "Original west and cross wings",
+        "height": 15.3,
+        "floors": 3,
+        "footprint": [
+          [
+            44.58,
+            636.41
+          ],
+          [
+            57.11,
+            635.51
+          ],
+          [
+            57.232,
+            637.0
+          ],
+          [
+            63.0,
+            637.0
+          ],
+          [
+            63.0,
+            628.506
+          ],
+          [
+            61.279,
+            628.626
+          ],
+          [
+            60.93,
+            623.639
+          ],
+          [
+            63.0,
+            623.494
+          ],
+          [
+            63.0,
+            618.11
+          ],
+          [
+            52.15,
+            618.73
+          ],
+          [
+            52.05,
+            617.48
+          ],
+          [
+            44.0,
+            617.981
+          ],
+          [
+            44.0,
+            626.494
+          ],
+          [
+            45.721,
+            626.374
+          ],
+          [
+            46.07,
+            631.361
+          ],
+          [
+            44.0,
+            631.506
+          ],
+          [
+            44.0,
+            637.0
+          ],
+          [
+            44.618,
+            637.0
+          ]
+        ],
+        "facade": {
+          "groundFloor": {
+            "height": 5.1,
+            "windows": {
+              "type": "punched",
+              "width": 1.95,
+              "height": 0.94,
+              "sill": 1.0,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "glass": "tinted",
+              "frameColor": "#575751",
+              "surround": "stone",
+              "surroundMaterial": "trim",
+              "sillProjecting": true,
+              "lintel": true
+            }
+          },
+          "piers": {
+            "width": 0.46,
+            "depth": 0.24,
+            "every": 2,
+            "material": "wall",
+            "fullHeight": true
+          }
+        }
+      },
+      {
+        "name": "Original west and cross wings",
+        "height": 15.3,
+        "floors": 3,
+        "footprint": [
+          [
+            72.091,
+            637.0
+          ],
+          [
+            71.8,
+            632.2
+          ],
+          [
+            90.7,
+            630.6
+          ],
+          [
+            91.0,
+            635.133
+          ],
+          [
+            91.0,
+            624.112
+          ],
+          [
+            90.1,
+            624.16
+          ],
+          [
+            89.27,
+            614.04
+          ],
+          [
+            74.1,
+            615.08
+          ],
+          [
+            74.36,
+            617.46
+          ],
+          [
+            63.0,
+            618.11
+          ],
+          [
+            63.0,
+            623.494
+          ],
+          [
+            64.721,
+            623.374
+          ],
+          [
+            65.07,
+            628.361
+          ],
+          [
+            63.0,
+            628.506
+          ],
+          [
+            63.0,
+            637.0
+          ]
+        ],
+        "facade": {
+          "groundFloor": {
+            "height": 5.1,
+            "windows": {
+              "type": "punched",
+              "width": 1.95,
+              "height": 0.94,
+              "sill": 1.0,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "glass": "tinted",
+              "frameColor": "#575751",
+              "surround": "stone",
+              "surroundMaterial": "trim",
+              "sillProjecting": true,
+              "lintel": true
+            }
+          },
+          "piers": {
+            "width": 0.46,
+            "depth": 0.24,
+            "every": 2,
+            "material": "wall",
+            "fullHeight": true
+          }
+        }
+      },
+      {
+        "name": "Lower south return of north range",
+        "height": 14.4,
+        "floors": 2,
+        "footprint": [
+          [
+            73.182,
+            637.0
+          ],
+          [
+            73.0,
+            634.69
+          ],
+          [
+            79.09,
+            634.31
+          ],
+          [
+            79.388,
+            637.0
+          ],
+          [
+            79.643,
+            637.0
+          ],
+          [
+            91.0,
+            636.102
+          ],
+          [
+            91.0,
+            635.133
+          ],
+          [
+            90.7,
+            630.6
+          ],
+          [
+            71.8,
+            632.2
+          ],
+          [
+            72.091,
+            637.0
+          ]
+        ],
+        "facade": {
+          "groundFloor": {
+            "height": 5.1,
+            "windows": {
+              "type": "punched",
+              "width": 1.95,
+              "height": 0.94,
+              "sill": 1.0,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "glass": "tinted",
+              "frameColor": "#575751",
+              "surround": "stone",
+              "surroundMaterial": "trim",
+              "sillProjecting": true,
+              "lintel": true
+            }
+          },
+          "piers": {
+            "width": 0.46,
+            "depth": 0.24,
+            "every": 2,
+            "material": "wall",
+            "fullHeight": true
+          }
+        }
+      },
+      {
+        "name": "Raised central laboratory roof",
+        "footprint": [
+          [
+            56.0,
+            705.0
+          ],
+          [
+            88.5,
+            700.1
+          ],
+          [
+            87.2,
+            681.8
+          ],
+          [
+            53.9,
+            689.3
+          ]
+        ],
+        "height": 21.05,
+        "baseOffset": 16.0,
+        "floors": 1,
+        "material": "roof",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "hip",
+          "rise": 0.58,
+          "material": "roof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Return above west link stair",
+        "footprint": [
+          [
+            52.0,
+            656.0
+          ],
+          [
+            52.05,
+            657.85
+          ],
+          [
+            53.45,
+            657.8
+          ],
+          [
+            53.498,
+            663.569
+          ],
+          [
+            53.86,
+            663.55
+          ],
+          [
+            53.48,
+            657.33
+          ],
+          [
+            58.89,
+            657.0
+          ],
+          [
+            58.785,
+            655.803
+          ]
+        ],
+        "height": 15.2,
+        "baseOffset": 0,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "punched",
+            "width": 0.81,
+            "height": 2.05,
+            "sill": 0.82,
+            "perBay": 2,
+            "recess": 0.22,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.09
+            },
+            "glass": "leaded",
+            "frameColor": "#bdb39e",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true,
+            "spacing": 0.17
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Central roof cricket upstand",
+        "footprint": [
+          [
+            84.666,
+            684.7
+          ],
+          [
+            84.534,
+            684.5
+          ],
+          [
+            73.634,
+            691.7
+          ],
+          [
+            73.766,
+            691.9
+          ]
+        ],
+        "height": 21.78,
+        "baseOffset": 21.08,
+        "floors": 1,
+        "material": "cricket",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "cricket",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Central roof cricket upstand",
+        "footprint": [
+          [
+            86.384,
+            700.32
+          ],
+          [
+            86.516,
+            700.12
+          ],
+          [
+            73.766,
+            691.7
+          ],
+          [
+            73.634,
+            691.9
+          ]
+        ],
+        "height": 21.78,
+        "baseOffset": 21.08,
+        "floors": 1,
+        "material": "cricket",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "cricket",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Central roof cricket upstand",
+        "footprint": [
+          [
+            72.116,
+            685.25
+          ],
+          [
+            71.884,
+            685.31
+          ],
+          [
+            73.584,
+            691.83
+          ],
+          [
+            73.816,
+            691.77
+          ]
+        ],
+        "height": 21.78,
+        "baseOffset": 21.08,
+        "floors": 1,
+        "material": "cricket",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "cricket",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Square stone shoulder at the belfry parapet",
+        "footprint": [
+          [
+            44.703,
+            617.349
+          ],
+          [
+            44.755,
+            618.098
+          ],
+          [
+            43.997,
+            618.151
+          ],
+          [
+            43.945,
+            617.402
+          ]
+        ],
+        "height": 27.88,
+        "baseOffset": 26.32,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "wall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Square stone shoulder at the belfry parapet",
+        "footprint": [
+          [
+            52.173,
+            616.839
+          ],
+          [
+            52.225,
+            617.588
+          ],
+          [
+            51.467,
+            617.641
+          ],
+          [
+            51.415,
+            616.892
+          ]
+        ],
+        "height": 27.88,
+        "baseOffset": 26.32,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "wall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Square stone shoulder at the belfry parapet",
+        "footprint": [
+          [
+            52.803,
+            625.439
+          ],
+          [
+            52.855,
+            626.188
+          ],
+          [
+            52.097,
+            626.241
+          ],
+          [
+            52.045,
+            625.492
+          ]
+        ],
+        "height": 27.88,
+        "baseOffset": 26.32,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "wall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Square stone shoulder at the belfry parapet",
+        "footprint": [
+          [
+            45.283,
+            625.849
+          ],
+          [
+            45.335,
+            626.598
+          ],
+          [
+            44.577,
+            626.651
+          ],
+          [
+            44.525,
+            625.902
+          ]
+        ],
+        "height": 27.88,
+        "baseOffset": 26.32,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "wall",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "towers": [
+    {
+      "name": "Entrance tower",
+      "at": [
+        48.5,
+        621.8
+      ],
+      "size": [
+        8.3,
+        8.7
+      ],
+      "rotation": -4,
+      "plan": "square",
+      "height": 26.4,
+      "top": {
+        "type": "battlements",
+        "height": 1.15,
+        "material": "wall"
+      },
+      "belfry": true,
+      "buttresses": true,
+      "windows": {
+        "type": "lancet",
+        "width": 4.05,
+        "height": 6.2,
+        "sill": 0.6,
+        "perBay": 1,
+        "recess": 0.6,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "glass": "leaded",
+        "frameColor": "#575751",
+        "tracery": true,
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "topStage": true
+      },
+      "material": "wall",
+      "flagpole": true
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 43,
+      "position": 0.38,
+      "width": 2.55,
+      "height": 3.75,
+      "type": "gothic-portal",
+      "steps": 5,
+      "recess": 0.65,
+      "surround": "trim"
+    },
+    {
+      "wall": 26,
+      "position": 0.52,
+      "type": "doors-double",
+      "width": 2.15,
+      "height": 2.52,
+      "recess": 0.4,
+      "steps": 2,
+      "surround": "trim"
+    }
+  ],
+  "notes": "Measured heights include the fall from Lambton Drive toward the south. The tower portal and bell openings need deep recesses. Laboratory bay counts are estimates behind trees and adjoining buildings."
+}

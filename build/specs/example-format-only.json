@@ -1,0 +1,48 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764095",
+  "name": "FORMAT EXAMPLE ONLY - values are illustrative, not researched",
+  "status": "authored",
+  "confidence": 0.5,
+  "summary": "Three-storey stone block with a raised basement, regular punched windows with stone surrounds, a coped parapet and a flat roof with a small penthouse.",
+  "style": "collegiate-gothic",
+  "evidence": [
+    {"kind": "kartaview", "frame": "131414491", "walls": [4], "note": "south face: 7 bays, 3 storeys over raised basement, double doors centred"},
+    {"kind": "aerial", "note": "flat membrane roof, penthouse near the east end"},
+    {"kind": "lidar", "note": "parapet at about 13.6 m, penthouse peak about 20 m"}
+  ],
+  "materials": {
+    "wall": {"kind": "rubble-stone", "color": "#b9a888", "secondaryColor": "#8f8371", "variation": 0.3, "unitSize": [0.5, 0.3], "bond": "coursed-rubble", "weathering": 0.3},
+    "trim": {"kind": "limestone-smooth", "color": "#cfc4ad", "variation": 0.08},
+    "roof": {"kind": "membrane", "color": "#6d6e6b"},
+    "frame": {"kind": "painted-metal", "color": "#e8e4da"}
+  },
+  "floors": {"count": 3, "groundFloorHeight": 4.0, "typicalHeight": 3.7, "raisedGround": 1.2},
+  "massing": {"parts": [
+    {"name": "main block", "footprint": "inventory", "height": 13.6, "floors": 3, "roof": {"form": "flat", "edge": "parapet", "material": "roof"}}
+  ]},
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {"height": 1.2, "material": "trim", "projection": 0.05},
+      "bays": {"width": 3.2, "pattern": "regular", "edgeMargin": 1.2},
+      "windows": {"type": "punched", "width": 1.3, "height": 2.0, "sill": 0.9, "perBay": 1, "recess": 0.22, "mullions": {"vertical": 1, "horizontal": 1}, "frameColor": "#e8e4da", "glass": "tinted", "surround": "stone", "surroundMaterial": "trim", "sillProjecting": true, "lintel": true},
+      "bands": [{"at": "sill-lines", "height": 0.18, "depth": 0.05, "material": "trim"}],
+      "parapet": {"height": 0.9, "type": "coped", "material": "trim"},
+      "quoins": true
+    },
+    "byWall": {
+      "8-18": {"material": "wall", "windows": {"type": "punched", "width": 1.1, "height": 1.8, "sill": 0.9, "perBay": 1, "recess": 0.18}, "bays": {"width": 3.6}},
+      "1": {"blank": true},
+      "3": {"blank": true}
+    }
+  },
+  "roof": {"form": "flat", "edge": "parapet", "material": "roof", "features": [
+    {"type": "penthouse", "center": [355.0, 470.0], "size": [8, 6], "height": 3.2, "material": "wall"},
+    {"type": "hvac", "count": 4}
+  ]},
+  "entrances": [
+    {"wall": 4, "position": 0.5, "width": 2.4, "height": 3.0, "type": "doors-double", "recess": 0.6, "steps": 5, "surround": "trim", "canopy": {"type": "flat", "depth": 1.2, "width": 3.2, "material": "trim"}}
+  ],
+  "notes": "Format example. Real spec files go in build/specs/buildings/<id>.json."
+}

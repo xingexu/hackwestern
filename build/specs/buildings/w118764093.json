@@ -1,0 +1,1735 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764093",
+  "name": "Western Science Centre",
+  "style": "gothic-revival-modern",
+  "confidence": 0.84,
+  "status": "refined",
+  "summary": "Western Science Centre is a stone block stepping down eastwards, with a prominent high recessed entrance above broad steps with metal rails, grouped sash windows, and flat roofs carrying ducts.",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#b1a48c",
+      "unitSize": [
+        0.49,
+        0.2
+      ],
+      "secondaryColor": "#998f7b",
+      "variation": 0.23,
+      "bond": "coursed-rubble"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c0c6b8",
+      "roughness": 0.74
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#a29a8a"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#b8bcbc"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "service": {
+      "kind": "split-face-block",
+      "color": "#b9ab91",
+      "unitSize": [
+        0.41,
+        0.2
+      ],
+      "variation": 0.08
+    },
+    "atriumGlass": {
+      "kind": "glass-curtain",
+      "color": "#56666a",
+      "secondaryColor": "#7d9292",
+      "unitSize": [
+        1.05,
+        1.1
+      ],
+      "roughness": 0.24
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.6,
+    "typicalHeight": 4.5,
+    "raisedGround": 1.15
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.85,
+        "height": 1.9,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.25,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "surround": "stone",
+        "glass": "clear",
+        "frameColor": "#dedcd2",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true,
+        "surroundWidth": 0.2
+      },
+      "bays": {
+        "width": 3.65,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.38,
+        "material": "wall"
+      },
+      "base": {
+        "height": 0.55,
+        "projection": 0.04,
+        "material": "trim"
+      },
+      "bands": [],
+      "piers": {
+        "every": 2,
+        "width": 0.68,
+        "depth": 0.3,
+        "material": "wall",
+        "fullHeight": true
+      },
+      "cornice": {
+        "height": 0.3,
+        "depth": 0.15,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 3.68
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.85,
+            "height": 1.5,
+            "sill": 0.7,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "surround": "stone"
+          }
+        },
+        "topFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.44,
+            "height": 1.9,
+            "sill": 0.8,
+            "perBay": 1,
+            "recess": 0.23,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "surround": "stone"
+          }
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.12,
+          "height": 1.75,
+          "perBay": 1,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "surround": "stone",
+          "recess": 0.25,
+          "glassColor": "#7c827b"
+        },
+        "segments": [
+          {
+            "range": [
+              0.47,
+              0.575
+            ],
+            "windows": {
+              "type": "slot",
+              "width": 0.38,
+              "height": 2.6,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.06
+              },
+              "sill": 0.8
+            },
+            "bays": {
+              "count": 1
+            }
+          }
+        ]
+      },
+      "1": {
+        "bays": {
+          "count": 7,
+          "width": 3.76
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 2,
+          "width": 4.25
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 5,
+          "width": 3.62
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.4,
+          "height": 1.7,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#dedcd2",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 3,
+          "width": 3.23
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 4,
+          "width": 3.44
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.4,
+          "height": 1.7,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#dedcd2",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true
+        }
+      },
+      "6": {
+        "blank": true,
+        "material": "service",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bands": [],
+        "parapet": {
+          "type": "plain",
+          "height": 0
+        },
+        "cornice": {
+          "height": 0,
+          "depth": 0
+        },
+        "base": {
+          "height": 0,
+          "projection": 0
+        }
+      },
+      "7": {
+        "blank": true,
+        "material": "service",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bands": [],
+        "parapet": {
+          "type": "plain",
+          "height": 0
+        },
+        "cornice": {
+          "height": 0,
+          "depth": 0
+        },
+        "base": {
+          "height": 0,
+          "projection": 0
+        }
+      },
+      "8": {
+        "blank": true,
+        "material": "service",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bands": [],
+        "parapet": {
+          "type": "plain",
+          "height": 0
+        },
+        "cornice": {
+          "height": 0,
+          "depth": 0
+        },
+        "base": {
+          "height": 0,
+          "projection": 0
+        }
+      },
+      "9": {
+        "blank": true,
+        "material": "service",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bands": [],
+        "parapet": {
+          "type": "plain",
+          "height": 0
+        },
+        "cornice": {
+          "height": 0,
+          "depth": 0
+        },
+        "base": {
+          "height": 0,
+          "projection": 0
+        }
+      },
+      "10": {
+        "blank": true,
+        "material": "service",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bands": [],
+        "parapet": {
+          "type": "plain",
+          "height": 0
+        },
+        "cornice": {
+          "height": 0,
+          "depth": 0
+        },
+        "base": {
+          "height": 0,
+          "projection": 0
+        }
+      },
+      "11": {
+        "blank": true,
+        "material": "service",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bands": [],
+        "parapet": {
+          "type": "plain",
+          "height": 0
+        },
+        "cornice": {
+          "height": 0,
+          "depth": 0
+        },
+        "base": {
+          "height": 0,
+          "projection": 0
+        }
+      },
+      "12": {
+        "bays": {
+          "count": 1,
+          "width": 3.44
+        }
+      },
+      "13": {
+        "bays": {
+          "count": 1,
+          "width": 3.3
+        }
+      },
+      "14": {
+        "bays": {
+          "count": 1,
+          "width": 4.82
+        }
+      },
+      "15": {
+        "bays": {
+          "count": 6,
+          "width": 3.48
+        }
+      },
+      "16": {
+        "bays": {
+          "count": 3,
+          "width": 3.72
+        },
+        "blank": true
+      },
+      "17": {
+        "bays": {
+          "count": 1,
+          "width": 2.78
+        },
+        "blank": true
+      },
+      "18": {
+        "bays": {
+          "count": 3,
+          "width": 3.24
+        },
+        "blank": true
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          430,
+          131
+        ],
+        "size": [
+          3.4,
+          3.0
+        ],
+        "height": 2.15,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          426,
+          134
+        ],
+        "size": [
+          3.75,
+          2.35
+        ],
+        "height": 1.55,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          421,
+          137
+        ],
+        "size": [
+          2.6,
+          2.2
+        ],
+        "height": 1.35,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          418,
+          139
+        ],
+        "size": [
+          2.75,
+          2.12
+        ],
+        "height": 1.32,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "chimney",
+        "center": [
+          430.3,
+          130.5
+        ],
+        "size": [
+          0.75,
+          0.72
+        ],
+        "height": 3.5,
+        "material": "metal",
+        "rotation": 0
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface minus local ground: median 17.16 m, 90th percentile 22.2 m, maximum 28.04 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WSC.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "kartaview",
+      "note": "At right the recessed stone portal, tall stone jambs and paired window groups face Middlesex Drive.",
+      "frame": "138018917",
+      "walls": [
+        0
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "Parallel flat roofs step down eastward. A bank of angular bright ducts crosses the higher west-central roof."
+    },
+    {
+      "kind": "photo",
+      "note": "PIL mean wall or glazing sample, source-pixel rectangle (x, y, width, height) (210, 116, 4, 4) gives #908878.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WSC.jpg"
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WSC.jpg",
+      "walls": [
+        0
+      ],
+      "note": "The transom and deeply recessed tall reveal above the double doors reach nearly to the heads of the next row of windows."
+    },
+    {
+      "kind": "aerial",
+      "note": "The dark gridded court roof on the north side is visible both in the Science Centre and Collip orthophotos. It is below the adjacent exhaust plant."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "West stone street range",
+        "height": 17.2,
+        "floors": 3,
+        "footprint": [
+          [
+            403.122,
+            120.094
+          ],
+          [
+            412.941,
+            145.283
+          ],
+          [
+            406.046,
+            147.971
+          ],
+          [
+            413.14,
+            166.17
+          ],
+          [
+            420.076,
+            163.587
+          ]
+        ],
+        "facade": {
+          "bands": [
+            {
+              "at": [
+                15.4
+              ],
+              "height": 0.6,
+              "depth": 0.05,
+              "material": "wall"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Raised central laboratory roof",
+        "height": 21.9,
+        "floors": 4,
+        "footprint": [
+          [
+            401.28,
+            120.74
+          ],
+          [
+            401.28,
+            120.74
+          ],
+          [
+            403.119,
+            120.095
+          ],
+          [
+            403.119,
+            120.095
+          ],
+          [
+            403.119,
+            120.095
+          ],
+          [
+            403.12,
+            120.095
+          ],
+          [
+            403.12,
+            120.095
+          ],
+          [
+            403.121,
+            120.095
+          ],
+          [
+            403.121,
+            120.095
+          ],
+          [
+            403.121,
+            120.095
+          ],
+          [
+            403.122,
+            120.095
+          ],
+          [
+            403.122,
+            120.096
+          ],
+          [
+            403.122,
+            120.096
+          ],
+          [
+            403.123,
+            120.096
+          ],
+          [
+            403.123,
+            120.096
+          ],
+          [
+            403.123,
+            120.097
+          ],
+          [
+            403.123,
+            120.097
+          ],
+          [
+            403.124,
+            120.097
+          ],
+          [
+            403.124,
+            120.098
+          ],
+          [
+            420.075,
+            163.583
+          ],
+          [
+            420.075,
+            163.584
+          ],
+          [
+            420.075,
+            163.584
+          ],
+          [
+            420.075,
+            163.585
+          ],
+          [
+            420.075,
+            163.585
+          ],
+          [
+            420.075,
+            163.585
+          ],
+          [
+            420.075,
+            163.586
+          ],
+          [
+            420.075,
+            163.586
+          ],
+          [
+            420.074,
+            163.587
+          ],
+          [
+            420.074,
+            163.587
+          ],
+          [
+            420.074,
+            163.587
+          ],
+          [
+            420.074,
+            163.588
+          ],
+          [
+            420.074,
+            163.588
+          ],
+          [
+            420.073,
+            163.588
+          ],
+          [
+            420.073,
+            163.588
+          ],
+          [
+            420.073,
+            163.589
+          ],
+          [
+            420.072,
+            163.589
+          ],
+          [
+            418.31,
+            164.245
+          ],
+          [
+            424.246,
+            162.034
+          ],
+          [
+            437.816,
+            156.981
+          ],
+          [
+            437.817,
+            156.981
+          ],
+          [
+            437.817,
+            156.981
+          ],
+          [
+            437.818,
+            156.981
+          ],
+          [
+            437.818,
+            156.981
+          ],
+          [
+            437.818,
+            156.981
+          ],
+          [
+            437.819,
+            156.981
+          ],
+          [
+            437.819,
+            156.981
+          ],
+          [
+            437.82,
+            156.981
+          ],
+          [
+            437.82,
+            156.982
+          ],
+          [
+            437.82,
+            156.982
+          ],
+          [
+            437.821,
+            156.982
+          ],
+          [
+            437.821,
+            156.982
+          ],
+          [
+            437.821,
+            156.983
+          ],
+          [
+            437.821,
+            156.983
+          ],
+          [
+            437.822,
+            156.983
+          ],
+          [
+            438.31,
+            158.09
+          ],
+          [
+            438.31,
+            158.09
+          ],
+          [
+            438.31,
+            158.09
+          ],
+          [
+            440.41,
+            157.35
+          ],
+          [
+            440.41,
+            157.35
+          ],
+          [
+            441.589,
+            156.937
+          ],
+          [
+            441.589,
+            156.937
+          ],
+          [
+            441.589,
+            156.936
+          ],
+          [
+            429.048,
+            125.414
+          ],
+          [
+            429.047,
+            125.414
+          ],
+          [
+            429.047,
+            125.414
+          ],
+          [
+            412.444,
+            131.969
+          ],
+          [
+            412.443,
+            131.969
+          ],
+          [
+            412.443,
+            131.969
+          ],
+          [
+            412.443,
+            131.969
+          ],
+          [
+            412.442,
+            131.969
+          ],
+          [
+            412.442,
+            131.969
+          ],
+          [
+            412.441,
+            131.969
+          ],
+          [
+            412.441,
+            131.969
+          ],
+          [
+            412.441,
+            131.968
+          ],
+          [
+            412.44,
+            131.968
+          ],
+          [
+            412.44,
+            131.968
+          ],
+          [
+            412.44,
+            131.968
+          ],
+          [
+            412.439,
+            131.968
+          ],
+          [
+            412.439,
+            131.967
+          ],
+          [
+            412.439,
+            131.967
+          ],
+          [
+            412.439,
+            131.967
+          ],
+          [
+            412.439,
+            131.966
+          ],
+          [
+            408.5,
+            121.52
+          ],
+          [
+            408.5,
+            121.52
+          ],
+          [
+            408.5,
+            121.52
+          ],
+          [
+            408.153,
+            121.585
+          ],
+          [
+            406.273,
+            121.939
+          ],
+          [
+            406.273,
+            121.939
+          ],
+          [
+            406.273,
+            121.939
+          ],
+          [
+            406.272,
+            121.939
+          ],
+          [
+            406.272,
+            121.939
+          ],
+          [
+            406.271,
+            121.939
+          ],
+          [
+            406.271,
+            121.939
+          ],
+          [
+            406.271,
+            121.939
+          ],
+          [
+            406.27,
+            121.939
+          ],
+          [
+            406.27,
+            121.938
+          ],
+          [
+            406.27,
+            121.938
+          ],
+          [
+            406.269,
+            121.938
+          ],
+          [
+            406.269,
+            121.938
+          ],
+          [
+            406.269,
+            121.937
+          ],
+          [
+            406.269,
+            121.937
+          ],
+          [
+            405.33,
+            119.32
+          ],
+          [
+            405.33,
+            119.32
+          ],
+          [
+            405.33,
+            119.32
+          ]
+        ]
+      },
+      {
+        "name": "Middle east range",
+        "height": 14.8,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              368.76,
+              -26.12
+            ],
+            [
+              382.7,
+              -31.67
+            ],
+            [
+              515.78,
+              302.83
+            ],
+            [
+              501.84,
+              308.38
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Lower lecture range",
+        "height": 9.7,
+        "floors": 2,
+        "footprint": {
+          "clip": [
+            [
+              382.7,
+              -31.67
+            ],
+            [
+              392.92,
+              -35.73
+            ],
+            [
+              526.0,
+              298.77
+            ],
+            [
+              515.78,
+              302.83
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Low eastern end",
+        "height": 6.15,
+        "floors": 2,
+        "footprint": {
+          "clip": [
+            [
+              392.92,
+              -35.73
+            ],
+            [
+              439.38,
+              -54.22
+            ],
+            [
+              572.46,
+              280.28
+            ],
+            [
+              526.0,
+              298.77
+            ]
+          ]
+        },
+        "facade": {
+          "blank": true,
+          "material": "service",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "material": "service"
+      },
+      {
+        "name": "Lower northern approach",
+        "footprint": [
+          [
+            403.122,
+            120.094
+          ],
+          [
+            401.28,
+            120.74
+          ],
+          [
+            396.25,
+            122.84
+          ],
+          [
+            406.046,
+            147.971
+          ],
+          [
+            412.941,
+            145.283
+          ]
+        ],
+        "height": 13.75,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "material": "wall"
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Pale roof supply trunk",
+        "footprint": [
+          [
+            430.718,
+            135.767
+          ],
+          [
+            428.628,
+            130.663
+          ],
+          [
+            427.472,
+            131.137
+          ],
+          [
+            429.082,
+            135.073
+          ],
+          [
+            416.769,
+            139.969
+          ],
+          [
+            417.231,
+            141.131
+          ]
+        ],
+        "height": 23.169999999999998,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "blank": true,
+          "material": "metal",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "metal"
+        },
+        "baseOffset": 22.22
+      },
+      {
+        "name": "Tall limestone portal jamb",
+        "footprint": [
+          [
+            406.23,
+            148.249
+          ],
+          [
+            406.821,
+            149.766
+          ],
+          [
+            405.451,
+            150.3
+          ],
+          [
+            404.86,
+            148.783
+          ]
+        ],
+        "height": 17.5,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [
+            {
+              "at": [
+                10.18,
+                10.58,
+                16.75
+              ],
+              "height": 0.16,
+              "depth": 0.1,
+              "material": "trim"
+            }
+          ],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Tall limestone portal jamb",
+        "footprint": [
+          [
+            408.104,
+            153.059
+          ],
+          [
+            408.645,
+            154.445
+          ],
+          [
+            407.275,
+            154.979
+          ],
+          [
+            406.735,
+            153.593
+          ]
+        ],
+        "height": 17.5,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [
+            {
+              "at": [
+                10.18,
+                10.58,
+                16.75
+              ],
+              "height": 0.16,
+              "depth": 0.1,
+              "material": "trim"
+            }
+          ],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Lintel and stepped head of the entrance",
+        "footprint": [
+          [
+            406.286,
+            148.227
+          ],
+          [
+            408.701,
+            154.424
+          ],
+          [
+            407.275,
+            154.979
+          ],
+          [
+            404.86,
+            148.783
+          ]
+        ],
+        "height": 17.5,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim"
+        },
+        "baseOffset": 10.4
+      },
+      {
+        "name": "Sheltered glazed laboratory court roof",
+        "footprint": [
+          [
+            431.443,
+            124.641
+          ],
+          [
+            412.81,
+            131.996
+          ],
+          [
+            410.586,
+            126.359
+          ],
+          [
+            429.219,
+            119.004
+          ]
+        ],
+        "height": 10.62,
+        "floors": 2,
+        "material": "atriumGlass",
+        "facade": {
+          "material": "atriumGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "height": 3.4,
+            "width": 1.3,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2
+            }
+          },
+          "parapet": {
+            "height": 0.1,
+            "type": "coped",
+            "material": "metal"
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 249,
+          "rise": 1.09,
+          "material": "atriumGlass",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Roof glazing bar at the laboratory court",
+        "footprint": [
+          [
+            429.187,
+            119.102
+          ],
+          [
+            429.115,
+            119.13
+          ],
+          [
+            431.225,
+            124.479
+          ],
+          [
+            431.297,
+            124.451
+          ]
+        ],
+        "height": 11.115,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 11.03
+      },
+      {
+        "name": "Roof glazing bar at the laboratory court",
+        "footprint": [
+          [
+            424.913,
+            120.79
+          ],
+          [
+            424.841,
+            120.818
+          ],
+          [
+            426.951,
+            126.166
+          ],
+          [
+            427.023,
+            126.138
+          ]
+        ],
+        "height": 11.115,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 11.03
+      },
+      {
+        "name": "Roof glazing bar at the laboratory court",
+        "footprint": [
+          [
+            420.444,
+            122.554
+          ],
+          [
+            420.372,
+            122.582
+          ],
+          [
+            422.482,
+            127.93
+          ],
+          [
+            422.554,
+            127.902
+          ]
+        ],
+        "height": 11.115,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 11.03
+      },
+      {
+        "name": "Roof glazing bar at the laboratory court",
+        "footprint": [
+          [
+            415.78,
+            124.395
+          ],
+          [
+            415.708,
+            124.423
+          ],
+          [
+            417.819,
+            129.771
+          ],
+          [
+            417.891,
+            129.743
+          ]
+        ],
+        "height": 11.115,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 11.03
+      },
+      {
+        "name": "Roof glazing bar at the laboratory court",
+        "footprint": [
+          [
+            411.117,
+            126.235
+          ],
+          [
+            411.045,
+            126.263
+          ],
+          [
+            413.156,
+            131.612
+          ],
+          [
+            413.228,
+            131.584
+          ]
+        ],
+        "height": 11.115,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        },
+        "baseOffset": 11.03
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.66,
+      "type": "arched-portal",
+      "width": 3.34,
+      "height": 7.95,
+      "recess": 1.68,
+      "steps": 8,
+      "ramp": true,
+      "surround": "trim",
+      "at": [
+        407.397,
+        151.438
+      ]
+    },
+    {
+      "wall": 10,
+      "position": 0.5,
+      "type": "service-door",
+      "width": 1.65,
+      "height": 2.3
+    }
+  ],
+  "notes": "The recessed west entry rises through two window levels. The stairs flare at the base alongside metal handrails and an accessible approach."
+}

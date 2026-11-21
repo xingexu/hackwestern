@@ -1,0 +1,592 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764089",
+  "name": "Collip Medical Research Building",
+  "style": "collegiate-gothic",
+  "confidence": 0.77,
+  "status": "refined",
+  "summary": "Collip is a stepped pair of flat-roofed blocks comprising an older buff masonry main block with grouped windows and a lower mechanical annex.",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#d5c4b4",
+      "unitSize": [
+        0.43,
+        0.21
+      ],
+      "secondaryColor": "#bfae9e",
+      "variation": 0.23,
+      "bond": "coursed-rubble"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#9c9d8a",
+      "roughness": 0.74
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#e7d6c6"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "louvre": {
+      "kind": "corrugated-metal",
+      "color": "#737974",
+      "surface": "horizontal louvres",
+      "unitSize": [
+        0.8,
+        0.09
+      ]
+    },
+    "foot": {
+      "kind": "concrete-smooth",
+      "color": "#a49c8a",
+      "roughness": 0.89
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 3.9,
+    "typicalHeight": 3.85
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 2.35,
+        "height": 1.7,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "surround": "stone",
+        "glass": "clear",
+        "frameColor": "#dedcd2",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "bays": {
+        "width": 3.6,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.38,
+        "material": "wall"
+      },
+      "base": {
+        "height": 0.21,
+        "projection": 0.015,
+        "material": "foot"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.14,
+          "depth": 0.055,
+          "material": "trim"
+        }
+      ],
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.11,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 5
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.4,
+          "height": 1.68,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d7d5c9",
+          "surround": "stone"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 3
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.4,
+          "height": 1.68,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d7d5c9",
+          "surround": "stone"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 3
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.4,
+          "height": 1.68,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d7d5c9",
+          "surround": "stone"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 2,
+          "width": 4.12
+        }
+      },
+      "4": {
+        "material": "wall",
+        "bays": {
+          "count": 4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.95,
+          "height": 1.78,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 1,
+            "width": 0.06
+          },
+          "sill": 0.88,
+          "frameColor": "#dfded7",
+          "surround": "stone"
+        },
+        "bands": [],
+        "sections": [
+          {
+            "start": 0.77,
+            "end": 0.825,
+            "base": 1.2,
+            "top": 3.18,
+            "material": "louvre",
+            "horizontalMullions": 12
+          },
+          {
+            "start": 0.88,
+            "end": 0.935,
+            "base": 1.2,
+            "top": 3.18,
+            "material": "louvre",
+            "horizontalMullions": 12
+          }
+        ]
+      },
+      "5": {
+        "material": "wall",
+        "bays": {
+          "count": 4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.95,
+          "height": 1.78,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 1,
+            "width": 0.06
+          },
+          "sill": 0.88,
+          "frameColor": "#dfded7",
+          "surround": "stone"
+        },
+        "bands": []
+      },
+      "6": {
+        "material": "wall",
+        "bays": {
+          "count": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.32,
+          "height": 1.78,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.06
+          },
+          "sill": 0.88,
+          "frameColor": "#dfded7",
+          "surround": "stone"
+        },
+        "bands": []
+      },
+      "7": {
+        "material": "wall",
+        "bays": {
+          "count": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.32,
+          "height": 1.78,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.06
+          },
+          "sill": 0.88,
+          "frameColor": "#dfded7",
+          "surround": "stone"
+        },
+        "bands": []
+      },
+      "8": {
+        "bays": {
+          "count": 1,
+          "width": 4.43
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          436.9,
+          97.5
+        ],
+        "size": [
+          6.3,
+          4.65
+        ],
+        "height": 0.87,
+        "material": "trim",
+        "rotation": -28
+      },
+      {
+        "type": "hvac",
+        "center": [
+          430.3,
+          96.5
+        ],
+        "size": [
+          1.5,
+          1.15
+        ],
+        "height": 0.69,
+        "material": "metal",
+        "rotation": -28
+      },
+      {
+        "type": "hvac",
+        "center": [
+          432.3,
+          95.4
+        ],
+        "size": [
+          1.5,
+          1.15
+        ],
+        "height": 0.69,
+        "material": "metal",
+        "rotation": -28
+      },
+      {
+        "type": "hvac",
+        "center": [
+          434.6,
+          113.45
+        ],
+        "size": [
+          1.5,
+          1.15
+        ],
+        "height": 0.69,
+        "material": "metal",
+        "rotation": -28
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface minus local ground: median 12.09 m, 90th percentile 12.64 m, maximum 13.8 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/CB.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Small pale service door near the end of a banded, largely blind annex. Metal slats project above the lane-facing corner.",
+      "frame": "138045793",
+      "walls": [
+        4
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Lower annex screens the older south block from this approach.",
+      "frame": "138045775",
+      "walls": [
+        4,
+        5
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "The north block has its own lower roof and central plant. The taller south block abuts the Western Science Centre."
+    },
+    {
+      "kind": "photo",
+      "note": "PIL mean on the sunlit buff main wall centred at (76, 153) in the 300 pixel exterior photo gives #d5c4b4.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/CB.jpg"
+    },
+    {
+      "kind": "photo",
+      "note": "The exposed footing under the coursed masonry is a narrow muted concrete strip.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/CB.jpg"
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "South masonry block",
+        "height": 12.1,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              423.28,
+              104.1
+            ],
+            [
+              427.69,
+              112.38
+            ],
+            [
+              432.7,
+              120.63
+            ],
+            [
+              444.08,
+              114.57
+            ],
+            [
+              438.67,
+              104.23
+            ],
+            [
+              427.05,
+              101.77
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Lower north annex",
+        "height": 8.55,
+        "floors": 2,
+        "footprint": {
+          "clip": [
+            [
+              438.67,
+              104.23
+            ],
+            [
+              445.77,
+              100.03
+            ],
+            [
+              442.19,
+              92.94
+            ],
+            [
+              438.38,
+              86.21
+            ],
+            [
+              424.83,
+              93.52
+            ],
+            [
+              427.05,
+              97.3
+            ],
+            [
+              425.2,
+              98.11
+            ],
+            [
+              427.05,
+              101.77
+            ]
+          ]
+        },
+        "material": "wall"
+      },
+      {
+        "name": "Low central roof plant",
+        "footprint": [
+          [
+            434.562,
+            114.248
+          ],
+          [
+            436.238,
+            113.352
+          ],
+          [
+            432.388,
+            106.152
+          ],
+          [
+            430.712,
+            107.048
+          ]
+        ],
+        "height": 13.28,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "blank": true,
+          "material": "metal",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "metal"
+        },
+        "baseOffset": 12.12
+      },
+      {
+        "name": "Head of roof plant",
+        "footprint": [
+          [
+            434.462,
+            105.798
+          ],
+          [
+            433.838,
+            104.602
+          ],
+          [
+            429.338,
+            106.952
+          ],
+          [
+            429.962,
+            108.148
+          ]
+        ],
+        "height": 13.28,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "blank": true,
+          "material": "metal",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "metal"
+        },
+        "baseOffset": 12.12
+      }
+    ]
+  },
+  "entrances": [],
+  "notes": "The steel escape projects from the upper service-lane facade. The service door visible at the far end of the lane belongs to the adjacent range.",
+  "attachments": [
+    {
+      "type": "fire-escape",
+      "path": [
+        [
+          442.179,
+          91.109
+        ],
+        [
+          439.667,
+          86.411
+        ]
+      ],
+      "width": 1.37,
+      "height": 8.68,
+      "material": "metal"
+    }
+  ]
+}

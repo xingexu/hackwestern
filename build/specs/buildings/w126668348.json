@@ -1,0 +1,2294 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668348",
+  "name": "Westminster Hall",
+  "status": "refined",
+  "confidence": 0.91,
+  "summary": "Two angled three-storey grey stone wings with narrow divided windows, roof equipment at the wing ends, and a low glazed north porch featuring slender columns, a folded soffit, broad steps, and a railed ramp.",
+  "style": "mid-century-modern",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#96928a",
+      "secondaryColor": "#77746c",
+      "unitSize": [
+        0.43,
+        0.14
+      ],
+      "bond": "coursed-rubble",
+      "variation": 0.38,
+      "weathering": 0.11
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c1bdb3",
+      "secondaryColor": "#99988f",
+      "unitSize": [
+        1.4,
+        0.45
+      ]
+    },
+    "base": {
+      "kind": "ashlar-stone",
+      "color": "#9a9a91",
+      "secondaryColor": "#797a73",
+      "unitSize": [
+        0.44,
+        0.16
+      ],
+      "bond": "random-ashlar"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#74796a",
+      "secondaryColor": "#606855",
+      "weathering": 0.31
+    },
+    "plant": {
+      "kind": "metal-panel",
+      "color": "#d1d2c9",
+      "secondaryColor": "#92968d",
+      "unitSize": [
+        1,
+        0.7
+      ],
+      "surface": "louvred"
+    },
+    "coping": {
+      "kind": "painted-metal",
+      "color": "#c6c8c4"
+    },
+    "concrete": {
+      "kind": "concrete-smooth",
+      "color": "#989994"
+    },
+    "plantDeck": {
+      "kind": "wood-siding",
+      "color": "#a3967f",
+      "secondaryColor": "#837a67",
+      "unitSize": [
+        0.16,
+        2.85
+      ],
+      "weathering": 0.36
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 3.4,
+    "typicalHeight": 3.32
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "West accommodation wing",
+        "height": 10.98,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              198,
+              -462
+            ],
+            [
+              255,
+              -462
+            ],
+            [
+              255,
+              -411
+            ],
+            [
+              198,
+              -411
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Low central entrance hall",
+        "height": 7.65,
+        "floors": 1,
+        "footprint": [
+          [
+            271.64,
+            -444.46
+          ],
+          [
+            272.16,
+            -450.41
+          ],
+          [
+            271.86873,
+            -450.43652
+          ],
+          [
+            271.63764,
+            -447.88685
+          ],
+          [
+            258.99344,
+            -449.03285
+          ],
+          [
+            259.22453,
+            -451.58252
+          ],
+          [
+            258.92,
+            -451.61
+          ],
+          [
+            258.92,
+            -446.36
+          ],
+          [
+            258.50317,
+            -446.19807
+          ],
+          [
+            257.93,
+            -438.22
+          ],
+          [
+            270.92,
+            -437.48
+          ],
+          [
+            271.69425,
+            -444.43774
+          ]
+        ],
+        "facade": {
+          "material": "base"
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0.18,
+          "features": []
+        }
+      },
+      {
+        "name": "East accommodation wing",
+        "height": 11.2,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              277,
+              -462
+            ],
+            [
+              333,
+              -462
+            ],
+            [
+              333,
+              -411
+            ],
+            [
+              277,
+              -411
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Main roof over recessed north loggia",
+        "footprint": [
+          [
+            271.9626,
+            -450.58855
+          ],
+          [
+            259.15952,
+            -451.74895
+          ],
+          [
+            258.9131,
+            -449.03009
+          ],
+          [
+            271.71618,
+            -447.86969
+          ]
+        ],
+        "baseOffset": 7.08,
+        "height": 7.65,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "fascia",
+          "material": "roof",
+          "features": [],
+          "overhang": 0.28
+        }
+      },
+      {
+        "name": "Loggia stone pier 1",
+        "footprint": [
+          [
+            271.08535,
+            -450.5627
+          ],
+          [
+            271.52354,
+            -450.52282
+          ],
+          [
+            271.48095,
+            -450.05476
+          ],
+          [
+            271.04276,
+            -450.09464
+          ]
+        ],
+        "baseOffset": 1.03,
+        "height": 7.1,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base",
+          "features": []
+        }
+      },
+      {
+        "name": "Loggia stone pier 2",
+        "footprint": [
+          [
+            268.78821,
+            -450.7709
+          ],
+          [
+            269.2264,
+            -450.73102
+          ],
+          [
+            269.18381,
+            -450.26296
+          ],
+          [
+            268.74562,
+            -450.30284
+          ]
+        ],
+        "baseOffset": 1.03,
+        "height": 7.1,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base",
+          "features": []
+        }
+      },
+      {
+        "name": "Loggia stone pier 3",
+        "footprint": [
+          [
+            266.49107,
+            -450.9791
+          ],
+          [
+            266.92926,
+            -450.93922
+          ],
+          [
+            266.88667,
+            -450.47116
+          ],
+          [
+            266.44848,
+            -450.51104
+          ]
+        ],
+        "baseOffset": 1.03,
+        "height": 7.1,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base",
+          "features": []
+        }
+      },
+      {
+        "name": "Loggia stone pier 4",
+        "footprint": [
+          [
+            264.19393,
+            -451.1873
+          ],
+          [
+            264.63212,
+            -451.14742
+          ],
+          [
+            264.58953,
+            -450.67936
+          ],
+          [
+            264.15134,
+            -450.71924
+          ]
+        ],
+        "baseOffset": 1.03,
+        "height": 7.1,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base",
+          "features": []
+        }
+      },
+      {
+        "name": "Loggia stone pier 5",
+        "footprint": [
+          [
+            261.89679,
+            -451.3955
+          ],
+          [
+            262.33498,
+            -451.35562
+          ],
+          [
+            262.29239,
+            -450.88756
+          ],
+          [
+            261.8542,
+            -450.92744
+          ]
+        ],
+        "baseOffset": 1.03,
+        "height": 7.1,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base",
+          "features": []
+        }
+      },
+      {
+        "name": "Loggia stone pier 6",
+        "footprint": [
+          [
+            259.59965,
+            -451.6037
+          ],
+          [
+            260.03784,
+            -451.56382
+          ],
+          [
+            259.99525,
+            -451.09576
+          ],
+          [
+            259.55706,
+            -451.13564
+          ]
+        ],
+        "baseOffset": 1.03,
+        "height": 7.1,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "material": "base",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "base",
+          "features": []
+        }
+      },
+      {
+        "name": "Guarded roof plant service platform 1",
+        "footprint": [
+          [
+            211.82571,
+            -437.35461
+          ],
+          [
+            218.76323,
+            -438.95626
+          ],
+          [
+            220.77429,
+            -430.24539
+          ],
+          [
+            213.83677,
+            -428.64374
+          ]
+        ],
+        "baseOffset": 10.98,
+        "height": 11.06,
+        "floors": 1,
+        "material": "roof",
+        "facade": {
+          "material": "roof",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "type": "metal-rail",
+            "height": 0.94,
+            "material": "coping"
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "plantDeck",
+          "features": []
+        }
+      },
+      {
+        "name": "Guarded roof plant service platform 2",
+        "footprint": [
+          [
+            237.45332,
+            -443.28122
+          ],
+          [
+            250.89963,
+            -446.38555
+          ],
+          [
+            252.94668,
+            -437.51878
+          ],
+          [
+            239.50037,
+            -434.41445
+          ]
+        ],
+        "baseOffset": 10.98,
+        "height": 11.06,
+        "floors": 1,
+        "material": "roof",
+        "facade": {
+          "material": "roof",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "type": "metal-rail",
+            "height": 0.94,
+            "material": "coping"
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "plantDeck",
+          "features": []
+        }
+      },
+      {
+        "name": "Guarded roof plant service platform 3",
+        "footprint": [
+          [
+            280.87413,
+            -445.95189
+          ],
+          [
+            294.64492,
+            -441.74174
+          ],
+          [
+            291.92587,
+            -432.84811
+          ],
+          [
+            278.15508,
+            -437.05826
+          ]
+        ],
+        "baseOffset": 11.2,
+        "height": 11.28,
+        "floors": 1,
+        "material": "roof",
+        "facade": {
+          "material": "roof",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "type": "metal-rail",
+            "height": 0.94,
+            "material": "coping"
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "plantDeck",
+          "features": []
+        }
+      },
+      {
+        "name": "Guarded roof plant service platform 4",
+        "footprint": [
+          [
+            312.16964,
+            -434.99344
+          ],
+          [
+            319.99221,
+            -432.60184
+          ],
+          [
+            317.15036,
+            -423.30656
+          ],
+          [
+            309.32779,
+            -425.69816
+          ]
+        ],
+        "baseOffset": 11.2,
+        "height": 11.28,
+        "floors": 1,
+        "material": "roof",
+        "facade": {
+          "material": "roof",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "type": "metal-rail",
+            "height": 0.94,
+            "material": "coping"
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "plantDeck",
+          "features": []
+        }
+      },
+      {
+        "name": "Western service court alongside the entrance hall",
+        "footprint": [
+          [
+            258.50317,
+            -446.19807
+          ],
+          [
+            256.14,
+            -445.28
+          ],
+          [
+            255.0,
+            -444.83697
+          ],
+          [
+            255.0,
+            -437.6439
+          ],
+          [
+            257.94013,
+            -438.36101
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 6.32,
+        "material": "base",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": [
+            {
+              "type": "hvac",
+              "center": [
+                256.6,
+                -443.2
+              ],
+              "size": [
+                1.25,
+                1.6
+              ],
+              "height": 0.76,
+              "rotation": 8,
+              "material": "plant"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Eastern service court alongside the entrance hall",
+        "footprint": [
+          [
+            270.97437,
+            -437.96856
+          ],
+          [
+            277.0,
+            -437.27798
+          ],
+          [
+            277.0,
+            -442.50177
+          ],
+          [
+            276.88,
+            -442.31
+          ],
+          [
+            271.69425,
+            -444.43774
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 6.32,
+        "material": "base",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "base",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": [
+            {
+              "type": "hvac",
+              "center": [
+                274.5,
+                -442.1
+              ],
+              "size": [
+                1.25,
+                1.6
+              ],
+              "height": 0.76,
+              "rotation": 8,
+              "material": "plant"
+            },
+            {
+              "type": "hvac",
+              "center": [
+                274.8,
+                -441.0
+              ],
+              "size": [
+                1.25,
+                1.6
+              ],
+              "height": 0.76,
+              "rotation": 8,
+              "material": "plant"
+            },
+            {
+              "type": "hvac",
+              "center": [
+                272.5,
+                -439.6
+              ],
+              "size": [
+                1.25,
+                1.6
+              ],
+              "height": 0.76,
+              "rotation": 8,
+              "material": "plant"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Sheet-metal return duct at plant platform 1",
+        "footprint": [
+          [
+            218.31812,
+            -436.71604
+          ],
+          [
+            218.37288,
+            -436.73155
+          ],
+          [
+            218.42586,
+            -436.75235
+          ],
+          [
+            218.47655,
+            -436.77824
+          ],
+          [
+            218.52445,
+            -436.80898
+          ],
+          [
+            218.56911,
+            -436.84427
+          ],
+          [
+            218.6101,
+            -436.88376
+          ],
+          [
+            218.64702,
+            -436.92709
+          ],
+          [
+            218.67951,
+            -436.97382
+          ],
+          [
+            218.70727,
+            -437.02351
+          ],
+          [
+            218.73002,
+            -437.07568
+          ],
+          [
+            218.74755,
+            -437.12983
+          ],
+          [
+            218.75969,
+            -437.18544
+          ],
+          [
+            218.76632,
+            -437.24197
+          ],
+          [
+            218.76738,
+            -437.29888
+          ],
+          [
+            218.76285,
+            -437.35562
+          ],
+          [
+            218.75278,
+            -437.41164
+          ],
+          [
+            218.43785,
+            -438.77576
+          ],
+          [
+            217.30758,
+            -438.51482
+          ],
+          [
+            217.49204,
+            -437.71583
+          ],
+          [
+            215.31919,
+            -437.21419
+          ],
+          [
+            215.58014,
+            -436.08392
+          ]
+        ],
+        "baseOffset": 11.58,
+        "height": 12.59,
+        "material": "plant",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "plant",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "plant",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Sheet-metal return duct at plant platform 2",
+        "footprint": [
+          [
+            243.15186,
+            -435.2265
+          ],
+          [
+            243.19135,
+            -435.18544
+          ],
+          [
+            243.23468,
+            -435.14846
+          ],
+          [
+            243.28143,
+            -435.1159
+          ],
+          [
+            243.33114,
+            -435.08809
+          ],
+          [
+            243.38335,
+            -435.06529
+          ],
+          [
+            243.43754,
+            -435.04772
+          ],
+          [
+            243.49319,
+            -435.03555
+          ],
+          [
+            243.54977,
+            -435.0289
+          ],
+          [
+            243.60672,
+            -435.02783
+          ],
+          [
+            243.66351,
+            -435.03236
+          ],
+          [
+            243.71958,
+            -435.04243
+          ],
+          [
+            245.52216,
+            -435.45859
+          ],
+          [
+            245.57693,
+            -435.4741
+          ],
+          [
+            245.62991,
+            -435.4949
+          ],
+          [
+            245.68059,
+            -435.5208
+          ],
+          [
+            245.7285,
+            -435.55154
+          ],
+          [
+            245.77316,
+            -435.58682
+          ],
+          [
+            245.81415,
+            -435.62632
+          ],
+          [
+            245.85107,
+            -435.66964
+          ],
+          [
+            245.88356,
+            -435.71637
+          ],
+          [
+            246.53992,
+            -436.76677
+          ],
+          [
+            247.05331,
+            -436.99868
+          ],
+          [
+            247.96947,
+            -436.52451
+          ],
+          [
+            248.02257,
+            -436.50033
+          ],
+          [
+            248.07784,
+            -436.48161
+          ],
+          [
+            248.1347,
+            -436.46853
+          ],
+          [
+            248.19259,
+            -436.46124
+          ],
+          [
+            248.25092,
+            -436.4598
+          ],
+          [
+            248.3091,
+            -436.46422
+          ],
+          [
+            248.36654,
+            -436.47447
+          ],
+          [
+            249.63322,
+            -436.76691
+          ],
+          [
+            249.37228,
+            -437.89718
+          ],
+          [
+            248.31333,
+            -437.6527
+          ],
+          [
+            247.33709,
+            -438.15797
+          ],
+          [
+            247.28422,
+            -438.18206
+          ],
+          [
+            247.2292,
+            -438.20073
+          ],
+          [
+            247.1726,
+            -438.21381
+          ],
+          [
+            247.11497,
+            -438.22116
+          ],
+          [
+            247.05689,
+            -438.22271
+          ],
+          [
+            246.99895,
+            -438.21844
+          ],
+          [
+            246.94173,
+            -438.2084
+          ],
+          [
+            246.8858,
+            -438.19268
+          ],
+          [
+            246.83172,
+            -438.17144
+          ],
+          [
+            245.90234,
+            -437.75162
+          ],
+          [
+            245.85177,
+            -437.72572
+          ],
+          [
+            245.80397,
+            -437.695
+          ],
+          [
+            245.75941,
+            -437.65975
+          ],
+          [
+            245.71852,
+            -437.6203
+          ],
+          [
+            245.68168,
+            -437.57705
+          ],
+          [
+            245.64924,
+            -437.5304
+          ],
+          [
+            245.02713,
+            -436.53482
+          ],
+          [
+            243.79772,
+            -436.25098
+          ],
+          [
+            243.4679,
+            -436.62943
+          ],
+          [
+            242.5934,
+            -435.86729
+          ]
+        ],
+        "baseOffset": 11.610000000000001,
+        "height": 12.620000000000001,
+        "material": "plant",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "plant",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "plant",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Sheet-metal return duct at plant platform 3",
+        "footprint": [
+          [
+            281.6797,
+            -436.1401
+          ],
+          [
+            281.69337,
+            -436.0848
+          ],
+          [
+            281.7124,
+            -436.0311
+          ],
+          [
+            281.73661,
+            -435.97953
+          ],
+          [
+            281.76576,
+            -435.93059
+          ],
+          [
+            281.79957,
+            -435.88474
+          ],
+          [
+            281.83771,
+            -435.84243
+          ],
+          [
+            281.87983,
+            -435.80407
+          ],
+          [
+            281.9255,
+            -435.77002
+          ],
+          [
+            281.97429,
+            -435.74062
+          ],
+          [
+            282.02573,
+            -435.71614
+          ],
+          [
+            282.07932,
+            -435.69683
+          ],
+          [
+            283.84849,
+            -435.15594
+          ],
+          [
+            283.90367,
+            -435.14199
+          ],
+          [
+            283.95996,
+            -435.13352
+          ],
+          [
+            284.0168,
+            -435.1306
+          ],
+          [
+            284.07365,
+            -435.13327
+          ],
+          [
+            284.12998,
+            -435.1415
+          ],
+          [
+            284.18522,
+            -435.15521
+          ],
+          [
+            284.23885,
+            -435.17427
+          ],
+          [
+            284.29036,
+            -435.19849
+          ],
+          [
+            285.38398,
+            -435.77998
+          ],
+          [
+            285.94455,
+            -435.72412
+          ],
+          [
+            286.50088,
+            -434.8554
+          ],
+          [
+            286.53478,
+            -434.80791
+          ],
+          [
+            286.57328,
+            -434.76407
+          ],
+          [
+            286.61598,
+            -434.72431
+          ],
+          [
+            286.66247,
+            -434.68905
+          ],
+          [
+            286.71227,
+            -434.65863
+          ],
+          [
+            286.76486,
+            -434.63338
+          ],
+          [
+            286.81973,
+            -434.61353
+          ],
+          [
+            288.06293,
+            -434.23345
+          ],
+          [
+            288.40208,
+            -435.34276
+          ],
+          [
+            287.36276,
+            -435.66051
+          ],
+          [
+            286.76995,
+            -436.58621
+          ],
+          [
+            286.73621,
+            -436.6335
+          ],
+          [
+            286.6979,
+            -436.67719
+          ],
+          [
+            286.65542,
+            -436.71682
+          ],
+          [
+            286.60918,
+            -436.752
+          ],
+          [
+            286.55966,
+            -436.78238
+          ],
+          [
+            286.50735,
+            -436.80765
+          ],
+          [
+            286.45277,
+            -436.82756
+          ],
+          [
+            286.39648,
+            -436.84191
+          ],
+          [
+            286.33903,
+            -436.85056
+          ],
+          [
+            285.32425,
+            -436.95167
+          ],
+          [
+            285.2675,
+            -436.95453
+          ],
+          [
+            285.21075,
+            -436.95182
+          ],
+          [
+            285.15453,
+            -436.94357
+          ],
+          [
+            285.09939,
+            -436.92986
+          ],
+          [
+            285.04586,
+            -436.91083
+          ],
+          [
+            284.99445,
+            -436.88664
+          ],
+          [
+            283.95789,
+            -436.3355
+          ],
+          [
+            282.75127,
+            -436.7044
+          ],
+          [
+            282.65486,
+            -437.19705
+          ],
+          [
+            281.51645,
+            -436.97427
+          ]
+        ],
+        "baseOffset": 11.790000000000001,
+        "height": 12.8,
+        "material": "plant",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "plant",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "plant",
+          "edge": "none",
+          "features": []
+        }
+      },
+      {
+        "name": "Sheet-metal return duct at plant platform 4",
+        "footprint": [
+          [
+            317.63255,
+            -430.45649
+          ],
+          [
+            317.68774,
+            -430.44254
+          ],
+          [
+            317.74402,
+            -430.43407
+          ],
+          [
+            317.80086,
+            -430.43115
+          ],
+          [
+            317.85772,
+            -430.43382
+          ],
+          [
+            317.91404,
+            -430.44205
+          ],
+          [
+            317.96928,
+            -430.45576
+          ],
+          [
+            318.02292,
+            -430.47482
+          ],
+          [
+            318.07442,
+            -430.49904
+          ],
+          [
+            318.12331,
+            -430.5282
+          ],
+          [
+            318.1691,
+            -430.562
+          ],
+          [
+            318.21136,
+            -430.60014
+          ],
+          [
+            318.24967,
+            -430.64223
+          ],
+          [
+            318.28368,
+            -430.68787
+          ],
+          [
+            318.31305,
+            -430.73663
+          ],
+          [
+            318.33749,
+            -430.78803
+          ],
+          [
+            318.35679,
+            -430.84158
+          ],
+          [
+            318.76611,
+            -432.1804
+          ],
+          [
+            317.65679,
+            -432.51955
+          ],
+          [
+            317.41705,
+            -431.73538
+          ],
+          [
+            315.28449,
+            -432.38737
+          ],
+          [
+            314.94534,
+            -431.27806
+          ]
+        ],
+        "baseOffset": 11.790000000000001,
+        "height": 12.8,
+        "material": "plant",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "plant",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "plant",
+          "edge": "none",
+          "features": []
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.04,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.12,
+        "height": 2.03,
+        "sill": 0.8,
+        "perBay": 1,
+        "recess": 0.16,
+        "frameColor": "#e4e4de",
+        "glass": "tinted",
+        "glassColor": "#50595b",
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.07
+        },
+        "surround": "none",
+        "sillProjecting": true
+      },
+      "base": {
+        "material": "base",
+        "height": 0.35,
+        "projection": 0.035
+      },
+      "parapet": {
+        "type": "coped",
+        "material": "coping",
+        "height": 0.12
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 1,
+          "width": 14.9,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.25,
+          "height": 2.63,
+          "sill": 0.21,
+          "perBay": 1,
+          "recess": 0.16,
+          "frameColor": "#e4e4de",
+          "glass": "tinted",
+          "glassColor": "#50595b",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.07
+          },
+          "surround": "none",
+          "sillProjecting": true
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 12,
+          "width": 4.18,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 14,
+          "width": 4.13,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 1,
+          "width": 13.15,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.03,
+          "height": 2.72,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.16,
+          "frameColor": "#e4e4de",
+          "glass": "tinted",
+          "glassColor": "#50595b",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.07
+          },
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "bands": [],
+        "segments": [
+          {
+            "range": [
+              0,
+              0.315
+            ],
+            "blank": true
+          },
+          {
+            "range": [
+              0.315,
+              0.48
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "width": 0.98,
+              "recess": 0.32
+            }
+          },
+          {
+            "range": [
+              0.48,
+              1
+            ],
+            "blank": true
+          }
+        ]
+      },
+      "4": {
+        "bays": {
+          "count": 11,
+          "width": 4.1,
+          "pattern": "regular"
+        },
+        "segments": [
+          {
+            "range": [
+              0,
+              0.084
+            ],
+            "blank": true
+          },
+          {
+            "range": [
+              0.084,
+              0.34
+            ],
+            "bays": {
+              "count": 3,
+              "edgeMargin": 0.45
+            },
+            "windows": {
+              "width": 1.06
+            }
+          },
+          {
+            "range": [
+              0.34,
+              0.58
+            ],
+            "bays": {
+              "count": 3,
+              "edgeMargin": 0.35
+            },
+            "windows": {
+              "width": 1.3
+            }
+          },
+          {
+            "range": [
+              0.58,
+              0.995
+            ],
+            "bays": {
+              "count": 5,
+              "edgeMargin": 0.65
+            },
+            "windows": {
+              "width": 1.1
+            }
+          }
+        ]
+      },
+      "5": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 2,
+          "width": 2.83,
+          "pattern": "regular"
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 1,
+          "width": 5.96,
+          "pattern": "regular"
+        }
+      },
+      "8": {
+        "material": "base",
+        "bays": {
+          "count": 5,
+          "width": 2.53,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "storefront",
+          "width": 2.25,
+          "height": 4.85,
+          "sill": 1.0,
+          "perBay": 1,
+          "recess": 0.12,
+          "frameColor": "#7a7872",
+          "glass": "tinted",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.075
+          },
+          "glassColor": "#464b4c"
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 1,
+          "width": 5.25,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "round-arch",
+          "width": 1.5,
+          "height": 3.35,
+          "sill": 0.64,
+          "perBay": 1,
+          "recess": 0.16,
+          "frameColor": "#e4e4de",
+          "glass": "tinted",
+          "glassColor": "#50595b",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.07
+          },
+          "surround": "none",
+          "sillProjecting": true
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 1,
+          "width": 5.24,
+          "pattern": "regular"
+        }
+      },
+      "11": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "12": {
+        "bays": {
+          "count": 11,
+          "width": 4.02,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          215.8,
+          -433.8
+        ],
+        "size": [
+          3.35,
+          7.1
+        ],
+        "height": 2.68,
+        "rotation": -13,
+        "material": "plant",
+        "style": "rectangular ducted rooftop assembly"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          242.8,
+          -439.6
+        ],
+        "size": [
+          3.35,
+          7.1
+        ],
+        "height": 2.68,
+        "rotation": -13,
+        "material": "plant",
+        "style": "rectangular ducted rooftop assembly"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          248.8,
+          -441.2
+        ],
+        "size": [
+          3.35,
+          7.1
+        ],
+        "height": 2.68,
+        "rotation": -13,
+        "material": "plant",
+        "style": "rectangular ducted rooftop assembly"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          282.4,
+          -439.6
+        ],
+        "size": [
+          3.35,
+          7.1
+        ],
+        "height": 2.68,
+        "rotation": 17,
+        "material": "plant",
+        "style": "rectangular ducted rooftop assembly"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          289.2,
+          -438.2
+        ],
+        "size": [
+          3.35,
+          7.1
+        ],
+        "height": 2.68,
+        "rotation": 17,
+        "material": "plant",
+        "style": "rectangular ducted rooftop assembly"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          314.8,
+          -428.8
+        ],
+        "size": [
+          3.35,
+          7.1
+        ],
+        "height": 2.68,
+        "rotation": 17,
+        "material": "plant",
+        "style": "rectangular ducted rooftop assembly"
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 8,
+      "position": 0.48,
+      "type": "doors-double",
+      "width": 3.05,
+      "height": 2.46,
+      "recess": 0.32,
+      "steps": 0,
+      "ramp": false
+    },
+    {
+      "wall": 10,
+      "position": 0.57,
+      "type": "doors-single",
+      "width": 1.04,
+      "height": 2.13
+    },
+    {
+      "wall": 2,
+      "position": 0.04,
+      "type": "doors-double",
+      "width": 1.75,
+      "height": 2.24
+    },
+    {
+      "type": "service-door",
+      "wall": 3,
+      "position": 0.85,
+      "width": 1.04,
+      "height": 2.17,
+      "doorColor": "#aea99e"
+    }
+  ],
+  "attachments": [
+    {
+      "type": "ramp",
+      "walls": [
+        8,
+        9,
+        10,
+        12
+      ],
+      "path": [
+        [
+          242.3,
+          -446.8
+        ],
+        [
+          258.9,
+          -451.7
+        ]
+      ],
+      "width": 1.62,
+      "height": 1.05,
+      "material": "concrete"
+    },
+    {
+      "type": "exterior-stair",
+      "walls": [
+        8
+      ],
+      "path": [
+        [
+          265.73407,
+          -453.15122
+        ],
+        [
+          265.52917,
+          -450.89049
+        ]
+      ],
+      "width": 12.1,
+      "height": 1.06,
+      "material": "concrete"
+    },
+    {
+      "type": "terrace",
+      "walls": [
+        8
+      ],
+      "path": [
+        [
+          271.3969,
+          -449.35457
+        ],
+        [
+          259.4809,
+          -450.43457
+        ]
+      ],
+      "width": 2.27,
+      "height": 1.05,
+      "material": "concrete"
+    },
+    {
+      "type": "terrace",
+      "walls": [
+        1
+      ],
+      "path": [
+        [
+          221.0093,
+          -424.19875
+        ],
+        [
+          234.6789,
+          -427.40195
+        ]
+      ],
+      "width": 4,
+      "height": 2.3,
+      "material": "concrete"
+    },
+    {
+      "type": "terrace",
+      "walls": [
+        2
+      ],
+      "path": [
+        [
+          292.57584,
+          -424.8844
+        ],
+        [
+          298.67534,
+          -423.0749
+        ]
+      ],
+      "width": 3.7,
+      "height": 2.15,
+      "material": "concrete"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "373917296",
+      "walls": [
+        3,
+        4
+      ],
+      "note": "Three storeys of rectangular windows on the east wing, single tall slot in the gable-width end. Sunlit stone patch on end wall #a7a7a3."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373917300",
+      "walls": [
+        4,
+        5
+      ],
+      "note": "Countable narrow window rhythm, stone on the returns, raised metal roof equipment and a lower centre link."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373917206",
+      "walls": [
+        8,
+        9
+      ],
+      "note": "Porch opens north. Projecting roof stands on slender columns above stepped terrace."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373917214",
+      "walls": [
+        8,
+        9,
+        10,
+        12
+      ],
+      "note": "Ramp rail and glazing across the middle link. Lower entrance roof between three-storey wings."
+    },
+    {
+      "kind": "photo",
+      "note": "Western's exterior photograph shows the doors behind six posts, a folded soffit, paired stair rails and broad steps.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WH.jpg"
+    },
+    {
+      "kind": "aerial",
+      "note": "Shallow V plan with a rectilinear central porch, two long roof strips and clusters of plant toward both ends of each wing."
+    },
+    {
+      "kind": "lidar",
+      "note": "Wings generally near 11 m. P90 of 13.21 m includes roof plant, with a 14.4 m maximum. Central entrance roof about 7.8 m."
+    },
+    {
+      "kind": "osm",
+      "note": "Three mapped entrance nodes anchor the door positions. Western spells the building name Westminster Hall.",
+      "url": "https://www.uwo.ca/fm/client_services/building_info.html"
+    },
+    {
+      "kind": "kartaview",
+      "walls": [
+        3,
+        4,
+        8
+      ],
+      "frame": "373917296",
+      "note": "Wing windows occupy about three fifths of each floor-to-floor height. The narrow end-wall lights line up vertically. The central entry has taller glazing."
+    },
+    {
+      "kind": "lidar",
+      "note": "Across the entrance block, the central roof is about 7.8 m above datum. Equipment courts on either side read 6.2–6.4 m. The southeast plot beyond the court drops to ground level."
+    }
+  ],
+  "notes": "The porch soffit folds into triangular facets between the columns. Narrow stones vary considerably in length and tone. The southern elevations face downslope and their exact window spacing is inferred."
+}

@@ -1,0 +1,5 @@
+[verify]
+fast = ["node --check main.js", "node --check build_single.mjs", "node dev/verify_mesh.mjs"]
+full = ["npm exec --yes --package=playwright@1.65.1 -c 'node dev/verify_browser.mjs'"]
+timeout_s = 90
+require_before_done = true

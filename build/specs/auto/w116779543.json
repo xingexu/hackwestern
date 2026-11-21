@@ -1,0 +1,192 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w116779543",
+  "name": "Talbot College",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414441"
+    }
+  ],
+  "style": "collegiate-gothic",
+  "floors": {
+    "count": 4,
+    "typicalHeight": 3.9,
+    "groundFloorHeight": 3.9
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 15.67,
+        "floors": 4
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              495.047,
+              418.205
+            ],
+            [
+              489.223,
+              460.421
+            ],
+            [
+              490.71,
+              460.65
+            ],
+            [
+              490.27,
+              463.02
+            ],
+            [
+              491.65,
+              463.3
+            ],
+            [
+              494.49,
+              463.87
+            ],
+            [
+              494.95,
+              461.4
+            ],
+            [
+              526.73,
+              467.66
+            ],
+            [
+              527.99,
+              459.58
+            ],
+            [
+              529.85,
+              459.8
+            ],
+            [
+              530.14,
+              458.06
+            ],
+            [
+              530.43,
+              456.27
+            ],
+            [
+              528.78,
+              455.91
+            ],
+            [
+              534.37,
+              427.71
+            ],
+            [
+              517.45,
+              423.67
+            ],
+            [
+              517.874,
+              421.354
+            ]
+          ]
+        },
+        "height": 20.77,
+        "baseOffset": 15.67,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#ac8f76",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#a7aa9a"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.1
+      },
+      "windows": {
+        "type": "tudor-arch",
+        "width": 1.8,
+        "height": 2.25,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1
+        },
+        "glassColor": "#5f5c50",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 0.46,
+        "depth": 0.24,
+        "every": 2,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.13,
+          "depth": 0.07,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 8,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "gothic-portal",
+      "recess": 0.32
+    }
+  ]
+}

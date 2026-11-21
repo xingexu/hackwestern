@@ -1,0 +1,3188 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w123525182",
+  "name": "Platt's Lane Estates townhouses, 568–578",
+  "status": "refined",
+  "confidence": 0.7,
+  "summary": "Six two-storey units are arranged in three staggered pairs with pale party-wall caps and low brown ridges. A parking court sits to the north and lawn to the south.",
+  "style": "residential-brick",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#8c4e3c",
+      "secondaryColor": "#986b57",
+      "unitSize": [
+        0.2,
+        0.065
+      ],
+      "bond": "running",
+      "variation": 0.09,
+      "roughness": 0.89
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#5f4b3e",
+      "secondaryColor": "#4d3f34",
+      "unitSize": [
+        0.34,
+        0.145
+      ],
+      "variation": 0.08,
+      "roughness": 0.95
+    },
+    "accent": {
+      "kind": "stucco",
+      "color": "#bfa48c",
+      "secondaryColor": "#ae9582",
+      "variation": 0.035,
+      "roughness": 0.82
+    },
+    "infill": {
+      "kind": "metal-panel",
+      "color": "#824437",
+      "unitSize": [
+        1.5,
+        1.25
+      ],
+      "roughness": 0.66,
+      "secondaryColor": "#784439",
+      "variation": 0.02
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#dedbd2",
+      "roughness": 0.62
+    },
+    "hood": {
+      "kind": "painted-metal",
+      "color": "#c3a58e",
+      "roughness": 0.69
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#a39e97",
+      "roughness": 0.85
+    },
+    "endField": {
+      "kind": "precast-panel",
+      "color": "#af927d",
+      "secondaryColor": "#a38a78",
+      "unitSize": [
+        12,
+        8
+      ],
+      "variation": 0.02
+    },
+    "flashing": {
+      "kind": "painted-metal",
+      "color": "#645248"
+    },
+    "screen": {
+      "kind": "wood-siding",
+      "color": "#8a735b",
+      "secondaryColor": "#75614e",
+      "unitSize": [
+        0.14,
+        1.75
+      ]
+    },
+    "hoodRoof": {
+      "kind": "painted-metal",
+      "color": "#977865",
+      "secondaryColor": "#896c60",
+      "roughness": 0.76
+    },
+    "vent": {
+      "kind": "painted-metal",
+      "color": "#595951"
+    },
+    "patio": {
+      "kind": "concrete-smooth",
+      "color": "#b2a294"
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 2.85,
+    "typicalHeight": 2.85,
+    "raisedGround": 0.14
+  },
+  "roof": {
+    "form": "gable",
+    "ridge": 68,
+    "rise": 1.54,
+    "overhang": 0.34,
+    "edge": "fascia",
+    "material": "roof"
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Townhouse pair 576–578",
+        "footprint": [
+          [
+            -112.534,
+            1749.983
+          ],
+          [
+            -102.544,
+            1745.947
+          ],
+          [
+            -98.878,
+            1755.021
+          ],
+          [
+            -108.868,
+            1759.057
+          ]
+        ],
+        "height": 5.65,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "ridge": 68,
+          "rise": 1.59,
+          "overhang": 0.34,
+          "edge": "fascia",
+          "material": "roof"
+        },
+        "facade": {
+          "bays": {
+            "count": 2,
+            "edgeMargin": 0.12
+          }
+        },
+        "wallProfiles": {
+          "8": {
+            "blank": false,
+            "segments": [
+              {
+                "range": [
+                  0,
+                  0.3
+                ],
+                "bays": {
+                  "count": 1,
+                  "edgeMargin": 0.12
+                },
+                "windows": {
+                  "type": "punched",
+                  "width": 1.36,
+                  "height": 0.99,
+                  "sill": 1.36,
+                  "perBay": 1,
+                  "recess": 0.12,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 0,
+                    "width": 0.045
+                  },
+                  "frameColor": "#ebe5da",
+                  "glass": "dark",
+                  "glassColor": "#313836",
+                  "surround": "metal",
+                  "sillProjecting": true,
+                  "surroundMaterial": "trim"
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "punched",
+                    "width": 1.48,
+                    "height": 1.47,
+                    "sill": 0.53,
+                    "perBay": 1,
+                    "recess": 0.12,
+                    "mullions": {
+                      "vertical": 1,
+                      "horizontal": 0,
+                      "width": 0.045
+                    },
+                    "frameColor": "#ebe5da",
+                    "glass": "dark",
+                    "glassColor": "#313836",
+                    "surround": "metal",
+                    "sillProjecting": true,
+                    "surroundMaterial": "trim"
+                  }
+                },
+                "topFloor": {
+                  "spandrelMaterial": "infill"
+                }
+              },
+              {
+                "range": [
+                  0.3,
+                  0.7
+                ],
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "none",
+                    "perBay": 0
+                  }
+                }
+              },
+              {
+                "range": [
+                  0.7,
+                  1
+                ],
+                "bays": {
+                  "count": 1,
+                  "edgeMargin": 0.12
+                },
+                "windows": {
+                  "type": "punched",
+                  "width": 1.36,
+                  "height": 0.99,
+                  "sill": 1.36,
+                  "perBay": 1,
+                  "recess": 0.12,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 0,
+                    "width": 0.045
+                  },
+                  "frameColor": "#ebe5da",
+                  "glass": "dark",
+                  "glassColor": "#313836",
+                  "surround": "metal",
+                  "sillProjecting": true,
+                  "surroundMaterial": "trim"
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "punched",
+                    "width": 1.48,
+                    "height": 1.47,
+                    "sill": 0.53,
+                    "perBay": 1,
+                    "recess": 0.12,
+                    "mullions": {
+                      "vertical": 1,
+                      "horizontal": 0,
+                      "width": 0.045
+                    },
+                    "frameColor": "#ebe5da",
+                    "glass": "dark",
+                    "glassColor": "#313836",
+                    "surround": "metal",
+                    "sillProjecting": true,
+                    "surroundMaterial": "trim"
+                  }
+                },
+                "topFloor": {
+                  "spandrelMaterial": "infill"
+                }
+              }
+            ]
+          },
+          "1": {
+            "blank": false,
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.12,
+              "pattern": "regular",
+              "groupSize": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.43,
+              "height": 1.09,
+              "sill": 1.15,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#ebe5da",
+              "glass": "dark",
+              "glassColor": "#313836",
+              "surround": "none",
+              "sillProjecting": true
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.22,
+                "height": 1.06,
+                "sill": 1.02,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.045
+                },
+                "frameColor": "#ebe5da",
+                "glass": "dark",
+                "glassColor": "#313836",
+                "surround": "none",
+                "sillProjecting": true
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "Shared entrance hood 576–578",
+        "footprint": [
+          [
+            -109.926,
+            1747.743
+          ],
+          [
+            -105.976,
+            1746.148
+          ],
+          [
+            -105.564,
+            1747.168
+          ],
+          [
+            -109.514,
+            1748.763
+          ]
+        ],
+        "height": 2.41,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "ridge": 68,
+          "rise": 0.18,
+          "overhang": 0.04,
+          "edge": "none",
+          "material": "hoodRoof"
+        },
+        "material": "hood",
+        "baseOffset": 2.29,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "hood",
+          "cornice": {
+            "height": 0.05,
+            "depth": 0.02,
+            "material": "hood"
+          }
+        }
+      },
+      {
+        "name": "Canopy head flashing 576–578",
+        "footprint": [
+          [
+            -109.497,
+            1748.659
+          ],
+          [
+            -105.649,
+            1747.105
+          ],
+          [
+            -105.606,
+            1747.212
+          ],
+          [
+            -109.454,
+            1748.766
+          ]
+        ],
+        "height": 2.745,
+        "baseOffset": 2.555,
+        "floors": 1,
+        "material": "hood",
+        "facade": {
+          "blank": true,
+          "material": "hood",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "base": {
+            "height": 0.01,
+            "projection": 0.003,
+            "material": "hood"
+          },
+          "cornice": {
+            "height": 0.023,
+            "depth": 0.012,
+            "material": "accent"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "rise": 0,
+          "overhang": 0,
+          "edge": "none",
+          "material": "hood",
+          "features": []
+        }
+      },
+      {
+        "name": "Townhouse pair 572–574",
+        "footprint": [
+          [
+            -101.222,
+            1747.779
+          ],
+          [
+            -91.057,
+            1743.672
+          ],
+          [
+            -87.387,
+            1752.755
+          ],
+          [
+            -97.552,
+            1756.862
+          ]
+        ],
+        "height": 5.69,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "ridge": 68,
+          "rise": 1.54,
+          "overhang": 0.34,
+          "edge": "fascia",
+          "material": "roof"
+        },
+        "facade": {
+          "bays": {
+            "count": 2,
+            "edgeMargin": 0.12
+          }
+        },
+        "wallProfiles": {
+          "7": {
+            "blank": false,
+            "segments": [
+              {
+                "range": [
+                  0,
+                  0.3
+                ],
+                "bays": {
+                  "count": 1,
+                  "edgeMargin": 0.12
+                },
+                "windows": {
+                  "type": "punched",
+                  "width": 1.36,
+                  "height": 0.99,
+                  "sill": 1.36,
+                  "perBay": 1,
+                  "recess": 0.12,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 0,
+                    "width": 0.045
+                  },
+                  "frameColor": "#ebe5da",
+                  "glass": "dark",
+                  "glassColor": "#313836",
+                  "surround": "metal",
+                  "sillProjecting": true,
+                  "surroundMaterial": "trim"
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "punched",
+                    "width": 1.48,
+                    "height": 1.47,
+                    "sill": 0.53,
+                    "perBay": 1,
+                    "recess": 0.12,
+                    "mullions": {
+                      "vertical": 1,
+                      "horizontal": 0,
+                      "width": 0.045
+                    },
+                    "frameColor": "#ebe5da",
+                    "glass": "dark",
+                    "glassColor": "#313836",
+                    "surround": "metal",
+                    "sillProjecting": true,
+                    "surroundMaterial": "trim"
+                  }
+                },
+                "topFloor": {
+                  "spandrelMaterial": "infill"
+                }
+              },
+              {
+                "range": [
+                  0.3,
+                  0.7
+                ],
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "none",
+                    "perBay": 0
+                  }
+                }
+              },
+              {
+                "range": [
+                  0.7,
+                  1
+                ],
+                "bays": {
+                  "count": 1,
+                  "edgeMargin": 0.12
+                },
+                "windows": {
+                  "type": "punched",
+                  "width": 1.36,
+                  "height": 0.99,
+                  "sill": 1.36,
+                  "perBay": 1,
+                  "recess": 0.12,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 0,
+                    "width": 0.045
+                  },
+                  "frameColor": "#ebe5da",
+                  "glass": "dark",
+                  "glassColor": "#313836",
+                  "surround": "metal",
+                  "sillProjecting": true,
+                  "surroundMaterial": "trim"
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "punched",
+                    "width": 1.48,
+                    "height": 1.47,
+                    "sill": 0.53,
+                    "perBay": 1,
+                    "recess": 0.12,
+                    "mullions": {
+                      "vertical": 1,
+                      "horizontal": 0,
+                      "width": 0.045
+                    },
+                    "frameColor": "#ebe5da",
+                    "glass": "dark",
+                    "glassColor": "#313836",
+                    "surround": "metal",
+                    "sillProjecting": true,
+                    "surroundMaterial": "trim"
+                  }
+                },
+                "topFloor": {
+                  "spandrelMaterial": "infill"
+                }
+              }
+            ]
+          },
+          "2": {
+            "blank": false,
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.12,
+              "pattern": "regular",
+              "groupSize": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.43,
+              "height": 1.09,
+              "sill": 1.15,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#ebe5da",
+              "glass": "dark",
+              "glassColor": "#313836",
+              "surround": "none",
+              "sillProjecting": true
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.22,
+                "height": 1.06,
+                "sill": 1.02,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.045
+                },
+                "frameColor": "#ebe5da",
+                "glass": "dark",
+                "glassColor": "#313836",
+                "surround": "none",
+                "sillProjecting": true
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "Shared entrance hood 572–574",
+        "footprint": [
+          [
+            -98.526,
+            1745.504
+          ],
+          [
+            -94.576,
+            1743.908
+          ],
+          [
+            -94.164,
+            1744.928
+          ],
+          [
+            -98.114,
+            1746.524
+          ]
+        ],
+        "height": 2.41,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "ridge": 68,
+          "rise": 0.18,
+          "overhang": 0.04,
+          "edge": "none",
+          "material": "hoodRoof"
+        },
+        "material": "hood",
+        "baseOffset": 2.29,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "hood",
+          "cornice": {
+            "height": 0.05,
+            "depth": 0.02,
+            "material": "hood"
+          }
+        }
+      },
+      {
+        "name": "Canopy head flashing 572–574",
+        "footprint": [
+          [
+            -98.097,
+            1746.42
+          ],
+          [
+            -94.249,
+            1744.865
+          ],
+          [
+            -94.206,
+            1744.972
+          ],
+          [
+            -98.054,
+            1746.527
+          ]
+        ],
+        "height": 2.745,
+        "baseOffset": 2.555,
+        "floors": 1,
+        "material": "hood",
+        "facade": {
+          "blank": true,
+          "material": "hood",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "base": {
+            "height": 0.01,
+            "projection": 0.003,
+            "material": "hood"
+          },
+          "cornice": {
+            "height": 0.023,
+            "depth": 0.012,
+            "material": "accent"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "rise": 0,
+          "overhang": 0,
+          "edge": "none",
+          "material": "hood",
+          "features": []
+        }
+      },
+      {
+        "name": "Townhouse pair 568–570",
+        "footprint": [
+          [
+            -91.223,
+            1741.82
+          ],
+          [
+            -81.098,
+            1737.729
+          ],
+          [
+            -77.498,
+            1746.639
+          ],
+          [
+            -87.623,
+            1750.729
+          ]
+        ],
+        "height": 5.85,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "ridge": 68,
+          "rise": 1.26,
+          "overhang": 0.34,
+          "edge": "fascia",
+          "material": "roof"
+        },
+        "facade": {
+          "bays": {
+            "count": 2,
+            "edgeMargin": 0.12
+          }
+        },
+        "wallProfiles": {
+          "6": {
+            "blank": false,
+            "segments": [
+              {
+                "range": [
+                  0,
+                  0.3
+                ],
+                "bays": {
+                  "count": 1,
+                  "edgeMargin": 0.12
+                },
+                "windows": {
+                  "type": "punched",
+                  "width": 1.36,
+                  "height": 0.99,
+                  "sill": 1.36,
+                  "perBay": 1,
+                  "recess": 0.12,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 0,
+                    "width": 0.045
+                  },
+                  "frameColor": "#ebe5da",
+                  "glass": "dark",
+                  "glassColor": "#313836",
+                  "surround": "metal",
+                  "sillProjecting": true,
+                  "surroundMaterial": "trim"
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "punched",
+                    "width": 1.48,
+                    "height": 1.47,
+                    "sill": 0.53,
+                    "perBay": 1,
+                    "recess": 0.12,
+                    "mullions": {
+                      "vertical": 1,
+                      "horizontal": 0,
+                      "width": 0.045
+                    },
+                    "frameColor": "#ebe5da",
+                    "glass": "dark",
+                    "glassColor": "#313836",
+                    "surround": "metal",
+                    "sillProjecting": true,
+                    "surroundMaterial": "trim"
+                  }
+                },
+                "topFloor": {
+                  "spandrelMaterial": "infill"
+                }
+              },
+              {
+                "range": [
+                  0.3,
+                  0.7
+                ],
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "none",
+                    "perBay": 0
+                  }
+                }
+              },
+              {
+                "range": [
+                  0.7,
+                  1
+                ],
+                "bays": {
+                  "count": 1,
+                  "edgeMargin": 0.12
+                },
+                "windows": {
+                  "type": "punched",
+                  "width": 1.36,
+                  "height": 0.99,
+                  "sill": 1.36,
+                  "perBay": 1,
+                  "recess": 0.12,
+                  "mullions": {
+                    "vertical": 1,
+                    "horizontal": 0,
+                    "width": 0.045
+                  },
+                  "frameColor": "#ebe5da",
+                  "glass": "dark",
+                  "glassColor": "#313836",
+                  "surround": "metal",
+                  "sillProjecting": true,
+                  "surroundMaterial": "trim"
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "punched",
+                    "width": 1.48,
+                    "height": 1.47,
+                    "sill": 0.53,
+                    "perBay": 1,
+                    "recess": 0.12,
+                    "mullions": {
+                      "vertical": 1,
+                      "horizontal": 0,
+                      "width": 0.045
+                    },
+                    "frameColor": "#ebe5da",
+                    "glass": "dark",
+                    "glassColor": "#313836",
+                    "surround": "metal",
+                    "sillProjecting": true,
+                    "surroundMaterial": "trim"
+                  }
+                },
+                "topFloor": {
+                  "spandrelMaterial": "infill"
+                }
+              }
+            ]
+          },
+          "4": {
+            "blank": false,
+            "bays": {
+              "count": 2,
+              "edgeMargin": 0.12,
+              "pattern": "regular",
+              "groupSize": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.43,
+              "height": 1.09,
+              "sill": 1.15,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#ebe5da",
+              "glass": "dark",
+              "glassColor": "#313836",
+              "surround": "none",
+              "sillProjecting": true
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.22,
+                "height": 1.06,
+                "sill": 1.02,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.045
+                },
+                "frameColor": "#ebe5da",
+                "glass": "dark",
+                "glassColor": "#313836",
+                "surround": "none",
+                "sillProjecting": true
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "Shared entrance hood 568–570",
+        "footprint": [
+          [
+            -88.547,
+            1739.552
+          ],
+          [
+            -84.597,
+            1737.957
+          ],
+          [
+            -84.185,
+            1738.976
+          ],
+          [
+            -88.135,
+            1740.572
+          ]
+        ],
+        "height": 2.41,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "ridge": 68,
+          "rise": 0.18,
+          "overhang": 0.04,
+          "edge": "none",
+          "material": "hoodRoof"
+        },
+        "material": "hood",
+        "baseOffset": 2.29,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "hood",
+          "cornice": {
+            "height": 0.05,
+            "depth": 0.02,
+            "material": "hood"
+          }
+        }
+      },
+      {
+        "name": "Canopy head flashing 568–570",
+        "footprint": [
+          [
+            -88.118,
+            1740.468
+          ],
+          [
+            -84.27,
+            1738.913
+          ],
+          [
+            -84.227,
+            1739.02
+          ],
+          [
+            -88.075,
+            1740.575
+          ]
+        ],
+        "height": 2.745,
+        "baseOffset": 2.555,
+        "floors": 1,
+        "material": "hood",
+        "facade": {
+          "blank": true,
+          "material": "hood",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "base": {
+            "height": 0.01,
+            "projection": 0.003,
+            "material": "hood"
+          },
+          "cornice": {
+            "height": 0.023,
+            "depth": 0.012,
+            "material": "accent"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "rise": 0,
+          "overhang": 0,
+          "edge": "none",
+          "material": "hood",
+          "features": []
+        }
+      },
+      {
+        "name": "Capped first end wall",
+        "footprint": [
+          [
+            -113.244,
+            1749.667
+          ],
+          [
+            -112.743,
+            1749.464
+          ],
+          [
+            -108.793,
+            1759.242
+          ],
+          [
+            -109.293,
+            1759.445
+          ]
+        ],
+        "height": 6.12,
+        "floors": 2,
+        "material": "accent",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "accent",
+          "cornice": {
+            "height": 0.07,
+            "depth": 0.025,
+            "material": "accent"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 68,
+          "rise": 1.59,
+          "overhang": 0.055,
+          "edge": "none",
+          "material": "accent",
+          "features": []
+        }
+      },
+      {
+        "name": "End panel course 1, panel 1",
+        "footprint": [
+          [
+            -113.139,
+            1750.088
+          ],
+          [
+            -113.028,
+            1750.042
+          ],
+          [
+            -111.871,
+            1752.906
+          ],
+          [
+            -111.982,
+            1752.951
+          ]
+        ],
+        "height": 2.666,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 0
+      },
+      {
+        "name": "End panel course 1, panel 2",
+        "footprint": [
+          [
+            -111.974,
+            1752.972
+          ],
+          [
+            -111.863,
+            1752.926
+          ],
+          [
+            -110.564,
+            1756.139
+          ],
+          [
+            -110.675,
+            1756.184
+          ]
+        ],
+        "height": 2.666,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 0
+      },
+      {
+        "name": "End panel course 1, panel 3",
+        "footprint": [
+          [
+            -110.667,
+            1756.205
+          ],
+          [
+            -110.556,
+            1756.159
+          ],
+          [
+            -109.399,
+            1759.023
+          ],
+          [
+            -109.51,
+            1759.068
+          ]
+        ],
+        "height": 2.666,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 0
+      },
+      {
+        "name": "End panel course 2, panel 1",
+        "footprint": [
+          [
+            -113.139,
+            1750.088
+          ],
+          [
+            -113.028,
+            1750.042
+          ],
+          [
+            -111.871,
+            1752.906
+          ],
+          [
+            -111.982,
+            1752.951
+          ]
+        ],
+        "height": 5.25,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 2.69
+      },
+      {
+        "name": "End panel course 2, panel 2",
+        "footprint": [
+          [
+            -111.974,
+            1752.972
+          ],
+          [
+            -111.863,
+            1752.926
+          ],
+          [
+            -110.564,
+            1756.139
+          ],
+          [
+            -110.675,
+            1756.184
+          ]
+        ],
+        "height": 5.25,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 2.69
+      },
+      {
+        "name": "End panel course 2, panel 3",
+        "footprint": [
+          [
+            -110.667,
+            1756.205
+          ],
+          [
+            -110.556,
+            1756.159
+          ],
+          [
+            -109.399,
+            1759.023
+          ],
+          [
+            -109.51,
+            1759.068
+          ]
+        ],
+        "height": 5.25,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 2.69
+      },
+      {
+        "name": "End panel raised centre",
+        "footprint": [
+          [
+            -112.074,
+            1752.724
+          ],
+          [
+            -111.963,
+            1752.678
+          ],
+          [
+            -110.464,
+            1756.387
+          ],
+          [
+            -110.575,
+            1756.432
+          ]
+        ],
+        "height": 5.67,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 5.268
+      },
+      {
+        "name": "Raised party wall 1",
+        "footprint": [
+          [
+            -102.763,
+            1745.432
+          ],
+          [
+            -102.244,
+            1745.222
+          ],
+          [
+            -97.468,
+            1757.043
+          ],
+          [
+            -97.987,
+            1757.253
+          ]
+        ],
+        "height": 6.16,
+        "floors": 2,
+        "material": "accent",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "accent",
+          "cornice": {
+            "height": 0.07,
+            "depth": 0.025,
+            "material": "accent"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 68,
+          "rise": 1.59,
+          "overhang": 0.055,
+          "edge": "none",
+          "material": "accent",
+          "features": []
+        }
+      },
+      {
+        "name": "Raised party wall 2",
+        "footprint": [
+          [
+            -91.943,
+            1741.507
+          ],
+          [
+            -91.423,
+            1741.297
+          ],
+          [
+            -86.802,
+            1752.734
+          ],
+          [
+            -87.322,
+            1752.944
+          ]
+        ],
+        "height": 6.32,
+        "floors": 2,
+        "material": "accent",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "accent",
+          "cornice": {
+            "height": 0.07,
+            "depth": 0.025,
+            "material": "accent"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 68,
+          "rise": 1.54,
+          "overhang": 0.055,
+          "edge": "none",
+          "material": "accent",
+          "features": []
+        }
+      },
+      {
+        "name": "Capped last end wall",
+        "footprint": [
+          [
+            -81.307,
+            1737.21
+          ],
+          [
+            -80.807,
+            1737.007
+          ],
+          [
+            -76.922,
+            1746.622
+          ],
+          [
+            -77.423,
+            1746.824
+          ]
+        ],
+        "height": 6.32,
+        "floors": 2,
+        "material": "accent",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "accent",
+          "cornice": {
+            "height": 0.07,
+            "depth": 0.025,
+            "material": "accent"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 68,
+          "rise": 1.26,
+          "overhang": 0.055,
+          "edge": "none",
+          "material": "accent",
+          "features": []
+        }
+      },
+      {
+        "name": "End panel course 1, panel 1",
+        "footprint": [
+          [
+            -80.701,
+            1737.429
+          ],
+          [
+            -80.59,
+            1737.384
+          ],
+          [
+            -79.454,
+            1740.195
+          ],
+          [
+            -79.565,
+            1740.24
+          ]
+        ],
+        "height": 2.768,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 0
+      },
+      {
+        "name": "End panel course 1, panel 2",
+        "footprint": [
+          [
+            -79.557,
+            1740.261
+          ],
+          [
+            -79.446,
+            1740.216
+          ],
+          [
+            -78.172,
+            1743.369
+          ],
+          [
+            -78.283,
+            1743.414
+          ]
+        ],
+        "height": 2.768,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 0
+      },
+      {
+        "name": "End panel course 1, panel 3",
+        "footprint": [
+          [
+            -78.275,
+            1743.435
+          ],
+          [
+            -78.164,
+            1743.39
+          ],
+          [
+            -77.028,
+            1746.201
+          ],
+          [
+            -77.139,
+            1746.246
+          ]
+        ],
+        "height": 2.768,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 0
+      },
+      {
+        "name": "End panel course 2, panel 1",
+        "footprint": [
+          [
+            -80.701,
+            1737.429
+          ],
+          [
+            -80.59,
+            1737.384
+          ],
+          [
+            -79.454,
+            1740.195
+          ],
+          [
+            -79.565,
+            1740.24
+          ]
+        ],
+        "height": 5.45,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 2.792
+      },
+      {
+        "name": "End panel course 2, panel 2",
+        "footprint": [
+          [
+            -79.557,
+            1740.261
+          ],
+          [
+            -79.446,
+            1740.216
+          ],
+          [
+            -78.172,
+            1743.369
+          ],
+          [
+            -78.283,
+            1743.414
+          ]
+        ],
+        "height": 5.45,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 2.792
+      },
+      {
+        "name": "End panel course 2, panel 3",
+        "footprint": [
+          [
+            -78.275,
+            1743.435
+          ],
+          [
+            -78.164,
+            1743.39
+          ],
+          [
+            -77.028,
+            1746.201
+          ],
+          [
+            -77.139,
+            1746.246
+          ]
+        ],
+        "height": 5.45,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 2.792
+      },
+      {
+        "name": "End panel raised centre",
+        "footprint": [
+          [
+            -79.669,
+            1739.983
+          ],
+          [
+            -79.558,
+            1739.938
+          ],
+          [
+            -78.06,
+            1743.646
+          ],
+          [
+            -78.171,
+            1743.692
+          ]
+        ],
+        "height": 5.87,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "overhang": 0,
+          "material": "endField",
+          "features": []
+        },
+        "material": "endField",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "material": "endField",
+          "cornice": {
+            "height": 0.014,
+            "depth": 0.004,
+            "material": "endField"
+          },
+          "base": {
+            "height": 0.012,
+            "projection": 0.003,
+            "material": "endField"
+          }
+        },
+        "baseOffset": 5.468
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 8,
+      "position": 0.7281,
+      "at": [
+        -108.132,
+        1748.205
+      ],
+      "width": 0.91,
+      "height": 2.06,
+      "type": "doors-single",
+      "recess": 0.3,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#e5e1d9",
+      "fanlight": true
+    },
+    {
+      "wall": 1,
+      "position": 0.005,
+      "at": [
+        -107.912,
+        1758.671
+      ],
+      "width": 0.87,
+      "height": 2.04,
+      "type": "doors-single",
+      "recess": 0.09,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#cfcbc1",
+      "fanlight": false
+    },
+    {
+      "wall": 8,
+      "position": 0.6196,
+      "at": [
+        -106.945,
+        1747.726
+      ],
+      "width": 0.91,
+      "height": 2.06,
+      "type": "doors-single",
+      "recess": 0.3,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#e5e1d9",
+      "fanlight": true
+    },
+    {
+      "wall": 1,
+      "position": 0.7676,
+      "at": [
+        -99.834,
+        1755.407
+      ],
+      "width": 0.87,
+      "height": 2.04,
+      "type": "doors-single",
+      "recess": 0.09,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#cfcbc1",
+      "fanlight": false
+    },
+    {
+      "wall": 7,
+      "position": 0.7534,
+      "at": [
+        -96.733,
+        1745.965
+      ],
+      "width": 0.91,
+      "height": 2.06,
+      "type": "doors-single",
+      "recess": 0.3,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#e5e1d9",
+      "fanlight": true
+    },
+    {
+      "wall": 2,
+      "position": 0.5,
+      "at": [
+        -96.576,
+        1756.467
+      ],
+      "width": 0.87,
+      "height": 2.04,
+      "type": "doors-single",
+      "recess": 0.09,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#cfcbc1",
+      "fanlight": false
+    },
+    {
+      "wall": 7,
+      "position": 0.6427,
+      "at": [
+        -95.546,
+        1745.486
+      ],
+      "width": 0.91,
+      "height": 2.06,
+      "type": "doors-single",
+      "recess": 0.3,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#e5e1d9",
+      "fanlight": true
+    },
+    {
+      "wall": 2,
+      "position": 0.7238,
+      "at": [
+        -88.364,
+        1753.149
+      ],
+      "width": 0.87,
+      "height": 2.04,
+      "type": "doors-single",
+      "recess": 0.09,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#cfcbc1",
+      "fanlight": false
+    },
+    {
+      "wall": 6,
+      "position": 0.7596,
+      "at": [
+        -86.754,
+        1740.014
+      ],
+      "width": 0.91,
+      "height": 2.06,
+      "type": "doors-single",
+      "recess": 0.3,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#e5e1d9",
+      "fanlight": true
+    },
+    {
+      "wall": 4,
+      "position": 0.005,
+      "at": [
+        -86.652,
+        1750.337
+      ],
+      "width": 0.87,
+      "height": 2.04,
+      "type": "doors-single",
+      "recess": 0.09,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#cfcbc1",
+      "fanlight": false
+    },
+    {
+      "wall": 6,
+      "position": 0.6455,
+      "at": [
+        -85.567,
+        1739.535
+      ],
+      "width": 0.91,
+      "height": 2.06,
+      "type": "doors-single",
+      "recess": 0.3,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#e5e1d9",
+      "fanlight": true
+    },
+    {
+      "wall": 4,
+      "position": 0.6845,
+      "at": [
+        -78.47,
+        1747.031
+      ],
+      "width": 0.87,
+      "height": 2.04,
+      "type": "doors-single",
+      "recess": 0.09,
+      "steps": 1,
+      "surround": "trim",
+      "doorColor": "#cfcbc1",
+      "fanlight": false
+    }
+  ],
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": false,
+      "bays": {
+        "count": 2,
+        "edgeMargin": 0.12,
+        "pattern": "regular",
+        "groupSize": 1
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.36,
+        "height": 0.99,
+        "sill": 1.36,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 0,
+          "width": 0.045
+        },
+        "frameColor": "#ebe5da",
+        "glass": "dark",
+        "glassColor": "#313836",
+        "surround": "metal",
+        "sillProjecting": true,
+        "surroundMaterial": "trim"
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 1.36,
+          "height": 0.99,
+          "sill": 1.36,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#ebe5da",
+          "glass": "dark",
+          "glassColor": "#313836",
+          "surround": "metal",
+          "sillProjecting": true,
+          "surroundMaterial": "trim"
+        }
+      },
+      "base": {
+        "height": 0.15,
+        "material": "base",
+        "projection": 0.025
+      },
+      "cornice": {
+        "height": 0.15,
+        "depth": 0.1,
+        "material": "flashing"
+      }
+    },
+    "byWall": {
+      "0": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "material": "wall"
+      },
+      "1": {
+        "blank": false,
+        "bays": {
+          "count": 2,
+          "edgeMargin": 0.12,
+          "pattern": "regular",
+          "groupSize": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.43,
+          "height": 1.09,
+          "sill": 1.15,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#ebe5da",
+          "glass": "dark",
+          "glassColor": "#313836",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.22,
+            "height": 1.06,
+            "sill": 1.02,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.045
+            },
+            "frameColor": "#ebe5da",
+            "glass": "dark",
+            "glassColor": "#313836",
+            "surround": "none",
+            "sillProjecting": true
+          }
+        }
+      },
+      "2": {
+        "blank": false,
+        "bays": {
+          "count": 2,
+          "edgeMargin": 0.12,
+          "pattern": "regular",
+          "groupSize": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.43,
+          "height": 1.09,
+          "sill": 1.15,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#ebe5da",
+          "glass": "dark",
+          "glassColor": "#313836",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.22,
+            "height": 1.06,
+            "sill": 1.02,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.045
+            },
+            "frameColor": "#ebe5da",
+            "glass": "dark",
+            "glassColor": "#313836",
+            "surround": "none",
+            "sillProjecting": true
+          }
+        }
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "material": "wall"
+      },
+      "4": {
+        "blank": false,
+        "bays": {
+          "count": 2,
+          "edgeMargin": 0.12,
+          "pattern": "regular",
+          "groupSize": 1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.43,
+          "height": 1.09,
+          "sill": 1.15,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.045
+          },
+          "frameColor": "#ebe5da",
+          "glass": "dark",
+          "glassColor": "#313836",
+          "surround": "none",
+          "sillProjecting": true
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.22,
+            "height": 1.06,
+            "sill": 1.02,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.045
+            },
+            "frameColor": "#ebe5da",
+            "glass": "dark",
+            "glassColor": "#313836",
+            "surround": "none",
+            "sillProjecting": true
+          }
+        }
+      },
+      "5": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "material": "wall"
+      },
+      "6": {
+        "blank": false,
+        "segments": [
+          {
+            "range": [
+              0,
+              0.3
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.12
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.36,
+              "height": 0.99,
+              "sill": 1.36,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#ebe5da",
+              "glass": "dark",
+              "glassColor": "#313836",
+              "surround": "metal",
+              "sillProjecting": true,
+              "surroundMaterial": "trim"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.48,
+                "height": 1.47,
+                "sill": 0.53,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.045
+                },
+                "frameColor": "#ebe5da",
+                "glass": "dark",
+                "glassColor": "#313836",
+                "surround": "metal",
+                "sillProjecting": true,
+                "surroundMaterial": "trim"
+              }
+            },
+            "topFloor": {
+              "spandrelMaterial": "infill"
+            }
+          },
+          {
+            "range": [
+              0.3,
+              0.7
+            ],
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          {
+            "range": [
+              0.7,
+              1
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.12
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.36,
+              "height": 0.99,
+              "sill": 1.36,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#ebe5da",
+              "glass": "dark",
+              "glassColor": "#313836",
+              "surround": "metal",
+              "sillProjecting": true,
+              "surroundMaterial": "trim"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.48,
+                "height": 1.47,
+                "sill": 0.53,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.045
+                },
+                "frameColor": "#ebe5da",
+                "glass": "dark",
+                "glassColor": "#313836",
+                "surround": "metal",
+                "sillProjecting": true,
+                "surroundMaterial": "trim"
+              }
+            },
+            "topFloor": {
+              "spandrelMaterial": "infill"
+            }
+          }
+        ]
+      },
+      "7": {
+        "blank": false,
+        "segments": [
+          {
+            "range": [
+              0,
+              0.3
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.12
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.36,
+              "height": 0.99,
+              "sill": 1.36,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#ebe5da",
+              "glass": "dark",
+              "glassColor": "#313836",
+              "surround": "metal",
+              "sillProjecting": true,
+              "surroundMaterial": "trim"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.48,
+                "height": 1.47,
+                "sill": 0.53,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.045
+                },
+                "frameColor": "#ebe5da",
+                "glass": "dark",
+                "glassColor": "#313836",
+                "surround": "metal",
+                "sillProjecting": true,
+                "surroundMaterial": "trim"
+              }
+            },
+            "topFloor": {
+              "spandrelMaterial": "infill"
+            }
+          },
+          {
+            "range": [
+              0.3,
+              0.7
+            ],
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          {
+            "range": [
+              0.7,
+              1
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.12
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.36,
+              "height": 0.99,
+              "sill": 1.36,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#ebe5da",
+              "glass": "dark",
+              "glassColor": "#313836",
+              "surround": "metal",
+              "sillProjecting": true,
+              "surroundMaterial": "trim"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.48,
+                "height": 1.47,
+                "sill": 0.53,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.045
+                },
+                "frameColor": "#ebe5da",
+                "glass": "dark",
+                "glassColor": "#313836",
+                "surround": "metal",
+                "sillProjecting": true,
+                "surroundMaterial": "trim"
+              }
+            },
+            "topFloor": {
+              "spandrelMaterial": "infill"
+            }
+          }
+        ]
+      },
+      "8": {
+        "blank": false,
+        "segments": [
+          {
+            "range": [
+              0,
+              0.3
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.12
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.36,
+              "height": 0.99,
+              "sill": 1.36,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#ebe5da",
+              "glass": "dark",
+              "glassColor": "#313836",
+              "surround": "metal",
+              "sillProjecting": true,
+              "surroundMaterial": "trim"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.48,
+                "height": 1.47,
+                "sill": 0.53,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.045
+                },
+                "frameColor": "#ebe5da",
+                "glass": "dark",
+                "glassColor": "#313836",
+                "surround": "metal",
+                "sillProjecting": true,
+                "surroundMaterial": "trim"
+              }
+            },
+            "topFloor": {
+              "spandrelMaterial": "infill"
+            }
+          },
+          {
+            "range": [
+              0.3,
+              0.7
+            ],
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          {
+            "range": [
+              0.7,
+              1
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.12
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.36,
+              "height": 0.99,
+              "sill": 1.36,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#ebe5da",
+              "glass": "dark",
+              "glassColor": "#313836",
+              "surround": "metal",
+              "sillProjecting": true,
+              "surroundMaterial": "trim"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 1.48,
+                "height": 1.47,
+                "sill": 0.53,
+                "perBay": 1,
+                "recess": 0.12,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.045
+                },
+                "frameColor": "#ebe5da",
+                "glass": "dark",
+                "glassColor": "#313836",
+                "surround": "metal",
+                "sillProjecting": true,
+                "surroundMaterial": "trim"
+              }
+            },
+            "topFloor": {
+              "spandrelMaterial": "infill"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "attachments": [
+    {
+      "type": "terrace",
+      "walls": 1,
+      "path": [
+        [
+          -108.039,
+          1760.016
+        ],
+        [
+          -104.053,
+          1758.406
+        ]
+      ],
+      "width": 2.4,
+      "height": 0.095,
+      "material": "patio"
+    },
+    {
+      "type": "terrace",
+      "walls": 1,
+      "path": [
+        [
+          -102.794,
+          1757.897
+        ],
+        [
+          -98.808,
+          1756.287
+        ]
+      ],
+      "width": 2.4,
+      "height": 0.095,
+      "material": "patio"
+    },
+    {
+      "type": "retaining-wall",
+      "walls": 1,
+      "path": [
+        [
+          -103.873,
+          1757.039
+        ],
+        [
+          -102.843,
+          1759.589
+        ]
+      ],
+      "width": 0.105,
+      "height": 1.67,
+      "material": "screen"
+    },
+    {
+      "type": "retaining-wall",
+      "walls": 1,
+      "path": [
+        [
+          -109.118,
+          1759.158
+        ],
+        [
+          -108.088,
+          1761.708
+        ]
+      ],
+      "width": 0.105,
+      "height": 1.67,
+      "material": "screen"
+    },
+    {
+      "type": "retaining-wall",
+      "walls": 1,
+      "path": [
+        [
+          -98.628,
+          1754.92
+        ],
+        [
+          -97.598,
+          1757.469
+        ]
+      ],
+      "width": 0.105,
+      "height": 1.67,
+      "material": "screen"
+    },
+    {
+      "type": "terrace",
+      "walls": 2,
+      "path": [
+        [
+          -96.713,
+          1757.817
+        ],
+        [
+          -92.66,
+          1756.179
+        ]
+      ],
+      "width": 2.4,
+      "height": 0.095,
+      "material": "patio"
+    },
+    {
+      "type": "terrace",
+      "walls": 2,
+      "path": [
+        [
+          -91.38,
+          1755.662
+        ],
+        [
+          -87.327,
+          1754.025
+        ]
+      ],
+      "width": 2.4,
+      "height": 0.095,
+      "material": "patio"
+    },
+    {
+      "type": "retaining-wall",
+      "walls": 2,
+      "path": [
+        [
+          -92.47,
+          1754.808
+        ],
+        [
+          -91.44,
+          1757.358
+        ]
+      ],
+      "width": 0.105,
+      "height": 1.67,
+      "material": "screen"
+    },
+    {
+      "type": "retaining-wall",
+      "walls": 2,
+      "path": [
+        [
+          -87.137,
+          1752.654
+        ],
+        [
+          -86.107,
+          1755.203
+        ]
+      ],
+      "width": 0.105,
+      "height": 1.67,
+      "material": "screen"
+    },
+    {
+      "type": "terrace",
+      "walls": 4,
+      "path": [
+        [
+          -86.786,
+          1751.686
+        ],
+        [
+          -82.749,
+          1750.054
+        ]
+      ],
+      "width": 2.4,
+      "height": 0.095,
+      "material": "patio"
+    },
+    {
+      "type": "terrace",
+      "walls": 4,
+      "path": [
+        [
+          -81.473,
+          1749.539
+        ],
+        [
+          -77.436,
+          1747.908
+        ]
+      ],
+      "width": 2.4,
+      "height": 0.095,
+      "material": "patio"
+    },
+    {
+      "type": "retaining-wall",
+      "walls": 4,
+      "path": [
+        [
+          -82.561,
+          1748.684
+        ],
+        [
+          -81.53,
+          1751.234
+        ]
+      ],
+      "width": 0.105,
+      "height": 1.67,
+      "material": "screen"
+    },
+    {
+      "type": "retaining-wall",
+      "walls": 4,
+      "path": [
+        [
+          -77.248,
+          1746.537
+        ],
+        [
+          -76.217,
+          1749.087
+        ]
+      ],
+      "width": 0.105,
+      "height": 1.67,
+      "material": "screen"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Three staggered roof pairs with a north car park and south lawn, with a medium brown roof colour from a 7 by 7 pixel sample in 2025 aerial-source.jpg centered at (366, 199) measuring #6d5d4b."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional-2m LiDAR gives a P50 of 6.67 m, P90 of 7.02 m, and maximum of 10.71 m, indicating a two-storey townhouse roofline near 7.0 m while the isolated maximum likely reflects adjacent tree cover."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://maps.london.ca/server/rest/services/Addresses/MapServer/0/query?objectIds=240563%2C302422%2C253501%2C264776%2C240273%2C249041&outFields=MunicipalNumberDisplay%2CFullAddress%2CResUnits_Storeys&returnGeometry=true&outSR=4326&f=pjson",
+      "note": "The City's geocoded address points confirm the street addresses and two-storey height for the townhouse rows."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/PLE.jpg",
+      "note": "Western Facilities Management estate aerial photograph."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://apartments.uwo.ca/prospective-tenants/buildings/platts-lane",
+      "note": "Western Housing, 1976 walk-up apartment and townhouse development."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Townhouse material samples measure red brick under overcast daylight in frame 46920571 at (36.0%, 41.1%) as #714239 and sunlit buff panel in frame 148668881 at (65.2%, 64.3%) as #d8c09c."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Comparable photographed adjacent townhouse rows on the estate supply details for unseen walls, estimated door and window bay sizes, and entry canopy and ledge materials."
+    },
+    {
+      "kind": "knowledge",
+      "note": "No clear direct street view is available for this building."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Frames 46920572 and 148668879 show estate townhouses with two broad windows per pair per storey, pale painted single doors, thin window sills, and raised cream-capped end and dividing walls."
+    },
+    {
+      "kind": "aerial",
+      "url": "https://maps.london.ca/server/rest/services/Buildings/MapServer/0",
+      "note": "City of London building footprint verified against 2025 aerial imagery to trace townhouse pairs, stepped party walls, and entry approaches, with exact door positions estimated within each pair."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://apartments.uwo.ca/files/2025-11/floor-plan-platts-lane-2-bedroom-townhouse.png",
+      "note": "Western Housing shows a rear kitchen window, a separate dining-room patio door and projecting privacy walls. The three-bedroom plan also shows a single exterior kitchen door."
+    },
+    {
+      "kind": "lidar",
+      "note": "The 1 m return grid supplies two roof slopes and a ground-plan alignment correction of +0.5 m east and +1.0 m south."
+    }
+  ],
+  "notes": "The upper front windows sit over red panels beside the projecting buff firewalls. Exact rear door handing, privacy-screen lengths and the joints in the raised end panels vary by unit."
+}

@@ -1,0 +1,364 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764099",
+  "name": "Middlesex College",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "138045837"
+    }
+  ],
+  "style": "collegiate-gothic",
+  "floors": {
+    "count": 4,
+    "typicalHeight": 3.9,
+    "groundFloorHeight": 3.9
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 16.76,
+        "floors": 4
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              551.607,
+              213.3
+            ],
+            [
+              551.69,
+              212.38
+            ],
+            [
+              553.453,
+              212.091
+            ],
+            [
+              549.941,
+              203.895
+            ],
+            [
+              541.895,
+              201.884
+            ],
+            [
+              535.344,
+              188.782
+            ],
+            [
+              536.419,
+              181.256
+            ],
+            [
+              528.573,
+              177.333
+            ],
+            [
+              519.284,
+              190.75
+            ],
+            [
+              525.41,
+              195.43
+            ],
+            [
+              529.63,
+              201.42
+            ],
+            [
+              533.36,
+              206.7
+            ],
+            [
+              534.13,
+              207.79
+            ],
+            [
+              533.41,
+              208.1
+            ],
+            [
+              533.33,
+              211.79
+            ],
+            [
+              536.54,
+              212.18
+            ],
+            [
+              536.471,
+              213.3
+            ]
+          ]
+        },
+        "height": 21.86,
+        "baseOffset": 16.76,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              524.458,
+              194.703
+            ],
+            [
+              525.41,
+              195.43
+            ],
+            [
+              529.63,
+              201.42
+            ],
+            [
+              532.741,
+              205.824
+            ],
+            [
+              534.093,
+              206.5
+            ],
+            [
+              538.3,
+              203.696
+            ],
+            [
+              538.3,
+              199.693
+            ],
+            [
+              534.942,
+              192.977
+            ],
+            [
+              528.687,
+              190.475
+            ]
+          ]
+        },
+        "height": 26.11,
+        "baseOffset": 21.86,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              524.458,
+              194.703
+            ],
+            [
+              525.41,
+              195.43
+            ],
+            [
+              529.63,
+              201.42
+            ],
+            [
+              532.741,
+              205.824
+            ],
+            [
+              534.495,
+              206.701
+            ],
+            [
+              538.482,
+              200.057
+            ],
+            [
+              534.942,
+              192.977
+            ],
+            [
+              528.687,
+              190.475
+            ]
+          ]
+        },
+        "height": 30.36,
+        "baseOffset": 26.11,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              524.458,
+              194.703
+            ],
+            [
+              525.41,
+              195.43
+            ],
+            [
+              529.63,
+              201.42
+            ],
+            [
+              532.741,
+              205.824
+            ],
+            [
+              534.495,
+              206.701
+            ],
+            [
+              538.482,
+              200.057
+            ],
+            [
+              536.008,
+              195.11
+            ],
+            [
+              528.834,
+              190.327
+            ]
+          ]
+        },
+        "height": 34.61,
+        "baseOffset": 30.36,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              524.458,
+              194.703
+            ],
+            [
+              525.41,
+              195.43
+            ],
+            [
+              529.63,
+              201.42
+            ],
+            [
+              532.741,
+              205.824
+            ],
+            [
+              534.495,
+              206.701
+            ],
+            [
+              538.482,
+              200.057
+            ],
+            [
+              536.008,
+              195.11
+            ],
+            [
+              528.834,
+              190.327
+            ]
+          ]
+        },
+        "height": 38.86,
+        "baseOffset": 34.61,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#949a88",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#8b8b7a"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.1
+      },
+      "windows": {
+        "type": "tudor-arch",
+        "width": 1.8,
+        "height": 2.25,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1
+        },
+        "glassColor": "#69776a",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 0.46,
+        "depth": 0.24,
+        "every": 2,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.13,
+          "depth": 0.07,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 27,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "gothic-portal",
+      "recess": 0.32
+    }
+  ]
+}

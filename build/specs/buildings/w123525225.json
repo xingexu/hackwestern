@@ -1,0 +1,2223 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w123525225",
+  "name": "Platt's Lane Estates – 548–550 Platt's Lane",
+  "status": "refined",
+  "confidence": 0.91,
+  "summary": "This three-storey brown-brick walk-up has paired pitched-roof sections, ground patios, and recessed stair entrances. Stacked projecting balconies feature concrete slabs with mixed solid and open brown railings.",
+  "style": "residential-brick",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#795c50",
+      "secondaryColor": "#886f62",
+      "variation": 0.15,
+      "unitSize": [
+        0.4,
+        0.2
+      ],
+      "bond": "stack",
+      "roughness": 0.87
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#614a3c",
+      "secondaryColor": "#4c392e",
+      "unitSize": [
+        0.305,
+        0.145
+      ],
+      "variation": 0.16,
+      "bond": "running"
+    },
+    "rail": {
+      "kind": "painted-metal",
+      "color": "#604a42"
+    },
+    "slab": {
+      "kind": "concrete-smooth",
+      "color": "#a09583"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#a09583"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#6c605c"
+    },
+    "door": {
+      "kind": "painted-metal",
+      "color": "#dfdcd3"
+    },
+    "fascia": {
+      "kind": "painted-metal",
+      "color": "#514036"
+    },
+    "vent": {
+      "kind": "painted-metal",
+      "color": "#9b9b90",
+      "roughness": 0.74
+    },
+    "balconyDoor": {
+      "kind": "painted-metal",
+      "color": "#d7d4c9"
+    },
+    "balconyGlass": {
+      "kind": "glass-curtain",
+      "color": "#667174"
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 2.93,
+    "typicalHeight": 2.99
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "North end",
+        "footprint": [
+          [
+            13.51,
+            1564.71
+          ],
+          [
+            12.14,
+            1560.9
+          ],
+          [
+            1.28,
+            1564.79
+          ],
+          [
+            2.49,
+            1568.15
+          ]
+        ],
+        "height": 8.6,
+        "floors": 3,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 160,
+          "rise": 1.46,
+          "edge": "gutter",
+          "overhang": 0.51
+        }
+      },
+      {
+        "name": "North apartment section north half",
+        "footprint": [
+          [
+            19.602,
+            1570.346
+          ],
+          [
+            17.11,
+            1563.41
+          ],
+          [
+            13.51,
+            1564.71
+          ],
+          [
+            2.49,
+            1568.15
+          ],
+          [
+            -0.82,
+            1569.33
+          ],
+          [
+            1.861,
+            1576.803
+          ]
+        ],
+        "height": 8.97,
+        "floors": 3,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 160,
+          "rise": 1.95,
+          "edge": "gutter",
+          "overhang": 0.51
+        },
+        "wallProfiles": {
+          "18": {
+            "bays": {
+              "count": 1,
+              "pattern": "regular"
+            },
+            "windows": {
+              "type": "punched",
+              "width": 2.14,
+              "height": 1.68,
+              "sill": 0.48,
+              "perBay": 1,
+              "recess": 0.105,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.047
+              },
+              "frameColor": "#d1cec4",
+              "glass": "clear",
+              "glassColor": "#606968",
+              "surround": "none",
+              "surroundMaterial": "frame"
+            },
+            "balconies": {
+              "every": 1,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.62,
+              "rail": "metal",
+              "infill": "alternating",
+              "endPanels": true,
+              "material": "slab",
+              "panelMaterial": "rail"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 2.38,
+                "height": 1.34,
+                "sill": 0.62,
+                "perBay": 1,
+                "recess": 0.105,
+                "mullions": {
+                  "vertical": 2,
+                  "horizontal": 0,
+                  "width": 0.047
+                },
+                "frameColor": "#d1cec4",
+                "glass": "clear",
+                "glassColor": "#606968",
+                "surround": "none",
+                "surroundMaterial": "frame"
+              }
+            },
+            "sections": [
+              {
+                "start": 0.69446,
+                "end": 0.80597,
+                "base": 2.975,
+                "top": 3.79,
+                "material": "balconyDoor"
+              },
+              {
+                "start": 0.70126,
+                "end": 0.79917,
+                "base": 3.79,
+                "top": 4.9,
+                "material": "balconyGlass"
+              },
+              {
+                "start": 0.69446,
+                "end": 0.80597,
+                "base": 4.9,
+                "top": 4.98,
+                "material": "balconyDoor"
+              },
+              {
+                "start": 0.69446,
+                "end": 0.80597,
+                "base": 5.915,
+                "top": 6.73,
+                "material": "balconyDoor"
+              },
+              {
+                "start": 0.70126,
+                "end": 0.79917,
+                "base": 6.73,
+                "top": 7.84,
+                "material": "balconyGlass"
+              },
+              {
+                "start": 0.69446,
+                "end": 0.80597,
+                "base": 7.84,
+                "top": 7.92,
+                "material": "balconyDoor"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "North apartment section south half",
+        "footprint": [
+          [
+            1.861,
+            1576.803
+          ],
+          [
+            4.53,
+            1584.24
+          ],
+          [
+            8.8,
+            1582.7
+          ],
+          [
+            18.97,
+            1578.38
+          ],
+          [
+            22.09,
+            1577.27
+          ],
+          [
+            19.602,
+            1570.346
+          ]
+        ],
+        "height": 9.29,
+        "floors": 3,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 160,
+          "rise": 1.95,
+          "edge": "gutter",
+          "overhang": 0.51
+        }
+      },
+      {
+        "name": "Central stair link",
+        "footprint": [
+          [
+            21.01,
+            1584.08
+          ],
+          [
+            18.97,
+            1578.38
+          ],
+          [
+            8.8,
+            1582.7
+          ],
+          [
+            10.93,
+            1588.61
+          ]
+        ],
+        "height": 8.66,
+        "floors": 3,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 160,
+          "rise": 1.46,
+          "edge": "gutter",
+          "overhang": 0.51
+        },
+        "wallProfiles": {
+          "2": {
+            "bays": {
+              "count": 1,
+              "pattern": "regular"
+            },
+            "windows": {
+              "type": "punched",
+              "width": 0.82,
+              "height": 1.45,
+              "sill": 0.78,
+              "perBay": 1,
+              "recess": 0.105,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.047
+              },
+              "frameColor": "#d1cec4",
+              "glass": "clear",
+              "glassColor": "#606968",
+              "surround": "none"
+            },
+            "sections": [],
+            "balconies": {
+              "every": 1,
+              "floors": [],
+              "depth": 1.62,
+              "rail": "metal"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 0.82,
+                "height": 1.45,
+                "sill": 0.78,
+                "perBay": 1,
+                "recess": 0.105,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.047
+                },
+                "frameColor": "#d1cec4",
+                "glass": "clear",
+                "glassColor": "#606968",
+                "surround": "none"
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "South apartment section north half",
+        "footprint": [
+          [
+            26.855,
+            1590.589
+          ],
+          [
+            24.12,
+            1582.97
+          ],
+          [
+            21.01,
+            1584.08
+          ],
+          [
+            10.93,
+            1588.61
+          ],
+          [
+            7.12,
+            1589.98
+          ],
+          [
+            9.589,
+            1596.873
+          ]
+        ],
+        "height": 8.89,
+        "floors": 3,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 160,
+          "rise": 1.95,
+          "edge": "gutter",
+          "overhang": 0.51
+        },
+        "wallProfiles": {
+          "14": {
+            "bays": {
+              "count": 1,
+              "pattern": "regular"
+            },
+            "windows": {
+              "type": "punched",
+              "width": 2.14,
+              "height": 1.68,
+              "sill": 0.48,
+              "perBay": 1,
+              "recess": 0.105,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.047
+              },
+              "frameColor": "#d1cec4",
+              "glass": "clear",
+              "glassColor": "#606968",
+              "surround": "none",
+              "surroundMaterial": "frame"
+            },
+            "balconies": {
+              "every": 1,
+              "floors": [
+                1,
+                2
+              ],
+              "depth": 1.62,
+              "rail": "metal",
+              "infill": "alternating",
+              "endPanels": true,
+              "material": "slab",
+              "panelMaterial": "rail"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 2.38,
+                "height": 1.34,
+                "sill": 0.62,
+                "perBay": 1,
+                "recess": 0.105,
+                "mullions": {
+                  "vertical": 2,
+                  "horizontal": 0,
+                  "width": 0.047
+                },
+                "frameColor": "#d1cec4",
+                "glass": "clear",
+                "glassColor": "#606968",
+                "surround": "none",
+                "surroundMaterial": "frame"
+              }
+            },
+            "sections": [
+              {
+                "start": 0.70251,
+                "end": 0.80398,
+                "base": 2.975,
+                "top": 3.79,
+                "material": "balconyDoor"
+              },
+              {
+                "start": 0.70883,
+                "end": 0.79766,
+                "base": 3.79,
+                "top": 4.9,
+                "material": "balconyGlass"
+              },
+              {
+                "start": 0.70251,
+                "end": 0.80398,
+                "base": 4.9,
+                "top": 4.98,
+                "material": "balconyDoor"
+              },
+              {
+                "start": 0.70251,
+                "end": 0.80398,
+                "base": 5.915,
+                "top": 6.73,
+                "material": "balconyDoor"
+              },
+              {
+                "start": 0.70883,
+                "end": 0.79766,
+                "base": 6.73,
+                "top": 7.84,
+                "material": "balconyGlass"
+              },
+              {
+                "start": 0.70251,
+                "end": 0.80398,
+                "base": 7.84,
+                "top": 7.92,
+                "material": "balconyDoor"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "South apartment section south half",
+        "footprint": [
+          [
+            9.589,
+            1596.873
+          ],
+          [
+            12.12,
+            1603.94
+          ],
+          [
+            15.73,
+            1602.65
+          ],
+          [
+            26.37,
+            1599.15
+          ],
+          [
+            29.52,
+            1598.01
+          ],
+          [
+            26.855,
+            1590.589
+          ]
+        ],
+        "height": 9.21,
+        "floors": 3,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 160,
+          "rise": 1.95,
+          "edge": "gutter",
+          "overhang": 0.51
+        }
+      },
+      {
+        "name": "South end",
+        "footprint": [
+          [
+            15.73,
+            1602.65
+          ],
+          [
+            16.94,
+            1606.03
+          ],
+          [
+            27.48,
+            1602.24
+          ],
+          [
+            26.37,
+            1599.15
+          ]
+        ],
+        "height": 8.56,
+        "floors": 3,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 160,
+          "rise": 1.46,
+          "edge": "gutter",
+          "overhang": 0.51
+        },
+        "wallProfiles": {
+          "6": {
+            "bays": {
+              "count": 1,
+              "pattern": "regular"
+            },
+            "windows": {
+              "type": "punched",
+              "width": 0.82,
+              "height": 1.45,
+              "sill": 0.78,
+              "perBay": 1,
+              "recess": 0.105,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.047
+              },
+              "frameColor": "#d1cec4",
+              "glass": "clear",
+              "glassColor": "#606968",
+              "surround": "none"
+            },
+            "sections": [],
+            "balconies": {
+              "every": 1,
+              "floors": [],
+              "depth": 1.62,
+              "rail": "metal"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "width": 0.82,
+                "height": 1.45,
+                "sill": 0.78,
+                "perBay": 1,
+                "recess": 0.105,
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 0,
+                  "width": 0.047
+                },
+                "frameColor": "#d1cec4",
+                "glass": "clear",
+                "glassColor": "#606968",
+                "surround": "none"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.55,
+        "height": 1.4,
+        "sill": 0.78,
+        "perBay": 1,
+        "recess": 0.105,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 0,
+          "width": 0.047
+        },
+        "frameColor": "#d1cec4",
+        "glass": "clear",
+        "glassColor": "#606968",
+        "surround": "none"
+      },
+      "bays": {
+        "width": 3.7,
+        "pattern": "regular",
+        "edgeMargin": 0.6
+      },
+      "base": {
+        "material": "slab",
+        "height": 0.14,
+        "projection": 0.03
+      },
+      "cornice": {
+        "material": "fascia",
+        "height": 0.22,
+        "depth": 0.25
+      }
+    },
+    "byWall": {
+      "2": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.14,
+          "height": 1.68,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none",
+          "surroundMaterial": "frame"
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.62,
+          "rail": "metal",
+          "infill": "alternating",
+          "endPanels": true,
+          "material": "slab",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.38,
+            "height": 1.34,
+            "sill": 0.62,
+            "perBay": 1,
+            "recess": 0.105,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.047
+            },
+            "frameColor": "#d1cec4",
+            "glass": "clear",
+            "glassColor": "#606968",
+            "surround": "none",
+            "surroundMaterial": "frame"
+          }
+        },
+        "sections": [
+          {
+            "start": 0.01472,
+            "end": 0.06652,
+            "base": 2.975,
+            "top": 3.79,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.01792,
+            "end": 0.06332,
+            "base": 3.79,
+            "top": 4.9,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.01472,
+            "end": 0.06652,
+            "base": 4.9,
+            "top": 4.98,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.01472,
+            "end": 0.06652,
+            "base": 5.915,
+            "top": 6.73,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.01792,
+            "end": 0.06332,
+            "base": 6.73,
+            "top": 7.84,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.01472,
+            "end": 0.06652,
+            "base": 7.84,
+            "top": 7.92,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.76472,
+            "end": 0.81652,
+            "base": 2.975,
+            "top": 3.79,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.76792,
+            "end": 0.81332,
+            "base": 3.79,
+            "top": 4.9,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.76472,
+            "end": 0.81652,
+            "base": 4.9,
+            "top": 4.98,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.76472,
+            "end": 0.81652,
+            "base": 5.915,
+            "top": 6.73,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.76792,
+            "end": 0.81332,
+            "base": 6.73,
+            "top": 7.84,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.76472,
+            "end": 0.81652,
+            "base": 7.84,
+            "top": 7.92,
+            "material": "balconyDoor"
+          }
+        ]
+      },
+      "6": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.14,
+          "height": 1.68,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none",
+          "surroundMaterial": "frame"
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.62,
+          "rail": "metal",
+          "infill": "alternating",
+          "endPanels": true,
+          "material": "slab",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.38,
+            "height": 1.34,
+            "sill": 0.62,
+            "perBay": 1,
+            "recess": 0.105,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.047
+            },
+            "frameColor": "#d1cec4",
+            "glass": "clear",
+            "glassColor": "#606968",
+            "surround": "none",
+            "surroundMaterial": "frame"
+          }
+        },
+        "sections": [
+          {
+            "start": 0.0074,
+            "end": 0.0626,
+            "base": 2.975,
+            "top": 3.79,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.0107,
+            "end": 0.0593,
+            "base": 3.79,
+            "top": 4.9,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.0074,
+            "end": 0.0626,
+            "base": 4.9,
+            "top": 4.98,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.0074,
+            "end": 0.0626,
+            "base": 5.915,
+            "top": 6.73,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.0107,
+            "end": 0.0593,
+            "base": 6.73,
+            "top": 7.84,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.0074,
+            "end": 0.0626,
+            "base": 7.84,
+            "top": 7.92,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.7574,
+            "end": 0.8126,
+            "base": 2.975,
+            "top": 3.79,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.7607,
+            "end": 0.8093,
+            "base": 3.79,
+            "top": 4.9,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.7574,
+            "end": 0.8126,
+            "base": 4.9,
+            "top": 4.98,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.7574,
+            "end": 0.8126,
+            "base": 5.915,
+            "top": 6.73,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.7607,
+            "end": 0.8093,
+            "base": 6.73,
+            "top": 7.84,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.7574,
+            "end": 0.8126,
+            "base": 7.84,
+            "top": 7.92,
+            "material": "balconyDoor"
+          }
+        ]
+      },
+      "12": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.14,
+          "height": 1.68,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none",
+          "surroundMaterial": "frame"
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.62,
+          "rail": "metal",
+          "infill": "alternating",
+          "endPanels": true,
+          "material": "slab",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.38,
+            "height": 1.34,
+            "sill": 0.62,
+            "perBay": 1,
+            "recess": 0.105,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.047
+            },
+            "frameColor": "#d1cec4",
+            "glass": "clear",
+            "glassColor": "#606968",
+            "surround": "none",
+            "surroundMaterial": "frame"
+          }
+        },
+        "sections": [
+          {
+            "start": 0.18298,
+            "end": 0.23438,
+            "base": 2.975,
+            "top": 3.79,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.18618,
+            "end": 0.23118,
+            "base": 3.79,
+            "top": 4.9,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.18298,
+            "end": 0.23438,
+            "base": 4.9,
+            "top": 4.98,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.18298,
+            "end": 0.23438,
+            "base": 5.915,
+            "top": 6.73,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.18618,
+            "end": 0.23118,
+            "base": 6.73,
+            "top": 7.84,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.18298,
+            "end": 0.23438,
+            "base": 7.84,
+            "top": 7.92,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.93298,
+            "end": 0.98438,
+            "base": 2.975,
+            "top": 3.79,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.93618,
+            "end": 0.98118,
+            "base": 3.79,
+            "top": 4.9,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.93298,
+            "end": 0.98438,
+            "base": 4.9,
+            "top": 4.98,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.93298,
+            "end": 0.98438,
+            "base": 5.915,
+            "top": 6.73,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.93618,
+            "end": 0.98118,
+            "base": 6.73,
+            "top": 7.84,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.93298,
+            "end": 0.98438,
+            "base": 7.84,
+            "top": 7.92,
+            "material": "balconyDoor"
+          }
+        ]
+      },
+      "16": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.14,
+          "height": 1.68,
+          "sill": 0.48,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none",
+          "surroundMaterial": "frame"
+        },
+        "balconies": {
+          "every": 1,
+          "floors": [
+            1,
+            2
+          ],
+          "depth": 1.62,
+          "rail": "metal",
+          "infill": "alternating",
+          "endPanels": true,
+          "material": "slab",
+          "panelMaterial": "rail"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.38,
+            "height": 1.34,
+            "sill": 0.62,
+            "perBay": 1,
+            "recess": 0.105,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.047
+            },
+            "frameColor": "#d1cec4",
+            "glass": "clear",
+            "glassColor": "#606968",
+            "surround": "none",
+            "surroundMaterial": "frame"
+          }
+        },
+        "sections": [
+          {
+            "start": 0.18799,
+            "end": 0.24379,
+            "base": 2.975,
+            "top": 3.79,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.19139,
+            "end": 0.24039,
+            "base": 3.79,
+            "top": 4.9,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.18799,
+            "end": 0.24379,
+            "base": 4.9,
+            "top": 4.98,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.18799,
+            "end": 0.24379,
+            "base": 5.915,
+            "top": 6.73,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.19139,
+            "end": 0.24039,
+            "base": 6.73,
+            "top": 7.84,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.18799,
+            "end": 0.24379,
+            "base": 7.84,
+            "top": 7.92,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.93799,
+            "end": 0.99379,
+            "base": 2.975,
+            "top": 3.79,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.94139,
+            "end": 0.99039,
+            "base": 3.79,
+            "top": 4.9,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.93799,
+            "end": 0.99379,
+            "base": 4.9,
+            "top": 4.98,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.93799,
+            "end": 0.99379,
+            "base": 5.915,
+            "top": 6.73,
+            "material": "balconyDoor"
+          },
+          {
+            "start": 0.94139,
+            "end": 0.99039,
+            "base": 6.73,
+            "top": 7.84,
+            "material": "balconyGlass"
+          },
+          {
+            "start": 0.93799,
+            "end": 0.99379,
+            "base": 7.84,
+            "top": 7.92,
+            "material": "balconyDoor"
+          }
+        ]
+      },
+      "1": {
+        "blank": true
+      },
+      "3": {
+        "blank": true
+      },
+      "5": {
+        "blank": true
+      },
+      "7": {
+        "blank": true
+      },
+      "11": {
+        "blank": true
+      },
+      "13": {
+        "blank": true
+      },
+      "15": {
+        "blank": true
+      },
+      "17": {
+        "blank": true
+      },
+      "0": {
+        "bays": {
+          "count": 1,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.82,
+          "height": 1.45,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none"
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 1,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.82,
+          "height": 1.45,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none"
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 1,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.82,
+          "height": 1.45,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none"
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 1,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.82,
+          "height": 1.45,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none"
+        }
+      },
+      "14": {
+        "bays": {
+          "count": 1,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.82,
+          "height": 1.45,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none"
+        }
+      },
+      "18": {
+        "bays": {
+          "count": 1,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.82,
+          "height": 1.45,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.105,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.047
+          },
+          "frameColor": "#d1cec4",
+          "glass": "clear",
+          "glassColor": "#606968",
+          "surround": "none"
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular"
+        }
+      },
+      "19": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "ridge": 160,
+    "rise": 1.95,
+    "edge": "gutter",
+    "overhang": 0.51,
+    "features": [
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          10.02,
+          1569.66
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          10.34,
+          1570.86
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          10.9,
+          1572.62
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          11.54,
+          1574.22
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          12.18,
+          1575.82
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          13.78,
+          1579.18
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          14.18,
+          1580.78
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          14.74,
+          1581.98
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          15.06,
+          1583.34
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          15.3,
+          1584.3
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          16.34,
+          1586.78
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          17.78,
+          1589.9
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          18.34,
+          1591.66
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          18.98,
+          1593.26
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          19.54,
+          1594.7
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          20.18,
+          1596.06
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          20.5,
+          1597.66
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          21.46,
+          1599.58
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          22.18,
+          1601.02
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "hvac",
+        "style": "low capped roof exhaust",
+        "center": [
+          22.82,
+          1602.3
+        ],
+        "size": [
+          0.31,
+          0.31
+        ],
+        "height": 0.32,
+        "material": "vent"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          14.331,
+          1577.424
+        ],
+        "size": [
+          0.87,
+          0.79
+        ],
+        "height": 0.86,
+        "material": "fascia"
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 4,
+      "position": 0.49,
+      "width": 1.08,
+      "height": 2.14,
+      "type": "doors-single",
+      "recess": 0.56,
+      "steps": 1,
+      "doorColor": "#514741",
+      "at": [
+        9.844,
+        1585.596
+      ]
+    },
+    {
+      "wall": 14,
+      "position": 0.52,
+      "width": 1.08,
+      "height": 2.14,
+      "type": "doors-single",
+      "recess": 0.56,
+      "steps": 1,
+      "doorColor": "#514741",
+      "at": [
+        19.949,
+        1581.116
+      ]
+    },
+    {
+      "wall": 2,
+      "position": 0.125,
+      "type": "doors-single",
+      "width": 0.9,
+      "height": 2.08,
+      "recess": 0.1,
+      "steps": 0,
+      "doorColor": "#dfdcd3",
+      "surround": "frame",
+      "at": [
+        -0.151,
+        1571.194
+      ]
+    },
+    {
+      "wall": 2,
+      "position": 0.875,
+      "type": "doors-single",
+      "width": 0.9,
+      "height": 2.08,
+      "recess": 0.1,
+      "steps": 0,
+      "doorColor": "#dfdcd3",
+      "surround": "frame",
+      "at": [
+        3.861,
+        1582.376
+      ]
+    },
+    {
+      "wall": 6,
+      "position": 0.125,
+      "type": "doors-single",
+      "width": 0.9,
+      "height": 2.08,
+      "recess": 0.1,
+      "steps": 0,
+      "doorColor": "#dfdcd3",
+      "surround": "frame",
+      "at": [
+        7.745,
+        1591.725
+      ]
+    },
+    {
+      "wall": 6,
+      "position": 0.875,
+      "type": "doors-single",
+      "width": 0.9,
+      "height": 2.08,
+      "recess": 0.1,
+      "steps": 0,
+      "doorColor": "#dfdcd3",
+      "surround": "frame",
+      "at": [
+        11.495,
+        1602.195
+      ]
+    },
+    {
+      "wall": 12,
+      "position": 0.125,
+      "type": "doors-single",
+      "width": 0.9,
+      "height": 2.08,
+      "recess": 0.1,
+      "steps": 0,
+      "doorColor": "#dfdcd3",
+      "surround": "frame",
+      "at": [
+        28.845,
+        1596.13
+      ]
+    },
+    {
+      "wall": 12,
+      "position": 0.875,
+      "type": "doors-single",
+      "width": 0.9,
+      "height": 2.08,
+      "recess": 0.1,
+      "steps": 0,
+      "doorColor": "#dfdcd3",
+      "surround": "frame",
+      "at": [
+        24.795,
+        1584.85
+      ]
+    },
+    {
+      "wall": 16,
+      "position": 0.125,
+      "type": "doors-single",
+      "width": 0.9,
+      "height": 2.08,
+      "recess": 0.1,
+      "steps": 0,
+      "doorColor": "#dfdcd3",
+      "surround": "frame",
+      "at": [
+        21.468,
+        1575.537
+      ]
+    },
+    {
+      "wall": 16,
+      "position": 0.875,
+      "type": "doors-single",
+      "width": 0.9,
+      "height": 2.08,
+      "recess": 0.1,
+      "steps": 0,
+      "doorColor": "#dfdcd3",
+      "surround": "frame",
+      "at": [
+        17.733,
+        1565.142
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "knowledge",
+      "note": "Address points 548 and 550 each record a three-storey, 12-unit apartment building on this joined footprint.",
+      "url": "https://maps.london.ca/server/rest/services/BASEMAP_ORTHO_UTM/MapServer/0"
+    },
+    {
+      "kind": "knowledge",
+      "note": "Western identifies its 1976 three-storey apartment walk-ups and shows a balcony on the unit plans.",
+      "url": "https://apartments.uwo.ca/prospective-tenants/buildings/platts-lane"
+    },
+    {
+      "kind": "kartaview",
+      "note": "Two levels of balconies above patios. Brown opaque railing panels alternate with open metal pickets. Pale concrete slabs project beyond the masonry. Narrow stair windows break up the recessed areas. Brown masonry averages RGB 86,72,69 in the shaded (249,111)–(268,130) patch of a 460 × 385 copy. Wall colour is lifted for daylight.",
+      "frame": "46920587",
+      "walls": [
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "The west elevation has three levels, lower patio doors, a darker recessed access and shallow gabled roof sections.",
+      "frame": "46920586",
+      "walls": [
+        4,
+        6
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "A close oblique shows cantilevered slabs, masonry patio screens, brown painted railing and separate ground-level glazed openings.",
+      "frame": "46920588",
+      "walls": [
+        2,
+        3
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "Two broad shingle roof sections alternate with narrower links and ends. Walks and parking courts run along both long sides."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m lidar above local ground measures 10.01 m at P50, 10.93 m at P90 and 13.36 m at maximum. Across the broad roof the 2 m samples rise from about 9 m to 11.2 m and fall toward the opposite eave."
+    },
+    {
+      "kind": "lidar",
+      "note": "Along both long walls the roof-to-ground break falls west of the inventory polygon. The four apartment sections and their stair link have been moved together 3.4 m west and 0.2 m north."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Frame 46920587 shows patio doors beneath the west balcony stacks and short masonry dividers. The corresponding east patios and the east stair approach are inferred."
+    }
+  ],
+  "notes": "Railings alternate opaque brown panels and open pickets on the same slab. Short masonry patio screens, individual patio doors and projecting balcony slabs are distinct from the stair entrances. East-side balconies and stair door positions are inferred from symmetry and the paths. Ground-floor patio doors sit beside the living-room windows beneath the balcony stacks. Their mirrored positions on the east side are inferred.",
+  "attachments": [
+    {
+      "type": "terrace",
+      "path": [
+        [
+          8.161,
+          1585.483
+        ],
+        [
+          8.619,
+          1586.753
+        ]
+      ],
+      "height": 0.08,
+      "width": 3.15,
+      "material": "slab"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          21.631,
+          1581.23
+        ],
+        [
+          21.176,
+          1579.959
+        ]
+      ],
+      "height": 0.08,
+      "width": 3.15,
+      "material": "slab"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -1.403,
+          1570.548
+        ],
+        [
+          -0.153,
+          1574.031
+        ]
+      ],
+      "height": 0.1,
+      "width": 1.98,
+      "material": "slab"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          -0.482,
+          1570.271
+        ],
+        [
+          -2.318,
+          1570.93
+        ]
+      ],
+      "height": 1.26,
+      "width": 0.19,
+      "material": "wall"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          2.056,
+          1580.187
+        ],
+        [
+          3.306,
+          1583.67
+        ]
+      ],
+      "height": 0.1,
+      "width": 1.98,
+      "material": "slab"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          4.192,
+          1583.299
+        ],
+        [
+          2.357,
+          1583.957
+        ]
+      ],
+      "height": 1.26,
+      "width": 0.19,
+      "material": "wall"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          6.494,
+          1591.079
+        ],
+        [
+          7.742,
+          1594.563
+        ]
+      ],
+      "height": 0.1,
+      "width": 1.98,
+      "material": "slab"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          7.415,
+          1590.802
+        ],
+        [
+          5.579,
+          1591.461
+        ]
+      ],
+      "height": 1.26,
+      "width": 0.19,
+      "material": "wall"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          9.691,
+          1600.005
+        ],
+        [
+          10.939,
+          1603.489
+        ]
+      ],
+      "height": 0.1,
+      "width": 1.98,
+      "material": "slab"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          11.825,
+          1603.118
+        ],
+        [
+          9.99,
+          1603.776
+        ]
+      ],
+      "height": 1.26,
+      "width": 0.19,
+      "material": "wall"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          30.097,
+          1596.775
+        ],
+        [
+          28.846,
+          1593.293
+        ]
+      ],
+      "height": 0.1,
+      "width": 1.98,
+      "material": "slab"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          29.176,
+          1597.052
+        ],
+        [
+          31.012,
+          1596.394
+        ]
+      ],
+      "height": 1.26,
+      "width": 0.19,
+      "material": "wall"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          26.601,
+          1587.039
+        ],
+        [
+          25.35,
+          1583.556
+        ]
+      ],
+      "height": 0.1,
+      "width": 1.98,
+      "material": "slab"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          24.464,
+          1583.928
+        ],
+        [
+          26.299,
+          1583.269
+        ]
+      ],
+      "height": 1.26,
+      "width": 0.19,
+      "material": "wall"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          22.719,
+          1576.183
+        ],
+        [
+          21.468,
+          1572.7
+        ]
+      ],
+      "height": 0.1,
+      "width": 1.98,
+      "material": "slab"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          21.799,
+          1576.46
+        ],
+        [
+          23.634,
+          1575.801
+        ]
+      ],
+      "height": 1.26,
+      "width": 0.19,
+      "material": "wall"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          19.539,
+          1567.331
+        ],
+        [
+          18.288,
+          1563.849
+        ]
+      ],
+      "height": 0.1,
+      "width": 1.98,
+      "material": "slab"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          17.401,
+          1564.22
+        ],
+        [
+          19.236,
+          1563.562
+        ]
+      ],
+      "height": 1.26,
+      "width": 0.19,
+      "material": "wall"
+    }
+  ]
+}

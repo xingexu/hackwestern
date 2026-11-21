@@ -1,0 +1,1015 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w116779543",
+  "name": "Talbot College",
+  "status": "refined",
+  "confidence": 0.88,
+  "summary": "Five-storey flat-roofed stone block behind a lower recital wing, detailed with pale grouped casements and pointed buttress caps.",
+  "style": "gothic-revival-modern",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#bbaf99",
+      "secondaryColor": "#a79c86",
+      "variation": 0.29,
+      "unitSize": [
+        0.54,
+        0.23
+      ],
+      "bond": "coursed-rubble",
+      "roughness": 0.82,
+      "weathering": 0.18
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d9cfb9",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#81837d"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    },
+    "equipment": {
+      "kind": "metal-panel",
+      "color": "#a9aba6",
+      "roughness": 0.69,
+      "unitSize": [
+        0.6,
+        1.2
+      ]
+    },
+    "tile": {
+      "kind": "clay-tile",
+      "color": "#816e59",
+      "secondaryColor": "#60574b"
+    },
+    "ivy": {
+      "kind": "green-roof",
+      "color": "#4c5439",
+      "variation": 0.32,
+      "secondaryColor": "#3b432e"
+    }
+  },
+  "floors": {
+    "count": 5,
+    "groundFloorHeight": 4.25,
+    "typicalHeight": 3.65,
+    "raisedGround": 0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 2.35,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.17,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.065
+        },
+        "frameColor": "#d0c8b8",
+        "glass": "tinted",
+        "glassColor": "#53636a",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "bays": {
+        "width": 5.2,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "parapet": {
+        "height": 0.38,
+        "type": "coped",
+        "material": "wall"
+      },
+      "cornice": {
+        "height": 0.29,
+        "depth": 0.15,
+        "material": "trim"
+      },
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.07
+      },
+      "bands": [
+        {
+          "at": [
+            4.4
+          ],
+          "height": 0.2,
+          "depth": 0.1,
+          "material": "trim"
+        }
+      ]
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 5.24,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 9
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 5.82,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 5.1,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 6
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 7.44,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 3.67,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 5.15,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bands": [],
+        "material": "ivy",
+        "cornice": {
+          "height": 0,
+          "depth": 0
+        },
+        "parapet": {
+          "type": "plain",
+          "height": 0.25,
+          "material": "ivy"
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 3.4,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "ivy",
+        "bands": [],
+        "cornice": {
+          "height": 0,
+          "depth": 0
+        },
+        "parapet": {
+          "type": "plain",
+          "height": 0.25,
+          "material": "ivy"
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 3.88,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "ivy",
+        "bands": [],
+        "cornice": {
+          "height": 0,
+          "depth": 0
+        },
+        "parapet": {
+          "type": "plain",
+          "height": 0.25,
+          "material": "ivy"
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 4.5,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 8
+        },
+        "buttresses": {
+          "every": 1,
+          "width": 0.78,
+          "depth": 0.85,
+          "stepped": true,
+          "fullHeight": false
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.72,
+          "height": 2.32,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#ddd7c6",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 2.46,
+            "height": 2.28,
+            "sill": 2.18,
+            "perBay": 1,
+            "recess": 0.17,
+            "mullions": {
+              "vertical": 3,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "frameColor": "#d6d2c7",
+            "glass": "tinted",
+            "glassColor": "#53636a",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true,
+            "transom": true
+          },
+          "height": 6.15
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "width": 2.0,
+              "height": 1.9,
+              "sill": 0.47,
+              "frameColor": "#d8cfc1"
+            }
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              7.4
+            ],
+            "height": 0.23,
+            "depth": 0.1,
+            "material": "trim"
+          }
+        ],
+        "verticalSpandrels": {
+          "every": 1,
+          "width": 2.05,
+          "material": "trim"
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 5.65,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "bands": [
+          {
+            "at": [
+              8.0
+            ],
+            "height": 0.25,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        ]
+      },
+      "10": {
+        "bays": {
+          "width": 3.18,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 9
+        },
+        "buttresses": {
+          "every": 1,
+          "width": 0.75,
+          "depth": 0.83,
+          "stepped": true,
+          "fullHeight": false
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.12,
+          "height": 1.75,
+          "sill": 0.85,
+          "perBay": 1,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              8.0
+            ],
+            "height": 0.25,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        ]
+      },
+      "11": {
+        "bays": {
+          "width": 3.58,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "bands": [
+          {
+            "at": [
+              8.0
+            ],
+            "height": 0.25,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        ]
+      },
+      "12": {
+        "bays": {
+          "width": 3.18,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "buttresses": {
+          "every": 1,
+          "width": 0.75,
+          "depth": 0.83,
+          "stepped": true,
+          "fullHeight": false
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.12,
+          "height": 1.75,
+          "sill": 0.85,
+          "perBay": 1,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.065
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              8.0
+            ],
+            "height": 0.25,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        ]
+      },
+      "13": {
+        "bays": {
+          "width": 5.4,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 6
+        },
+        "bands": [
+          {
+            "at": [
+              8.0
+            ],
+            "height": 0.25,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        ]
+      },
+      "14": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "15": {
+        "bays": {
+          "width": 4.3,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "16": {
+        "bays": {
+          "width": 4.77,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          488.1,
+          413.1
+        ],
+        "size": [
+          7.5,
+          2.2
+        ],
+        "height": 1.3,
+        "material": "equipment"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          510.184,
+          400.12
+        ],
+        "size": [
+          6.8,
+          3.5
+        ],
+        "height": 0.85,
+        "rotation": 10,
+        "material": "equipment"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          511.753,
+          392.86
+        ],
+        "size": [
+          4.8,
+          2.3
+        ],
+        "height": 0.75,
+        "rotation": 10,
+        "material": "equipment"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          510.969,
+          436.415
+        ],
+        "size": [
+          4,
+          2.1
+        ],
+        "height": 0.75,
+        "rotation": 10,
+        "material": "equipment"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          494.657,
+          451.191
+        ],
+        "size": [
+          7.2,
+          7.1
+        ],
+        "height": 2.65,
+        "material": "roof",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          509.06,
+          439.768
+        ],
+        "size": [
+          2.9,
+          4.1
+        ],
+        "height": 1.16,
+        "rotation": 10,
+        "material": "equipment",
+        "style": "ventilation housing"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          488.822,
+          413.454
+        ],
+        "size": [
+          4.0,
+          2.6
+        ],
+        "height": 2.15,
+        "rotation": 10,
+        "material": "equipment",
+        "style": "paired cooling fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "note": "Facilities Management photograph of the exterior and its openings.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/TC.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory core-1m surface percentiles above ground: median 17.05 m, 90th percentile 20.91 m, maximum 23.97 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "East recital wing: grouped pale mullioned ground windows between projecting buttresses with sharply pointed caps; vertically aligned upper windows.",
+      "frame": "136654941",
+      "walls": [
+        8
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Recessed corner shows three bays of grouped casements on the taller return.",
+      "frame": "136654943",
+      "walls": [
+        8,
+        9
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Lower wing ends at an almost blind, ivy-covered projection.",
+      "frame": "131415039",
+      "walls": [
+        7,
+        8
+      ]
+    },
+    {
+      "kind": "osm",
+      "note": "Inventory building:levels=5, building:material=stone."
+    },
+    {
+      "kind": "osm",
+      "note": "Entrance positions are aligned to mapped footpath, service or stair endpoints where those meet the outer wall. Door and step dimensions are estimates."
+    },
+    {
+      "kind": "aerial",
+      "note": "Tall southeastern block with set-back rectangular roof plant; long northern recital block and broad western flat-roofed wing."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Bay counts, opening dimensions and storey heights on unseen elevations are architectural estimates. Wall and roof hues are image samples, subject to exposure and shadows."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "136654941",
+      "walls": [
+        8
+      ],
+      "note": "PIL mean patches for wall and trim centred at (66%, 48%) and (64%, 58%) of the photo. Exposure multipliers 1 and 1 approximate daylight across the source views."
+    },
+    {
+      "kind": "lidar",
+      "note": "One-metre roof returns have medians of 15.8 m over the recital court, 15.7 m at its ivy-covered north end and 20.5 m on the raised inner main roof. Returns near 24 m occur only over the smaller service enclosure."
+    },
+    {
+      "kind": "lidar",
+      "note": "The recital court returns near 15.7–16 m throughout. The 20.5–21 m inner roof jogs along its north edge and projects west around the taller 23–24 m service room. The northeast parking-side edge and entrances remain at the surveyed ground footprint."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 11,
+      "position": 0.51,
+      "type": "gothic-portal",
+      "width": 2.15,
+      "height": 3.05,
+      "surround": "trim",
+      "recess": 0.38
+    },
+    {
+      "wall": 15,
+      "position": 0.67,
+      "type": "doors-double",
+      "width": 2.05,
+      "height": 2.65
+    },
+    {
+      "wall": 8,
+      "type": "gothic-portal",
+      "position": 0.964,
+      "width": 2.35,
+      "height": 3.55,
+      "steps": 3,
+      "surround": "trim",
+      "recess": 0.62,
+      "canopy": {
+        "type": "portico",
+        "depth": 1.4,
+        "width": 3.4,
+        "material": "trim"
+      }
+    }
+  ],
+  "notes": "The recital wing has peaked stone buttress caps and ivy blanketing its north end. The Music Building adjoins the southern approach.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main five-storey range",
+        "footprint": {
+          "clip": [
+            [
+              490.71,
+              460.65
+            ],
+            [
+              490.27,
+              463.02
+            ],
+            [
+              491.65,
+              463.3
+            ],
+            [
+              494.49,
+              463.87
+            ],
+            [
+              494.95,
+              461.4
+            ],
+            [
+              526.73,
+              467.66
+            ],
+            [
+              527.99,
+              459.58
+            ],
+            [
+              529.85,
+              459.8
+            ],
+            [
+              530.14,
+              458.06
+            ],
+            [
+              530.43,
+              456.27
+            ],
+            [
+              528.78,
+              455.91
+            ],
+            [
+              534.37,
+              427.71
+            ],
+            [
+              517.45,
+              423.67
+            ],
+            [
+              517.51,
+              423.34
+            ],
+            [
+              496.87,
+              420.56
+            ],
+            [
+              489.98,
+              460.54
+            ]
+          ]
+        },
+        "height": 19.45,
+        "floors": 5,
+        "facade": {
+          "parapet": {
+            "type": "coped",
+            "height": 0.6,
+            "material": "trim"
+          },
+          "bands": [
+            {
+              "at": [
+                8.0
+              ],
+              "height": 0.25,
+              "depth": 0.12,
+              "material": "trim"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Notched inner roof of main block",
+        "height": 20.85,
+        "floors": 1,
+        "baseOffset": 19.45,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "footprint": {
+          "clip": [
+            [
+              496.4179,
+              447.54121
+            ],
+            [
+              492.33094,
+              446.82057
+            ],
+            [
+              490.98517,
+              454.45283
+            ],
+            [
+              495.56453,
+              455.2603
+            ],
+            [
+              495.58189,
+              455.16181
+            ],
+            [
+              521.97474,
+              459.81559
+            ],
+            [
+              526.55905,
+              433.81666
+            ],
+            [
+              512.37782,
+              431.31613
+            ],
+            [
+              512.70775,
+              429.44499
+            ],
+            [
+              500.00373,
+              427.20493
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Recital and teaching wings",
+        "footprint": {
+          "clip": [
+            [
+              510.39,
+              382.02
+            ],
+            [
+              509.97,
+              385.67
+            ],
+            [
+              502.65,
+              384.32
+            ],
+            [
+              498.81428,
+              404.35096
+            ],
+            [
+              502.00265,
+              404.35096
+            ],
+            [
+              503.33038,
+              396.821
+            ],
+            [
+              516.13288,
+              399.07843
+            ],
+            [
+              515.20319,
+              404.35096
+            ],
+            [
+              520.98603,
+              404.35096
+            ],
+            [
+              523.97,
+              388.05
+            ],
+            [
+              520.16,
+              387.38
+            ],
+            [
+              520.5,
+              384.0
+            ]
+          ]
+        },
+        "height": 15.95,
+        "floors": 3
+      },
+      {
+        "name": "Recital and teaching wings",
+        "footprint": {
+          "clip": [
+            [
+              496.89,
+              414.4
+            ],
+            [
+              479.72,
+              411.23
+            ],
+            [
+              471.87,
+              457.75
+            ],
+            [
+              489.9804,
+              460.53769
+            ],
+            [
+              496.87,
+              420.56
+            ],
+            [
+              517.51,
+              423.34
+            ],
+            [
+              520.98603,
+              404.35096
+            ],
+            [
+              515.20319,
+              404.35096
+            ],
+            [
+              513.87546,
+              411.88093
+            ],
+            [
+              501.07296,
+              409.6235
+            ],
+            [
+              502.00265,
+              404.35096
+            ],
+            [
+              498.81428,
+              404.35096
+            ]
+          ]
+        },
+        "height": 15.95,
+        "floors": 3
+      },
+      {
+        "name": "Inset recital roof and drainage margin",
+        "footprint": [
+          [
+            503.3304,
+            396.821
+          ],
+          [
+            501.073,
+            409.6235
+          ],
+          [
+            513.8755,
+            411.8809
+          ],
+          [
+            516.1329,
+            399.0784
+          ]
+        ],
+        "height": 15.48,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Shallow hipped roof over recital space",
+        "footprint": [
+          [
+            503.4003,
+            399.8796
+          ],
+          [
+            502.1848,
+            406.7733
+          ],
+          [
+            513.8055,
+            408.8223
+          ],
+          [
+            515.0211,
+            401.9287
+          ]
+        ],
+        "height": 15.56,
+        "floors": 2,
+        "roof": {
+          "form": "hip",
+          "rise": 0.37,
+          "material": "tile",
+          "ridge": 100,
+          "edge": "gutter"
+        },
+        "baseOffset": 15.48
+      }
+    ]
+  }
+}

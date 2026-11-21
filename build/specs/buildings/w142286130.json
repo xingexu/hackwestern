@@ -1,0 +1,1234 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w142286130",
+  "name": "Staging Building",
+  "style": "industrial-utility",
+  "confidence": 0.76,
+  "status": "refined",
+  "summary": "Staging is a low two-storey T-shaped building clad in white metal siding with scattered small windows, a narrow projecting entrance and elevator volume, and a streaked light roof.",
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#d4d6d6",
+      "unitSize": [
+        0.15,
+        3.62
+      ],
+      "secondaryColor": "#c5c9ca",
+      "variation": 0.065,
+      "bond": "stack",
+      "surface": "vertical corrugation"
+    },
+    "roof": {
+      "kind": "corrugated-metal",
+      "color": "#c5c5b8",
+      "roughness": 0.74,
+      "secondaryColor": "#a38876",
+      "variation": 0.2,
+      "surface": "weathered"
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#a1a5a9"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "lightPanel": {
+      "kind": "precast-panel",
+      "color": "#aaa69c",
+      "unitSize": [
+        0.15,
+        3.7
+      ],
+      "roughness": 0.87
+    },
+    "membrane": {
+      "kind": "membrane",
+      "color": "#d6d6cf",
+      "variation": 0.06
+    },
+    "flashing": {
+      "kind": "painted-metal",
+      "color": "#666a69"
+    },
+    "oxide": {
+      "kind": "corrugated-metal",
+      "color": "#a99b8c",
+      "secondaryColor": "#9f8978",
+      "variation": 0.17,
+      "unitSize": [
+        0.2,
+        3.5
+      ],
+      "surface": "weathered corrugation"
+    },
+    "rust": {
+      "kind": "corrugated-metal",
+      "color": "#a68e79",
+      "secondaryColor": "#806c59",
+      "variation": 0.23,
+      "unitSize": [
+        0.18,
+        3.6
+      ]
+    },
+    "whiteSheet": {
+      "kind": "corrugated-metal",
+      "color": "#d9d8c9",
+      "secondaryColor": "#c8c6b8",
+      "variation": 0.12
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 4.0,
+    "typicalHeight": 4.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.05,
+        "height": 1.2,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.08,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "surround": "none",
+        "glass": "dark",
+        "frameColor": "#3e4446",
+        "surroundMaterial": "trim",
+        "sillProjecting": false,
+        "lintel": false,
+        "glassColor": "#586163"
+      },
+      "bays": {
+        "width": 6.8,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "plain",
+        "height": 0.15,
+        "material": "flashing"
+      },
+      "base": {
+        "height": 0.08,
+        "projection": 0.03,
+        "material": "wall"
+      },
+      "cornice": {
+        "height": 0.2,
+        "depth": 0.11,
+        "material": "metal"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 6.9,
+          "pattern": "paired"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.82,
+          "height": 1.05,
+          "sill": 1.1,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#87898a"
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 6.9,
+          "pattern": "paired"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.73,
+          "height": 1.12,
+          "sill": 1.1,
+          "perBay": 2,
+          "recess": 0.08,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#414747",
+          "spacing": 0.87,
+          "glassColor": "#596163",
+          "surround": "none"
+        },
+        "segments": [
+          {
+            "range": [
+              0.07,
+              0.24
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "perBay": 1,
+              "width": 0.73,
+              "spacing": 0.56
+            }
+          },
+          {
+            "range": [
+              0.31,
+              0.53
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "perBay": 2,
+              "width": 0.73,
+              "spacing": 0.56
+            }
+          },
+          {
+            "range": [
+              0.67,
+              0.81
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "perBay": 1,
+              "width": 0.73,
+              "spacing": 0.56
+            }
+          },
+          {
+            "range": [
+              0.89,
+              1
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "perBay": 1,
+              "width": 0.73,
+              "spacing": 0.56
+            }
+          }
+        ]
+      },
+      "2": {
+        "bays": {
+          "count": 1,
+          "width": 6.88
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 6.9,
+          "pattern": "paired"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.73,
+          "height": 1.12,
+          "sill": 1.1,
+          "perBay": 2,
+          "recess": 0.08,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#414747",
+          "spacing": 0.87,
+          "glassColor": "#596163",
+          "surround": "none"
+        },
+        "segments": [
+          {
+            "range": [
+              0.1,
+              0.28
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "perBay": 1,
+              "width": 0.73,
+              "spacing": 0.56
+            }
+          },
+          {
+            "range": [
+              0.36,
+              0.54
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "perBay": 2,
+              "width": 0.73,
+              "spacing": 0.56
+            }
+          },
+          {
+            "range": [
+              0.56,
+              0.78
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "perBay": 1,
+              "width": 0.73,
+              "spacing": 0.56
+            }
+          },
+          {
+            "range": [
+              0.87,
+              0.99
+            ],
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "perBay": 1,
+              "width": 0.73,
+              "spacing": 0.56
+            }
+          }
+        ]
+      },
+      "4": {
+        "bays": {
+          "count": 3,
+          "width": 7.18
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 6.9,
+          "pattern": "paired"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.73,
+          "height": 1.12,
+          "sill": 1.1,
+          "perBay": 2,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#87898a",
+          "spacing": 0.87
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 3,
+          "width": 7.37
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 1,
+          "width": 5.67
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 6.9,
+          "pattern": "paired"
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.73,
+          "height": 1.12,
+          "sill": 1.1,
+          "perBay": 2,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#87898a",
+          "spacing": 0.87
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.16,
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          659,
+          141.2
+        ],
+        "size": [
+          1.1,
+          1.3
+        ],
+        "height": 0.75,
+        "material": "metal",
+        "rotation": -7
+      },
+      {
+        "type": "hvac",
+        "center": [
+          662,
+          154.2
+        ],
+        "size": [
+          1.6,
+          1.45
+        ],
+        "height": 0.75,
+        "material": "metal",
+        "rotation": -7
+      },
+      {
+        "type": "hvac",
+        "center": [
+          659,
+          165.2
+        ],
+        "size": [
+          1.5,
+          1.25
+        ],
+        "height": 0.75,
+        "material": "metal",
+        "rotation": -7
+      },
+      {
+        "type": "hvac",
+        "center": [
+          673.5,
+          194.7
+        ],
+        "size": [
+          0.7,
+          0.65
+        ],
+        "height": 0.75,
+        "material": "metal",
+        "rotation": -7
+      },
+      {
+        "type": "hvac",
+        "center": [
+          668.2,
+          188.0
+        ],
+        "size": [
+          0.77,
+          0.75
+        ],
+        "height": 0.75,
+        "material": "metal",
+        "rotation": -7
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface minus local ground: median 8.66 m, 90th percentile 8.89 m, maximum 17.52 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/STAB.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Only the white wall at the far right is visible below the canopy of trees. Door placement is inferred.",
+      "frame": "89741023",
+      "walls": [
+        0,
+        8
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "T-shaped low block with a ribbed pale roof. Longitudinal seams run along the longer wing; the cross wing meets the west side."
+    },
+    {
+      "kind": "photo",
+      "note": "PIL mean wall or glazing sample, source-pixel rectangle (x, y, width, height) (31, 177, 4, 4) gives #8f9397.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/STAB.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "Cross sections through the west wing at x 630 and 638 and the south end at x 669 put both roof edges roughly 2–4 m north of the inventory. The model shifts the T-plan and all attached geometry 2.8 m north."
+    },
+    {
+      "kind": "aerial",
+      "note": "The 2025 image shows a detached white gable in the south yard, a small east service hut and a rust-roofed end on the east lean-to. These are outside the 2017 roof footprint."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "height": 8.72,
+        "floors": 2,
+        "footprint": [
+          [
+            622.28,
+            159.1
+          ],
+          [
+            623.68,
+            171.26
+          ],
+          [
+            652.07,
+            168.0
+          ],
+          [
+            652.85,
+            174.83
+          ],
+          [
+            654.71,
+            174.62
+          ],
+          [
+            658.76,
+            209.85
+          ],
+          [
+            680.15,
+            207.39
+          ],
+          [
+            672.23,
+            138.52
+          ],
+          [
+            675.772,
+            169.318
+          ],
+          [
+            653.241,
+            171.912
+          ],
+          [
+            650.348,
+            146.744
+          ],
+          [
+            650.9,
+            146.68
+          ],
+          [
+            621.24,
+            150.1
+          ]
+        ]
+      },
+      {
+        "name": "Elevator against west face",
+        "height": 9.57,
+        "footprint": [
+          [
+            652.522,
+            168.606
+          ],
+          [
+            653.173,
+            174.309
+          ],
+          [
+            650.242,
+            174.644
+          ],
+          [
+            649.591,
+            168.941
+          ]
+        ],
+        "facade": {
+          "material": "lightPanel",
+          "windows": {
+            "type": "punched",
+            "width": 0.92,
+            "height": 0.93,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 0,
+              "width": 0.06
+            },
+            "frameColor": "#4e5454",
+            "sill": 0.99
+          },
+          "bays": {
+            "count": 1
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "overhang": 0
+        },
+        "material": "lightPanel"
+      },
+      {
+        "name": "Light membrane at the north junction",
+        "footprint": [
+          [
+            672.23,
+            138.52
+          ],
+          [
+            650.25,
+            141.05
+          ],
+          [
+            650.9,
+            146.68
+          ],
+          [
+            650.348,
+            146.744
+          ],
+          [
+            653.241,
+            171.912
+          ],
+          [
+            675.772,
+            169.318
+          ]
+        ],
+        "height": 8.72,
+        "floors": 2,
+        "material": "wall",
+        "facade": {
+          "material": "wall"
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "membrane"
+        }
+      },
+      {
+        "name": "East service lean-to",
+        "footprint": [
+          [
+            674.4,
+            170.6
+          ],
+          [
+            677.1,
+            170.25
+          ],
+          [
+            680,
+            189.65
+          ],
+          [
+            676.8,
+            190.1
+          ]
+        ],
+        "height": 3.35,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 172,
+          "rise": 0.45,
+          "material": "whiteSheet",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Weathered replacement roof sheets",
+        "footprint": [
+          [
+            625.261,
+            154.973
+          ],
+          [
+            632.075,
+            154.19
+          ],
+          [
+            632.645,
+            159.158
+          ],
+          [
+            625.832,
+            159.94
+          ]
+        ],
+        "height": 8.77,
+        "floors": 1,
+        "material": "oxide",
+        "facade": {
+          "blank": true,
+          "material": "oxide",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "oxide"
+        },
+        "baseOffset": 8.724
+      },
+      {
+        "name": "Weathered replacement roof sheets",
+        "footprint": [
+          [
+            632.931,
+            161.642
+          ],
+          [
+            641.448,
+            160.664
+          ],
+          [
+            641.87,
+            164.34
+          ],
+          [
+            633.353,
+            165.318
+          ]
+        ],
+        "height": 8.77,
+        "floors": 1,
+        "material": "oxide",
+        "facade": {
+          "blank": true,
+          "material": "oxide",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "oxide"
+        },
+        "baseOffset": 8.724
+      },
+      {
+        "name": "Weathered replacement roof sheets",
+        "footprint": [
+          [
+            640.194,
+            152.252
+          ],
+          [
+            646.44,
+            151.534
+          ],
+          [
+            646.953,
+            156.005
+          ],
+          [
+            640.707,
+            156.722
+          ]
+        ],
+        "height": 8.77,
+        "floors": 1,
+        "material": "oxide",
+        "facade": {
+          "blank": true,
+          "material": "oxide",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "oxide"
+        },
+        "baseOffset": 8.724
+      },
+      {
+        "name": "Weathered replacement roof sheets",
+        "footprint": [
+          [
+            665.384,
+            166.521
+          ],
+          [
+            664.75,
+            161.012
+          ],
+          [
+            671.705,
+            160.212
+          ],
+          [
+            672.338,
+            165.722
+          ]
+        ],
+        "height": 8.77,
+        "floors": 1,
+        "material": "oxide",
+        "facade": {
+          "blank": true,
+          "material": "oxide",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "oxide"
+        },
+        "baseOffset": 8.724
+      },
+      {
+        "name": "Weathered replacement roof sheets",
+        "footprint": [
+          [
+            670.258,
+            200.153
+          ],
+          [
+            669.624,
+            194.644
+          ],
+          [
+            676.281,
+            193.879
+          ],
+          [
+            676.915,
+            199.388
+          ]
+        ],
+        "height": 8.77,
+        "floors": 1,
+        "material": "oxide",
+        "facade": {
+          "blank": true,
+          "material": "oxide",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "oxide"
+        },
+        "baseOffset": 8.724
+      },
+      {
+        "name": "Weathered ribbed eastern strip of north spine",
+        "footprint": [
+          [
+            672.23,
+            138.52
+          ],
+          [
+            661.706,
+            139.731
+          ],
+          [
+            663.9,
+            165.3
+          ],
+          [
+            675.0,
+            164.0
+          ],
+          [
+            674.431,
+            157.662
+          ]
+        ],
+        "height": 8.804,
+        "floors": 1,
+        "material": "rust",
+        "facade": {
+          "material": "rust",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "rust",
+          "edge": "none"
+        },
+        "baseOffset": 8.745
+      },
+      {
+        "name": "Rust-roofed south end of service lean-to",
+        "footprint": [
+          [
+            676.2,
+            185.6
+          ],
+          [
+            679.5,
+            185.2
+          ],
+          [
+            680.2,
+            190.4
+          ],
+          [
+            676.9,
+            190.9
+          ]
+        ],
+        "height": 3.74,
+        "floors": 1,
+        "material": "rust",
+        "facade": {
+          "material": "rust",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 172,
+          "rise": 0.12,
+          "material": "rust",
+          "edge": "gutter"
+        },
+        "baseOffset": 3.36
+      },
+      {
+        "name": "Small east yard cabinet hut",
+        "footprint": [
+          [
+            677.0,
+            153.0
+          ],
+          [
+            679.9,
+            152.7
+          ],
+          [
+            680.2,
+            155.15
+          ],
+          [
+            677.3,
+            155.45
+          ]
+        ],
+        "height": 2.2,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 171,
+          "rise": 0.22,
+          "material": "whiteSheet",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Detached white-roofed yard shed",
+        "footprint": [
+          [
+            668.1,
+            220.8
+          ],
+          [
+            674.4,
+            212.4
+          ],
+          [
+            680.1,
+            216.65
+          ],
+          [
+            673.75,
+            225.05
+          ]
+        ],
+        "height": 2.75,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "rise": 1.1,
+          "ridge": 37,
+          "material": "whiteSheet",
+          "edge": "gutter"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.83,
+      "type": "service-door",
+      "width": 1.05,
+      "height": 2.15,
+      "at": [
+        647.244,
+        168.554
+      ]
+    },
+    {
+      "wall": 4,
+      "position": 0.6,
+      "type": "doors-double",
+      "width": 2.05,
+      "height": 2.35,
+      "at": [
+        671.594,
+        208.374
+      ]
+    },
+    {
+      "wall": 2,
+      "position": 0.54,
+      "type": "service-door",
+      "width": 1.03,
+      "height": 2.18,
+      "at": [
+        652.491,
+        171.688
+      ]
+    }
+  ],
+  "notes": "Rust streaks and differently weathered roof sheets are visible from above. The isolated high lidar samples at the wooded edge do not establish a rooftop tower."
+}

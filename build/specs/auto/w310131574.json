@@ -1,0 +1,154 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w310131574",
+  "name": "Western Student Services Building",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "128912237"
+    }
+  ],
+  "style": "contemporary-glass",
+  "floors": {
+    "count": 4,
+    "typicalHeight": 4.1,
+    "groundFloorHeight": 4.1
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 17.59,
+        "floors": 4
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              26.365,
+              324.901
+            ],
+            [
+              23.35,
+              324.46
+            ],
+            [
+              24.473,
+              316.754
+            ],
+            [
+              9.175,
+              312.93
+            ],
+            [
+              2.404,
+              340.014
+            ],
+            [
+              5.19,
+              340.42
+            ],
+            [
+              3.016,
+              355.333
+            ],
+            [
+              16.938,
+              358.814
+            ],
+            [
+              19.85,
+              343.6
+            ],
+            [
+              21.61,
+              343.919
+            ]
+          ]
+        },
+        "height": 22.69,
+        "baseOffset": 17.59,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#8b899b",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#a19e8b"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.7
+      },
+      "windows": {
+        "type": "curtain-wall",
+        "width": 2.6,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#626a6b",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 14,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

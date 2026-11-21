@@ -1,0 +1,102 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3040",
+  "name": "Ontario Hall courtyard shelter",
+  "status": "refined",
+  "confidence": 0.48,
+  "summary": "A small rectangular shelter with a pale roof stands alongside the paved courtyard between residence wings.",
+  "style": "industrial-utility",
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "A light rectangular roof casts a separate parallel shadow. Paths wrap around the shelter with grass between it and the adjacent wing, and the roof colour was sampled from its centre."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 3.36 / 3.47 / 3.53 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#a6aea7",
+      "variation": 0.045,
+      "unitSize": [
+        1.12,
+        3.24
+      ]
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#c4c9bf",
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "metal-panel",
+      "color": "#d5dace",
+      "secondaryColor": "#c4c8be",
+      "unitSize": [
+        0.55,
+        3
+      ],
+      "variation": 0.12,
+      "roughness": 0.77,
+      "metalness": 0.24
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.25,
+    "typicalHeight": 3.25
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "base": {
+        "height": 0.14,
+        "material": "trim",
+        "projection": 0.035
+      },
+      "cornice": {
+        "height": 0.13,
+        "depth": 0.09,
+        "material": "trim"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "gable",
+    "rise": 0.25,
+    "ridge": "long-axis",
+    "material": "roof",
+    "overhang": 0.16,
+    "edge": "fascia"
+  },
+  "notes": "The roof is clearly visible in the orthophoto. Its supports, side enclosure, and precise use are not visible in the available street frames.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "footprint": "inventory",
+        "height": 3.27,
+        "floors": 1
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.52,
+      "type": "service-door",
+      "width": 0.94,
+      "height": 2.06
+    }
+  ]
+}

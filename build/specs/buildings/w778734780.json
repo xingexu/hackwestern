@@ -1,0 +1,115 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778734780",
+  "name": "Unnamed service shed",
+  "status": "refined",
+  "confidence": 0.53,
+  "summary": "A compact shed beside the Graphic Services yard topped by two grey roof slopes meeting at a shallow ridge, with its wall finish inferred.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#a5a49b",
+      "unitSize": [
+        0.21,
+        5.48
+      ],
+      "variation": 0.06
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#64665f",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#686a64",
+      "unitSize": [
+        0.9,
+        0.27
+      ],
+      "variation": 0.09,
+      "weathering": 0.14,
+      "secondaryColor": "#585a56",
+      "surface": "matte"
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 5.44,
+    "typicalHeight": 5.44
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall",
+      "base": {
+        "height": 0.12,
+        "projection": 0.03,
+        "material": "base"
+      },
+      "cornice": {
+        "height": 0.105,
+        "depth": 0.09,
+        "material": "trim"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.2,
+    "ridge": 158,
+    "rise": 0.45,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "A compact square at the yard edge has an asymmetric light and dark roof split and a short shadow. The central ridge runs with the longer walls. Roof patch sampled #87887b."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 5.63 m, P90 5.92 m, maximum 5.97 m above inventory ground. 5.63 m median to 5.97 m maximum suggests a shallow ridge or a modest pitch. Side walls are unseen."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Shed to eaves",
+        "footprint": "inventory",
+        "height": 5.44,
+        "floors": 1
+      }
+    ]
+  },
+  "notes": "Wall finish inferred from the aerial context. No unobstructed view supports a specific door or window position. Access panel placement is inferred from the paved side of the enclosure.",
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.5,
+      "width": 1.05,
+      "height": 2.07,
+      "type": "service-door",
+      "recess": 0.09
+    }
+  ]
+}

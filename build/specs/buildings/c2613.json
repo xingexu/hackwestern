@@ -1,0 +1,360 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2613",
+  "name": "Unnamed equipment enclosure",
+  "status": "refined",
+  "confidence": 0.53,
+  "summary": "A low, narrow dogleg-plan service enclosure with a pale segmented roof beside a larger utility enclosure, with side wall finishes inferred.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#c7cbc6",
+      "unitSize": [
+        0.78,
+        3.3200000000000003
+      ],
+      "variation": 0.06
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#777971",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "roof": {
+      "kind": "metal-panel",
+      "color": "#ecf1eb",
+      "unitSize": [
+        1.25,
+        3.0
+      ],
+      "variation": 0.05,
+      "weathering": 0.14
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    },
+    "joint": {
+      "kind": "metal-panel",
+      "color": "#c9cfc9",
+      "roughness": 0.76
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.22,
+    "typicalHeight": 3.22
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall",
+      "base": {
+        "height": 0.12,
+        "projection": 0.03,
+        "material": "base"
+      },
+      "cornice": {
+        "height": 0.105,
+        "depth": 0.09,
+        "material": "trim"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.05,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Narrow pale top with regular seams and a short right-angle return. Its clear continuous shadow is visible on the north-west side. Roof patch sampled #ecf1eb."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 3.1 m, P90 3.43 m, maximum 3.68 m above inventory ground. 3.1 m median to 3.68 m peak across this narrow footprint."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Enclosure",
+        "footprint": "inventory",
+        "height": 3.22,
+        "floors": 1
+      },
+      {
+        "name": "Raised joint between pale roof covers",
+        "footprint": [
+          [
+            9.164,
+            -59.946
+          ],
+          [
+            9.804,
+            -61.426
+          ],
+          [
+            9.709,
+            -61.467
+          ],
+          [
+            9.069,
+            -59.987
+          ]
+        ],
+        "baseOffset": 3.218,
+        "height": 3.257,
+        "floors": 1,
+        "material": "joint",
+        "facade": {
+          "blank": true,
+          "material": "joint",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "joint"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "joint"
+          },
+          "topFloor": {
+            "material": "joint"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "joint",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised joint between pale roof covers",
+        "footprint": [
+          [
+            11.412,
+            -58.971
+          ],
+          [
+            12.052,
+            -60.45
+          ],
+          [
+            11.956,
+            -60.491
+          ],
+          [
+            11.316,
+            -59.013
+          ]
+        ],
+        "baseOffset": 3.218,
+        "height": 3.257,
+        "floors": 1,
+        "material": "joint",
+        "facade": {
+          "blank": true,
+          "material": "joint",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "joint"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "joint"
+          },
+          "topFloor": {
+            "material": "joint"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "joint",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised joint between pale roof covers",
+        "footprint": [
+          [
+            13.66,
+            -57.997
+          ],
+          [
+            14.299,
+            -59.474
+          ],
+          [
+            14.204,
+            -59.515
+          ],
+          [
+            13.565,
+            -58.039
+          ]
+        ],
+        "baseOffset": 3.218,
+        "height": 3.257,
+        "floors": 1,
+        "material": "joint",
+        "facade": {
+          "blank": true,
+          "material": "joint",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "joint"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "joint"
+          },
+          "topFloor": {
+            "material": "joint"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "joint",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Raised joint between pale roof covers",
+        "footprint": [
+          [
+            15.174,
+            -57.341
+          ],
+          [
+            16.537,
+            -60.49
+          ],
+          [
+            16.442,
+            -60.533
+          ],
+          [
+            15.079,
+            -57.383
+          ]
+        ],
+        "baseOffset": 3.218,
+        "height": 3.257,
+        "floors": 1,
+        "material": "joint",
+        "facade": {
+          "blank": true,
+          "material": "joint",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "joint"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "joint"
+          },
+          "topFloor": {
+            "material": "joint"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "joint",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "notes": "Wall finish inferred from the aerial context. No unobstructed view supports a specific door or window position. Access panel placement is inferred from the paved side of the enclosure.",
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.29,
+      "width": 1.05,
+      "height": 2.07,
+      "type": "service-door",
+      "recess": 0.09
+    },
+    {
+      "wall": 2,
+      "position": 0.7,
+      "width": 1.05,
+      "height": 2.07,
+      "type": "service-door",
+      "recess": 0.09
+    }
+  ]
+}

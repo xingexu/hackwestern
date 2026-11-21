@@ -1,0 +1,215 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3513",
+  "name": "Arched maintenance-yard shelter",
+  "status": "refined",
+  "confidence": 0.64,
+  "summary": "Silver corrugated barrel shelter set beside a straight rust-coloured strip in the service yard, with curved ribs running across the short roof span.",
+  "style": "industrial-utility",
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. Parallel curved silver ribs span the central shed. A distinct low rusty straight-sided section lies alongside its northern edge. Nearby tree branches overlap the western roof."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 3.11 m, P90 8.0 m, maximum 9.98 m. Values vary from near ground to 10 m in the same small polygon. Tallest values skirt the shaded tree edges."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Campus frame search out to 130 m found no usable street-facing image. Finish and bay estimates on screened walls are provisional."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#bec3c1",
+      "variation": 0.09,
+      "secondaryColor": "#949891",
+      "unitSize": [
+        0.77,
+        2.0
+      ],
+      "bond": "stack"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#dedbd2",
+      "variation": 0.09
+    },
+    "roof": {
+      "kind": "corrugated-metal",
+      "color": "#bec3c1",
+      "variation": 0.09,
+      "secondaryColor": "#605d55",
+      "unitSize": [
+        1.0,
+        2.1
+      ]
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b7afa2",
+      "variation": 0.09
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#797b73",
+      "variation": 0.09
+    },
+    "red": {
+      "kind": "corrugated-metal",
+      "color": "#a6593c",
+      "variation": 0.09,
+      "secondaryColor": "#804932",
+      "unitSize": [
+        0.7,
+        1.9
+      ],
+      "bond": "stack"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.35,
+    "typicalHeight": 2.35
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "barrel",
+    "material": "roof",
+    "edge": "none",
+    "ridge": 80,
+    "rise": 2.1,
+    "features": []
+  },
+  "notes": "The arched shed and adjoining narrow red unit extend beyond parts of the city outline. A continuous curved metal skin wraps down the sidewalls of the shed.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Arched bay",
+        "footprint": [
+          [
+            -611.094,
+            532.61
+          ],
+          [
+            -601.622,
+            530.571
+          ],
+          [
+            -600.183,
+            536.928
+          ],
+          [
+            -609.536,
+            539.207
+          ]
+        ],
+        "height": 1.45,
+        "floors": 1,
+        "roof": {
+          "form": "barrel",
+          "material": "roof",
+          "edge": "none",
+          "ridge": 78,
+          "rise": 2.83
+        },
+        "material": "wall"
+      },
+      {
+        "name": "Low north storage strip",
+        "footprint": [
+          [
+            -610.855,
+            530.451
+          ],
+          [
+            -599.344,
+            527.932
+          ],
+          [
+            -598.744,
+            529.971
+          ],
+          [
+            -610.375,
+            532.49
+          ]
+        ],
+        "height": 2.75,
+        "floors": 1,
+        "material": "red",
+        "roof": {
+          "form": "flat",
+          "material": "red",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Southeast flat-roofed annex",
+        "footprint": [
+          [
+            -600.825,
+            534.222
+          ],
+          [
+            -598.116,
+            533.646
+          ],
+          [
+            -597.402,
+            537.001
+          ],
+          [
+            -600.112,
+            537.577
+          ]
+        ],
+        "height": 2.28,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "plant",
+          "edge": "fascia"
+        },
+        "facade": {
+          "material": "plant",
+          "windows": {
+            "type": "none"
+          },
+          "groundFloor": {
+            "material": "plant",
+            "windows": {
+              "type": "none"
+            }
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "aboveRoof": 0
+          },
+          "bands": []
+        }
+      }
+    ]
+  },
+  "lidarTrusted": false,
+  "lidarNote": "Canopy over the yard perimeter contaminates the upper returns. The roughly 6 m span of the visible arch suggests a crown near 4.3 m and the adjoining straight unit is lower.",
+  "entrances": [
+    {
+      "wall": 5,
+      "position": 0.52,
+      "type": "garage",
+      "width": 3.6,
+      "height": 2.65
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778713980",
+  "name": "Westminster Hall detached garage",
+  "status": "refined",
+  "confidence": 0.94,
+  "summary": "Low weathered grey wood garage with a long shingled gable roof, three sectional vehicle doors, and a narrow personnel door facing the parking lot. Overhanging trees account for the high lidar returns.",
+  "style": "industrial-utility",
+  "lidarTrusted": false,
+  "lidarNote": "A personnel door and three adjacent overhead doors in March 2019 give an eave height of about 2.8 m. The pitched roof remains visible below large tree crowns in 2025. P50 15.62 m and P90 19.23 m follow the trees.",
+  "materials": {
+    "wall": {
+      "kind": "wood-siding",
+      "color": "#a3a4a0",
+      "secondaryColor": "#777a77",
+      "unitSize": [
+        0.15,
+        2.8
+      ],
+      "weathering": 0.72,
+      "variation": 0.19,
+      "surface": "weathered vertical wood boards",
+      "roughness": 0.98
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#494941",
+      "secondaryColor": "#393a36",
+      "unitSize": [
+        0.34,
+        0.14
+      ],
+      "roughness": 0.96
+    },
+    "trim": {
+      "kind": "wood-siding",
+      "color": "#b9b9b2",
+      "secondaryColor": "#8d8e88",
+      "unitSize": [
+        0.15,
+        0.25
+      ]
+    },
+    "door": {
+      "kind": "painted-metal",
+      "color": "#b7bec1",
+      "secondaryColor": "#7f8888",
+      "unitSize": [
+        0.73,
+        0.53
+      ],
+      "weathering": 0.64
+    },
+    "paving": {
+      "kind": "concrete-smooth",
+      "color": "#a8a69b",
+      "secondaryColor": "#959188",
+      "unitSize": [
+        3.1,
+        1.55
+      ],
+      "roughness": 0.92
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.8
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Detached three-bay garage",
+        "height": 2.8,
+        "floors": 1,
+        "footprint": [
+          [
+            367.26,
+            -472.53
+          ],
+          [
+            356.54,
+            -465.47
+          ],
+          [
+            350.7,
+            -474.42
+          ],
+          [
+            361.41,
+            -481.48
+          ]
+        ]
+      },
+      {
+        "name": "Concrete garage threshold apron",
+        "footprint": [
+          [
+            367.26,
+            -472.53
+          ],
+          [
+            356.54,
+            -465.47
+          ],
+          [
+            357.44752817656945,
+            -464.09199687637056
+          ],
+          [
+            368.1675281765694,
+            -471.1519968763705
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.065,
+        "material": "paving",
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "paving",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "material": "paving",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "material": "paving",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "paving",
+          "edge": "none",
+          "features": []
+        }
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall",
+      "base": {
+        "height": 0.18,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "blank": false,
+        "bays": {
+          "count": 3,
+          "width": 4.28,
+          "pattern": "regular"
+        },
+        "windows": {
+          "type": "none"
+        },
+        "cornice": {
+          "material": "trim",
+          "height": 0.18,
+          "depth": 0.22
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "gutter",
+    "ridge": 57,
+    "rise": 1.45,
+    "overhang": 0.3
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.17,
+      "type": "garage",
+      "width": 3,
+      "height": 2.17,
+      "recess": 0.1,
+      "surround": "trim",
+      "doorColor": "#b6b6ae"
+    },
+    {
+      "wall": 0,
+      "position": 0.455,
+      "type": "garage",
+      "width": 3,
+      "height": 2.17,
+      "recess": 0.1,
+      "surround": "trim",
+      "doorColor": "#b6b6ae"
+    },
+    {
+      "wall": 0,
+      "position": 0.728,
+      "type": "garage",
+      "width": 2.78,
+      "height": 2.17,
+      "recess": 0.1,
+      "surround": "trim",
+      "doorColor": "#b6b6ae"
+    },
+    {
+      "wall": 0,
+      "position": 0.927,
+      "type": "doors-single",
+      "width": 0.86,
+      "height": 2.05,
+      "surround": "trim",
+      "doorColor": "#c6cccc"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "373917288",
+      "walls": [
+        0,
+        4
+      ],
+      "note": "Long southeast eave in close-up. Three sectional doors, four panels wide each, followed by a personnel door toward the southwest. Pale paint is heavily worn at the bottom. Wood and door patches #a3abac and #b7bec1."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373917280",
+      "walls": [
+        0,
+        1
+      ],
+      "note": "Left side of the frame shows the gable end beneath a tree canopy."
+    },
+    {
+      "kind": "aerial",
+      "note": "The dark grey double-pitched roof is still visible against parking-lot hatching in the 2025 aerial. Long ridge runs northeast."
+    },
+    {
+      "kind": "lidar",
+      "note": "Returns rise westward across the little building to 20.11 m. Street photographs show the tree crown above the single-storey garage."
+    }
+  ],
+  "notes": "Doors have four horizontal rows of painted recessed rectangles, with particularly heavy flaking near the pavement. No separate door or window is confirmed in the rear walls."
+}

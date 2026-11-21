@@ -1,0 +1,262 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3694",
+  "name": "Sideline shelter",
+  "status": "refined",
+  "confidence": 0.63,
+  "summary": "Sideline shelter is a narrow white cover running parallel to the field boundary beside a light pole, with a provisionally open field-facing side.",
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "painted-metal",
+      "color": "#9b9f97",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "roof": {
+      "kind": "metal-panel",
+      "color": "#eceee0",
+      "unitSize": [
+        0.45,
+        1.9
+      ],
+      "secondaryColor": "#c9cbbb"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#aaaFA8",
+      "roughness": 0.42,
+      "metalness": 0.52
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.25,
+    "typicalHeight": 2.25
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "shed",
+    "material": "roof",
+    "edge": "fascia",
+    "rise": 0.21,
+    "ridge": 61,
+    "overhang": 0.1
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Light rectangular top abuts the edge of the playing surface, casting a shadow toward the path. Nearby lighting-standard shadow crosses the area. Top sampled at (266,1422)."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 1.45 m, P90 4.02 m, maximum 5.55 m. Small footprint and position beside a lighting standard make the 4–5.55 m values unreliable as shelter eaves. The top and its shadow suggest bench scale."
+    },
+    {
+      "kind": "knowledge",
+      "note": "No camera faces this object within 120 m. Nearest camera is about 205 m away. Open sides and supports are inferred."
+    }
+  ],
+  "notes": "Simple covered sideline bench interpretation. Seat and end screens cannot be verified from the orthophoto. Rear screen height and end closures are inferred from the dark rear edge in the orthophoto.",
+  "lidarTrusted": false,
+  "lidarNote": "Tiny roof borders a tall light standard; a 2 m raster mixes the surfaces.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Raised sideline cover",
+        "footprint": [
+          [
+            268.3,
+            1419.5
+          ],
+          [
+            263.1,
+            1422.3
+          ],
+          [
+            264.465,
+            1424.682
+          ],
+          [
+            269.565,
+            1421.882
+          ]
+        ],
+        "height": 2.26,
+        "floors": 1,
+        "baseOffset": 2.12,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "edge": "fascia",
+          "rise": 0.21,
+          "ridge": 61,
+          "overhang": 0.1
+        }
+      },
+      {
+        "name": "Rear wind screen",
+        "footprint": [
+          [
+            268.28,
+            1419.522
+          ],
+          [
+            263.129,
+            1422.296
+          ],
+          [
+            263.172,
+            1422.375
+          ],
+          [
+            268.323,
+            1419.601
+          ]
+        ],
+        "height": 2.11,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "rise": 0,
+          "overhang": 0,
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Short end return 1",
+        "footprint": [
+          [
+            268.785,
+            1420.507
+          ],
+          [
+            268.855,
+            1420.469
+          ],
+          [
+            268.335,
+            1419.481
+          ],
+          [
+            268.265,
+            1419.519
+          ]
+        ],
+        "height": 1.88,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "rise": 0,
+          "overhang": 0,
+          "edge": "none",
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Short end return 2",
+        "footprint": [
+          [
+            263.637,
+            1423.308
+          ],
+          [
+            263.707,
+            1423.268
+          ],
+          [
+            263.135,
+            1422.28
+          ],
+          [
+            263.065,
+            1422.32
+          ]
+        ],
+        "height": 1.88,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "rise": 0,
+          "overhang": 0,
+          "edge": "none",
+          "material": "trim"
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "walls": 0,
+      "path": [
+        [
+          268.3,
+          1419.5
+        ],
+        [
+          263.1,
+          1422.3
+        ]
+      ],
+      "height": 2.14,
+      "width": 0.09,
+      "columns": 3,
+      "material": "trim"
+    },
+    {
+      "type": "colonnade",
+      "walls": 1,
+      "path": [
+        [
+          264.2,
+          1424.2
+        ],
+        [
+          269.3,
+          1421.4
+        ]
+      ],
+      "columns": 2,
+      "height": 2.12,
+      "width": 0.09,
+      "material": "trim"
+    }
+  ]
+}

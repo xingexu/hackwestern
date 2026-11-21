@@ -1,0 +1,275 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w213344476",
+  "name": "Power Plant",
+  "status": "auto",
+  "confidence": 0.32,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    }
+  ],
+  "style": "collegiate-gothic",
+  "floors": {
+    "count": 3,
+    "typicalHeight": 3.9,
+    "groundFloorHeight": 3.9
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 10.94,
+        "floors": 3
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              254.825,
+              559.884
+            ],
+            [
+              253.215,
+              553.444
+            ],
+            [
+              253.215,
+              553.444
+            ],
+            [
+              242.448,
+              556.414
+            ],
+            [
+              243.993,
+              562.592
+            ]
+          ]
+        },
+        "height": 16.04,
+        "baseOffset": 10.94,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              253.7,
+              558.015
+            ],
+            [
+              259.022,
+              559.346
+            ],
+            [
+              264.957,
+              557.65
+            ],
+            [
+              265.899,
+              563.3
+            ],
+            [
+              271.041,
+              563.3
+            ],
+            [
+              268.005,
+              552.298
+            ],
+            [
+              263.833,
+              550.907
+            ],
+            [
+              263.833,
+              550.907
+            ],
+            [
+              263.176,
+              550.688
+            ],
+            [
+              256.02,
+              552.67
+            ],
+            [
+              253.7,
+              553.31
+            ]
+          ]
+        },
+        "height": 16.04,
+        "baseOffset": 10.94,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              235.12,
+              586.7
+            ],
+            [
+              232.747,
+              586.7
+            ],
+            [
+              234.572,
+              593.3
+            ],
+            [
+              237.625,
+              593.3
+            ],
+            [
+              242.609,
+              587.07
+            ],
+            [
+              237.836,
+              579.91
+            ]
+          ]
+        },
+        "height": 16.04,
+        "baseOffset": 10.94,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              236.895,
+              601.7
+            ],
+            [
+              239.267,
+              610.279
+            ],
+            [
+              263.904,
+              602.499
+            ],
+            [
+              255.3,
+              598.197
+            ],
+            [
+              255.3,
+              594.7
+            ],
+            [
+              244.197,
+              594.7
+            ],
+            [
+              243.197,
+              596.7
+            ],
+            [
+              238.7,
+              596.7
+            ],
+            [
+              238.7,
+              601.7
+            ]
+          ]
+        },
+        "height": 16.04,
+        "baseOffset": 10.94,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#a47962",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#a2a293"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.1
+      },
+      "windows": {
+        "type": "slot",
+        "width": 1,
+        "height": 0.9,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1
+        },
+        "glassColor": "#516977",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 0.46,
+        "depth": 0.24,
+        "every": 2,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.13,
+          "depth": 0.07,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "gothic-portal",
+      "recess": 0.32
+    }
+  ]
+}

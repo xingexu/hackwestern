@@ -1,0 +1,736 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w1346111804",
+  "name": "The Frank Holmes Centre for Leadership, Ethics & Entrepreneurship",
+  "status": "refined",
+  "confidence": 0.79,
+  "summary": "Holmes is a two-level building constructed of red brick, pale coursed stone, and tall dark-framed glazing, with an auditorium projecting over a sheltered walkway supported by slender columns.",
+  "style": "contemporary-glass",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#aaa9a6",
+      "secondaryColor": "#928e88",
+      "unitSize": [
+        0.88,
+        0.31
+      ],
+      "variation": 0.31,
+      "bond": "random-ashlar"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c1c2b7",
+      "roughness": 0.82,
+      "secondaryColor": "#aaada0",
+      "weathering": 0.09
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#d2c9b8",
+      "unitSize": [
+        0.8,
+        0.28
+      ]
+    },
+    "metal": {
+      "kind": "metal-panel",
+      "color": "#574d47",
+      "unitSize": [
+        1.2,
+        3
+      ]
+    },
+    "brick": {
+      "kind": "brick",
+      "color": "#955f50",
+      "unitSize": [
+        0.215,
+        0.067
+      ],
+      "bond": "running",
+      "secondaryColor": "#b5aba0"
+    },
+    "lobby": {
+      "kind": "glass-curtain",
+      "color": "#879b9c",
+      "secondaryColor": "#718184"
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 4.8,
+    "typicalHeight": 4.5
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "punched",
+        "width": 2.5,
+        "height": 2.85,
+        "sill": 0.58,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 0,
+          "width": 0.065
+        },
+        "frameColor": "#45494a",
+        "glass": "tinted",
+        "surround": "none"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.35,
+        "material": "wall"
+      },
+      "topFloor": {
+        "material": "brick"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 13,
+          "pattern": "regular",
+          "width": 4.37
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.5,
+          "height": 2.85,
+          "sill": 0.58,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "tinted",
+          "surround": "none"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 4,
+          "pattern": "regular",
+          "width": 4.43
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.1,
+          "height": 3.5,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.06,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "reflective",
+          "surround": "none"
+        }
+      },
+      "6": {
+        "material": "metal",
+        "windows": {
+          "type": "ribbon",
+          "width": 3.6,
+          "height": 2.1,
+          "sill": 0.8,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "tinted",
+          "surround": "none"
+        }
+      },
+      "8": {
+        "material": "metal",
+        "windows": {
+          "type": "ribbon",
+          "width": 3.6,
+          "height": 2.1,
+          "sill": 0.8,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "tinted",
+          "surround": "none"
+        }
+      },
+      "11": {
+        "bays": {
+          "count": 5,
+          "pattern": "regular",
+          "width": 4.26
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 3.85,
+          "height": 2.2,
+          "sill": 0.8,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "tinted",
+          "surround": "none"
+        },
+        "material": "metal"
+      },
+      "12": {
+        "bays": {
+          "count": 11,
+          "pattern": "regular",
+          "width": 3.8
+        },
+        "windows": {
+          "type": "punched",
+          "width": 3.1,
+          "height": 3.5,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.06,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#45494a",
+          "glass": "reflective",
+          "surround": "none"
+        },
+        "piers": {
+          "width": 0.13,
+          "depth": 0.12,
+          "every": 1,
+          "material": "metal",
+          "fullHeight": true
+        },
+        "sections": [
+          {
+            "start": 0.31,
+            "end": 0.79,
+            "base": 0,
+            "top": 10.35,
+            "material": "lobby",
+            "verticalMullionSpacing": 1.45,
+            "horizontalMullions": 3
+          }
+        ],
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -88,
+          362
+        ],
+        "size": [
+          7.4,
+          3.7
+        ],
+        "height": 1.65,
+        "rotation": -20
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -81,
+          356
+        ],
+        "size": [
+          7.4,
+          3.7
+        ],
+        "height": 1.65,
+        "rotation": -20
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -76,
+          361
+        ],
+        "size": [
+          7.4,
+          3.7
+        ],
+        "height": 1.65,
+        "rotation": -20
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -74,
+          366
+        ],
+        "size": [
+          3,
+          3
+        ],
+        "height": 1.15
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "url": "https://huronu.ca/wp-content/uploads/Frank-Holmes-Centre-Sign-2V2-scaled.jpg",
+      "note": "Pale saw-cut stone in irregular tones meets red brick and dark glazing."
+    },
+    {
+      "kind": "photo",
+      "url": "https://atrr.ca/wp-content/uploads/2024/03/7-1.jpg",
+      "note": "Projecting metal-clad auditorium has a continuous strip of glass and stands over a pedestrian route on dark posts."
+    },
+    {
+      "kind": "photo",
+      "url": "https://atrr.ca/projects/education/frank-holmes-centre-for-leadership-ethics-and-entrepreneurship/",
+      "note": "Street glass exposes an internal stair. The projecting auditorium shelters a campus route."
+    },
+    {
+      "kind": "photo",
+      "url": "https://huronu.ca/wp-content/uploads/FASS-Convocation-2025.pdf",
+      "note": "Completed roadside elevation shows brick above stone alongside the glass-fronted lobby."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "96097207",
+      "walls": [
+        11
+      ],
+      "note": "2017 view across the road predates the academic centre."
+    },
+    {
+      "kind": "aerial",
+      "note": "L-shaped plan with a broad flat roof, rooftop air handlers near its middle and a raised auditorium over the pedestrian route."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 0.21 m, P90 3.42 m and maximum 13.19 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Wall colour sampled with PIL. Photo https://huronu.ca/wp-content/uploads/Frank-Holmes-Centre-Sign-2V2-scaled.jpg at normalized pixel (0.82, 0.68). Roof tone sampled from the 2025 orthophoto. Dimensions and bay counts on obscured elevations are estimates."
+    },
+    {
+      "kind": "knowledge",
+      "note": "The auditorium is one raised storey. Its continuous ribbon sits between two charcoal metal bands in the architect photograph. Brick belongs to the teaching wing."
+    }
+  ],
+  "notes": "Completed architect photos and orthophoto do not clearly resolve a separate southwest roof level or terrace, and curtain-wall limits remain estimated.",
+  "lidarTrusted": false,
+  "lidarNote": "The lidar and 2017 street views predate the present building. Heights are estimates from completed elevations and storey counts.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Roadside auditorium",
+        "footprint": [
+          [
+            -85.8,
+            378.12
+          ],
+          [
+            -80.83,
+            376.13
+          ],
+          [
+            -74.87,
+            391.19
+          ],
+          [
+            -78.85,
+            392.68
+          ],
+          [
+            -75.37,
+            401.78
+          ],
+          [
+            -72.23,
+            400.46
+          ],
+          [
+            -71.24,
+            403.27
+          ],
+          [
+            -51.22,
+            395.99
+          ],
+          [
+            -53.349,
+            362.354
+          ],
+          [
+            -64.5,
+            367.0
+          ],
+          [
+            -81.0,
+            374.0
+          ],
+          [
+            -86.175,
+            377.105
+          ]
+        ],
+        "height": 10.55,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "baseOffset": 3.4,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "windows": {
+            "type": "ribbon",
+            "width": 4,
+            "height": 2.32,
+            "sill": 1.25,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.045
+            },
+            "frameColor": "#424746",
+            "glass": "reflective",
+            "surround": "none",
+            "glassColor": "#9daba6"
+          },
+          "groundFloor": {
+            "material": "metal",
+            "windows": {
+              "type": "ribbon",
+              "width": 4,
+              "height": 2.32,
+              "sill": 1.25,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#424746",
+              "glass": "reflective",
+              "surround": "none",
+              "glassColor": "#9daba6"
+            }
+          },
+          "topFloor": {
+            "material": "metal",
+            "windows": {
+              "type": "ribbon",
+              "width": 4,
+              "height": 2.32,
+              "sill": 1.25,
+              "perBay": 1,
+              "recess": 0.15,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "frameColor": "#424746",
+              "glass": "reflective",
+              "surround": "none",
+              "glassColor": "#9daba6"
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.32,
+            "material": "metal"
+          },
+          "piers": {
+            "every": 1,
+            "width": 0.0,
+            "depth": 0,
+            "material": "metal"
+          }
+        },
+        "wallProfiles": {
+          "12": {
+            "sections": [
+              {
+                "start": 0.31,
+                "end": 0.79,
+                "base": 3.4,
+                "top": 10.35,
+                "material": "lobby",
+                "verticalMullionSpacing": 1.45,
+                "horizontalMullions": 2
+              }
+            ]
+          },
+          "-1": {
+            "parapet": {
+              "type": "plain",
+              "height": 0
+            },
+            "bands": []
+          }
+        }
+      },
+      {
+        "name": "Teaching wing and commons",
+        "footprint": [
+          [
+            -114.0,
+            357.65
+          ],
+          [
+            -111.71,
+            375.24
+          ],
+          [
+            -104.33,
+            375.3
+          ],
+          [
+            -89.1,
+            369.18
+          ],
+          [
+            -85.8,
+            378.12
+          ],
+          [
+            -86.175,
+            377.105
+          ],
+          [
+            -81.0,
+            374.0
+          ],
+          [
+            -64.5,
+            367.0
+          ],
+          [
+            -53.349,
+            362.354
+          ],
+          [
+            -53.86,
+            354.29
+          ],
+          [
+            -54.86,
+            354.95
+          ],
+          [
+            -60.89,
+            337.61
+          ]
+        ],
+        "height": 10.4,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "wallProfiles": {
+          "-1": {
+            "parapet": {
+              "type": "plain",
+              "height": 0
+            },
+            "bands": []
+          }
+        }
+      },
+      {
+        "name": "Enclosed commons below auditorium",
+        "footprint": [
+          [
+            -53.349,
+            362.354
+          ],
+          [
+            -64.5,
+            367.0
+          ],
+          [
+            -77.478,
+            372.506
+          ],
+          [
+            -69.922,
+            391.6
+          ],
+          [
+            -72.056,
+            392.444
+          ],
+          [
+            -71.254,
+            394.588
+          ],
+          [
+            -73.093,
+            395.276
+          ],
+          [
+            -72.856,
+            395.896
+          ],
+          [
+            -71.925,
+            395.504
+          ],
+          [
+            -71.004,
+            397.695
+          ],
+          [
+            -68.764,
+            396.906
+          ],
+          [
+            -68.536,
+            397.552
+          ],
+          [
+            -51.513,
+            391.361
+          ]
+        ],
+        "height": 3.4,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "storefront",
+            "height": 3.1,
+            "width": 2.7,
+            "sill": 0.1,
+            "glass": "clear"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "wallProfiles": {
+          "12": {
+            "sections": [
+              {
+                "start": 0.31,
+                "end": 0.79,
+                "base": 0.1,
+                "top": 3.39,
+                "material": "lobby",
+                "verticalMullionSpacing": 1.45
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.6,
+      "type": "glass-vestibule",
+      "width": 4,
+      "height": 3.4,
+      "recess": 1.3
+    },
+    {
+      "wall": 12,
+      "position": 0.35,
+      "type": "glass-vestibule",
+      "width": 3.4,
+      "height": 3.45
+    }
+  ],
+  "attachments": [
+    {
+      "type": "covered-walkway",
+      "walls": 11,
+      "path": [
+        [
+          -73,
+          400
+        ],
+        [
+          -53,
+          393
+        ]
+      ],
+      "width": 4.1,
+      "height": 3.4,
+      "columns": 2,
+      "material": "metal",
+      "columnShape": "round",
+      "columnDiameter": 0.41
+    },
+    {
+      "type": "exterior-stair",
+      "path": [
+        [
+          -77.8,
+          396.8
+        ],
+        [
+          -73.9,
+          393.4
+        ]
+      ],
+      "width": 1.55,
+      "height": 1.05,
+      "material": "trim",
+      "rail": "metal"
+    }
+  ]
+}

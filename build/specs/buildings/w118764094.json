@@ -1,0 +1,942 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764094",
+  "name": "Thompson Arena",
+  "status": "refined",
+  "confidence": 0.82,
+  "summary": "Three white masts hold up a wide, pale arena roof. Shallow angled ends stick out past the nearly windowless rink walls.",
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#c1b493",
+      "variation": 0.07,
+      "unitSize": [
+        1.55,
+        3.4
+      ],
+      "secondaryColor": "#b4a88d"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#adb3a7",
+      "unitSize": [
+        2,
+        10
+      ],
+      "secondaryColor": "#a1aa9d"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#5f615b",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "mast": {
+      "kind": "painted-metal",
+      "color": "#d8dadd",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "plant": {
+      "kind": "metal-panel",
+      "color": "#9c9d95"
+    },
+    "cable": {
+      "kind": "painted-metal",
+      "color": "#62665f"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#555f60"
+    },
+    "joint": {
+      "kind": "precast-panel",
+      "color": "#ada182",
+      "unitSize": [
+        1.5,
+        3.4
+      ],
+      "secondaryColor": "#a2997d"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 10.4,
+    "typicalHeight": 10.4
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "base": {
+        "height": 0.55,
+        "material": "wall"
+      },
+      "cornice": {
+        "height": 0.47,
+        "depth": 0.24,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "3": {
+        "material": "wall",
+        "blank": true
+      },
+      "4": {
+        "material": "wall",
+        "blank": true
+      },
+      "5": {
+        "material": "wall",
+        "blank": true
+      },
+      "11": {
+        "material": "wall",
+        "blank": false,
+        "windows": {
+          "type": "none"
+        },
+        "bays": {
+          "width": 5.4,
+          "edgeMargin": 0.32
+        },
+        "piers": {
+          "material": "wall",
+          "depth": 0.14,
+          "width": 0.24,
+          "every": 1,
+          "fullHeight": true
+        },
+        "bands": [
+          {
+            "at": [
+              0.55,
+              3.92
+            ],
+            "material": "joint",
+            "height": 0.11,
+            "depth": 0.04
+          }
+        ]
+      },
+      "12": {
+        "material": "wall",
+        "blank": false,
+        "windows": {
+          "type": "none"
+        },
+        "bays": {
+          "width": 5.4,
+          "edgeMargin": 0.32
+        },
+        "piers": {
+          "material": "wall",
+          "depth": 0.14,
+          "width": 0.24,
+          "every": 1,
+          "fullHeight": true
+        },
+        "bands": [
+          {
+            "at": [
+              0.55,
+              3.92
+            ],
+            "material": "joint",
+            "height": 0.11,
+            "depth": 0.04
+          }
+        ]
+      },
+      "13": {
+        "material": "wall",
+        "blank": false,
+        "windows": {
+          "type": "none"
+        },
+        "bays": {
+          "width": 5.4,
+          "edgeMargin": 0.32
+        },
+        "piers": {
+          "material": "wall",
+          "depth": 0.14,
+          "width": 0.24,
+          "every": 1,
+          "fullHeight": true
+        },
+        "bands": [
+          {
+            "at": [
+              0.55,
+              3.92
+            ],
+            "material": "joint",
+            "height": 0.11,
+            "depth": 0.04
+          }
+        ]
+      },
+      "8": {
+        "blank": true,
+        "windows": {
+          "type": "none"
+        }
+      },
+      "7": {
+        "material": "wall",
+        "sections": [
+          {
+            "start": 0.012,
+            "end": 0.135,
+            "base": 0.46,
+            "top": 8.45,
+            "material": "glazing",
+            "verticalMullionSpacing": 0.85,
+            "horizontalMullions": 2
+          }
+        ]
+      },
+      "0": {
+        "blank": false,
+        "windows": {
+          "type": "none"
+        },
+        "bays": {
+          "width": 5.4,
+          "edgeMargin": 0.32
+        },
+        "piers": {
+          "material": "wall",
+          "depth": 0.14,
+          "width": 0.24,
+          "every": 1,
+          "fullHeight": true
+        },
+        "bands": [
+          {
+            "at": [
+              0.55,
+              3.92
+            ],
+            "material": "joint",
+            "height": 0.11,
+            "depth": 0.04
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "lidar",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.35,
+    "features": [
+      {
+        "type": "antenna",
+        "center": [
+          123.5,
+          883.8
+        ],
+        "size": [
+          0.8,
+          0.8
+        ],
+        "height": 11.8,
+        "material": "mast",
+        "style": "tapered structural suspension mast"
+      },
+      {
+        "type": "antenna",
+        "center": [
+          125,
+          905.2
+        ],
+        "size": [
+          0.8,
+          0.8
+        ],
+        "height": 11.8,
+        "material": "mast",
+        "style": "tapered structural suspension mast"
+      },
+      {
+        "type": "antenna",
+        "center": [
+          126.6,
+          926.3
+        ],
+        "size": [
+          0.8,
+          0.8
+        ],
+        "height": 11.8,
+        "material": "mast",
+        "style": "tapered structural suspension mast"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          123.5,
+          883.8
+        ],
+        "size": [
+          2.1,
+          1.85
+        ],
+        "height": 1.14,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          125,
+          905.2
+        ],
+        "size": [
+          2.1,
+          1.85
+        ],
+        "height": 1.14,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          126.6,
+          926.3
+        ],
+        "size": [
+          2.1,
+          1.85
+        ],
+        "height": 1.14,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          128.5,
+          905.5
+        ],
+        "size": [
+          10,
+          14
+        ],
+        "height": 2.65,
+        "rotation": -4,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          128.2,
+          896.6
+        ],
+        "size": [
+          4,
+          4
+        ],
+        "height": 2.1,
+        "rotation": -4,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          134.15,
+          922.2
+        ],
+        "size": [
+          1.05,
+          19.35
+        ],
+        "height": 0.85,
+        "rotation": -4,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          137.9,
+          931.65
+        ],
+        "size": [
+          7.2,
+          0.97
+        ],
+        "height": 0.82,
+        "rotation": -4,
+        "material": "plant",
+        "style": "duct"
+      }
+    ],
+    "suspension": {
+      "masts": [
+        {
+          "center": [
+            123.5,
+            883.8
+          ],
+          "headAboveGround": 25.2,
+          "anchors": [
+            [
+              88.58,
+              879.3
+            ],
+            [
+              89.05,
+              886.3
+            ],
+            [
+              89.52,
+              893.3
+            ],
+            [
+              105.78,
+              879.3
+            ],
+            [
+              106.72,
+              893.3
+            ],
+            [
+              149.23,
+              879.3
+            ],
+            [
+              149.7,
+              886.3
+            ],
+            [
+              150.17,
+              893.3
+            ],
+            [
+              106.25,
+              886.3
+            ],
+            [
+              90.02,
+              900.7
+            ],
+            [
+              150.67,
+              900.7
+            ]
+          ]
+        },
+        {
+          "center": [
+            125,
+            905.2
+          ],
+          "headAboveGround": 25.2,
+          "anchors": [
+            [
+              90.02,
+              900.7
+            ],
+            [
+              90.5,
+              907.7
+            ],
+            [
+              90.97,
+              914.7
+            ],
+            [
+              107.22,
+              900.7
+            ],
+            [
+              108.17,
+              914.7
+            ],
+            [
+              150.67,
+              900.7
+            ],
+            [
+              151.15,
+              907.7
+            ],
+            [
+              151.62,
+              914.7
+            ],
+            [
+              107.7,
+              907.7
+            ],
+            [
+              89.52,
+              893.3
+            ],
+            [
+              150.17,
+              893.3
+            ],
+            [
+              91.45,
+              921.8
+            ],
+            [
+              152.1,
+              921.8
+            ]
+          ]
+        },
+        {
+          "center": [
+            126.6,
+            926.3
+          ],
+          "headAboveGround": 25.2,
+          "anchors": [
+            [
+              91.45,
+              921.8
+            ],
+            [
+              91.92,
+              928.8
+            ],
+            [
+              92.39,
+              935.8
+            ],
+            [
+              108.65,
+              921.8
+            ],
+            [
+              109.59,
+              935.8
+            ],
+            [
+              152.1,
+              921.8
+            ],
+            [
+              152.57,
+              928.8
+            ],
+            [
+              153.04,
+              935.8
+            ],
+            [
+              109.12,
+              928.8
+            ],
+            [
+              90.97,
+              914.7
+            ],
+            [
+              151.62,
+              914.7
+            ]
+          ]
+        }
+      ],
+      "profile": {
+        "across": "east-west",
+        "sectionZ": 907,
+        "roofPoints": [
+          [
+            70,
+            14.1
+          ],
+          [
+            85,
+            13.3
+          ],
+          [
+            100,
+            11.8
+          ],
+          [
+            115,
+            10.4
+          ],
+          [
+            125,
+            9.9
+          ],
+          [
+            137,
+            10.5
+          ],
+          [
+            151,
+            12.0
+          ]
+        ]
+      },
+      "finish": "Tapered white steel masts with exposed dark steel stays. Roof heights are metres above building ground.",
+      "cableMaterial": "cable",
+      "saddleSize": [
+        1.22,
+        0.82,
+        0.53
+      ]
+    },
+    "ridge": 356.2
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Three separate mast shadows and three fans of cables cross a continuous roof. Narrow faceted north and south projections follow the red outline. Roof colour is the mean of clean patches at local (75,923) and (79,888)."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 11.47 m, P90 13.93 m, maximum 17.18 m. Roof surface samples step down from 14 m in the west to 10 m near x=125, then climb eastward. The narrow steel mast tips are undersampled."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Three tapering light-coloured masts and fan stays show beyond trees at the right edge on the southwest approach.",
+      "frame": "136654829",
+      "walls": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Leaf-off view on Philip Aziz Avenue shows the light solid wall and a white support post through trees.",
+      "frame": "373912868",
+      "walls": [
+        4,
+        5,
+        7
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "Western Facilities exterior shows a mostly solid pale wall, a slender glazed corner and a dark thin fascia over a banked lawn.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/TRAC.jpg"
+    },
+    {
+      "kind": "photo",
+      "note": "The university walking tour identifies the external roof-support cables.",
+      "url": "https://www.uwo.edu/hr/form_doc/health_safety/doc/wellness/walking_tour.pdf"
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/TRAC.jpg",
+      "note": "PIL sampled an unobstructed patch at normalized (0.643,0.367), giving #817c71 in shade. The wall material lifts this by 32 sRGB levels for diffuse daylight."
+    }
+  ],
+  "notes": "The cable fans and their attachment saddles are structural. Mast heights and cable endpoints are estimates from the aerial and street silhouette. Access is shared with the recreation centre on the north plaza. Plaza door positions are approximate. The heights of the end roofs follow the lidar cross-section at x 98 m. Panel joints and shallow pilasters articulate the otherwise blind rink wall. Concrete saddles and ties follow the three cable fans. No additional west-wall entrances are resolved in the street views.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Suspended main span",
+        "footprint": [
+          [
+            61.75,
+            873.54
+          ],
+          [
+            66.55,
+            943.5
+          ],
+          [
+            159.83,
+            936.94
+          ],
+          [
+            155.12,
+            866.55
+          ]
+        ],
+        "height": 9.9,
+        "floors": 1
+      },
+      {
+        "name": "South faceted end roof",
+        "footprint": [
+          [
+            75.32,
+            942.93
+          ],
+          [
+            75.53,
+            949.26
+          ],
+          [
+            89.54,
+            953.5
+          ],
+          [
+            109.36,
+            952.68
+          ],
+          [
+            121.98,
+            946.24
+          ],
+          [
+            121.78,
+            939.38
+          ]
+        ],
+        "height": 10.05,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "suspension": {}
+        }
+      },
+      {
+        "name": "North faceted end roof",
+        "footprint": [
+          [
+            116.98,
+            865.59
+          ],
+          [
+            102.86,
+            861.9
+          ],
+          [
+            83.63,
+            863.68
+          ],
+          [
+            69.71,
+            867.52
+          ],
+          [
+            70.05,
+            872.97
+          ],
+          [
+            117.18,
+            869.42
+          ]
+        ],
+        "height": 9.45,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "suspension": {}
+        }
+      },
+      {
+        "name": "North service wing",
+        "height": 6.1,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": [],
+          "suspension": {}
+        },
+        "footprint": [
+          [
+            128.8,
+            867.8
+          ],
+          [
+            128.0,
+            859.0
+          ],
+          [
+            114.7,
+            860.2
+          ],
+          [
+            114.9864,
+            865.069
+          ],
+          [
+            116.98,
+            865.59
+          ],
+          [
+            117.104,
+            868.574
+          ]
+        ],
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "piers": {
+            "every": 0
+          },
+          "cornice": {
+            "height": 0.15,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "North white-roofed plant annex",
+        "height": 7.05,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": [],
+          "suspension": {}
+        },
+        "footprint": [
+          [
+            151.7,
+            858.35
+          ],
+          [
+            128.0903,
+            859.9937
+          ],
+          [
+            128.8,
+            867.8
+          ],
+          [
+            128.6508,
+            867.8099
+          ],
+          [
+            128.7,
+            868.4
+          ],
+          [
+            138.6911,
+            867.79
+          ],
+          [
+            152.4328,
+            866.7528
+          ]
+        ],
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "piers": {
+            "every": 0
+          },
+          "cornice": {
+            "height": 0.15,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "Plant access lobby",
+        "height": 3.55,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": [],
+          "suspension": {}
+        },
+        "footprint": [
+          [
+            128.55,
+            856.35
+          ],
+          [
+            122.0,
+            856.8
+          ],
+          [
+            122.4075,
+            859.5046
+          ],
+          [
+            128.0,
+            859.0
+          ],
+          [
+            128.0903,
+            859.9937
+          ],
+          [
+            128.8647,
+            859.9398
+          ]
+        ],
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "piers": {
+            "every": 0
+          },
+          "cornice": {
+            "height": 0.15,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 7,
+      "position": 0.12,
+      "type": "doors-double",
+      "width": 2.5,
+      "height": 2.48,
+      "recess": 0.29,
+      "canopy": {
+        "type": "flat",
+        "width": 3.7,
+        "depth": 1.05,
+        "material": "trim"
+      }
+    },
+    {
+      "wall": 10,
+      "position": 0.47,
+      "type": "doors-double",
+      "width": 2.2,
+      "height": 2.38,
+      "recess": 0.29
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3293",
+  "name": "Alumni Hall planted retaining bed",
+  "status": "refined",
+  "confidence": 0.87,
+  "style": "mid-century-modern",
+  "summary": "A planted strip lies between the rear auditorium wall and electrical yard. The 2025 aerial shows soil and lawn inside the low retaining edges.",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#b5a78e",
+      "unitSize": [
+        0.89,
+        0.29
+      ],
+      "secondaryColor": "#c1b6ad",
+      "bond": "random-ashlar",
+      "variation": 0.3,
+      "roughness": 0.88
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#d0cdb8"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c2b9a8"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 9.8,
+    "typicalHeight": 9.8
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.5,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "height": 0.24,
+        "type": "coped",
+        "material": "trim"
+      },
+      "base": {
+        "height": 0.6,
+        "material": "trim",
+        "projection": 0.09
+      },
+      "bands": [
+        {
+          "at": [
+            4.35
+          ],
+          "height": 0.14,
+          "depth": 0.08,
+          "material": "trim"
+        }
+      ]
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "67820773",
+      "walls": [
+        0,
+        1
+      ],
+      "note": "Rear service view is partially obscured by a tree; stone wall and shallow setback are visible beyond the lot."
+    },
+    {
+      "kind": "aerial",
+      "note": "The 2025 image separates two pale auditorium roof steps from the brown-green planter and its thin masonry edge. No roof covers the planter."
+    },
+    {
+      "kind": "lidar",
+      "note": "Returns drop across the bed from the 23–24 m auditorium to irregular 3–9 m vegetation and grade. They do not form a 9.8 m roof."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "Returns mix the high auditorium edge, planting and the sloped retaining bed.",
+  "notes": "The high roof immediately northwest belongs to Alumni Hall. This city polygon covers landscaping.",
+  "present": false
+}

@@ -1,0 +1,1331 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668337",
+  "name": "International & Graduate Affairs Building",
+  "status": "refined",
+  "confidence": 0.78,
+  "summary": "Building with blue-black reflective glass around faceted corners, pale masonry end panels, and a sloping glazed atrium behind a broad low stone beam.",
+  "style": "contemporary-glass",
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#c9b99e",
+      "secondaryColor": "#b5a58b",
+      "variation": 0.14,
+      "unitSize": [
+        0.42,
+        0.2
+      ],
+      "bond": "running",
+      "roughness": 0.82,
+      "weathering": 0.18
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c4b6aa",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#745041",
+      "secondaryColor": "#684b3e"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#414b60",
+      "roughness": 0.2,
+      "metalness": 0.36,
+      "secondaryColor": "#293541",
+      "unitSize": [
+        1.4,
+        2.1
+      ],
+      "opacity": 0.82
+    },
+    "greyRoof": {
+      "kind": "membrane",
+      "color": "#a8a8a0",
+      "secondaryColor": "#96968e"
+    },
+    "equipment": {
+      "kind": "metal-panel",
+      "color": "#8f8e87"
+    },
+    "atriumLight": {
+      "kind": "glass-curtain",
+      "color": "#667b85",
+      "roughness": 0.44
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 4.8,
+    "typicalHeight": 4.4,
+    "raisedGround": 0
+  },
+  "walls": {
+    "default": {
+      "material": "glass",
+      "windows": {
+        "type": "curtain-wall",
+        "width": 3.05,
+        "height": 4.05,
+        "sill": 0.08,
+        "perBay": 1,
+        "recess": 0.04,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.06
+        },
+        "frameColor": "#303741",
+        "glass": "reflective",
+        "glassColor": "#313e4d",
+        "surround": "metal"
+      },
+      "bays": {
+        "width": 3.1,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "parapet": {
+        "height": 0.18,
+        "type": "plain",
+        "material": "frame"
+      },
+      "base": {
+        "height": 0.6,
+        "material": "wall",
+        "projection": 0.12
+      },
+      "piers": {
+        "width": 0.12,
+        "depth": 0.11,
+        "every": 1,
+        "material": "frame",
+        "fullHeight": true
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 2.99,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 5
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 3.35,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 6
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 3.12,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 6
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 2.71,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 4.07,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 3.02,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 7
+        },
+        "material": "glass",
+        "windows": {
+          "rake": -1.65,
+          "glassColor": "#324252"
+        }
+      },
+      "6": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "wall"
+      },
+      "7": {
+        "bays": {
+          "width": 3.08,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        },
+        "material": "glass",
+        "windows": {
+          "rake": -1.65,
+          "glassColor": "#324252"
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 3.61,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "material": "wall",
+        "blank": true,
+        "base": {
+          "height": 0.73,
+          "projection": 0.16,
+          "material": "wall"
+        },
+        "topFloor": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.55,
+            "height": 3.7,
+            "sill": 0.05,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      "9": {
+        "material": "glass",
+        "windows": {
+          "type": "curtain-wall",
+          "glassColor": "#354450"
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 4.28,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 2.8,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        },
+        "material": "glass",
+        "windows": {
+          "rake": -1.65,
+          "glassColor": "#324252"
+        }
+      },
+      "12": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "wall",
+        "base": {
+          "height": 0.73,
+          "projection": 0.16,
+          "material": "wall"
+        },
+        "topFloor": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.55,
+            "height": 3.7,
+            "sill": 0.05,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      "13": {
+        "bays": {
+          "width": 3.34,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 4.31,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "material": "wall",
+        "blank": true,
+        "base": {
+          "height": 0.73,
+          "projection": 0.16,
+          "material": "wall"
+        },
+        "topFloor": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 2.55,
+            "height": 3.7,
+            "sill": 0.05,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      "15": {
+        "bays": {
+          "width": 3.6,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "16": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "17": {
+        "bays": {
+          "width": 3.66,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "18": {
+        "bays": {
+          "width": 4.13,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "19": {
+        "bays": {
+          "count": 3,
+          "width": 4.0
+        },
+        "material": "wall",
+        "windows": {
+          "type": "ribbon",
+          "width": 4.6,
+          "height": 2,
+          "sill": 0.66,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a"
+        },
+        "piers": {
+          "width": 0.36,
+          "depth": 0.25,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "ribbon",
+            "height": 2.35,
+            "sill": 0.5
+          }
+        },
+        "topFloor": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "height": 3.9,
+            "sill": 0.08
+          }
+        }
+      },
+      "20": {
+        "bays": {
+          "width": 3.5,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "21": {
+        "bays": {
+          "width": 3.07,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 6
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          359.394,
+          424.641
+        ],
+        "size": [
+          4.1,
+          2.5
+        ],
+        "height": 0.7,
+        "material": "equipment",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          355.3,
+          415.3
+        ],
+        "size": [
+          2.1,
+          1.5
+        ],
+        "height": 0.5,
+        "material": "equipment",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          364.9,
+          402.9
+        ],
+        "size": [
+          1.8,
+          1.2
+        ],
+        "height": 0.5,
+        "material": "equipment",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          363.0,
+          420.0
+        ],
+        "size": [
+          0.7,
+          0.7
+        ],
+        "height": 0.5,
+        "material": "equipment",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          360.6,
+          416.6
+        ],
+        "size": [
+          0.8,
+          0.8
+        ],
+        "height": 0.5,
+        "material": "equipment",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          362.0,
+          427.1
+        ],
+        "size": [
+          0.6,
+          0.6
+        ],
+        "height": 0.5,
+        "material": "equipment",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          377.3,
+          409.7
+        ],
+        "size": [
+          0.6,
+          0.6
+        ],
+        "height": 0.5,
+        "material": "equipment",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          383.7,
+          420.1
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "height": 0.5,
+        "material": "equipment",
+        "rotation": 10
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "note": "Facilities Management photograph of the exterior and its openings.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/IGAB.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory core-1m surface percentiles above ground: median 14.02 m, 90th percentile 15.26 m, maximum 16.56 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "A rust-brown flat roof follows the angled glass perimeter. North approach has two lobes with a recess between them. West side connects directly to Arts & Humanities."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Bay counts, opening dimensions and storey heights on unseen elevations are architectural estimates. Wall and roof hues are image samples, subject to exposure and shadows."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/IGAB.jpg",
+      "note": "PIL mean patches for wall and trim centred at (36.2%, 57%) and (74%, 53.5%) of the photo. Exposure multipliers 1.28 and 1.2 approximate daylight across the source views."
+    },
+    {
+      "kind": "lidar",
+      "note": "Near the southern wall the one-metre point-cloud surface stays near 14.0 m above grade. On the grey southwest roof it measures about 15.25 m. Apparent offset of the brown roof from the mapped south perimeter includes building lean in the aerial photograph."
+    },
+    {
+      "kind": "lidar",
+      "note": "The recessed north connector crosses the footprint notch. At x=364 the laser returns change from 2.3 m at z=395 to 7.0 at z=398, 10.7 at z=400 and 14.3 at z=402. The adjoining west approach measures near 7 m."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 15,
+      "position": 0.5,
+      "type": "glass-vestibule",
+      "width": 2.9,
+      "height": 3.0,
+      "recess": 0.85,
+      "steps": 2
+    }
+  ],
+  "notes": "The atrium glazing inclines toward the brown roof above the buff horizontal masonry beam. The ash-grey southwest roof sits slightly higher than the brown roof. The entrance steps and minor vents are approximate.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Lower west approach",
+        "footprint": {
+          "clip": [
+            [
+              361.02,
+              398.11
+            ],
+            [
+              361.75,
+              394.05
+            ],
+            [
+              349.47,
+              391.87
+            ],
+            [
+              349.1,
+              393.93
+            ],
+            [
+              342.23,
+              392.7
+            ],
+            [
+              341.94,
+              394.31
+            ],
+            [
+              342.59,
+              395.87
+            ],
+            [
+              361.19,
+              398.54
+            ],
+            [
+              361.25,
+              398.15
+            ]
+          ]
+        },
+        "height": 6.78,
+        "floors": 1,
+        "roof": {
+          "form": "barrel",
+          "rise": 0.55,
+          "ridge": 100,
+          "material": "greyRoof",
+          "edge": "fascia"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "ribbon",
+            "width": 3.24,
+            "height": 2.35,
+            "sill": 0.5,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          },
+          "bands": [
+            {
+              "at": [
+                3.6
+              ],
+              "height": 1.4,
+              "depth": 0.15,
+              "material": "wall"
+            }
+          ],
+          "piers": {
+            "width": 0.01,
+            "depth": 0.01,
+            "every": 999,
+            "material": "trim",
+            "fullHeight": true
+          }
+        }
+      },
+      {
+        "name": "Grey-roofed southwest service range",
+        "footprint": {
+          "clip": [
+            [
+              361.06463,
+              432.38916
+            ],
+            [
+              364.46222,
+              432.98824
+            ],
+            [
+              366.63282,
+              420.67815
+            ],
+            [
+              363.23523,
+              420.07906
+            ],
+            [
+              364.50286,
+              412.88996
+            ],
+            [
+              353.8177,
+              411.00588
+            ],
+            [
+              353.39746,
+              413.38916
+            ],
+            [
+              353.74,
+              413.45
+            ],
+            [
+              350.70158,
+              431.17113
+            ],
+            [
+              360.96044,
+              432.98004
+            ]
+          ]
+        },
+        "height": 15.23,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "greyRoof",
+          "edge": "parapet"
+        },
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "punched",
+            "width": 1.86,
+            "height": 1.8,
+            "sill": 0.9,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          }
+        }
+      },
+      {
+        "name": "Masonry beam and inclined atrium glazing",
+        "footprint": {
+          "clip": [
+            [
+              373.75,
+              429.01
+            ],
+            [
+              394.62,
+              432.28
+            ],
+            [
+              394.74245,
+              432.18094
+            ],
+            [
+              395.07752,
+              430.04394
+            ],
+            [
+              373.99882,
+              426.74124
+            ],
+            [
+              373.62242,
+              429.14184
+            ],
+            [
+              373.72564,
+              429.15801
+            ]
+          ]
+        },
+        "height": 7.65,
+        "floors": 2,
+        "roof": {
+          "form": "shed",
+          "rise": 6.89,
+          "ridge": 278.90999999999997,
+          "material": "glass",
+          "edge": "none"
+        },
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "storefront",
+            "width": 2.2,
+            "height": 3.03,
+            "sill": 0.57,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.065
+            }
+          },
+          "bands": [
+            {
+              "at": [
+                4.3
+              ],
+              "height": 1.0,
+              "depth": 0.14,
+              "material": "wall"
+            }
+          ],
+          "topFloor": {
+            "windows": {
+              "type": "ribbon",
+              "width": 2.4,
+              "height": 1.25,
+              "sill": 0.25,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              }
+            }
+          },
+          "parapet": {
+            "height": 0.08,
+            "type": "plain",
+            "material": "frame"
+          }
+        },
+        "wallProfiles": {
+          "5": {
+            "material": "wall",
+            "windows": {
+              "type": "storefront",
+              "width": 2.2,
+              "height": 3.1,
+              "sill": 0.5,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 2,
+                "width": 0.065
+              }
+            },
+            "piers": {
+              "width": 0.01,
+              "depth": 0.01,
+              "every": 999
+            },
+            "blank": true,
+            "sections": [
+              {
+                "start": 0.015,
+                "end": 0.985,
+                "base": 0.76,
+                "top": 5.65,
+                "material": "glass",
+                "verticalMullionSpacing": 1.42,
+                "horizontalMullions": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Masonry beam and inclined atrium glazing",
+        "footprint": {
+          "clip": [
+            [
+              395.02311,
+              429.86669
+            ],
+            [
+              397.22431,
+              430.17314
+            ],
+            [
+              397.29,
+              430.12
+            ],
+            [
+              399.0,
+              417.9
+            ],
+            [
+              398.95653,
+              417.83166
+            ],
+            [
+              396.75021,
+              417.52449
+            ]
+          ]
+        },
+        "height": 7.65,
+        "floors": 2,
+        "roof": {
+          "form": "shed",
+          "rise": 6.89,
+          "ridge": 187.93,
+          "material": "glass",
+          "edge": "none"
+        },
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "storefront",
+            "width": 2.2,
+            "height": 3.03,
+            "sill": 0.57,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.065
+            }
+          },
+          "bands": [
+            {
+              "at": [
+                4.3
+              ],
+              "height": 1.0,
+              "depth": 0.14,
+              "material": "wall"
+            }
+          ],
+          "topFloor": {
+            "windows": {
+              "type": "ribbon",
+              "width": 2.4,
+              "height": 1.25,
+              "sill": 0.25,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              }
+            }
+          },
+          "parapet": {
+            "height": 0.08,
+            "type": "plain",
+            "material": "frame"
+          }
+        },
+        "wallProfiles": {
+          "7": {
+            "material": "wall",
+            "windows": {
+              "type": "storefront",
+              "width": 2.2,
+              "height": 3.1,
+              "sill": 0.5,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 2,
+                "width": 0.065
+              }
+            },
+            "piers": {
+              "width": 0.01,
+              "depth": 0.01,
+              "every": 999
+            },
+            "blank": true,
+            "sections": [
+              {
+                "start": 0.015,
+                "end": 0.985,
+                "base": 0.76,
+                "top": 5.65,
+                "material": "glass",
+                "verticalMullionSpacing": 1.42,
+                "horizontalMullions": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Masonry beam and inclined atrium glazing",
+        "footprint": {
+          "clip": [
+            [
+              381.67929,
+              409.23871
+            ],
+            [
+              383.9917,
+              409.60487
+            ],
+            [
+              383.94,
+              409.54
+            ],
+            [
+              385.69,
+              398.48
+            ],
+            [
+              385.65201,
+              398.4173
+            ],
+            [
+              383.44679,
+              398.06811
+            ]
+          ]
+        },
+        "height": 7.65,
+        "floors": 2,
+        "roof": {
+          "form": "shed",
+          "rise": 6.89,
+          "ridge": 189.0,
+          "material": "glass",
+          "edge": "none"
+        },
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "storefront",
+            "width": 2.2,
+            "height": 3.03,
+            "sill": 0.57,
+            "perBay": 1,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.065
+            }
+          },
+          "bands": [
+            {
+              "at": [
+                4.3
+              ],
+              "height": 1.0,
+              "depth": 0.14,
+              "material": "wall"
+            }
+          ],
+          "topFloor": {
+            "windows": {
+              "type": "ribbon",
+              "width": 2.4,
+              "height": 1.25,
+              "sill": 0.25,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              }
+            }
+          },
+          "parapet": {
+            "height": 0.08,
+            "type": "plain",
+            "material": "frame"
+          }
+        },
+        "wallProfiles": {
+          "11": {
+            "material": "wall",
+            "windows": {
+              "type": "storefront",
+              "width": 2.2,
+              "height": 3.1,
+              "sill": 0.5,
+              "perBay": 1,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 2,
+                "width": 0.065
+              }
+            },
+            "piers": {
+              "width": 0.01,
+              "depth": 0.01,
+              "every": 999
+            },
+            "blank": true,
+            "sections": [
+              {
+                "start": 0.015,
+                "end": 0.985,
+                "base": 0.76,
+                "top": 5.65,
+                "material": "glass",
+                "verticalMullionSpacing": 1.42,
+                "horizontalMullions": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Faceted glazed perimeter",
+        "footprint": {
+          "clip": [
+            [
+              383.44679,
+              398.06811
+            ],
+            [
+              385.65201,
+              398.4173
+            ],
+            [
+              383.86,
+              395.46
+            ],
+            [
+              370.69,
+              393.15
+            ],
+            [
+              367.16,
+              395.61
+            ],
+            [
+              365.9,
+              402.7
+            ],
+            [
+              362.62,
+              402.12
+            ],
+            [
+              363.27,
+              398.51
+            ],
+            [
+              361.24987,
+              398.15087
+            ],
+            [
+              361.19,
+              398.54
+            ],
+            [
+              342.59,
+              395.87
+            ],
+            [
+              341.94159,
+              394.31384
+            ],
+            [
+              338.99,
+              410.83
+            ],
+            [
+              353.39746,
+              413.38916
+            ],
+            [
+              353.8177,
+              411.00588
+            ],
+            [
+              364.50286,
+              412.88996
+            ],
+            [
+              363.23523,
+              420.07906
+            ],
+            [
+              366.63282,
+              420.67815
+            ],
+            [
+              364.46222,
+              432.98824
+            ],
+            [
+              361.06463,
+              432.38916
+            ],
+            [
+              360.96044,
+              432.98004
+            ],
+            [
+              350.70158,
+              431.17113
+            ],
+            [
+              350.34,
+              433.28
+            ],
+            [
+              368.82,
+              436.36
+            ],
+            [
+              373.09,
+              433.02
+            ],
+            [
+              373.72564,
+              429.15801
+            ],
+            [
+              373.62242,
+              429.14184
+            ],
+            [
+              373.99882,
+              426.74124
+            ],
+            [
+              395.07752,
+              430.04394
+            ],
+            [
+              394.74245,
+              432.18094
+            ],
+            [
+              395.27428,
+              431.7507
+            ],
+            [
+              397.22431,
+              430.17314
+            ],
+            [
+              395.02311,
+              429.86669
+            ],
+            [
+              396.75021,
+              417.52449
+            ],
+            [
+              398.95653,
+              417.83166
+            ],
+            [
+              397.06,
+              414.85
+            ],
+            [
+              386.61,
+              412.89
+            ],
+            [
+              383.9917,
+              409.60487
+            ],
+            [
+              381.67929,
+              409.23871
+            ]
+          ]
+        },
+        "height": 14.68,
+        "floors": 3
+      },
+      {
+        "name": "Sloping glazed head over recessed north entrance",
+        "height": 7.04,
+        "floors": 2,
+        "facade": {
+          "material": "frame",
+          "sections": [
+            {
+              "start": 0,
+              "end": 1,
+              "base": 0.35,
+              "top": 6.96,
+              "material": "atriumLight",
+              "verticalMullionSpacing": 1.05,
+              "horizontalMullions": 3
+            }
+          ]
+        },
+        "roof": {
+          "form": "shed",
+          "rise": 7.04,
+          "ridge": 91,
+          "material": "atriumLight",
+          "edge": "fascia"
+        },
+        "footprint": [
+          [
+            361.27,
+            397.58
+          ],
+          [
+            361.35736,
+            398.16998
+          ],
+          [
+            363.27,
+            398.51
+          ],
+          [
+            362.62,
+            402.12
+          ],
+          [
+            365.9,
+            402.7
+          ],
+          [
+            366.7292,
+            398.03413
+          ]
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+import * as THREE from 'three';
+import survey from './reflection-survey.mjs';
+
+let atlas;
+
+export async function prepareReflections(unpack){
+  if(atlas || new URLSearchParams(globalThis.location?.search).has('bakeReflections'))return;
+  const bytes=await unpack(survey.samples);
+  if(atlas)return;
+  atlas=new THREE.DataTexture(new Uint8Array(bytes),survey.wide*survey.columns,survey.high*survey.rows);
+  atlas.colorSpace=THREE.SRGBColorSpace;
+  atlas.minFilter=atlas.magFilter=THREE.LinearFilter;atlas.needsUpdate=true;
+}
+
+export function reflectedCampus(shader){
+  if(!atlas)return;
+  shader.uniforms.glazingAtlas={value:atlas};
+  shader.uniforms.glazingBounds={value:new THREE.Vector4(...survey.bounds)};
+  shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
+    uniform sampler2D glazingAtlas;
+    uniform vec4 glazingBounds;
+    const vec2 probeGrid=vec2(${survey.columns}.,${survey.rows}.);
+    const vec2 probeTile=vec2(${survey.wide}.,${survey.high}.);
+    vec3 localReflection(vec2 world,vec3 ray){
+      vec2 grid=clamp((world-glazingBounds.xy)/(glazingBounds.zw-glazingBounds.xy),0.,1.)*(probeGrid-1.);
+      vec2 cell=floor(grid),blend=fract(grid);
+      float azimuth=fract(atan(ray.x,-ray.z)/6.2831853+.9999999);
+      float elevation=clamp((degrees(asin(clamp(ray.y,-1.,1.)))+28.)/68.,.5/probeTile.y,1.-.5/probeTile.y);
+      vec2 uv=vec2((1.+azimuth*(probeTile.x-2.))/probeTile.x,elevation);
+      vec2 next=min(cell+1.,probeGrid-1.);
+      return mix(mix(texture2D(glazingAtlas,(cell+uv)/probeGrid).rgb,texture2D(glazingAtlas,(vec2(next.x,cell.y)+uv)/probeGrid).rgb,blend.x),
+                 mix(texture2D(glazingAtlas,(vec2(cell.x,next.y)+uv)/probeGrid).rgb,texture2D(glazingAtlas,(next+uv)/probeGrid).rgb,blend.x),blend.y);
+    }`).replace('#include <opaque_fragment>',`if(glazing){
+      vec3 ray=inverseTransformDirection(reflect(-normalize(vViewPosition),normal),viewMatrix);
+      float latitude=smoothstep(-.53,-.30,ray.y)*(1.-smoothstep(.43,.68,ray.y));
+      if(latitude>.001){
+        float fresnel=pow(1.-abs(dot(normalize(vViewPosition),normal)),3.);
+        vec3 reflection=localReflection(campusP.xz,ray);
+        outgoingLight=mix(outgoingLight,reflection,latitude*(.33+.36*fresnel));
+      }
+    }
+    #include <opaque_fragment>`);
+}

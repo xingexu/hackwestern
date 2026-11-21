@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Campus visual review issue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "cell",
+    "x",
+    "z",
+    "category",
+    "severity",
+    "description",
+    "view",
+    "suggestedOwner"
+  ],
+  "properties": {
+    "cell": {
+      "type": "string",
+      "pattern": "^x-?\\d+z-?\\d+$"
+    },
+    "x": {
+      "type": "number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "category": {
+      "enum": [
+        "geometry",
+        "surface",
+        "height",
+        "paint",
+        "collision",
+        "vehicle",
+        "camera",
+        "lighting",
+        "reference",
+        "vegetation",
+        "other"
+      ]
+    },
+    "severity": {
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "view": {
+      "type": "string",
+      "pattern": "^(composite\\.jpg|views/[a-zA-Z0-9_-]+\\.png)$"
+    },
+    "suggestedOwner": {
+      "enum": [
+        "buildings",
+        "terrain",
+        "roads",
+        "vegetation",
+        "props",
+        "physics",
+        "rendering"
+      ]
+    }
+  }
+}

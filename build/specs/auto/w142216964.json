@@ -1,0 +1,233 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w142216964",
+  "name": "Somerville House",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "photo",
+      "note": "Somerville House"
+    }
+  ],
+  "style": "collegiate-gothic",
+  "floors": {
+    "count": 3,
+    "typicalHeight": 3.9,
+    "groundFloorHeight": 3.9
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 10.72,
+        "floors": 3
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              192.88,
+              394.3
+            ],
+            [
+              194.844,
+              389.391
+            ],
+            [
+              204.819,
+              390.388
+            ],
+            [
+              207.779,
+              383.482
+            ],
+            [
+              212.942,
+              384.514
+            ],
+            [
+              217.3,
+              368.17
+            ],
+            [
+              217.3,
+              362.12
+            ],
+            [
+              212.181,
+              360.072
+            ],
+            [
+              211.903,
+              358.13
+            ],
+            [
+              209.59,
+              357.73
+            ],
+            [
+              210.22,
+              354.08
+            ],
+            [
+              192.09,
+              350.95
+            ],
+            [
+              185.18,
+              388.86
+            ],
+            [
+              184.61,
+              392.22
+            ],
+            [
+              191.28,
+              393.66
+            ],
+            [
+              191.176,
+              394.3
+            ]
+          ]
+        },
+        "height": 15.82,
+        "baseOffset": 10.72,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              194.471,
+              384.897
+            ],
+            [
+              186.12,
+              383.704
+            ],
+            [
+              185.18,
+              388.86
+            ],
+            [
+              184.61,
+              392.22
+            ],
+            [
+              184.61,
+              392.22
+            ],
+            [
+              191.28,
+              393.66
+            ],
+            [
+              191.193,
+              394.198
+            ],
+            [
+              193.103,
+              394.471
+            ]
+          ]
+        },
+        "height": 20.07,
+        "baseOffset": 15.82,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#ada291",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#a1a292"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.1
+      },
+      "windows": {
+        "type": "tudor-arch",
+        "width": 1.8,
+        "height": 2.25,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1
+        },
+        "glassColor": "#666863",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 0.46,
+        "depth": 0.24,
+        "every": 2,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.13,
+          "depth": 0.07,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 5,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "gothic-portal",
+      "recess": 0.32
+    }
+  ]
+}

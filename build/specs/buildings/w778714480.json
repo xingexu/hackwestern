@@ -1,0 +1,522 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714480",
+  "name": "Hospital service-yard outbuilding",
+  "status": "refined",
+  "confidence": 0.45,
+  "summary": "The hospital service-yard outbuilding has a small stepped dark flat roof with reddish and pale linear lean-tos along its south edge.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#918b7b",
+      "secondaryColor": "#7b7669",
+      "unitSize": [
+        1.2,
+        1.1
+      ],
+      "variation": 0.065,
+      "roughness": 0.83
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#4f4d44",
+      "secondaryColor": "#6e6a5d",
+      "variation": 0.28,
+      "weathering": 0.4
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#a8a18f"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "awning": {
+      "kind": "corrugated-metal",
+      "color": "#ac7968",
+      "unitSize": [
+        0.22,
+        0.8
+      ]
+    },
+    "rust": {
+      "kind": "corrugated-metal",
+      "color": "#895a48",
+      "secondaryColor": "#755c4d",
+      "unitSize": [
+        0.18,
+        2.4
+      ]
+    },
+    "pale": {
+      "kind": "corrugated-metal",
+      "color": "#d0cdc0",
+      "unitSize": [
+        0.18,
+        2.4
+      ]
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 4.85,
+    "typicalHeight": 4.85
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.045
+      },
+      "bays": {
+        "width": 3.45,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "height": 0.19,
+        "type": "coped",
+        "material": "trim"
+      },
+      "blank": true
+    },
+    "byWall": {
+      "9": {
+        "material": "wall",
+        "blank": false,
+        "bays": {
+          "count": 2,
+          "edgeMargin": 0.3
+        },
+        "windows": {
+          "type": "slot",
+          "width": 0.78,
+          "height": 0.62,
+          "sill": 1.76,
+          "perBay": 1,
+          "frameColor": "#807e71",
+          "glass": "dark",
+          "recess": 0.13
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          79.7,
+          -59.1
+        ],
+        "size": [
+          0.55,
+          0.5
+        ],
+        "height": 0.34,
+        "material": "plant",
+        "rotation": 21
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 5.19 m, P90 5.25 m, highest return 5.25 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [86.7, -74.39] averages #6f6d62."
+    },
+    {
+      "kind": "aerial",
+      "note": "Dark weathered flat roof with rectangular steps in plan, two rust-coloured strips and a narrow light lean-to at the south. No unobstructed frame within 120 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "Service access follows the east landing. Small high openings on the yard side are inferred. The site is screened from eye-level cameras."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Service building",
+        "footprint": {
+          "clip": [
+            [
+              88.22,
+              -66.08
+            ],
+            [
+              90.22,
+              -65.23
+            ],
+            [
+              91.48,
+              -68.22
+            ],
+            [
+              89.59,
+              -69.02
+            ],
+            [
+              90,
+              -69.99
+            ],
+            [
+              91.46,
+              -69.36
+            ],
+            [
+              94.07,
+              -75.56
+            ],
+            [
+              84.46,
+              -79.63
+            ],
+            [
+              82.07,
+              -73.93
+            ],
+            [
+              79.46,
+              -75.04
+            ],
+            [
+              78.35,
+              -72.4
+            ],
+            [
+              76.39,
+              -73.24
+            ],
+            [
+              75.44,
+              -70.99
+            ],
+            [
+              77.36,
+              -70.18
+            ],
+            [
+              76.92,
+              -69.13
+            ],
+            [
+              81.26,
+              -67.29
+            ],
+            [
+              80.983,
+              -66.629
+            ],
+            [
+              87.414,
+              -64.16
+            ]
+          ]
+        },
+        "height": 5.05,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "edge": "parapet",
+          "material": "roof",
+          "overhang": 0.14
+        }
+      },
+      {
+        "name": "Low southern corrugated module",
+        "footprint": {
+          "clip": [
+            [
+              79.71,
+              -63.59
+            ],
+            [
+              86.04,
+              -60.89
+            ],
+            [
+              87.414,
+              -64.16
+            ],
+            [
+              80.983,
+              -66.629
+            ]
+          ]
+        },
+        "height": 2.7,
+        "floors": 1,
+        "material": "rust",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "rust",
+          "edge": "none",
+          "form": "flat",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "West pale-roofed module",
+        "footprint": [
+          [
+            73.663,
+            -66.653
+          ],
+          [
+            79.358,
+            -64.467
+          ],
+          [
+            78.498,
+            -62.227
+          ],
+          [
+            72.803,
+            -64.413
+          ]
+        ],
+        "height": 2.55,
+        "floors": 1,
+        "material": "pale",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "pale",
+          "edge": "none",
+          "form": "flat",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Short reddish module",
+        "footprint": [
+          [
+            79.351,
+            -63.613
+          ],
+          [
+            85.887,
+            -61.104
+          ],
+          [
+            84.955,
+            -58.677
+          ],
+          [
+            78.42,
+            -61.186
+          ]
+        ],
+        "height": 2.55,
+        "floors": 1,
+        "material": "rust",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "rust",
+          "edge": "none",
+          "form": "flat",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Long pale-roofed module",
+        "footprint": [
+          [
+            74.578,
+            -62.339
+          ],
+          [
+            84.567,
+            -58.505
+          ],
+          [
+            83.6,
+            -55.984
+          ],
+          [
+            73.61,
+            -59.818
+          ]
+        ],
+        "height": 2.55,
+        "floors": 1,
+        "material": "pale",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "pale",
+          "edge": "none",
+          "form": "flat",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "West rust roof",
+        "footprint": [
+          [
+            74.62,
+            -69.007
+          ],
+          [
+            80.268,
+            -66.839
+          ],
+          [
+            79.376,
+            -64.514
+          ],
+          [
+            73.728,
+            -66.682
+          ]
+        ],
+        "height": 2.55,
+        "floors": 1,
+        "material": "rust",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "rust",
+          "edge": "none",
+          "form": "flat",
+          "overhang": 0
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.55,
+      "type": "service-door",
+      "width": 1.44,
+      "height": 2.14,
+      "steps": 2,
+      "doorColor": "#6b6d62",
+      "recess": 0.16,
+      "at": [
+        90.8,
+        -66.61
+      ]
+    }
+  ],
+  "notes": "The rust and pale roofs form a row of low rectangular metal modules at the south edge. Their attachment and wall materials cannot be resolved from above. The service door is inferred. The main roof has no clearly resolved penetrations. The pale strip east of it follows the paved yard.",
+  "attachments": [
+    {
+      "type": "terrace",
+      "path": [
+        [
+          89.5,
+          -69.35
+        ],
+        [
+          91.7,
+          -68.42
+        ]
+      ],
+      "width": 2.35,
+      "height": 0.26,
+      "material": "trim"
+    },
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          91.4,
+          -65
+        ],
+        [
+          93.2,
+          -66.9
+        ],
+        [
+          95.0,
+          -70.5
+        ],
+        [
+          96.45,
+          -75.2
+        ]
+      ],
+      "width": 0.29,
+      "height": 0.4,
+      "material": "trim"
+    }
+  ]
+}

@@ -1,0 +1,908 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2465",
+  "name": "Unnamed south bicycle shelter",
+  "status": "refined",
+  "confidence": 0.88,
+  "summary": "An open bicycle canopy beside the residence path carried on slender posts over racks and parked bikes.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "painted-metal",
+      "color": "#565854",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#a99a7f",
+      "metalness": 0.46,
+      "roughness": 0.52,
+      "secondaryColor": "#988d79"
+    },
+    "roof": {
+      "kind": "metal-panel",
+      "color": "#ada995",
+      "secondaryColor": "#898674",
+      "unitSize": [
+        0.86,
+        4.0
+      ],
+      "metalness": 0.14,
+      "roughness": 0.78
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.54,
+    "typicalHeight": 2.54
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall"
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "barrel",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.09,
+    "ridge": "long-axis",
+    "rise": 0.19,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "138541389",
+      "walls": [
+        0,
+        1
+      ],
+      "note": "Thin horizontal canopy, spindly dark posts and bicycles below. Tall brickwork in the background belongs to the residence."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "148668279",
+      "walls": [
+        1
+      ],
+      "note": "Racks stand in the open at the foot of the tower. Path and stairs run past the southern end."
+    },
+    {
+      "kind": "aerial",
+      "note": "One of two aligned narrow rectangular canopies in the strip of paving west of the tower. Tree branches cover part of the northern roof."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 11.04 m, P90 11.7 m, maximum 11.78 m above inventory ground. Returns are much higher than the clearly visible bicycle canopy. The canopy deck is estimated at 2.5–2.7 m from the street photographs."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "138541389",
+      "walls": [
+        0,
+        1
+      ],
+      "note": "End-on view shows a shallow crown across the canopy, a dark rim, slim posts with cylindrical concrete feet and small soffit lamps."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The bicycle shelters sit below mature trees beside a residence tower. Lidar is tracking foliage or tower-edge returns above the roof visible at head height.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Thin canopy deck",
+        "footprint": "inventory",
+        "height": 2.57,
+        "floors": 1,
+        "baseOffset": 2.48,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        }
+      },
+      {
+        "name": "Round concrete post footing",
+        "footprint": [
+          [
+            -162.225,
+            -8.544
+          ],
+          [
+            -162.251,
+            -8.447
+          ],
+          [
+            -162.322,
+            -8.376
+          ],
+          [
+            -162.419,
+            -8.35
+          ],
+          [
+            -162.516,
+            -8.376
+          ],
+          [
+            -162.587,
+            -8.447
+          ],
+          [
+            -162.613,
+            -8.544
+          ],
+          [
+            -162.587,
+            -8.641
+          ],
+          [
+            -162.516,
+            -8.712
+          ],
+          [
+            -162.419,
+            -8.738
+          ],
+          [
+            -162.322,
+            -8.712
+          ],
+          [
+            -162.251,
+            -8.641
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.44,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "topFloor": {
+            "material": "base"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round concrete post footing",
+        "footprint": [
+          [
+            -161.255,
+            -5.701
+          ],
+          [
+            -161.281,
+            -5.604
+          ],
+          [
+            -161.352,
+            -5.533
+          ],
+          [
+            -161.449,
+            -5.507
+          ],
+          [
+            -161.546,
+            -5.533
+          ],
+          [
+            -161.617,
+            -5.604
+          ],
+          [
+            -161.643,
+            -5.701
+          ],
+          [
+            -161.617,
+            -5.798
+          ],
+          [
+            -161.546,
+            -5.869
+          ],
+          [
+            -161.449,
+            -5.895
+          ],
+          [
+            -161.352,
+            -5.869
+          ],
+          [
+            -161.281,
+            -5.798
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.44,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "topFloor": {
+            "material": "base"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round concrete post footing",
+        "footprint": [
+          [
+            -160.285,
+            -2.857
+          ],
+          [
+            -160.311,
+            -2.76
+          ],
+          [
+            -160.382,
+            -2.689
+          ],
+          [
+            -160.479,
+            -2.663
+          ],
+          [
+            -160.576,
+            -2.689
+          ],
+          [
+            -160.647,
+            -2.76
+          ],
+          [
+            -160.673,
+            -2.857
+          ],
+          [
+            -160.647,
+            -2.954
+          ],
+          [
+            -160.576,
+            -3.025
+          ],
+          [
+            -160.479,
+            -3.051
+          ],
+          [
+            -160.382,
+            -3.025
+          ],
+          [
+            -160.311,
+            -2.954
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.44,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "topFloor": {
+            "material": "base"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round concrete post footing",
+        "footprint": [
+          [
+            -159.412,
+            -9.704
+          ],
+          [
+            -159.438,
+            -9.607
+          ],
+          [
+            -159.509,
+            -9.536
+          ],
+          [
+            -159.606,
+            -9.51
+          ],
+          [
+            -159.703,
+            -9.536
+          ],
+          [
+            -159.774,
+            -9.607
+          ],
+          [
+            -159.8,
+            -9.704
+          ],
+          [
+            -159.774,
+            -9.801
+          ],
+          [
+            -159.703,
+            -9.872
+          ],
+          [
+            -159.606,
+            -9.898
+          ],
+          [
+            -159.509,
+            -9.872
+          ],
+          [
+            -159.438,
+            -9.801
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.44,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "topFloor": {
+            "material": "base"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round concrete post footing",
+        "footprint": [
+          [
+            -158.415,
+            -6.781
+          ],
+          [
+            -158.441,
+            -6.684
+          ],
+          [
+            -158.512,
+            -6.613
+          ],
+          [
+            -158.609,
+            -6.587
+          ],
+          [
+            -158.706,
+            -6.613
+          ],
+          [
+            -158.777,
+            -6.684
+          ],
+          [
+            -158.803,
+            -6.781
+          ],
+          [
+            -158.777,
+            -6.878
+          ],
+          [
+            -158.706,
+            -6.949
+          ],
+          [
+            -158.609,
+            -6.975
+          ],
+          [
+            -158.512,
+            -6.949
+          ],
+          [
+            -158.441,
+            -6.878
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.44,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "topFloor": {
+            "material": "base"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Round concrete post footing",
+        "footprint": [
+          [
+            -157.419,
+            -3.857
+          ],
+          [
+            -157.445,
+            -3.76
+          ],
+          [
+            -157.516,
+            -3.689
+          ],
+          [
+            -157.613,
+            -3.663
+          ],
+          [
+            -157.71,
+            -3.689
+          ],
+          [
+            -157.781,
+            -3.76
+          ],
+          [
+            -157.807,
+            -3.857
+          ],
+          [
+            -157.781,
+            -3.954
+          ],
+          [
+            -157.71,
+            -4.025
+          ],
+          [
+            -157.613,
+            -4.051
+          ],
+          [
+            -157.516,
+            -4.025
+          ],
+          [
+            -157.445,
+            -3.954
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.44,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "topFloor": {
+            "material": "base"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Transverse frame under shelter roof",
+        "footprint": [
+          [
+            -159.588,
+            -9.771
+          ],
+          [
+            -159.548,
+            -9.674
+          ],
+          [
+            -162.528,
+            -8.445
+          ],
+          [
+            -162.568,
+            -8.543
+          ]
+        ],
+        "baseOffset": 2.38,
+        "height": 2.5,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "wall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Transverse frame under shelter roof",
+        "footprint": [
+          [
+            -158.59,
+            -6.846
+          ],
+          [
+            -158.552,
+            -6.748
+          ],
+          [
+            -161.56,
+            -5.604
+          ],
+          [
+            -161.598,
+            -5.702
+          ]
+        ],
+        "baseOffset": 2.38,
+        "height": 2.5,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "wall",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Transverse frame under shelter roof",
+        "footprint": [
+          [
+            -157.591,
+            -3.921
+          ],
+          [
+            -157.556,
+            -3.822
+          ],
+          [
+            -160.593,
+            -2.762
+          ],
+          [
+            -160.627,
+            -2.862
+          ]
+        ],
+        "baseOffset": 2.38,
+        "height": 2.5,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "wall"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "wall",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "walls": 0,
+      "path": [
+        [
+          -162.95,
+          -9.95
+        ],
+        [
+          -160.04,
+          -1.42
+        ]
+      ],
+      "width": 0.13,
+      "height": 2.5,
+      "material": "wall",
+      "columns": 3
+    },
+    {
+      "type": "colonnade",
+      "walls": 2,
+      "path": [
+        [
+          -160.15,
+          -11.15
+        ],
+        [
+          -157.16,
+          -2.38
+        ]
+      ],
+      "width": 0.13,
+      "height": 2.5,
+      "material": "wall",
+      "columns": 3
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          -161.549,
+          -10.397
+        ],
+        [
+          -158.649,
+          -1.897
+        ]
+      ],
+      "width": 4.3,
+      "height": 0.1,
+      "material": "base"
+    }
+  ],
+  "notes": "Leave the sides and space below the thin roof open. Bicycle hoops, bicycles, shallow rounded end trim and soffit lights are visible.",
+  "entrances": []
+}

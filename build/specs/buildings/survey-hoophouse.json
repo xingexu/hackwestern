@@ -1,0 +1,73 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-hoophouse",
+  "name": "East service garden hoop house",
+  "status": "authored",
+  "confidence": 0.77,
+  "style": "greenhouse",
+  "materials": {
+    "wall": {
+      "kind": "glass-curtain",
+      "color": "#a7bbb4",
+      "unitSize": [
+        1.35,
+        1.85
+      ]
+    },
+    "roof": {
+      "kind": "glass-curtain",
+      "color": "#c3cfc3",
+      "unitSize": [
+        1.35,
+        1.85
+      ]
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#8a8e89"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#747975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.2,
+    "typicalHeight": 2.2
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "barrel",
+    "material": "roof",
+    "rise": 1.45,
+    "ridge": 124,
+    "edge": "none"
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "East service garden hoop house",
+        "footprint": "inventory",
+        "height": 0.9,
+        "floors": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof corners and orientation traced in the London 2025 orthophoto in local campus coordinates."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The earlier bare-earth and surface rasters do not resolve the full small structure. The roof profile and dimensions use its 2025 orthophoto footprint and shadow."
+}

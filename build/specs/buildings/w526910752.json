@@ -1,0 +1,654 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w526910752",
+  "name": "7-Eleven footprint",
+  "status": "refined",
+  "confidence": 0.86,
+  "summary": "A smooth pale fascia sits above continuous shop glass and a low service strip. The elevated fuel canopy has a dark flat roof, a deep red edge, a white soffit with unresolved soffit lights, and separate white supports.",
+  "style": "postmodern",
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "127904857",
+      "walls": [
+        0,
+        1
+      ],
+      "note": "Broad shop windows and opaque lower panels sit between pale textured piers beneath a ribbed fascia, with daylight pier and wall colours sampled here."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "146585675",
+      "walls": [
+        0
+      ],
+      "note": "The parking-side shop elevation is mostly glazed below the white fascia."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "137106769",
+      "walls": [
+        0
+      ],
+      "note": "A low flat canopy on square columns covers the forecourt beside the store."
+    },
+    {
+      "kind": "aerial",
+      "note": "The store has a light rectangular roof with a clipped back corner and one central rooftop unit, while the darker forecourt canopy projects east outside the store polygon."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 4.84 / 4.97 / 6.01 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#d1d5cf",
+      "secondaryColor": "#b5b9b1",
+      "unitSize": [
+        0.38,
+        0.19
+      ],
+      "variation": 0.12
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#eeeee7",
+      "variation": 0.025
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#bfc5b6",
+      "variation": 0.12,
+      "weathering": 0.37
+    },
+    "canopy": {
+      "kind": "painted-metal",
+      "color": "#bc4d36",
+      "variation": 0.035,
+      "secondaryColor": "#a83f31"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a79c",
+      "variation": 0.12
+    },
+    "deck": {
+      "kind": "membrane",
+      "color": "#645e53",
+      "weathering": 0.54,
+      "secondaryColor": "#716657"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#d1d7d3"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#bdd1d4"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 4.5,
+    "typicalHeight": 4.5
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "type": "plain",
+        "height": 0.29,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.86,
+        "depth": 0.27,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "blank": false,
+        "bays": {
+          "count": 5,
+          "width": 4.1
+        },
+        "windows": {
+          "type": "storefront",
+          "width": 3.77,
+          "height": 2.98,
+          "sill": 0.35,
+          "perBay": 1,
+          "recess": 0.08,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d2d6d1",
+          "glass": "reflective",
+          "glassColor": "#c1d5d9",
+          "surround": "none"
+        },
+        "piers": {
+          "width": 0.24,
+          "depth": 0.07,
+          "material": "trim",
+          "every": 1,
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "cornice": {
+          "height": 1.14,
+          "depth": 0.31,
+          "material": "trim"
+        },
+        "sections": [
+          {
+            "start": 0.05,
+            "end": 0.96,
+            "base": 0.35,
+            "top": 3.32,
+            "material": "glass",
+            "verticalMullionSpacing": 1.43,
+            "horizontalMullions": 1
+          }
+        ],
+        "spandrelMaterial": "trim"
+      },
+      "1": {
+        "blank": false,
+        "bays": {
+          "count": 3,
+          "width": 4.15
+        },
+        "windows": {
+          "type": "storefront",
+          "width": 3.77,
+          "height": 2.98,
+          "sill": 0.35,
+          "perBay": 1,
+          "recess": 0.08,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d2d6d1",
+          "glass": "reflective",
+          "glassColor": "#c1d5d9",
+          "surround": "none"
+        },
+        "cornice": {
+          "height": 1.14,
+          "depth": 0.31,
+          "material": "trim"
+        },
+        "piers": {
+          "width": 0.24,
+          "depth": 0.07,
+          "material": "trim",
+          "every": 1,
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "sections": [
+          {
+            "start": 0.05,
+            "end": 0.61,
+            "base": 0.35,
+            "top": 3.32,
+            "material": "glass",
+            "verticalMullionSpacing": 1.43,
+            "horizontalMullions": 1
+          }
+        ],
+        "spandrelMaterial": "trim",
+        "segments": [
+          {
+            "range": [
+              0,
+              0.61
+            ],
+            "bays": {
+              "count": 2
+            }
+          },
+          {
+            "range": [
+              0.61,
+              0.83
+            ],
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          {
+            "range": [
+              0.83,
+              1
+            ],
+            "windows": {
+              "type": "punched",
+              "width": 0.69,
+              "height": 0.94,
+              "sill": 1.13
+            },
+            "bays": {
+              "count": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -15.878029,
+          1090.619736
+        ],
+        "size": [
+          2.2,
+          1.62
+        ],
+        "height": 0.84,
+        "rotation": -3,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -14.095348,
+          1086.420683
+        ],
+        "size": [
+          0.81,
+          0.78
+        ],
+        "height": 0.49,
+        "rotation": -3,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -19.15,
+          1094.6
+        ],
+        "size": [
+          0.88,
+          0.98
+        ],
+        "height": 0.58,
+        "material": "plant",
+        "rotation": -3,
+        "style": "fan condenser"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -19.22,
+          1097.3
+        ],
+        "size": [
+          0.88,
+          0.98
+        ],
+        "height": 0.58,
+        "material": "plant",
+        "rotation": -3,
+        "style": "fan condenser"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -19,
+          1099.5
+        ],
+        "size": [
+          0.88,
+          0.98
+        ],
+        "height": 0.58,
+        "material": "plant",
+        "rotation": -3,
+        "style": "fan condenser"
+      }
+    ]
+  },
+  "notes": "A smooth pale fascia sits above continuous shop glass and a low service strip. The elevated fuel canopy has a dark flat roof, a deep red edge, a white soffit with unresolved soffit lights, and separate white supports.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "footprint": [
+          [
+            -18.44,
+            1081.57
+          ],
+          [
+            -9.26,
+            1080.86
+          ],
+          [
+            -7.85,
+            1101.33
+          ],
+          [
+            -17.96,
+            1101.92
+          ]
+        ],
+        "height": 4.92,
+        "floors": 1
+      },
+      {
+        "name": "Lower west service strip",
+        "footprint": [
+          [
+            -18.44,
+            1081.57
+          ],
+          [
+            -17.96,
+            1101.92
+          ],
+          [
+            -20.29,
+            1102.05
+          ],
+          [
+            -21.05,
+            1089.38
+          ]
+        ],
+        "height": 2.77,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "deck",
+          "edge": "parapet",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0.2,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0.18,
+            "depth": 0.06,
+            "material": "trim"
+          },
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Forecourt canopy and white soffit",
+        "footprint": [
+          [
+            -9.822,
+            1078.116
+          ],
+          [
+            8.452,
+            1077.158
+          ],
+          [
+            8.982,
+            1087.284
+          ],
+          [
+            -9.292,
+            1088.242
+          ]
+        ],
+        "height": 5.87,
+        "baseOffset": 5.02,
+        "floors": 1,
+        "material": "trim",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "deck",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "cornice": {
+            "height": 0.58,
+            "depth": 0.13,
+            "material": "canopy"
+          },
+          "parapet": {
+            "height": 0.05,
+            "type": "plain",
+            "material": "canopy"
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Forecourt support 1",
+        "footprint": [
+          [
+            -6.122,
+            1079.731
+          ],
+          [
+            -5.702,
+            1079.709
+          ],
+          [
+            -5.678,
+            1080.169
+          ],
+          [
+            -6.098,
+            1080.191
+          ]
+        ],
+        "height": 5.03,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "trim",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Forecourt support 2",
+        "footprint": [
+          [
+            -5.822,
+            1085.631
+          ],
+          [
+            -5.402,
+            1085.609
+          ],
+          [
+            -5.378,
+            1086.069
+          ],
+          [
+            -5.798,
+            1086.091
+          ]
+        ],
+        "height": 5.03,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "trim",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Forecourt support 3",
+        "footprint": [
+          [
+            3.728,
+            1079.261
+          ],
+          [
+            4.148,
+            1079.239
+          ],
+          [
+            4.172,
+            1079.699
+          ],
+          [
+            3.752,
+            1079.721
+          ]
+        ],
+        "height": 5.03,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "trim",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "material": "trim"
+        }
+      },
+      {
+        "name": "Forecourt support 4",
+        "footprint": [
+          [
+            4.048,
+            1085.121
+          ],
+          [
+            4.468,
+            1085.099
+          ],
+          [
+            4.492,
+            1085.559
+          ],
+          [
+            4.072,
+            1085.581
+          ]
+        ],
+        "height": 5.03,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "trim",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "material": "trim"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.54,
+      "type": "doors-double",
+      "width": 1.85,
+      "height": 2.25,
+      "recess": 0.18
+    }
+  ]
+}

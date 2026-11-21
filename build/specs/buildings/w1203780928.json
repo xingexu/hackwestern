@@ -1,0 +1,2049 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w1203780928",
+  "name": "Claudette Mackay-Lassonde Pavilion",
+  "status": "refined",
+  "confidence": 0.93,
+  "style": "contemporary-stone",
+  "summary": "Deep stone fins divide four projecting north bays with tall paired blue-glazed lights above a recessed glazed ground floor and a green roof wrapping the mechanical penthouse.",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#b7a88e",
+      "unitSize": [
+        0.71,
+        0.27
+      ],
+      "secondaryColor": "#9e917c",
+      "bond": "random-ashlar",
+      "variation": 0.3,
+      "roughness": 0.88,
+      "surface": "rock-faced ashlar"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#cfcfc3"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c2b9a8"
+    },
+    "sedum": {
+      "kind": "green-roof",
+      "color": "#6d664e",
+      "variation": 0.38,
+      "secondaryColor": "#655f48",
+      "roughness": 0.99
+    },
+    "pv": {
+      "kind": "spandrel-glass",
+      "color": "#373e47"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#aaa9a3",
+      "metalness": 0.55,
+      "roughness": 0.45,
+      "surface": "opaque"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#38454b"
+    },
+    "blue": {
+      "kind": "glass-curtain",
+      "color": "#48687f"
+    },
+    "baseGlass": {
+      "kind": "glass-curtain",
+      "color": "#364549"
+    },
+    "smooth": {
+      "kind": "limestone-smooth",
+      "color": "#ad9f85"
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 5.2,
+    "typicalHeight": 4.15
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 5.1,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.75,
+        "height": 4.65,
+        "sill": 0.05,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "glass": "tinted",
+        "frameColor": "#373e41",
+        "glassColor": "#466e8d",
+        "surround": "none"
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "storefront",
+          "width": 3.65,
+          "height": 4.35,
+          "sill": 0.02,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glass": "tinted",
+          "frameColor": "#575751"
+        }
+      },
+      "parapet": {
+        "type": "plain",
+        "height": 0.18,
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "material": "smooth",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "count": 1
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 3.5,
+            "height": 5.55,
+            "sill": 0.14,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "glass": "dark",
+            "glassColor": "#30444a",
+            "recess": 1.22,
+            "perBay": 1
+          },
+          "height": 5.8
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              6.13
+            ],
+            "height": 0.55,
+            "depth": 0.12,
+            "material": "smooth"
+          }
+        ],
+        "sections": [
+          {
+            "start": 0.1,
+            "end": 0.418,
+            "base": 6.55,
+            "top": 16.2,
+            "material": "blue",
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.57,
+            "end": 0.89,
+            "base": 6.55,
+            "top": 16.2,
+            "material": "blue",
+            "horizontalMullions": 1
+          }
+        ]
+      },
+      "1": {
+        "material": "smooth",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "count": 1
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 3.5,
+            "height": 5.55,
+            "sill": 0.14,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "glass": "dark",
+            "glassColor": "#30444a",
+            "recess": 1.22,
+            "perBay": 1
+          },
+          "height": 5.8
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              6.13
+            ],
+            "height": 0.55,
+            "depth": 0.12,
+            "material": "smooth"
+          }
+        ],
+        "sections": [
+          {
+            "start": 0.1,
+            "end": 0.418,
+            "base": 6.55,
+            "top": 16.2,
+            "material": "blue",
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.57,
+            "end": 0.89,
+            "base": 6.55,
+            "top": 16.2,
+            "material": "blue",
+            "horizontalMullions": 1
+          }
+        ]
+      },
+      "2": {
+        "material": "smooth",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "count": 1
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 3.5,
+            "height": 5.55,
+            "sill": 0.14,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "glass": "dark",
+            "glassColor": "#30444a",
+            "recess": 1.22,
+            "perBay": 1
+          },
+          "height": 5.8
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              6.13
+            ],
+            "height": 0.55,
+            "depth": 0.12,
+            "material": "smooth"
+          }
+        ],
+        "sections": [
+          {
+            "start": 0.1,
+            "end": 0.418,
+            "base": 6.55,
+            "top": 16.2,
+            "material": "blue",
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.57,
+            "end": 0.89,
+            "base": 6.55,
+            "top": 16.2,
+            "material": "blue",
+            "horizontalMullions": 1
+          }
+        ]
+      },
+      "3": {
+        "material": "smooth",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "count": 1
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 3.5,
+            "height": 5.55,
+            "sill": 0.14,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            },
+            "glass": "dark",
+            "glassColor": "#30444a",
+            "recess": 1.22,
+            "perBay": 1
+          },
+          "height": 5.8
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              6.13
+            ],
+            "height": 0.55,
+            "depth": 0.12,
+            "material": "smooth"
+          }
+        ],
+        "sections": [
+          {
+            "start": 0.1,
+            "end": 0.418,
+            "base": 6.55,
+            "top": 16.2,
+            "material": "blue",
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.57,
+            "end": 0.89,
+            "base": 6.55,
+            "top": 16.2,
+            "material": "blue",
+            "horizontalMullions": 1
+          }
+        ]
+      },
+      "4": {
+        "material": "wall",
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "count": 12
+        },
+        "sections": [
+          {
+            "start": 0.047,
+            "end": 0.087,
+            "base": 6.7,
+            "top": 16.0,
+            "material": "blue",
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.053,
+            "end": 0.087,
+            "base": 0.35,
+            "top": 5.5,
+            "material": "baseGlass",
+            "horizontalMullions": 1
+          }
+        ]
+      },
+      "9": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          108.6,
+          691
+        ],
+        "size": [
+          4.5,
+          3
+        ],
+        "height": 3.25,
+        "material": "metal",
+        "rotation": 0,
+        "style": "condenser fan",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "green-roof",
+        "center": [
+          120.95,
+          690.15
+        ],
+        "size": [
+          7.4,
+          30.7
+        ],
+        "height": 0.17,
+        "material": "sedum",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          108.43,
+          702.34
+        ],
+        "size": [
+          4.3,
+          0.87
+        ],
+        "height": 0.8,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          108.5,
+          703.4
+        ],
+        "size": [
+          4.3,
+          0.87
+        ],
+        "height": 0.8,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          108.57,
+          704.46
+        ],
+        "size": [
+          4.3,
+          0.87
+        ],
+        "height": 0.8,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          118.62,
+          702.2
+        ],
+        "size": [
+          4.6,
+          0.9
+        ],
+        "height": 0.8,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          118.7,
+          703.3
+        ],
+        "size": [
+          4.6,
+          0.9
+        ],
+        "height": 0.8,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          118.78,
+          704.4
+        ],
+        "size": [
+          4.6,
+          0.9
+        ],
+        "height": 0.8,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "hvac",
+        "center": [
+          110.6,
+          690.1
+        ],
+        "size": [
+          1.45,
+          1.45
+        ],
+        "height": 2.05,
+        "material": "metal",
+        "style": "condenser fan",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "green-roof",
+        "center": [
+          113.8,
+          675.1
+        ],
+        "size": [
+          17.1,
+          4.45
+        ],
+        "height": 0.16,
+        "rotation": -4,
+        "material": "sedum"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          110.3,
+          689.3
+        ],
+        "size": [
+          0.8,
+          0.8
+        ],
+        "height": 4.3,
+        "material": "metal",
+        "rotation": 0,
+        "style": "round lab exhaust flue"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          102,
+          704
+        ],
+        "size": [
+          2,
+          3.7
+        ],
+        "height": 1.5,
+        "material": "metal",
+        "rotation": 0,
+        "style": "condenser fan",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          104.5,
+          702
+        ],
+        "size": [
+          2.2,
+          2.4
+        ],
+        "height": 1.3,
+        "material": "metal",
+        "rotation": 0,
+        "style": "condenser fan",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          103.2,
+          699.6
+        ],
+        "size": [
+          1.9,
+          2
+        ],
+        "height": 1.2,
+        "material": "metal",
+        "rotation": 0,
+        "style": "condenser fan",
+        "fanGrid": [
+          1,
+          1
+        ]
+      },
+      {
+        "type": "antenna",
+        "center": [
+          104.5,
+          685.8
+        ],
+        "size": [
+          0.15,
+          0.15
+        ],
+        "height": 3.15,
+        "material": "metal",
+        "rotation": 0,
+        "rotor": true
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Dark planted strips wrap the east edge. Two photovoltaic groups are visible on the southern roof and the large plant enclosure is west of centre."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 19.83 m, 90th percentile 23.37 m, maximum 29.47 m."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "67820751",
+      "walls": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "note": "Four north bays with a deep stone pier between each pair of windows. Black lower glazing, buff spandrels and blue glass above."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "126865221",
+      "walls": 4,
+      "note": "The east flank has close-set full-height stone blades, solid stretches and a door recessed between projections."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/CMLP.jpg",
+      "note": "Exterior confirms warm buff stone, deep side blades and tall blue windows."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.eng.uwo.ca/departments-units/claudette-mackay-lassonde-pavilion/index.html",
+      "note": "Faculty records two solar arrays and a small roof turbine."
+    },
+    {
+      "kind": "photo",
+      "url": "https://news.westernu.ca/2009/10/engineering-walks-the-sustainability-talk/",
+      "note": "A walking bridge links the pavilion and Thompson."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Main wall colour sampled with PIL from Western Facilities exterior photograph. 300 × 300 pixel reference, patch centred at (121, 129), 7 × 7 pixels."
+    },
+    {
+      "kind": "lidar",
+      "note": "First returns at x 115 step from about 2 m at z 670–671 to about 18 m at z 672–673. The roof projection in the aerial is north of the upper wall."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Recessed north entrance level",
+        "height": 5.8,
+        "floors": 1,
+        "footprint": [
+          [
+            104.52,
+            674.02
+          ],
+          [
+            104.321,
+            674.034
+          ],
+          [
+            104.407,
+            675.231
+          ],
+          [
+            99.386,
+            675.593
+          ],
+          [
+            99.299,
+            674.396
+          ],
+          [
+            99.1,
+            674.41
+          ],
+          [
+            99.03,
+            673.56
+          ],
+          [
+            98.05,
+            673.63
+          ],
+          [
+            98.14,
+            674.91
+          ],
+          [
+            97.09,
+            674.99
+          ],
+          [
+            99.44,
+            705.94
+          ],
+          [
+            99.81,
+            710.83
+          ],
+          [
+            106.82,
+            710.3
+          ],
+          [
+            106.88,
+            711.05
+          ],
+          [
+            108.16,
+            710.95
+          ],
+          [
+            108.27,
+            710.27
+          ],
+          [
+            113.13,
+            709.93
+          ],
+          [
+            113.18,
+            710.69
+          ],
+          [
+            114.43,
+            710.6
+          ],
+          [
+            114.38,
+            709.91
+          ],
+          [
+            119.55,
+            709.54
+          ],
+          [
+            119.61,
+            710.29
+          ],
+          [
+            120.67,
+            710.21
+          ],
+          [
+            120.61,
+            709.35
+          ],
+          [
+            125.46,
+            709.004
+          ],
+          [
+            125.326,
+            707.059
+          ],
+          [
+            126.872,
+            706.953
+          ],
+          [
+            126.812,
+            706.071
+          ],
+          [
+            125.266,
+            706.177
+          ],
+          [
+            125.124,
+            704.119
+          ],
+          [
+            126.671,
+            704.012
+          ],
+          [
+            126.61,
+            703.13
+          ],
+          [
+            125.064,
+            703.237
+          ],
+          [
+            124.922,
+            701.178
+          ],
+          [
+            126.469,
+            701.072
+          ],
+          [
+            126.408,
+            700.19
+          ],
+          [
+            124.862,
+            700.296
+          ],
+          [
+            124.721,
+            698.238
+          ],
+          [
+            126.267,
+            698.132
+          ],
+          [
+            126.206,
+            697.25
+          ],
+          [
+            124.66,
+            697.356
+          ],
+          [
+            124.519,
+            695.298
+          ],
+          [
+            126.065,
+            695.192
+          ],
+          [
+            126.004,
+            694.31
+          ],
+          [
+            124.458,
+            694.416
+          ],
+          [
+            124.317,
+            692.358
+          ],
+          [
+            125.863,
+            692.251
+          ],
+          [
+            125.803,
+            691.369
+          ],
+          [
+            124.256,
+            691.476
+          ],
+          [
+            124.115,
+            689.417
+          ],
+          [
+            125.661,
+            689.311
+          ],
+          [
+            125.601,
+            688.429
+          ],
+          [
+            124.055,
+            688.535
+          ],
+          [
+            123.913,
+            686.477
+          ],
+          [
+            125.46,
+            686.371
+          ],
+          [
+            125.399,
+            685.489
+          ],
+          [
+            123.853,
+            685.595
+          ],
+          [
+            123.711,
+            683.537
+          ],
+          [
+            125.258,
+            683.431
+          ],
+          [
+            125.197,
+            682.549
+          ],
+          [
+            123.651,
+            682.655
+          ],
+          [
+            123.51,
+            680.597
+          ],
+          [
+            125.056,
+            680.49
+          ],
+          [
+            124.995,
+            679.608
+          ],
+          [
+            123.449,
+            679.715
+          ],
+          [
+            123.308,
+            677.656
+          ],
+          [
+            124.854,
+            677.55
+          ],
+          [
+            124.46,
+            671.81
+          ],
+          [
+            123.37,
+            671.87
+          ],
+          [
+            123.42,
+            672.56
+          ],
+          [
+            123.22,
+            672.573
+          ],
+          [
+            123.299,
+            673.771
+          ],
+          [
+            118.438,
+            674.094
+          ],
+          [
+            118.36,
+            672.897
+          ],
+          [
+            118.16,
+            672.91
+          ],
+          [
+            118.11,
+            672.18
+          ],
+          [
+            117.19,
+            672.25
+          ],
+          [
+            117.24,
+            673.02
+          ],
+          [
+            117.04,
+            673.033
+          ],
+          [
+            117.119,
+            674.23
+          ],
+          [
+            112.109,
+            674.554
+          ],
+          [
+            112.03,
+            673.357
+          ],
+          [
+            111.83,
+            673.37
+          ],
+          [
+            111.78,
+            672.66
+          ],
+          [
+            110.68,
+            672.74
+          ],
+          [
+            110.74,
+            673.6
+          ],
+          [
+            110.54,
+            673.614
+          ],
+          [
+            110.624,
+            674.811
+          ],
+          [
+            105.794,
+            675.143
+          ],
+          [
+            105.71,
+            673.946
+          ],
+          [
+            105.51,
+            673.96
+          ],
+          [
+            105.45,
+            673.17
+          ],
+          [
+            104.46,
+            673.24
+          ]
+        ],
+        "wallProfiles": {
+          "-1": {
+            "material": "wall",
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "groundFloor": {
+              "material": "wall",
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "topFloor": {
+              "material": "wall",
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "parapet": {
+              "type": "plain",
+              "height": 0.17,
+              "material": "wall"
+            }
+          },
+          "0": {
+            "windows": {
+              "type": "storefront",
+              "width": 3.5,
+              "height": 5.48,
+              "sill": 0.12,
+              "frameColor": "#354248",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              },
+              "glass": "dark",
+              "glassColor": "#34444b",
+              "recess": 0.22,
+              "perBay": 1
+            },
+            "groundFloor": {
+              "height": 5.8,
+              "windows": {
+                "type": "storefront",
+                "width": 3.5,
+                "height": 5.48,
+                "sill": 0.12,
+                "frameColor": "#354248",
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "glass": "dark",
+                "glassColor": "#34444b",
+                "recess": 0.22,
+                "perBay": 1
+              }
+            },
+            "topFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 3.5,
+                "height": 5.48,
+                "sill": 0.12,
+                "frameColor": "#354248",
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "glass": "dark",
+                "glassColor": "#34444b",
+                "recess": 0.22,
+                "perBay": 1
+              }
+            },
+            "parapet": {
+              "type": "plain",
+              "height": 0
+            },
+            "bands": [],
+            "sections": []
+          },
+          "1": {
+            "windows": {
+              "type": "storefront",
+              "width": 3.5,
+              "height": 5.48,
+              "sill": 0.12,
+              "frameColor": "#354248",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              },
+              "glass": "dark",
+              "glassColor": "#34444b",
+              "recess": 0.22,
+              "perBay": 1
+            },
+            "groundFloor": {
+              "height": 5.8,
+              "windows": {
+                "type": "storefront",
+                "width": 3.5,
+                "height": 5.48,
+                "sill": 0.12,
+                "frameColor": "#354248",
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "glass": "dark",
+                "glassColor": "#34444b",
+                "recess": 0.22,
+                "perBay": 1
+              }
+            },
+            "topFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 3.5,
+                "height": 5.48,
+                "sill": 0.12,
+                "frameColor": "#354248",
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "glass": "dark",
+                "glassColor": "#34444b",
+                "recess": 0.22,
+                "perBay": 1
+              }
+            },
+            "parapet": {
+              "type": "plain",
+              "height": 0
+            },
+            "bands": [],
+            "sections": []
+          },
+          "2": {
+            "windows": {
+              "type": "storefront",
+              "width": 3.5,
+              "height": 5.48,
+              "sill": 0.12,
+              "frameColor": "#354248",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              },
+              "glass": "dark",
+              "glassColor": "#34444b",
+              "recess": 0.22,
+              "perBay": 1
+            },
+            "groundFloor": {
+              "height": 5.8,
+              "windows": {
+                "type": "storefront",
+                "width": 3.5,
+                "height": 5.48,
+                "sill": 0.12,
+                "frameColor": "#354248",
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "glass": "dark",
+                "glassColor": "#34444b",
+                "recess": 0.22,
+                "perBay": 1
+              }
+            },
+            "topFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 3.5,
+                "height": 5.48,
+                "sill": 0.12,
+                "frameColor": "#354248",
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "glass": "dark",
+                "glassColor": "#34444b",
+                "recess": 0.22,
+                "perBay": 1
+              }
+            },
+            "parapet": {
+              "type": "plain",
+              "height": 0
+            },
+            "bands": [],
+            "sections": []
+          },
+          "3": {
+            "windows": {
+              "type": "storefront",
+              "width": 3.5,
+              "height": 5.48,
+              "sill": 0.12,
+              "frameColor": "#354248",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              },
+              "glass": "dark",
+              "glassColor": "#34444b",
+              "recess": 0.22,
+              "perBay": 1
+            },
+            "groundFloor": {
+              "height": 5.8,
+              "windows": {
+                "type": "storefront",
+                "width": 3.5,
+                "height": 5.48,
+                "sill": 0.12,
+                "frameColor": "#354248",
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "glass": "dark",
+                "glassColor": "#34444b",
+                "recess": 0.22,
+                "perBay": 1
+              }
+            },
+            "topFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 3.5,
+                "height": 5.48,
+                "sill": 0.12,
+                "frameColor": "#354248",
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "glass": "dark",
+                "glassColor": "#34444b",
+                "recess": 0.22,
+                "perBay": 1
+              }
+            },
+            "parapet": {
+              "type": "plain",
+              "height": 0
+            },
+            "bands": [],
+            "sections": []
+          }
+        }
+      },
+      {
+        "name": "Teaching levels over the north entrance recess",
+        "height": 18.6,
+        "floors": 3,
+        "footprint": [
+          [
+            110.74,
+            673.6
+          ],
+          [
+            105.51,
+            673.96
+          ],
+          [
+            105.45,
+            673.17
+          ],
+          [
+            104.46,
+            673.24
+          ],
+          [
+            104.52,
+            674.02
+          ],
+          [
+            99.1,
+            674.41
+          ],
+          [
+            99.03,
+            673.56
+          ],
+          [
+            98.05,
+            673.63
+          ],
+          [
+            98.14,
+            674.91
+          ],
+          [
+            97.09,
+            674.99
+          ],
+          [
+            99.44,
+            705.94
+          ],
+          [
+            99.81,
+            710.83
+          ],
+          [
+            106.82,
+            710.3
+          ],
+          [
+            106.88,
+            711.05
+          ],
+          [
+            108.16,
+            710.95
+          ],
+          [
+            108.27,
+            710.27
+          ],
+          [
+            113.13,
+            709.93
+          ],
+          [
+            113.18,
+            710.69
+          ],
+          [
+            114.43,
+            710.6
+          ],
+          [
+            114.38,
+            709.91
+          ],
+          [
+            119.55,
+            709.54
+          ],
+          [
+            119.61,
+            710.29
+          ],
+          [
+            120.67,
+            710.21
+          ],
+          [
+            120.61,
+            709.35
+          ],
+          [
+            125.46,
+            709.004
+          ],
+          [
+            125.326,
+            707.059
+          ],
+          [
+            126.872,
+            706.953
+          ],
+          [
+            126.812,
+            706.071
+          ],
+          [
+            125.266,
+            706.177
+          ],
+          [
+            125.124,
+            704.119
+          ],
+          [
+            126.671,
+            704.012
+          ],
+          [
+            126.61,
+            703.13
+          ],
+          [
+            125.064,
+            703.237
+          ],
+          [
+            124.922,
+            701.178
+          ],
+          [
+            126.469,
+            701.072
+          ],
+          [
+            126.408,
+            700.19
+          ],
+          [
+            124.862,
+            700.296
+          ],
+          [
+            124.721,
+            698.238
+          ],
+          [
+            126.267,
+            698.132
+          ],
+          [
+            126.206,
+            697.25
+          ],
+          [
+            124.66,
+            697.356
+          ],
+          [
+            124.519,
+            695.298
+          ],
+          [
+            126.065,
+            695.192
+          ],
+          [
+            126.004,
+            694.31
+          ],
+          [
+            124.458,
+            694.416
+          ],
+          [
+            124.317,
+            692.358
+          ],
+          [
+            125.863,
+            692.251
+          ],
+          [
+            125.803,
+            691.369
+          ],
+          [
+            124.256,
+            691.476
+          ],
+          [
+            124.115,
+            689.417
+          ],
+          [
+            125.661,
+            689.311
+          ],
+          [
+            125.601,
+            688.429
+          ],
+          [
+            124.055,
+            688.535
+          ],
+          [
+            123.913,
+            686.477
+          ],
+          [
+            125.46,
+            686.371
+          ],
+          [
+            125.399,
+            685.489
+          ],
+          [
+            123.853,
+            685.595
+          ],
+          [
+            123.711,
+            683.537
+          ],
+          [
+            125.258,
+            683.431
+          ],
+          [
+            125.197,
+            682.549
+          ],
+          [
+            123.651,
+            682.655
+          ],
+          [
+            123.51,
+            680.597
+          ],
+          [
+            125.056,
+            680.49
+          ],
+          [
+            124.995,
+            679.608
+          ],
+          [
+            123.449,
+            679.715
+          ],
+          [
+            123.308,
+            677.656
+          ],
+          [
+            124.854,
+            677.55
+          ],
+          [
+            124.46,
+            671.81
+          ],
+          [
+            123.37,
+            671.87
+          ],
+          [
+            123.42,
+            672.56
+          ],
+          [
+            118.16,
+            672.91
+          ],
+          [
+            118.11,
+            672.18
+          ],
+          [
+            117.19,
+            672.25
+          ],
+          [
+            117.24,
+            673.02
+          ],
+          [
+            111.83,
+            673.37
+          ],
+          [
+            111.78,
+            672.66
+          ],
+          [
+            110.68,
+            672.74
+          ]
+        ],
+        "wallProfiles": {
+          "-1": {
+            "material": "wall",
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "groundFloor": {
+              "material": "wall",
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "topFloor": {
+              "material": "wall",
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "parapet": {
+              "type": "plain",
+              "height": 0.17,
+              "material": "wall"
+            }
+          },
+          "0": {
+            "groundFloor": {
+              "height": 4.2,
+              "material": "smooth",
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "topFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "1": {
+            "groundFloor": {
+              "height": 4.2,
+              "material": "smooth",
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "topFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "2": {
+            "groundFloor": {
+              "height": 4.2,
+              "material": "smooth",
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "topFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          },
+          "3": {
+            "groundFloor": {
+              "height": 4.2,
+              "material": "smooth",
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            },
+            "topFloor": {
+              "windows": {
+                "type": "none",
+                "perBay": 0
+              }
+            }
+          }
+        },
+        "baseOffset": 5.8
+      },
+      {
+        "name": "Metal mechanical plant room",
+        "footprint": [
+          [
+            98.882,
+            698.801
+          ],
+          [
+            116.54,
+            697.755
+          ],
+          [
+            115.058,
+            679.799
+          ],
+          [
+            97.4,
+            680.845
+          ]
+        ],
+        "height": 23.35,
+        "baseOffset": 18.6,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "material": "metal",
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "North masonry pier 1",
+        "footprint": [
+          [
+            99.558,
+            673.651
+          ],
+          [
+            99.659,
+            675.098
+          ],
+          [
+            98.642,
+            675.169
+          ],
+          [
+            98.541,
+            673.722
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 19.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          }
+        }
+      },
+      {
+        "name": "North masonry pier 2",
+        "footprint": [
+          [
+            105.968,
+            673.201
+          ],
+          [
+            106.069,
+            674.648
+          ],
+          [
+            105.052,
+            674.719
+          ],
+          [
+            104.951,
+            673.272
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 19.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          }
+        }
+      },
+      {
+        "name": "North masonry pier 3",
+        "footprint": [
+          [
+            112.288,
+            672.611
+          ],
+          [
+            112.389,
+            674.058
+          ],
+          [
+            111.372,
+            674.129
+          ],
+          [
+            111.271,
+            672.682
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 19.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          }
+        }
+      },
+      {
+        "name": "North masonry pier 4",
+        "footprint": [
+          [
+            118.618,
+            672.151
+          ],
+          [
+            118.719,
+            673.598
+          ],
+          [
+            117.702,
+            673.669
+          ],
+          [
+            117.601,
+            672.222
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 19.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          }
+        }
+      },
+      {
+        "name": "North masonry pier 5",
+        "footprint": [
+          [
+            124.918,
+            671.051
+          ],
+          [
+            125.019,
+            672.498
+          ],
+          [
+            124.002,
+            672.569
+          ],
+          [
+            123.901,
+            671.122
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 19.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          }
+        }
+      },
+      {
+        "name": "Upper east mechanical room",
+        "footprint": [
+          [
+            113.64,
+            682.716
+          ],
+          [
+            114.442,
+            694.188
+          ],
+          [
+            107.36,
+            694.684
+          ],
+          [
+            106.558,
+            683.212
+          ]
+        ],
+        "baseOffset": 23.34,
+        "height": 25.15,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "flat",
+          "material": "metal",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 4,
+      "position": 0.2,
+      "width": 2.4,
+      "height": 3.05,
+      "type": "doors-double",
+      "steps": 0,
+      "recess": 1.0
+    },
+    {
+      "wall": 0,
+      "position": 0.54,
+      "width": 2.35,
+      "height": 3.1,
+      "type": "doors-double",
+      "steps": 0,
+      "recess": 1.18
+    }
+  ],
+  "attachments": [
+    {
+      "type": "skybridge",
+      "walls": [
+        6,
+        7
+      ],
+      "path": [
+        [
+          116.1,
+          709.95
+        ],
+        [
+          117.1,
+          722.1
+        ]
+      ],
+      "baseOffset": 5.1,
+      "height": 3.7,
+      "width": 3.5,
+      "material": "metal"
+    }
+  ],
+  "notes": "The green roof wraps the mechanical plant. University records identify a small rooftop wind turbine. Its exact position in the plant area is inferred. The pedestrian link has glazed sides."
+}

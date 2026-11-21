@@ -1,0 +1,3602 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w118764108",
+  "name": "Weldon Library",
+  "status": "refined",
+  "confidence": 0.87,
+  "summary": "Board-formed concrete building featuring L-shaped upper stacks above a wide low podium, deep horizontal window slots below a cantilever, broad entrance steps, and a blank southern archive.",
+  "style": "brutalist",
+  "materials": {
+    "wall": {
+      "kind": "concrete-board-formed",
+      "color": "#bdb29f",
+      "secondaryColor": "#b3a894",
+      "variation": 0.08,
+      "unitSize": [
+        2.4,
+        1.2
+      ],
+      "bond": "stack",
+      "roughness": 0.82,
+      "weathering": 0.18
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#b6ae9a",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#99978c",
+      "variation": 0.045
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    },
+    "equipment": {
+      "kind": "metal-panel",
+      "color": "#a7aaa5",
+      "roughness": 0.69,
+      "unitSize": [
+        0.6,
+        1.2
+      ]
+    },
+    "glassroof": {
+      "kind": "glass-block",
+      "color": "#abb9b8",
+      "secondaryColor": "#848b89",
+      "unitSize": [
+        0.8,
+        0.8
+      ]
+    },
+    "cores": {
+      "kind": "concrete-board-formed",
+      "color": "#acaa99",
+      "surface": "ribbed-concrete",
+      "secondaryColor": "#8f8d80",
+      "unitSize": [
+        0.16,
+        3
+      ]
+    },
+    "archive": {
+      "kind": "precast-panel",
+      "color": "#d0bf9e",
+      "variation": 0.065,
+      "secondaryColor": "#c7b594",
+      "unitSize": [
+        4.52,
+        1.17
+      ]
+    },
+    "stripGlass": {
+      "kind": "glass-curtain",
+      "color": "#3f484a",
+      "secondaryColor": "#3c4344"
+    },
+    "enclosure": {
+      "kind": "split-face-block",
+      "color": "#a69f8a"
+    },
+    "stackSeam": {
+      "kind": "standing-seam-metal",
+      "color": "#a79c87",
+      "secondaryColor": "#938b7a",
+      "unitSize": [
+        0.54,
+        9
+      ],
+      "roughness": 0.79,
+      "variation": 0.08
+    },
+    "readingRoof": {
+      "kind": "membrane",
+      "color": "#79796e",
+      "roughness": 0.86,
+      "weathering": 0.28
+    },
+    "serviceLeaf": {
+      "kind": "painted-metal",
+      "color": "#747876",
+      "roughness": 0.68
+    }
+  },
+  "floors": {
+    "count": 5,
+    "groundFloorHeight": 5.4,
+    "typicalHeight": 4.45,
+    "raisedGround": 0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "ribbon",
+        "width": 7.3,
+        "height": 1.55,
+        "sill": 1.15,
+        "perBay": 1,
+        "recess": 1,
+        "mullions": {
+          "vertical": 6,
+          "horizontal": 0,
+          "width": 0.065
+        },
+        "frameColor": "#4d5051",
+        "glass": "tinted",
+        "glassColor": "#53636a",
+        "shading": "none"
+      },
+      "bays": {
+        "width": 7.6,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "parapet": {
+        "height": 0.38,
+        "type": "plain",
+        "material": "wall"
+      },
+      "piers": {
+        "width": 0.46,
+        "depth": 1.05,
+        "every": 1,
+        "material": "wall",
+        "fullHeight": true
+      },
+      "bands": [
+        {
+          "at": "floor-lines",
+          "height": 0.42,
+          "depth": 0.13,
+          "material": "wall"
+        }
+      ],
+      "base": {
+        "height": 0.68,
+        "material": "wall",
+        "projection": 0.12
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4.5,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 6
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "archive"
+      },
+      "1": {
+        "bays": {
+          "width": 4.5,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 8
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "archive"
+      },
+      "2": {
+        "bays": {
+          "width": 7.61,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "4": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "5": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 8.55,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 8.63,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 8.39,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "9": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "10": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "11": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "12": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "13": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 6.71,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "15": {
+        "bays": {
+          "width": 10.77,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.85,
+          "height": 2.5,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 4,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "shading": "overhang"
+        },
+        "piers": {
+          "width": 0.45,
+          "depth": 0.68,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "16": {
+        "blank": false,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "sections": [
+          {
+            "start": 0.05,
+            "end": 0.95,
+            "base": 1.23,
+            "top": 4.18,
+            "material": "stripGlass",
+            "verticalMullionSpacing": 1.1
+          }
+        ]
+      },
+      "17": {
+        "bays": {
+          "width": 6.26,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.85,
+          "height": 2.5,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 4,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "shading": "overhang"
+        },
+        "piers": {
+          "width": 0.45,
+          "depth": 0.68,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "18": {
+        "blank": false,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "sections": [
+          {
+            "start": 0.05,
+            "end": 0.95,
+            "base": 1.23,
+            "top": 4.18,
+            "material": "stripGlass",
+            "verticalMullionSpacing": 1.1
+          }
+        ]
+      },
+      "19": {
+        "bays": {
+          "width": 6.53,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.85,
+          "height": 2.5,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 4,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "shading": "overhang"
+        },
+        "piers": {
+          "width": 0.45,
+          "depth": 0.68,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "20": {
+        "blank": false,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "sections": [
+          {
+            "start": 0.05,
+            "end": 0.95,
+            "base": 1.23,
+            "top": 4.18,
+            "material": "stripGlass",
+            "verticalMullionSpacing": 1.1
+          }
+        ]
+      },
+      "21": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "22": {
+        "blank": false,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "sections": [
+          {
+            "start": 0.05,
+            "end": 0.95,
+            "base": 1.23,
+            "top": 4.18,
+            "material": "stripGlass",
+            "verticalMullionSpacing": 1.1
+          }
+        ]
+      },
+      "23": {
+        "bays": {
+          "width": 6.42,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.85,
+          "height": 2.5,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 4,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "shading": "overhang"
+        },
+        "piers": {
+          "width": 0.45,
+          "depth": 0.68,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "24": {
+        "blank": false,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "sections": [
+          {
+            "start": 0.05,
+            "end": 0.95,
+            "base": 1.23,
+            "top": 4.18,
+            "material": "stripGlass",
+            "verticalMullionSpacing": 1.1
+          }
+        ]
+      },
+      "25": {
+        "bays": {
+          "width": 6.42,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.85,
+          "height": 2.5,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 4,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "shading": "overhang"
+        },
+        "piers": {
+          "width": 0.45,
+          "depth": 0.68,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "26": {
+        "blank": false,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "sections": [
+          {
+            "start": 0.05,
+            "end": 0.95,
+            "base": 1.23,
+            "top": 4.18,
+            "material": "stripGlass",
+            "verticalMullionSpacing": 1.1
+          }
+        ]
+      },
+      "27": {
+        "bays": {
+          "width": 6.42,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "windows": {
+          "type": "ribbon",
+          "width": 5.85,
+          "height": 2.5,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 4,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "shading": "overhang"
+        },
+        "piers": {
+          "width": 0.45,
+          "depth": 0.68,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        }
+      },
+      "28": {
+        "bays": {
+          "width": 6.37,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "29": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "30": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "31": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "32": {
+        "bays": {
+          "width": 10.42,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "33": {
+        "bays": {
+          "width": 6.56,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        }
+      },
+      "34": {
+        "bays": {
+          "width": 9.07,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "35": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "36": {
+        "bays": {
+          "width": 8.62,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "37": {
+        "bays": {
+          "width": 9.84,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "38": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "39": {
+        "bays": {
+          "width": 7.16,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 7
+        }
+      },
+      "40": {
+        "bays": {
+          "width": 6.39,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "cores"
+      },
+      "41": {
+        "bays": {
+          "width": 6.22,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "cores"
+      },
+      "42": {
+        "bays": {
+          "width": 8.3,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 6
+        }
+      },
+      "43": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "cores"
+      },
+      "44": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "cores"
+      },
+      "45": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "46": {
+        "bays": {
+          "width": 6.04,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "47": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "48": {
+        "bays": {
+          "width": 4.5,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 8
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "archive"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "skylight",
+        "center": [
+          120.05,
+          397.95
+        ],
+        "size": [
+          6.3,
+          6.3
+        ],
+        "height": 1.45,
+        "material": "glassroof",
+        "rotation": -32
+      },
+      {
+        "type": "skylight",
+        "center": [
+          128.53,
+          355.84
+        ],
+        "size": [
+          6.3,
+          6.3
+        ],
+        "height": 1.45,
+        "rotation": -32,
+        "material": "glassroof"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          107.194,
+          376.495
+        ],
+        "size": [
+          4.7,
+          4.3
+        ],
+        "height": 1.8,
+        "rotation": 35,
+        "material": "equipment"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          103.837,
+          360.991
+        ],
+        "size": [
+          4.4,
+          3.3
+        ],
+        "height": 1.8,
+        "rotation": 35,
+        "material": "equipment"
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          135.477,
+          413.3148
+        ],
+        "size": [
+          2.85,
+          9.154499999999999
+        ],
+        "height": 1.4,
+        "material": "stripGlass",
+        "rotation": 10
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          132.7061,
+          400.8576
+        ],
+        "size": [
+          2.85,
+          10.642
+        ],
+        "height": 1.4,
+        "material": "stripGlass",
+        "rotation": 10
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          139.8435,
+          388.8187
+        ],
+        "size": [
+          2.85,
+          11.092500000000001
+        ],
+        "height": 1.4,
+        "material": "stripGlass",
+        "rotation": 10
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          142.6455,
+          372.6968
+        ],
+        "size": [
+          2.85,
+          10.914
+        ],
+        "height": 1.4,
+        "material": "stripGlass",
+        "rotation": 10
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          147.2918,
+          347.331
+        ],
+        "size": [
+          2.85,
+          10.9225
+        ],
+        "height": 1.4,
+        "material": "stripGlass",
+        "rotation": 10
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          124.0,
+          352.0
+        ],
+        "size": [
+          5.6,
+          7
+        ],
+        "height": 1.7,
+        "material": "wall",
+        "rotation": 35
+      },
+      {
+        "type": "hvac",
+        "center": [
+          134.1,
+          357.3
+        ],
+        "size": [
+          1.15,
+          7.0
+        ],
+        "height": 0.8,
+        "material": "equipment",
+        "rotation": 10
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          127.86,
+          412.2
+        ],
+        "size": [
+          8.4,
+          2.8
+        ],
+        "height": 1.22,
+        "rotation": 10,
+        "material": "stripGlass"
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          135.34,
+          383.49
+        ],
+        "size": [
+          8.8,
+          2.65
+        ],
+        "height": 1.22,
+        "rotation": 10,
+        "material": "stripGlass"
+      },
+      {
+        "type": "clerestory",
+        "center": [
+          137.4,
+          378.04
+        ],
+        "size": [
+          8.45,
+          2.65
+        ],
+        "height": 1.22,
+        "rotation": 10,
+        "material": "stripGlass"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          63.494,
+          397.972
+        ],
+        "size": [
+          2.4,
+          2.8
+        ],
+        "height": 1.35,
+        "rotation": -35,
+        "material": "equipment",
+        "fanGrid": [
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "note": "Facilities Management photograph of the exterior and its openings.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/WL.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory core-1m surface percentiles above ground: median 11.23 m, 90th percentile 25.91 m, maximum 30.8 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Southwest elevation shows continuous recessed glazing, broad spandrels, blade piers and a deep upper overhang. Lower row has angled glazing caps.",
+      "frame": "73870297",
+      "walls": [
+        42
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "End of the window run meets a blind vertically textured concrete core.",
+      "frame": "131415149",
+      "walls": [
+        42,
+        44
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "View across parking toward the southern archive shows large blind panel fields separated by narrow raised vertical joints. Index 3 is the frame matcher target, not the entire visible face.",
+      "frame": "73870365",
+      "walls": [
+        48,
+        0
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "Library master plan identifies an L-shaped upper stack over large lower floorplates and a double-height entrance hall.",
+      "url": "https://www.lib.uwo.ca/files/spacemasterplan/spacemasterplan.pdf"
+    },
+    {
+      "kind": "osm",
+      "note": "Entrance positions are aligned to mapped footpath, service or stair endpoints where those meet the outer wall. Door and step dimensions are estimates."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 aerial shows a rotated rectangular southern archive, stepped stack roofs to the northwest, a low staggered eastern perimeter and a square skylight."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Bay counts, opening dimensions and storey heights on unseen elevations are architectural estimates. Wall and roof hues are image samples, subject to exposure and shadows."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "73870297",
+      "walls": [
+        42
+      ],
+      "note": "PIL mean patches for wall and trim centred at (95%, 37%) and (81%, 78%) of the photo. Exposure multipliers 1 and 1 approximate daylight across the source views."
+    },
+    {
+      "kind": "lidar",
+      "note": "The 1 m roof grid traces two orthogonal upper-stack legs with field elevations near 23.6 m, an inner L-shaped strip near 26.1 m and a rooftop service volume near 29.7 m. Point (74, 368) falls on that inner strip. The archive roof at (108, 426) is about 9.1 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Frame 73870297 shows narrow bronze glazing behind deep concrete piers between fluted end cores. Ground-floor window caps incline toward the wall.",
+      "frame": "73870297",
+      "walls": [
+        42
+      ]
+    },
+    {
+      "kind": "lidar",
+      "note": "At (74,368) the ridge is 26.14 m. Its inner flank falls first to about 19 m and then to the 15.4 m reading-room roof. The north podium returns near 9.3 m. The archive at (108,426) stays near 9.1 m. Near (140,380) the east recess returns to grade."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 37,
+      "position": 0.61,
+      "type": "glass-vestibule",
+      "width": 9.2,
+      "height": 5.6,
+      "recess": 1.8,
+      "steps": 8,
+      "canopy": {
+        "type": "flat",
+        "depth": 3.6,
+        "width": 10.8,
+        "material": "wall"
+      }
+    },
+    {
+      "wall": 42,
+      "type": "service-door",
+      "position": 0.085,
+      "width": 2.23,
+      "height": 2.47,
+      "doorColor": "#747876",
+      "at": [
+        38.084,
+        378.181
+      ]
+    },
+    {
+      "wall": 42,
+      "type": "service-door",
+      "position": 0.919,
+      "width": 2.23,
+      "height": 2.47,
+      "doorColor": "#747876",
+      "at": [
+        61.758,
+        412.267
+      ]
+    }
+  ],
+  "notes": "The concrete soffit is deeply coffered. No street view resolves the eastern podium entrance glazing.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Southern archive block",
+        "footprint": {
+          "clip": [
+            [
+              96.64195656,
+              399.94248604
+            ],
+            [
+              95.02,
+              401.07
+            ],
+            [
+              104.72,
+              415.36
+            ],
+            [
+              106.69,
+              414.26
+            ],
+            [
+              107.42954357,
+              413.64942005
+            ]
+          ]
+        },
+        "height": 9.15,
+        "floors": 2,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "piers": {
+            "every": 1,
+            "width": 0.36,
+            "depth": 0.24,
+            "material": "archive",
+            "fullHeight": true,
+            "aboveRoof": 0.14
+          },
+          "bays": {
+            "width": 4.5
+          },
+          "material": "archive",
+          "base": {
+            "height": 1.32,
+            "material": "archive",
+            "projection": 0.12
+          },
+          "parapet": {
+            "type": "stepped",
+            "height": 0.32
+          }
+        },
+        "material": "archive"
+      },
+      {
+        "name": "Southern archive block",
+        "footprint": {
+          "clip": [
+            [
+              73.68062013,
+              405.56955688
+            ],
+            [
+              74.83,
+              406.35
+            ],
+            [
+              81.33,
+              416.54
+            ],
+            [
+              75.32,
+              420.49
+            ],
+            [
+              95.44,
+              448.93
+            ],
+            [
+              115.86,
+              434.49
+            ],
+            [
+              96.59,
+              406.45
+            ],
+            [
+              97.7,
+              405.62
+            ],
+            [
+              89.75879187,
+              394.08086327
+            ]
+          ]
+        },
+        "height": 9.15,
+        "floors": 2,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "piers": {
+            "every": 1,
+            "width": 0.36,
+            "depth": 0.24,
+            "material": "archive",
+            "fullHeight": true,
+            "aboveRoof": 0.14
+          },
+          "bays": {
+            "width": 4.5
+          },
+          "material": "archive",
+          "base": {
+            "height": 1.32,
+            "material": "archive",
+            "projection": 0.12
+          },
+          "parapet": {
+            "type": "stepped",
+            "height": 0.32
+          }
+        },
+        "material": "archive"
+      },
+      {
+        "name": "Central stepped reading rooms",
+        "footprint": {
+          "clip": [
+            [
+              104.94292,
+              358.95672
+            ],
+            [
+              99.85067,
+              362.49352
+            ],
+            [
+              96.90283,
+              362.10585
+            ],
+            [
+              93.69689,
+              357.48998
+            ],
+            [
+              93.45049,
+              357.66111
+            ],
+            [
+              93.49613,
+              357.72682
+            ],
+            [
+              94.91656,
+              359.77193
+            ],
+            [
+              96.37691,
+              361.87454
+            ],
+            [
+              84.31156,
+              370.25448
+            ],
+            [
+              93.29048,
+              383.18223
+            ],
+            [
+              91.18788,
+              384.64259
+            ],
+            [
+              89.14276,
+              386.06301
+            ],
+            [
+              88.43642,
+              386.5536
+            ],
+            [
+              88.55051,
+              386.71787
+            ],
+            [
+              93.47849,
+              383.29515
+            ],
+            [
+              96.33165,
+              383.80945
+            ],
+            [
+              99.41209,
+              388.24464
+            ],
+            [
+              99.79875,
+              390.35028
+            ],
+            [
+              118.59375,
+              377.29628
+            ],
+            [
+              105.31777,
+              358.18168
+            ]
+          ]
+        },
+        "height": 15.42,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "readingRoof",
+          "edge": "parapet",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Central stepped reading rooms",
+        "footprint": {
+          "clip": [
+            [
+              99.88785,
+              355.71037
+            ],
+            [
+              102.3929,
+              353.97049
+            ],
+            [
+              102.19325,
+              353.68303
+            ],
+            [
+              99.68819,
+              355.4229
+            ],
+            [
+              87.43377,
+              337.77913
+            ],
+            [
+              87.43377,
+              337.77913
+            ]
+          ]
+        },
+        "height": 15.42,
+        "floors": 3,
+        "roof": {
+          "form": "flat",
+          "material": "readingRoof",
+          "edge": "parapet",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Low eastern podium and entrance hall",
+        "footprint": {
+          "clip": [
+            [
+              89.11435578,
+              393.14445208
+            ],
+            [
+              72.43883836,
+              404.72637173
+            ],
+            [
+              73.68062013,
+              405.56955688
+            ],
+            [
+              89.75879187,
+              394.08086327
+            ]
+          ]
+        },
+        "height": 6.7,
+        "floors": 1
+      },
+      {
+        "name": "Low eastern podium and entrance hall",
+        "footprint": {
+          "clip": [
+            [
+              107.42954,
+              413.64942
+            ],
+            [
+              113.17,
+              408.91
+            ],
+            [
+              115.66,
+              412.23
+            ],
+            [
+              113.64,
+              414.02
+            ],
+            [
+              113.37,
+              415.2
+            ],
+            [
+              113.44,
+              416.33
+            ],
+            [
+              114.6,
+              417.29
+            ],
+            [
+              115.7,
+              417.21
+            ],
+            [
+              121.18,
+              413.56
+            ],
+            [
+              121.31,
+              412.53
+            ],
+            [
+              123.76,
+              413.05
+            ],
+            [
+              123.33,
+              415.87
+            ],
+            [
+              136.4,
+              418.89
+            ],
+            [
+              137.92,
+              408.22
+            ],
+            [
+              133.4,
+              407.31
+            ],
+            [
+              135.37,
+              394.94
+            ],
+            [
+              140.22,
+              395.55
+            ],
+            [
+              142.8,
+              382.76
+            ],
+            [
+              138.13,
+              381.78
+            ],
+            [
+              138.65,
+              378.54
+            ],
+            [
+              143.21,
+              379.31
+            ],
+            [
+              145.43,
+              366.67
+            ],
+            [
+              140.61,
+              365.74
+            ],
+            [
+              143.01,
+              353.12
+            ],
+            [
+              148.07,
+              353.93
+            ],
+            [
+              149.88,
+              341.21
+            ],
+            [
+              137.35,
+              338.95
+            ],
+            [
+              136.24,
+              344.35
+            ],
+            [
+              133.88,
+              343.95
+            ],
+            [
+              130.28,
+              337.92
+            ],
+            [
+              128.8,
+              337.31
+            ],
+            [
+              127.44,
+              337.95
+            ],
+            [
+              127.14,
+              339.09
+            ],
+            [
+              127.35,
+              340.05
+            ],
+            [
+              128.51,
+              341.75
+            ],
+            [
+              125.26,
+              343.97
+            ],
+            [
+              119.13,
+              335.54
+            ],
+            [
+              116.48,
+              337.4
+            ],
+            [
+              105.17,
+              345.34
+            ],
+            [
+              104.48693,
+              345.85393
+            ],
+            [
+              104.49939,
+              345.87187
+            ],
+            [
+              116.16229,
+              337.77144
+            ],
+            [
+              118.15887,
+              340.6461
+            ],
+            [
+              106.49597,
+              348.74652
+            ],
+            [
+              107.4087,
+              350.06065
+            ],
+            [
+              102.19325,
+              353.68303
+            ],
+            [
+              102.3929,
+              353.97049
+            ],
+            [
+              102.84464,
+              353.65674
+            ],
+            [
+              104.86272,
+              354.02052
+            ],
+            [
+              106.31738,
+              356.11491
+            ],
+            [
+              105.31777,
+              358.18168
+            ],
+            [
+              118.59375,
+              377.29628
+            ],
+            [
+              99.79875,
+              390.35028
+            ],
+            [
+              100.04661,
+              391.70005
+            ],
+            [
+              99.38936,
+              392.31878
+            ],
+            [
+              102.04,
+              396.19
+            ],
+            [
+              96.64196,
+              399.94249
+            ]
+          ]
+        },
+        "height": 6.7,
+        "floors": 1
+      },
+      {
+        "name": "Low eastern podium and entrance hall",
+        "footprint": {
+          "clip": [
+            [
+              84.05,
+              328.2
+            ],
+            [
+              84.15020353,
+              328.10586941
+            ],
+            [
+              82.88127556,
+              328.98719869
+            ]
+          ]
+        },
+        "height": 6.7,
+        "floors": 1
+      },
+      {
+        "name": "Low eastern podium and entrance hall",
+        "footprint": {
+          "clip": [
+            [
+              69.33,
+              409.98
+            ],
+            [
+              67.83247581,
+              407.925704
+            ],
+            [
+              67.76218368,
+              407.97452514
+            ],
+            [
+              69.56976356,
+              410.57705827
+            ]
+          ]
+        },
+        "height": 6.7,
+        "floors": 1
+      },
+      {
+        "name": "Raised inner L of the upper stacks",
+        "height": 26.1,
+        "baseOffset": 23.63,
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.01,
+            "depth": 0.01,
+            "every": 999
+          },
+          "base": {
+            "height": 0.0,
+            "projection": 0.0
+          }
+        },
+        "footprint": {
+          "clip": [
+            [
+              70.79735,
+              367.81845
+            ],
+            [
+              68.00483,
+              369.75799
+            ],
+            [
+              82.63693,
+              390.82512
+            ],
+            [
+              88.55051,
+              386.71787
+            ],
+            [
+              88.43642,
+              386.5536
+            ],
+            [
+              88.22287,
+              386.70192
+            ],
+            [
+              75.72426,
+              368.70656
+            ],
+            [
+              92.85722,
+              356.80693
+            ],
+            [
+              93.45049,
+              357.66111
+            ],
+            [
+              95.01102,
+              356.57725
+            ],
+            [
+              90.28768,
+              349.77663
+            ],
+            [
+              71.80773,
+              362.61181
+            ],
+            [
+              68.68668,
+              364.77953
+            ]
+          ]
+        },
+        "roof": {
+          "form": "flat",
+          "material": "stackSeam",
+          "edge": "parapet",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Upper stack rooftop service block",
+        "height": 29.73,
+        "baseOffset": 23.63,
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.01,
+            "depth": 0.01,
+            "every": 999
+          },
+          "base": {
+            "height": 0.0,
+            "projection": 0.0
+          }
+        },
+        "footprint": {
+          "clip": [
+            [
+              49.61689699,
+              359.58610885
+            ],
+            [
+              53.41,
+              364.92
+            ],
+            [
+              43.2,
+              372.02
+            ],
+            [
+              43.0665085,
+              371.85960324
+            ],
+            [
+              40.34090454,
+              373.75266151
+            ],
+            [
+              45.27531669,
+              380.85717252
+            ],
+            [
+              54.30995498,
+              374.58219753
+            ],
+            [
+              56.50619622,
+              377.74432093
+            ],
+            [
+              60.36645076,
+              375.06319525
+            ],
+            [
+              70.79735132,
+              367.81845141
+            ],
+            [
+              54.53718191,
+              344.40724269
+            ],
+            [
+              50.87,
+              346.98
+            ],
+            [
+              46.76,
+              349.81
+            ],
+            [
+              43.16,
+              352.7
+            ],
+            [
+              42.47552804,
+              353.42358464
+            ],
+            [
+              43.95001442,
+              355.54653351
+            ],
+            [
+              44.77002009,
+              355.48158257
+            ],
+            [
+              44.8965641,
+              355.39369188
+            ],
+            [
+              46.0,
+              354.5
+            ],
+            [
+              46.06059943,
+              354.5852154
+            ],
+            [
+              46.11655302,
+              354.54635304
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Cantilevered upper stacks",
+        "footprint": {
+          "clip": [
+            [
+              39.79,
+              370.36
+            ],
+            [
+              39.24,
+              371.2
+            ],
+            [
+              39.2,
+              372.11
+            ],
+            [
+              41.66234,
+              370.39959
+            ],
+            [
+              40.89,
+              370.18
+            ]
+          ]
+        },
+        "height": 23.63,
+        "floors": 2,
+        "baseOffset": 13.4,
+        "facade": {
+          "windows": {
+            "height": 0.78,
+            "sill": 1.55,
+            "recess": 1.05,
+            "type": "ribbon"
+          },
+          "piers": {
+            "width": 0.15,
+            "depth": 0.06,
+            "every": 1
+          },
+          "bands": [
+            {
+              "at": "floor-lines",
+              "height": 0.66,
+              "depth": 0.14,
+              "material": "wall"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Recessed stack glazing and end cores",
+        "footprint": {
+          "clip": [
+            [
+              39.79,
+              370.36
+            ],
+            [
+              39.24,
+              371.2
+            ],
+            [
+              39.2,
+              372.11
+            ],
+            [
+              41.66234,
+              370.39959
+            ],
+            [
+              40.89,
+              370.18
+            ]
+          ]
+        },
+        "height": 13.4,
+        "floors": 3,
+        "facade": {
+          "bays": {
+            "width": 7.65
+          },
+          "groundFloor": {
+            "height": 4.0,
+            "windows": {
+              "height": 1.65,
+              "sill": 1.5,
+              "rake": 0,
+              "projectEvery": 1,
+              "projection": 0.9,
+              "shading": "sloped-glass"
+            }
+          },
+          "windows": {
+            "height": 2.35,
+            "sill": 1.28,
+            "recess": 1.1
+          },
+          "piers": {
+            "width": 0.64,
+            "depth": 1.12,
+            "every": 1,
+            "fullHeight": true,
+            "material": "wall"
+          },
+          "base": {
+            "height": 1.3,
+            "material": "trim",
+            "batter": 0.6,
+            "projection": 0.13
+          }
+        }
+      },
+      {
+        "name": "Recessed stack glazing and end cores",
+        "footprint": {
+          "clip": [
+            [
+              39.74868,
+              373.25083
+            ],
+            [
+              39.91306,
+              373.13666
+            ],
+            [
+              39.2,
+              372.11
+            ],
+            [
+              39.64,
+              373.09
+            ]
+          ]
+        },
+        "height": 13.4,
+        "floors": 3,
+        "facade": {
+          "bays": {
+            "width": 7.65
+          },
+          "groundFloor": {
+            "height": 4.0,
+            "windows": {
+              "height": 1.65,
+              "sill": 1.5,
+              "rake": 0,
+              "projectEvery": 1,
+              "projection": 0.9,
+              "shading": "sloped-glass"
+            }
+          },
+          "windows": {
+            "height": 2.35,
+            "sill": 1.28,
+            "recess": 1.1
+          },
+          "piers": {
+            "width": 0.64,
+            "depth": 1.12,
+            "every": 1,
+            "fullHeight": true,
+            "material": "wall"
+          },
+          "base": {
+            "height": 1.3,
+            "material": "trim",
+            "batter": 0.6,
+            "projection": 0.13
+          }
+        }
+      },
+      {
+        "name": "Fluted stack stair core",
+        "height": 26.35,
+        "floors": 5,
+        "material": "cores",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "cores",
+          "bands": [],
+          "piers": {
+            "width": 0.05,
+            "depth": 0.03,
+            "every": 999,
+            "material": "trim",
+            "fullHeight": true
+          }
+        },
+        "footprint": {
+          "clip": [
+            [
+              48.30913,
+              374.26898
+            ],
+            [
+              45.59187,
+              370.3567
+            ],
+            [
+              43.2,
+              372.02
+            ],
+            [
+              41.91,
+              370.47
+            ],
+            [
+              41.66234,
+              370.39959
+            ],
+            [
+              39.2,
+              372.11
+            ],
+            [
+              43.176,
+              377.8346
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Cantilevered upper stacks",
+        "footprint": {
+          "clip": [
+            [
+              99.38936,
+              392.31878
+            ],
+            [
+              100.04661,
+              391.70005
+            ],
+            [
+              99.41209,
+              388.24464
+            ],
+            [
+              96.33165,
+              383.80945
+            ],
+            [
+              93.47849,
+              383.29515
+            ],
+            [
+              88.55051,
+              386.71787
+            ],
+            [
+              88.43642,
+              386.5536
+            ],
+            [
+              88.22287,
+              386.70192
+            ],
+            [
+              75.72426,
+              368.70656
+            ],
+            [
+              92.85722,
+              356.80693
+            ],
+            [
+              93.45049,
+              357.66111
+            ],
+            [
+              93.69689,
+              357.48998
+            ],
+            [
+              96.90283,
+              362.10585
+            ],
+            [
+              99.85067,
+              362.49352
+            ],
+            [
+              104.94292,
+              358.95672
+            ],
+            [
+              106.31738,
+              356.11491
+            ],
+            [
+              104.86272,
+              354.02052
+            ],
+            [
+              102.84464,
+              353.65674
+            ],
+            [
+              99.88785,
+              355.71037
+            ],
+            [
+              87.43377,
+              337.77913
+            ],
+            [
+              87.3,
+              337.87
+            ],
+            [
+              83.84,
+              332.95
+            ],
+            [
+              81.63,
+              329.83
+            ],
+            [
+              82.88148,
+              328.98706
+            ],
+            [
+              84.1502,
+              328.10587
+            ],
+            [
+              85.04,
+              327.27
+            ],
+            [
+              85.18,
+              326.19
+            ],
+            [
+              84.67,
+              325.15
+            ],
+            [
+              83.53,
+              324.73
+            ],
+            [
+              82.66,
+              325.0
+            ],
+            [
+              81.49,
+              325.72
+            ],
+            [
+              70.07,
+              333.51
+            ],
+            [
+              50.87,
+              346.98
+            ],
+            [
+              46.76,
+              349.81
+            ],
+            [
+              43.16,
+              352.7
+            ],
+            [
+              42.46,
+              353.44
+            ],
+            [
+              42.28,
+              354.39
+            ],
+            [
+              42.95,
+              355.2
+            ],
+            [
+              43.78,
+              355.56
+            ],
+            [
+              44.79,
+              355.48
+            ],
+            [
+              46.0,
+              354.5
+            ],
+            [
+              53.41,
+              364.92
+            ],
+            [
+              45.59187,
+              370.3567
+            ],
+            [
+              48.30913,
+              374.26898
+            ],
+            [
+              43.176,
+              377.8346
+            ],
+            [
+              39.2,
+              372.11
+            ],
+            [
+              39.64,
+              373.09
+            ],
+            [
+              44.85,
+              380.8
+            ],
+            [
+              62.31,
+              405.98
+            ],
+            [
+              66.82,
+              412.21
+            ],
+            [
+              67.6,
+              413.0
+            ],
+            [
+              63.624,
+              407.2754
+            ],
+            [
+              68.75713,
+              403.70978
+            ],
+            [
+              70.39113,
+              406.06239
+            ],
+            [
+              72.4,
+              404.7
+            ],
+            [
+              72.43884,
+              404.72637
+            ],
+            [
+              89.11436,
+              393.14445
+            ],
+            [
+              89.07,
+              393.08
+            ],
+            [
+              94.87,
+              388.96
+            ],
+            [
+              94.96,
+              389.08438
+            ],
+            [
+              94.96466,
+              389.08115
+            ],
+            [
+              95.13237,
+              389.32261
+            ],
+            [
+              96.99,
+              391.89
+            ],
+            [
+              98.03,
+              392.28
+            ],
+            [
+              99.13,
+              391.94
+            ]
+          ]
+        },
+        "height": 23.63,
+        "floors": 2,
+        "baseOffset": 13.4,
+        "facade": {
+          "windows": {
+            "height": 0.78,
+            "sill": 1.55,
+            "recess": 1.05,
+            "type": "ribbon"
+          },
+          "piers": {
+            "width": 0.15,
+            "depth": 0.06,
+            "every": 1
+          },
+          "bands": [
+            {
+              "at": "floor-lines",
+              "height": 0.66,
+              "depth": 0.14,
+              "material": "wall"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Cantilevered upper stacks",
+        "footprint": {
+          "clip": [
+            [
+              69.48,
+              412.36
+            ],
+            [
+              69.75877,
+              411.50045
+            ],
+            [
+              67.6,
+              413.0
+            ],
+            [
+              68.44,
+              412.96
+            ]
+          ]
+        },
+        "height": 23.63,
+        "floors": 2,
+        "baseOffset": 13.4,
+        "facade": {
+          "windows": {
+            "height": 0.78,
+            "sill": 1.55,
+            "recess": 1.05,
+            "type": "ribbon"
+          },
+          "piers": {
+            "width": 0.15,
+            "depth": 0.06,
+            "every": 1
+          },
+          "bands": [
+            {
+              "at": "floor-lines",
+              "height": 0.66,
+              "depth": 0.14,
+              "material": "wall"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Recessed stack glazing and end cores",
+        "footprint": {
+          "clip": [
+            [
+              96.33165,
+              383.80945
+            ],
+            [
+              93.47849,
+              383.29515
+            ],
+            [
+              88.55051,
+              386.71787
+            ],
+            [
+              76.53108,
+              369.41243
+            ],
+            [
+              93.69689,
+              357.48998
+            ],
+            [
+              96.90283,
+              362.10585
+            ],
+            [
+              99.85067,
+              362.49352
+            ],
+            [
+              104.94292,
+              358.95672
+            ],
+            [
+              106.31738,
+              356.11491
+            ],
+            [
+              104.86272,
+              354.02052
+            ],
+            [
+              102.84464,
+              353.65674
+            ],
+            [
+              99.88785,
+              355.71037
+            ],
+            [
+              87.43377,
+              337.77913
+            ],
+            [
+              87.3,
+              337.87
+            ],
+            [
+              83.84,
+              332.95
+            ],
+            [
+              81.63,
+              329.83
+            ],
+            [
+              82.88148,
+              328.98706
+            ],
+            [
+              84.1502,
+              328.10587
+            ],
+            [
+              85.04,
+              327.27
+            ],
+            [
+              85.18,
+              326.19
+            ],
+            [
+              84.67,
+              325.15
+            ],
+            [
+              83.53,
+              324.73
+            ],
+            [
+              82.66,
+              325.0
+            ],
+            [
+              81.49,
+              325.72
+            ],
+            [
+              70.07,
+              333.51
+            ],
+            [
+              50.87,
+              346.98
+            ],
+            [
+              46.76,
+              349.81
+            ],
+            [
+              43.16,
+              352.7
+            ],
+            [
+              42.46,
+              353.44
+            ],
+            [
+              42.28,
+              354.39
+            ],
+            [
+              42.95,
+              355.2
+            ],
+            [
+              43.78,
+              355.56
+            ],
+            [
+              44.79,
+              355.48
+            ],
+            [
+              46.0,
+              354.5
+            ],
+            [
+              53.41,
+              364.92
+            ],
+            [
+              45.59187,
+              370.3567
+            ],
+            [
+              48.30913,
+              374.26898
+            ],
+            [
+              46.09162,
+              375.80933
+            ],
+            [
+              66.53962,
+              405.25012
+            ],
+            [
+              68.75713,
+              403.70978
+            ],
+            [
+              70.39113,
+              406.06239
+            ],
+            [
+              72.4,
+              404.7
+            ],
+            [
+              72.43884,
+              404.72637
+            ],
+            [
+              89.11436,
+              393.14445
+            ],
+            [
+              89.07,
+              393.08
+            ],
+            [
+              94.87,
+              388.96
+            ],
+            [
+              94.96,
+              389.08438
+            ],
+            [
+              94.96466,
+              389.08115
+            ],
+            [
+              95.13237,
+              389.32261
+            ],
+            [
+              96.99,
+              391.89
+            ],
+            [
+              98.03,
+              392.28
+            ],
+            [
+              99.13,
+              391.94
+            ],
+            [
+              99.38936,
+              392.31878
+            ],
+            [
+              100.04661,
+              391.70005
+            ],
+            [
+              99.41209,
+              388.24464
+            ]
+          ]
+        },
+        "height": 13.4,
+        "floors": 3,
+        "facade": {
+          "bays": {
+            "width": 7.65
+          },
+          "groundFloor": {
+            "height": 4.0,
+            "windows": {
+              "height": 1.65,
+              "sill": 1.5,
+              "rake": 0,
+              "projectEvery": 1,
+              "projection": 0.9,
+              "shading": "sloped-glass"
+            }
+          },
+          "windows": {
+            "height": 2.35,
+            "sill": 1.28,
+            "recess": 1.1
+          },
+          "piers": {
+            "width": 0.64,
+            "depth": 1.12,
+            "every": 1,
+            "fullHeight": true,
+            "material": "wall"
+          },
+          "base": {
+            "height": 1.3,
+            "material": "trim",
+            "batter": 0.6,
+            "projection": 0.13
+          }
+        }
+      },
+      {
+        "name": "Recessed stack glazing and end cores",
+        "footprint": {
+          "clip": [
+            [
+              66.82,
+              412.21
+            ],
+            [
+              67.6,
+              413.0
+            ],
+            [
+              66.89546,
+              411.98561
+            ],
+            [
+              66.73715,
+              412.09556
+            ]
+          ]
+        },
+        "height": 13.4,
+        "floors": 3,
+        "facade": {
+          "bays": {
+            "width": 7.65
+          },
+          "groundFloor": {
+            "height": 4.0,
+            "windows": {
+              "height": 1.65,
+              "sill": 1.5,
+              "rake": 0,
+              "projectEvery": 1,
+              "projection": 0.9,
+              "shading": "sloped-glass"
+            }
+          },
+          "windows": {
+            "height": 2.35,
+            "sill": 1.28,
+            "recess": 1.1
+          },
+          "piers": {
+            "width": 0.64,
+            "depth": 1.12,
+            "every": 1,
+            "fullHeight": true,
+            "material": "wall"
+          },
+          "base": {
+            "height": 1.3,
+            "material": "trim",
+            "batter": 0.6,
+            "projection": 0.13
+          }
+        }
+      },
+      {
+        "name": "Recessed stack glazing and end cores",
+        "footprint": {
+          "clip": [
+            [
+              69.48,
+              412.36
+            ],
+            [
+              69.75877,
+              411.50045
+            ],
+            [
+              67.6,
+              413.0
+            ],
+            [
+              68.44,
+              412.96
+            ]
+          ]
+        },
+        "height": 13.4,
+        "floors": 3,
+        "facade": {
+          "bays": {
+            "width": 7.65
+          },
+          "groundFloor": {
+            "height": 4.0,
+            "windows": {
+              "height": 1.65,
+              "sill": 1.5,
+              "rake": 0,
+              "projectEvery": 1,
+              "projection": 0.9,
+              "shading": "sloped-glass"
+            }
+          },
+          "windows": {
+            "height": 2.35,
+            "sill": 1.28,
+            "recess": 1.1
+          },
+          "piers": {
+            "width": 0.64,
+            "depth": 1.12,
+            "every": 1,
+            "fullHeight": true,
+            "material": "wall"
+          },
+          "base": {
+            "height": 1.3,
+            "material": "trim",
+            "batter": 0.6,
+            "projection": 0.13
+          }
+        }
+      },
+      {
+        "name": "Fluted stack stair core",
+        "height": 26.05,
+        "floors": 5,
+        "material": "cores",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "cores",
+          "bands": [],
+          "piers": {
+            "width": 0.05,
+            "depth": 0.03,
+            "every": 999,
+            "material": "trim",
+            "fullHeight": true
+          }
+        },
+        "footprint": {
+          "clip": [
+            [
+              69.75877,
+              411.50045
+            ],
+            [
+              69.84,
+              411.25
+            ],
+            [
+              69.33,
+              409.98
+            ],
+            [
+              67.77,
+              407.84
+            ],
+            [
+              70.39113,
+              406.06239
+            ],
+            [
+              68.75713,
+              403.70978
+            ],
+            [
+              63.624,
+              407.2754
+            ],
+            [
+              67.6,
+              413.0
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Standing-seam return from stack ridge to reading-room roof",
+        "height": 18.93,
+        "floors": 2,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 235.2182,
+          "rise": 7.17,
+          "material": "stackSeam",
+          "edge": "none",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            75.72426,
+            368.70656
+          ],
+          [
+            77.28306,
+            368.98755
+          ],
+          [
+            93.49613,
+            357.72682
+          ],
+          [
+            92.85722,
+            356.80693
+          ]
+        ]
+      },
+      {
+        "name": "Standing-seam return from stack ridge to reading-room roof",
+        "height": 18.93,
+        "floors": 2,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 145.2182,
+          "rise": 7.17,
+          "material": "stackSeam",
+          "edge": "none",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            75.72426,
+            368.70656
+          ],
+          [
+            88.22287,
+            386.70192
+          ],
+          [
+            89.14276,
+            386.06301
+          ],
+          [
+            77.28306,
+            368.98755
+          ]
+        ]
+      },
+      {
+        "name": "Standing-seam return from stack ridge to reading-room roof",
+        "height": 16.74,
+        "floors": 2,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 235.2182,
+          "rise": 2.19,
+          "material": "stackSeam",
+          "edge": "none",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            77.28306,
+            368.98755
+          ],
+          [
+            80.7486,
+            369.61223
+          ],
+          [
+            94.91656,
+            359.77193
+          ],
+          [
+            93.49613,
+            357.72682
+          ]
+        ]
+      },
+      {
+        "name": "Standing-seam return from stack ridge to reading-room roof",
+        "height": 16.74,
+        "floors": 2,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 145.2182,
+          "rise": 2.19,
+          "material": "stackSeam",
+          "edge": "none",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            77.28306,
+            368.98755
+          ],
+          [
+            89.14276,
+            386.06301
+          ],
+          [
+            91.18788,
+            384.64259
+          ],
+          [
+            80.7486,
+            369.61223
+          ]
+        ]
+      },
+      {
+        "name": "Standing-seam return from stack ridge to reading-room roof",
+        "height": 15.42,
+        "floors": 2,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 235.2182,
+          "rise": 1.32,
+          "material": "stackSeam",
+          "edge": "none",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            80.7486,
+            369.61223
+          ],
+          [
+            84.31156,
+            370.25448
+          ],
+          [
+            96.37691,
+            361.87454
+          ],
+          [
+            94.91656,
+            359.77193
+          ]
+        ]
+      },
+      {
+        "name": "Standing-seam return from stack ridge to reading-room roof",
+        "height": 15.42,
+        "floors": 2,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "shed",
+          "ridge": 145.2182,
+          "rise": 1.32,
+          "material": "stackSeam",
+          "edge": "none",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            80.7486,
+            369.61223
+          ],
+          [
+            91.18788,
+            384.64259
+          ],
+          [
+            93.29048,
+            383.18223
+          ],
+          [
+            84.31156,
+            370.25448
+          ]
+        ]
+      },
+      {
+        "name": "Raised north podium along the stair and entrance",
+        "height": 9.3,
+        "floors": 2,
+        "footprint": [
+          [
+            106.49597,
+            348.74652
+          ],
+          [
+            118.15887,
+            340.6461
+          ],
+          [
+            116.16229,
+            337.77144
+          ],
+          [
+            104.49939,
+            345.87187
+          ],
+          [
+            104.48693,
+            345.85393
+          ],
+          [
+            103.07,
+            346.92
+          ],
+          [
+            97.76,
+            339.56
+          ],
+          [
+            98.52,
+            338.97
+          ],
+          [
+            94.44,
+            333.02
+          ],
+          [
+            87.43377,
+            337.77913
+          ],
+          [
+            99.68819,
+            355.4229
+          ],
+          [
+            107.4087,
+            350.06065
+          ]
+        ]
+      },
+      {
+        "name": "Stone-faced refuse enclosure at stair core",
+        "height": 3.04,
+        "floors": 1,
+        "material": "enclosure",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "wallProfiles": {
+          "42": {
+            "sections": [
+              {
+                "start": 0.13,
+                "end": 0.86,
+                "base": 0.08,
+                "top": 2.55,
+                "material": "serviceLeaf"
+              }
+            ]
+          }
+        },
+        "footprint": [
+          [
+            37.0287,
+            376.66191
+          ],
+          [
+            39.12797,
+            379.68441
+          ],
+          [
+            42.77467,
+            377.1516
+          ],
+          [
+            40.67541,
+            374.1291
+          ]
+        ]
+      },
+      {
+        "name": "Cantilevered stair-landing window and concrete apron",
+        "height": 16.72,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "wallProfiles": {
+          "42": {
+            "sections": [
+              {
+                "start": 0.035,
+                "end": 0.965,
+                "base": 14.04,
+                "top": 16.45,
+                "material": "stripGlass",
+                "verticalMullionSpacing": 1.28
+              }
+            ]
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "baseOffset": 13.0,
+        "footprint": [
+          [
+            39.18053,
+            374.29074
+          ],
+          [
+            41.86165,
+            378.15099
+          ],
+          [
+            42.99509,
+            377.36377
+          ],
+          [
+            40.31396,
+            373.50351
+          ]
+        ]
+      },
+      {
+        "name": "Stone-faced refuse enclosure at stair core",
+        "height": 3.04,
+        "floors": 1,
+        "material": "enclosure",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "wallProfiles": {
+          "42": {
+            "sections": [
+              {
+                "start": 0.13,
+                "end": 0.86,
+                "base": 0.08,
+                "top": 2.55,
+                "material": "serviceLeaf"
+              }
+            ]
+          }
+        },
+        "footprint": [
+          [
+            60.70247,
+            410.74713
+          ],
+          [
+            62.80174,
+            413.76963
+          ],
+          [
+            66.44844,
+            411.23682
+          ],
+          [
+            64.34918,
+            408.21433
+          ]
+        ]
+      },
+      {
+        "name": "Cantilevered stair-landing window and concrete apron",
+        "height": 12.4,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "wallProfiles": {
+          "42": {
+            "sections": [
+              {
+                "start": 0.035,
+                "end": 0.965,
+                "base": 9.89,
+                "top": 12.13,
+                "material": "stripGlass",
+                "verticalMullionSpacing": 1.28
+              }
+            ],
+            "parapet": {
+              "type": "metal-rail",
+              "height": 0.91,
+              "material": "frame"
+            }
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "baseOffset": 8.85,
+        "footprint": [
+          [
+            62.8543,
+            408.37596
+          ],
+          [
+            65.53542,
+            412.23622
+          ],
+          [
+            66.66886,
+            411.449
+          ],
+          [
+            63.98773,
+            407.58874
+          ]
+        ]
+      },
+      {
+        "name": "Cantilevered stair-landing window and concrete apron",
+        "height": 18.65,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "piers": {
+            "width": 0.02,
+            "depth": 0.015,
+            "every": 999
+          }
+        },
+        "wallProfiles": {
+          "42": {
+            "sections": [
+              {
+                "start": 0.035,
+                "end": 0.965,
+                "base": 16.34,
+                "top": 18.38,
+                "material": "stripGlass",
+                "verticalMullionSpacing": 1.28
+              }
+            ]
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "baseOffset": 15.3,
+        "footprint": [
+          [
+            62.8543,
+            408.37596
+          ],
+          [
+            65.53542,
+            412.23622
+          ],
+          [
+            66.66886,
+            411.449
+          ],
+          [
+            63.98773,
+            407.58874
+          ]
+        ]
+      }
+    ]
+  },
+  "attachments": []
+}

@@ -1,0 +1,1636 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w141710478",
+  "name": "Delaware Hall (Residence)",
+  "style": "gothic-revival-modern",
+  "confidence": 0.86,
+  "status": "refined",
+  "summary": "Four rubble-walled wings with steep muted green-gray mansard roofs, shorter gabled ends, and localized eave gables meet around a lower 19.25 m central hub topped by a fan cluster.",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#cbbfa8",
+      "unitSize": [
+        0.72,
+        0.32
+      ],
+      "secondaryColor": "#b6ab98",
+      "variation": 0.15,
+      "bond": "coursed-rubble"
+    },
+    "roof": {
+      "kind": "standing-seam-metal",
+      "color": "#89998f",
+      "roughness": 0.74,
+      "secondaryColor": "#7e9087",
+      "unitSize": [
+        0.45,
+        4
+      ]
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#fae7bd"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#414c50",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "centralRoof": {
+      "kind": "membrane",
+      "color": "#827e73"
+    },
+    "membrane": {
+      "kind": "membrane",
+      "color": "#444743",
+      "secondaryColor": "#535550",
+      "variation": 0.12,
+      "roughness": 0.89
+    },
+    "courtFloor": {
+      "kind": "concrete-smooth",
+      "color": "#ac9e8b",
+      "variation": 0.05
+    },
+    "courtCoping": {
+      "kind": "precast-panel",
+      "color": "#a59d89",
+      "variation": 0.06
+    },
+    "stairStone": {
+      "kind": "limestone-smooth",
+      "color": "#d1c8b4",
+      "unitSize": [
+        0.91,
+        0.47
+      ],
+      "secondaryColor": "#c9bdab",
+      "variation": 0.08
+    }
+  },
+  "floors": {
+    "count": 5,
+    "groundFloorHeight": 3.5,
+    "typicalHeight": 3.45
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.06,
+        "height": 1.46,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "surround": "stone",
+        "glass": "tinted",
+        "frameColor": "#e3dfd2",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true,
+        "glassColor": "#414b4c"
+      },
+      "bays": {
+        "width": 2.9,
+        "pattern": "regular"
+      },
+      "base": {
+        "height": 0.55,
+        "projection": 0.04,
+        "material": "trim"
+      },
+      "bands": [],
+      "cornice": {
+        "height": 0.2,
+        "depth": 0.2,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.12,
+          "height": 1.55,
+          "perBay": 2,
+          "spacing": 0.54,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        },
+        "segments": [
+          {
+            "range": [
+              0.415,
+              0.585
+            ],
+            "gables": {
+              "type": "parapet",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "1": {
+        "bays": {
+          "count": 1,
+          "width": 5.97
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.78,
+          "height": 1.35,
+          "sill": 0.92,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 1,
+          "width": 7.25
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.78,
+          "height": 1.35,
+          "sill": 0.92,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.12,
+          "height": 1.55,
+          "perBay": 2,
+          "spacing": 0.54,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        },
+        "segments": [
+          {
+            "range": [
+              0.415,
+              0.585
+            ],
+            "gables": {
+              "type": "parapet",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "4": {
+        "bays": {
+          "count": 2,
+          "width": 2.52
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 2,
+          "width": 2.42
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 3,
+          "width": 3.29
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 2,
+          "width": 2.47
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 2,
+          "width": 2.54
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.12,
+          "height": 1.55,
+          "perBay": 2,
+          "spacing": 0.54,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        },
+        "segments": [
+          {
+            "range": [
+              0.415,
+              0.585
+            ],
+            "gables": {
+              "type": "parapet",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "10": {
+        "bays": {
+          "count": 1,
+          "width": 6.1
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.78,
+          "height": 1.35,
+          "sill": 0.92,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        }
+      },
+      "11": {
+        "bays": {
+          "count": 1,
+          "width": 7.22
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.78,
+          "height": 1.35,
+          "sill": 0.92,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        }
+      },
+      "12": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.12,
+          "height": 1.55,
+          "perBay": 2,
+          "spacing": 0.54,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        },
+        "segments": [
+          {
+            "range": [
+              0.415,
+              0.585
+            ],
+            "gables": {
+              "type": "parapet",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "13": {
+        "bays": {
+          "count": 3,
+          "width": 3.05
+        }
+      },
+      "14": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.12,
+          "height": 1.55,
+          "perBay": 2,
+          "spacing": 0.54,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        },
+        "segments": [
+          {
+            "range": [
+              0.415,
+              0.585
+            ],
+            "gables": {
+              "type": "parapet",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "15": {
+        "bays": {
+          "count": 1,
+          "width": 7.31
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.78,
+          "height": 1.35,
+          "sill": 0.92,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        }
+      },
+      "16": {
+        "bays": {
+          "count": 1,
+          "width": 6.24
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.78,
+          "height": 1.35,
+          "sill": 0.92,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        }
+      },
+      "17": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.12,
+          "height": 1.55,
+          "perBay": 2,
+          "spacing": 0.54,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        },
+        "segments": [
+          {
+            "range": [
+              0.415,
+              0.585
+            ],
+            "gables": {
+              "type": "parapet",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "18": {
+        "bays": {
+          "count": 1,
+          "width": 4.26
+        }
+      },
+      "19": {
+        "bays": {
+          "count": 1,
+          "width": 2.96
+        }
+      },
+      "20": {
+        "bays": {
+          "count": 3,
+          "width": 3.37
+        }
+      },
+      "21": {
+        "bays": {
+          "count": 1,
+          "width": 2.7
+        }
+      },
+      "22": {
+        "bays": {
+          "count": 1,
+          "width": 3.87
+        }
+      },
+      "23": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.12,
+          "height": 1.55,
+          "perBay": 2,
+          "spacing": 0.54,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        },
+        "segments": [
+          {
+            "range": [
+              0.415,
+              0.585
+            ],
+            "gables": {
+              "type": "parapet",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "24": {
+        "bays": {
+          "count": 1,
+          "width": 6.36
+        },
+        "windows": {
+          "type": "slot",
+          "width": 0.73,
+          "height": 1.65,
+          "sill": 0.85,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1
+          }
+        },
+        "material": "stairStone"
+      },
+      "25": {
+        "bays": {
+          "count": 1,
+          "width": 7.61
+        },
+        "windows": {
+          "type": "slot",
+          "width": 0.73,
+          "height": 1.65,
+          "sill": 0.85,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1
+          }
+        },
+        "material": "stairStone"
+      },
+      "26": {
+        "bays": {
+          "count": 6,
+          "pattern": "paired"
+        },
+        "windows": {
+          "width": 1.12,
+          "height": 1.55,
+          "perBay": 2,
+          "spacing": 0.54,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "glassColor": "#414b4c",
+          "frameColor": "#e3dfd2"
+        },
+        "segments": [
+          {
+            "range": [
+              0.415,
+              0.585
+            ],
+            "gables": {
+              "type": "parapet",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "27": {
+        "bays": {
+          "count": 3,
+          "width": 3.06
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "gutter",
+    "ridge": "long-axis",
+    "rise": 1.9,
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          635,
+          281
+        ],
+        "size": [
+          7.1,
+          5.3
+        ],
+        "height": 1.1,
+        "rotation": -10,
+        "material": "wall"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          638.8,
+          276.8
+        ],
+        "size": [
+          2.5,
+          1.4
+        ],
+        "height": 0.65,
+        "material": "metal"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          631,
+          278
+        ],
+        "size": [
+          1.2,
+          1.3
+        ],
+        "height": 0.65,
+        "material": "metal",
+        "rotation": 15
+      },
+      {
+        "type": "hvac",
+        "center": [
+          633,
+          278.4
+        ],
+        "size": [
+          1.2,
+          1.3
+        ],
+        "height": 0.65,
+        "material": "metal",
+        "rotation": 15
+      },
+      {
+        "type": "hvac",
+        "center": [
+          635,
+          278.8
+        ],
+        "size": [
+          1.2,
+          1.3
+        ],
+        "height": 0.65,
+        "material": "metal",
+        "rotation": 15
+      },
+      {
+        "type": "hvac",
+        "center": [
+          631,
+          280.1
+        ],
+        "size": [
+          1.2,
+          1.3
+        ],
+        "height": 0.65,
+        "material": "metal",
+        "rotation": 15
+      },
+      {
+        "type": "hvac",
+        "center": [
+          632.9,
+          280.5
+        ],
+        "size": [
+          1.2,
+          1.3
+        ],
+        "height": 0.65,
+        "material": "metal",
+        "rotation": 15
+      },
+      {
+        "type": "hvac",
+        "center": [
+          634.7,
+          280.9
+        ],
+        "size": [
+          1.2,
+          1.3
+        ],
+        "height": 0.65,
+        "material": "metal",
+        "rotation": 15
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          645,
+          285
+        ],
+        "size": [
+          4.4,
+          3.8
+        ],
+        "height": 0.48,
+        "material": "trim",
+        "rotation": 15
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface minus local ground: median 19.29 m, 90th percentile 21.16 m, maximum 22.08 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/DHR.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Small pale window pairs repeat up five levels. End and intermediate bays break the roofline with upright stone gables.",
+      "frame": "79749293",
+      "walls": [
+        0,
+        2,
+        26
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Winter view exposes the five rows of bedroom windows and the shallow grey roof.",
+      "frame": "189360787",
+      "walls": [
+        26
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "Four narrow radiating wings about a taller irregular central core. Ridges follow each wing separately."
+    },
+    {
+      "kind": "kartaview",
+      "note": "PIL mean from source-pixel rectangle (629, 648, 8, 8) gives #e8d5ab.",
+      "frame": "79749293",
+      "walls": [
+        26
+      ]
+    },
+    {
+      "kind": "lidar",
+      "note": "The west side of the central hub returns about 21 m while the southeast terrace roof at (645,285) returns 13.1 m. The four long wing crowns are near 19.5 m."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Southwest residence wing",
+        "height": 16.1,
+        "floors": 5,
+        "footprint": [
+          [
+            614.25,
+            300.0
+          ],
+          [
+            602.832,
+            311.614
+          ],
+          [
+            612.375,
+            321.157
+          ],
+          [
+            633.99,
+            298.0
+          ],
+          [
+            624.03,
+            291.11
+          ],
+          [
+            623.295,
+            290.602
+          ]
+        ],
+        "roof": {
+          "form": "mansard",
+          "material": "roof",
+          "edge": "gutter",
+          "rise": 3.4,
+          "ridge": 45,
+          "overhang": 0.18,
+          "pitch": 53
+        }
+      },
+      {
+        "name": "Northwest residence wing",
+        "height": 16.1,
+        "floors": 5,
+        "footprint": [
+          [
+            633.048,
+            236.533
+          ],
+          [
+            620.332,
+            240.179
+          ],
+          [
+            628.51,
+            268.55
+          ],
+          [
+            629.61,
+            268.34
+          ],
+          [
+            629.622,
+            268.385
+          ],
+          [
+            641.6,
+            266.61
+          ]
+        ],
+        "roof": {
+          "form": "mansard",
+          "material": "roof",
+          "edge": "gutter",
+          "rise": 3.4,
+          "ridge": 164,
+          "overhang": 0.18,
+          "pitch": 53
+        }
+      },
+      {
+        "name": "Northeast residence wing",
+        "height": 16.1,
+        "floors": 5,
+        "footprint": [
+          [
+            659.746,
+            277.652
+          ],
+          [
+            681.789,
+            255.277
+          ],
+          [
+            672.241,
+            245.729
+          ],
+          [
+            650.47,
+            268.83
+          ],
+          [
+            659.25,
+            277.18
+          ]
+        ],
+        "roof": {
+          "form": "mansard",
+          "material": "roof",
+          "edge": "gutter",
+          "rise": 3.4,
+          "ridge": 45,
+          "overhang": 0.18,
+          "pitch": 53
+        }
+      },
+      {
+        "name": "Southeast residence wing",
+        "height": 16.1,
+        "floors": 5,
+        "footprint": [
+          [
+            655.38,
+            296.53
+          ],
+          [
+            654.64,
+            296.8
+          ],
+          [
+            654.629,
+            296.76
+          ],
+          [
+            642.87,
+            300.36
+          ],
+          [
+            651.312,
+            330.618
+          ],
+          [
+            664.57,
+            326.816
+          ]
+        ],
+        "roof": {
+          "form": "mansard",
+          "material": "roof",
+          "edge": "gutter",
+          "rise": 3.4,
+          "ridge": 164,
+          "overhang": 0.18,
+          "pitch": 53
+        }
+      },
+      {
+        "name": "Central entrance and stair block",
+        "height": 13.12,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              656.18,
+              292.17
+            ],
+            [
+              658.61,
+              282.35
+            ],
+            [
+              656.42,
+              280.36
+            ],
+            [
+              659.25,
+              277.18
+            ],
+            [
+              650.47,
+              268.83
+            ],
+            [
+              641.6,
+              266.61
+            ],
+            [
+              629.622,
+              268.385
+            ],
+            [
+              630.88,
+              273.26
+            ],
+            [
+              626.11,
+              274.56
+            ],
+            [
+              625.13,
+              278.93
+            ],
+            [
+              623.98,
+              284.19
+            ],
+            [
+              627.53,
+              287.48
+            ],
+            [
+              624.03,
+              291.11
+            ],
+            [
+              633.99,
+              298.0
+            ],
+            [
+              642.87,
+              300.36
+            ],
+            [
+              654.629,
+              296.76
+            ],
+            [
+              653.63,
+              293.06
+            ]
+          ]
+        },
+        "roof": {
+          "form": "flat",
+          "material": "centralRoof",
+          "edge": "fascia",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Southwest residence wing gable end",
+        "footprint": [
+          [
+            599.07,
+            315.44
+          ],
+          [
+            599.38,
+            315.78
+          ],
+          [
+            598.72,
+            316.27
+          ],
+          [
+            603.98,
+            321.26
+          ],
+          [
+            605.22,
+            320.09
+          ],
+          [
+            609.32,
+            324.43
+          ],
+          [
+            612.375,
+            321.157
+          ],
+          [
+            602.832,
+            311.614
+          ]
+        ],
+        "height": 16.1,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "material": "wall"
+        },
+        "roof": {
+          "form": "half-hip",
+          "ridge": 45,
+          "rise": 3.8,
+          "material": "roof",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Northwest residence wing gable end",
+        "footprint": [
+          [
+            631.79,
+            232.11
+          ],
+          [
+            624.83,
+            234.04
+          ],
+          [
+            624.48,
+            232.54
+          ],
+          [
+            618.64,
+            234.31
+          ],
+          [
+            620.332,
+            240.179
+          ],
+          [
+            633.048,
+            236.533
+          ]
+        ],
+        "height": 16.1,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "material": "wall"
+        },
+        "roof": {
+          "form": "half-hip",
+          "ridge": 164,
+          "rise": 3.8,
+          "material": "roof",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Northeast residence wing gable end",
+        "footprint": [
+          [
+            686.14,
+            250.86
+          ],
+          [
+            681.59,
+            246.58
+          ],
+          [
+            680.56,
+            247.54
+          ],
+          [
+            675.04,
+            242.76
+          ],
+          [
+            672.241,
+            245.729
+          ],
+          [
+            681.789,
+            255.277
+          ]
+        ],
+        "height": 16.1,
+        "floors": 5,
+        "material": "wall",
+        "facade": {
+          "material": "wall"
+        },
+        "roof": {
+          "form": "half-hip",
+          "ridge": 45,
+          "rise": 3.8,
+          "material": "roof",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Southeast residence wing gable end",
+        "footprint": [
+          [
+            666.37,
+            332.75
+          ],
+          [
+            664.57,
+            326.816
+          ],
+          [
+            651.312,
+            330.618
+          ],
+          [
+            652.61,
+            335.27
+          ],
+          [
+            659.83,
+            332.86
+          ],
+          [
+            660.26,
+            334.48
+          ]
+        ],
+        "height": 16.1,
+        "floors": 5,
+        "material": "stairStone",
+        "facade": {
+          "material": "stairStone"
+        },
+        "roof": {
+          "form": "half-hip",
+          "ridge": 164,
+          "rise": 3.8,
+          "material": "roof",
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Southwest residence wing flat membrane crown",
+        "footprint": [
+          [
+            616.293,
+            301.987
+          ],
+          [
+            606.845,
+            311.597
+          ],
+          [
+            612.304,
+            317.056
+          ],
+          [
+            629.655,
+            298.467
+          ],
+          [
+            623.668,
+            294.325
+          ]
+        ],
+        "height": 19.58,
+        "floors": 1,
+        "material": "membrane",
+        "facade": {
+          "material": "membrane",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "membrane",
+          "edge": "none"
+        },
+        "baseOffset": 19.51
+      },
+      {
+        "name": "Northwest residence wing flat membrane crown",
+        "footprint": [
+          [
+            630.529,
+            265.263
+          ],
+          [
+            631.68,
+            265.043
+          ],
+          [
+            631.72,
+            265.193
+          ],
+          [
+            637.971,
+            264.267
+          ],
+          [
+            631.088,
+            240.06
+          ],
+          [
+            623.861,
+            242.132
+          ]
+        ],
+        "height": 19.58,
+        "floors": 1,
+        "material": "membrane",
+        "facade": {
+          "material": "membrane",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "membrane",
+          "edge": "none"
+        },
+        "baseOffset": 19.51
+      },
+      {
+        "name": "Northeast residence wing flat membrane crown",
+        "footprint": [
+          [
+            659.681,
+            273.657
+          ],
+          [
+            677.773,
+            255.292
+          ],
+          [
+            672.302,
+            249.82
+          ],
+          [
+            654.49,
+            268.72
+          ]
+        ],
+        "height": 19.58,
+        "floors": 1,
+        "material": "membrane",
+        "facade": {
+          "material": "membrane",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "membrane",
+          "edge": "none"
+        },
+        "baseOffset": 19.51
+      },
+      {
+        "name": "Southeast residence wing flat membrane crown",
+        "footprint": [
+          [
+            653.527,
+            300.24
+          ],
+          [
+            652.712,
+            300.537
+          ],
+          [
+            652.659,
+            300.344
+          ],
+          [
+            646.362,
+            302.271
+          ],
+          [
+            653.286,
+            327.087
+          ],
+          [
+            661.002,
+            324.874
+          ]
+        ],
+        "height": 19.58,
+        "floors": 1,
+        "material": "membrane",
+        "facade": {
+          "material": "membrane",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "membrane",
+          "edge": "none"
+        },
+        "baseOffset": 19.51
+      },
+      {
+        "name": "High polygonal central stair and plant roof",
+        "footprint": [
+          [
+            630.4,
+            290.65
+          ],
+          [
+            640.7,
+            292.0
+          ],
+          [
+            643.9,
+            285.7
+          ],
+          [
+            645.7,
+            276.8
+          ],
+          [
+            641.0,
+            272.2
+          ],
+          [
+            630.7,
+            270.0
+          ],
+          [
+            630.146,
+            270.416
+          ],
+          [
+            630.88,
+            273.26
+          ],
+          [
+            626.11,
+            274.56
+          ],
+          [
+            625.13,
+            278.93
+          ],
+          [
+            623.98,
+            284.19
+          ],
+          [
+            627.53,
+            287.48
+          ],
+          [
+            627.36,
+            287.657
+          ]
+        ],
+        "height": 20.95,
+        "floors": 2,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "width": 4.0
+          },
+          "windows": {
+            "type": "punched",
+            "width": 0.82,
+            "height": 1.42,
+            "sill": 1.05
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "parapet",
+          "material": "centralRoof"
+        },
+        "baseOffset": 13.12
+      },
+      {
+        "name": "Walled east terrace between residence wings",
+        "footprint": [
+          [
+            659.2,
+            277.12
+          ],
+          [
+            665.24,
+            280.95
+          ],
+          [
+            662.28,
+            293.86
+          ],
+          [
+            655.4,
+            296.14
+          ],
+          [
+            654.74,
+            293.39
+          ],
+          [
+            656.4,
+            292.42
+          ],
+          [
+            658.82,
+            282.3
+          ],
+          [
+            656.75,
+            280.33
+          ]
+        ],
+        "height": 0.86,
+        "floors": 1,
+        "material": "courtFloor",
+        "facade": {
+          "material": "courtFloor",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "courtFloor",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 6,
+      "position": 0.5,
+      "type": "doors-double",
+      "width": 2.4,
+      "height": 2.65,
+      "recess": 0.7
+    },
+    {
+      "wall": 24,
+      "position": 0.38,
+      "type": "doors-double",
+      "width": 1.82,
+      "height": 2.23,
+      "steps": 3,
+      "recess": 0.24
+    }
+  ],
+  "notes": "The southeast split stair end has a narrow recessed entry and steps. A low wall encloses the concrete terrace on the east side of the central hub. Its benches stand outside the coping.",
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          659.36,
+          277.6
+        ],
+        [
+          665.24,
+          280.95
+        ],
+        [
+          662.28,
+          293.86
+        ],
+        [
+          655.4,
+          296.14
+        ]
+      ],
+      "width": 0.24,
+      "height": 0.72,
+      "material": "courtCoping"
+    }
+  ]
+}

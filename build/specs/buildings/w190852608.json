@@ -1,0 +1,391 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w190852608",
+  "name": "Young House (Caskey Gilday Wellness Centre)",
+  "status": "refined",
+  "confidence": 0.84,
+  "summary": "Single-storey red-brick bungalow with a low hipped roof, broad white fascia, and tall white-framed windows set above dark panels. A paved path leads to the recessed corner entry.",
+  "style": "residential-brick",
+  "evidence": [
+    {
+      "kind": "knowledge",
+      "url": "https://huronu.ca/wp-content/uploads/About/FINAL_ExtendedCampusMap.pdf",
+      "note": "Site 20 on this older Huron map is Young House. The current campus map labels the same site Caskey Gilday Wellness Centre."
+    },
+    {
+      "kind": "photo",
+      "url": "https://huronu.ca/wp-content/uploads/HUR2548-Parent-and-Supporters-Resource-Guide-FA-Digital-Pages.pdf",
+      "note": "Page 5 shows a single row of white framed windows in red brick, dark lower infill, a wide white fascia and a level corner entry off the front path. Wall colour sampled on a brick pier."
+    },
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. Dark grey hipped roof over offset rectangular wings. A light masonry chimney projects through the NW slope. East-front path runs from the south drive."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 4.44 m, P90 4.84 m, maximum 6.09 m. Roof median 4.44 m and high ridge around 5 m."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#86543a",
+      "variation": 0.22,
+      "secondaryColor": "#aa9882",
+      "unitSize": [
+        0.205,
+        0.065
+      ],
+      "bond": "running"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#e8e7de",
+      "variation": 0.09
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#505254",
+      "variation": 0.09,
+      "secondaryColor": "#414446",
+      "unitSize": [
+        0.32,
+        0.16
+      ]
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b7afa2",
+      "variation": 0.09
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#797b73",
+      "variation": 0.09
+    },
+    "infill": {
+      "kind": "painted-metal",
+      "color": "#414344",
+      "variation": 0.09
+    },
+    "chimney": {
+      "kind": "brick",
+      "color": "#b7a997",
+      "unitSize": [
+        0.2,
+        0.075
+      ],
+      "bond": "running",
+      "secondaryColor": "#c6bcab"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.05,
+    "typicalHeight": 3.05
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 2.25,
+        "height": 1.91,
+        "sill": 0.65,
+        "perBay": 1,
+        "recess": 0.14,
+        "frameColor": "#e8e7de",
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.06
+        },
+        "glass": "clear"
+      },
+      "bays": {
+        "width": 2.85,
+        "pattern": "regular",
+        "edgeMargin": 0.24
+      },
+      "base": {
+        "height": 0.3,
+        "material": "base",
+        "projection": 0.03
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.18,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 0.58,
+        "depth": 0.095,
+        "every": 1,
+        "fullHeight": true,
+        "material": "wall"
+      },
+      "spandrelMaterial": "infill"
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 4,
+          "width": 3.4,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 2,
+          "width": 3.17,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 1,
+          "width": 4.12,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 1,
+          "width": 3.79,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 3,
+          "width": 2.92,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 5,
+          "width": 3.38,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "hip",
+    "material": "roof",
+    "edge": "fascia",
+    "ridge": 70,
+    "rise": 1.92,
+    "overhang": 0,
+    "features": [
+      {
+        "type": "chimney",
+        "center": [
+          -405,
+          437.3
+        ],
+        "size": [
+          0.73,
+          1.27
+        ],
+        "height": 1.13,
+        "material": "chimney"
+      }
+    ]
+  },
+  "notes": "The hipped slopes intersect over the L-shaped plan. Brick piers extend almost to grade between taller glazed openings and dark infill panels.",
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.15,
+      "type": "doors-single",
+      "width": 1.04,
+      "height": 2.14,
+      "recess": 0.68,
+      "ramp": true
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "East hip field",
+        "footprint": [
+          [
+            -393.42,
+            443.39
+          ],
+          [
+            -398.55,
+            430.81
+          ],
+          [
+            -401.211,
+            437.006
+          ],
+          [
+            -399.714,
+            440.683
+          ]
+        ],
+        "height": 3.1,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "rise": 1.9,
+          "ridge": 157.82,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "North hip end",
+        "footprint": [
+          [
+            -398.55,
+            430.81
+          ],
+          [
+            -407.26,
+            434.59
+          ],
+          [
+            -401.211,
+            437.006
+          ]
+        ],
+        "height": 3.1,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "rise": 1.9,
+          "ridge": 66.52,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Return valley field",
+        "footprint": [
+          [
+            -407.26,
+            434.59
+          ],
+          [
+            -405.63,
+            438.38
+          ],
+          [
+            -399.714,
+            440.683
+          ],
+          [
+            -401.211,
+            437.006
+          ]
+        ],
+        "height": 3.1,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "rise": 1.9,
+          "ridge": 336.73,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "West range garden slope",
+        "footprint": [
+          [
+            -405.63,
+            438.38
+          ],
+          [
+            -412.39,
+            441.83
+          ],
+          [
+            -406.801,
+            444.293
+          ],
+          [
+            -399.714,
+            440.683
+          ]
+        ],
+        "height": 3.1,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "rise": 1.9,
+          "ridge": 62.94,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "West hip end",
+        "footprint": [
+          [
+            -412.39,
+            441.83
+          ],
+          [
+            -409.13,
+            449.96
+          ],
+          [
+            -406.801,
+            444.293
+          ]
+        ],
+        "height": 3.1,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "rise": 1.9,
+          "ridge": 338.17,
+          "edge": "none"
+        }
+      },
+      {
+        "name": "South range slope",
+        "footprint": [
+          [
+            -409.13,
+            449.96
+          ],
+          [
+            -393.42,
+            443.39
+          ],
+          [
+            -399.714,
+            440.683
+          ],
+          [
+            -406.801,
+            444.293
+          ]
+        ],
+        "height": 3.1,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "rise": 1.9,
+          "ridge": 247.31,
+          "edge": "none"
+        }
+      }
+    ]
+  }
+}

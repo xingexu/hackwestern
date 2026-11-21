@@ -1,0 +1,156 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3843",
+  "name": "Apps International House",
+  "status": "refined",
+  "confidence": 0.76,
+  "summary": "The attached north garage features pale masonry, twin light overhead doors, and a compact charcoal hip roof.",
+  "style": "house",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#ab9b7b",
+      "secondaryColor": "#998b71",
+      "unitSize": [
+        0.48,
+        0.24
+      ],
+      "variation": 0.06,
+      "bond": "coursed-rubble",
+      "surface": "rock-faced"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#363638",
+      "roughness": 0.82,
+      "unitSize": [
+        0.32,
+        0.145
+      ],
+      "secondaryColor": "#474849",
+      "variation": 0.12
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#e5e3db",
+      "unitSize": [
+        0.8,
+        0.28
+      ]
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#777a76",
+      "roughness": 0.48
+    },
+    "door": {
+      "kind": "painted-metal",
+      "color": "#dedfd9"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.65,
+    "typicalHeight": 2.65
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3,
+        "pattern": "regular",
+        "edgeMargin": 0.32
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "blank": true
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "hip",
+    "rise": 2.25,
+    "ridge": 157,
+    "material": "roof",
+    "edge": "gutter",
+    "overhang": 0.24,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "131414079",
+      "walls": [
+        2
+      ],
+      "note": "Next to the main house are two grey overhead door leaves below a much lower dark roof."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34490517",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "Oblique approach confirms the annex is largely screened by the main house."
+    },
+    {
+      "kind": "aerial",
+      "note": "The small dark hipped roof abuts the north end of the buff two-storey house. The driveway opens onto the road."
+    },
+    {
+      "kind": "lidar",
+      "note": "Ground-relative P50 5.01 m, P90 5.21 m and maximum 5.69 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Garage door tone sampled with PIL from KartaView 131414079 at normalized pixel (0.233, 0.627). Wall siding colour is estimated from the shaded frontage. Roof tone is sampled from the 2025 orthophoto."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Street frame 127904701 shows two painted grey garage doors in shade, sampled at (0.384, 0.655). The roof shingles were sampled above them at (0.396, 0.573)."
+    }
+  ],
+  "notes": "Available street views are distant or obstructed behind the house, leaving exact stone texture and door-to-pier proportions uncertain. Street views show the garage only from across the intersection or behind the house.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Garage",
+        "footprint": "inventory",
+        "height": 2.85,
+        "floors": 1,
+        "roof": {
+          "form": "hip",
+          "rise": 2.25,
+          "ridge": 157,
+          "material": "roof",
+          "edge": "gutter",
+          "overhang": 0.24
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.27,
+      "type": "garage",
+      "width": 2.7,
+      "height": 2.13,
+      "surround": "trim",
+      "doorColor": "#dedfd9"
+    },
+    {
+      "wall": 2,
+      "position": 0.72,
+      "type": "garage",
+      "width": 2.7,
+      "height": 2.13,
+      "surround": "trim",
+      "doorColor": "#dedfd9"
+    }
+  ]
+}

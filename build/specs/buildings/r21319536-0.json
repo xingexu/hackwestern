@@ -1,0 +1,3397 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r21319536-0",
+  "name": "University Hospital",
+  "status": "refined",
+  "confidence": 0.84,
+  "summary": "University Hospital has two tall stepped concrete patient blocks, lower side wings with long window bands, and a deep projecting entrance canopy.",
+  "style": "brutalist",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#aa9d91",
+      "secondaryColor": "#968a80",
+      "unitSize": [
+        3.7,
+        4.05
+      ],
+      "variation": 0.07,
+      "roughness": 0.83,
+      "surface": "bush-hammered"
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#9d9885"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#aaa198"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "infill": {
+      "kind": "spandrel-glass",
+      "color": "#ccbea4"
+    },
+    "coreGlass": {
+      "kind": "glass-curtain",
+      "color": "#364145",
+      "opacity": 0.92
+    },
+    "serviceMetal": {
+      "kind": "corrugated-metal",
+      "color": "#969992",
+      "unitSize": [
+        0.68,
+        0.29
+      ],
+      "surface": "vertical ribs"
+    },
+    "soffitRoof": {
+      "kind": "membrane",
+      "color": "#75766c"
+    },
+    "skylightFrame": {
+      "kind": "glass-curtain",
+      "color": "#63716a"
+    },
+    "clinicalMembrane": {
+      "kind": "membrane",
+      "color": "#abad9f"
+    }
+  },
+  "floors": {
+    "count": 12,
+    "groundFloorHeight": 4.7,
+    "typicalHeight": 4.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.045
+      },
+      "bays": {
+        "width": 3.78,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "ribbon",
+        "width": 3.65,
+        "height": 1.32,
+        "sill": 1.02,
+        "perBay": 1,
+        "recess": 0.37,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 0,
+          "width": 0.055
+        },
+        "frameColor": "#898b85",
+        "glass": "reflective",
+        "surround": "none",
+        "glassColor": "#465154"
+      },
+      "parapet": {
+        "type": "plain",
+        "height": 0.25,
+        "material": "wall"
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.4,
+          "height": 3.05,
+          "sill": 0.22,
+          "perBay": 1,
+          "recess": 0.16,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 2,
+            "width": 0.055
+          },
+          "frameColor": "#8f918d",
+          "glass": "tinted",
+          "surround": "none"
+        }
+      },
+      "cornice": {
+        "height": 0.1,
+        "depth": 0.045,
+        "material": "metal"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 3.72,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 3.96,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 6
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 4.18,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 3.58,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "5": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 3.58,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 6
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 4.04,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 7
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 3.81,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 7
+        }
+      },
+      "9": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 3.8,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 5
+        }
+      },
+      "11": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "12": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "13": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 3.41,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "15": {
+        "bays": {
+          "width": 3.77,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 8
+        }
+      },
+      "16": {
+        "bays": {
+          "width": 5.3,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "17": {
+        "bays": {
+          "width": 3.35,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 3
+        }
+      },
+      "18": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "19": {
+        "bays": {
+          "width": 4.34,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "20": {
+        "bays": {
+          "width": 3.93,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 4
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "height": 2.65,
+            "width": 3.5,
+            "sill": 0.18,
+            "glassColor": "#394549"
+          }
+        },
+        "segments": [
+          {
+            "range": [
+              0.045,
+              0.085
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          },
+          {
+            "range": [
+              0.545,
+              0.585
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          }
+        ]
+      },
+      "21": {
+        "bays": {
+          "width": 4.26,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 3
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "height": 2.65,
+            "width": 3.5,
+            "sill": 0.18,
+            "glassColor": "#394549"
+          }
+        },
+        "segments": [
+          {
+            "range": [
+              0.06,
+              0.1133
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          },
+          {
+            "range": [
+              0.7267,
+              0.78
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          }
+        ]
+      },
+      "22": {
+        "bays": {
+          "width": 3.3,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "23": {
+        "windows": {
+          "type": "ribbon",
+          "width": 3.55,
+          "height": 1.25,
+          "sill": 1.02,
+          "perBay": 1,
+          "recess": 0.35,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 0,
+            "width": 0.038
+          },
+          "frameColor": "#a5a59e",
+          "glass": "reflective",
+          "surround": "none",
+          "glassColor": "#455052"
+        },
+        "bays": {
+          "width": 3.37,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 5
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "height": 2.65,
+            "width": 3.5,
+            "sill": 0.18,
+            "glassColor": "#2f383b",
+            "recess": 1.35,
+            "glass": "dark"
+          }
+        },
+        "piers": {
+          "width": 0.84,
+          "depth": 0.63,
+          "every": 2,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "segments": [
+          {
+            "range": [
+              0.045,
+              0.085
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          },
+          {
+            "range": [
+              0.545,
+              0.585
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          }
+        ]
+      },
+      "24": {
+        "bays": {
+          "width": 3.21,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "25": {
+        "bays": {
+          "width": 4.37,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "26": {
+        "bays": {
+          "width": 3.28,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "27": {
+        "bays": {
+          "width": 3.32,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "28": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "29": {
+        "bays": {
+          "count": 1
+        },
+        "piers": {
+          "width": 0.36,
+          "depth": 0.33,
+          "every": 1,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "none"
+          }
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.22,
+          "height": 1.24,
+          "sill": 1.13
+        }
+      },
+      "30": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "31": {
+        "bays": {
+          "width": 5.43,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "height": 2.65,
+            "width": 3.5,
+            "sill": 0.18,
+            "glassColor": "#394549"
+          }
+        },
+        "windows": {
+          "width": 1.5
+        }
+      },
+      "32": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "33": {
+        "windows": {
+          "type": "ribbon",
+          "width": 3.55,
+          "height": 1.25,
+          "sill": 1.02,
+          "perBay": 1,
+          "recess": 0.35,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 0,
+            "width": 0.038
+          },
+          "frameColor": "#a5a59e",
+          "glass": "reflective",
+          "surround": "none",
+          "glassColor": "#455052"
+        },
+        "bays": {
+          "width": 3.6,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 8
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "height": 2.65,
+            "width": 3.5,
+            "sill": 0.18,
+            "glassColor": "#394549"
+          }
+        },
+        "segments": [
+          {
+            "range": [
+              0.0257,
+              0.0486
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          },
+          {
+            "range": [
+              0.3114,
+              0.3343
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          },
+          {
+            "range": [
+              0.5971,
+              0.62
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          },
+          {
+            "range": [
+              0.8829,
+              0.9057
+            ],
+            "bays": {
+              "count": 1,
+              "edgeMargin": 0.02
+            },
+            "windows": {
+              "type": "ribbon",
+              "width": 0.75,
+              "height": 1.28,
+              "sill": 1.02,
+              "glassColor": "#c6b99e",
+              "frameColor": "#b2a991",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0
+              }
+            }
+          }
+        ]
+      },
+      "34": {
+        "bays": {
+          "width": 3.45,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 5
+        }
+      },
+      "35": {
+        "bays": {
+          "width": 3.86,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 4
+        }
+      },
+      "36": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "37": {
+        "windows": {
+          "type": "ribbon",
+          "width": 3.9,
+          "height": 1.45,
+          "sill": 1.02,
+          "perBay": 1,
+          "recess": 0.35,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "frameColor": "#a5a59e",
+          "glass": "reflective",
+          "surround": "none",
+          "glassColor": "#455052"
+        },
+        "groundFloor": {
+          "material": "coreGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 4,
+            "height": 3.2,
+            "sill": 0.08,
+            "glass": "dark",
+            "glassColor": "#313b3d"
+          }
+        },
+        "bays": {
+          "width": 3.87,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 8
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "type": "ribbon",
+              "width": 4.1,
+              "height": 1.4,
+              "sill": 1.25,
+              "glass": "dark",
+              "glassColor": "#313c3d"
+            }
+          }
+        },
+        "verticalSpandrels": {
+          "width": 0.01,
+          "every": 99,
+          "material": "wall"
+        }
+      },
+      "38": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "type": "ribbon",
+              "width": 4.1,
+              "height": 1.4,
+              "sill": 1.25,
+              "glass": "dark",
+              "glassColor": "#313c3d"
+            }
+          }
+        },
+        "verticalSpandrels": {
+          "width": 0.01,
+          "every": 99,
+          "material": "wall"
+        },
+        "groundFloor": {
+          "material": "coreGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 4,
+            "height": 3.2,
+            "sill": 0.08,
+            "glass": "dark",
+            "glassColor": "#313b3d"
+          }
+        }
+      },
+      "39": {
+        "blank": true,
+        "windows": {
+          "type": "none"
+        },
+        "topFloor": {
+          "windows": {
+            "type": "ribbon",
+            "height": 1.85,
+            "sill": 1.1,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0
+            }
+          }
+        }
+      },
+      "40": {
+        "bays": {
+          "width": 3.33,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "41": {
+        "blank": true,
+        "windows": {
+          "type": "none"
+        },
+        "topFloor": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "type": "ribbon",
+              "width": 4.1,
+              "height": 1.4,
+              "sill": 1.25,
+              "glass": "dark",
+              "glassColor": "#313c3d"
+            }
+          }
+        },
+        "verticalSpandrels": {
+          "width": 0.01,
+          "every": 99,
+          "material": "wall"
+        },
+        "groundFloor": {
+          "material": "coreGlass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 4,
+            "height": 3.2,
+            "sill": 0.08,
+            "glass": "dark",
+            "glassColor": "#313b3d"
+          }
+        }
+      },
+      "42": {
+        "bays": {
+          "width": 3.51,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 5
+        }
+      },
+      "43": {
+        "bays": {
+          "width": 3.53,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 5
+        }
+      },
+      "44": {
+        "bays": {
+          "width": 3.49,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 4
+        }
+      },
+      "45": {
+        "bays": {
+          "width": 3.73,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 5
+        }
+      },
+      "46": {
+        "bays": {
+          "width": 3.88,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 3
+        }
+      },
+      "47": {
+        "bays": {
+          "width": 4.49,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "48": {
+        "bays": {
+          "width": 5.43,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "49": {
+        "bays": {
+          "width": 3.97,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 7
+        }
+      },
+      "50": {
+        "bays": {
+          "width": 4.38,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "51": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "52": {
+        "bays": {
+          "width": 3.76,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 11
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          137.35,
+          -176.95
+        ],
+        "size": [
+          7,
+          11
+        ],
+        "height": 2.7,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          145.81,
+          -157.7
+        ],
+        "size": [
+          4.5,
+          6.5
+        ],
+        "height": 1.6,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          156.33,
+          -113.54
+        ],
+        "size": [
+          5.2,
+          3
+        ],
+        "height": 1.8,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          176.29,
+          -106.2
+        ],
+        "size": [
+          6,
+          4
+        ],
+        "height": 2.1,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          170.82,
+          -86.97
+        ],
+        "size": [
+          8,
+          12
+        ],
+        "height": 3.2,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          128.32,
+          -102.79
+        ],
+        "size": [
+          7.4,
+          10
+        ],
+        "height": 2.8,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          161.01,
+          -129.26
+        ],
+        "size": [
+          4.3,
+          6.2
+        ],
+        "height": 1.3,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          156.49,
+          -138.24
+        ],
+        "size": [
+          4.2,
+          6.6
+        ],
+        "height": 1.65,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          134.17,
+          -148.95
+        ],
+        "size": [
+          4.2,
+          3.3
+        ],
+        "height": 1.15,
+        "rotation": -21,
+        "material": "plant"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          149.3,
+          -161
+        ],
+        "size": [
+          6,
+          7.4
+        ],
+        "height": 2.6,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "chimney",
+        "center": [
+          147.6,
+          -161.5
+        ],
+        "size": [
+          0.73,
+          0.73
+        ],
+        "height": 6.2,
+        "material": "plant",
+        "rotation": 0,
+        "style": "round metal exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          149.7,
+          -160.4
+        ],
+        "size": [
+          0.73,
+          0.73
+        ],
+        "height": 6.2,
+        "material": "plant",
+        "rotation": 0,
+        "style": "round metal exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          151,
+          -159.5
+        ],
+        "size": [
+          0.73,
+          0.73
+        ],
+        "height": 6.2,
+        "material": "plant",
+        "rotation": 0,
+        "style": "round metal exhaust stack"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          159.6,
+          -150
+        ],
+        "size": [
+          2.2,
+          8
+        ],
+        "height": 1.45,
+        "material": "plant",
+        "rotation": -21,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          163.6,
+          -118.8
+        ],
+        "size": [
+          2.5,
+          9
+        ],
+        "height": 1.45,
+        "material": "plant",
+        "rotation": -21,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          179,
+          -124.6
+        ],
+        "size": [
+          2.8,
+          5
+        ],
+        "height": 1.45,
+        "material": "plant",
+        "rotation": -21,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          168,
+          -118.8
+        ],
+        "size": [
+          7,
+          1.7
+        ],
+        "height": 1.45,
+        "material": "plant",
+        "rotation": -21,
+        "style": "duct"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          61.6,
+          -148.7
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          62.22,
+          -146.94
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          62.84,
+          -145.18
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          63.46,
+          -143.42
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          64.08,
+          -141.66
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          64.7,
+          -139.9
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          64.7,
+          -150.0
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          65.32,
+          -148.24
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          65.94,
+          -146.48
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          66.56,
+          -144.72
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          67.18,
+          -142.96
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          67.8,
+          -141.2
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          67.7,
+          -151.1
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          68.34,
+          -149.36
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          68.98,
+          -147.62
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          69.62,
+          -145.88
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          70.26,
+          -144.14
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          70.9,
+          -142.4
+        ],
+        "size": [
+          1.25,
+          1.42
+        ],
+        "height": 0.34,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "framed rectangular rooflight"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          141.0,
+          -157.0
+        ],
+        "size": [
+          10.77,
+          1.1
+        ],
+        "height": 1,
+        "rotation": 68.2,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          149.0,
+          -149.0
+        ],
+        "size": [
+          13.42,
+          1.15
+        ],
+        "height": 1,
+        "rotation": 26.57,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          158.0,
+          -138.5
+        ],
+        "size": [
+          16.16,
+          1.16
+        ],
+        "height": 1,
+        "rotation": 68.2,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          155.5,
+          -140.0
+        ],
+        "size": [
+          5.39,
+          1
+        ],
+        "height": 1,
+        "rotation": 158.2,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          155.0,
+          -107.5
+        ],
+        "size": [
+          19.31,
+          0.85
+        ],
+        "height": 1,
+        "rotation": 21.25,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          167.0,
+          -97.0
+        ],
+        "size": [
+          15.23,
+          0.75
+        ],
+        "height": 1,
+        "rotation": 66.8,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          162.0,
+          -87.0
+        ],
+        "size": [
+          17.09,
+          0.8
+        ],
+        "height": 1,
+        "rotation": 159.44,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          181.0,
+          -100.5
+        ],
+        "size": [
+          19.31,
+          0.7
+        ],
+        "height": 1,
+        "rotation": 21.25,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          177.5,
+          -72.5
+        ],
+        "size": [
+          15.81,
+          1.3
+        ],
+        "height": 1,
+        "rotation": 18.43,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          142,
+          -163
+        ],
+        "size": [
+          2.9,
+          4.6
+        ],
+        "height": 1.7,
+        "rotation": -21,
+        "material": "plant",
+        "style": "paired condenser fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          156,
+          -144
+        ],
+        "size": [
+          3.6,
+          5.1
+        ],
+        "height": 1.7,
+        "rotation": -21,
+        "material": "plant",
+        "style": "paired condenser fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          154,
+          -108
+        ],
+        "size": [
+          3.3,
+          4.9
+        ],
+        "height": 1.7,
+        "rotation": -21,
+        "material": "plant",
+        "style": "paired condenser fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          164,
+          -104
+        ],
+        "size": [
+          2.6,
+          4
+        ],
+        "height": 1.7,
+        "rotation": -21,
+        "material": "plant",
+        "style": "paired condenser fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          177,
+          -82
+        ],
+        "size": [
+          3.9,
+          5.8
+        ],
+        "height": 1.7,
+        "rotation": -21,
+        "material": "plant",
+        "style": "paired condenser fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "hvac",
+        "center": [
+          184,
+          -86
+        ],
+        "size": [
+          3.6,
+          5.2
+        ],
+        "height": 1.7,
+        "rotation": -21,
+        "material": "plant",
+        "style": "paired condenser fans",
+        "fanGrid": [
+          2,
+          1
+        ]
+      },
+      {
+        "type": "chimney",
+        "center": [
+          134,
+          -182
+        ],
+        "size": [
+          0.78,
+          0.78
+        ],
+        "height": 2.1,
+        "rotation": 0,
+        "material": "metal",
+        "style": "round exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          138,
+          -178
+        ],
+        "size": [
+          0.78,
+          0.78
+        ],
+        "height": 2.1,
+        "rotation": 0,
+        "material": "metal",
+        "style": "round exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          154,
+          -132
+        ],
+        "size": [
+          0.78,
+          0.78
+        ],
+        "height": 2.1,
+        "rotation": 0,
+        "material": "metal",
+        "style": "round exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          159,
+          -134
+        ],
+        "size": [
+          0.78,
+          0.78
+        ],
+        "height": 2.1,
+        "rotation": 0,
+        "material": "metal",
+        "style": "round exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          166,
+          -103
+        ],
+        "size": [
+          0.78,
+          0.78
+        ],
+        "height": 2.1,
+        "rotation": 0,
+        "material": "metal",
+        "style": "round exhaust stack"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          132.9,
+          -134.8
+        ],
+        "size": [
+          3.3,
+          2.2
+        ],
+        "height": 0.4,
+        "rotation": -21,
+        "material": "skylightFrame",
+        "style": "rectangular glazed monitor"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 19.51 m, P90 53.33 m, highest return 56.10 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Original reference colour from a mean image patch centred at (174,99) on a 300 by 300 normalized grid in 62270869. Raw sRGB #b0a198. Joint colours and unit sizes estimated."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Sunlit roof patch at local [89.9, -155.5] averages #9d9885."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "62270869",
+      "walls": [
+        23,
+        29,
+        33
+      ],
+      "note": "East approach shows low entrance block in front of tall recessed slabs, dark continuous strip windows and a tall nearly blind vertical core."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "62270875",
+      "walls": [
+        23,
+        29
+      ],
+      "note": "Deep square-ended concrete canopy over dark glazed entrance in the drive court. Canopy width and door position approximate."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "73881197",
+      "walls": [
+        20,
+        21,
+        23
+      ],
+      "note": "Glazing wraps the inside corner of a three-level low wing below the higher block."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34487484",
+      "walls": [
+        34,
+        37,
+        39
+      ],
+      "note": "North drive separates the wing from the adjacent parking structure. The opposing garage decks are outside this footprint."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "34487483",
+      "walls": [
+        37,
+        39
+      ],
+      "note": "Ground-floor glazing below deep solid upper panels and a narrow dark strip."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.lhsc.on.ca/celebrating-50-years-of-care",
+      "note": "LHSC identifies University Hospital and shows the original entrance and construction sequence."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "73881193",
+      "walls": [
+        23,
+        29,
+        33
+      ],
+      "note": "Mean of a 7-pixel square at normalized (0.72,0.33) on the broad illuminated spandrel gives #c0b9af. The entrance extends across the setback immediately south of the concrete core."
+    },
+    {
+      "kind": "lidar",
+      "note": "The one-metre roof grid distinguishes the low drive canopy (4–5 m), the adjoining open forecourt (0–1 m), the concrete stair shaft (49 m) and the adjoining 45 m ward. The south-end slab samples mostly 41–42 m."
+    },
+    {
+      "kind": "lidar",
+      "note": "Northern longitudinal slab median 44.8 m, west podium 14.0 m, east podium 14.2 m. The dark oblique roof-image areas straddle the lower podiums and their cast shadows. The small western rooflight wing has 4.9–5.0 m returns."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Northwest low wing",
+        "footprint": [
+          [
+            68.11,
+            -173.64
+          ],
+          [
+            73.48,
+            -159.8
+          ],
+          [
+            79.66,
+            -144.34
+          ],
+          [
+            80.44,
+            -144.64
+          ],
+          [
+            84.66,
+            -133.77
+          ],
+          [
+            80.47,
+            -132.15
+          ],
+          [
+            82.44,
+            -127.08
+          ],
+          [
+            107.73,
+            -136.9
+          ],
+          [
+            87.94,
+            -188.47
+          ],
+          [
+            72.73,
+            -182.56
+          ],
+          [
+            75.13,
+            -176.36
+          ]
+        ],
+        "height": 9.6,
+        "floors": 2,
+        "material": "wall"
+      },
+      {
+        "name": "North podium",
+        "footprint": {
+          "clip": [
+            [
+              96.81,
+              -191.92
+            ],
+            [
+              99.34,
+              -185.41
+            ],
+            [
+              119.34,
+              -193.17
+            ],
+            [
+              132.09,
+              -159.94
+            ],
+            [
+              103.15,
+              -148.83
+            ],
+            [
+              87.94,
+              -188.47
+            ],
+            [
+              89.38,
+              -189.03
+            ]
+          ]
+        },
+        "height": 13.8,
+        "floors": 3,
+        "material": "wall"
+      },
+      {
+        "name": "North patient block longitudinal slab",
+        "footprint": {
+          "clip": [
+            [
+              132.09,
+              -159.94
+            ],
+            [
+              145.35,
+              -125.39
+            ],
+            [
+              170.56,
+              -135.07
+            ],
+            [
+              150.72,
+              -186.74
+            ],
+            [
+              148.89,
+              -186.03
+            ],
+            [
+              148.1,
+              -188.05
+            ],
+            [
+              133.72,
+              -182.46
+            ],
+            [
+              130.99,
+              -189.5
+            ],
+            [
+              122.06,
+              -186.08
+            ]
+          ]
+        },
+        "height": 44.6,
+        "floors": 10,
+        "material": "wall",
+        "facade": {
+          "piers": {
+            "width": 0.78,
+            "depth": 0.76,
+            "every": 4,
+            "material": "wall",
+            "fullHeight": true
+          },
+          "windows": {
+            "recess": 0.41
+          }
+        }
+      },
+      {
+        "name": "North patient block cross wing",
+        "footprint": {
+          "clip": [
+            [
+              108.76,
+              -150.98
+            ],
+            [
+              132.09,
+              -159.94
+            ],
+            [
+              139.26,
+              -141.26
+            ],
+            [
+              115.92,
+              -132.31
+            ]
+          ]
+        },
+        "height": 44.8,
+        "floors": 10,
+        "material": "wall",
+        "facade": {
+          "piers": {
+            "width": 0.78,
+            "depth": 0.76,
+            "every": 4,
+            "material": "wall",
+            "fullHeight": true
+          },
+          "windows": {
+            "recess": 0.41
+          }
+        }
+      },
+      {
+        "name": "South patient block",
+        "footprint": {
+          "clip": [
+            [
+              136.95,
+              -122.17
+            ],
+            [
+              145.35,
+              -125.39
+            ],
+            [
+              156.71,
+              -129.75
+            ],
+            [
+              179.9,
+              -138.65
+            ],
+            [
+              191.72,
+              -107.85
+            ],
+            [
+              148.78,
+              -91.36
+            ]
+          ]
+        },
+        "height": 53.5,
+        "floors": 12,
+        "material": "wall",
+        "facade": {
+          "piers": {
+            "width": 0.78,
+            "depth": 0.76,
+            "every": 4,
+            "material": "wall",
+            "fullHeight": true
+          },
+          "windows": {
+            "recess": 0.41
+          }
+        }
+      },
+      {
+        "name": "South connecting spine",
+        "footprint": {
+          "clip": [
+            [
+              167.97,
+              -73.02
+            ],
+            [
+              165.39,
+              -79.67
+            ],
+            [
+              164.16,
+              -79.19
+            ],
+            [
+              158.11,
+              -94.94
+            ],
+            [
+              183.32,
+              -104.62
+            ],
+            [
+              191.92,
+              -82.21
+            ]
+          ]
+        },
+        "height": 46,
+        "floors": 11,
+        "material": "wall",
+        "facade": {
+          "piers": {
+            "width": 0.78,
+            "depth": 0.76,
+            "every": 4,
+            "material": "wall",
+            "fullHeight": true
+          },
+          "windows": {
+            "recess": 0.41
+          }
+        }
+      },
+      {
+        "name": "South end slab",
+        "footprint": {
+          "clip": [
+            [
+              175.63,
+              -53.29
+            ],
+            [
+              167.97,
+              -73.02
+            ],
+            [
+              191.92,
+              -82.21
+            ],
+            [
+              199.47,
+              -62.53
+            ],
+            [
+              186.39,
+              -57.46
+            ]
+          ]
+        },
+        "height": 41.5,
+        "floors": 10,
+        "material": "wall",
+        "facade": {
+          "piers": {
+            "width": 0.78,
+            "depth": 0.76,
+            "every": 4,
+            "material": "wall",
+            "fullHeight": true
+          },
+          "windows": {
+            "recess": 0.41
+          }
+        }
+      },
+      {
+        "name": "Northeast podium and entrance wing",
+        "footprint": {
+          "clip": [
+            [
+              150.73,
+              -186.74
+            ],
+            [
+              164.98,
+              -192.28
+            ],
+            [
+              171.64,
+              -175.12
+            ],
+            [
+              157.3,
+              -169.62
+            ]
+          ]
+        },
+        "height": 13.9,
+        "floors": 3,
+        "material": "wall"
+      },
+      {
+        "name": "Southeast lower wing",
+        "footprint": {
+          "clip": [
+            [
+              199.47,
+              -62.53
+            ],
+            [
+              191.92,
+              -82.21
+            ],
+            [
+              185.47,
+              -99.02
+            ],
+            [
+              212.03,
+              -109.21
+            ],
+            [
+              219.06,
+              -111.91
+            ],
+            [
+              220.37,
+              -108.54
+            ],
+            [
+              215.43,
+              -106.61
+            ],
+            [
+              224.09,
+              -84.31
+            ],
+            [
+              224.92,
+              -82.18
+            ],
+            [
+              226.36,
+              -78.46
+            ],
+            [
+              223.18,
+              -77.22
+            ],
+            [
+              225.21,
+              -72.01
+            ],
+            [
+              218.41,
+              -69.37
+            ],
+            [
+              216.4,
+              -74.56
+            ],
+            [
+              198.68,
+              -67.69
+            ],
+            [
+              200.52,
+              -62.94
+            ]
+          ]
+        },
+        "height": 14.05,
+        "floors": 3,
+        "material": "wall"
+      },
+      {
+        "name": "West clinical podium",
+        "footprint": [
+          [
+            138.55,
+            -69.63
+          ],
+          [
+            140.02,
+            -65.82
+          ],
+          [
+            146.7,
+            -68.42
+          ],
+          [
+            145.35,
+            -71.89
+          ],
+          [
+            164.16,
+            -79.19
+          ],
+          [
+            158.11,
+            -94.94
+          ],
+          [
+            148.78,
+            -91.36
+          ],
+          [
+            136.95,
+            -122.17
+          ],
+          [
+            145.35,
+            -125.39
+          ],
+          [
+            139.26,
+            -141.26
+          ],
+          [
+            132.9,
+            -138.82
+          ],
+          [
+            132.9,
+            -137.9
+          ],
+          [
+            138.1,
+            -139.9
+          ],
+          [
+            140.2,
+            -134.5
+          ],
+          [
+            132.9,
+            -131.7
+          ],
+          [
+            132.9,
+            -126.47
+          ],
+          [
+            134.4,
+            -127.05
+          ],
+          [
+            136.45,
+            -121.8
+          ],
+          [
+            132.9,
+            -120.4
+          ],
+          [
+            132.9,
+            -72.63
+          ],
+          [
+            134.65,
+            -68.12
+          ]
+        ],
+        "height": 18.4,
+        "floors": 4,
+        "material": "wall"
+      },
+      {
+        "name": "Low northern end of drive wing",
+        "footprint": {
+          "clip": [
+            [
+              128.23,
+              -196.62
+            ],
+            [
+              119.34,
+              -193.17
+            ],
+            [
+              122.06,
+              -186.08
+            ],
+            [
+              130.99,
+              -189.5
+            ]
+          ]
+        },
+        "height": 13.4,
+        "floors": 3,
+        "material": "wall"
+      },
+      {
+        "name": "North patient block cross wing",
+        "footprint": {
+          "clip": [
+            [
+              171.64,
+              -175.12
+            ],
+            [
+              157.3,
+              -169.61
+            ],
+            [
+              164.47,
+              -150.94
+            ],
+            [
+              179.41,
+              -156.67
+            ],
+            [
+              177.619,
+              -161.344
+            ],
+            [
+              170.146,
+              -158.476
+            ],
+            [
+              165.128,
+              -171.546
+            ],
+            [
+              172.003,
+              -174.185
+            ]
+          ]
+        },
+        "height": 44.8,
+        "floors": 10,
+        "material": "wall",
+        "facade": {
+          "piers": {
+            "width": 0.78,
+            "depth": 0.76,
+            "every": 4,
+            "material": "wall",
+            "fullHeight": true
+          },
+          "windows": {
+            "recess": 0.41
+          }
+        }
+      },
+      {
+        "name": "Eastern concrete stair core",
+        "footprint": {
+          "clip": [
+            [
+              175.98,
+              -165.62
+            ],
+            [
+              175.41,
+              -165.4
+            ],
+            [
+              172.003,
+              -174.185
+            ],
+            [
+              165.128,
+              -171.546
+            ],
+            [
+              170.146,
+              -158.476
+            ],
+            [
+              177.619,
+              -161.344
+            ]
+          ]
+        },
+        "height": 44.8,
+        "floors": 10,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          }
+        }
+      },
+      {
+        "name": "Northeast podium and entrance wing",
+        "footprint": {
+          "clip": [
+            [
+              164.47,
+              -150.94
+            ],
+            [
+              179.41,
+              -156.67
+            ],
+            [
+              179.219,
+              -157.168
+            ],
+            [
+              180.325,
+              -157.605
+            ],
+            [
+              180.333,
+              -157.608
+            ],
+            [
+              183.014,
+              -150.624
+            ],
+            [
+              181.87,
+              -150.18
+            ],
+            [
+              183.45,
+              -146.11
+            ],
+            [
+              183.926,
+              -146.295
+            ],
+            [
+              189.968,
+              -130.556
+            ],
+            [
+              189.38,
+              -130.33
+            ],
+            [
+              194.01,
+              -118.41
+            ],
+            [
+              208.68,
+              -124.1
+            ],
+            [
+              211.82,
+              -116.0
+            ],
+            [
+              216.73,
+              -117.91
+            ],
+            [
+              219.06,
+              -111.91
+            ],
+            [
+              185.47,
+              -99.02
+            ],
+            [
+              183.32,
+              -104.62
+            ],
+            [
+              191.72,
+              -107.85
+            ],
+            [
+              179.9,
+              -138.65
+            ],
+            [
+              170.56,
+              -135.07
+            ]
+          ]
+        },
+        "height": 13.9,
+        "floors": 3,
+        "material": "wall"
+      },
+      {
+        "name": "Projecting east stair shaft",
+        "footprint": {
+          "clip": [
+            [
+              183.29,
+              -162.63
+            ],
+            [
+              181.32,
+              -167.69
+            ],
+            [
+              175.98,
+              -165.62
+            ],
+            [
+              179.193,
+              -157.236
+            ],
+            [
+              185.726,
+              -159.744
+            ],
+            [
+              184.446,
+              -163.079
+            ]
+          ]
+        },
+        "height": 48.9,
+        "floors": 11,
+        "facade": {
+          "bays": {
+            "width": 8.1,
+            "count": 1,
+            "edgeMargin": 0.25
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "bands": [],
+          "blank": true
+        },
+        "wallProfiles": {
+          "31": {
+            "blank": false,
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "slot",
+              "width": 0.72,
+              "height": 47.45,
+              "sill": 0.45,
+              "spanFloors": 11,
+              "perBay": 1,
+              "glassColor": "#293536",
+              "glass": "dark",
+              "recess": 0.41,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 10
+              }
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "slot",
+                "height": 47.45,
+                "width": 0.72,
+                "spanFloors": 11,
+                "perBay": 1
+              }
+            }
+          },
+          "28": {
+            "blank": false,
+            "bays": {
+              "count": 1
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.13,
+              "height": 1.25,
+              "sill": 1.15,
+              "perBay": 1,
+              "glassColor": "#4c5355"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "punched",
+                "height": 1.25,
+                "width": 1.13,
+                "perBay": 1
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "Projecting arrival canopy",
+        "footprint": {
+          "clip": [
+            [
+              192.47,
+              -131.52
+            ],
+            [
+              195.53,
+              -132.72
+            ],
+            [
+              192.31,
+              -141.03
+            ],
+            [
+              189.43,
+              -148.43
+            ],
+            [
+              183.926,
+              -146.295
+            ],
+            [
+              189.968,
+              -130.556
+            ]
+          ]
+        },
+        "height": 5.18,
+        "baseOffset": 3.65,
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0.21,
+            "depth": 0.31,
+            "material": "wall"
+          },
+          "fasciaBeam": {
+            "spacing": 2.15,
+            "projection": 0.68,
+            "gap": 0.16,
+            "soffitColor": "#464342"
+          }
+        }
+      },
+      {
+        "name": "Arrival canopy concrete column",
+        "footprint": [
+          [
+            189.86,
+            -132.855
+          ],
+          [
+            190.093,
+            -132.248
+          ],
+          [
+            189.532,
+            -132.033
+          ],
+          [
+            189.299,
+            -132.64
+          ]
+        ],
+        "height": 3.65,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Arrival canopy concrete column",
+        "footprint": [
+          [
+            187.542,
+            -138.825
+          ],
+          [
+            187.775,
+            -138.218
+          ],
+          [
+            187.214,
+            -138.003
+          ],
+          [
+            186.981,
+            -138.61
+          ]
+        ],
+        "height": 3.65,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Arrival canopy concrete column",
+        "footprint": [
+          [
+            185.224,
+            -144.795
+          ],
+          [
+            185.457,
+            -144.188
+          ],
+          [
+            184.896,
+            -143.973
+          ],
+          [
+            184.663,
+            -144.58
+          ]
+        ],
+        "height": 3.65,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Lower laboratory roof with three rooflight rows",
+        "footprint": [
+          [
+            74.45,
+            -157.3
+          ],
+          [
+            58.01,
+            -150.92
+          ],
+          [
+            63.06,
+            -137.89
+          ],
+          [
+            79.66,
+            -144.34
+          ],
+          [
+            73.48,
+            -159.8
+          ]
+        ],
+        "height": 4.95,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "width": 3.6
+          }
+        },
+        "roof": {
+          "material": "soffitRoof"
+        }
+      },
+      {
+        "name": "North service stair at the podium return",
+        "footprint": [
+          [
+            124.8,
+            -195.3
+          ],
+          [
+            127.7,
+            -196.42
+          ],
+          [
+            129.15,
+            -192.68
+          ],
+          [
+            126.25,
+            -191.55
+          ]
+        ],
+        "height": 15.6,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          },
+          "sections": [
+            {
+              "start": 0.44,
+              "end": 0.66,
+              "base": 1.8,
+              "top": 15.2,
+              "material": "coreGlass",
+              "horizontalMullions": 4
+            }
+          ]
+        }
+      },
+      {
+        "name": "Small utility hut north of service drive",
+        "footprint": [
+          [
+            157.0,
+            -215.2
+          ],
+          [
+            159.6,
+            -216.2
+          ],
+          [
+            162.35,
+            -209.25
+          ],
+          [
+            159.75,
+            -208.25
+          ]
+        ],
+        "height": 3.15,
+        "floors": 1,
+        "material": "serviceMetal",
+        "facade": {
+          "material": "serviceMetal",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "soffitRoof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Curved upper floor of the east clinical wing",
+        "footprint": [
+          [
+            223.7,
+            -77.8
+          ],
+          [
+            221.25,
+            -81.6
+          ],
+          [
+            220.7,
+            -85.3
+          ],
+          [
+            219.95,
+            -88.5
+          ],
+          [
+            216.0,
+            -99.4
+          ],
+          [
+            214.3,
+            -103.0
+          ],
+          [
+            187.81,
+            -92.93
+          ],
+          [
+            195.55,
+            -72.75
+          ],
+          [
+            211.4,
+            -78.9
+          ],
+          [
+            213.51,
+            -73.44
+          ],
+          [
+            216.4,
+            -74.56
+          ],
+          [
+            218.05,
+            -70.31
+          ],
+          [
+            224.95,
+            -72.68
+          ],
+          [
+            223.18,
+            -77.22
+          ],
+          [
+            223.79,
+            -77.46
+          ]
+        ],
+        "height": 18.45,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "windows": {
+            "type": "ribbon",
+            "width": 3.62,
+            "height": 1.57,
+            "sill": 1.02
+          },
+          "bays": {
+            "width": 3.68,
+            "edgeMargin": 0.12
+          },
+          "bands": []
+        },
+        "baseOffset": 14.05,
+        "roof": {
+          "material": "clinicalMembrane"
+        }
+      },
+      {
+        "name": "West clinical podium",
+        "footprint": [
+          [
+            132.9,
+            -138.82
+          ],
+          [
+            115.92,
+            -132.31
+          ],
+          [
+            108.76,
+            -150.98
+          ],
+          [
+            103.15,
+            -148.83
+          ],
+          [
+            107.73,
+            -136.9
+          ],
+          [
+            108.36,
+            -137.14
+          ],
+          [
+            111.51,
+            -128.98
+          ],
+          [
+            104.7,
+            -126.34
+          ],
+          [
+            119.11,
+            -87.6
+          ],
+          [
+            126.04,
+            -90.29
+          ],
+          [
+            132.9,
+            -72.63
+          ],
+          [
+            132.9,
+            -131.7
+          ],
+          [
+            127.7,
+            -129.7
+          ],
+          [
+            125.6,
+            -135.1
+          ],
+          [
+            132.9,
+            -137.9
+          ]
+        ],
+        "height": 18.4,
+        "floors": 4,
+        "material": "wall"
+      },
+      {
+        "name": "Recessed clinical light well",
+        "footprint": [
+          [
+            127.7,
+            -129.7
+          ],
+          [
+            140.2,
+            -134.5
+          ],
+          [
+            138.1,
+            -139.9
+          ],
+          [
+            125.6,
+            -135.1
+          ]
+        ],
+        "height": 14.12,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "soffitRoof"
+        }
+      },
+      {
+        "name": "Recessed clinical light well",
+        "footprint": [
+          [
+            132.9,
+            -120.4
+          ],
+          [
+            136.45,
+            -121.8
+          ],
+          [
+            134.4,
+            -127.05
+          ],
+          [
+            132.9,
+            -126.47
+          ]
+        ],
+        "height": 14.12,
+        "floors": 3,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0
+          },
+          "cornice": {
+            "height": 0
+          },
+          "base": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "material": "soffitRoof"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 23,
+      "position": 0.39,
+      "type": "doors-double",
+      "width": 5.5,
+      "height": 3.2,
+      "recess": 0.78,
+      "at": [
+        187.645,
+        -136.892
+      ]
+    }
+  ],
+  "notes": "The two high blocks and the lower west, southeast and northwest roof plates follow the sampled surface. Ribbon windows turn the inside corners. The detached annex owns the connecting bridge. Bay counts on obscured faces and dimensions of openings are estimates. The eastern drive canopy is a suspended slab at 3.65–5.18 m. Its entrance glazing is recessed on the podium face about 5.4 m behind inventory wall 23. The open drive between the canopy and the separate tall stair shaft has ground-level lidar returns."
+}

@@ -1,0 +1,130 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778713906",
+  "name": "",
+  "status": "auto",
+  "confidence": 0.32,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    }
+  ],
+  "style": "house",
+  "floors": {
+    "count": 1,
+    "typicalHeight": 3,
+    "groundFloorHeight": 3
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 4.45,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              266.251,
+              -487.406
+            ],
+            [
+              263.265,
+              -494.659
+            ],
+            [
+              261.64,
+              -493.99
+            ],
+            [
+              261.499,
+              -494.338
+            ],
+            [
+              253.989,
+              -491.247
+            ],
+            [
+              257.1,
+              -483.64
+            ]
+          ]
+        },
+        "height": 9.55,
+        "baseOffset": 4.45,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#a16a53",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "slate",
+      "color": "#605d43"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.8,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#647786",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "gutter",
+    "rise": 4.5
+  },
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.5,
+      "width": 1.1,
+      "height": 2.6,
+      "type": "doors-single",
+      "recess": 0.32
+    }
+  ]
+}

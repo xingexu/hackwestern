@@ -1,0 +1,282 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668525",
+  "name": "West Valley Building",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "photo",
+      "note": "West Valley Building"
+    }
+  ],
+  "style": "mid-century-modern",
+  "floors": {
+    "count": 2,
+    "typicalHeight": 3.7,
+    "groundFloorHeight": 3.7
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 6.65,
+        "floors": 2
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              32.354,
+              -35.653
+            ],
+            [
+              32.48,
+              -40.61
+            ],
+            [
+              22.44,
+              -42.51
+            ],
+            [
+              22.44,
+              -42.51
+            ],
+            [
+              22.02,
+              -38.88
+            ],
+            [
+              21.417,
+              -38.973
+            ],
+            [
+              21.186,
+              -36.894
+            ]
+          ]
+        },
+        "height": 11.75,
+        "baseOffset": 6.65,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              71.7,
+              -34.3
+            ],
+            [
+              70.128,
+              -34.3
+            ],
+            [
+              69.58,
+              -29.92
+            ],
+            [
+              57.804,
+              -31.552
+            ],
+            [
+              53.055,
+              -14.456
+            ],
+            [
+              14.282,
+              -20.272
+            ],
+            [
+              12.96,
+              -10.85
+            ],
+            [
+              105.85,
+              4.41
+            ],
+            [
+              108.6,
+              -12.02
+            ],
+            [
+              111.85,
+              -31.45
+            ],
+            [
+              71.7,
+              -37.576
+            ]
+          ]
+        },
+        "height": 11.75,
+        "baseOffset": 6.65,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              42.241,
+              -6.04
+            ],
+            [
+              43.3,
+              -5.866
+            ],
+            [
+              44.702,
+              -14.401
+            ],
+            [
+              14.3,
+              -19.396
+            ],
+            [
+              13.331,
+              -13.495
+            ],
+            [
+              12.96,
+              -10.85
+            ]
+          ]
+        },
+        "height": 16.0,
+        "baseOffset": 11.75,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              44.7,
+              -13.43
+            ],
+            [
+              43.969,
+              -5.756
+            ],
+            [
+              68.3,
+              -1.759
+            ],
+            [
+              69.189,
+              -11.097
+            ]
+          ]
+        },
+        "height": 16.0,
+        "baseOffset": 11.75,
+        "floors": 1
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              74.786,
+              -0.693
+            ],
+            [
+              100.335,
+              3.504
+            ],
+            [
+              102.175,
+              3.767
+            ],
+            [
+              103.383,
+              -4.692
+            ],
+            [
+              75.918,
+              -8.616
+            ]
+          ]
+        },
+        "height": 16.0,
+        "baseOffset": 11.75,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#88796e",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#95917f"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.5
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.8,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#5c6463",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

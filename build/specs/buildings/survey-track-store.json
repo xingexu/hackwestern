@@ -1,0 +1,74 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-track-store",
+  "name": "South track equipment store",
+  "status": "authored",
+  "confidence": 0.77,
+  "style": "athletic",
+  "materials": {
+    "wall": {
+      "kind": "painted-metal",
+      "color": "#b7b9b1"
+    },
+    "roof": {
+      "kind": "standing-seam-metal",
+      "color": "#d2d1ca"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#8a8e89"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#747975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.2,
+    "typicalHeight": 2.2
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "rise": 0.5,
+    "ridge": 98,
+    "edge": "none"
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "South track equipment store",
+        "footprint": "inventory",
+        "height": 2.2,
+        "floors": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof corners and orientation traced in the London 2025 orthophoto in local campus coordinates."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The earlier bare-earth and surface rasters do not resolve the full small structure. The roof profile and dimensions use its 2025 orthophoto footprint and shadow.",
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.57,
+      "type": "doors-double",
+      "width": 1.7,
+      "height": 2.05
+    }
+  ]
+}

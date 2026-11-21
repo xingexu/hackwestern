@@ -1,0 +1,1115 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w147379452",
+  "name": "University YMCA Childcare Centre",
+  "status": "refined",
+  "confidence": 0.84,
+  "summary": "This one-storey buff masonry building has a broad grey hipped roof, projecting gables and a sheltered entrance facing the drop-off area. The roof slopes upward to a recessed central well for mechanical equipment.",
+  "style": "postmodern",
+  "evidence": [
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/UYCC.jpg",
+      "note": "The university entrance photo shows pale blockwork, paired gables, a column-supported entry roof and groups of upright rectangular windows. Wall colour was sampled from this view."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "148668607",
+      "walls": [
+        0,
+        11
+      ],
+      "note": "The hipped roof and screened playground are visible behind the fence, with the adjacent tall residence rising behind the roof."
+    },
+    {
+      "kind": "aerial",
+      "note": "The 2025 aerial image shows south drop-off paving, multiple cross-gables, a northern playground and an elongated flat mechanical well."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 6.67 / 8.29 / 8.99 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#bcab8f",
+      "secondaryColor": "#baa98d",
+      "unitSize": [
+        0.39,
+        0.19
+      ],
+      "variation": 0.1
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#d6d2c6",
+      "variation": 0.12
+    },
+    "gable": {
+      "kind": "wood-siding",
+      "color": "#ad9f86",
+      "secondaryColor": "#968977",
+      "unitSize": [
+        1.1,
+        0.16
+      ],
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#62645e",
+      "secondaryColor": "#666762",
+      "unitSize": [
+        0.31,
+        0.145
+      ],
+      "variation": 0.045,
+      "roughness": 0.96
+    },
+    "flatRoof": {
+      "kind": "membrane",
+      "color": "#b5b8ab",
+      "variation": 0.12
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#7d8582"
+    },
+    "soffit": {
+      "kind": "wood-siding",
+      "color": "#cfbfaa",
+      "secondaryColor": "#c1b29d",
+      "unitSize": [
+        1.6,
+        0.15
+      ],
+      "variation": 0.035
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 4.1,
+    "typicalHeight": 4.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.45,
+        "pattern": "grouped",
+        "edgeMargin": 0.27
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.05,
+        "height": 1.86,
+        "sill": 0.78,
+        "perBay": 1,
+        "recess": 0.1,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "frameColor": "#d2d0c3",
+        "glass": "tinted",
+        "glassColor": "#57636a",
+        "surround": "none",
+        "sillProjecting": true
+      },
+      "cornice": {
+        "height": 0.19,
+        "depth": 0.33,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 3.58,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 9
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 4.2,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 9
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.05,
+          "height": 1.86,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.1,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d2d0c3",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none",
+          "sillProjecting": true,
+          "spacing": 0.3
+        },
+        "segments": [
+          {
+            "range": [
+              0.16,
+              0.37
+            ],
+            "bays": {
+              "count": 3
+            },
+            "windows": {
+              "type": "punched",
+              "width": 0.92,
+              "height": 1.86,
+              "sill": 0.78,
+              "perBay": 1,
+              "recess": 0.1,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.055
+              },
+              "frameColor": "#d2d0c3",
+              "glass": "tinted",
+              "glassColor": "#57636a",
+              "surround": "none",
+              "sillProjecting": true
+            }
+          },
+          {
+            "range": [
+              0.51,
+              0.77
+            ],
+            "bays": {
+              "count": 3
+            },
+            "windows": {
+              "type": "punched",
+              "width": 0.96,
+              "height": 1.86,
+              "sill": 0.78,
+              "perBay": 1,
+              "recess": 0.1,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.055
+              },
+              "frameColor": "#d2d0c3",
+              "glass": "tinted",
+              "glassColor": "#57636a",
+              "surround": "none",
+              "sillProjecting": true
+            }
+          }
+        ]
+      },
+      "2": {
+        "bays": {
+          "width": 3.12,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "3": {
+        "windows": {
+          "type": "punched",
+          "width": 1.05,
+          "height": 1.86,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.1,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d2d0c3",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none",
+          "sillProjecting": true,
+          "spacing": 0.26
+        },
+        "bays": {
+          "width": 3.17,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 4
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 3.51,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 11
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 3.59,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 7
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 2.81,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "7": {
+        "windows": {
+          "type": "punched",
+          "width": 1.05,
+          "height": 1.86,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.1,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d2d0c3",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none",
+          "sillProjecting": true,
+          "spacing": 0.26
+        },
+        "bays": {
+          "width": 3.9,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 4.6,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 1
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 3.34,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 3.51,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 1
+        }
+      },
+      "11": {
+        "windows": {
+          "type": "punched",
+          "width": 1.05,
+          "height": 1.86,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.1,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#d2d0c3",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none",
+          "sillProjecting": true,
+          "spacing": 0.26
+        },
+        "bays": {
+          "width": 3.28,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "hip",
+    "rise": 3.95,
+    "material": "roof",
+    "overhang": 0.53,
+    "edge": "gutter",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -48.860132,
+          1154.625518
+        ],
+        "size": [
+          2.4,
+          1.65
+        ],
+        "height": 0.85,
+        "rotation": -11,
+        "material": "trim"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -52.407781,
+          1157.861903
+        ],
+        "size": [
+          2,
+          1.75
+        ],
+        "height": 0.9,
+        "rotation": -11,
+        "material": "trim"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -73.946336,
+          1162.354189
+        ],
+        "size": [
+          1.8,
+          1.25
+        ],
+        "height": 0.59,
+        "rotation": -11,
+        "material": "trim"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -55.660942,
+          1161.041045
+        ],
+        "size": [
+          1.2,
+          1.15
+        ],
+        "height": 0.56,
+        "rotation": -11,
+        "material": "trim"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -49.5,
+          1157.6
+        ],
+        "size": [
+          1.5,
+          1.45
+        ],
+        "height": 0.58,
+        "material": "trim",
+        "rotation": -11,
+        "style": "exhaust"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -46.8,
+          1156.4
+        ],
+        "size": [
+          1.38,
+          1.31
+        ],
+        "height": 0.58,
+        "material": "trim",
+        "rotation": -11,
+        "style": "exhaust"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -46.4,
+          1159.15
+        ],
+        "size": [
+          1.72,
+          1.55
+        ],
+        "height": 0.58,
+        "material": "trim",
+        "rotation": -11,
+        "style": "exhaust"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -50.3,
+          1161.1
+        ],
+        "size": [
+          1.5,
+          1.15
+        ],
+        "height": 0.58,
+        "material": "trim",
+        "rotation": -11,
+        "style": "exhaust"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -69.8,
+          1158
+        ],
+        "size": [
+          0.67,
+          0.73
+        ],
+        "height": 0.58,
+        "material": "trim",
+        "rotation": -11,
+        "style": "exhaust"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -72.1,
+          1158.6
+        ],
+        "size": [
+          0.52,
+          0.54
+        ],
+        "height": 0.58,
+        "material": "trim",
+        "rotation": -11,
+        "style": "exhaust"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -71.2,
+          1164
+        ],
+        "size": [
+          0.7,
+          0.67
+        ],
+        "height": 0.58,
+        "material": "trim",
+        "rotation": -11,
+        "style": "exhaust"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -75.5,
+          1163.8
+        ],
+        "size": [
+          0.84,
+          0.71
+        ],
+        "height": 0.58,
+        "material": "trim",
+        "rotation": -11,
+        "style": "exhaust"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -68.4,
+          1164.7
+        ],
+        "size": [
+          0.58,
+          0.59
+        ],
+        "height": 0.58,
+        "material": "trim",
+        "rotation": -11,
+        "style": "exhaust"
+      }
+    ]
+  },
+  "notes": "The roof contains a flat open equipment well inside the outer hips, and multiple small cross-gables project over selected window groups. The bright turquoise parking shelter to the southeast is recorded as a separate inventory footprint.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "North roof slope",
+        "footprint": {
+          "clip": [
+            [
+              -94.433629,
+              1142.906032
+            ],
+            [
+              -32.591116,
+              1130.885065
+            ],
+            [
+              -46.135947,
+              1151.345455
+            ],
+            [
+              -78.922295,
+              1157.718476
+            ]
+          ]
+        },
+        "height": 4.12,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "rise": 4.02,
+          "ridge": 79,
+          "edge": "none",
+          "overhang": 0,
+          "material": "roof"
+        }
+      },
+      {
+        "name": "West roof slope",
+        "footprint": {
+          "clip": [
+            [
+              -94.433629,
+              1142.906032
+            ],
+            [
+              -78.922295,
+              1157.718476
+            ],
+            [
+              -76.976043,
+              1167.731073
+            ],
+            [
+              -86.419651,
+              1184.134373
+            ]
+          ]
+        },
+        "height": 4.12,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "rise": 4.02,
+          "ridge": 349,
+          "edge": "none",
+          "overhang": 0,
+          "material": "roof"
+        }
+      },
+      {
+        "name": "East roof slope",
+        "footprint": [
+          [
+            -44.19,
+            1161.358
+          ],
+          [
+            -34.327,
+            1166.766
+          ],
+          [
+            -39.853,
+            1141.854
+          ],
+          [
+            -46.136,
+            1151.345
+          ]
+        ],
+        "height": 4.12,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "rise": 4.02,
+          "ridge": 169,
+          "edge": "none",
+          "overhang": 0,
+          "material": "roof"
+        }
+      },
+      {
+        "name": "South roof slope",
+        "footprint": [
+          [
+            -76.976,
+            1167.731
+          ],
+          [
+            -83.342,
+            1178.788
+          ],
+          [
+            -83.13,
+            1179.87
+          ],
+          [
+            -43.72,
+            1171.74
+          ],
+          [
+            -41.83,
+            1180.9
+          ],
+          [
+            -31.599,
+            1179.067
+          ],
+          [
+            -34.327,
+            1166.766
+          ],
+          [
+            -44.19,
+            1161.358
+          ]
+        ],
+        "height": 4.12,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "rise": 4.02,
+          "ridge": 259,
+          "edge": "none",
+          "overhang": 0,
+          "material": "roof"
+        }
+      },
+      {
+        "name": "Recessed central mechanical roof",
+        "footprint": [
+          [
+            -76.881,
+            1167.59
+          ],
+          [
+            -44.33,
+            1161.263
+          ],
+          [
+            -46.231,
+            1151.486
+          ],
+          [
+            -78.782,
+            1157.813
+          ]
+        ],
+        "height": 7,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "flatRoof",
+          "overhang": 0
+        },
+        "facade": {
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0.1,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "West entry gable",
+        "footprint": [
+          [
+            -78.056,
+            1172.595
+          ],
+          [
+            -69.78,
+            1170.888
+          ],
+          [
+            -68.495,
+            1177.117
+          ],
+          [
+            -76.771,
+            1178.824
+          ]
+        ],
+        "height": 4.1,
+        "floors": 1,
+        "baseOffset": 4.035,
+        "material": "gable",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "gable",
+          "cornice": {
+            "height": 0.1,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 349,
+          "rise": 2.64,
+          "material": "roof",
+          "edge": "gutter",
+          "features": []
+        }
+      },
+      {
+        "name": "East entry gable",
+        "footprint": [
+          [
+            -64.263,
+            1169.75
+          ],
+          [
+            -54.016,
+            1167.636
+          ],
+          [
+            -52.731,
+            1173.865
+          ],
+          [
+            -62.978,
+            1175.979
+          ]
+        ],
+        "height": 4.1,
+        "floors": 1,
+        "baseOffset": 4.035,
+        "material": "gable",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "gable",
+          "cornice": {
+            "height": 0.1,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "gable",
+          "ridge": 349,
+          "rise": 2.85,
+          "material": "roof",
+          "edge": "gutter",
+          "features": []
+        }
+      },
+      {
+        "name": "Southeast gable",
+        "footprint": [
+          [
+            -43.108,
+            1171.641
+          ],
+          [
+            -41.326,
+            1180.81
+          ],
+          [
+            -31.599,
+            1179.067
+          ],
+          [
+            -33.654,
+            1169.803
+          ]
+        ],
+        "height": 4.17,
+        "floors": 1,
+        "baseOffset": 4.03,
+        "material": "gable",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "gable"
+        },
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "gutter",
+          "ridge": 169,
+          "rise": 2.13,
+          "overhang": 0.29,
+          "features": []
+        }
+      },
+      {
+        "name": "Northwest playroom gable",
+        "footprint": {
+          "clip": [
+            [
+              -88.69145,
+              1147.290935
+            ],
+            [
+              -80.347619,
+              1145.669059
+            ],
+            [
+              -78.630338,
+              1154.503703
+            ],
+            [
+              -86.974169,
+              1156.12558
+            ]
+          ]
+        },
+        "height": 4.17,
+        "floors": 1,
+        "baseOffset": 4.03,
+        "material": "gable",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "gable"
+        },
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "gutter",
+          "ridge": 169,
+          "rise": 1.85,
+          "overhang": 0.29,
+          "features": []
+        }
+      },
+      {
+        "name": "North playroom gable",
+        "footprint": {
+          "clip": [
+            [
+              -70.896642,
+              1142.405772
+            ],
+            [
+              -64.417903,
+              1141.146432
+            ],
+            [
+              -62.757865,
+              1149.686589
+            ],
+            [
+              -69.236604,
+              1150.945928
+            ]
+          ]
+        },
+        "height": 4.17,
+        "floors": 1,
+        "baseOffset": 4.03,
+        "material": "gable",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "gable"
+        },
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "gutter",
+          "ridge": 169,
+          "rise": 1.54,
+          "overhang": 0.29,
+          "features": []
+        }
+      },
+      {
+        "name": "West playroom cross gable",
+        "floors": 1,
+        "footprint": [
+          [
+            -80.487,
+            1161.622
+          ],
+          [
+            -79.001,
+            1169.211
+          ],
+          [
+            -85.242,
+            1170.434
+          ],
+          [
+            -86.728,
+            1162.845
+          ]
+        ],
+        "height": 4.1,
+        "baseOffset": 4.035,
+        "roof": {
+          "form": "gable",
+          "ridge": 79,
+          "rise": 2.38,
+          "material": "roof",
+          "edge": "gutter",
+          "features": []
+        },
+        "material": "gable",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "gable",
+          "cornice": {
+            "height": 0.1,
+            "depth": 0.12,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "Pitched entrance porch roof",
+        "footprint": [
+          [
+            -62.41,
+            1175.749
+          ],
+          [
+            -57.641,
+            1174.765
+          ],
+          [
+            -57.095,
+            1177.409
+          ],
+          [
+            -61.864,
+            1178.393
+          ]
+        ],
+        "height": 2.96,
+        "baseOffset": 2.82,
+        "floors": 1,
+        "material": "soffit",
+        "roof": {
+          "form": "gable",
+          "ridge": 349,
+          "rise": 0.85,
+          "material": "roof",
+          "edge": "gutter",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "soffit"
+        }
+      },
+      {
+        "name": "Pyramidal mechanical well skylight",
+        "footprint": [
+          [
+            -65.661,
+            1157.413
+          ],
+          [
+            -63.059,
+            1156.907
+          ],
+          [
+            -62.539,
+            1159.587
+          ],
+          [
+            -65.141,
+            1160.093
+          ]
+        ],
+        "height": 7.2,
+        "baseOffset": 7,
+        "floors": 1,
+        "material": "trim",
+        "roof": {
+          "form": "pyramid",
+          "rise": 0.9,
+          "material": "glass",
+          "edge": "none",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "trim"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.586,
+      "type": "doors-double",
+      "width": 2.05,
+      "height": 2.25,
+      "recess": 0.18,
+      "canopy": {
+        "type": "portico",
+        "width": 4.18,
+        "depth": 2.82,
+        "columns": 2,
+        "material": "soffit"
+      }
+    }
+  ]
+}

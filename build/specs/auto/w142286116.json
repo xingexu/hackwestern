@@ -1,0 +1,174 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w142286116",
+  "name": "North Campus Building",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131413953"
+    }
+  ],
+  "style": "contemporary-glass",
+  "floors": {
+    "count": 3,
+    "typicalHeight": 4.1,
+    "groundFloorHeight": 4.1
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 14.03,
+        "floors": 3
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              644.481,
+              71.474
+            ],
+            [
+              642.75,
+              69.33
+            ],
+            [
+              644.02,
+              68.304
+            ],
+            [
+              628.547,
+              49.189
+            ],
+            [
+              625.67,
+              51.52
+            ],
+            [
+              623.5,
+              48.84
+            ],
+            [
+              617.65,
+              53.57
+            ],
+            [
+              619.8,
+              56.23
+            ],
+            [
+              577.93,
+              90.07
+            ],
+            [
+              575.57,
+              87.16
+            ],
+            [
+              569.31,
+              92.23
+            ],
+            [
+              571.46,
+              94.89
+            ],
+            [
+              566.29,
+              99.07
+            ],
+            [
+              563.69,
+              101.18
+            ],
+            [
+              581.133,
+              122.755
+            ]
+          ]
+        },
+        "height": 19.13,
+        "baseOffset": 14.03,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#87927a",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#bfc4b6"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.7
+      },
+      "windows": {
+        "type": "curtain-wall",
+        "width": 2.6,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#56605e",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 4,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

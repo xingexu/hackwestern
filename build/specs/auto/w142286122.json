@@ -1,0 +1,296 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w142286122",
+  "name": "Physics Building",
+  "status": "auto",
+  "confidence": 0.53,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414021"
+    }
+  ],
+  "style": "collegiate-gothic",
+  "floors": {
+    "count": 3,
+    "typicalHeight": 3.9,
+    "groundFloorHeight": 3.9
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 11.71,
+        "floors": 3
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              363.11,
+              161.56
+            ],
+            [
+              361.972,
+              164.972
+            ],
+            [
+              357.409,
+              166.493
+            ],
+            [
+              351.13,
+              159.318
+            ],
+            [
+              346.3,
+              146.759
+            ],
+            [
+              346.3,
+              139.899
+            ],
+            [
+              338.797,
+              138.648
+            ],
+            [
+              323.581,
+              146.256
+            ],
+            [
+              324.76,
+              154.514
+            ],
+            [
+              327.7,
+              158.433
+            ],
+            [
+              327.7,
+              161.197
+            ],
+            [
+              323.454,
+              163.32
+            ],
+            [
+              325.057,
+              168.932
+            ],
+            [
+              325.843,
+              171.681
+            ],
+            [
+              325.843,
+              171.681
+            ],
+            [
+              325.913,
+              171.926
+            ],
+            [
+              326.0,
+              171.838
+            ],
+            [
+              328.743,
+              174.582
+            ],
+            [
+              332.318,
+              172.795
+            ],
+            [
+              333.423,
+              175.558
+            ],
+            [
+              330.474,
+              177.77
+            ],
+            [
+              318.518,
+              179.762
+            ],
+            [
+              319.96,
+              183.46
+            ],
+            [
+              318.13,
+              184.17
+            ],
+            [
+              318.57,
+              185.28
+            ],
+            [
+              324.37,
+              200.18
+            ],
+            [
+              335.53,
+              195.82
+            ],
+            [
+              333.27,
+              190.02
+            ],
+            [
+              346.23,
+              184.97
+            ],
+            [
+              346.97,
+              186.87
+            ],
+            [
+              349.61,
+              185.84
+            ],
+            [
+              352.38,
+              184.76
+            ],
+            [
+              351.64,
+              182.84
+            ],
+            [
+              364.18,
+              177.95
+            ],
+            [
+              366.61,
+              184.19
+            ],
+            [
+              378.29,
+              179.64
+            ],
+            [
+              374.21,
+              169.17
+            ],
+            [
+              376.05,
+              168.46
+            ],
+            [
+              374.53,
+              164.56
+            ],
+            [
+              373.69,
+              162.4
+            ],
+            [
+              370.0,
+              163.84
+            ],
+            [
+              369.465,
+              162.468
+            ]
+          ]
+        },
+        "height": 16.81,
+        "baseOffset": 11.71,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#919883",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#c1c3b3"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.1
+      },
+      "windows": {
+        "type": "tudor-arch",
+        "width": 1.8,
+        "height": 2.25,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1
+        },
+        "glassColor": "#5b614e",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 0.46,
+        "depth": 0.24,
+        "every": 2,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "sill-lines",
+          "height": 0.13,
+          "depth": 0.07,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 15,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "gothic-portal",
+      "recess": 0.32
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3043",
+  "name": "Tree-covered footprint beside London Hall",
+  "status": "refined",
+  "confidence": 0.17,
+  "summary": "Tree-covered footprint beside London Hall is a small rectangular footprint covered by branches beside the service drive, tentatively represented as a low enclosure of uncertain use.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#595c50",
+      "unitSize": [
+        1,
+        2.4
+      ],
+      "secondaryColor": "#56574c",
+      "weathering": 0.42
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#55574b",
+      "weathering": 0.35
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 1.4,
+    "typicalHeight": 1.4
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia"
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Tree canopy covers the full outlined area. No roof edge can be traced independently of the rectangular municipal footprint. Colours are estimates."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 12.62 m, P90 13.05 m, maximum 13.2 m. The 13 m return is continuous with the adjacent tree crown and unsupported by any photograph of a tall building."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Automatic match looks at the London Hall lobby. It supplies no identifiable facade for this footprint.",
+      "frame": "138541239",
+      "walls": [
+        1
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Drive view between the residences shows trees in the sightline.",
+      "frame": "138541241",
+      "walls": [
+        0,
+        1
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "The end of the forecourt is screened by vegetation and there is no distinct tall wall.",
+      "frame": "130394513",
+      "walls": [
+        0,
+        1
+      ]
+    }
+  ],
+  "notes": "Presence of a roof under the tree, use, wall material and height are unconfirmed. The low enclosure is a provisional interpretation of the city outline.",
+  "lidarTrusted": false,
+  "lidarNote": "The lidar measures an overhanging tree crown. Provisional height comes from the scale of adjacent service enclosures.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Provisional enclosure",
+        "footprint": "inventory",
+        "height": 1.4,
+        "floors": 1
+      }
+    ]
+  }
+}

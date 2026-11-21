@@ -1,0 +1,251 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2401",
+  "name": "White-roofed service-yard structure",
+  "status": "refined",
+  "confidence": 0.51,
+  "summary": "The white-roofed service-yard structure is a narrow rectangular trailer-sized structure with a light roof set at an angle to the service lane.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#d2cebd",
+      "secondaryColor": "#b2afa1",
+      "unitSize": [
+        0.8,
+        2.5
+      ],
+      "variation": 0.065,
+      "roughness": 0.83
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#fdfdfb"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#f4efdb"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.1,
+    "typicalHeight": 3.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.18,
+        "material": "trim",
+        "projection": 0.025
+      },
+      "bays": {
+        "width": 3.45,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "blank": true
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "fascia",
+    "material": "roof",
+    "overhang": 0.07,
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          128.14,
+          -55.07
+        ],
+        "size": [
+          0.18,
+          0.25
+        ],
+        "height": 0.12,
+        "material": "metal",
+        "rotation": 39,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          127.06,
+          -53.69
+        ],
+        "size": [
+          0.18,
+          0.25
+        ],
+        "height": 0.12,
+        "material": "metal",
+        "rotation": 39,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          126.29,
+          -56.52
+        ],
+        "size": [
+          0.18,
+          0.25
+        ],
+        "height": 0.12,
+        "material": "metal",
+        "rotation": 39,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          125.21,
+          -55.15
+        ],
+        "size": [
+          0.18,
+          0.25
+        ],
+        "height": 0.12,
+        "material": "metal",
+        "rotation": 39,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          124.36,
+          -58.04
+        ],
+        "size": [
+          0.18,
+          0.25
+        ],
+        "height": 0.12,
+        "material": "metal",
+        "rotation": 39,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          123.28,
+          -56.66
+        ],
+        "size": [
+          0.18,
+          0.25
+        ],
+        "height": 0.12,
+        "material": "metal",
+        "rotation": 39,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          122.51,
+          -59.49
+        ],
+        "size": [
+          0.18,
+          0.25
+        ],
+        "height": 0.12,
+        "material": "metal",
+        "rotation": 39,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          121.43,
+          -58.12
+        ],
+        "size": [
+          0.18,
+          0.25
+        ],
+        "height": 0.12,
+        "material": "metal",
+        "rotation": 39,
+        "style": "vent pipe"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 3.45 m, P90 4.88 m, highest return 5.78 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [124.55, -56.36] averages #fdfdfb."
+    },
+    {
+      "kind": "aerial",
+      "note": "White rectangular roof aligned northwest to southeast with a narrow strip of shadow. The nearby white vessels are a different footprint. The street sightline from the northeast is blocked."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Light narrow enclosure",
+        "footprint": {
+          "clip": [
+            [
+              127.3,
+              -51.3
+            ],
+            [
+              119,
+              -58
+            ],
+            [
+              121.7,
+              -61.4
+            ],
+            [
+              130.1,
+              -54.8
+            ]
+          ]
+        },
+        "height": 3.45,
+        "floors": 1,
+        "material": "wall"
+      }
+    ]
+  },
+  "notes": "The narrow rectangular enclosure has an adjoining pale strip and regularly spaced dark roof fittings. Its door, undercarriage and permanence cannot be identified from above.",
+  "attachments": [
+    {
+      "type": "terrace",
+      "walls": 2,
+      "width": 1.5,
+      "height": 0.16,
+      "material": "trim"
+    }
+  ]
+}

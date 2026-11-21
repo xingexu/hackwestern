@@ -1,0 +1,24 @@
+{
+  "name": "western-campus-drive",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "node build/race_build.mjs",
+    "start": "node serve.mjs",
+    "verify": "agentkit verify full",
+    "dev:online": "wrangler dev --local --config server/wrangler.jsonc",
+    "deploy": "npm run build && wrangler deploy --config server/wrangler.jsonc"
+  },
+  "dependencies": {
+    "qrcode-generator": "2.0.4",
+    "three": "0.170.0",
+    "three-mesh-bvh": "0.8.3"
+  },
+  "devDependencies": {
+    "playwright": "1.65.1",
+    "vite": "8.3.8",
+    "wrangler": "4.166.0"
+  }
+}

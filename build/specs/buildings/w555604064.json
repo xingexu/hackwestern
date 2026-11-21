@@ -1,0 +1,1432 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w555604064",
+  "name": "Material Sciences Addition",
+  "style": "contemporary-stone",
+  "confidence": 0.77,
+  "status": "refined",
+  "summary": "Materials Science Addition is a four-storey infill featuring rows of paired stone-framed windows, a high mechanical screen, and a link to adjacent science wings.",
+  "materials": {
+    "wall": {
+      "kind": "ashlar-stone",
+      "color": "#9f998e",
+      "unitSize": [
+        0.7,
+        0.3
+      ],
+      "secondaryColor": "#8b867b",
+      "variation": 0.12,
+      "bond": "running"
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#97927f",
+      "roughness": 0.74
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#a4a09b"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "duct": {
+      "kind": "painted-metal",
+      "color": "#d6d6c6"
+    },
+    "louvre": {
+      "kind": "corrugated-metal",
+      "color": "#423e36",
+      "unitSize": [
+        0.55,
+        0.07
+      ],
+      "surface": "horizontal louvres"
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.55,
+    "typicalHeight": 4.32,
+    "raisedGround": 0.9
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.25,
+        "height": 1.64,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "surround": "stone",
+        "glass": "clear",
+        "frameColor": "#dedcd2",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true
+      },
+      "bays": {
+        "width": 3.6,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.38,
+        "material": "wall"
+      },
+      "base": {
+        "height": 0.65,
+        "projection": 0.045,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.04,
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 4,
+          "width": 3.87
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 1,
+          "width": 4.48
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 1,
+          "width": 2.7
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 2,
+          "width": 4.24
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 4,
+          "width": 3.95
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 2,
+          "width": 3.0
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 1,
+          "width": 5.17
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 2,
+          "width": 3.4
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 4,
+          "width": 3.79
+        },
+        "sections": [
+          {
+            "start": 0.03,
+            "end": 0.06333333333333334,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.19666666666666666,
+            "end": 0.22999999999999998,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.36333333333333334,
+            "end": 0.39666666666666667,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.53,
+            "end": 0.5633333333333334,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.6966666666666667,
+            "end": 0.73,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.8633333333333333,
+            "end": 0.8966666666666666,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          }
+        ]
+      },
+      "9": {
+        "bays": {
+          "count": 10
+        },
+        "piers": {
+          "every": 2,
+          "width": 0.18,
+          "depth": 0.06,
+          "material": "wall"
+        },
+        "segments": [
+          {
+            "range": [
+              0,
+              0.64
+            ],
+            "bays": {
+              "count": 6
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.27,
+              "height": 1.69,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.06
+              }
+            },
+            "piers": {
+              "width": 0.01,
+              "depth": 0.01,
+              "every": 12,
+              "material": "wall"
+            }
+          },
+          {
+            "range": [
+              0.64,
+              1
+            ],
+            "bays": {
+              "count": 3
+            },
+            "windows": {
+              "type": "punched",
+              "width": 1.12,
+              "height": 1.63,
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.06
+              },
+              "perBay": 2,
+              "spacing": 0.28
+            },
+            "piers": {
+              "every": 1,
+              "width": 0.59,
+              "depth": 0.4,
+              "material": "trim",
+              "aboveRoof": 0.25,
+              "fullHeight": true
+            }
+          }
+        ],
+        "sections": [
+          {
+            "start": 0.03,
+            "end": 0.06333333333333334,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.19666666666666666,
+            "end": 0.22999999999999998,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.36333333333333334,
+            "end": 0.39666666666666667,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.53,
+            "end": 0.5633333333333334,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.6966666666666667,
+            "end": 0.73,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.8633333333333333,
+            "end": 0.8966666666666666,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          }
+        ]
+      },
+      "10": {
+        "bays": {
+          "count": 2,
+          "width": 4.36
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "11": {
+        "bays": {
+          "count": 7,
+          "width": 4.15
+        },
+        "sections": [
+          {
+            "start": 0.03,
+            "end": 0.06333333333333334,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.19666666666666666,
+            "end": 0.22999999999999998,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.36333333333333334,
+            "end": 0.39666666666666667,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.53,
+            "end": 0.5633333333333334,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.6966666666666667,
+            "end": 0.73,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.8633333333333333,
+            "end": 0.8966666666666666,
+            "base": 0.22,
+            "top": 0.85,
+            "material": "glass",
+            "verticalMullionSpacing": 0.6,
+            "horizontalMullions": 0
+          }
+        ]
+      },
+      "12": {
+        "bays": {
+          "count": 1,
+          "width": 5.02
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "13": {
+        "bays": {
+          "count": 3,
+          "width": 3.98
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          350,
+          8.5
+        ],
+        "size": [
+          5.2,
+          9
+        ],
+        "height": 3.85,
+        "material": "metal",
+        "rotation": -16
+      },
+      {
+        "type": "chimney",
+        "center": [
+          348.65,
+          6.25
+        ],
+        "size": [
+          0.9,
+          0.9
+        ],
+        "height": 6.8,
+        "material": "metal",
+        "rotation": 0,
+        "style": "round galvanized exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "center": [
+          352.6,
+          3.2
+        ],
+        "size": [
+          0.7,
+          0.7
+        ],
+        "height": 5.48,
+        "material": "metal",
+        "rotation": 0,
+        "style": "round galvanized exhaust stack"
+      },
+      {
+        "type": "chimney",
+        "style": "round exhaust flue",
+        "center": [
+          337.5,
+          -8.350000000000001
+        ],
+        "size": [
+          0.66,
+          0.66
+        ],
+        "height": 1.15,
+        "rotation": -6,
+        "material": "duct"
+      },
+      {
+        "type": "chimney",
+        "style": "round exhaust flue",
+        "center": [
+          342,
+          -8.8
+        ],
+        "size": [
+          0.66,
+          0.66
+        ],
+        "height": 1.15,
+        "rotation": -6,
+        "material": "duct"
+      },
+      {
+        "type": "chimney",
+        "style": "round exhaust flue",
+        "center": [
+          347,
+          -9.3
+        ],
+        "size": [
+          0.66,
+          0.66
+        ],
+        "height": 1.15,
+        "rotation": -6,
+        "material": "duct"
+      },
+      {
+        "type": "chimney",
+        "style": "round exhaust flue",
+        "center": [
+          351,
+          -9.700000000000001
+        ],
+        "size": [
+          0.66,
+          0.66
+        ],
+        "height": 1.15,
+        "rotation": -6,
+        "material": "duct"
+      },
+      {
+        "type": "chimney",
+        "style": "round exhaust flue",
+        "center": [
+          355,
+          -10.100000000000001
+        ],
+        "size": [
+          0.66,
+          0.66
+        ],
+        "height": 1.15,
+        "rotation": -6,
+        "material": "duct"
+      },
+      {
+        "type": "chimney",
+        "style": "round exhaust flue",
+        "center": [
+          360,
+          -10.600000000000001
+        ],
+        "size": [
+          0.66,
+          0.66
+        ],
+        "height": 1.15,
+        "rotation": -6,
+        "material": "duct"
+      },
+      {
+        "type": "chimney",
+        "style": "round exhaust flue",
+        "center": [
+          365,
+          -11.100000000000001
+        ],
+        "size": [
+          0.66,
+          0.66
+        ],
+        "height": 1.15,
+        "rotation": -6,
+        "material": "duct"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface minus local ground: median 21.56 m, 90th percentile 23.3 m, maximum 29.17 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/MSA.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "photo",
+      "note": "Architect describes four occupied storeys and a courtyard; north facade continues the Biotron alignment.",
+      "url": "https://atrr.ca/projects/research/western-university-material-and-science-addition/"
+    },
+    {
+      "kind": "aerial",
+      "note": "Flat gravel roof with exposed branching ductwork and higher equipment near the south-central elbow. The block fills the gap between older science wings."
+    },
+    {
+      "kind": "photo",
+      "note": "PIL mean wall or glazing sample, source-pixel rectangle (x, y, width, height) (163, 176, 4, 4) gives #928e89.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/MSA.jpg"
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/MSA.jpg",
+      "note": "Four occupied rows with paired windows lie below a distinct top band with sparse small grilles. The top band is additional to the four occupied storeys."
+    },
+    {
+      "kind": "aerial",
+      "note": "Small vertical terminals punctuate the transverse duct header on the north roof."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "height": 17.5,
+        "floors": 4,
+        "footprint": "inventory"
+      },
+      {
+        "name": "Mechanical attic",
+        "baseOffset": 17.5,
+        "height": 21.35,
+        "footprint": "inventory",
+        "floors": 1,
+        "facade": {
+          "windows": {
+            "type": "punched",
+            "width": 0.88,
+            "height": 1.24,
+            "sill": 1.05,
+            "perBay": 1,
+            "recess": 0.15,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#d3d2bf"
+          },
+          "bays": {
+            "width": 9.3,
+            "pattern": "irregular"
+          },
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "wall"
+          }
+        },
+        "wallProfiles": {
+          "9": {
+            "segments": [
+              {
+                "range": [
+                  0,
+                  1
+                ],
+                "bays": {
+                  "count": 4
+                },
+                "windows": {
+                  "type": "slot",
+                  "width": 0.77,
+                  "height": 1.12,
+                  "mullions": {
+                    "vertical": 0,
+                    "horizontal": 0,
+                    "width": 0.06
+                  },
+                  "sill": 1.35
+                }
+              }
+            ],
+            "sections": [
+              {
+                "start": 0.23,
+                "end": 0.292,
+                "base": 18.28,
+                "top": 20.35,
+                "material": "louvre",
+                "horizontalMullions": 12
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Galvanized rooftop duct",
+        "footprint": [
+          [
+            353.686,
+            3.788
+          ],
+          [
+            352.658,
+            -8.853
+          ],
+          [
+            351.342,
+            -8.747
+          ],
+          [
+            352.314,
+            3.212
+          ],
+          [
+            349.577,
+            5.493
+          ],
+          [
+            350.423,
+            6.507
+          ]
+        ],
+        "height": 22.4,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.58
+      },
+      {
+        "name": "Galvanized rooftop duct",
+        "footprint": [
+          [
+            366.44,
+            -9.272
+          ],
+          [
+            366.36,
+            -10.028
+          ],
+          [
+            335.96,
+            -6.828
+          ],
+          [
+            336.04,
+            -6.072
+          ]
+        ],
+        "height": 22.4,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.58
+      },
+      {
+        "name": "Galvanized rooftop duct",
+        "footprint": [
+          [
+            343.324,
+            -0.523
+          ],
+          [
+            349.087,
+            -1.193
+          ],
+          [
+            352.088,
+            1.903
+          ],
+          [
+            352.712,
+            1.297
+          ],
+          [
+            349.413,
+            -2.107
+          ],
+          [
+            342.276,
+            -1.277
+          ],
+          [
+            343.574,
+            4.89
+          ],
+          [
+            344.426,
+            4.71
+          ]
+        ],
+        "height": 22.4,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.58
+      },
+      {
+        "name": "Galvanized rooftop duct",
+        "footprint": [
+          [
+            339.624,
+            -0.487
+          ],
+          [
+            339.741,
+            1.669
+          ],
+          [
+            340.459,
+            1.631
+          ],
+          [
+            340.376,
+            0.087
+          ],
+          [
+            344.226,
+            -0.748
+          ],
+          [
+            344.074,
+            -1.452
+          ]
+        ],
+        "height": 22.4,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.58
+      },
+      {
+        "name": "Branches to roof terminals",
+        "footprint": [
+          [
+            338.299,
+            -7.739
+          ],
+          [
+            337.967,
+            -9.12
+          ],
+          [
+            337.433,
+            -8.992
+          ],
+          [
+            337.701,
+            -7.873
+          ],
+          [
+            336.785,
+            -6.728
+          ],
+          [
+            337.215,
+            -6.384
+          ]
+        ],
+        "height": 22.18,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.6
+      },
+      {
+        "name": "Branches to roof terminals",
+        "footprint": [
+          [
+            342.539,
+            -8.189
+          ],
+          [
+            342.207,
+            -9.57
+          ],
+          [
+            341.673,
+            -9.441
+          ],
+          [
+            341.941,
+            -8.322
+          ],
+          [
+            341.025,
+            -7.177
+          ],
+          [
+            341.455,
+            -6.834
+          ]
+        ],
+        "height": 22.18,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.6
+      },
+      {
+        "name": "Branches to roof terminals",
+        "footprint": [
+          [
+            346.779,
+            -8.638
+          ],
+          [
+            346.447,
+            -10.019
+          ],
+          [
+            345.913,
+            -9.891
+          ],
+          [
+            346.181,
+            -8.772
+          ],
+          [
+            345.265,
+            -7.627
+          ],
+          [
+            345.695,
+            -7.283
+          ]
+        ],
+        "height": 22.18,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.6
+      },
+      {
+        "name": "Branches to roof terminals",
+        "footprint": [
+          [
+            351.019,
+            -9.088
+          ],
+          [
+            350.687,
+            -10.468
+          ],
+          [
+            350.153,
+            -10.34
+          ],
+          [
+            350.421,
+            -9.221
+          ],
+          [
+            349.505,
+            -8.076
+          ],
+          [
+            349.935,
+            -7.733
+          ]
+        ],
+        "height": 22.18,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.6
+      },
+      {
+        "name": "Branches to roof terminals",
+        "footprint": [
+          [
+            355.259,
+            -9.537
+          ],
+          [
+            354.927,
+            -10.918
+          ],
+          [
+            354.393,
+            -10.79
+          ],
+          [
+            354.661,
+            -9.67
+          ],
+          [
+            353.745,
+            -8.526
+          ],
+          [
+            354.175,
+            -8.182
+          ]
+        ],
+        "height": 22.18,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.6
+      },
+      {
+        "name": "Branches to roof terminals",
+        "footprint": [
+          [
+            359.499,
+            -9.987
+          ],
+          [
+            359.167,
+            -11.367
+          ],
+          [
+            358.633,
+            -11.239
+          ],
+          [
+            358.901,
+            -10.12
+          ],
+          [
+            357.985,
+            -8.975
+          ],
+          [
+            358.415,
+            -8.631
+          ]
+        ],
+        "height": 22.18,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.6
+      },
+      {
+        "name": "Branches to roof terminals",
+        "footprint": [
+          [
+            363.739,
+            -10.436
+          ],
+          [
+            363.407,
+            -11.817
+          ],
+          [
+            362.873,
+            -11.688
+          ],
+          [
+            363.141,
+            -10.569
+          ],
+          [
+            362.225,
+            -9.424
+          ],
+          [
+            362.655,
+            -9.081
+          ]
+        ],
+        "height": 22.18,
+        "floors": 1,
+        "material": "duct",
+        "facade": {
+          "blank": true,
+          "material": "duct",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "duct"
+        },
+        "baseOffset": 21.6
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 9,
+      "position": 0.728,
+      "type": "doors-double",
+      "width": 2.1,
+      "height": 2.45,
+      "recess": 0.35
+    },
+    {
+      "wall": 9,
+      "position": 0.824,
+      "type": "service-door",
+      "width": 1.0,
+      "height": 2.12
+    },
+    {
+      "wall": 9,
+      "position": 0.945,
+      "type": "service-door",
+      "width": 1.11,
+      "height": 2.16
+    }
+  ],
+  "notes": "Party walls are blank; the exact openings in the internal light court are uncertain. Metal exhaust branches run across the ballast.",
+  "attachments": [
+    {
+      "type": "skybridge",
+      "path": [
+        [
+          378.123,
+          0.838
+        ],
+        [
+          381.25,
+          0.488
+        ]
+      ],
+      "width": 3.65,
+      "height": 3.55,
+      "material": "glass",
+      "baseOffset": 9.05
+    }
+  ]
+}

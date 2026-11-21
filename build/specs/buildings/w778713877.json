@@ -1,0 +1,57 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778713877",
+  "name": "Westminster grounds, former footprint",
+  "status": "authored",
+  "confidence": 0.94,
+  "summary": "Former building footprint of unknown identity crossed by a lawn and conifer in the 2025 city image, with no standing roof visible.",
+  "present": false,
+  "style": "house",
+  "materials": {
+    "wall": {
+      "kind": "stucco",
+      "color": "#aeaaa0"
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#77746e"
+    }
+  },
+  "floors": {
+    "count": 1
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none"
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The 2025 source image contains uninterrupted grass, a conifer and tree shadows. The mapped roof boundary crosses them."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "373917280",
+      "walls": [
+        4,
+        5
+      ],
+      "note": "2019 distant view is largely screened by trees across the grounds. It does not establish a surviving building."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 5.21 m, P90 6.06 m, peak 11.83 m. Historical surface returns cannot establish a current roof here."
+    }
+  ],
+  "notes": "The survey models the landscape shown in the 2025 orthophoto. The former building has no established name or facade finish."
+}

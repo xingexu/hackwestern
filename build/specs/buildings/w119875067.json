@@ -1,0 +1,392 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w119875067",
+  "name": "Pizza Hut footprint",
+  "status": "refined",
+  "confidence": 0.81,
+  "summary": "A narrow single-storey shop row faces the parking lot. Its flat white roof sits behind a deep light fascia, and the end wall is mostly solid grey split-face block.",
+  "style": "postmodern",
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "127904855",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "The long front elevation is glazed, while the north return is a largely blank grey block wall beneath a broad pale fascia."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "137106791",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "The oblique view along the parking side shows several glazed shop bays and doors under one continuous roof edge."
+    },
+    {
+      "kind": "aerial",
+      "note": "The orthophoto shows a white membrane roof, vents, small rooftop units and an uninterrupted east parking frontage."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 4.88 / 5.23 / 7.35 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#908c84",
+      "secondaryColor": "#a09d95",
+      "unitSize": [
+        0.39,
+        0.195
+      ],
+      "variation": 0.08
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#ebece7",
+      "variation": 0.025,
+      "roughness": 0.55
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#eeefe3",
+      "variation": 0.12,
+      "weathering": 0.49
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#adb0a6",
+      "variation": 0.12
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#a4a8a6"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#84989c"
+    },
+    "plinth": {
+      "kind": "concrete-smooth",
+      "color": "#73726c"
+    },
+    "darkFascia": {
+      "kind": "painted-metal",
+      "color": "#44403b",
+      "variation": 0.025
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.62,
+    "typicalHeight": 4.35
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "height": 0.15,
+        "type": "coped",
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.96,
+        "depth": 0.32,
+        "material": "trim"
+      },
+      "base": {
+        "height": 0.22,
+        "material": "plinth",
+        "projection": 0.035
+      }
+    },
+    "byWall": {
+      "2": {
+        "blank": false,
+        "windows": {
+          "type": "storefront",
+          "width": 4.13,
+          "height": 3.05,
+          "sill": 0.31,
+          "perBay": 1,
+          "recess": 0.08,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#acaeaa",
+          "glass": "clear",
+          "glassColor": "#829599",
+          "surround": "none"
+        },
+        "bays": {
+          "count": 7,
+          "edgeMargin": 0.1
+        },
+        "piers": {
+          "width": 0.32,
+          "depth": 0.12,
+          "material": "wall",
+          "every": 2,
+          "fullHeight": true,
+          "aboveRoof": 0
+        },
+        "cornice": {
+          "height": 1.33,
+          "depth": 0.78,
+          "material": "trim"
+        },
+        "sections": [
+          {
+            "start": 0.018,
+            "end": 0.295,
+            "base": 0.3,
+            "top": 3.4,
+            "material": "glass",
+            "verticalMullionSpacing": 1.51,
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.325,
+            "end": 0.635,
+            "base": 0.3,
+            "top": 3.4,
+            "material": "glass",
+            "verticalMullionSpacing": 1.51,
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.662,
+            "end": 0.987,
+            "base": 0.3,
+            "top": 3.4,
+            "material": "glass",
+            "verticalMullionSpacing": 1.51,
+            "horizontalMullions": 1
+          }
+        ],
+        "segments": [
+          {
+            "range": [
+              0,
+              0.315
+            ],
+            "bays": {
+              "count": 2
+            },
+            "cornice": {
+              "height": 1.33,
+              "depth": 0.78,
+              "material": "darkFascia"
+            }
+          },
+          {
+            "range": [
+              0.315,
+              1
+            ],
+            "bays": {
+              "count": 5
+            }
+          }
+        ]
+      },
+      "0": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "cornice": {
+          "height": 0.095,
+          "depth": 0.095,
+          "material": "trim"
+        },
+        "parapet": {
+          "height": 0.14,
+          "type": "coped",
+          "material": "wall"
+        }
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "cornice": {
+          "height": 0.095,
+          "depth": 0.095,
+          "material": "trim"
+        },
+        "parapet": {
+          "height": 0.14,
+          "type": "coped",
+          "material": "wall"
+        }
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "cornice": {
+          "height": 0.095,
+          "depth": 0.095,
+          "material": "trim"
+        },
+        "parapet": {
+          "height": 0.14,
+          "type": "coped",
+          "material": "wall"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -13.12,
+          1119.16
+        ],
+        "size": [
+          2.2,
+          1.7
+        ],
+        "height": 0.92,
+        "rotation": -3,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -10.04,
+          1135.82
+        ],
+        "size": [
+          1.8,
+          1.2
+        ],
+        "height": 0.84,
+        "rotation": -3,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -12.55,
+          1141.36
+        ],
+        "size": [
+          1.4,
+          1.1
+        ],
+        "height": 0.7,
+        "rotation": -3,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -12.827667,
+          1126.556137
+        ],
+        "size": [
+          1.02,
+          0.98
+        ],
+        "height": 0.56,
+        "rotation": -3,
+        "material": "plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -11.388779,
+          1132.038345
+        ],
+        "size": [
+          1.44,
+          1.12
+        ],
+        "height": 0.61,
+        "rotation": -3,
+        "material": "plant"
+      }
+    ]
+  },
+  "notes": "The inventory name identifies a footprint shared by several shops. Tenant boundaries are approximated from the glazing rhythm, and the block colour is corrected for shade.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "footprint": [
+          [
+            -20.63,
+            1116.54
+          ],
+          [
+            -19.07,
+            1147.82
+          ],
+          [
+            -4.76,
+            1146.96
+          ],
+          [
+            -6.47,
+            1115.48
+          ]
+        ],
+        "height": 5.05,
+        "floors": 1
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.19,
+      "type": "doors-single",
+      "width": 1.02,
+      "height": 2.25,
+      "recess": 0.035,
+      "surround": "frame"
+    },
+    {
+      "wall": 2,
+      "position": 0.51,
+      "type": "doors-single",
+      "width": 1.02,
+      "height": 2.25,
+      "recess": 0.035,
+      "surround": "frame"
+    },
+    {
+      "wall": 2,
+      "position": 0.805,
+      "type": "doors-single",
+      "width": 1.02,
+      "height": 2.25,
+      "recess": 0.035,
+      "surround": "frame"
+    }
+  ]
+}

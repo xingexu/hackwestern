@@ -1,0 +1,3038 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w119875060",
+  "name": "London Hall",
+  "status": "refined",
+  "confidence": 0.92,
+  "summary": "Buff-brick wings frame a lawn behind a two-storey glass lobby, with the east wing rising above the entrance canopy. The lower Western Road wing has evenly spaced bedroom windows and vertical stacks of blue-grey panels.",
+  "style": "residential-modern",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#aba58f",
+      "bond": "running",
+      "variation": 0.14,
+      "roughness": 0.83,
+      "unitSize": [
+        0.2,
+        0.067
+      ],
+      "secondaryColor": "#c4bfa9"
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#8e897c",
+      "variation": 0.09,
+      "secondaryColor": "#888476"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#a9b4b5",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "spandrel": {
+      "kind": "spandrel-glass",
+      "color": "#7d939c",
+      "unitSize": [
+        1.1,
+        1.2
+      ],
+      "secondaryColor": "#6c7f87"
+    },
+    "base": {
+      "kind": "precast-panel",
+      "color": "#bab9ac",
+      "unitSize": [
+        2.4,
+        0.65
+      ]
+    },
+    "soffit": {
+      "kind": "wood-siding",
+      "color": "#a37a50",
+      "unitSize": [
+        0.09,
+        1.5
+      ],
+      "secondaryColor": "#795b3f"
+    },
+    "plant": {
+      "kind": "metal-panel",
+      "color": "#a5a59c"
+    },
+    "roofTrim": {
+      "kind": "painted-metal",
+      "color": "#89938e"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#61757a"
+    },
+    "louvre": {
+      "kind": "corrugated-metal",
+      "color": "#3d4448",
+      "unitSize": [
+        0.16,
+        0.14
+      ]
+    },
+    "lobbyGlass": {
+      "kind": "glass-curtain",
+      "color": "#80918b",
+      "roughness": 0.24
+    },
+    "fascia": {
+      "kind": "painted-metal",
+      "color": "#c1c7c3",
+      "secondaryColor": "#b5bdbb"
+    }
+  },
+  "floors": {
+    "count": 6,
+    "groundFloorHeight": 3.65,
+    "typicalHeight": 3.32
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "punched",
+        "width": 2.0,
+        "height": 1.58,
+        "sill": 0.78,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "frameColor": "#a3b2b5",
+        "glass": "tinted",
+        "glassColor": "#536269",
+        "surround": "metal",
+        "sillProjecting": true
+      },
+      "base": {
+        "height": 0.44,
+        "material": "base",
+        "projection": 0.06
+      },
+      "parapet": {
+        "height": 0.26,
+        "type": "coped",
+        "material": "trim"
+      },
+      "cornice": {
+        "material": "trim",
+        "height": 0.1,
+        "depth": 0.12
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4,
+          "pattern": "paired",
+          "count": 8,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 1.8,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a3b2b5",
+          "glass": "tinted",
+          "glassColor": "#536269",
+          "surround": "metal",
+          "sillProjecting": true,
+          "spacing": 0.65
+        },
+        "piers": {
+          "width": 0.27,
+          "depth": 0.22,
+          "every": 3,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "verticalSpandrels": {
+          "every": 3,
+          "width": 1.2,
+          "material": "spandrel",
+          "between": "window-head-and-next-sill"
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 4,
+          "pattern": "paired",
+          "count": 8,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 1.8,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a3b2b5",
+          "glass": "tinted",
+          "glassColor": "#536269",
+          "surround": "metal",
+          "sillProjecting": true,
+          "spacing": 0.65
+        },
+        "piers": {
+          "width": 0.27,
+          "depth": 0.22,
+          "every": 3,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "verticalSpandrels": {
+          "every": 3,
+          "width": 1.2,
+          "material": "spandrel",
+          "between": "window-head-and-next-sill"
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 4,
+          "pattern": "paired",
+          "count": 6,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 1.8,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a3b2b5",
+          "glass": "tinted",
+          "glassColor": "#536269",
+          "surround": "metal",
+          "sillProjecting": true,
+          "spacing": 0.65
+        },
+        "piers": {
+          "width": 0.27,
+          "depth": 0.22,
+          "every": 3,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "verticalSpandrels": {
+          "every": 3,
+          "width": 1.2,
+          "material": "spandrel",
+          "between": "window-head-and-next-sill"
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 4,
+          "pattern": "paired",
+          "count": 5,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 1.8,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a3b2b5",
+          "glass": "tinted",
+          "glassColor": "#536269",
+          "surround": "metal",
+          "sillProjecting": true,
+          "spacing": 0.65
+        },
+        "piers": {
+          "width": 0.27,
+          "depth": 0.22,
+          "every": 3,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "verticalSpandrels": {
+          "every": 3,
+          "width": 1.2,
+          "material": "spandrel",
+          "between": "window-head-and-next-sill"
+        }
+      },
+      "13": {
+        "bays": {
+          "width": 4,
+          "pattern": "paired",
+          "count": 6,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 1.8,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a3b2b5",
+          "glass": "tinted",
+          "glassColor": "#536269",
+          "surround": "metal",
+          "sillProjecting": true,
+          "spacing": 0.65
+        },
+        "piers": {
+          "width": 0.27,
+          "depth": 0.22,
+          "every": 3,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "verticalSpandrels": {
+          "every": 3,
+          "width": 1.2,
+          "material": "spandrel",
+          "between": "window-head-and-next-sill"
+        }
+      },
+      "19": {
+        "bays": {
+          "width": 4,
+          "pattern": "paired",
+          "count": 12,
+          "groupSize": 2
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.2,
+          "height": 1.8,
+          "sill": 0.78,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a3b2b5",
+          "glass": "tinted",
+          "glassColor": "#536269",
+          "surround": "metal",
+          "sillProjecting": true,
+          "spacing": 0.65
+        },
+        "piers": {
+          "width": 0.27,
+          "depth": 0.22,
+          "every": 3,
+          "material": "wall",
+          "fullHeight": true
+        },
+        "verticalSpandrels": {
+          "every": 3,
+          "width": 1.2,
+          "material": "spandrel",
+          "between": "window-head-and-next-sill"
+        },
+        "groundFloor": {
+          "material": "wall",
+          "windows": {
+            "type": "punched",
+            "width": 2.2,
+            "height": 1.8,
+            "sill": 0.78,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#a3b2b5",
+            "glass": "tinted",
+            "glassColor": "#536269",
+            "surround": "metal",
+            "sillProjecting": true,
+            "spacing": 0.65
+          }
+        }
+      },
+      "18": {
+        "bays": {
+          "width": 4,
+          "pattern": "regular",
+          "count": 5
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.0,
+          "height": 1.58,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a3b2b5",
+          "glass": "tinted",
+          "glassColor": "#536269",
+          "surround": "metal",
+          "sillProjecting": true
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 4,
+          "pattern": "regular",
+          "count": 3
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.0,
+          "height": 1.58,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a3b2b5",
+          "glass": "tinted",
+          "glassColor": "#536269",
+          "surround": "metal",
+          "sillProjecting": true
+        }
+      },
+      "12": {
+        "bays": {
+          "width": 7.5,
+          "pattern": "regular",
+          "count": 3
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.0,
+          "height": 1.58,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#a3b2b5",
+          "glass": "tinted",
+          "glassColor": "#536269",
+          "surround": "metal",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 1.45,
+          "depth": 0.3,
+          "every": 1,
+          "material": "base",
+          "fullHeight": true
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "curtain-wall",
+            "width": 5.7,
+            "height": 5.85,
+            "sill": 0.1,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 3,
+              "horizontal": 2,
+              "width": 0.055
+            }
+          }
+        },
+        "material": "base"
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "6": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "10": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "17": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "20": {
+        "material": "base",
+        "bays": {
+          "width": 5.2,
+          "pattern": "regular",
+          "count": 7
+        },
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "piers": {
+          "width": 0,
+          "depth": 0
+        },
+        "cornice": {
+          "material": "roofTrim",
+          "height": 0.28,
+          "depth": 1.5,
+          "soffitMaterial": "soffit"
+        },
+        "segments": [],
+        "blank": true,
+        "sections": [
+          {
+            "start": 0.025,
+            "end": 0.205,
+            "base": 0.15,
+            "top": 4.75,
+            "material": "lobbyGlass",
+            "verticalMullionSpacing": 1.5,
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.025,
+            "end": 0.205,
+            "base": 4.75,
+            "top": 4.9,
+            "material": "roofTrim"
+          },
+          {
+            "start": 0.025,
+            "end": 0.205,
+            "base": 4.9,
+            "top": 8.04,
+            "material": "lobbyGlass",
+            "verticalMullionSpacing": 1.5,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.3,
+            "end": 0.526,
+            "base": 0.15,
+            "top": 4.75,
+            "material": "lobbyGlass",
+            "verticalMullionSpacing": 1.5,
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.3,
+            "end": 0.526,
+            "base": 4.75,
+            "top": 4.9,
+            "material": "roofTrim"
+          },
+          {
+            "start": 0.3,
+            "end": 0.526,
+            "base": 4.9,
+            "top": 8.04,
+            "material": "lobbyGlass",
+            "verticalMullionSpacing": 1.5,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.635,
+            "end": 0.82,
+            "base": 0.15,
+            "top": 4.75,
+            "material": "lobbyGlass",
+            "verticalMullionSpacing": 1.5,
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.635,
+            "end": 0.82,
+            "base": 4.75,
+            "top": 4.9,
+            "material": "roofTrim"
+          },
+          {
+            "start": 0.635,
+            "end": 0.82,
+            "base": 4.9,
+            "top": 8.04,
+            "material": "lobbyGlass",
+            "verticalMullionSpacing": 1.5,
+            "horizontalMullions": 0
+          },
+          {
+            "start": 0.835,
+            "end": 0.99,
+            "base": 0.15,
+            "top": 4.75,
+            "material": "lobbyGlass",
+            "verticalMullionSpacing": 1.5,
+            "horizontalMullions": 1
+          },
+          {
+            "start": 0.835,
+            "end": 0.99,
+            "base": 4.75,
+            "top": 4.9,
+            "material": "roofTrim"
+          },
+          {
+            "start": 0.835,
+            "end": 0.99,
+            "base": 4.9,
+            "top": 8.04,
+            "material": "lobbyGlass",
+            "verticalMullionSpacing": 1.5,
+            "horizontalMullions": 0
+          }
+        ]
+      },
+      "21": {
+        "material": "wall",
+        "bays": {
+          "width": 5.25,
+          "pattern": "paired"
+        },
+        "windows": {
+          "type": "punched",
+          "perBay": 2,
+          "width": 1.52,
+          "height": 1.65,
+          "sill": 0.76,
+          "spacing": 0.35,
+          "glassColor": "#556670",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          }
+        },
+        "piers": {
+          "width": 0,
+          "depth": 0
+        },
+        "verticalSpandrels": {
+          "every": 2,
+          "width": 1.32,
+          "material": "spandrel"
+        },
+        "cornice": {
+          "material": "roofTrim",
+          "height": 0.11,
+          "depth": 0.13
+        }
+      },
+      "22": {
+        "material": "wall",
+        "bays": {
+          "width": 5.25,
+          "pattern": "paired"
+        },
+        "windows": {
+          "type": "punched",
+          "perBay": 2,
+          "width": 1.52,
+          "height": 1.65,
+          "sill": 0.76,
+          "spacing": 0.35,
+          "glassColor": "#556670",
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          }
+        },
+        "piers": {
+          "width": 0,
+          "depth": 0
+        },
+        "verticalSpandrels": {
+          "every": 2,
+          "width": 1.32,
+          "material": "spandrel"
+        },
+        "cornice": {
+          "material": "roofTrim",
+          "height": 0.11,
+          "depth": 0.13
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          116.8,
+          1268
+        ],
+        "size": [
+          3.4,
+          13
+        ],
+        "height": 2.1,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "hvac",
+        "center": [
+          81.7,
+          1306
+        ],
+        "size": [
+          3.5,
+          13
+        ],
+        "height": 2.05,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "stair-tower",
+        "center": [
+          115.6,
+          1275.8
+        ],
+        "size": [
+          5.7,
+          6.8
+        ],
+        "height": 2.7,
+        "material": "base",
+        "rotation": -4
+      },
+      {
+        "type": "stair-tower",
+        "center": [
+          82,
+          1316
+        ],
+        "size": [
+          6.1,
+          5.4
+        ],
+        "height": 2.65,
+        "material": "base",
+        "rotation": -4
+      },
+      {
+        "type": "skylight",
+        "center": [
+          81.6,
+          1302.6
+        ],
+        "size": [
+          1.0,
+          8.6
+        ],
+        "height": 0.25,
+        "material": "glass",
+        "rotation": -4
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          68.7,
+          1226.3
+        ],
+        "size": [
+          4.65,
+          15.4
+        ],
+        "height": 1.6,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "hvac",
+        "center": [
+          74.7,
+          1222.3
+        ],
+        "size": [
+          3.2,
+          7.2
+        ],
+        "height": 2.8,
+        "material": "plant",
+        "rotation": 86,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          81.9,
+          1291.4
+        ],
+        "size": [
+          0.37,
+          41.5
+        ],
+        "height": 0.22,
+        "material": "roofTrim",
+        "rotation": -4,
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          114,
+          1241
+        ],
+        "size": [
+          0.37,
+          31
+        ],
+        "height": 0.22,
+        "material": "roofTrim",
+        "rotation": -4,
+        "style": "duct"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          114.41,
+          1268.17
+        ],
+        "size": [
+          0.22,
+          14.7
+        ],
+        "height": 1.34,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          119.19,
+          1267.83
+        ],
+        "size": [
+          0.22,
+          14.7
+        ],
+        "height": 1.34,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          116.29,
+          1260.77
+        ],
+        "size": [
+          4.85,
+          0.22
+        ],
+        "height": 1.34,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          79.31,
+          1306.17
+        ],
+        "size": [
+          0.22,
+          14.7
+        ],
+        "height": 1.34,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          84.09,
+          1305.83
+        ],
+        "size": [
+          0.22,
+          14.7
+        ],
+        "height": 1.34,
+        "material": "plant",
+        "rotation": -4
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          81.19,
+          1298.77
+        ],
+        "size": [
+          4.85,
+          0.22
+        ],
+        "height": 1.34,
+        "material": "plant",
+        "rotation": -4
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "U-shaped plan open to the south, with a low roof across the north entrance, a long west wing and shorter, taller east wing. Long service strips appear on both main roofs. Gravel sampled at local (75,1243)."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 14.61 m, P90 21.4 m, maximum 27.35 m. Western roof mostly 14–15 m, east roof 20–21 m, north lobby 7–9 m. A raised core near (112,1217) reaches 27 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Western Road facade has four rows of windows, long paired window groupings and blue-grey sheet spandrels alternating with warm brick.",
+      "frame": "66665193",
+      "walls": [
+        0,
+        1
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Oblique corner shows extensive brick with vertically aligned metal-framed windows.",
+      "frame": "138541223",
+      "walls": [
+        0,
+        1
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Tall recessed glass doors, a two-storey glazed lobby and a projecting roof slab with a warm soffit in front of the high eastern core.",
+      "frame": "138541239",
+      "walls": [
+        20,
+        21,
+        22
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Frontal view locates double doors under the canopy return. Masonry piers separate the two-storey panes.",
+      "frame": "130394509",
+      "walls": [
+        20,
+        21,
+        22
+      ]
+    },
+    {
+      "kind": "kartaview",
+      "note": "Western street approach continues the pale bedroom bays towards the southern end.",
+      "frame": "136654293",
+      "walls": [
+        1,
+        2
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "PIL mean from brick at normalized (0.20,0.60) and pale spandrel at (0.079,0.15). Full elevation shows vent lights, aluminum mullions and contrasting spandrel panels.",
+      "url": "https://atrr.ca/wp-content/uploads/2024/03/WU-London-Hall2.jpg"
+    },
+    {
+      "kind": "photo",
+      "note": "Garden-side connector has three great vertical bays, tall glazed ground openings and smaller bedroom windows above.",
+      "url": "https://atrr.ca/wp-content/uploads/2024/03/WU-London-Hall3.jpg"
+    },
+    {
+      "kind": "photo",
+      "note": "Architect confirms the double-height entrance lobby and meeting spaces.",
+      "url": "https://atrr.ca/projects/residential/western-university-london-hall-student-residence/"
+    },
+    {
+      "kind": "knowledge",
+      "note": "Comparing 138541239 and 130394509 places the recessed paired door at the west end of wall 20 under the main high roof. The cantilever is continuous with the two-storey lobby roof. The raised eastern core has windows on its upper storeys. Frame 66665193 shows repeated vertical stacks of blue-grey panels."
+    }
+  ],
+  "notes": "Bedroom-bay counts on the far east and south returns are estimates. Stack blue-grey spandrels only in selected bays. Exposed wood linings follow the broad offset entrance roof. The 1 m lidar grid resolves stepped core roofs at 24.4 and 27.1 m, a lobby roof near 10 m and a 3–4 m extension at the southern end of the east wing. North lobby glass ends at the lower roof. The sheltered timber underside has a separate pale metal top edge; the Western Road bedrooms above use brick and grouped sashes.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "North entrance and meeting rooms",
+        "footprint": [
+          [
+            102.887,
+            1206.658
+          ],
+          [
+            102.8,
+            1205.7
+          ],
+          [
+            115.3,
+            1204.8
+          ],
+          [
+            115.354,
+            1205.847
+          ],
+          [
+            119.836,
+            1205.556
+          ],
+          [
+            118.92,
+            1192.33
+          ],
+          [
+            77.47,
+            1195.2
+          ],
+          [
+            78.14,
+            1204.89
+          ],
+          [
+            61.64,
+            1206.04
+          ],
+          [
+            61.867,
+            1209.324
+          ]
+        ],
+        "height": 8.3,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "edge": "fascia",
+          "material": "roof",
+          "overhang": 0.16
+        },
+        "wallProfiles": {
+          "21": {
+            "material": "base",
+            "bays": {
+              "width": 5.2,
+              "pattern": "regular",
+              "count": 2
+            },
+            "windows": {
+              "type": "curtain-wall",
+              "width": 4.6,
+              "height": 5.9,
+              "sill": 0.13,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "frameColor": "#7f8883",
+              "glass": "tinted",
+              "glassColor": "#76868a"
+            },
+            "piers": {
+              "width": 1.45,
+              "depth": 0.28,
+              "every": 1,
+              "material": "base",
+              "fullHeight": true
+            },
+            "cornice": {
+              "material": "roofTrim",
+              "height": 0.19,
+              "depth": 0.21
+            }
+          },
+          "22": {
+            "material": "base",
+            "bays": {
+              "width": 5.2,
+              "pattern": "regular",
+              "count": 3
+            },
+            "windows": {
+              "type": "curtain-wall",
+              "width": 4.6,
+              "height": 5.9,
+              "sill": 0.13,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.055
+              },
+              "frameColor": "#7f8883",
+              "glass": "tinted",
+              "glassColor": "#76868a"
+            },
+            "piers": {
+              "width": 1.45,
+              "depth": 0.28,
+              "every": 1,
+              "material": "base",
+              "fullHeight": true
+            },
+            "cornice": {
+              "material": "roofTrim",
+              "height": 0.19,
+              "depth": 0.21
+            }
+          },
+          "20": {
+            "material": "base",
+            "bays": {
+              "width": 5.2,
+              "pattern": "regular",
+              "count": 7
+            },
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "piers": {
+              "width": 0,
+              "depth": 0
+            },
+            "cornice": {
+              "material": "roofTrim",
+              "height": 0.21,
+              "depth": 0.18,
+              "soffitMaterial": "soffit"
+            },
+            "segments": [],
+            "blank": true,
+            "sections": [
+              {
+                "start": 0.025,
+                "end": 0.205,
+                "base": 0.15,
+                "top": 4.75,
+                "material": "lobbyGlass",
+                "verticalMullionSpacing": 1.5,
+                "horizontalMullions": 1
+              },
+              {
+                "start": 0.025,
+                "end": 0.205,
+                "base": 4.75,
+                "top": 4.9,
+                "material": "roofTrim"
+              },
+              {
+                "start": 0.025,
+                "end": 0.205,
+                "base": 4.9,
+                "top": 8.04,
+                "material": "lobbyGlass",
+                "verticalMullionSpacing": 1.5,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0.3,
+                "end": 0.526,
+                "base": 0.15,
+                "top": 4.75,
+                "material": "lobbyGlass",
+                "verticalMullionSpacing": 1.5,
+                "horizontalMullions": 1
+              },
+              {
+                "start": 0.3,
+                "end": 0.526,
+                "base": 4.75,
+                "top": 4.9,
+                "material": "roofTrim"
+              },
+              {
+                "start": 0.3,
+                "end": 0.526,
+                "base": 4.9,
+                "top": 8.04,
+                "material": "lobbyGlass",
+                "verticalMullionSpacing": 1.5,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0.635,
+                "end": 0.82,
+                "base": 0.15,
+                "top": 4.75,
+                "material": "lobbyGlass",
+                "verticalMullionSpacing": 1.5,
+                "horizontalMullions": 1
+              },
+              {
+                "start": 0.635,
+                "end": 0.82,
+                "base": 4.75,
+                "top": 4.9,
+                "material": "roofTrim"
+              },
+              {
+                "start": 0.635,
+                "end": 0.82,
+                "base": 4.9,
+                "top": 8.04,
+                "material": "lobbyGlass",
+                "verticalMullionSpacing": 1.5,
+                "horizontalMullions": 0
+              },
+              {
+                "start": 0.835,
+                "end": 0.99,
+                "base": 0.15,
+                "top": 4.75,
+                "material": "lobbyGlass",
+                "verticalMullionSpacing": 1.5,
+                "horizontalMullions": 1
+              },
+              {
+                "start": 0.835,
+                "end": 0.99,
+                "base": 4.75,
+                "top": 4.9,
+                "material": "roofTrim"
+              },
+              {
+                "start": 0.835,
+                "end": 0.99,
+                "base": 4.9,
+                "top": 8.04,
+                "material": "lobbyGlass",
+                "verticalMullionSpacing": 1.5,
+                "horizontalMullions": 0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Western Road residence",
+        "footprint": [
+          [
+            68.0,
+            1266.02
+          ],
+          [
+            72.35,
+            1328.82
+          ],
+          [
+            80.54,
+            1328.25
+          ],
+          [
+            80.36,
+            1325.69
+          ],
+          [
+            89.233,
+            1325.074
+          ],
+          [
+            88.36,
+            1311.661
+          ],
+          [
+            87.94,
+            1311.69
+          ],
+          [
+            84.6,
+            1263.56
+          ],
+          [
+            81.86,
+            1263.75
+          ],
+          [
+            78.99,
+            1222.32
+          ],
+          [
+            82.533,
+            1222.074
+          ],
+          [
+            81.62,
+            1208.04
+          ],
+          [
+            61.867,
+            1209.324
+          ],
+          [
+            65.8,
+            1266.16
+          ]
+        ],
+        "height": 14.9,
+        "floors": 4
+      },
+      {
+        "name": "Courtyard connector",
+        "footprint": [
+          [
+            92.76,
+            1318.89
+          ],
+          [
+            97.04,
+            1318.59
+          ],
+          [
+            96.52,
+            1311.1
+          ],
+          [
+            88.36,
+            1311.661
+          ],
+          [
+            89.233,
+            1325.074
+          ],
+          [
+            93.17,
+            1324.8
+          ]
+        ],
+        "height": 14.8,
+        "floors": 4
+      },
+      {
+        "name": "Courtyard connector",
+        "footprint": [
+          [
+            101.44,
+            1206.76
+          ],
+          [
+            81.62,
+            1208.04
+          ],
+          [
+            82.533,
+            1222.074
+          ],
+          [
+            100.801,
+            1220.805
+          ],
+          [
+            100.3,
+            1213.6
+          ],
+          [
+            101.878,
+            1213.501
+          ]
+        ],
+        "height": 14.8,
+        "floors": 4
+      },
+      {
+        "name": "Courtyard connector",
+        "footprint": [
+          [
+            99.93,
+            1281.99
+          ],
+          [
+            106.02,
+            1281.57
+          ],
+          [
+            106.39,
+            1286.8
+          ],
+          [
+            106.64,
+            1286.783
+          ],
+          [
+            105.664,
+            1271.764
+          ],
+          [
+            99.25,
+            1272.21
+          ]
+        ],
+        "height": 14.8,
+        "floors": 4
+      },
+      {
+        "name": "East residence",
+        "footprint": [
+          [
+            101.878,
+            1213.501
+          ],
+          [
+            103.5,
+            1213.4
+          ],
+          [
+            102.888,
+            1206.666
+          ],
+          [
+            101.44,
+            1206.76
+          ]
+        ],
+        "height": 20.5,
+        "floors": 6
+      },
+      {
+        "name": "East residence",
+        "footprint": [
+          [
+            107.299,
+            1271.63
+          ],
+          [
+            107.284,
+            1271.651
+          ],
+          [
+            105.664,
+            1271.764
+          ],
+          [
+            106.616,
+            1286.414
+          ],
+          [
+            106.599,
+            1286.435
+          ],
+          [
+            106.329,
+            1286.453
+          ],
+          [
+            106.594,
+            1290.294
+          ],
+          [
+            125.649,
+            1288.979
+          ],
+          [
+            125.383,
+            1285.138
+          ],
+          [
+            125.344,
+            1285.121
+          ],
+          [
+            119.836,
+            1205.563
+          ],
+          [
+            115.355,
+            1205.855
+          ],
+          [
+            115.6,
+            1210.6
+          ],
+          [
+            109.8,
+            1211.0
+          ],
+          [
+            110.9,
+            1212.0
+          ],
+          [
+            119.1,
+            1211.4
+          ],
+          [
+            120.0,
+            1223.3
+          ],
+          [
+            111.7,
+            1223.9
+          ],
+          [
+            110.7,
+            1224.5
+          ],
+          [
+            104.059,
+            1224.915
+          ]
+        ],
+        "height": 20.5,
+        "floors": 6
+      },
+      {
+        "name": "West stair and residence block",
+        "footprint": [
+          [
+            102.8,
+            1205.7
+          ],
+          [
+            103.5,
+            1213.4
+          ],
+          [
+            100.3,
+            1213.6
+          ],
+          [
+            101.1,
+            1225.1
+          ],
+          [
+            110.7,
+            1224.5
+          ],
+          [
+            109.8,
+            1211.0
+          ],
+          [
+            110.497,
+            1210.952
+          ],
+          [
+            110.078,
+            1205.176
+          ]
+        ],
+        "height": 24.4,
+        "floors": 8,
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "width": 4
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.34,
+            "height": 1.65,
+            "sill": 0.8,
+            "glassColor": "#536368",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0.08,
+            "depth": 0.07,
+            "material": "trim"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.12,
+            "material": "roofTrim"
+          },
+          "verticalSpandrels": {
+            "every": 3,
+            "width": 1.5,
+            "material": "spandrel"
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            },
+            "material": "wall"
+          }
+        }
+      },
+      {
+        "name": "East stair and lift block",
+        "footprint": [
+          [
+            110.9,
+            1212.0
+          ],
+          [
+            119.1,
+            1211.4
+          ],
+          [
+            120.0,
+            1223.3
+          ],
+          [
+            111.7,
+            1223.9
+          ]
+        ],
+        "height": 27.1,
+        "floors": 8,
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "width": 4
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.34,
+            "height": 1.65,
+            "sill": 0.8,
+            "glassColor": "#536368",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0
+            }
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0.08,
+            "depth": 0.07,
+            "material": "trim"
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.12,
+            "material": "roofTrim"
+          },
+          "verticalSpandrels": {
+            "every": 3,
+            "width": 1.5,
+            "material": "spandrel"
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none"
+            },
+            "material": "wall"
+          }
+        }
+      },
+      {
+        "name": "Glazed stair slot",
+        "footprint": [
+          [
+            109.89,
+            1212.29
+          ],
+          [
+            110.94,
+            1212.22
+          ],
+          [
+            111.7,
+            1223.86
+          ],
+          [
+            110.66,
+            1223.94
+          ]
+        ],
+        "height": 24.05,
+        "floors": 8,
+        "facade": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 0.1",
+        "footprint": [
+          [
+            60.811,
+            1209.988
+          ],
+          [
+            61.273,
+            1216.672
+          ],
+          [
+            62.4,
+            1216.594
+          ],
+          [
+            61.938,
+            1209.91
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 0.2",
+        "footprint": [
+          [
+            61.809,
+            1224.417
+          ],
+          [
+            62.271,
+            1231.101
+          ],
+          [
+            63.399,
+            1231.023
+          ],
+          [
+            62.936,
+            1224.339
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 0.3",
+        "footprint": [
+          [
+            62.766,
+            1238.245
+          ],
+          [
+            63.228,
+            1244.929
+          ],
+          [
+            64.356,
+            1244.851
+          ],
+          [
+            63.893,
+            1238.167
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 0.4",
+        "footprint": [
+          [
+            63.764,
+            1252.673
+          ],
+          [
+            64.227,
+            1259.358
+          ],
+          [
+            65.354,
+            1259.28
+          ],
+          [
+            64.891,
+            1252.596
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 1.1",
+        "footprint": [
+          [
+            67.324,
+            1272.174
+          ],
+          [
+            67.787,
+            1278.858
+          ],
+          [
+            68.914,
+            1278.78
+          ],
+          [
+            68.451,
+            1272.096
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 1.2",
+        "footprint": [
+          [
+            68.368,
+            1287.246
+          ],
+          [
+            68.831,
+            1293.93
+          ],
+          [
+            69.958,
+            1293.852
+          ],
+          [
+            69.495,
+            1287.168
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 1.3",
+        "footprint": [
+          [
+            69.412,
+            1302.318
+          ],
+          [
+            69.875,
+            1309.002
+          ],
+          [
+            71.002,
+            1308.924
+          ],
+          [
+            70.539,
+            1302.24
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 1.4",
+        "footprint": [
+          [
+            70.412,
+            1316.762
+          ],
+          [
+            70.875,
+            1323.446
+          ],
+          [
+            72.002,
+            1323.368
+          ],
+          [
+            71.539,
+            1316.684
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 9.1",
+        "footprint": [
+          [
+            88.668,
+            1306.292
+          ],
+          [
+            88.204,
+            1299.609
+          ],
+          [
+            87.077,
+            1299.687
+          ],
+          [
+            87.541,
+            1306.371
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 9.2",
+        "footprint": [
+          [
+            87.666,
+            1291.853
+          ],
+          [
+            87.202,
+            1285.17
+          ],
+          [
+            86.075,
+            1285.248
+          ],
+          [
+            86.539,
+            1291.932
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 9.3",
+        "footprint": [
+          [
+            86.631,
+            1276.933
+          ],
+          [
+            86.167,
+            1270.249
+          ],
+          [
+            85.04,
+            1270.327
+          ],
+          [
+            85.503,
+            1277.011
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 11.1",
+        "footprint": [
+          [
+            82.615,
+            1258.73
+          ],
+          [
+            82.152,
+            1252.046
+          ],
+          [
+            81.025,
+            1252.124
+          ],
+          [
+            81.488,
+            1258.808
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 11.2",
+        "footprint": [
+          [
+            81.582,
+            1243.815
+          ],
+          [
+            81.119,
+            1237.131
+          ],
+          [
+            79.991,
+            1237.209
+          ],
+          [
+            80.454,
+            1243.893
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 11.3",
+        "footprint": [
+          [
+            80.721,
+            1231.386
+          ],
+          [
+            80.258,
+            1224.702
+          ],
+          [
+            79.13,
+            1224.78
+          ],
+          [
+            79.593,
+            1231.464
+          ]
+        ],
+        "height": 15.35,
+        "floors": 4,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 13.1",
+        "footprint": [
+          [
+            103.103,
+            1227.034
+          ],
+          [
+            103.567,
+            1233.718
+          ],
+          [
+            104.694,
+            1233.639
+          ],
+          [
+            104.231,
+            1226.955
+          ]
+        ],
+        "height": 20.9,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 13.2",
+        "footprint": [
+          [
+            104.095,
+            1241.328
+          ],
+          [
+            104.558,
+            1248.012
+          ],
+          [
+            105.685,
+            1247.933
+          ],
+          [
+            105.222,
+            1241.249
+          ]
+        ],
+        "height": 20.9,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Projecting bedroom group 13.3",
+        "footprint": [
+          [
+            105.086,
+            1255.622
+          ],
+          [
+            105.549,
+            1262.306
+          ],
+          [
+            106.677,
+            1262.227
+          ],
+          [
+            106.213,
+            1255.543
+          ]
+        ],
+        "height": 20.9,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "blank": false,
+          "bays": {
+            "count": 1,
+            "width": 6.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.55,
+            "height": 1.8,
+            "sill": 0.75,
+            "perBay": 1
+          },
+          "piers": {
+            "width": 0.12,
+            "depth": 0.13,
+            "every": 1
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.18,
+            "material": "spandrel"
+          }
+        }
+      },
+      {
+        "name": "Clerestory above north meeting rooms",
+        "footprint": [
+          [
+            101.7,
+            1193.9
+          ],
+          [
+            115.6,
+            1192.9
+          ],
+          [
+            116.4,
+            1203.2
+          ],
+          [
+            102.5,
+            1204.1
+          ]
+        ],
+        "height": 9.85,
+        "floors": 1,
+        "baseOffset": 8.3,
+        "facade": {
+          "material": "spandrel",
+          "windows": {
+            "type": "ribbon",
+            "width": 3.3,
+            "height": 0.96,
+            "sill": 0.19
+          }
+        }
+      },
+      {
+        "name": "Tower window stack 0.0",
+        "footprint": [
+          [
+            103.727,
+            1205.543
+          ],
+          [
+            106.36,
+            1205.353
+          ],
+          [
+            106.37,
+            1205.488
+          ],
+          [
+            103.737,
+            1205.678
+          ]
+        ],
+        "height": 21.65,
+        "floors": 4,
+        "baseOffset": 10.15,
+        "material": "spandrel",
+        "facade": {
+          "material": "spandrel",
+          "blank": false,
+          "bays": {
+            "count": 1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.23,
+            "height": 1.78,
+            "sill": 0.8,
+            "glassColor": "#4c5e64",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0
+            }
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "spandrel"
+        }
+      },
+      {
+        "name": "Recessed tower louvre 0.0",
+        "footprint": [
+          [
+            103.727,
+            1205.543
+          ],
+          [
+            106.36,
+            1205.353
+          ],
+          [
+            106.37,
+            1205.488
+          ],
+          [
+            103.737,
+            1205.678
+          ]
+        ],
+        "height": 24.24,
+        "floors": 1,
+        "baseOffset": 21.65,
+        "material": "louvre",
+        "facade": {
+          "material": "louvre",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "louvre"
+        }
+      },
+      {
+        "name": "Tower window stack 0.1",
+        "footprint": [
+          [
+            108.152,
+            1205.221
+          ],
+          [
+            110.785,
+            1205.031
+          ],
+          [
+            110.795,
+            1205.166
+          ],
+          [
+            108.162,
+            1205.356
+          ]
+        ],
+        "height": 21.65,
+        "floors": 4,
+        "baseOffset": 10.15,
+        "material": "spandrel",
+        "facade": {
+          "material": "spandrel",
+          "blank": false,
+          "bays": {
+            "count": 1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.23,
+            "height": 1.78,
+            "sill": 0.8,
+            "glassColor": "#4c5e64",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0
+            }
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "spandrel"
+        }
+      },
+      {
+        "name": "Recessed tower louvre 0.1",
+        "footprint": [
+          [
+            108.152,
+            1205.221
+          ],
+          [
+            110.785,
+            1205.031
+          ],
+          [
+            110.795,
+            1205.166
+          ],
+          [
+            108.162,
+            1205.356
+          ]
+        ],
+        "height": 24.24,
+        "floors": 1,
+        "baseOffset": 21.65,
+        "material": "louvre",
+        "facade": {
+          "material": "louvre",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "louvre"
+        }
+      },
+      {
+        "name": "Tower window stack 1.0",
+        "footprint": [
+          [
+            111.791,
+            1211.845
+          ],
+          [
+            114.424,
+            1211.652
+          ],
+          [
+            114.434,
+            1211.787
+          ],
+          [
+            111.801,
+            1211.979
+          ]
+        ],
+        "height": 24.35,
+        "floors": 4,
+        "baseOffset": 10.15,
+        "material": "spandrel",
+        "facade": {
+          "material": "spandrel",
+          "blank": false,
+          "bays": {
+            "count": 1
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.23,
+            "height": 1.78,
+            "sill": 0.8,
+            "glassColor": "#4c5e64",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0
+            }
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "spandrel"
+        }
+      },
+      {
+        "name": "Recessed tower louvre 1.0",
+        "footprint": [
+          [
+            111.791,
+            1211.845
+          ],
+          [
+            114.424,
+            1211.652
+          ],
+          [
+            114.434,
+            1211.787
+          ],
+          [
+            111.801,
+            1211.979
+          ]
+        ],
+        "height": 26.94,
+        "floors": 1,
+        "baseOffset": 24.35,
+        "material": "louvre",
+        "facade": {
+          "material": "louvre",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "edge": "none",
+          "material": "louvre"
+        }
+      },
+      {
+        "name": "East residence stairs and return",
+        "footprint": [
+          [
+            128.4,
+            1222.5
+          ],
+          [
+            127.2,
+            1208.65
+          ],
+          [
+            120.0582,
+            1208.7738
+          ],
+          [
+            121.0558,
+            1223.1832
+          ]
+        ],
+        "height": 8.25,
+        "floors": 2,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia",
+          "features": []
+        }
+      },
+      {
+        "name": "North entrance canopy with timber underside",
+        "footprint": [
+          [
+            118.818,
+            1190.854
+          ],
+          [
+            92.29,
+            1192.69
+          ],
+          [
+            77.368,
+            1193.724
+          ],
+          [
+            77.474,
+            1195.26
+          ],
+          [
+            92.396,
+            1194.227
+          ],
+          [
+            118.924,
+            1192.39
+          ]
+        ],
+        "height": 8.28,
+        "floors": 1,
+        "baseOffset": 8.06,
+        "material": "soffit",
+        "facade": {
+          "material": "fascia",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "cornice": {
+            "material": "fascia",
+            "height": 0.17,
+            "depth": 0.055
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofTrim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Roof below stair recess",
+        "footprint": [
+          [
+            115.6,
+            1210.6
+          ],
+          [
+            115.3,
+            1204.8
+          ],
+          [
+            110.078,
+            1205.176
+          ],
+          [
+            110.497,
+            1210.952
+          ]
+        ],
+        "height": 20.45,
+        "floors": 6,
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "width": 4,
+            "pattern": "regular"
+          },
+          "windows": {
+            "type": "punched",
+            "width": 2.0,
+            "height": 1.58,
+            "sill": 0.78,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#a3b2b5",
+            "glass": "tinted",
+            "glassColor": "#536269",
+            "surround": "metal",
+            "sillProjecting": true
+          },
+          "base": {
+            "height": 0.44,
+            "material": "base",
+            "projection": 0.06
+          },
+          "parapet": {
+            "height": 0.26,
+            "type": "coped",
+            "material": "trim"
+          },
+          "cornice": {
+            "material": "trim",
+            "height": 0.1,
+            "depth": 0.12
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 20,
+      "position": 0.916,
+      "type": "glass-vestibule",
+      "width": 2.55,
+      "height": 2.5,
+      "recess": 0.65,
+      "steps": 0,
+      "surround": "base",
+      "sidelights": true,
+      "transom": true,
+      "doorColor": "#64726a"
+    },
+    {
+      "wall": 12,
+      "position": 0.51,
+      "type": "doors-double",
+      "width": 2.25,
+      "height": 2.55,
+      "recess": 0.35,
+      "steps": 0
+    }
+  ]
+}

@@ -1,0 +1,475 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "r21319536-1",
+  "name": "University Hospital west annex",
+  "status": "refined",
+  "confidence": 0.61,
+  "summary": "University Hospital west annex is a two- to three-storey square block with a gravel-coloured roof, rectangular rooftop equipment, and an elevated enclosed link to the main hospital.",
+  "style": "mid-century-modern",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#b4b5b0",
+      "secondaryColor": "#a2a39e",
+      "unitSize": [
+        3.15,
+        3.45
+      ],
+      "variation": 0.065,
+      "roughness": 0.83
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#cac6b3"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c9cac5"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#e2e2dd"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "annexRoof": {
+      "kind": "gravel-ballast",
+      "color": "#afaa96"
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 3.65,
+    "typicalHeight": 3.45
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 1.2,
+        "projection": 0.08,
+        "material": "trim"
+      },
+      "bays": {
+        "width": 3.8,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.45,
+        "height": 1.45,
+        "sill": 1.1,
+        "perBay": 1,
+        "recess": 0.16,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 0,
+          "width": 0.055
+        },
+        "frameColor": "#8f918d",
+        "glass": "tinted",
+        "surround": "none"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.38,
+        "material": "trim"
+      },
+      "bands": [
+        {
+          "at": "floor-lines",
+          "height": 0.16,
+          "depth": 0.065,
+          "material": "trim"
+        }
+      ]
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 9
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.3,
+          "height": 0.74,
+          "sill": 1.32,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          }
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 10
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.3,
+          "height": 0.74,
+          "sill": 1.32,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          }
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 10
+        },
+        "windows": {
+          "type": "slot",
+          "width": 1.3,
+          "height": 0.74,
+          "sill": 1.32,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          }
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 3.39,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 2.99,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 2.92,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 4.38,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 3
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          71.4,
+          -105.1
+        ],
+        "size": [
+          7.3,
+          2.3
+        ],
+        "height": 1.3,
+        "material": "plant",
+        "rotation": -21,
+        "style": "segmented rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          73.2,
+          -100.7
+        ],
+        "size": [
+          7.3,
+          2.4
+        ],
+        "height": 1.35,
+        "material": "plant",
+        "rotation": -21,
+        "style": "segmented rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          65.8,
+          -93
+        ],
+        "size": [
+          3.5,
+          1.4
+        ],
+        "height": 0.9,
+        "material": "plant",
+        "rotation": 69,
+        "style": "segmented rectangular duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          70.6,
+          -94.6
+        ],
+        "size": [
+          3.6,
+          1.45
+        ],
+        "height": 0.6,
+        "material": "plant",
+        "rotation": 69,
+        "style": "segmented rectangular duct"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          69,
+          -86.5
+        ],
+        "size": [
+          2.3,
+          2.9
+        ],
+        "height": 0.45,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          74.7,
+          -89
+        ],
+        "size": [
+          1.8,
+          2.6
+        ],
+        "height": 0.65,
+        "material": "plant",
+        "rotation": -21,
+        "style": "roof cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          81,
+          -98.8
+        ],
+        "size": [
+          2.2,
+          2.7
+        ],
+        "height": 0.8,
+        "material": "plant",
+        "rotation": -21,
+        "style": "roof cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          64.8,
+          -104.6
+        ],
+        "size": [
+          2.3,
+          1.5
+        ],
+        "height": 0.65,
+        "material": "plant",
+        "rotation": -21,
+        "style": "roof cabinet"
+      },
+      {
+        "type": "stair-tower",
+        "center": [
+          78,
+          -109.6
+        ],
+        "size": [
+          3.8,
+          4.3
+        ],
+        "height": 1.85,
+        "material": "wall",
+        "rotation": -21
+      },
+      {
+        "type": "skylight",
+        "center": [
+          86.6,
+          -98.2
+        ],
+        "size": [
+          1.5,
+          2
+        ],
+        "height": 0.35,
+        "material": "trim",
+        "rotation": -21
+      }
+    ],
+    "overhang": 0.12
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 10.62 m, P90 11.17 m, highest return 11.63 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [67.7, -92.77] averages #cac6b3."
+    },
+    {
+      "kind": "aerial",
+      "note": "Three sides are exposed to the paved drive. Narrow enclosed span casts a long shadow between the annex and the main hospital on the northeast side."
+    },
+    {
+      "kind": "aerial",
+      "note": "Long raised rectangular housings occupy the northern half of the annex roof. The portables at (11,-112) are about 47 m west and correspond to separate mechanical shelter inventory records."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "West annex",
+        "footprint": {
+          "clip": [
+            [
+              67.11,
+              -81.32
+            ],
+            [
+              57.74,
+              -105.46
+            ],
+            [
+              79.29,
+              -113.82
+            ],
+            [
+              80.62,
+              -110.07
+            ],
+            [
+              81.14,
+              -108.591
+            ],
+            [
+              77.024,
+              -106.991
+            ],
+            [
+              84.403,
+              -88.034
+            ]
+          ]
+        },
+        "height": 10.7,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "material": "annexRoof"
+        }
+      },
+      {
+        "name": "East roof bay",
+        "footprint": {
+          "clip": [
+            [
+              91.86,
+              -90.93
+            ],
+            [
+              84.403,
+              -88.034
+            ],
+            [
+              77.024,
+              -106.991
+            ],
+            [
+              81.14,
+              -108.591
+            ],
+            [
+              83.66,
+              -101.43
+            ],
+            [
+              89.11,
+              -103.55
+            ],
+            [
+              91.28,
+              -97.97
+            ],
+            [
+              89.4,
+              -97.25
+            ]
+          ]
+        },
+        "height": 10.35,
+        "floors": 3,
+        "material": "wall",
+        "roof": {
+          "material": "annexRoof"
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "skybridge",
+      "path": [
+        [
+          79.65,
+          -110.6
+        ],
+        [
+          110.4,
+          -119.7
+        ]
+      ],
+      "width": 4.9,
+      "height": 3.1,
+      "baseOffset": 6.65,
+      "material": "trim"
+    }
+  ],
+  "notes": "Three floors, slot openings and bridge level are inferred from roof height and the oblique view of the north wall in the orthophoto. The only nearby unobstructed camera heading faces away from this annex. Door positions follow paved approaches. Door surrounds and covers cannot be established.",
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.84,
+      "type": "doors-double",
+      "width": 1.9,
+      "height": 2.45,
+      "recess": 0.24
+    },
+    {
+      "wall": 3,
+      "position": 0.6,
+      "type": "service-door",
+      "width": 1.05,
+      "height": 2.18
+    }
+  ]
+}

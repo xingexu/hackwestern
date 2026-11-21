@@ -1,0 +1,121 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2652",
+  "name": "Unnamed Bayfield outbuilding",
+  "status": "refined",
+  "confidence": 0.57,
+  "summary": "A small rectangular service enclosure with a low flat roof beside the Bayfield wing, with its rear faces inferred.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#969388",
+      "unitSize": [
+        1.2,
+        2.22
+      ],
+      "variation": 0.06
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#89847b",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#817b6d",
+      "unitSize": [
+        0.65,
+        1.8
+      ],
+      "variation": 0.09,
+      "weathering": 0.14,
+      "secondaryColor": "#726e64",
+      "roughness": 0.9
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.17,
+    "typicalHeight": 2.17
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall",
+      "base": {
+        "height": 0.12,
+        "projection": 0.03,
+        "material": "base"
+      },
+      "cornice": {
+        "height": 0.105,
+        "depth": 0.09,
+        "material": "trim"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.075,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "A small brown-grey rectangular top in the lawn beside Bayfield service paving casts its own shadow to the north-west. Roof patch sampled #968c74."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 2.03 m, P90 2.25 m, maximum 2.31 m above inventory ground. 2.03 m median and 2.31 m maximum give a squat, single-level profile."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "102315793",
+      "walls": [
+        2
+      ],
+      "note": "Bayfield service area contains low enclosures and bins. The wall finish of this particular small mapped rectangle cannot be isolated."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Enclosure",
+        "footprint": "inventory",
+        "height": 2.17,
+        "floors": 1
+      }
+    ]
+  },
+  "notes": "Wall finish inferred from the aerial context. No unobstructed view supports a specific door or window position. Access panel placement is inferred from the paved side of the enclosure.",
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.5,
+      "width": 1.05,
+      "height": 2.07,
+      "type": "service-door",
+      "recess": 0.09
+    }
+  ]
+}

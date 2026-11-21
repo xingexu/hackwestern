@@ -1,0 +1,1374 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w142286122",
+  "name": "Physics Building",
+  "style": "collegiate-gothic",
+  "confidence": 0.89,
+  "status": "refined",
+  "summary": "Physics features projecting end pavilions flanking a recessed four-level bayed south front with a central oriel over a carved arched entry, topped by a flat roof with atrium skylights.",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#b7af9b",
+      "unitSize": [
+        0.48,
+        0.22
+      ],
+      "secondaryColor": "#9f9989",
+      "variation": 0.17,
+      "bond": "coursed-rubble"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#aba99f",
+      "roughness": 0.74,
+      "secondaryColor": "#98988e",
+      "variation": 0.15
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c8c1b1"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "galvanized": {
+      "kind": "painted-metal",
+      "color": "#c4c5bb",
+      "roughness": 0.56
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 3.8,
+    "typicalHeight": 4.15
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 3.05,
+        "height": 2.2,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.15,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "surround": "stone",
+        "glass": "tinted",
+        "frameColor": "#dedcd2",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true,
+        "glassColor": "#68897e"
+      },
+      "bays": {
+        "width": 4.55,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.38,
+        "material": "wall"
+      },
+      "base": {
+        "height": 0.55,
+        "projection": 0.04,
+        "material": "trim"
+      },
+      "piers": {
+        "width": 0.55,
+        "depth": 0.2,
+        "material": "wall",
+        "every": 1,
+        "fullHeight": true
+      },
+      "bands": [
+        {
+          "at": [
+            3.1
+          ],
+          "height": 0.2,
+          "depth": 0.055,
+          "material": "trim"
+        }
+      ],
+      "cornice": {
+        "height": 0.36,
+        "depth": 0.2,
+        "material": "trim"
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 2.4,
+          "height": 1.35,
+          "sill": 0.55,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "sillProjecting": true
+        }
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 3,
+          "width": 5.11
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 7,
+          "width": 4.55
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.57,
+          "depth": 0.5,
+          "stepped": true
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 4,
+          "width": 4.29
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "wall"
+        },
+        "quoins": true,
+        "windows": {
+          "width": 1.45,
+          "height": 2.25,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "surround": "stone"
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 1,
+          "width": 6.23
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 3,
+          "width": 4.64
+        },
+        "windows": {
+          "type": "punched",
+          "width": 3.05,
+          "height": 2.2,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#dedcd2",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true,
+          "transom": true
+        }
+      },
+      "6": {
+        "bays": {
+          "count": 1,
+          "width": 5.5
+        },
+        "windows": {
+          "type": "oriel",
+          "width": 3.7,
+          "height": 2.8,
+          "sill": 0.6,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 3,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "hoodMould": true
+        },
+        "floorOverrides": {
+          "0": {
+            "windows": {
+              "type": "none"
+            }
+          },
+          "1": {
+            "windows": {
+              "type": "oriel",
+              "height": 2.85,
+              "width": 3.7
+            }
+          },
+          "2": {
+            "windows": {
+              "type": "punched",
+              "height": 2.6,
+              "width": 3.5
+            }
+          },
+          "3": {
+            "windows": {
+              "type": "segmental-arch",
+              "height": 2.25,
+              "width": 3.45
+            }
+          }
+        },
+        "gables": {
+          "type": "parapet",
+          "count": 1
+        },
+        "balconies": {
+          "floors": [
+            1
+          ],
+          "depth": 0.62,
+          "rail": "solid"
+        }
+      },
+      "7": {
+        "bays": {
+          "count": 3,
+          "width": 4.49
+        },
+        "windows": {
+          "type": "punched",
+          "width": 3.05,
+          "height": 2.2,
+          "sill": 0.85,
+          "perBay": 1,
+          "recess": 0.15,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "surround": "stone",
+          "glass": "clear",
+          "frameColor": "#dedcd2",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true,
+          "hoodMould": true,
+          "transom": true
+        }
+      },
+      "8": {
+        "bays": {
+          "count": 1,
+          "width": 6.7
+        }
+      },
+      "9": {
+        "bays": {
+          "count": 2,
+          "pattern": "regular"
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.68,
+          "material": "wall"
+        },
+        "quoins": true,
+        "windows": {
+          "width": 1.45,
+          "height": 2.25,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1
+          },
+          "surround": "stone"
+        }
+      },
+      "10": {
+        "bays": {
+          "count": 2,
+          "width": 5.62
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.57,
+          "depth": 0.5,
+          "stepped": true
+        }
+      },
+      "11": {
+        "bays": {
+          "count": 1
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.57,
+          "depth": 0.5,
+          "stepped": true
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "type": "oriel",
+              "width": 2.35,
+              "height": 2.28,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1,
+                "width": 0.06
+              },
+              "sill": 0.65
+            }
+          },
+          "2": {
+            "windows": {
+              "type": "oriel",
+              "width": 2.35,
+              "height": 2.28,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 1,
+                "width": 0.06
+              },
+              "sill": 0.65
+            }
+          }
+        }
+      },
+      "12": {
+        "bays": {
+          "count": 1,
+          "width": 3.96
+        }
+      },
+      "13": {
+        "bays": {
+          "count": 7,
+          "width": 4.45
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.57,
+          "depth": 0.5,
+          "stepped": true
+        }
+      },
+      "14": {
+        "bays": {
+          "count": 4,
+          "width": 3.99
+        }
+      },
+      "15": {
+        "bays": {
+          "count": 11,
+          "width": 4.73
+        },
+        "buttresses": {
+          "every": 2,
+          "width": 0.57,
+          "depth": 0.5,
+          "stepped": true
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "skylight",
+        "center": [
+          325,
+          163.8
+        ],
+        "size": [
+          2.5,
+          9.9
+        ],
+        "height": 0.94,
+        "material": "glass",
+        "rotation": -21,
+        "style": "ridge"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          328.1,
+          162.6
+        ],
+        "size": [
+          2.5,
+          9.9
+        ],
+        "height": 0.94,
+        "material": "glass",
+        "rotation": -21,
+        "style": "ridge"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          331.2,
+          161.4
+        ],
+        "size": [
+          2.5,
+          9.9
+        ],
+        "height": 0.94,
+        "material": "glass",
+        "rotation": -21,
+        "style": "ridge"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          334.3,
+          160.2
+        ],
+        "size": [
+          2.5,
+          9.9
+        ],
+        "height": 0.94,
+        "material": "glass",
+        "rotation": -21,
+        "style": "ridge"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          348.1,
+          155.7
+        ],
+        "size": [
+          2.5,
+          9.9
+        ],
+        "height": 0.94,
+        "material": "glass",
+        "rotation": -21,
+        "style": "ridge"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          351.2,
+          154.5
+        ],
+        "size": [
+          2.5,
+          9.9
+        ],
+        "height": 0.94,
+        "material": "glass",
+        "rotation": -21,
+        "style": "ridge"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          318,
+          141
+        ],
+        "size": [
+          3.15,
+          3.4
+        ],
+        "height": 1,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          321,
+          139
+        ],
+        "size": [
+          2.65,
+          2.3
+        ],
+        "height": 1.15,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          333,
+          133
+        ],
+        "size": [
+          3.45,
+          2.3
+        ],
+        "height": 1.36,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          342,
+          181
+        ],
+        "size": [
+          1.9,
+          1.35
+        ],
+        "height": 0.97,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          356,
+          176
+        ],
+        "size": [
+          2.4,
+          1.8
+        ],
+        "height": 1.04,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          314.8,
+          145.9
+        ],
+        "size": [
+          2.1,
+          1.6
+        ],
+        "height": 0.9,
+        "rotation": -21,
+        "material": "galvanized"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          322.6,
+          136.3
+        ],
+        "size": [
+          2.4,
+          1.6
+        ],
+        "height": 0.9,
+        "rotation": -21,
+        "material": "galvanized"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          337.4,
+          142.8
+        ],
+        "size": [
+          2.0,
+          1.4
+        ],
+        "height": 0.9,
+        "rotation": -21,
+        "material": "galvanized"
+      },
+      {
+        "type": "hvac",
+        "style": "twin fan housing",
+        "center": [
+          358.9,
+          177.6
+        ],
+        "size": [
+          2.2,
+          1.45
+        ],
+        "height": 0.9,
+        "rotation": -21,
+        "material": "galvanized"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface minus local ground: median 15.43 m, 90th percentile 17.91 m, maximum 27.54 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/PAB.jpg",
+      "note": "Western Facilities Management exterior photograph; masonry, trim and opening proportions assessed against the orthophoto."
+    },
+    {
+      "kind": "photo",
+      "note": "The project photographs show the stair and ramp at the rectangular entrance and skylights over the enclosed four-storey courtyard.",
+      "url": "https://atrr.ca/projects/education/western-university-physics-and-astronomy-building/"
+    },
+    {
+      "kind": "kartaview",
+      "note": "Oblique north roadside view, with broad rectangular windows between full-height stone piers partly behind trees.",
+      "frame": "131414021",
+      "walls": [
+        15
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "South terrace approach aligns with the projecting central south bay. Two groups of parallel skylights light the former interior court."
+    },
+    {
+      "kind": "photo",
+      "note": "Sunlit street elevation with entrance ramp and steps. A 9 by 9 stone patch centred at normalized (0.710, 0.373) gives #7c7468.",
+      "url": "https://atrr.ca/wp-content/uploads/2024/03/WU-Physics-and-Astronomy-Building7.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "South pavilion edge samples are about 19–20 m. The irregular 27 m return extends beyond the walls into tree crowns. The end bays rise a little above the central front in the university photograph."
+    },
+    {
+      "kind": "aerial",
+      "note": "The northwest service runs include perpendicular turns and rectangular handlers. Four west and two east skylight bays sit on a separate inner roof."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 6,
+      "position": 0.5,
+      "type": "gothic-portal",
+      "width": 2.55,
+      "height": 3.55,
+      "recess": 0.72,
+      "steps": 5,
+      "surround": "trim"
+    },
+    {
+      "wall": 15,
+      "position": 0.5,
+      "type": "glass-vestibule",
+      "width": 3.0,
+      "height": 2.6,
+      "steps": 7,
+      "ramp": true,
+      "surround": "trim"
+    },
+    {
+      "wall": 11,
+      "position": 0.72,
+      "type": "gothic-portal",
+      "width": 1.82,
+      "height": 3.15,
+      "steps": 3,
+      "surround": "trim"
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "North laboratory wings",
+        "height": 12.5,
+        "floors": 3,
+        "footprint": [
+          [
+            308.95,
+            152.44
+          ],
+          [
+            309.31,
+            153.39
+          ],
+          [
+            308.38,
+            153.76
+          ],
+          [
+            319.595,
+            182.523
+          ],
+          [
+            369.968,
+            163.757
+          ],
+          [
+            358.69,
+            134.82
+          ],
+          [
+            358.02,
+            135.09
+          ],
+          [
+            357.54,
+            133.86
+          ],
+          [
+            352.23,
+            120.21
+          ],
+          [
+            335.75,
+            126.65
+          ],
+          [
+            303.75,
+            139.12
+          ]
+        ]
+      },
+      {
+        "name": "South quadrangle front and end pavilions",
+        "height": 17.0,
+        "floors": 4,
+        "footprint": [
+          [
+            319.96,
+            183.46
+          ],
+          [
+            318.13,
+            184.17
+          ],
+          [
+            318.57,
+            185.28
+          ],
+          [
+            324.37,
+            200.18
+          ],
+          [
+            335.53,
+            195.82
+          ],
+          [
+            333.27,
+            190.02
+          ],
+          [
+            346.23,
+            184.97
+          ],
+          [
+            346.97,
+            186.87
+          ],
+          [
+            349.61,
+            185.84
+          ],
+          [
+            352.38,
+            184.76
+          ],
+          [
+            351.64,
+            182.84
+          ],
+          [
+            364.18,
+            177.95
+          ],
+          [
+            366.61,
+            184.19
+          ],
+          [
+            378.29,
+            179.64
+          ],
+          [
+            374.21,
+            169.17
+          ],
+          [
+            376.05,
+            168.46
+          ],
+          [
+            374.53,
+            164.56
+          ],
+          [
+            373.69,
+            162.4
+          ],
+          [
+            370.0,
+            163.84
+          ],
+          [
+            369.968,
+            163.757
+          ],
+          [
+            319.595,
+            182.523
+          ]
+        ]
+      },
+      {
+        "name": "Southwest end pavilion",
+        "height": 18.85,
+        "floors": 4,
+        "footprint": {
+          "clip": [
+            [
+              324.37,
+              200.18
+            ],
+            [
+              335.53,
+              195.82
+            ],
+            [
+              333.27,
+              190.02
+            ],
+            [
+              336.063,
+              188.932
+            ],
+            [
+              335.635,
+              187.834
+            ],
+            [
+              321.685,
+              193.284
+            ]
+          ]
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "facade": {
+          "piers": {
+            "width": 0.52,
+            "depth": 0.22,
+            "every": 2,
+            "material": "wall"
+          },
+          "parapet": {
+            "type": "stepped",
+            "height": 0.48,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "Southeast end pavilion",
+        "height": 19.0,
+        "floors": 4,
+        "footprint": {
+          "clip": [
+            [
+              364.18,
+              177.95
+            ],
+            [
+              366.61,
+              184.19
+            ],
+            [
+              378.29,
+              179.64
+            ],
+            [
+              375.712,
+              173.025
+            ],
+            [
+              361.234,
+              178.665
+            ],
+            [
+              361.381,
+              179.041
+            ]
+          ]
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "facade": {
+          "piers": {
+            "width": 0.52,
+            "depth": 0.22,
+            "every": 2,
+            "material": "wall"
+          },
+          "parapet": {
+            "type": "stepped",
+            "height": 0.48,
+            "material": "trim"
+          }
+        }
+      },
+      {
+        "name": "Raised central court",
+        "footprint": [
+          [
+            324.7,
+            147.3
+          ],
+          [
+            345.2,
+            139.3
+          ],
+          [
+            356.1,
+            167.3
+          ],
+          [
+            335.6,
+            175.3
+          ]
+        ],
+        "height": 17.12,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "parapet": {
+            "type": "coped",
+            "height": 0.35,
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof"
+        },
+        "baseOffset": 12.5
+      },
+      {
+        "name": "Quadrangle roof duct",
+        "footprint": [
+          [
+            333.803,
+            188.862
+          ],
+          [
+            349.454,
+            182.81
+          ],
+          [
+            348.654,
+            180.508
+          ],
+          [
+            360.132,
+            175.985
+          ],
+          [
+            359.868,
+            175.315
+          ],
+          [
+            347.746,
+            180.092
+          ],
+          [
+            348.546,
+            182.39
+          ],
+          [
+            334.197,
+            187.938
+          ],
+          [
+            333.332,
+            185.862
+          ],
+          [
+            332.668,
+            186.138
+          ]
+        ],
+        "height": 17.7,
+        "floors": 1,
+        "material": "metal",
+        "facade": {
+          "blank": true,
+          "material": "metal",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "metal"
+        },
+        "baseOffset": 17.15
+      },
+      {
+        "name": "Stepped laboratory supply duct",
+        "footprint": [
+          [
+            316.659,
+            141.317
+          ],
+          [
+            321.702,
+            139.468
+          ],
+          [
+            322.503,
+            141.47
+          ],
+          [
+            329.983,
+            138.692
+          ],
+          [
+            329.617,
+            137.708
+          ],
+          [
+            323.097,
+            140.13
+          ],
+          [
+            322.298,
+            138.132
+          ],
+          [
+            315.341,
+            140.683
+          ],
+          [
+            317.502,
+            147.166
+          ],
+          [
+            318.498,
+            146.834
+          ]
+        ],
+        "height": 13.41,
+        "floors": 1,
+        "material": "galvanized",
+        "facade": {
+          "material": "galvanized",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "galvanized",
+          "edge": "none"
+        },
+        "baseOffset": 12.7
+      },
+      {
+        "name": "Stepped laboratory supply duct",
+        "footprint": [
+          [
+            314.382,
+            155.272
+          ],
+          [
+            316.787,
+            154.37
+          ],
+          [
+            321.558,
+            167.029
+          ],
+          [
+            322.242,
+            166.771
+          ],
+          [
+            317.213,
+            153.43
+          ],
+          [
+            314.818,
+            154.328
+          ],
+          [
+            313.143,
+            149.676
+          ],
+          [
+            312.457,
+            149.924
+          ]
+        ],
+        "height": 13.41,
+        "floors": 1,
+        "material": "galvanized",
+        "facade": {
+          "material": "galvanized",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "galvanized",
+          "edge": "none"
+        },
+        "baseOffset": 12.7
+      },
+      {
+        "name": "Stepped laboratory supply duct",
+        "footprint": [
+          [
+            335.35,
+            143.793
+          ],
+          [
+            336.148,
+            145.686
+          ],
+          [
+            341.762,
+            143.581
+          ],
+          [
+            341.438,
+            142.719
+          ],
+          [
+            336.652,
+            144.514
+          ],
+          [
+            335.85,
+            142.607
+          ],
+          [
+            329.332,
+            145.172
+          ],
+          [
+            329.668,
+            146.028
+          ]
+        ],
+        "height": 18.09,
+        "floors": 1,
+        "material": "galvanized",
+        "facade": {
+          "material": "galvanized",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "galvanized",
+          "edge": "none"
+        },
+        "baseOffset": 17.38
+      },
+      {
+        "name": "Stepped laboratory supply duct",
+        "footprint": [
+          [
+            352.947,
+            177.079
+          ],
+          [
+            353.746,
+            179.077
+          ],
+          [
+            363.659,
+            175.321
+          ],
+          [
+            363.341,
+            174.479
+          ],
+          [
+            354.254,
+            177.923
+          ],
+          [
+            353.453,
+            175.921
+          ],
+          [
+            349.639,
+            177.38
+          ],
+          [
+            349.961,
+            178.22
+          ]
+        ],
+        "height": 17.98,
+        "floors": 1,
+        "material": "galvanized",
+        "facade": {
+          "material": "galvanized",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "piers": {
+            "width": 0,
+            "depth": 0,
+            "every": 100
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0,
+            "type": "plain"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "galvanized",
+          "edge": "none"
+        },
+        "baseOffset": 17.27
+      }
+    ]
+  },
+  "notes": "A carved surround, balcony and stone oriel mark the axial south entrance. Elevated lidar returns continue into trees in front of the southwest pavilion."
+}

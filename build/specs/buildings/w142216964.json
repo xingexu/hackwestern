@@ -1,0 +1,1007 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w142216964",
+  "name": "Somerville House",
+  "status": "refined",
+  "confidence": 0.79,
+  "summary": "Somerville House is a stone dining hall on Oxford Drive with small windows at the base, tall grouped upper windows, and a square entrance tower featuring a pierced parapet and a projecting oriel.",
+  "style": "collegiate-gothic",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#b4ac9a",
+      "secondaryColor": "#a39a88",
+      "variation": 0.24,
+      "unitSize": [
+        0.54,
+        0.23
+      ],
+      "bond": "coursed-rubble",
+      "roughness": 0.82,
+      "weathering": 0.18
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c7beaa",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#858479",
+      "roughness": 0.89,
+      "weathering": 0.31
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    },
+    "equipment": {
+      "kind": "metal-panel",
+      "color": "#9e9d96",
+      "roughness": 0.69,
+      "unitSize": [
+        0.6,
+        1.2
+      ]
+    },
+    "lowerMembrane": {
+      "kind": "membrane",
+      "color": "#77786c",
+      "roughness": 0.9,
+      "weathering": 0.35
+    },
+    "serviceCap": {
+      "kind": "standing-seam-metal",
+      "color": "#a5a69a",
+      "unitSize": [
+        0.49,
+        5.6
+      ],
+      "roughness": 0.81
+    }
+  },
+  "floors": {
+    "count": 3,
+    "groundFloorHeight": 3.5,
+    "typicalHeight": 3.65,
+    "raisedGround": 0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 2.22,
+        "height": 1.95,
+        "sill": 0.8,
+        "perBay": 1,
+        "recess": 0.17,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.065
+        },
+        "frameColor": "#b4a995",
+        "glass": "leaded",
+        "glassColor": "#394146",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true,
+        "hoodMould": true
+      },
+      "bays": {
+        "width": 5.0,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "parapet": {
+        "height": 0.38,
+        "type": "coped",
+        "material": "wall"
+      },
+      "cornice": {
+        "height": 0.23,
+        "depth": 0.1,
+        "material": "trim"
+      },
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.07
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 1.75,
+          "height": 0.92,
+          "sill": 0.5,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 0,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true
+        }
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 5.25,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 8
+        },
+        "windows": {
+          "type": "punched",
+          "width": 2.55,
+          "height": 2.45,
+          "sill": 0.65,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 1,
+            "width": 0.065
+          },
+          "frameColor": "#4d5051",
+          "glass": "tinted",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true
+        },
+        "bands": [
+          {
+            "at": [
+              2.0
+            ],
+            "height": 0.2,
+            "depth": 0.1,
+            "material": "trim"
+          }
+        ],
+        "groundFloor": {
+          "height": 4.55,
+          "windows": {
+            "type": "punched",
+            "width": 2.15,
+            "height": 1.05,
+            "sill": 0.57,
+            "mullions": {
+              "vertical": 3,
+              "horizontal": 0,
+              "width": 0.065
+            },
+            "perBay": 1
+          }
+        },
+        "floorOverrides": {
+          "1": {
+            "windows": {
+              "height": 3.55,
+              "sill": 0.57,
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 2,
+                "width": 0.065
+              },
+              "frameColor": "#b6ac99",
+              "type": "tudor-arch",
+              "width": 2.1,
+              "perBay": 1,
+              "transom": true,
+              "hoodMould": true,
+              "glass": "leaded",
+              "glassColor": "#374043"
+            }
+          },
+          "2": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          }
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 6.82,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 6.26,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 4.53,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 5.12,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 4.94,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 10
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 5.19,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 6
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 3.87,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 4.15,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 6.08,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 3.53,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 4.91,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        }
+      },
+      "12": {
+        "bays": {
+          "width": 5.97,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "13": {
+        "bays": {
+          "width": 4.86,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 2.87,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "15": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "16": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "17": {
+        "bays": {
+          "width": 4.62,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        }
+      },
+      "18": {
+        "bays": {
+          "width": 4.41,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        }
+      },
+      "19": {
+        "bays": {
+          "width": 3.71,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        }
+      },
+      "20": {
+        "bays": {
+          "width": 4.6,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 4
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          219.344,
+          394.099
+        ],
+        "size": [
+          3.2,
+          3.2
+        ],
+        "height": 1.15,
+        "rotation": 10,
+        "material": "equipment",
+        "style": "rooftop air handling unit"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          215.0,
+          373.0
+        ],
+        "size": [
+          2.8,
+          3.7
+        ],
+        "height": 0.85,
+        "material": "equipment",
+        "rotation": 10,
+        "style": "rooftop air handling unit"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          237.7,
+          410.8
+        ],
+        "size": [
+          3.45,
+          3.1
+        ],
+        "height": 0.85,
+        "material": "equipment",
+        "rotation": 10,
+        "style": "rooftop air handling unit"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          218.5,
+          411.7
+        ],
+        "size": [
+          3,
+          4.8
+        ],
+        "height": 0.85,
+        "material": "equipment",
+        "rotation": 10,
+        "style": "rooftop air handling unit"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          223.8,
+          366.2
+        ],
+        "size": [
+          4.3,
+          3.3
+        ],
+        "height": 0.98,
+        "material": "equipment",
+        "rotation": 10
+      },
+      {
+        "type": "hvac",
+        "center": [
+          209.0,
+          357.3
+        ],
+        "size": [
+          2.95,
+          1.8
+        ],
+        "height": 0.8,
+        "material": "equipment",
+        "rotation": 10,
+        "style": "rooftop air handling unit"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          222.0,
+          398.9
+        ],
+        "size": [
+          1.3,
+          4.8
+        ],
+        "height": 0.61,
+        "material": "equipment",
+        "rotation": 10,
+        "style": "rooftop air handling unit"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "note": "Facilities Management photograph of the exterior and its openings.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/SH.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory core-1m surface percentiles above ground: median 11.1 m, 90th percentile 14.73 m, maximum 21.21 m."
+    },
+    {
+      "kind": "osm",
+      "note": "Entrance positions are aligned to mapped footpath, service or stair endpoints where those meet the outer wall. Door and step dimensions are estimates."
+    },
+    {
+      "kind": "aerial",
+      "note": "L-shaped roof footprint; higher Oxford Drive range at the northwest. The small tall return at its south-western end coincides with the tower in the elevation photograph."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Bay counts, opening dimensions and storey heights on unseen elevations are architectural estimates. Wall and roof hues are image samples, subject to exposure and shadows."
+    },
+    {
+      "kind": "photo",
+      "url": "https://classfind.com/western/1080/somerville1.jpg",
+      "note": "PIL mean patches for wall and trim centred at (27%, 50%) and (39.7%, 55%) of the photo. Exposure multipliers 1.16 and 1.2 approximate daylight across the source views."
+    },
+    {
+      "kind": "photo",
+      "note": "The Oxford Drive exterior shows the raised entrance surround, projecting oriel, grouped lights and three openings under a straight tower coping.",
+      "url": "https://www.uwo.ca/fm/client_services/building_info.html"
+    },
+    {
+      "kind": "lidar",
+      "note": "The south and east ranges sit around 11 m, with a smaller return near 10 m against the northeast loading area. The row of pale roofs beyond the southern footprint belongs to 3M. Darker membrane and roof repairs are visible across the dining and service ranges."
+    }
+  ],
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.92,
+      "type": "gothic-portal",
+      "width": 2.12,
+      "height": 3.1,
+      "surround": "trim",
+      "recess": 0.28,
+      "doorColor": "#705139",
+      "at": [
+        183.825934,
+        387.446367
+      ]
+    },
+    {
+      "wall": 6,
+      "position": 0.18,
+      "type": "doors-double",
+      "width": 2.15,
+      "height": 2.55,
+      "steps": 4
+    },
+    {
+      "wall": 17,
+      "position": 0.59,
+      "type": "loading-dock",
+      "width": 3.35,
+      "height": 3.3
+    }
+  ],
+  "towers": [
+    {
+      "name": "Oxford Drive entrance tower",
+      "at": [
+        188.1,
+        388.2
+      ],
+      "plan": "rectangle",
+      "size": [
+        7.5,
+        7.3
+      ],
+      "rotation": 10,
+      "height": 20.7,
+      "material": "wall",
+      "top": {
+        "type": "flat",
+        "height": 0.4,
+        "material": "trim"
+      },
+      "windows": {
+        "type": "tudor-arch",
+        "width": 2.25,
+        "height": 2.45,
+        "sill": 0.8,
+        "perBay": 1,
+        "recess": 0.17,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.065
+        },
+        "frameColor": "#4d5051",
+        "glass": "leaded",
+        "glassColor": "#53636a",
+        "surround": "stone",
+        "surroundMaterial": "trim",
+        "sillProjecting": true,
+        "lintel": true,
+        "tracery": true
+      },
+      "pinnacles": 0,
+      "belfry": true,
+      "oriel": {
+        "wall": 0,
+        "projection": 0.68
+      },
+      "piercedParapet": {
+        "height": 0.94,
+        "openings": 3
+      }
+    }
+  ],
+  "notes": "A shallow stone oriel projects over the entrance beneath the three-light tower window. Much of the southern wall meets 3M. No unobstructed KartaView wall sightline found within 120 m. The entrance tower has a straight coping above three pierced openings.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Oxford Drive dining hall",
+        "height": 14.85,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              185.9238,
+              384.7792
+            ],
+            [
+              203.636,
+              387.928
+            ],
+            [
+              204.945,
+              380.448
+            ],
+            [
+              212.425,
+              381.757
+            ],
+            [
+              215.4865,
+              358.7492
+            ],
+            [
+              214.16,
+              358.52
+            ],
+            [
+              209.59,
+              357.73
+            ],
+            [
+              210.22,
+              354.08
+            ],
+            [
+              192.09,
+              350.95
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Stepped service roof",
+        "height": 14.1,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              211.864,
+              402.514
+            ],
+            [
+              215.23,
+              403.262
+            ],
+            [
+              212.799,
+              417.1
+            ],
+            [
+              224.955,
+              419.157
+            ],
+            [
+              227.012,
+              407.002
+            ],
+            [
+              224.394,
+              406.067
+            ],
+            [
+              225.516,
+              398.961
+            ],
+            [
+              220.654,
+              397.652
+            ],
+            [
+              221.215,
+              392.977
+            ],
+            [
+              213.921,
+              391.855
+            ]
+          ]
+        },
+        "roof": {
+          "form": "flat",
+          "material": "lowerMembrane",
+          "edge": "parapet",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Eastern and connecting ranges",
+        "height": 11.1,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              191.28,
+              393.66
+            ],
+            [
+              190.28,
+              399.84
+            ],
+            [
+              203.68,
+              402.14
+            ],
+            [
+              203.2678,
+              404.6645
+            ],
+            [
+              214.9836,
+              404.6645
+            ],
+            [
+              215.23,
+              403.262
+            ],
+            [
+              211.864,
+              402.514
+            ],
+            [
+              213.921,
+              391.855
+            ],
+            [
+              221.215,
+              392.977
+            ],
+            [
+              220.654,
+              397.652
+            ],
+            [
+              225.516,
+              398.961
+            ],
+            [
+              224.6154,
+              404.6645
+            ],
+            [
+              253.8633,
+              404.6645
+            ],
+            [
+              254.64,
+              400.23
+            ],
+            [
+              250.83,
+              399.57
+            ],
+            [
+              250.95746,
+              398.82706
+            ],
+            [
+              238.98023,
+              396.71515
+            ],
+            [
+              239.55,
+              393.42
+            ],
+            [
+              238.95,
+              396.89
+            ],
+            [
+              224.42,
+              394.38
+            ],
+            [
+              226.45,
+              382.61
+            ],
+            [
+              228.76,
+              383.01
+            ],
+            [
+              230.41,
+              373.43
+            ],
+            [
+              227.58,
+              372.94
+            ],
+            [
+              228.03,
+              370.31
+            ],
+            [
+              225.37,
+              369.85
+            ],
+            [
+              226.31,
+              364.46
+            ],
+            [
+              226.95,
+              360.73
+            ],
+            [
+              215.4865,
+              358.74921
+            ],
+            [
+              212.425,
+              381.757
+            ],
+            [
+              204.945,
+              380.448
+            ],
+            [
+              203.636,
+              387.928
+            ],
+            [
+              185.92382,
+              384.7792
+            ],
+            [
+              185.18,
+              388.86
+            ],
+            [
+              184.61,
+              392.22
+            ]
+          ]
+        },
+        "roof": {
+          "form": "flat",
+          "material": "lowerMembrane",
+          "edge": "parapet",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Eastern and connecting ranges",
+        "height": 11.1,
+        "floors": 3,
+        "footprint": {
+          "clip": [
+            [
+              203.2678,
+              404.6645
+            ],
+            [
+              200.38,
+              422.35
+            ],
+            [
+              249.05,
+              430.89
+            ],
+            [
+              250.23,
+              425.41
+            ],
+            [
+              253.8633,
+              404.6645
+            ],
+            [
+              224.6154,
+              404.6645
+            ],
+            [
+              224.394,
+              406.067
+            ],
+            [
+              227.012,
+              407.002
+            ],
+            [
+              224.955,
+              419.157
+            ],
+            [
+              212.799,
+              417.1
+            ],
+            [
+              214.9836,
+              404.6645
+            ]
+          ]
+        },
+        "roof": {
+          "form": "flat",
+          "material": "lowerMembrane",
+          "edge": "parapet",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Projecting carved stone entrance surround",
+        "height": 3.72,
+        "floors": 1,
+        "footprint": [
+          [
+            184.721274,
+            385.766317
+          ],
+          [
+            184.140238,
+            385.663865
+          ],
+          [
+            183.511631,
+            389.228869
+          ],
+          [
+            184.092668,
+            389.331321
+          ]
+        ],
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "cornice": {
+            "height": 0.16,
+            "depth": 0.16,
+            "material": "trim"
+          },
+          "piers": {
+            "width": 0.01,
+            "depth": 0.01,
+            "every": 999,
+            "material": "trim",
+            "fullHeight": true
+          }
+        }
+      },
+      {
+        "name": "Low roof projecting over service yard",
+        "height": 9.85,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "serviceCap",
+          "edge": "parapet",
+          "overhang": 0
+        },
+        "footprint": [
+          [
+            250.95746,
+            398.82706
+          ],
+          [
+            251.53,
+            395.49
+          ],
+          [
+            239.55,
+            393.42
+          ],
+          [
+            238.98023,
+            396.71515
+          ]
+        ]
+      }
+    ]
+  }
+}

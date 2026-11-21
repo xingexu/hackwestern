@@ -1,0 +1,2134 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w237300096",
+  "name": "Advanced Facility for Avian Research",
+  "status": "refined",
+  "confidence": 0.79,
+  "summary": "A two-storey buff-masonry building with vertical window groupings, a glazed entrance corner under a projecting flat canopy, rooftop mechanical plant on a white roof, and a gridded enclosure at the west end.",
+  "style": "mid-century-modern",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#ada795",
+      "secondaryColor": "#a49c8b",
+      "unitSize": [
+        0.29,
+        0.09
+      ],
+      "bond": "running",
+      "variation": 0.08
+    },
+    "trim": {
+      "kind": "precast-panel",
+      "color": "#a99b8a",
+      "secondaryColor": "#958976",
+      "unitSize": [
+        1.22,
+        0.53
+      ]
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#607d79",
+      "secondaryColor": "#4e6662",
+      "unitSize": [
+        1.36,
+        1.35
+      ]
+    },
+    "screen": {
+      "kind": "painted-metal",
+      "color": "#7e867a",
+      "secondaryColor": "#535b52",
+      "unitSize": [
+        0.46,
+        0.46
+      ],
+      "surface": "perforated"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#dedfd2",
+      "variation": 0.05,
+      "weathering": 0.12,
+      "roughness": 0.84
+    },
+    "plant": {
+      "kind": "corrugated-metal",
+      "color": "#a8aba3",
+      "metalness": 0.46,
+      "roughness": 0.52,
+      "unitSize": [
+        0.22,
+        2.9
+      ]
+    },
+    "roofFrame": {
+      "kind": "painted-metal",
+      "color": "#a3a69a",
+      "secondaryColor": "#8d9587",
+      "roughness": 0.75
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 4.5,
+    "typicalHeight": 4.3
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.3,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.16,
+        "height": 2.16,
+        "sill": 0.92,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.045
+        },
+        "frameColor": "#7f8176",
+        "glass": "tinted",
+        "glassColor": "#617c75",
+        "surround": "metal",
+        "sillProjecting": true
+      },
+      "base": {
+        "material": "base",
+        "height": 0.28,
+        "projection": 0.04
+      },
+      "parapet": {
+        "height": 0.46,
+        "type": "coped",
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.2,
+        "depth": 0.14,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bands": [
+          {
+            "at": [
+              3.2
+            ],
+            "height": 0.18,
+            "depth": 0.045,
+            "material": "trim"
+          }
+        ],
+        "segments": [
+          {
+            "range": [
+              0.77,
+              0.987
+            ],
+            "bays": {
+              "count": 4
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "none"
+              }
+            },
+            "topFloor": {
+              "windows": {
+                "type": "punched",
+                "perBay": 1,
+                "width": 1.02,
+                "height": 1.92,
+                "sill": 0.8,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1
+                }
+              }
+            }
+          }
+        ]
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "screen"
+      },
+      "2": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "screen"
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "material": "screen"
+      },
+      "4": {
+        "bays": {
+          "width": 4.27,
+          "count": 5,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.43,
+          "depth": 0.34,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "verticalSpandrels": {
+          "material": "glass",
+          "width": 1.13,
+          "every": 1
+        },
+        "topFloor": {
+          "windows": {
+            "width": 2.15,
+            "height": 2.77,
+            "sill": 0.98
+          }
+        },
+        "groundFloor": {
+          "windows": {
+            "width": 0.78,
+            "height": 1.65,
+            "sill": 0.9
+          }
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 3.5,
+          "count": 4,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.43,
+          "depth": 0.34,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "verticalSpandrels": {
+          "material": "glass",
+          "width": 1.13,
+          "every": 1
+        },
+        "topFloor": {
+          "windows": {
+            "width": 2.15,
+            "height": 2.77,
+            "sill": 0.98
+          }
+        },
+        "groundFloor": {
+          "windows": {
+            "width": 0.78,
+            "height": 1.65,
+            "sill": 0.9
+          }
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 3.58,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "piers": {
+          "width": 0.43,
+          "depth": 0.34,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "verticalSpandrels": {
+          "material": "glass",
+          "width": 1.13,
+          "every": 1
+        },
+        "topFloor": {
+          "windows": {
+            "width": 2.15,
+            "height": 2.77,
+            "sill": 0.98
+          }
+        },
+        "groundFloor": {
+          "windows": {
+            "width": 0.78,
+            "height": 1.65,
+            "sill": 0.9
+          }
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 5.04,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.45,
+          "height": 3.61,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 2,
+            "width": 0.045
+          },
+          "frameColor": "#657a75",
+          "glass": "tinted",
+          "glassColor": "#607d79",
+          "surround": "metal",
+          "sillProjecting": true
+        },
+        "sections": [
+          {
+            "start": 0.02,
+            "end": 0.97,
+            "base": 0.13,
+            "top": 8.45,
+            "material": "glass",
+            "verticalMullionSpacing": 1.35,
+            "horizontalMullions": 4
+          }
+        ],
+        "piers": {
+          "width": 0.23,
+          "depth": 0.29,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 3.86,
+          "count": 1,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.45,
+          "height": 3.61,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 2,
+            "width": 0.045
+          },
+          "frameColor": "#657a75",
+          "glass": "tinted",
+          "glassColor": "#607d79",
+          "surround": "metal",
+          "sillProjecting": true
+        },
+        "sections": [
+          {
+            "start": 0.02,
+            "end": 0.97,
+            "base": 0.13,
+            "top": 8.45,
+            "material": "glass",
+            "verticalMullionSpacing": 1.35,
+            "horizontalMullions": 4
+          }
+        ],
+        "piers": {
+          "width": 0.23,
+          "depth": 0.29,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        }
+      },
+      "11": {
+        "bays": {
+          "width": 5.02,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "windows": {
+          "type": "curtain-wall",
+          "width": 3.45,
+          "height": 3.61,
+          "sill": 0.12,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 2,
+            "width": 0.045
+          },
+          "frameColor": "#657a75",
+          "glass": "tinted",
+          "glassColor": "#607d79",
+          "surround": "metal",
+          "sillProjecting": true
+        },
+        "piers": {
+          "width": 0.23,
+          "depth": 0.29,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "sections": [
+          {
+            "start": 0.02,
+            "end": 0.97,
+            "base": 0.13,
+            "top": 8.45,
+            "material": "glass",
+            "verticalMullionSpacing": 1.35,
+            "horizontalMullions": 4
+          }
+        ]
+      },
+      "12": {
+        "blank": true,
+        "windows": {
+          "type": "none"
+        },
+        "bands": [
+          {
+            "at": [
+              3.2
+            ],
+            "height": 0.18,
+            "depth": 0.045,
+            "material": "trim"
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -259.3,
+          96.4
+        ],
+        "size": [
+          4,
+          2.1
+        ],
+        "height": 1.4,
+        "rotation": -21,
+        "material": "plant",
+        "style": "Grouped low roof plant"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -260,
+          91.4
+        ],
+        "size": [
+          3.0,
+          2.1
+        ],
+        "height": 1.55,
+        "rotation": -21,
+        "material": "plant",
+        "style": "North group of low equipment cabinets"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -245.3,
+          88.8
+        ],
+        "size": [
+          5.8,
+          2.65
+        ],
+        "height": 0.78,
+        "material": "glass",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -253.6,
+          91.1
+        ],
+        "size": [
+          6.4,
+          1.1
+        ],
+        "height": 0.7,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "chimney",
+        "center": [
+          -265.2,
+          90.9
+        ],
+        "size": [
+          0.58,
+          0.58
+        ],
+        "height": 4.1,
+        "material": "plant",
+        "rotation": 0,
+        "style": "round exhaust"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -257.1,
+          95.45
+        ],
+        "size": [
+          1.25,
+          3.1
+        ],
+        "height": 0.77,
+        "material": "plant",
+        "rotation": -21,
+        "style": "duct or fan housing"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -256.2,
+          94.25
+        ],
+        "size": [
+          3.5,
+          0.75
+        ],
+        "height": 0.77,
+        "material": "plant",
+        "rotation": -21,
+        "style": "duct or fan housing"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -252.75,
+          88.8
+        ],
+        "size": [
+          1.55,
+          1.55
+        ],
+        "height": 1.1,
+        "material": "plant",
+        "rotation": -21,
+        "style": "duct or fan housing"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -250.66,
+          88.17
+        ],
+        "size": [
+          1.45,
+          1.4
+        ],
+        "height": 1.03,
+        "material": "plant",
+        "rotation": -21,
+        "style": "duct or fan housing"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -244.35,
+          85.72
+        ],
+        "size": [
+          2.2,
+          1.25
+        ],
+        "height": 0.86,
+        "material": "plant",
+        "rotation": -21,
+        "style": "duct or fan housing"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "131414111",
+      "walls": [
+        0,
+        12
+      ],
+      "note": "Avian facility at left of the avenue, across the narrow alley from the silver Graphic Services shop. Large buff wall, upper glazing and dark roof-edge grille visible. Shaded masonry measured #6f6859."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414115",
+      "walls": [
+        0
+      ],
+      "note": "At the far left is the lab alley elevation with small high openings. Bright corrugated building in the centre is the neighbouring shop."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/AFAR.jpg",
+      "note": "Two levels of green-grey glazing at the entrance wrap a corner under a broad flat canopy. Buff masonry piers divide narrower vertical strips. Sampled glazing #607d79."
+    },
+    {
+      "kind": "aerial",
+      "note": "Light membrane roof, central duct and equipment cluster, distinct square gridded cover over the western end. Entrance paving near the eastern end."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 9.29 m, P90 11.43 m, maximum 16.38 m above inventory ground. West roof about 8 m, main roof about 9–10 m. Small higher returns above equipment, maximum 16.38 m."
+    },
+    {
+      "kind": "photo",
+      "url": "https://atrr.ca/projects/research/western-university-advanced-facility-for-avian-research/",
+      "note": "Mortared buff wall, green two-storey corner glazing, projecting pale fins, ribbed rooftop penthouse, and timber soffit."
+    },
+    {
+      "kind": "photo",
+      "url": "https://birds.uwo.ca/facilities/index.html",
+      "note": "The university identifies outdoor enclosures. The aerial shows a grey gridded west roof with two large fields."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "West rooftop enclosure",
+        "footprint": [
+          [
+            -281.956,
+            91.469
+          ],
+          [
+            -295.12,
+            96.48
+          ],
+          [
+            -289.21,
+            112.0
+          ],
+          [
+            -279.88,
+            108.45
+          ],
+          [
+            -278.46,
+            112.17
+          ],
+          [
+            -274.582,
+            110.691
+          ]
+        ],
+        "height": 8.03,
+        "floors": 1,
+        "material": "screen",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "screen"
+        },
+        "roof": {
+          "form": "flat",
+          "material": "screen",
+          "edge": "fascia"
+        },
+        "baseOffset": 4.6
+      },
+      {
+        "name": "Solid base below rooftop enclosure",
+        "footprint": [
+          [
+            -281.956,
+            91.469
+          ],
+          [
+            -295.12,
+            96.48
+          ],
+          [
+            -289.21,
+            112.0
+          ],
+          [
+            -279.88,
+            108.45
+          ],
+          [
+            -278.46,
+            112.17
+          ],
+          [
+            -274.582,
+            110.691
+          ]
+        ],
+        "height": 4.6,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "material": "wall",
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        },
+        "wallProfiles": {
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "material": "wall",
+            "bands": [],
+            "sections": []
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "material": "wall",
+            "bands": [],
+            "sections": []
+          },
+          "2": {
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "material": "wall",
+            "bands": [],
+            "sections": []
+          },
+          "3": {
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "material": "wall",
+            "bands": [],
+            "sections": []
+          }
+        }
+      },
+      {
+        "name": "Main research block",
+        "footprint": [
+          [
+            -258.5,
+            104.56
+          ],
+          [
+            -259.63,
+            101.6
+          ],
+          [
+            -246.54,
+            96.63
+          ],
+          [
+            -247.31,
+            99.88
+          ],
+          [
+            -237.28,
+            96.06
+          ],
+          [
+            -239.07,
+            91.35
+          ],
+          [
+            -240.59,
+            91.93
+          ],
+          [
+            -241.97,
+            88.32
+          ],
+          [
+            -238.852,
+            87.133
+          ],
+          [
+            -242.872,
+            76.593
+          ],
+          [
+            -281.955,
+            91.469
+          ],
+          [
+            -274.58,
+            110.691
+          ]
+        ],
+        "height": 9.3,
+        "floors": 2,
+        "wallProfiles": {
+          "0": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "bands": [
+              {
+                "at": [
+                  3.2
+                ],
+                "height": 0.18,
+                "depth": 0.045,
+                "material": "trim"
+              }
+            ],
+            "segments": [
+              {
+                "range": [
+                  0.77,
+                  0.987
+                ],
+                "bays": {
+                  "count": 4
+                },
+                "groundFloor": {
+                  "windows": {
+                    "type": "none"
+                  }
+                },
+                "topFloor": {
+                  "windows": {
+                    "type": "punched",
+                    "perBay": 1,
+                    "width": 1.02,
+                    "height": 1.92,
+                    "sill": 0.8,
+                    "mullions": {
+                      "vertical": 0,
+                      "horizontal": 1
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Raised rooftop plant enclosure",
+        "footprint": [
+          [
+            -244.051,
+            83.88
+          ],
+          [
+            -241.352,
+            90.985
+          ],
+          [
+            -264.349,
+            99.72
+          ],
+          [
+            -267.048,
+            92.615
+          ]
+        ],
+        "height": 11.95,
+        "baseOffset": 9.3,
+        "floors": 1,
+        "material": "plant",
+        "facade": {
+          "material": "plant",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "parapet": {
+            "type": "metal-rail",
+            "height": 0.78,
+            "material": "plant"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        }
+      },
+      {
+        "name": "Lower east end",
+        "footprint": [
+          [
+            -238.852,
+            87.133
+          ],
+          [
+            -232.59,
+            84.75
+          ],
+          [
+            -236.61,
+            74.21
+          ],
+          [
+            -242.872,
+            76.593
+          ]
+        ],
+        "height": 8.25,
+        "baseOffset": 0,
+        "floors": 2,
+        "material": "wall",
+        "facade": {},
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet"
+        },
+        "wallProfiles": {
+          "12": {
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "bands": [
+              {
+                "at": [
+                  3.2
+                ],
+                "height": 0.18,
+                "depth": 0.045,
+                "material": "trim"
+              }
+            ]
+          },
+          "0": {
+            "blank": true,
+            "windows": {
+              "type": "none"
+            },
+            "bands": [
+              {
+                "at": [
+                  3.2
+                ],
+                "height": 0.18,
+                "depth": 0.045,
+                "material": "trim"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -293.114,
+            95.716
+          ],
+          [
+            -287.202,
+            111.238
+          ],
+          [
+            -287.103,
+            111.2
+          ],
+          [
+            -293.015,
+            95.678
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.145,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -291.057,
+            94.932
+          ],
+          [
+            -285.145,
+            110.455
+          ],
+          [
+            -285.047,
+            110.417
+          ],
+          [
+            -290.959,
+            94.895
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.145,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -289.001,
+            94.149
+          ],
+          [
+            -283.089,
+            109.672
+          ],
+          [
+            -282.991,
+            109.634
+          ],
+          [
+            -288.903,
+            94.112
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.145,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -286.945,
+            93.366
+          ],
+          [
+            -281.033,
+            108.889
+          ],
+          [
+            -280.935,
+            108.851
+          ],
+          [
+            -286.847,
+            93.329
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.145,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -284.89,
+            92.584
+          ],
+          [
+            -277.561,
+            111.825
+          ],
+          [
+            -277.462,
+            111.788
+          ],
+          [
+            -284.791,
+            92.546
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.145,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -282.833,
+            91.8
+          ],
+          [
+            -275.505,
+            111.042
+          ],
+          [
+            -275.406,
+            111.005
+          ],
+          [
+            -282.735,
+            91.763
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.145,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -294.558,
+            97.957
+          ],
+          [
+            -281.387,
+            92.94
+          ],
+          [
+            -281.415,
+            92.865
+          ],
+          [
+            -294.586,
+            97.882
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -294.01,
+            99.396
+          ],
+          [
+            -280.835,
+            94.378
+          ],
+          [
+            -280.864,
+            94.303
+          ],
+          [
+            -294.038,
+            99.321
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -293.461,
+            100.835
+          ],
+          [
+            -280.284,
+            95.816
+          ],
+          [
+            -280.312,
+            95.741
+          ],
+          [
+            -293.49,
+            100.76
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -292.913,
+            102.274
+          ],
+          [
+            -279.732,
+            97.254
+          ],
+          [
+            -279.76,
+            97.179
+          ],
+          [
+            -292.942,
+            102.199
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -292.365,
+            103.713
+          ],
+          [
+            -279.18,
+            98.691
+          ],
+          [
+            -279.209,
+            98.617
+          ],
+          [
+            -292.394,
+            103.638
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -291.817,
+            105.152
+          ],
+          [
+            -278.628,
+            100.129
+          ],
+          [
+            -278.658,
+            100.055
+          ],
+          [
+            -291.846,
+            105.078
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -291.269,
+            106.591
+          ],
+          [
+            -278.077,
+            101.567
+          ],
+          [
+            -278.106,
+            101.492
+          ],
+          [
+            -291.297,
+            106.517
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -290.721,
+            108.031
+          ],
+          [
+            -277.525,
+            103.005
+          ],
+          [
+            -277.554,
+            102.93
+          ],
+          [
+            -290.749,
+            107.956
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -290.173,
+            109.47
+          ],
+          [
+            -276.974,
+            104.443
+          ],
+          [
+            -277.002,
+            104.368
+          ],
+          [
+            -290.201,
+            109.395
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -289.625,
+            110.909
+          ],
+          [
+            -276.423,
+            105.881
+          ],
+          [
+            -276.451,
+            105.806
+          ],
+          [
+            -289.653,
+            110.834
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -279.75,
+            108.796
+          ],
+          [
+            -275.871,
+            107.319
+          ],
+          [
+            -275.899,
+            107.244
+          ],
+          [
+            -279.778,
+            108.721
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -279.202,
+            110.235
+          ],
+          [
+            -275.319,
+            108.756
+          ],
+          [
+            -275.347,
+            108.681
+          ],
+          [
+            -279.23,
+            110.16
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Aviary roof mesh support rail",
+        "footprint": [
+          [
+            -278.654,
+            111.674
+          ],
+          [
+            -274.767,
+            110.194
+          ],
+          [
+            -274.796,
+            110.119
+          ],
+          [
+            -278.682,
+            111.6
+          ]
+        ],
+        "baseOffset": 8.025,
+        "height": 8.108,
+        "floors": 1,
+        "material": "roofFrame",
+        "facade": {
+          "blank": true,
+          "material": "roofFrame",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofFrame"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofFrame"
+          },
+          "topFloor": {
+            "material": "roofFrame"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roofFrame",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 11,
+      "position": 0.52,
+      "type": "glass-vestibule",
+      "width": 3.1,
+      "height": 3.08,
+      "recess": 0.45,
+      "canopy": {
+        "type": "cantilever",
+        "width": 6.1,
+        "depth": 2.1,
+        "columns": 0,
+        "material": "trim"
+      }
+    }
+  ],
+  "notes": "The west grid appears permeable in plan. Its precise construction and which sections have solid backing are uncertain. The glazing and canopy are confirmed by the university photograph. Door position within the forecourt is approximate. The west mesh enclosure stands above a solid lower storey. The northeast end samples 8.05–8.41 m. The exact roof vent profiles and the lower west wall are inferred."
+}

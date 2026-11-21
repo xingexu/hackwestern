@@ -1,0 +1,252 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2594",
+  "name": "East hospital lawn shelter",
+  "status": "refined",
+  "confidence": 0.46,
+  "summary": "An eight-sided open timber shelter stands on the east hospital lawn. Its dark posts carry a deep fascia and a pitched brown shingle roof.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "wood-siding",
+      "color": "#403328",
+      "secondaryColor": "#393024",
+      "unitSize": [
+        0.14,
+        2
+      ],
+      "variation": 0.065,
+      "roughness": 0.91
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#4e3f31",
+      "secondaryColor": "#45382c",
+      "surface": "wood shake",
+      "unitSize": [
+        0.24,
+        0.24
+      ]
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#8a7a5f"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "woodTrim": {
+      "kind": "wood-siding",
+      "color": "#493a2e",
+      "unitSize": [
+        2,
+        0.25
+      ]
+    },
+    "paving": {
+      "kind": "concrete-smooth",
+      "color": "#a69e8c"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 2.5,
+    "typicalHeight": 2.5
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.45,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "blank": true
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "pyramid",
+    "edge": "fascia",
+    "material": "roof",
+    "rise": 1.98,
+    "overhang": 0.23,
+    "features": [
+      {
+        "type": "chimney",
+        "center": [
+          227.05,
+          -118.57
+        ],
+        "size": [
+          0.17,
+          0.17
+        ],
+        "height": 0.16,
+        "material": "woodTrim",
+        "rotation": 0,
+        "style": "round cap"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "regional-2m surface heights above inventory ground. Median 5.33 m, P90 6.37 m, highest return 7.10 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [227.05, -117.57] averages #6f6757."
+    },
+    {
+      "kind": "aerial",
+      "note": "Compact eight-sided roof on the lawn with a darker apex and radial faces. Individual posts are below the photo resolution."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "105977309",
+      "walls": [],
+      "note": "The roof and square dark posts are visible near the right edge behind parked cars. Trees shade the upper roof."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "Tree branches cross the roof. The regional surface mixes foliage with the structure. Roof rise is estimated from the eave width and KartaView frame 105977309.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Shelter eave band",
+        "footprint": "inventory",
+        "baseOffset": 2.15,
+        "height": 2.45,
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "pyramid",
+          "edge": "none",
+          "material": "roof",
+          "rise": 1.98,
+          "overhang": 0.23
+        },
+        "material": "woodTrim"
+      },
+      {
+        "name": "Paved shelter floor",
+        "footprint": [
+          [
+            229.2,
+            -116.7
+          ],
+          [
+            227.3,
+            -115.7
+          ],
+          [
+            225.2,
+            -116.4
+          ],
+          [
+            224.2,
+            -118.3
+          ],
+          [
+            224.8,
+            -120.4
+          ],
+          [
+            226.8,
+            -121.4
+          ],
+          [
+            228.9,
+            -120.8
+          ],
+          [
+            229.9,
+            -118.8
+          ]
+        ],
+        "height": 0.13,
+        "floors": 1,
+        "material": "paving",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "paving",
+          "rise": 0,
+          "overhang": 0
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "path": [
+        [
+          229.2,
+          -116.7
+        ],
+        [
+          229.9,
+          -118.8
+        ],
+        [
+          228.9,
+          -120.8
+        ],
+        [
+          226.8,
+          -121.4
+        ],
+        [
+          224.8,
+          -120.4
+        ],
+        [
+          224.2,
+          -118.3
+        ],
+        [
+          225.2,
+          -116.4
+        ],
+        [
+          227.3,
+          -115.7
+        ],
+        [
+          229.2,
+          -116.7
+        ]
+      ],
+      "width": 0.33,
+      "height": 2.45,
+      "material": "wall",
+      "columns": 8
+    }
+  ],
+  "notes": "Frame 105977309 shows a brown pitched roof on heavy dark posts to the right behind the parked cars. Tree cover obscures the roof apex."
+}

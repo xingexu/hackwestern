@@ -1,0 +1,1719 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c3858",
+  "name": "New Engineering Building construction site",
+  "status": "refined",
+  "confidence": 0.72,
+  "style": "industrial-utility",
+  "summary": "An exposed concrete frame occupies the slope beside the engineering quad with floor slabs, perimeter columns, and unfinished wall openings facing the lower parking lot.",
+  "materials": {
+    "wall": {
+      "kind": "concrete-smooth",
+      "color": "#b5b0a3",
+      "unitSize": [
+        2.45,
+        1.2
+      ],
+      "roughness": 0.94,
+      "secondaryColor": "#a5a092"
+    },
+    "roof": {
+      "kind": "concrete-smooth",
+      "color": "#b5b0a3",
+      "unitSize": [
+        2.45,
+        1.2
+      ],
+      "roughness": 0.94
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c2b9a8"
+    },
+    "timber": {
+      "kind": "wood-siding",
+      "color": "#b5966b",
+      "unitSize": [
+        2.44,
+        1.22
+      ]
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.8,
+    "typicalHeight": 4.45
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 5,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "wall",
+    "edge": "none",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The 2025 orthophoto shows an excavated site crossed by the former access road. The city footprint agrees with the two staggered wings in Western’s later progress photograph."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 8.49 m, 90th percentile 18.85 m, maximum 23.18 m."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "67820769",
+      "walls": 5,
+      "note": "The older approach shows the Alumni service wall beyond an open parking area."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/projects/1023x683_neb_082026.jpg",
+      "note": "August 2026 photograph from the lower lot shows concrete slabs and columns, open perimeter and formwork on the upper level."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/projects/capital_projects/neb.html",
+      "note": "The project location map places construction on the South Valley slope east of the existing Engineering buildings. Completion target is 2027."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Main wall colour sampled with PIL from Western Facilities August 2026 progress photograph. 1023 × 683 pixel reference, patch centred at (219, 459), 7 × 7 pixels."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "Vegetation and the old access road occupy the footprint in the lidar epoch.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Exposed concrete deck 0",
+        "height": 0.4,
+        "floors": 1,
+        "footprint": "inventory",
+        "baseOffset": 0.050000000000000044,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "material": "wall"
+      },
+      {
+        "name": "Exposed concrete deck 1",
+        "height": 5.15,
+        "floors": 1,
+        "footprint": "inventory",
+        "baseOffset": 4.800000000000001,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "material": "wall"
+      },
+      {
+        "name": "Exposed concrete deck 2",
+        "height": 9.55,
+        "floors": 1,
+        "footprint": "inventory",
+        "baseOffset": 9.200000000000001,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "material": "wall"
+      },
+      {
+        "name": "Exposed concrete deck 3",
+        "height": 13.95,
+        "floors": 1,
+        "footprint": "inventory",
+        "baseOffset": 13.6,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "material": "wall"
+      },
+      {
+        "name": "Exposed concrete deck 4",
+        "height": 18.35,
+        "floors": 1,
+        "footprint": [
+          [
+            177.5,
+            668.7
+          ],
+          [
+            186.65,
+            667.968
+          ],
+          [
+            192.237,
+            665.286
+          ],
+          [
+            189.2,
+            639.7
+          ],
+          [
+            155.0,
+            641.8
+          ],
+          [
+            156.5,
+            668.8
+          ],
+          [
+            139.6,
+            670.0
+          ],
+          [
+            141.132,
+            691.342
+          ],
+          [
+            172.0,
+            675.0
+          ],
+          [
+            177.721,
+            672.254
+          ]
+        ],
+        "baseOffset": 18.0,
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "material": "wall"
+      },
+      {
+        "name": "Lower retaining wall",
+        "footprint": [
+          [
+            140.189,
+            670.48
+          ],
+          [
+            139.611,
+            670.52
+          ],
+          [
+            142.211,
+            707.82
+          ],
+          [
+            142.789,
+            707.78
+          ]
+        ],
+        "height": 6.8,
+        "floors": 1,
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Upper concrete core",
+        "footprint": [
+          [
+            160,
+            678
+          ],
+          [
+            164.5,
+            677.8
+          ],
+          [
+            164.3,
+            674.9
+          ],
+          [
+            159.8,
+            675.1
+          ]
+        ],
+        "height": 20.8,
+        "floors": 1,
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Top deck timber formwork",
+        "footprint": [
+          [
+            177.5,
+            668.7
+          ],
+          [
+            177.721,
+            672.254
+          ],
+          [
+            172.0,
+            675.0
+          ],
+          [
+            141.132,
+            691.342
+          ],
+          [
+            139.6,
+            670.0
+          ],
+          [
+            141.408,
+            695.184
+          ],
+          [
+            178.493,
+            684.677
+          ]
+        ],
+        "baseOffset": 17.98,
+        "height": 18.28,
+        "floors": 1,
+        "material": "timber",
+        "facade": {
+          "blank": true,
+          "material": "timber",
+          "base": {
+            "height": 0.17,
+            "material": "timber"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "timber",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Top deck timber formwork",
+        "footprint": [
+          [
+            191.184,
+            656.411
+          ],
+          [
+            192.237,
+            665.286
+          ],
+          [
+            186.65,
+            667.968
+          ],
+          [
+            192.5,
+            667.5
+          ]
+        ],
+        "baseOffset": 17.98,
+        "height": 18.28,
+        "floors": 1,
+        "material": "timber",
+        "facade": {
+          "blank": true,
+          "material": "timber",
+          "base": {
+            "height": 0.17,
+            "material": "timber"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "timber",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            144.324,
+            676.122
+          ],
+          [
+            144.354,
+            676.701
+          ],
+          [
+            143.775,
+            676.732
+          ],
+          [
+            143.745,
+            676.152
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            144.748,
+            683.961
+          ],
+          [
+            144.779,
+            684.54
+          ],
+          [
+            144.2,
+            684.57
+          ],
+          [
+            144.169,
+            683.991
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            145.173,
+            691.799
+          ],
+          [
+            145.203,
+            692.378
+          ],
+          [
+            144.624,
+            692.409
+          ],
+          [
+            144.594,
+            691.83
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            145.597,
+            699.638
+          ],
+          [
+            145.628,
+            700.217
+          ],
+          [
+            145.049,
+            700.247
+          ],
+          [
+            145.018,
+            699.668
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            152.013,
+            675.706
+          ],
+          [
+            152.043,
+            676.285
+          ],
+          [
+            151.464,
+            676.315
+          ],
+          [
+            151.433,
+            675.736
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            152.437,
+            683.544
+          ],
+          [
+            152.467,
+            684.123
+          ],
+          [
+            151.888,
+            684.154
+          ],
+          [
+            151.858,
+            683.575
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            152.862,
+            691.383
+          ],
+          [
+            152.892,
+            691.962
+          ],
+          [
+            152.313,
+            691.992
+          ],
+          [
+            152.282,
+            691.413
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            153.286,
+            699.221
+          ],
+          [
+            153.317,
+            699.8
+          ],
+          [
+            152.737,
+            699.831
+          ],
+          [
+            152.707,
+            699.252
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            158.003,
+            643.935
+          ],
+          [
+            158.034,
+            644.514
+          ],
+          [
+            157.454,
+            644.545
+          ],
+          [
+            157.424,
+            643.966
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            158.428,
+            651.774
+          ],
+          [
+            158.458,
+            652.353
+          ],
+          [
+            157.879,
+            652.383
+          ],
+          [
+            157.849,
+            651.804
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            158.852,
+            659.612
+          ],
+          [
+            158.883,
+            660.191
+          ],
+          [
+            158.303,
+            660.222
+          ],
+          [
+            158.273,
+            659.643
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            159.277,
+            667.451
+          ],
+          [
+            159.307,
+            668.03
+          ],
+          [
+            158.728,
+            668.06
+          ],
+          [
+            158.698,
+            667.481
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            159.701,
+            675.289
+          ],
+          [
+            159.732,
+            675.869
+          ],
+          [
+            159.152,
+            675.899
+          ],
+          [
+            159.122,
+            675.32
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            160.126,
+            683.128
+          ],
+          [
+            160.156,
+            683.707
+          ],
+          [
+            159.577,
+            683.737
+          ],
+          [
+            159.547,
+            683.158
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            160.55,
+            690.966
+          ],
+          [
+            160.581,
+            691.546
+          ],
+          [
+            160.002,
+            691.576
+          ],
+          [
+            159.971,
+            690.997
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            160.975,
+            698.805
+          ],
+          [
+            161.005,
+            699.384
+          ],
+          [
+            160.426,
+            699.414
+          ],
+          [
+            160.396,
+            698.835
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            161.399,
+            706.643
+          ],
+          [
+            161.43,
+            707.223
+          ],
+          [
+            160.851,
+            707.253
+          ],
+          [
+            160.82,
+            706.674
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            165.692,
+            643.519
+          ],
+          [
+            165.722,
+            644.098
+          ],
+          [
+            165.143,
+            644.128
+          ],
+          [
+            165.113,
+            643.549
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            166.117,
+            651.357
+          ],
+          [
+            166.147,
+            651.937
+          ],
+          [
+            165.568,
+            651.967
+          ],
+          [
+            165.537,
+            651.388
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            166.541,
+            659.196
+          ],
+          [
+            166.571,
+            659.775
+          ],
+          [
+            165.992,
+            659.805
+          ],
+          [
+            165.962,
+            659.226
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            166.966,
+            667.034
+          ],
+          [
+            166.996,
+            667.614
+          ],
+          [
+            166.417,
+            667.644
+          ],
+          [
+            166.386,
+            667.065
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            167.39,
+            674.873
+          ],
+          [
+            167.42,
+            675.452
+          ],
+          [
+            166.841,
+            675.482
+          ],
+          [
+            166.811,
+            674.903
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            167.815,
+            682.711
+          ],
+          [
+            167.845,
+            683.291
+          ],
+          [
+            167.266,
+            683.321
+          ],
+          [
+            167.235,
+            682.742
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            168.239,
+            690.55
+          ],
+          [
+            168.269,
+            691.129
+          ],
+          [
+            167.69,
+            691.159
+          ],
+          [
+            167.66,
+            690.58
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            168.664,
+            698.388
+          ],
+          [
+            168.694,
+            698.968
+          ],
+          [
+            168.115,
+            698.998
+          ],
+          [
+            168.084,
+            698.419
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            169.088,
+            706.227
+          ],
+          [
+            169.118,
+            706.806
+          ],
+          [
+            168.539,
+            706.837
+          ],
+          [
+            168.509,
+            706.257
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            173.381,
+            643.102
+          ],
+          [
+            173.411,
+            643.682
+          ],
+          [
+            172.832,
+            643.712
+          ],
+          [
+            172.802,
+            643.133
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            173.805,
+            650.941
+          ],
+          [
+            173.836,
+            651.52
+          ],
+          [
+            173.256,
+            651.551
+          ],
+          [
+            173.226,
+            650.971
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            174.23,
+            658.779
+          ],
+          [
+            174.26,
+            659.359
+          ],
+          [
+            173.681,
+            659.389
+          ],
+          [
+            173.651,
+            658.81
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            174.654,
+            666.618
+          ],
+          [
+            174.685,
+            667.197
+          ],
+          [
+            174.105,
+            667.228
+          ],
+          [
+            174.075,
+            666.648
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            175.079,
+            674.457
+          ],
+          [
+            175.109,
+            675.036
+          ],
+          [
+            174.53,
+            675.066
+          ],
+          [
+            174.5,
+            674.487
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            175.503,
+            682.295
+          ],
+          [
+            175.534,
+            682.874
+          ],
+          [
+            174.954,
+            682.905
+          ],
+          [
+            174.924,
+            682.325
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            175.928,
+            690.134
+          ],
+          [
+            175.958,
+            690.713
+          ],
+          [
+            175.379,
+            690.743
+          ],
+          [
+            175.349,
+            690.164
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            176.352,
+            697.972
+          ],
+          [
+            176.383,
+            698.551
+          ],
+          [
+            175.803,
+            698.582
+          ],
+          [
+            175.773,
+            698.002
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            176.777,
+            705.811
+          ],
+          [
+            176.807,
+            706.39
+          ],
+          [
+            176.228,
+            706.42
+          ],
+          [
+            176.198,
+            705.841
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 15.55,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            181.069,
+            642.686
+          ],
+          [
+            181.1,
+            643.265
+          ],
+          [
+            180.521,
+            643.296
+          ],
+          [
+            180.49,
+            642.716
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            181.494,
+            650.525
+          ],
+          [
+            181.524,
+            651.104
+          ],
+          [
+            180.945,
+            651.134
+          ],
+          [
+            180.915,
+            650.555
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            181.918,
+            658.363
+          ],
+          [
+            181.949,
+            658.942
+          ],
+          [
+            181.37,
+            658.973
+          ],
+          [
+            181.339,
+            658.393
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            182.343,
+            666.202
+          ],
+          [
+            182.373,
+            666.781
+          ],
+          [
+            181.794,
+            666.811
+          ],
+          [
+            181.764,
+            666.232
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            189.183,
+            650.108
+          ],
+          [
+            189.213,
+            650.687
+          ],
+          [
+            188.634,
+            650.718
+          ],
+          [
+            188.603,
+            650.139
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            189.607,
+            657.947
+          ],
+          [
+            189.638,
+            658.526
+          ],
+          [
+            189.058,
+            658.556
+          ],
+          [
+            189.028,
+            657.977
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "Interior cast column",
+        "footprint": [
+          [
+            190.032,
+            665.785
+          ],
+          [
+            190.062,
+            666.364
+          ],
+          [
+            189.483,
+            666.395
+          ],
+          [
+            189.453,
+            665.816
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 18.18,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      },
+      {
+        "name": "North concrete core",
+        "footprint": [
+          [
+            174.437,
+            650.797
+          ],
+          [
+            174.659,
+            655.041
+          ],
+          [
+            171.563,
+            655.203
+          ],
+          [
+            171.341,
+            650.959
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 20.05,
+        "floors": 1,
+        "material": "wall",
+        "facade": {
+          "blank": true
+        }
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "type": "colonnade",
+      "walls": 0,
+      "path": [
+        [
+          142.4,
+          709.0
+        ],
+        [
+          179.9,
+          707.3
+        ]
+      ],
+      "width": 0.56,
+      "height": 15.65,
+      "columns": 7,
+      "material": "wall",
+      "columnDiameter": 0.57
+    },
+    {
+      "type": "colonnade",
+      "walls": 1,
+      "path": [
+        [
+          179.9,
+          707.3
+        ],
+        [
+          177.5,
+          668.7
+        ]
+      ],
+      "width": 0.56,
+      "height": 18.0,
+      "columns": 7,
+      "material": "wall",
+      "columnDiameter": 0.57
+    },
+    {
+      "type": "colonnade",
+      "walls": 2,
+      "path": [
+        [
+          177.5,
+          668.7
+        ],
+        [
+          192.5,
+          667.5
+        ]
+      ],
+      "width": 0.56,
+      "height": 18.0,
+      "columns": 3,
+      "material": "wall",
+      "columnDiameter": 0.57
+    },
+    {
+      "type": "colonnade",
+      "walls": 3,
+      "path": [
+        [
+          192.5,
+          667.5
+        ],
+        [
+          189.2,
+          639.7
+        ]
+      ],
+      "width": 0.56,
+      "height": 18.0,
+      "columns": 5,
+      "material": "wall",
+      "columnDiameter": 0.57
+    },
+    {
+      "type": "colonnade",
+      "walls": 4,
+      "path": [
+        [
+          189.2,
+          639.7
+        ],
+        [
+          155.0,
+          641.8
+        ]
+      ],
+      "width": 0.56,
+      "height": 18.0,
+      "columns": 6,
+      "material": "wall",
+      "columnDiameter": 0.57
+    },
+    {
+      "type": "colonnade",
+      "walls": 5,
+      "path": [
+        [
+          155.0,
+          641.8
+        ],
+        [
+          156.5,
+          668.8
+        ]
+      ],
+      "width": 0.56,
+      "height": 15.65,
+      "columns": 5,
+      "material": "wall",
+      "columnDiameter": 0.57
+    },
+    {
+      "type": "colonnade",
+      "walls": 6,
+      "path": [
+        [
+          156.5,
+          668.8
+        ],
+        [
+          139.6,
+          670.0
+        ]
+      ],
+      "width": 0.56,
+      "height": 18.0,
+      "columns": 4,
+      "material": "wall",
+      "columnDiameter": 0.57
+    },
+    {
+      "type": "colonnade",
+      "walls": 7,
+      "path": [
+        [
+          139.6,
+          670.0
+        ],
+        [
+          142.4,
+          709.0
+        ]
+      ],
+      "width": 0.56,
+      "height": 18.0,
+      "columns": 7,
+      "material": "wall",
+      "columnDiameter": 0.57
+    }
+  ],
+  "notes": "Western’s August 2026 construction photograph records an exposed cast frame, partial upper deck and temporary timber formwork. Road photographs predate excavation. The excavation and closed access road require terrain and road updates."
+}

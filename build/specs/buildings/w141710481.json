@@ -1,0 +1,557 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w141710481",
+  "name": "McIntosh Gallery",
+  "status": "refined",
+  "confidence": 0.79,
+  "summary": "Compact stone gallery under a dark pitched roof, with a classical pediment above red double doors and steps on the south approach.",
+  "style": "collegiate-gothic",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#908b7f",
+      "secondaryColor": "#807b72",
+      "variation": 0.17,
+      "unitSize": [
+        0.46,
+        0.24
+      ],
+      "bond": "coursed-rubble",
+      "roughness": 0.82,
+      "weathering": 0.18
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#b4ac9c",
+      "roughness": 0.66
+    },
+    "roof": {
+      "kind": "slate",
+      "color": "#656c61",
+      "unitSize": [
+        0.29,
+        0.39
+      ],
+      "variation": 0.11
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#525657"
+    },
+    "door": {
+      "kind": "painted-metal",
+      "color": "#cb2e35",
+      "roughness": 0.52
+    },
+    "edgeMetal": {
+      "kind": "copper-patina",
+      "color": "#808d7e",
+      "roughness": 0.77,
+      "unitSize": [
+        0.5,
+        3.0
+      ]
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 3.3,
+    "typicalHeight": 3.9,
+    "raisedGround": 0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "bays": {
+        "width": 4.2,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "parapet": {
+        "height": 0,
+        "type": "plain"
+      },
+      "cornice": {
+        "height": 0.23,
+        "depth": 0.19,
+        "material": "trim"
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 1.13,
+          "height": 1.48,
+          "sill": 0.78,
+          "perBay": 1,
+          "recess": 0.17,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 2,
+            "width": 0.065
+          },
+          "frameColor": "#d3cfc5",
+          "glass": "clear",
+          "glassColor": "#53636a",
+          "surround": "stone",
+          "surroundMaterial": "trim",
+          "sillProjecting": true,
+          "lintel": true
+        }
+      },
+      "bands": [
+        {
+          "at": [
+            4.6
+          ],
+          "height": 0.24,
+          "depth": 0.09,
+          "material": "trim"
+        }
+      ]
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4.26,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.48,
+          "material": "trim"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.13,
+            "height": 1.48,
+            "sill": 0.78,
+            "perBay": 1,
+            "recess": 0.17,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.065
+            },
+            "frameColor": "#d3cfc5",
+            "glass": "clear",
+            "glassColor": "#53636a",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              8.98
+            ],
+            "height": 0.13,
+            "depth": 0.11,
+            "material": "edgeMetal"
+          }
+        ]
+      },
+      "1": {
+        "bays": {
+          "width": 4.65,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.48,
+          "material": "trim"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.13,
+            "height": 1.48,
+            "sill": 0.78,
+            "perBay": 1,
+            "recess": 0.17,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.065
+            },
+            "frameColor": "#d3cfc5",
+            "glass": "clear",
+            "glassColor": "#53636a",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              8.98
+            ],
+            "height": 0.13,
+            "depth": 0.11,
+            "material": "edgeMetal"
+          }
+        ]
+      },
+      "2": {
+        "bays": {
+          "width": 2.85,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 3.71,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 3.34,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 1
+        },
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 3.65,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.48,
+          "material": "trim"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.13,
+            "height": 1.48,
+            "sill": 0.78,
+            "perBay": 1,
+            "recess": 0.17,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.065
+            },
+            "frameColor": "#d3cfc5",
+            "glass": "clear",
+            "glassColor": "#53636a",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              8.98
+            ],
+            "height": 0.13,
+            "depth": 0.11,
+            "material": "edgeMetal"
+          }
+        ]
+      },
+      "6": {
+        "bays": {
+          "width": 4.01,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 2
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.48,
+          "material": "trim"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.13,
+            "height": 1.48,
+            "sill": 0.78,
+            "perBay": 1,
+            "recess": 0.17,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.065
+            },
+            "frameColor": "#d3cfc5",
+            "glass": "clear",
+            "glassColor": "#53636a",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              8.98
+            ],
+            "height": 0.13,
+            "depth": 0.11,
+            "material": "edgeMetal"
+          }
+        ]
+      },
+      "7": {
+        "bays": {
+          "width": 4.21,
+          "pattern": "regular",
+          "edgeMargin": 0.35,
+          "count": 3
+        },
+        "parapet": {
+          "type": "coped",
+          "height": 0.48,
+          "material": "trim"
+        },
+        "groundFloor": {
+          "windows": {
+            "type": "punched",
+            "width": 1.13,
+            "height": 1.48,
+            "sill": 0.78,
+            "perBay": 1,
+            "recess": 0.17,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.065
+            },
+            "frameColor": "#d3cfc5",
+            "glass": "clear",
+            "glassColor": "#53636a",
+            "surround": "stone",
+            "surroundMaterial": "trim",
+            "sillProjecting": true,
+            "lintel": true
+          }
+        },
+        "bands": [
+          {
+            "at": [
+              8.98
+            ],
+            "height": 0.13,
+            "depth": 0.11,
+            "material": "edgeMetal"
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "rise": 2.65,
+    "ridge": 102,
+    "material": "roof",
+    "edge": "gutter",
+    "overhang": 0.06,
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "photo",
+      "note": "Facilities Management photograph of the exterior and its openings.",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/MG.jpg"
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory core-1m surface percentiles above ground: median 9.9 m, 90th percentile 13.01 m, maximum 16.91 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "A 92 m sightline reaches the north side through trees. Foliage hides the elevation, so it supplies no bay count.",
+      "frame": "131414029",
+      "walls": [
+        7
+      ]
+    },
+    {
+      "kind": "photo",
+      "note": "Gallery entrance photo documents the bright red double door in a carved classical frame.",
+      "url": "https://www.uwo.ca/univsec/pdf/board/minutes/2014/a1409bg_portfolio.pdf"
+    },
+    {
+      "kind": "aerial",
+      "note": "Narrow rectangular east-west roof; short south projection meets the path from the south. Tree crown overlaps the entrance and east roof."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Bay counts, opening dimensions and storey heights on unseen elevations are architectural estimates. Wall and roof hues are image samples, subject to exposure and shadows."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/MG.jpg",
+      "note": "PIL mean patches for wall and trim centred at (31%, 46%) and (64%, 43%) of the photo. Exposure multipliers 1.45 and 1.52 approximate daylight across the source views."
+    },
+    {
+      "kind": "lidar",
+      "note": "Canopy-free samples in the west half vary from about 7.9 m near the centre to 10.6 m closer to the north edge. The aerial shows straight coping and a shallow main roof, with the smaller south projection under a gable."
+    },
+    {
+      "kind": "lidar",
+      "note": "The south entrance photograph shows a red pair of doors within a carved pediment, raised paving with side cheeks, and three low, divided windows to the west. Tree crowns obscure the upper wall. The aerial roof edge has a narrow subdued green-grey trim."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Long gallery range",
+        "footprint": {
+          "clip": [
+            [
+              274.82,
+              194.52
+            ],
+            [
+              278.55,
+              194.79
+            ],
+            [
+              285.71,
+              196.28
+            ],
+            [
+              287.34,
+              188.42
+            ],
+            [
+              262.62,
+              183.27
+            ],
+            [
+              260.88,
+              191.62
+            ]
+          ]
+        },
+        "height": 9.32,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "rise": 0.72,
+          "ridge": 102,
+          "edge": "parapet",
+          "material": "roof",
+          "overhang": 0.06
+        }
+      },
+      {
+        "name": "South doorway projection",
+        "footprint": {
+          "clip": [
+            [
+              277.87,
+              198.06
+            ],
+            [
+              278.55,
+              194.79
+            ],
+            [
+              274.82,
+              194.52
+            ],
+            [
+              274.24,
+              197.31
+            ]
+          ]
+        },
+        "height": 8.7,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "rise": 1.36,
+          "ridge": 12,
+          "edge": "parapet",
+          "material": "roof",
+          "overhang": 0.06
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.5,
+      "type": "doors-double",
+      "width": 1.73,
+      "height": 2.62,
+      "surround": "trim",
+      "steps": 5,
+      "recess": 0.2,
+      "material": "door",
+      "doorColor": "#cb2e35",
+      "pediment": {
+        "type": "triangular",
+        "width": 2.95,
+        "height": 0.83,
+        "material": "trim"
+      }
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "A large tree crown covers the south-facing entrance and eastern half of the pitched roof. The high surface readings above the south eave are canopy; eave and ridge are estimated from the clear northern roof and photograph.",
+  "notes": "The entrance is classical, with a triangular pediment and red door leaves. The style enumeration has no classical revival entry. Door leaf material is recorded on the entrance as an extension. The front pediment sits on the door surround below the eaves.",
+  "attachments": [
+    {
+      "type": "retaining-wall",
+      "path": [
+        [
+          274.16,
+          197.702
+        ],
+        [
+          273.556,
+          200.64
+        ]
+      ],
+      "width": 0.26,
+      "height": 0.45,
+      "material": "trim"
+    }
+  ]
+}

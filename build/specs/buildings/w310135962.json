@@ -1,0 +1,4114 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w310135962",
+  "name": "Perth Hall",
+  "status": "refined",
+  "confidence": 0.89,
+  "summary": "Two six-storey residence wings combine smooth scored buff walls, split-face bays, white-framed paired casements, and sage spandrels. A raised central roof and a lower west service volume adjoin the residential wings.",
+  "style": "contemporary-stone",
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "96097141",
+      "walls": [
+        5,
+        7,
+        9,
+        11
+      ],
+      "note": "The road-facing upper floors alternate recessed square windows and projecting three-sided window bays."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "46920542",
+      "walls": [
+        5,
+        6,
+        8
+      ],
+      "note": "The east face shows coursed pale masonry extending down to the grass verge."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "128912131",
+      "walls": [
+        29,
+        30,
+        31
+      ],
+      "note": "Beyond the low western service roof, window stacks alternate with broad light masonry panels."
+    },
+    {
+      "kind": "photo",
+      "url": "https://atrr.ca/wp-content/uploads/2024/03/WU-Perth-Hall2.jpg",
+      "note": "The street facade close-up shows alternating textured rusticated courses, smooth buff piers, and slender silver mullions. The pale wall colour was sampled in sunlight."
+    },
+    {
+      "kind": "photo",
+      "url": "https://atrr.ca/wp-content/uploads/2024/03/WU-Perth-Hall4.jpg",
+      "note": "The ground-level courtyard has full-height glazing and a recessed entrance behind a thin projecting canopy."
+    },
+    {
+      "kind": "knowledge",
+      "url": "https://residence.uwo.ca/buildings/perth_hall",
+      "note": "Western Residence lists six levels."
+    },
+    {
+      "kind": "aerial",
+      "note": "The long Western Road wing and offset west wing meet at a short raised link. A broad low roof adjoins the west wall. The two ends carry small rooftop equipment."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 18.92 / 21.52 / 26.08 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#d6c8ad",
+      "secondaryColor": "#bcb198",
+      "unitSize": [
+        2.25,
+        1.48
+      ],
+      "variation": 0.045
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#e8e0d2",
+      "secondaryColor": "#c8bfb0",
+      "unitSize": [
+        1.25,
+        0.4
+      ],
+      "variation": 0.12
+    },
+    "spandrel": {
+      "kind": "spandrel-glass",
+      "color": "#9eb6a9",
+      "variation": 0.12
+    },
+    "metal": {
+      "kind": "corrugated-metal",
+      "color": "#c4c6c5",
+      "secondaryColor": "#aeb1af",
+      "unitSize": [
+        0.18,
+        2
+      ],
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#95927f",
+      "variation": 0.12,
+      "weathering": 0.26
+    },
+    "split": {
+      "kind": "split-face-block",
+      "color": "#d0bd9e",
+      "secondaryColor": "#b8ab93",
+      "unitSize": [
+        0.43,
+        0.18
+      ],
+      "variation": 0.17
+    },
+    "corner": {
+      "kind": "split-face-block",
+      "color": "#917756",
+      "secondaryColor": "#8b755f",
+      "unitSize": [
+        0.41,
+        0.17
+      ]
+    },
+    "gasket": {
+      "kind": "painted-metal",
+      "color": "#eeece2"
+    }
+  },
+  "floors": {
+    "count": 6,
+    "groundFloorHeight": 3.6,
+    "typicalHeight": 3.05
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.02,
+        "pattern": "regular",
+        "edgeMargin": 0.27
+      },
+      "windows": {
+        "type": "punched",
+        "width": 0.84,
+        "height": 1.45,
+        "sill": 0.87,
+        "perBay": 2,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.043
+        },
+        "frameColor": "#eeeee5",
+        "glass": "tinted",
+        "glassColor": "#596c74",
+        "surround": "none",
+        "spacing": 0.32
+      },
+      "bands": [
+        {
+          "at": "floor-lines",
+          "height": 0.055,
+          "depth": 0.018,
+          "material": "trim"
+        }
+      ],
+      "parapet": {
+        "type": "coped",
+        "height": 0.38,
+        "material": "trim"
+      },
+      "groundFloor": {
+        "windows": {
+          "type": "punched",
+          "width": 0.84,
+          "height": 1.63,
+          "sill": 0.87,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.043
+          },
+          "frameColor": "#eeeee5",
+          "glass": "tinted",
+          "glassColor": "#596c74",
+          "surround": "none",
+          "spacing": 0.32
+        }
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 4.52,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 1
+        }
+      },
+      "1": {
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 3.25,
+            "height": 3.3,
+            "sill": 0.12,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#b5b6ae",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none"
+          }
+        },
+        "bays": {
+          "width": 3.01,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 6
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 3.04,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 2.77,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 4
+        },
+        "windows": {
+          "type": "punched",
+          "width": 1.42,
+          "height": 2.33,
+          "sill": 0.47,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2,
+            "width": 0.051
+          },
+          "frameColor": "#eeeee5",
+          "glass": "tinted",
+          "glassColor": "#526167",
+          "surround": "none",
+          "spacing": 0.32
+        },
+        "spandrelMaterial": "spandrel",
+        "verticalSpandrels": {
+          "material": "gasket",
+          "width": 0.22,
+          "every": 1
+        },
+        "material": "split",
+        "bayMaterials": [
+          "split",
+          "wall"
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.84,
+          "material": "trim"
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 2.97,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "5": {
+        "windows": {
+          "type": "punched",
+          "width": 1.42,
+          "height": 2.33,
+          "sill": 0.47,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2,
+            "width": 0.051
+          },
+          "frameColor": "#eeeee5",
+          "glass": "tinted",
+          "glassColor": "#526167",
+          "surround": "none",
+          "spacing": 0.32
+        },
+        "material": "split",
+        "piers": {
+          "width": 0.3,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bays": {
+          "width": 2.82,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 4
+        },
+        "spandrelMaterial": "spandrel",
+        "verticalSpandrels": {
+          "material": "gasket",
+          "width": 0.22,
+          "every": 1
+        },
+        "bayMaterials": [
+          "split",
+          "wall"
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.84,
+          "material": "trim"
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 3.05,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 3.33,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 1
+        }
+      },
+      "8": {
+        "windows": {
+          "type": "punched",
+          "width": 1.42,
+          "height": 2.33,
+          "sill": 0.47,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2,
+            "width": 0.051
+          },
+          "frameColor": "#eeeee5",
+          "glass": "tinted",
+          "glassColor": "#526167",
+          "surround": "none",
+          "spacing": 0.32
+        },
+        "material": "split",
+        "piers": {
+          "width": 0.3,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bays": {
+          "width": 3.12,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        },
+        "spandrelMaterial": "spandrel",
+        "verticalSpandrels": {
+          "material": "gasket",
+          "width": 0.22,
+          "every": 1
+        },
+        "bayMaterials": [
+          "split",
+          "wall"
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.84,
+          "material": "trim"
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 3.51,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 3.25,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "11": {
+        "windows": {
+          "type": "punched",
+          "width": 1.42,
+          "height": 2.33,
+          "sill": 0.47,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2,
+            "width": 0.051
+          },
+          "frameColor": "#eeeee5",
+          "glass": "tinted",
+          "glassColor": "#526167",
+          "surround": "none",
+          "spacing": 0.32
+        },
+        "material": "split",
+        "piers": {
+          "width": 0.3,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bays": {
+          "width": 3.71,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        },
+        "spandrelMaterial": "spandrel",
+        "verticalSpandrels": {
+          "material": "gasket",
+          "width": 0.22,
+          "every": 1
+        },
+        "bayMaterials": [
+          "split",
+          "wall"
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.84,
+          "material": "trim"
+        }
+      },
+      "12": {
+        "bays": {
+          "width": 3.1,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "13": {
+        "material": "trim",
+        "windows": {
+          "type": "slot",
+          "width": 1.05,
+          "height": 1.75,
+          "sill": 0.72,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#b5b6ae",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none"
+        },
+        "bays": {
+          "width": 2.84,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 5
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 3.14,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "15": {
+        "windows": {
+          "type": "punched",
+          "width": 1.42,
+          "height": 2.33,
+          "sill": 0.47,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2,
+            "width": 0.051
+          },
+          "frameColor": "#eeeee5",
+          "glass": "tinted",
+          "glassColor": "#526167",
+          "surround": "none",
+          "spacing": 0.32
+        },
+        "material": "split",
+        "piers": {
+          "width": 0.3,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bays": {
+          "width": 3.5,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        },
+        "spandrelMaterial": "spandrel",
+        "verticalSpandrels": {
+          "material": "gasket",
+          "width": 0.22,
+          "every": 1
+        },
+        "bayMaterials": [
+          "split",
+          "wall"
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.84,
+          "material": "trim"
+        }
+      },
+      "16": {
+        "bays": {
+          "width": 2.91,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 1
+        }
+      },
+      "17": {
+        "bays": {
+          "width": 3.17,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "18": {
+        "windows": {
+          "type": "punched",
+          "width": 1.42,
+          "height": 2.33,
+          "sill": 0.47,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2,
+            "width": 0.051
+          },
+          "frameColor": "#eeeee5",
+          "glass": "tinted",
+          "glassColor": "#526167",
+          "surround": "none",
+          "spacing": 0.32
+        },
+        "material": "split",
+        "piers": {
+          "width": 0.3,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bays": {
+          "width": 3.23,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        },
+        "spandrelMaterial": "spandrel",
+        "verticalSpandrels": {
+          "material": "gasket",
+          "width": 0.22,
+          "every": 1
+        },
+        "bayMaterials": [
+          "split",
+          "wall"
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.84,
+          "material": "trim"
+        }
+      },
+      "19": {
+        "bays": {
+          "width": 3.47,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "20": {
+        "bays": {
+          "width": 3.17,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 1
+        }
+      },
+      "21": {
+        "windows": {
+          "type": "punched",
+          "width": 1.42,
+          "height": 2.33,
+          "sill": 0.47,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2,
+            "width": 0.051
+          },
+          "frameColor": "#eeeee5",
+          "glass": "tinted",
+          "glassColor": "#526167",
+          "surround": "none",
+          "spacing": 0.32
+        },
+        "material": "split",
+        "piers": {
+          "width": 0.3,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bays": {
+          "width": 3.07,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        },
+        "spandrelMaterial": "spandrel",
+        "verticalSpandrels": {
+          "material": "gasket",
+          "width": 0.22,
+          "every": 1
+        },
+        "bayMaterials": [
+          "split",
+          "wall"
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.84,
+          "material": "trim"
+        }
+      },
+      "22": {
+        "bays": {
+          "width": 3.1,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 4
+        }
+      },
+      "23": {
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 3.25,
+            "height": 3.3,
+            "sill": 0.12,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#b5b6ae",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none"
+          }
+        },
+        "bays": {
+          "width": 3.08,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 1
+        }
+      },
+      "24": {
+        "groundFloor": {
+          "windows": {
+            "type": "storefront",
+            "width": 3.25,
+            "height": 3.3,
+            "sill": 0.12,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.055
+            },
+            "frameColor": "#b5b6ae",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none"
+          }
+        },
+        "bays": {
+          "width": 3.35,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 5
+        }
+      },
+      "25": {
+        "bays": {
+          "width": 3.34,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "26": {
+        "bays": {
+          "width": 2.77,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "27": {
+        "bays": {
+          "width": 3.64,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "28": {
+        "bays": {
+          "width": 3.15,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 4
+        }
+      },
+      "29": {
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "width": 3.06,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 16
+        }
+      },
+      "30": {
+        "windows": {
+          "type": "slot",
+          "width": 1,
+          "height": 0.85,
+          "sill": 2.8,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0,
+            "width": 0.055
+          },
+          "frameColor": "#b5b6ae",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none"
+        },
+        "bays": {
+          "width": 3.03,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "31": {
+        "windows": {
+          "type": "punched",
+          "width": 1.46,
+          "height": 2.3,
+          "sill": 0.45,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#cfd8d6",
+          "glass": "tinted",
+          "glassColor": "#758b90",
+          "surround": "none",
+          "spacing": 0.38
+        },
+        "material": "wall",
+        "piers": {
+          "width": 0.3,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bays": {
+          "width": 2.96,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "32": {
+        "bays": {
+          "width": 3.23,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        }
+      },
+      "33": {
+        "bays": {
+          "width": 3.27,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 2
+        }
+      },
+      "34": {
+        "material": "trim",
+        "windows": {
+          "type": "slot",
+          "width": 1.05,
+          "height": 1.75,
+          "sill": 0.72,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#b5b6ae",
+          "glass": "tinted",
+          "glassColor": "#57636a",
+          "surround": "none"
+        },
+        "bays": {
+          "width": 2.96,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 5
+        }
+      },
+      "35": {
+        "windows": {
+          "type": "punched",
+          "width": 1.42,
+          "height": 2.33,
+          "sill": 0.47,
+          "perBay": 1,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 2,
+            "width": 0.051
+          },
+          "frameColor": "#eeeee5",
+          "glass": "tinted",
+          "glassColor": "#526167",
+          "surround": "none",
+          "spacing": 0.32
+        },
+        "material": "split",
+        "piers": {
+          "width": 0.3,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bays": {
+          "width": 2.9,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        },
+        "spandrelMaterial": "spandrel",
+        "verticalSpandrels": {
+          "material": "gasket",
+          "width": 0.22,
+          "every": 1
+        },
+        "bayMaterials": [
+          "split",
+          "wall"
+        ],
+        "parapet": {
+          "type": "coped",
+          "height": 0.84,
+          "material": "trim"
+        }
+      },
+      "36": {
+        "bays": {
+          "width": 2.95,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 3
+        },
+        "sections": [
+          {
+            "start": 0,
+            "end": 0.085,
+            "base": 0,
+            "top": 19.3,
+            "material": "corner"
+          }
+        ]
+      },
+      "37": {
+        "windows": {
+          "type": "punched",
+          "width": 1.46,
+          "height": 2.3,
+          "sill": 0.45,
+          "perBay": 2,
+          "recess": 0.12,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 1,
+            "width": 0.055
+          },
+          "frameColor": "#cfd8d6",
+          "glass": "tinted",
+          "glassColor": "#758b90",
+          "surround": "none",
+          "spacing": 0.38
+        },
+        "material": "wall",
+        "piers": {
+          "width": 0.3,
+          "depth": 0.21,
+          "every": 1,
+          "material": "trim",
+          "fullHeight": true
+        },
+        "bays": {
+          "width": 3.02,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 4
+        },
+        "sections": [
+          {
+            "start": 0,
+            "end": 0.085,
+            "base": 0,
+            "top": 19.3,
+            "material": "corner"
+          }
+        ]
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "penthouse",
+        "center": [
+          -10.4,
+          1261.4
+        ],
+        "size": [
+          10.8,
+          6.9
+        ],
+        "height": 2.32,
+        "rotation": -5.25,
+        "material": "metal"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          -34.664555,
+          1230.311665
+        ],
+        "size": [
+          2.7,
+          9.8
+        ],
+        "height": 1.15,
+        "rotation": -21,
+        "material": "metal"
+      },
+      {
+        "type": "penthouse",
+        "center": [
+          10.2,
+          1317.7
+        ],
+        "size": [
+          3.15,
+          8.25
+        ],
+        "height": 0.68,
+        "rotation": -5.25,
+        "material": "metal"
+      },
+      {
+        "type": "stair-tower",
+        "center": [
+          -33.7,
+          1276.5
+        ],
+        "size": [
+          3.05,
+          4.63
+        ],
+        "height": 2.62,
+        "material": "metal",
+        "rotation": -21
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -10.5,
+          1261.6
+        ],
+        "size": [
+          3.65,
+          1.91
+        ],
+        "height": 0.29,
+        "material": "gasket",
+        "rotation": -5.25
+      }
+    ]
+  },
+  "notes": "Projecting window bays alternate between smooth stone faces and glass corner units. The west low roof is a double-height volume. The entry bay and secondary service door positions are approximate.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Low western service and dining range",
+        "footprint": {
+          "clip": [
+            [
+              -61.86,
+              1255.75
+            ],
+            [
+              -39.92,
+              1247.32
+            ],
+            [
+              -21.28,
+              1295.87
+            ],
+            [
+              -43.22,
+              1304.29
+            ]
+          ]
+        },
+        "height": 7.38,
+        "floors": 1,
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bays": {
+            "width": 4.6
+          }
+        },
+        "wallProfiles": {
+          "29": {
+            "blank": false,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "sections": [
+              {
+                "start": 0.12,
+                "end": 0.28,
+                "base": 4.71,
+                "top": 6.14,
+                "material": "metal"
+              },
+              {
+                "start": 0.64,
+                "end": 0.79,
+                "base": 4.71,
+                "top": 6.14,
+                "material": "metal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "West residential wing",
+        "footprint": [
+          [
+            -45.728,
+            1227.845
+          ],
+          [
+            -44.241,
+            1231.719
+          ],
+          [
+            -45.548,
+            1232.221
+          ],
+          [
+            -45.512,
+            1232.314
+          ],
+          [
+            -44.663,
+            1231.988
+          ],
+          [
+            -41.58,
+            1240.016
+          ],
+          [
+            -42.43,
+            1240.343
+          ],
+          [
+            -43.971,
+            1236.328
+          ],
+          [
+            -45.401,
+            1232.605
+          ],
+          [
+            -42.394,
+            1240.436
+          ],
+          [
+            -40.62,
+            1239.755
+          ],
+          [
+            -37.574,
+            1247.691
+          ],
+          [
+            -39.441,
+            1248.408
+          ],
+          [
+            -39.405,
+            1248.501
+          ],
+          [
+            -38.556,
+            1248.175
+          ],
+          [
+            -35.366,
+            1256.484
+          ],
+          [
+            -36.216,
+            1256.81
+          ],
+          [
+            -37.03,
+            1254.689
+          ],
+          [
+            -36.18,
+            1256.903
+          ],
+          [
+            -35.013,
+            1256.455
+          ],
+          [
+            -31.358,
+            1265.978
+          ],
+          [
+            -32.151,
+            1266.282
+          ],
+          [
+            -28.89,
+            1274.778
+          ],
+          [
+            -21.841,
+            1272.072
+          ],
+          [
+            -23.257,
+            1268.385
+          ],
+          [
+            -14.808,
+            1265.141
+          ],
+          [
+            -21.169,
+            1248.57
+          ],
+          [
+            -19.862,
+            1248.069
+          ],
+          [
+            -21.134,
+            1244.755
+          ],
+          [
+            -19.898,
+            1247.976
+          ],
+          [
+            -20.747,
+            1248.302
+          ],
+          [
+            -23.221,
+            1241.86
+          ],
+          [
+            -22.371,
+            1241.533
+          ],
+          [
+            -22.407,
+            1241.44
+          ],
+          [
+            -24.022,
+            1242.06
+          ],
+          [
+            -27.104,
+            1234.031
+          ],
+          [
+            -25.722,
+            1233.501
+          ],
+          [
+            -25.758,
+            1233.408
+          ],
+          [
+            -26.607,
+            1233.734
+          ],
+          [
+            -29.69,
+            1225.704
+          ],
+          [
+            -28.84,
+            1225.378
+          ],
+          [
+            -27.299,
+            1229.393
+          ],
+          [
+            -26.734,
+            1230.864
+          ],
+          [
+            -28.876,
+            1225.285
+          ],
+          [
+            -31.163,
+            1226.163
+          ],
+          [
+            -32.883,
+            1221.682
+          ],
+          [
+            -34.377,
+            1222.256
+          ],
+          [
+            -34.835,
+            1221.063
+          ],
+          [
+            -34.413,
+            1222.163
+          ],
+          [
+            -35.262,
+            1222.489
+          ],
+          [
+            -37.484,
+            1216.7
+          ],
+          [
+            -36.634,
+            1216.374
+          ],
+          [
+            -36.67,
+            1216.281
+          ],
+          [
+            -49.274,
+            1221.119
+          ],
+          [
+            -48.108,
+            1224.715
+          ],
+          [
+            -49.243,
+            1221.214
+          ],
+          [
+            -48.378,
+            1220.933
+          ],
+          [
+            -46.106,
+            1227.935
+          ],
+          [
+            -46.972,
+            1228.216
+          ],
+          [
+            -46.941,
+            1228.311
+          ]
+        ],
+        "height": 19.25,
+        "floors": 6,
+        "facade": {
+          "windows": {
+            "type": "punched",
+            "width": 0.84,
+            "height": 1.45,
+            "sill": 0.87,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.043
+            },
+            "frameColor": "#eeeee5",
+            "glass": "tinted",
+            "glassColor": "#596c74",
+            "surround": "none",
+            "spacing": 0.32
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 0.84,
+              "height": 1.45,
+              "sill": 0.87,
+              "perBay": 2,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.043
+              },
+              "frameColor": "#eeeee5",
+              "glass": "tinted",
+              "glassColor": "#596c74",
+              "surround": "none",
+              "spacing": 0.32
+            }
+          },
+          "bays": {
+            "width": 3.1
+          },
+          "piers": {
+            "width": 0.24,
+            "depth": 0.1,
+            "material": "split",
+            "every": 2,
+            "fullHeight": true,
+            "aboveRoof": 0
+          }
+        }
+      },
+      {
+        "name": "Entrance and common block",
+        "footprint": {
+          "clip": [
+            [
+              -39.35,
+              1199.97
+            ],
+            [
+              2.66,
+              1183.85
+            ],
+            [
+              29.18,
+              1252.93
+            ],
+            [
+              -12.83,
+              1269.06
+            ]
+          ]
+        },
+        "height": 19.24,
+        "floors": 6
+      },
+      {
+        "name": "Western Road wing",
+        "footprint": [
+          [
+            -3.57,
+            1276.24
+          ],
+          [
+            -5.1,
+            1276.38
+          ],
+          [
+            -4.53,
+            1282.5
+          ],
+          [
+            -3.0,
+            1282.36
+          ],
+          [
+            -2.72,
+            1285.52
+          ],
+          [
+            -4.2,
+            1285.67
+          ],
+          [
+            -3.57,
+            1292.58
+          ],
+          [
+            -2.08,
+            1292.45
+          ],
+          [
+            -1.19,
+            1302.09
+          ],
+          [
+            -2.65,
+            1302.22
+          ],
+          [
+            -2.08,
+            1308.53
+          ],
+          [
+            -0.61,
+            1308.4
+          ],
+          [
+            -0.34,
+            1311.29
+          ],
+          [
+            -2.24,
+            1311.46
+          ],
+          [
+            -1.6,
+            1318.44
+          ],
+          [
+            0.3,
+            1318.26
+          ],
+          [
+            1.16,
+            1327.65
+          ],
+          [
+            15.33,
+            1326.34
+          ],
+          [
+            14.48,
+            1317.08
+          ],
+          [
+            16.01,
+            1316.95
+          ],
+          [
+            15.33,
+            1309.55
+          ],
+          [
+            13.8,
+            1309.68
+          ],
+          [
+            13.62,
+            1307.71
+          ],
+          [
+            14.8,
+            1307.61
+          ],
+          [
+            14.2,
+            1301.13
+          ],
+          [
+            13.02,
+            1301.24
+          ],
+          [
+            12.06,
+            1290.77
+          ],
+          [
+            13.22,
+            1290.66
+          ],
+          [
+            12.65,
+            1284.45
+          ],
+          [
+            11.49,
+            1284.55
+          ],
+          [
+            11.18,
+            1281.24
+          ],
+          [
+            13.0,
+            1281.07
+          ],
+          [
+            12.45,
+            1274.99
+          ],
+          [
+            10.62,
+            1275.16
+          ],
+          [
+            9.59,
+            1263.92
+          ],
+          [
+            11.04,
+            1263.78
+          ],
+          [
+            10.691,
+            1260.029
+          ],
+          [
+            -4.526,
+            1265.872
+          ]
+        ],
+        "height": 19.4,
+        "floors": 6
+      },
+      {
+        "name": "Low west service range",
+        "footprint": {
+          "clip": [
+            [
+              -77.62,
+              1214.67
+            ],
+            [
+              -55.68,
+              1206.25
+            ],
+            [
+              -39.92,
+              1247.32
+            ],
+            [
+              -61.86,
+              1255.75
+            ]
+          ]
+        },
+        "height": 4.65,
+        "floors": 1,
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "slot",
+            "width": 0.85,
+            "height": 1.1,
+            "sill": 1.2,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 0,
+              "width": 0.055
+            },
+            "frameColor": "#b5b6ae",
+            "glass": "tinted",
+            "glassColor": "#57636a",
+            "surround": "none"
+          }
+        }
+      },
+      {
+        "name": "North end pavilion",
+        "footprint": {
+          "clip": [
+            [
+              -55.68,
+              1206.25
+            ],
+            [
+              -39.35,
+              1199.97
+            ],
+            [
+              -33.36,
+              1215.57
+            ],
+            [
+              -49.7,
+              1221.84
+            ]
+          ]
+        },
+        "height": 7.19,
+        "floors": 2
+      },
+      {
+        "name": "Raised central roof block",
+        "footprint": [
+          [
+            2.044,
+            1254.321
+          ],
+          [
+            2.977,
+            1264.478
+          ],
+          [
+            -15.744,
+            1266.199
+          ],
+          [
+            -16.677,
+            1256.042
+          ]
+        ],
+        "height": 23.55,
+        "baseOffset": 19.21,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "parapet": {
+            "height": 0.2,
+            "type": "coped",
+            "material": "trim"
+          },
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Western Road projecting bay 3",
+        "footprint": [
+          [
+            8.304,
+            1251.163
+          ],
+          [
+            8.859,
+            1257.246
+          ],
+          [
+            10.015,
+            1257.14
+          ],
+          [
+            9.46,
+            1251.057
+          ]
+        ],
+        "height": 20.66,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "split",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "bays": {
+            "width": 2.7
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.42,
+            "height": 2.33,
+            "sill": 0.47,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 2,
+              "width": 0.051
+            },
+            "frameColor": "#eeeee5",
+            "glass": "tinted",
+            "glassColor": "#526167",
+            "surround": "none",
+            "spacing": 0.32
+          },
+          "spandrelMaterial": "spandrel",
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 0.24,
+            "material": "gasket"
+          },
+          "material": "split",
+          "bayMaterials": [
+            "split",
+            "wall"
+          ],
+          "parapet": {
+            "type": "coped",
+            "height": 0.71,
+            "material": "trim"
+          },
+          "segments": [],
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.42,
+              "height": 2.33,
+              "sill": 0.47,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 2,
+                "width": 0.051
+              },
+              "frameColor": "#eeeee5",
+              "glass": "tinted",
+              "glassColor": "#526167",
+              "surround": "none",
+              "spacing": 0.32
+            }
+          }
+        }
+      },
+      {
+        "name": "Western Road projecting bay 5",
+        "footprint": [
+          [
+            9.768,
+            1267.077
+          ],
+          [
+            10.273,
+            1272.585
+          ],
+          [
+            11.429,
+            1272.479
+          ],
+          [
+            10.924,
+            1266.971
+          ]
+        ],
+        "height": 19.56,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "split",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "windows": {
+            "type": "punched",
+            "width": 1.42,
+            "height": 2.33,
+            "sill": 0.47,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 2,
+              "width": 0.051
+            },
+            "frameColor": "#eeeee5",
+            "glass": "tinted",
+            "glassColor": "#526167",
+            "surround": "none",
+            "spacing": 0.32
+          },
+          "material": "split",
+          "piers": {
+            "width": 0.3,
+            "depth": 0.21,
+            "every": 1,
+            "material": "trim",
+            "fullHeight": true
+          },
+          "bays": {
+            "width": 2.7
+          },
+          "spandrelMaterial": "spandrel",
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 0.24,
+            "material": "gasket"
+          },
+          "bayMaterials": [
+            "split",
+            "wall"
+          ],
+          "parapet": {
+            "type": "coped",
+            "height": 0.71,
+            "material": "trim"
+          },
+          "segments": [],
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.42,
+              "height": 2.33,
+              "sill": 0.47,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 2,
+                "width": 0.051
+              },
+              "frameColor": "#eeeee5",
+              "glass": "tinted",
+              "glassColor": "#526167",
+              "surround": "none",
+              "spacing": 0.32
+            }
+          }
+        }
+      },
+      {
+        "name": "Western Road projecting bay 8",
+        "footprint": [
+          [
+            12.557,
+            1284.646
+          ],
+          [
+            13.07,
+            1290.235
+          ],
+          [
+            14.226,
+            1290.129
+          ],
+          [
+            13.713,
+            1284.54
+          ]
+        ],
+        "height": 19.56,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "split",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "windows": {
+            "type": "punched",
+            "width": 1.42,
+            "height": 2.33,
+            "sill": 0.47,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 2,
+              "width": 0.051
+            },
+            "frameColor": "#eeeee5",
+            "glass": "tinted",
+            "glassColor": "#526167",
+            "surround": "none",
+            "spacing": 0.32
+          },
+          "material": "split",
+          "piers": {
+            "width": 0.3,
+            "depth": 0.21,
+            "every": 1,
+            "material": "trim",
+            "fullHeight": true
+          },
+          "bays": {
+            "width": 2.7
+          },
+          "spandrelMaterial": "spandrel",
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 0.24,
+            "material": "gasket"
+          },
+          "bayMaterials": [
+            "split",
+            "wall"
+          ],
+          "parapet": {
+            "type": "coped",
+            "height": 0.71,
+            "material": "trim"
+          },
+          "segments": [],
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.42,
+              "height": 2.33,
+              "sill": 0.47,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 2,
+                "width": 0.051
+              },
+              "frameColor": "#eeeee5",
+              "glass": "tinted",
+              "glassColor": "#526167",
+              "surround": "none",
+              "spacing": 0.32
+            }
+          }
+        }
+      },
+      {
+        "name": "Western Road projecting bay 9",
+        "footprint": [
+          [
+            12.296,
+            1294.549
+          ],
+          [
+            12.776,
+            1299.784
+          ],
+          [
+            13.932,
+            1299.677
+          ],
+          [
+            13.452,
+            1294.442
+          ]
+        ],
+        "height": 19.56,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "split",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "bays": {
+            "width": 2.7
+          },
+          "sections": [
+            {
+              "start": 0,
+              "end": 0.085,
+              "base": 0,
+              "top": 19.3,
+              "material": "corner"
+            }
+          ],
+          "segments": [],
+          "windows": {
+            "type": "punched",
+            "width": 1.42,
+            "height": 2.33,
+            "sill": 0.47,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 2,
+              "width": 0.051
+            },
+            "frameColor": "#eeeee5",
+            "glass": "tinted",
+            "glassColor": "#526167",
+            "surround": "none",
+            "spacing": 0.32
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.42,
+              "height": 2.33,
+              "sill": 0.47,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 2,
+                "width": 0.051
+              },
+              "frameColor": "#eeeee5",
+              "glass": "tinted",
+              "glassColor": "#526167",
+              "surround": "none",
+              "spacing": 0.32
+            }
+          },
+          "material": "split",
+          "spandrelMaterial": "spandrel",
+          "parapet": {
+            "type": "coped",
+            "height": 0.71,
+            "material": "trim"
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 0.24,
+            "material": "gasket"
+          }
+        }
+      },
+      {
+        "name": "Western Road projecting bay 11",
+        "footprint": [
+          [
+            15.302,
+            1310.448
+          ],
+          [
+            15.825,
+            1316.146
+          ],
+          [
+            16.981,
+            1316.039
+          ],
+          [
+            16.458,
+            1310.341
+          ]
+        ],
+        "height": 19.56,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "split",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "windows": {
+            "type": "punched",
+            "width": 1.42,
+            "height": 2.33,
+            "sill": 0.47,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 2,
+              "width": 0.051
+            },
+            "frameColor": "#eeeee5",
+            "glass": "tinted",
+            "glassColor": "#526167",
+            "surround": "none",
+            "spacing": 0.32
+          },
+          "material": "split",
+          "piers": {
+            "width": 0.3,
+            "depth": 0.21,
+            "every": 1,
+            "material": "trim",
+            "fullHeight": true
+          },
+          "bays": {
+            "width": 2.7
+          },
+          "spandrelMaterial": "spandrel",
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 0.24,
+            "material": "gasket"
+          },
+          "bayMaterials": [
+            "split",
+            "wall"
+          ],
+          "parapet": {
+            "type": "coped",
+            "height": 0.71,
+            "material": "trim"
+          },
+          "segments": [],
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.42,
+              "height": 2.33,
+              "sill": 0.47,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 2,
+                "width": 0.051
+              },
+              "frameColor": "#eeeee5",
+              "glass": "tinted",
+              "glassColor": "#526167",
+              "surround": "none",
+              "spacing": 0.32
+            }
+          }
+        }
+      },
+      {
+        "name": "Western Road projecting bay 12",
+        "footprint": [
+          [
+            14.617,
+            1319.775
+          ],
+          [
+            15.067,
+            1324.683
+          ],
+          [
+            16.223,
+            1324.577
+          ],
+          [
+            15.773,
+            1319.669
+          ]
+        ],
+        "height": 20.66,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "split",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "bays": {
+            "width": 2.7
+          },
+          "sections": [
+            {
+              "start": 0,
+              "end": 0.085,
+              "base": 0,
+              "top": 19.3,
+              "material": "corner"
+            }
+          ],
+          "segments": [],
+          "windows": {
+            "type": "punched",
+            "width": 1.42,
+            "height": 2.33,
+            "sill": 0.47,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 2,
+              "width": 0.051
+            },
+            "frameColor": "#eeeee5",
+            "glass": "tinted",
+            "glassColor": "#526167",
+            "surround": "none",
+            "spacing": 0.32
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.42,
+              "height": 2.33,
+              "sill": 0.47,
+              "perBay": 1,
+              "recess": 0.12,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 2,
+                "width": 0.051
+              },
+              "frameColor": "#eeeee5",
+              "glass": "tinted",
+              "glassColor": "#526167",
+              "surround": "none",
+              "spacing": 0.32
+            }
+          },
+          "material": "split",
+          "spandrelMaterial": "spandrel",
+          "parapet": {
+            "type": "coped",
+            "height": 0.71,
+            "material": "trim"
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 0.24,
+            "material": "gasket"
+          }
+        }
+      },
+      {
+        "name": "West wing base below stepped bays 1190",
+        "footprint": [
+          [
+            -37.57,
+            1247.69
+          ],
+          [
+            -40.62,
+            1239.76
+          ],
+          [
+            -42.39,
+            1240.44
+          ],
+          [
+            -45.55,
+            1232.22
+          ],
+          [
+            -44.24,
+            1231.72
+          ],
+          [
+            -45.73,
+            1227.84
+          ],
+          [
+            -46.94,
+            1228.31
+          ],
+          [
+            -49.11,
+            1221.61
+          ],
+          [
+            -49.7,
+            1221.84
+          ],
+          [
+            -39.92,
+            1247.32
+          ],
+          [
+            -39.659,
+            1248
+          ],
+          [
+            -38.375,
+            1248
+          ]
+        ],
+        "height": 4.07,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "wall"
+        }
+      },
+      {
+        "name": "West wing base below stepped bays 1248",
+        "footprint": [
+          [
+            -24.22,
+            1272.99
+          ],
+          [
+            -28.89,
+            1274.78
+          ],
+          [
+            -32.15,
+            1266.28
+          ],
+          [
+            -31.36,
+            1265.98
+          ],
+          [
+            -35.01,
+            1256.46
+          ],
+          [
+            -36.18,
+            1256.9
+          ],
+          [
+            -39.44,
+            1248.41
+          ],
+          [
+            -38.375,
+            1248
+          ],
+          [
+            -39.659,
+            1248
+          ],
+          [
+            -28.03,
+            1278.3
+          ],
+          [
+            -24.14,
+            1276.72
+          ]
+        ],
+        "height": 7.34,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Cross-link below the raised roof",
+        "footprint": [
+          [
+            -14.78,
+            1265.95
+          ],
+          [
+            -14.85,
+            1265.8
+          ],
+          [
+            -7.69,
+            1265.14
+          ],
+          [
+            -14.11,
+            1265.73
+          ],
+          [
+            -19.25,
+            1252.34
+          ],
+          [
+            -15.78,
+            1252.02
+          ],
+          [
+            -19.71,
+            1252.38
+          ],
+          [
+            -14.81,
+            1265.14
+          ],
+          [
+            -17.45,
+            1266.16
+          ]
+        ],
+        "height": 19.21,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "base": {
+            "height": 0,
+            "projection": 0,
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "every": 200,
+            "width": 0,
+            "depth": 0,
+            "material": "trim",
+            "aboveRoof": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0,
+            "material": "trim"
+          },
+          "parapet": {
+            "height": 0,
+            "type": "plain",
+            "material": "trim"
+          },
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "sections": [],
+          "segments": [],
+          "quoins": false,
+          "material": "wall"
+        }
+      },
+      {
+        "name": "South end stair projection",
+        "footprint": [
+          [
+            13.063,
+            1318.014
+          ],
+          [
+            7.962,
+            1318.485
+          ],
+          [
+            9.11,
+            1330.962
+          ],
+          [
+            14.211,
+            1330.491
+          ]
+        ],
+        "height": 22.84,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "split",
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet",
+          "features": []
+        },
+        "facade": {
+          "bays": {
+            "width": 2.71
+          },
+          "windows": {
+            "type": "punched",
+            "width": 0.86,
+            "height": 1.45,
+            "sill": 0.87,
+            "perBay": 2,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.043
+            },
+            "frameColor": "#eeeee5",
+            "glass": "tinted",
+            "glassColor": "#596c74",
+            "surround": "none",
+            "spacing": 0.32
+          },
+          "parapet": {
+            "height": 0.27,
+            "type": "coped",
+            "material": "trim"
+          },
+          "material": "split"
+        }
+      },
+      {
+        "name": "West wing projecting window bay 1",
+        "footprint": [
+          [
+            -37.484,
+            1216.7
+          ],
+          [
+            -35.262,
+            1222.489
+          ],
+          [
+            -34.413,
+            1222.163
+          ],
+          [
+            -35.524,
+            1219.268
+          ],
+          [
+            -36.634,
+            1216.374
+          ]
+        ],
+        "height": 19.86,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.34
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.19,
+            "height": 2.05,
+            "sill": 0.57,
+            "perBay": 2,
+            "spacing": 0.19,
+            "recess": 0.13,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.049
+            },
+            "frameColor": "#f1f1e8",
+            "glassColor": "#627781",
+            "surround": "metal",
+            "surroundMaterial": "gasket"
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "bands": [],
+          "bayMaterials": [
+            "wall"
+          ],
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.19,
+            "material": "spandrel"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.19,
+            "material": "trim"
+          },
+          "piers": {
+            "width": 0.13,
+            "depth": 0.05,
+            "material": "gasket",
+            "every": 1,
+            "aboveRoof": 0
+          },
+          "floorOverrides": {
+            "0": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "2": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "4": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "1": {
+              "spandrelMaterial": "spandrel"
+            },
+            "3": {
+              "spandrelMaterial": "spandrel"
+            },
+            "5": {
+              "spandrelMaterial": "spandrel"
+            }
+          }
+        }
+      },
+      {
+        "name": "West wing projecting window bay 5",
+        "footprint": [
+          [
+            -28.84,
+            1225.378
+          ],
+          [
+            -29.69,
+            1225.704
+          ],
+          [
+            -26.607,
+            1233.734
+          ],
+          [
+            -25.758,
+            1233.408
+          ],
+          [
+            -27.299,
+            1229.393
+          ]
+        ],
+        "height": 19.48,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "count": 2,
+            "edgeMargin": 0.34
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.19,
+            "height": 2.05,
+            "sill": 0.57,
+            "perBay": 2,
+            "spacing": 0.19,
+            "recess": 0.13,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.049
+            },
+            "frameColor": "#f1f1e8",
+            "glassColor": "#627781",
+            "surround": "metal",
+            "surroundMaterial": "gasket"
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "bands": [],
+          "bayMaterials": [
+            "wall"
+          ],
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.19,
+            "material": "spandrel"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.19,
+            "material": "trim"
+          },
+          "piers": {
+            "width": 0.13,
+            "depth": 0.05,
+            "material": "gasket",
+            "every": 1,
+            "aboveRoof": 0
+          },
+          "floorOverrides": {
+            "0": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "2": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "4": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "1": {
+              "spandrelMaterial": "spandrel"
+            },
+            "3": {
+              "spandrelMaterial": "spandrel"
+            },
+            "5": {
+              "spandrelMaterial": "spandrel"
+            }
+          }
+        }
+      },
+      {
+        "name": "West wing projecting window bay 9",
+        "footprint": [
+          [
+            -23.221,
+            1241.86
+          ],
+          [
+            -20.747,
+            1248.302
+          ],
+          [
+            -19.898,
+            1247.976
+          ],
+          [
+            -21.134,
+            1244.755
+          ],
+          [
+            -22.371,
+            1241.533
+          ]
+        ],
+        "height": 19.48,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.34
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.19,
+            "height": 2.05,
+            "sill": 0.57,
+            "perBay": 2,
+            "spacing": 0.19,
+            "recess": 0.13,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.049
+            },
+            "frameColor": "#f1f1e8",
+            "glassColor": "#627781",
+            "surround": "metal",
+            "surroundMaterial": "gasket"
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "bands": [],
+          "bayMaterials": [
+            "wall"
+          ],
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.19,
+            "material": "spandrel"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.19,
+            "material": "trim"
+          },
+          "piers": {
+            "width": 0.13,
+            "depth": 0.05,
+            "material": "gasket",
+            "every": 1,
+            "aboveRoof": 0
+          },
+          "floorOverrides": {
+            "0": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "2": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "4": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "1": {
+              "spandrelMaterial": "spandrel"
+            },
+            "3": {
+              "spandrelMaterial": "spandrel"
+            },
+            "5": {
+              "spandrelMaterial": "spandrel"
+            }
+          }
+        }
+      },
+      {
+        "name": "West wing projecting window bay 11",
+        "footprint": [
+          [
+            -18.794,
+            1252.05
+          ],
+          [
+            -19.644,
+            1252.376
+          ],
+          [
+            -17.565,
+            1257.791
+          ],
+          [
+            -16.716,
+            1257.465
+          ],
+          [
+            -17.71,
+            1254.873
+          ]
+        ],
+        "height": 19.86,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.34
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.19,
+            "height": 2.05,
+            "sill": 0.57,
+            "perBay": 2,
+            "spacing": 0.19,
+            "recess": 0.13,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.049
+            },
+            "frameColor": "#f1f1e8",
+            "glassColor": "#627781",
+            "surround": "metal",
+            "surroundMaterial": "gasket"
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "bands": [],
+          "bayMaterials": [
+            "wall"
+          ],
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.19,
+            "material": "spandrel"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.19,
+            "material": "trim"
+          },
+          "piers": {
+            "width": 0.13,
+            "depth": 0.05,
+            "material": "gasket",
+            "every": 1,
+            "aboveRoof": 0
+          },
+          "floorOverrides": {
+            "0": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "2": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "4": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "1": {
+              "spandrelMaterial": "spandrel"
+            },
+            "3": {
+              "spandrelMaterial": "spandrel"
+            },
+            "5": {
+              "spandrelMaterial": "spandrel"
+            }
+          }
+        }
+      },
+      {
+        "name": "West wing projecting window bay 19",
+        "footprint": [
+          [
+            -36.216,
+            1256.81
+          ],
+          [
+            -35.366,
+            1256.484
+          ],
+          [
+            -38.556,
+            1248.175
+          ],
+          [
+            -39.405,
+            1248.501
+          ],
+          [
+            -37.81,
+            1252.656
+          ]
+        ],
+        "height": 19.48,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "count": 2,
+            "edgeMargin": 0.34
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.19,
+            "height": 2.05,
+            "sill": 0.57,
+            "perBay": 2,
+            "spacing": 0.19,
+            "recess": 0.13,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.049
+            },
+            "frameColor": "#f1f1e8",
+            "glassColor": "#627781",
+            "surround": "metal",
+            "surroundMaterial": "gasket"
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "bands": [],
+          "bayMaterials": [
+            "wall"
+          ],
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.19,
+            "material": "spandrel"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.19,
+            "material": "trim"
+          },
+          "piers": {
+            "width": 0.13,
+            "depth": 0.05,
+            "material": "gasket",
+            "every": 1,
+            "aboveRoof": 0
+          },
+          "floorOverrides": {
+            "0": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "2": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "4": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "1": {
+              "spandrelMaterial": "spandrel"
+            },
+            "3": {
+              "spandrelMaterial": "spandrel"
+            },
+            "5": {
+              "spandrelMaterial": "spandrel"
+            }
+          }
+        }
+      },
+      {
+        "name": "West wing projecting window bay 23",
+        "footprint": [
+          [
+            -42.43,
+            1240.343
+          ],
+          [
+            -41.58,
+            1240.016
+          ],
+          [
+            -44.663,
+            1231.988
+          ],
+          [
+            -45.512,
+            1232.314
+          ],
+          [
+            -43.971,
+            1236.328
+          ]
+        ],
+        "height": 19.48,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "count": 2,
+            "edgeMargin": 0.34
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.19,
+            "height": 2.05,
+            "sill": 0.57,
+            "perBay": 2,
+            "spacing": 0.19,
+            "recess": 0.13,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.049
+            },
+            "frameColor": "#f1f1e8",
+            "glassColor": "#627781",
+            "surround": "metal",
+            "surroundMaterial": "gasket"
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "bands": [],
+          "bayMaterials": [
+            "wall"
+          ],
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.19,
+            "material": "spandrel"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.19,
+            "material": "trim"
+          },
+          "piers": {
+            "width": 0.13,
+            "depth": 0.05,
+            "material": "gasket",
+            "every": 1,
+            "aboveRoof": 0
+          },
+          "floorOverrides": {
+            "0": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "2": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "4": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "1": {
+              "spandrelMaterial": "spandrel"
+            },
+            "3": {
+              "spandrelMaterial": "spandrel"
+            },
+            "5": {
+              "spandrelMaterial": "spandrel"
+            }
+          }
+        }
+      },
+      {
+        "name": "West wing projecting window bay 27",
+        "footprint": [
+          [
+            -46.106,
+            1227.935
+          ],
+          [
+            -48.378,
+            1220.933
+          ],
+          [
+            -49.243,
+            1221.214
+          ],
+          [
+            -48.108,
+            1224.715
+          ],
+          [
+            -46.972,
+            1228.216
+          ]
+        ],
+        "height": 19.86,
+        "baseOffset": 0,
+        "floors": 6,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "count": 2,
+            "edgeMargin": 0.34
+          },
+          "windows": {
+            "type": "punched",
+            "width": 1.19,
+            "height": 2.05,
+            "sill": 0.57,
+            "perBay": 2,
+            "spacing": 0.19,
+            "recess": 0.13,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.049
+            },
+            "frameColor": "#f1f1e8",
+            "glassColor": "#627781",
+            "surround": "metal",
+            "surroundMaterial": "gasket"
+          },
+          "groundFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "topFloor": {
+            "windows": {
+              "type": "punched",
+              "width": 1.19,
+              "height": 2.05,
+              "sill": 0.57,
+              "perBay": 2,
+              "spacing": 0.19,
+              "recess": 0.13,
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 1,
+                "width": 0.049
+              },
+              "frameColor": "#f1f1e8",
+              "glassColor": "#627781",
+              "surround": "metal",
+              "surroundMaterial": "gasket"
+            }
+          },
+          "bands": [],
+          "bayMaterials": [
+            "wall"
+          ],
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 1.19,
+            "material": "spandrel"
+          },
+          "parapet": {
+            "type": "coped",
+            "height": 0.19,
+            "material": "trim"
+          },
+          "piers": {
+            "width": 0.13,
+            "depth": 0.05,
+            "material": "gasket",
+            "every": 1,
+            "aboveRoof": 0
+          },
+          "floorOverrides": {
+            "0": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "2": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "4": {
+              "windows": {
+                "type": "punched",
+                "width": 1.19,
+                "height": 2.05,
+                "sill": 0.65,
+                "perBay": 2,
+                "spacing": 0.19,
+                "recess": 0.13,
+                "mullions": {
+                  "vertical": 0,
+                  "horizontal": 1,
+                  "width": 0.049
+                },
+                "frameColor": "#f1f1e8",
+                "glassColor": "#627781",
+                "surround": "metal",
+                "surroundMaterial": "gasket"
+              },
+              "spandrelMaterial": "wall"
+            },
+            "1": {
+              "spandrelMaterial": "spandrel"
+            },
+            "3": {
+              "spandrelMaterial": "spandrel"
+            },
+            "5": {
+              "spandrelMaterial": "spandrel"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.53,
+      "type": "glass-vestibule",
+      "width": 3.6,
+      "height": 2.25,
+      "recess": 0.18,
+      "canopy": {
+        "type": "flat",
+        "width": 6.5,
+        "depth": 2.7,
+        "material": "metal"
+      }
+    },
+    {
+      "wall": 30,
+      "position": 0.54,
+      "type": "loading-dock",
+      "width": 6.7,
+      "height": 3.63,
+      "recess": 2.41
+    },
+    {
+      "wall": 24,
+      "position": 0.6,
+      "type": "doors-double",
+      "width": 2.05,
+      "height": 2.25,
+      "recess": 0.18
+    }
+  ],
+  "attachments": [
+    {
+      "type": "loading-bay",
+      "walls": [
+        30,
+        31
+      ],
+      "path": [
+        [
+          -58.833,
+          1244.655
+        ],
+        [
+          -51.592,
+          1241.722
+        ]
+      ],
+      "height": 1.06,
+      "width": 1.58,
+      "material": "wall"
+    }
+  ]
+}

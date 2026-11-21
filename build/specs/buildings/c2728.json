@@ -1,0 +1,271 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2728",
+  "name": "Stadium service-yard shed",
+  "status": "refined",
+  "confidence": 0.42,
+  "summary": "A small square structure with a buff-grey roof sits in the paved equipment yard east of the stadium entrance building.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#aaa68f",
+      "unitSize": [
+        0.8,
+        3.4
+      ],
+      "secondaryColor": "#929080"
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#ada58c"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#928e7b",
+      "roughness": 0.42,
+      "metalness": 0.52
+    },
+    "oxide": {
+      "kind": "corrugated-metal",
+      "color": "#aa6c4d",
+      "secondaryColor": "#865e47",
+      "unitSize": [
+        0.23,
+        2.6
+      ],
+      "roughness": 0.9
+    },
+    "trailer": {
+      "kind": "metal-panel",
+      "color": "#d8d4bd",
+      "secondaryColor": "#c1bfaf",
+      "unitSize": [
+        1.2,
+        2.3
+      ]
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.3,
+    "typicalHeight": 3.3
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "shed",
+    "material": "roof",
+    "edge": "fascia",
+    "rise": 0.45,
+    "ridge": 98,
+    "overhang": 0.08
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Compact tan roof beside a much longer white structure and reddish yard equipment. The sampled area at (306,1146) is on the small roof."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m grid, heights above local ground. Median 3.09 m, P90 3.9 m, maximum 4.32 m. The 3.1 m median and 3.9 m P90 support a single-storey enclosure. Exact pitch and wall height are estimates."
+    },
+    {
+      "kind": "knowledge",
+      "note": "The nearest street camera is approximately 142 m from a wall midpoint. No street elevation or door can be identified."
+    }
+  ],
+  "notes": "Wall finish and the door opening onto the paved western side are inferred. The yard contains a separate trailer and a rust-coloured container. Only the small buff-roofed structure falls within this outline. Wall finish, seam spacing and the door are unverified. The adjacent rust-coloured container and pale trailer are encoded as separate parts of the same service yard, located from the 2025 orthophoto.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Yard enclosure",
+        "footprint": "inventory",
+        "height": 3.34,
+        "floors": 1,
+        "roof": {
+          "form": "shed",
+          "material": "roof",
+          "edge": "fascia",
+          "rise": 0.45,
+          "ridge": 98,
+          "overhang": 0.08
+        }
+      },
+      {
+        "name": "Service yard container",
+        "footprint": [
+          [
+            301.72,
+            1136.9
+          ],
+          [
+            304.15,
+            1137.27
+          ],
+          [
+            303.36,
+            1143.24
+          ],
+          [
+            300.95,
+            1142.87
+          ]
+        ],
+        "height": 2.55,
+        "floors": 1,
+        "material": "oxide",
+        "facade": {
+          "material": "oxide",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "oxide",
+          "edge": "none",
+          "rise": 0,
+          "overhang": 0.025
+        }
+      },
+      {
+        "name": "Service yard trailer",
+        "footprint": [
+          [
+            308.75,
+            1139.43
+          ],
+          [
+            311.18,
+            1138.85
+          ],
+          [
+            312.66,
+            1144.85
+          ],
+          [
+            310.2,
+            1145.41
+          ]
+        ],
+        "height": 2.6,
+        "floors": 1,
+        "material": "trailer",
+        "facade": {
+          "material": "trailer",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trailer",
+          "edge": "none",
+          "rise": 0,
+          "overhang": 0.025
+        },
+        "baseOffset": 0.3
+      },
+      {
+        "name": "Trailer cross-sleeper 1",
+        "footprint": [
+          [
+            311.372,
+            1140.17
+          ],
+          [
+            309.063,
+            1140.17
+          ],
+          [
+            309.102,
+            1140.33
+          ],
+          [
+            311.411,
+            1140.33
+          ]
+        ],
+        "height": 0.33,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Trailer cross-sleeper 2",
+        "footprint": [
+          [
+            312.223,
+            1143.62
+          ],
+          [
+            309.9,
+            1143.62
+          ],
+          [
+            309.939,
+            1143.78
+          ],
+          [
+            312.262,
+            1143.78
+          ]
+        ],
+        "height": 0.33,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "material": "trim",
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "trim",
+          "overhang": 0
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 3,
+      "position": 0.5,
+      "type": "service-door",
+      "width": 0.95,
+      "height": 2.05
+    }
+  ]
+}

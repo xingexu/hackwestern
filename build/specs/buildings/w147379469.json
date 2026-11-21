@@ -1,0 +1,569 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w147379469",
+  "name": "Brough House",
+  "status": "refined",
+  "confidence": 0.65,
+  "summary": "Two-storey residence under a brown pitched roof, with short gabled projections facing the drive and a row of smaller gabled dormers interrupting the rear slope.",
+  "style": "residential-brick",
+  "evidence": [
+    {
+      "kind": "knowledge",
+      "url": "https://huronu.ca/wp-content/uploads/Campus-Map-2024-V2.pdf",
+      "note": "Brough is the taller gabled house immediately east of low Henderson House."
+    },
+    {
+      "kind": "aerial",
+      "note": "City of London 2025 orthophoto. Two connected lengths meeting at a slight angle. Brown roof has several small gabled projections to the north and larger, lower ones toward the driveway. Roof colour sampled on southern slope."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 8.35 m, P90 10.53 m, maximum 11.4 m. Roof flanks read 6–8 m, main ridge 10–11 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Campus frame search out to 130 m found no usable street-facing image. Finish and bay estimates on screened walls are provisional."
+    },
+    {
+      "kind": "aerial",
+      "note": "Raking light resolves two intersecting north pitches and narrow drive-side returns. The round shape on the drive side lacks an identifiable tower roof."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#9d755b",
+      "variation": 0.22,
+      "secondaryColor": "#a29682",
+      "unitSize": [
+        0.205,
+        0.065
+      ],
+      "bond": "running"
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#dedbd2",
+      "variation": 0.09
+    },
+    "roof": {
+      "kind": "asphalt-shingle",
+      "color": "#53453c",
+      "variation": 0.09,
+      "secondaryColor": "#605d55",
+      "unitSize": [
+        0.32,
+        0.16
+      ]
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b7afa2",
+      "variation": 0.09
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#797b73",
+      "variation": 0.09
+    }
+  },
+  "floors": {
+    "count": 2,
+    "groundFloorHeight": 3.26,
+    "typicalHeight": 3.03
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "punched",
+        "width": 1.17,
+        "height": 1.44,
+        "sill": 0.83,
+        "perBay": 1,
+        "recess": 0.14,
+        "frameColor": "#ddd9c9",
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "glass": "clear"
+      },
+      "bays": {
+        "width": 3.15,
+        "pattern": "regular",
+        "edgeMargin": 0.24
+      },
+      "base": {
+        "height": 0.49,
+        "material": "base",
+        "projection": 0.04
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 4,
+          "width": 3.11,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 2,
+          "width": 3.92,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 6,
+          "width": 3.31,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 4,
+          "width": 3.54,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "4": {
+        "bays": {
+          "count": 5,
+          "width": 3.71,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      },
+      "5": {
+        "bays": {
+          "count": 1,
+          "width": 2.95,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        },
+        "blank": true
+      },
+      "6": {
+        "bays": {
+          "count": 4,
+          "width": 3.17,
+          "edgeMargin": 0.12,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "gable",
+    "material": "roof",
+    "edge": "gutter",
+    "ridge": 103,
+    "rise": 3.85,
+    "overhang": 0.32,
+    "features": [
+      {
+        "type": "dormers",
+        "center": [
+          -530.235,
+          457.936
+        ],
+        "walls": 4,
+        "rotation": 193,
+        "height": 1.25,
+        "size": [
+          1.6,
+          2.2
+        ],
+        "material": "roof",
+        "style": "Small, brown gabled dormer."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -534.331,
+          456.742
+        ],
+        "walls": 4,
+        "rotation": 193,
+        "height": 1.25,
+        "size": [
+          1.6,
+          2.2
+        ],
+        "material": "roof",
+        "style": "Small, brown gabled dormer."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -538.249,
+          455.6
+        ],
+        "walls": 4,
+        "rotation": 193,
+        "height": 1.25,
+        "size": [
+          1.6,
+          2.2
+        ],
+        "material": "roof",
+        "style": "Small, brown gabled dormer."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -542.345,
+          454.406
+        ],
+        "walls": 4,
+        "rotation": 193,
+        "height": 1.25,
+        "size": [
+          1.6,
+          2.2
+        ],
+        "material": "roof",
+        "style": "Small, brown gabled dormer."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -553.161,
+          455.815
+        ],
+        "walls": 6,
+        "rotation": 180,
+        "height": 1.25,
+        "size": [
+          1.6,
+          2.2
+        ],
+        "material": "roof",
+        "style": "Small, brown gabled dormer."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -547.971,
+          456.088
+        ],
+        "walls": 6,
+        "rotation": 180,
+        "height": 1.25,
+        "size": [
+          1.6,
+          2.2
+        ],
+        "material": "roof",
+        "style": "Small, brown gabled dormer."
+      },
+      {
+        "type": "dormers",
+        "center": [
+          -556.559,
+          455.388
+        ],
+        "walls": 6,
+        "rotation": 180,
+        "height": 1.25,
+        "size": [
+          1.6,
+          2.2
+        ],
+        "material": "roof",
+        "style": "Small, brown gabled dormer."
+      }
+    ]
+  },
+  "notes": "The two roof ridges shift bearing with the bend of the footprint. Dormer positions and masonry colour remain approximate.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "West gable",
+        "footprint": {
+          "clip": [
+            [
+              -598.78,
+              438.97
+            ],
+            [
+              -561.34,
+              424.89
+            ],
+            [
+              -534.94,
+              495.09
+            ],
+            [
+              -572.38,
+              509.17
+            ]
+          ]
+        },
+        "height": 6.4,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "gutter",
+          "ridge": 90,
+          "rise": 4.15,
+          "overhang": 0.31,
+          "features": []
+        }
+      },
+      {
+        "name": "East gable",
+        "footprint": {
+          "clip": [
+            [
+              -561.34,
+              424.89
+            ],
+            [
+              -514.54,
+              407.29
+            ],
+            [
+              -488.14,
+              477.49
+            ],
+            [
+              -534.94,
+              495.09
+            ]
+          ]
+        },
+        "height": 6.4,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "edge": "gutter",
+          "ridge": 103,
+          "rise": 4.15,
+          "overhang": 0.32,
+          "features": []
+        }
+      },
+      {
+        "name": "Drive-facing cross gable",
+        "footprint": [
+          [
+            -554.296,
+            467.052
+          ],
+          [
+            -550.107,
+            466.779
+          ],
+          [
+            -550.545,
+            460.073
+          ],
+          [
+            -554.735,
+            460.346
+          ]
+        ],
+        "height": 6.4,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 1,
+          "rise": 3.28,
+          "edge": "gutter"
+        },
+        "facade": {
+          "windows": {
+            "width": 1.03
+          },
+          "bays": {
+            "width": 3.1
+          }
+        }
+      },
+      {
+        "name": "Drive-facing cross gable",
+        "footprint": [
+          [
+            -545.822,
+            467.747
+          ],
+          [
+            -541.237,
+            468.984
+          ],
+          [
+            -539.513,
+            462.593
+          ],
+          [
+            -544.098,
+            461.355
+          ]
+        ],
+        "height": 6.4,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 14,
+          "rise": 3.28,
+          "edge": "gutter"
+        },
+        "facade": {
+          "windows": {
+            "width": 1.03
+          },
+          "bays": {
+            "width": 3.1
+          }
+        }
+      },
+      {
+        "name": "Drive-facing cross gable",
+        "footprint": [
+          [
+            -537.937,
+            470.186
+          ],
+          [
+            -533.158,
+            471.476
+          ],
+          [
+            -531.356,
+            464.795
+          ],
+          [
+            -536.135,
+            463.505
+          ]
+        ],
+        "height": 6.4,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 14,
+          "rise": 3.28,
+          "edge": "gutter"
+        },
+        "facade": {
+          "windows": {
+            "width": 1.03
+          },
+          "bays": {
+            "width": 3.1
+          }
+        }
+      },
+      {
+        "name": "North cross gable at bend",
+        "footprint": [
+          [
+            -554.106,
+            451.825
+          ],
+          [
+            -558.274,
+            451.485
+          ],
+          [
+            -558.993,
+            460.256
+          ],
+          [
+            -554.825,
+            460.596
+          ]
+        ],
+        "height": 6.4,
+        "floors": 2,
+        "roof": {
+          "form": "gable",
+          "material": "roof",
+          "ridge": 5,
+          "rise": 3.6,
+          "edge": "gutter"
+        }
+      },
+      {
+        "name": "Lower north roof return",
+        "footprint": [
+          [
+            -528.131,
+            454.695
+          ],
+          [
+            -532.228,
+            453.501
+          ],
+          [
+            -532.77,
+            455.363
+          ],
+          [
+            -528.674,
+            456.557
+          ]
+        ],
+        "height": 5.85,
+        "floors": 2,
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "fascia"
+        },
+        "facade": {
+          "windows": {
+            "type": "none"
+          }
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.32,
+      "type": "doors-single",
+      "width": 1.02,
+      "height": 2.2,
+      "canopy": {
+        "type": "portico",
+        "depth": 0.95,
+        "width": 2.4,
+        "material": "trim",
+        "columns": 2
+      },
+      "recess": 0.28
+    },
+    {
+      "wall": 2,
+      "position": 0.55,
+      "type": "doors-single",
+      "width": 1.02,
+      "height": 2.2,
+      "canopy": {
+        "type": "portico",
+        "depth": 0.95,
+        "width": 2.3,
+        "material": "trim",
+        "columns": 2
+      },
+      "recess": 0.28
+    }
+  ]
+}

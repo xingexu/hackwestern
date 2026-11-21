@@ -1,0 +1,114 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w778714476",
+  "name": "Western Interdisciplinary Research Building utility-yard enclosure",
+  "status": "refined",
+  "confidence": 0.61,
+  "summary": "Long narrow single-storey white-roofed enclosure at the edge of a paved yard near aerial-visible equipment. No clear ground view establishes wall finish or function.",
+  "style": "industrial-utility",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#bfc5be",
+      "secondaryColor": "#9ca39f",
+      "unitSize": [
+        1.2,
+        2.4
+      ]
+    },
+    "roof": {
+      "kind": "metal-panel",
+      "color": "#e3e3d7",
+      "secondaryColor": "#bdc1b3",
+      "unitSize": [
+        3.65,
+        4.35
+      ],
+      "weathering": 0.2
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#bbc1bc"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.65
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Northeast yard enclosure",
+        "height": 3.7,
+        "floors": 1,
+        "footprint": [
+          [
+            442.42,
+            -115.56
+          ],
+          [
+            445.37,
+            -118.88
+          ],
+          [
+            455.6373,
+            -109.6704
+          ],
+          [
+            455.67,
+            -109.0769
+          ],
+          [
+            453.27,
+            -106.3931
+          ],
+          [
+            452.6773,
+            -106.3604
+          ]
+        ]
+      }
+    ]
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "material": "wall",
+      "base": {
+        "height": 0.25,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.09,
+        "depth": 0.07,
+        "material": "trim"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "fascia",
+    "overhang": 0.12
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "The southeast end has clipped corners. Across the 14 m roof, a few straight transverse seams and light staining interrupt a pale surface sampled at #dde3d9. Two freestanding units lie southwest of this footprint."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 3.68 m, P90 3.73 m and maximum 3.75 m support one level with a flat top."
+    },
+    {
+      "kind": "osm",
+      "note": "Mapped as building=yes. No public label or street image establishes the exact function."
+    }
+  ],
+  "notes": "Wall cladding is inferred from the roof and the adjoining equipment yard. The long white enclosure, the two freestanding units and the L-shaped screen are separate objects."
+}

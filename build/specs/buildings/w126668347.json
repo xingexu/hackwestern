@@ -1,0 +1,5504 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668347",
+  "name": "Saugeen Maitland Hall (Residence)",
+  "status": "refined",
+  "confidence": 0.88,
+  "summary": "A T-shaped residence of three slab wings with vertical strips of small windows, pairing two 37–38 m eastern arms with a 32 m perpendicular arm over a communal podium of brick infill framed by deep concrete portals.",
+  "style": "brutalist",
+  "materials": {
+    "wall": {
+      "kind": "brick",
+      "color": "#c39a79",
+      "secondaryColor": "#b9a38a",
+      "unitSize": [
+        0.203,
+        0.067
+      ],
+      "bond": "running",
+      "variation": 0.13,
+      "roughness": 0.85
+    },
+    "base": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#948e80",
+      "unitSize": [
+        2.2,
+        1.1
+      ],
+      "roughness": 0.82
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#b1aa98",
+      "secondaryColor": "#9c978c",
+      "unitSize": [
+        2.4,
+        0.45
+      ],
+      "roughness": 0.86
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#a7aa9b",
+      "variation": 0.05,
+      "weathering": 0.12,
+      "roughness": 0.84
+    },
+    "glass": {
+      "kind": "spandrel-glass",
+      "color": "#566168"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#585959",
+      "metalness": 0.46,
+      "roughness": 0.52
+    },
+    "towerBrick": {
+      "kind": "brick",
+      "color": "#b28a70",
+      "secondaryColor": "#aa826b",
+      "unitSize": [
+        0.203,
+        0.067
+      ],
+      "bond": "running",
+      "variation": 0.1,
+      "roughness": 0.85
+    },
+    "towerPanels": {
+      "kind": "precast-panel",
+      "color": "#a59482",
+      "secondaryColor": "#a29585",
+      "unitSize": [
+        1.1,
+        2.95
+      ]
+    },
+    "roofPlant": {
+      "kind": "metal-panel",
+      "color": "#a09e96",
+      "secondaryColor": "#a8aba2",
+      "unitSize": [
+        1.07,
+        3.4
+      ],
+      "surface": "vertical ribbed metal"
+    },
+    "louvre": {
+      "kind": "metal-panel",
+      "color": "#565b54",
+      "secondaryColor": "#383e3c",
+      "unitSize": [
+        2.1,
+        0.095
+      ]
+    },
+    "ballast": {
+      "kind": "gravel-ballast",
+      "color": "#98958a",
+      "secondaryColor": "#847f77",
+      "variation": 0.18,
+      "unitSize": [
+        0.16,
+        0.16
+      ]
+    },
+    "walkpad": {
+      "kind": "membrane",
+      "color": "#6c6b65",
+      "roughness": 0.94
+    }
+  },
+  "floors": {
+    "count": 13,
+    "groundFloorHeight": 3.15,
+    "typicalHeight": 2.84
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 3.3,
+        "pattern": "regular",
+        "edgeMargin": 0.35
+      },
+      "windows": {
+        "type": "punched",
+        "width": 1.02,
+        "height": 1.19,
+        "sill": 0.92,
+        "perBay": 1,
+        "recess": 0.14,
+        "mullions": {
+          "vertical": 0,
+          "horizontal": 1,
+          "width": 0.045
+        },
+        "frameColor": "#d1d1c7",
+        "glass": "reflective",
+        "glassColor": "#788c94",
+        "surround": "none",
+        "sillProjecting": false
+      },
+      "base": {
+        "material": "base",
+        "height": 0.28,
+        "projection": 0.04
+      },
+      "parapet": {
+        "height": 0.28,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 3.22,
+          "count": 9,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 3.39,
+          "count": 8,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 5.37,
+          "count": 8,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "wall",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "base": {
+          "height": 0.62,
+          "projection": 0.18,
+          "material": "base"
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 5.68,
+          "count": 12,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "wall",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "base": {
+          "height": 0.62,
+          "projection": 0.18,
+          "material": "base"
+        }
+      },
+      "7": {
+        "bays": {
+          "width": 5.57,
+          "count": 8,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "wall",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "base": {
+          "height": 0.62,
+          "projection": 0.18,
+          "material": "base"
+        }
+      },
+      "8": {
+        "bays": {
+          "width": 5.83,
+          "count": 4,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        },
+        "material": "wall",
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "base": {
+          "height": 0.62,
+          "projection": 0.18,
+          "material": "base"
+        }
+      },
+      "9": {
+        "bays": {
+          "width": 6.21,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "10": {
+        "bays": {
+          "width": 3.4,
+          "count": 8,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "11": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "12": {
+        "bays": {
+          "width": 3.42,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "13": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "14": {
+        "bays": {
+          "width": 3.25,
+          "count": 9,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "15": {
+        "bays": {
+          "width": 4.01,
+          "count": 2,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "16": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "17": {
+        "bays": {
+          "width": 3.14,
+          "count": 9,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "18": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "19": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "20": {
+        "bays": {
+          "width": 3.57,
+          "count": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.18
+        }
+      },
+      "21": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "22": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "ballast",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          -168.287,
+          -64.469
+        ],
+        "size": [
+          2.9,
+          3.7
+        ],
+        "height": 1.09,
+        "material": "roofPlant",
+        "rotation": -21.6,
+        "style": "low fan cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -152.769,
+          -41.574
+        ],
+        "size": [
+          3.1,
+          3.0
+        ],
+        "height": 1.09,
+        "material": "roofPlant",
+        "rotation": -21.6,
+        "style": "low fan cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -146.754,
+          -9.538
+        ],
+        "size": [
+          2.9,
+          2.15
+        ],
+        "height": 1.09,
+        "material": "roofPlant",
+        "rotation": -21.6,
+        "style": "low fan cabinet"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -209.747,
+          -18.692
+        ],
+        "size": [
+          2.7,
+          2.15
+        ],
+        "height": 1.09,
+        "material": "roofPlant",
+        "rotation": -21.6,
+        "style": "low fan cabinet"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -146.105,
+          -35.608
+        ],
+        "size": [
+          2.05,
+          2.5
+        ],
+        "height": 0.36,
+        "material": "glass",
+        "rotation": -21.6,
+        "style": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "kartaview",
+      "frame": "148668269",
+      "walls": [
+        6,
+        7
+      ],
+      "note": "Deep concrete portals frame blank brick panels on the podium. Two sunlit brick samples #cdaa86 and #cbab85, concrete sample #b1aa98. Narrow punched openings above."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "148668285",
+      "walls": [
+        7
+      ],
+      "note": "Daylit close view of the broad concrete head over the recessed podium panels."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "131414137",
+      "walls": [
+        5
+      ],
+      "note": "Low service wing and a much taller gridded residence behind it."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "102315815",
+      "walls": [
+        0,
+        4
+      ],
+      "note": "Flat-ended tall wings and a common core with wider strips of glazing."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "138541391",
+      "walls": [
+        7,
+        8
+      ],
+      "note": "Glazing and railings at the podium return."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/SMHR.jpg",
+      "note": "Three residential arms meet at the central strip of wider windows."
+    },
+    {
+      "kind": "aerial",
+      "note": "T-shaped upper structure with one slab crossing the podium and two slightly staggered arms running along the eastern edge."
+    },
+    {
+      "kind": "lidar",
+      "note": "P50 20.17 m, P90 38.29 m, maximum 42.8 m above inventory ground. Cross-wing plateau 31–32 m, north and south plateaux 38–39 m and 37 m, central plant to 42.8 m. Large western roof is near 7 m."
+    },
+    {
+      "kind": "aerial",
+      "note": "North and south podium edges have six individually capped frames, west edge nine. The cross slab has stepped end corners. The south tower end has a central rectangular extension, with a smaller projection at the east return."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Communal podium",
+        "footprint": [
+          [
+            -196.279,
+            -62.367
+          ],
+          [
+            -230.262,
+            -48.912
+          ],
+          [
+            -208.341,
+            6.456
+          ],
+          [
+            -174.357,
+            -6.999
+          ],
+          [
+            -179.769,
+            -20.666
+          ],
+          [
+            -174.887,
+            -22.599
+          ],
+          [
+            -182.103,
+            -40.823
+          ],
+          [
+            -186.984,
+            -38.89
+          ]
+        ],
+        "height": 7.15,
+        "floors": 1,
+        "facade": {
+          "blank": true,
+          "material": "wall",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0.46,
+            "projection": 0.1,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0.12,
+            "type": "coped",
+            "material": "trim"
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall"
+          }
+        },
+        "wallProfiles": {
+          "5": {
+            "segments": [],
+            "sections": [
+              {
+                "start": 0.13,
+                "end": 0.19,
+                "base": 1.45,
+                "top": 2.6,
+                "material": "louvre",
+                "horizontalMullions": 5
+              }
+            ]
+          },
+          "6": {
+            "segments": []
+          },
+          "7": {
+            "segments": []
+          },
+          "8": {
+            "segments": []
+          }
+        }
+      },
+      {
+        "name": "West residential slab above podium",
+        "footprint": [
+          [
+            -178.881,
+            -21.14
+          ],
+          [
+            -179.594,
+            -22.94
+          ],
+          [
+            -175.577,
+            -24.531
+          ],
+          [
+            -176.159,
+            -26.0
+          ],
+          [
+            -164.601,
+            -30.576
+          ],
+          [
+            -163.328,
+            -27.359
+          ],
+          [
+            -162.249,
+            -27.786
+          ],
+          [
+            -166.704,
+            -38.928
+          ],
+          [
+            -176.219,
+            -35.172
+          ],
+          [
+            -178.999,
+            -42.191
+          ],
+          [
+            -179.38,
+            -42.04
+          ],
+          [
+            -178.625,
+            -40.134
+          ],
+          [
+            -184.42,
+            -37.819
+          ],
+          [
+            -184.489,
+            -37.995
+          ],
+          [
+            -185.41,
+            -37.631
+          ],
+          [
+            -186.094,
+            -39.358
+          ],
+          [
+            -214.506,
+            -27.995
+          ],
+          [
+            -213.254,
+            -24.832
+          ],
+          [
+            -216.357,
+            -23.603
+          ],
+          [
+            -211.603,
+            -11.719
+          ],
+          [
+            -208.542,
+            -12.931
+          ],
+          [
+            -207.291,
+            -9.772
+          ]
+        ],
+        "height": 31.8,
+        "floors": 9,
+        "baseOffset": 7.15,
+        "facade": {
+          "material": "towerBrick",
+          "windows": {
+            "type": "punched",
+            "width": 1.02,
+            "height": 1.19,
+            "sill": 0.92,
+            "perBay": 1,
+            "recess": 0.14,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.045
+            },
+            "frameColor": "#d1d1c7",
+            "glass": "reflective",
+            "glassColor": "#788c94",
+            "surround": "none",
+            "sillProjecting": false
+          },
+          "bays": {
+            "width": 3.25,
+            "pattern": "regular",
+            "edgeMargin": 0.65
+          },
+          "piers": {
+            "width": 1.71,
+            "depth": 0.235,
+            "material": "towerBrick",
+            "every": 1,
+            "fullHeight": true
+          },
+          "parapet": {
+            "height": 0.27,
+            "type": "coped",
+            "material": "wall"
+          },
+          "verticalSpandrels": {
+            "width": 1.07,
+            "every": 1,
+            "material": "towerBrick"
+          }
+        }
+      },
+      {
+        "name": "North arm of eastern slab",
+        "footprint": {
+          "clip": [
+            [
+              -180.52,
+              -73.47
+            ],
+            [
+              -160.09,
+              -81.64
+            ],
+            [
+              -146.46,
+              -47.56
+            ],
+            [
+              -166.89,
+              -39.39
+            ]
+          ]
+        },
+        "height": 38.45,
+        "floors": 13,
+        "facade": {
+          "material": "towerBrick",
+          "windows": {
+            "type": "punched",
+            "width": 1.02,
+            "height": 1.19,
+            "sill": 0.92,
+            "perBay": 1,
+            "recess": 0.14,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.045
+            },
+            "frameColor": "#d1d1c7",
+            "glass": "reflective",
+            "glassColor": "#788c94",
+            "surround": "none",
+            "sillProjecting": false
+          },
+          "bays": {
+            "width": 3.25,
+            "pattern": "regular",
+            "edgeMargin": 0.65
+          },
+          "piers": {
+            "width": 1.71,
+            "depth": 0.235,
+            "material": "towerBrick",
+            "every": 1,
+            "fullHeight": true
+          },
+          "parapet": {
+            "height": 0.27,
+            "type": "coped",
+            "material": "wall"
+          },
+          "verticalSpandrels": {
+            "width": 1.07,
+            "every": 1,
+            "material": "towerBrick"
+          }
+        }
+      },
+      {
+        "name": "Central lift and lounge core",
+        "footprint": {
+          "clip": [
+            [
+              -176.17,
+              -35.68
+            ],
+            [
+              -146.46,
+              -47.56
+            ],
+            [
+              -143.12,
+              -39.21
+            ],
+            [
+              -172.83,
+              -27.32
+            ]
+          ]
+        },
+        "height": 38.1,
+        "floors": 13,
+        "facade": {
+          "material": "towerBrick",
+          "windows": {
+            "type": "punched",
+            "width": 2.35,
+            "height": 1.65,
+            "sill": 0.7,
+            "perBay": 1,
+            "recess": 0.12,
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 1,
+              "width": 0.045
+            },
+            "frameColor": "#d1d1c7",
+            "glass": "reflective",
+            "glassColor": "#788c94",
+            "surround": "none",
+            "sillProjecting": false
+          },
+          "bays": {
+            "width": 3.25,
+            "pattern": "regular",
+            "edgeMargin": 0.65
+          },
+          "piers": {
+            "width": 0.33,
+            "depth": 0.22,
+            "material": "wall",
+            "every": 1,
+            "fullHeight": true
+          },
+          "parapet": {
+            "height": 0.27,
+            "type": "coped",
+            "material": "wall"
+          }
+        },
+        "wallProfiles": {
+          "2": {
+            "blank": true,
+            "windows": {
+              "type": "none"
+            }
+          },
+          "15": {
+            "windows": {
+              "type": "ribbon",
+              "width": 3.1,
+              "height": 1.68,
+              "perBay": 1
+            }
+          },
+          "1": {
+            "blank": true,
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            },
+            "bands": [],
+            "piers": {
+              "every": 0
+            }
+          },
+          "9": {
+            "windows": {
+              "type": "ribbon",
+              "width": 2.9,
+              "height": 1.62
+            }
+          },
+          "-1": {
+            "blank": true,
+            "windows": {
+              "type": "none"
+            }
+          }
+        }
+      },
+      {
+        "name": "South arm of eastern slab",
+        "footprint": [
+          [
+            -141.502,
+            -35.118
+          ],
+          [
+            -143.085,
+            -39.116
+          ],
+          [
+            -146.246,
+            -37.865
+          ],
+          [
+            -146.338,
+            -38.097
+          ],
+          [
+            -164.515,
+            -30.9
+          ],
+          [
+            -154.391,
+            -5.331
+          ],
+          [
+            -151.184,
+            -6.601
+          ],
+          [
+            -149.877,
+            -3.301
+          ],
+          [
+            -138.115,
+            -7.958
+          ],
+          [
+            -139.422,
+            -11.258
+          ],
+          [
+            -136.214,
+            -12.528
+          ],
+          [
+            -144.663,
+            -33.867
+          ]
+        ],
+        "height": 37.05,
+        "floors": 13,
+        "facade": {
+          "material": "towerBrick",
+          "windows": {
+            "type": "punched",
+            "width": 1.02,
+            "height": 1.19,
+            "sill": 0.92,
+            "perBay": 1,
+            "recess": 0.14,
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 1,
+              "width": 0.045
+            },
+            "frameColor": "#d1d1c7",
+            "glass": "reflective",
+            "glassColor": "#788c94",
+            "surround": "none",
+            "sillProjecting": false
+          },
+          "bays": {
+            "width": 3.25,
+            "pattern": "regular",
+            "edgeMargin": 0.65
+          },
+          "piers": {
+            "width": 1.71,
+            "depth": 0.235,
+            "material": "towerBrick",
+            "every": 1,
+            "fullHeight": true
+          },
+          "parapet": {
+            "height": 0.27,
+            "type": "coped",
+            "material": "wall"
+          },
+          "verticalSpandrels": {
+            "width": 1.07,
+            "every": 1,
+            "material": "towerBrick"
+          }
+        }
+      },
+      {
+        "name": "Recessed north lounge balconies",
+        "footprint": [
+          [
+            -184.757,
+            -38.674
+          ],
+          [
+            -178.964,
+            -40.99
+          ],
+          [
+            -178.622,
+            -40.136
+          ],
+          [
+            -184.416,
+            -37.819
+          ]
+        ],
+        "height": 31.8,
+        "baseOffset": 3.45,
+        "floors": 6,
+        "material": "towerBrick",
+        "facade": {
+          "material": "towerBrick",
+          "windows": {
+            "type": "storefront",
+            "width": 5.45,
+            "height": 2.94,
+            "sill": 0.15,
+            "recess": 0.16,
+            "glassColor": "#627473",
+            "frameColor": "#a9aaa2",
+            "mullions": {
+              "vertical": 3,
+              "horizontal": 1
+            }
+          },
+          "bays": {
+            "count": 1,
+            "edgeMargin": 0.06
+          },
+          "piers": {
+            "width": 0.06,
+            "depth": 0.06
+          },
+          "parapet": {
+            "height": 0.63,
+            "type": "coped",
+            "material": "towerPanels"
+          },
+          "verticalSpandrels": {
+            "every": 1,
+            "width": 0.03,
+            "material": "towerBrick"
+          },
+          "balconies": {
+            "bayPattern": [
+              1
+            ],
+            "floors": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "depth": 1.3,
+            "rail": "metal",
+            "endPanels": true
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -232.562,
+            -49.83
+          ],
+          [
+            -226.861,
+            -52.087
+          ],
+          [
+            -226.113,
+            -50.2
+          ],
+          [
+            -231.815,
+            -47.942
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -227.211,
+            -51.884
+          ],
+          [
+            -226.857,
+            -52.024
+          ],
+          [
+            -226.22,
+            -50.415
+          ],
+          [
+            -226.574,
+            -50.276
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -225.912,
+            -52.463
+          ],
+          [
+            -220.686,
+            -54.532
+          ],
+          [
+            -219.938,
+            -52.645
+          ],
+          [
+            -225.165,
+            -50.575
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -225.872,
+            -52.414
+          ],
+          [
+            -225.518,
+            -52.554
+          ],
+          [
+            -224.882,
+            -50.945
+          ],
+          [
+            -225.235,
+            -50.806
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -221.035,
+            -54.329
+          ],
+          [
+            -220.682,
+            -54.469
+          ],
+          [
+            -220.045,
+            -52.86
+          ],
+          [
+            -220.398,
+            -52.72
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -219.737,
+            -54.908
+          ],
+          [
+            -214.51,
+            -56.977
+          ],
+          [
+            -213.763,
+            -55.09
+          ],
+          [
+            -218.99,
+            -53.02
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -219.696,
+            -54.859
+          ],
+          [
+            -219.343,
+            -54.999
+          ],
+          [
+            -218.706,
+            -53.39
+          ],
+          [
+            -219.06,
+            -53.251
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -214.86,
+            -56.774
+          ],
+          [
+            -214.507,
+            -56.914
+          ],
+          [
+            -213.87,
+            -55.305
+          ],
+          [
+            -214.223,
+            -55.165
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -213.562,
+            -57.352
+          ],
+          [
+            -208.335,
+            -59.422
+          ],
+          [
+            -207.588,
+            -57.534
+          ],
+          [
+            -212.815,
+            -55.465
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -213.521,
+            -57.304
+          ],
+          [
+            -213.168,
+            -57.444
+          ],
+          [
+            -212.531,
+            -55.835
+          ],
+          [
+            -212.884,
+            -55.696
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -208.685,
+            -59.219
+          ],
+          [
+            -208.331,
+            -59.359
+          ],
+          [
+            -207.695,
+            -57.75
+          ],
+          [
+            -208.048,
+            -57.61
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -207.387,
+            -59.797
+          ],
+          [
+            -202.16,
+            -61.867
+          ],
+          [
+            -201.412,
+            -59.979
+          ],
+          [
+            -206.639,
+            -57.91
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -207.346,
+            -59.749
+          ],
+          [
+            -206.993,
+            -59.889
+          ],
+          [
+            -206.356,
+            -58.28
+          ],
+          [
+            -206.709,
+            -58.14
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -202.51,
+            -61.664
+          ],
+          [
+            -202.156,
+            -61.804
+          ],
+          [
+            -201.519,
+            -60.195
+          ],
+          [
+            -201.873,
+            -60.055
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -201.211,
+            -62.242
+          ],
+          [
+            -195.51,
+            -64.5
+          ],
+          [
+            -194.763,
+            -62.612
+          ],
+          [
+            -200.464,
+            -60.355
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -201.171,
+            -62.194
+          ],
+          [
+            -200.817,
+            -62.334
+          ],
+          [
+            -200.18,
+            -60.725
+          ],
+          [
+            -200.534,
+            -60.585
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -195.86,
+            -64.297
+          ],
+          [
+            -195.507,
+            -64.436
+          ],
+          [
+            -194.87,
+            -62.828
+          ],
+          [
+            -195.223,
+            -62.688
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -230.177,
+            -43.806
+          ],
+          [
+            -228.289,
+            -44.553
+          ],
+          [
+            -229.927,
+            -48.69
+          ],
+          [
+            -231.815,
+            -47.942
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -230.268,
+            -44.2
+          ],
+          [
+            -230.128,
+            -43.847
+          ],
+          [
+            -228.52,
+            -44.483
+          ],
+          [
+            -228.66,
+            -44.837
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -229.801,
+            -42.858
+          ],
+          [
+            -227.604,
+            -37.308
+          ],
+          [
+            -225.717,
+            -38.055
+          ],
+          [
+            -227.914,
+            -43.605
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -229.738,
+            -42.861
+          ],
+          [
+            -229.598,
+            -42.508
+          ],
+          [
+            -227.99,
+            -43.145
+          ],
+          [
+            -228.13,
+            -43.498
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -227.695,
+            -37.702
+          ],
+          [
+            -227.556,
+            -37.349
+          ],
+          [
+            -225.947,
+            -37.985
+          ],
+          [
+            -226.087,
+            -38.339
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -227.229,
+            -36.359
+          ],
+          [
+            -225.031,
+            -30.81
+          ],
+          [
+            -223.144,
+            -31.557
+          ],
+          [
+            -225.341,
+            -37.107
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -227.165,
+            -36.363
+          ],
+          [
+            -227.026,
+            -36.01
+          ],
+          [
+            -225.417,
+            -36.646
+          ],
+          [
+            -225.557,
+            -37.0
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -225.123,
+            -31.204
+          ],
+          [
+            -224.983,
+            -30.85
+          ],
+          [
+            -223.374,
+            -31.487
+          ],
+          [
+            -223.514,
+            -31.841
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -224.656,
+            -29.861
+          ],
+          [
+            -222.458,
+            -24.312
+          ],
+          [
+            -220.571,
+            -25.059
+          ],
+          [
+            -222.768,
+            -30.609
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -224.593,
+            -29.865
+          ],
+          [
+            -224.453,
+            -29.512
+          ],
+          [
+            -222.844,
+            -30.148
+          ],
+          [
+            -222.984,
+            -30.502
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -222.55,
+            -24.706
+          ],
+          [
+            -222.41,
+            -24.352
+          ],
+          [
+            -220.802,
+            -24.989
+          ],
+          [
+            -220.941,
+            -25.342
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -222.083,
+            -23.363
+          ],
+          [
+            -219.886,
+            -17.814
+          ],
+          [
+            -217.998,
+            -18.561
+          ],
+          [
+            -220.196,
+            -24.111
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -222.02,
+            -23.367
+          ],
+          [
+            -221.88,
+            -23.013
+          ],
+          [
+            -220.271,
+            -23.65
+          ],
+          [
+            -220.411,
+            -24.004
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -219.977,
+            -18.208
+          ],
+          [
+            -219.837,
+            -17.854
+          ],
+          [
+            -218.229,
+            -18.491
+          ],
+          [
+            -218.369,
+            -18.844
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -219.51,
+            -16.865
+          ],
+          [
+            -217.313,
+            -11.315
+          ],
+          [
+            -215.425,
+            -12.063
+          ],
+          [
+            -217.623,
+            -17.612
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -219.447,
+            -16.869
+          ],
+          [
+            -219.307,
+            -16.515
+          ],
+          [
+            -217.699,
+            -17.152
+          ],
+          [
+            -217.839,
+            -17.505
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -217.404,
+            -11.709
+          ],
+          [
+            -217.264,
+            -11.356
+          ],
+          [
+            -215.656,
+            -11.993
+          ],
+          [
+            -215.796,
+            -12.346
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -216.937,
+            -10.367
+          ],
+          [
+            -214.74,
+            -4.817
+          ],
+          [
+            -212.853,
+            -5.565
+          ],
+          [
+            -215.05,
+            -11.114
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -216.874,
+            -10.371
+          ],
+          [
+            -216.734,
+            -10.017
+          ],
+          [
+            -215.126,
+            -10.654
+          ],
+          [
+            -215.266,
+            -11.007
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -214.832,
+            -5.211
+          ],
+          [
+            -214.692,
+            -4.858
+          ],
+          [
+            -213.083,
+            -5.495
+          ],
+          [
+            -213.223,
+            -5.848
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -214.365,
+            -3.869
+          ],
+          [
+            -212.167,
+            1.681
+          ],
+          [
+            -210.28,
+            0.934
+          ],
+          [
+            -212.477,
+            -4.616
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -214.301,
+            -3.872
+          ],
+          [
+            -214.162,
+            -3.519
+          ],
+          [
+            -212.553,
+            -4.156
+          ],
+          [
+            -212.693,
+            -4.509
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -212.259,
+            1.287
+          ],
+          [
+            -212.119,
+            1.64
+          ],
+          [
+            -210.51,
+            1.003
+          ],
+          [
+            -210.65,
+            0.65
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -211.792,
+            2.629
+          ],
+          [
+            -209.407,
+            8.653
+          ],
+          [
+            -207.519,
+            7.906
+          ],
+          [
+            -209.904,
+            1.882
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -211.729,
+            2.626
+          ],
+          [
+            -211.589,
+            2.979
+          ],
+          [
+            -209.98,
+            2.342
+          ],
+          [
+            -210.12,
+            1.989
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -203.706,
+            6.396
+          ],
+          [
+            -204.453,
+            4.508
+          ],
+          [
+            -208.266,
+            6.018
+          ],
+          [
+            -207.519,
+            7.906
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -204.1,
+            6.487
+          ],
+          [
+            -203.746,
+            6.347
+          ],
+          [
+            -204.383,
+            4.739
+          ],
+          [
+            -204.737,
+            4.879
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -202.757,
+            6.02
+          ],
+          [
+            -197.53,
+            3.951
+          ],
+          [
+            -198.278,
+            2.063
+          ],
+          [
+            -203.505,
+            4.133
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -202.761,
+            5.957
+          ],
+          [
+            -202.408,
+            5.817
+          ],
+          [
+            -203.044,
+            4.209
+          ],
+          [
+            -203.398,
+            4.349
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -197.924,
+            4.042
+          ],
+          [
+            -197.571,
+            3.902
+          ],
+          [
+            -198.208,
+            2.294
+          ],
+          [
+            -198.561,
+            2.434
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -196.582,
+            3.575
+          ],
+          [
+            -191.355,
+            1.506
+          ],
+          [
+            -192.102,
+            -0.381
+          ],
+          [
+            -197.329,
+            1.688
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -196.586,
+            3.512
+          ],
+          [
+            -196.232,
+            3.372
+          ],
+          [
+            -196.869,
+            1.764
+          ],
+          [
+            -197.222,
+            1.904
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -191.749,
+            1.597
+          ],
+          [
+            -191.396,
+            1.458
+          ],
+          [
+            -192.033,
+            -0.151
+          ],
+          [
+            -192.386,
+            -0.011
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -190.407,
+            1.13
+          ],
+          [
+            -185.18,
+            -0.939
+          ],
+          [
+            -185.927,
+            -2.826
+          ],
+          [
+            -191.154,
+            -0.757
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -190.41,
+            1.067
+          ],
+          [
+            -190.057,
+            0.927
+          ],
+          [
+            -190.694,
+            -0.681
+          ],
+          [
+            -191.047,
+            -0.541
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -185.574,
+            -0.848
+          ],
+          [
+            -185.221,
+            -0.987
+          ],
+          [
+            -185.857,
+            -2.596
+          ],
+          [
+            -186.211,
+            -2.456
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -184.232,
+            -1.314
+          ],
+          [
+            -179.005,
+            -3.384
+          ],
+          [
+            -179.752,
+            -5.271
+          ],
+          [
+            -184.979,
+            -3.202
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -184.235,
+            -1.378
+          ],
+          [
+            -183.882,
+            -1.518
+          ],
+          [
+            -184.519,
+            -3.126
+          ],
+          [
+            -184.872,
+            -2.986
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -179.399,
+            -3.292
+          ],
+          [
+            -179.045,
+            -3.432
+          ],
+          [
+            -179.682,
+            -5.041
+          ],
+          [
+            -180.036,
+            -4.901
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -178.056,
+            -3.759
+          ],
+          [
+            -172.355,
+            -6.017
+          ],
+          [
+            -173.103,
+            -7.904
+          ],
+          [
+            -178.804,
+            -5.647
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -178.06,
+            -3.823
+          ],
+          [
+            -177.706,
+            -3.962
+          ],
+          [
+            -178.343,
+            -5.571
+          ],
+          [
+            -178.697,
+            -5.431
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -172.749,
+            -5.925
+          ],
+          [
+            -172.396,
+            -6.065
+          ],
+          [
+            -173.033,
+            -7.674
+          ],
+          [
+            -173.386,
+            -7.534
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -172.355,
+            -6.017
+          ],
+          [
+            -174.18,
+            -10.625
+          ],
+          [
+            -176.067,
+            -9.878
+          ],
+          [
+            -174.243,
+            -5.269
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -172.418,
+            -6.013
+          ],
+          [
+            -172.558,
+            -6.366
+          ],
+          [
+            -174.167,
+            -5.73
+          ],
+          [
+            -174.027,
+            -5.376
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -174.088,
+            -10.231
+          ],
+          [
+            -174.228,
+            -10.585
+          ],
+          [
+            -175.837,
+            -9.948
+          ],
+          [
+            -175.697,
+            -9.594
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -174.555,
+            -11.574
+          ],
+          [
+            -176.192,
+            -15.708
+          ],
+          [
+            -178.08,
+            -14.961
+          ],
+          [
+            -176.443,
+            -10.826
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -174.619,
+            -11.57
+          ],
+          [
+            -174.758,
+            -11.923
+          ],
+          [
+            -176.367,
+            -11.287
+          ],
+          [
+            -176.227,
+            -10.933
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -176.101,
+            -15.314
+          ],
+          [
+            -176.241,
+            -15.667
+          ],
+          [
+            -177.849,
+            -15.03
+          ],
+          [
+            -177.709,
+            -14.677
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Individual precast portal head",
+        "footprint": [
+          [
+            -176.568,
+            -16.656
+          ],
+          [
+            -178.392,
+            -21.265
+          ],
+          [
+            -180.28,
+            -20.518
+          ],
+          [
+            -178.455,
+            -15.909
+          ]
+        ],
+        "baseOffset": 5.96,
+        "height": 7.24,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -176.631,
+            -16.653
+          ],
+          [
+            -176.771,
+            -17.006
+          ],
+          [
+            -178.379,
+            -16.369
+          ],
+          [
+            -178.239,
+            -16.016
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Precast portal leg",
+        "footprint": [
+          [
+            -178.301,
+            -20.871
+          ],
+          [
+            -178.441,
+            -21.224
+          ],
+          [
+            -180.049,
+            -20.587
+          ],
+          [
+            -179.91,
+            -20.234
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 5.97,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "material": "trim",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "trim"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "trim"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "trim",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Glazed access below the recessed lounges",
+        "footprint": [
+          [
+            -184.757,
+            -38.674
+          ],
+          [
+            -178.964,
+            -40.99
+          ],
+          [
+            -178.622,
+            -40.136
+          ],
+          [
+            -184.416,
+            -37.819
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 3.45,
+        "floors": 1,
+        "material": "glass",
+        "facade": {
+          "material": "glass",
+          "windows": {
+            "type": "curtain-wall",
+            "width": 5.3,
+            "height": 3.15,
+            "perBay": 1
+          },
+          "bays": {
+            "count": 1
+          },
+          "parapet": {
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Lift plant over the tower intersection",
+        "footprint": [
+          [
+            -153.482,
+            -44.652
+          ],
+          [
+            -150.214,
+            -36.481
+          ],
+          [
+            -165.998,
+            -30.168
+          ],
+          [
+            -169.266,
+            -38.339
+          ]
+        ],
+        "baseOffset": 38.45,
+        "height": 42.8,
+        "floors": 1,
+        "material": "roofPlant",
+        "facade": {
+          "blank": true,
+          "material": "roofPlant",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "roofPlant"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "roofPlant"
+          },
+          "topFloor": {
+            "material": "roofPlant"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "ballast",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Roof maintenance walk pads",
+        "footprint": [
+          [
+            -167.744,
+            -65.759
+          ],
+          [
+            -166.963,
+            -66.069
+          ],
+          [
+            -158.312,
+            -44.219
+          ],
+          [
+            -159.093,
+            -43.91
+          ]
+        ],
+        "baseOffset": 38.45,
+        "height": 38.505,
+        "floors": 1,
+        "material": "walkpad",
+        "facade": {
+          "blank": true,
+          "material": "walkpad",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "walkpad"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "walkpad"
+          },
+          "topFloor": {
+            "material": "walkpad"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "walkpad",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Roof maintenance walk pads",
+        "footprint": [
+          [
+            -149.92,
+            -33.237
+          ],
+          [
+            -149.139,
+            -33.546
+          ],
+          [
+            -140.672,
+            -12.161
+          ],
+          [
+            -141.453,
+            -11.852
+          ]
+        ],
+        "baseOffset": 37.05,
+        "height": 37.105,
+        "floors": 1,
+        "material": "walkpad",
+        "facade": {
+          "blank": true,
+          "material": "walkpad",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "walkpad"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "walkpad"
+          },
+          "topFloor": {
+            "material": "walkpad"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "walkpad",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Concrete curb under north-west corner bay",
+        "footprint": [
+          [
+            -232.929,
+            -49.996
+          ],
+          [
+            -226.876,
+            -52.393
+          ],
+          [
+            -226.018,
+            -50.227
+          ],
+          [
+            -229.877,
+            -48.699
+          ],
+          [
+            -228.239,
+            -44.561
+          ],
+          [
+            -230.433,
+            -43.693
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.23,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "topFloor": {
+            "material": "base"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      },
+      {
+        "name": "Concrete curb at south-west corner",
+        "footprint": [
+          [
+            -212.078,
+            2.666
+          ],
+          [
+            -209.884,
+            1.797
+          ],
+          [
+            -208.224,
+            5.991
+          ],
+          [
+            -204.412,
+            4.481
+          ],
+          [
+            -203.561,
+            6.629
+          ],
+          [
+            -209.568,
+            9.007
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 0.23,
+        "floors": 1,
+        "material": "base",
+        "facade": {
+          "blank": true,
+          "material": "base",
+          "windows": {
+            "type": "none"
+          },
+          "base": {
+            "height": 0,
+            "material": "base"
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "parapet": {
+            "height": 0
+          },
+          "bands": [],
+          "piers": {
+            "width": 0.001,
+            "depth": 0.001
+          },
+          "groundFloor": {
+            "material": "base"
+          },
+          "topFloor": {
+            "material": "base"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "base",
+          "edge": "none"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 8,
+      "position": 0.74,
+      "type": "glass-vestibule",
+      "width": 4.6,
+      "height": 3.4,
+      "recess": 1.1,
+      "ramp": true
+    },
+    {
+      "wall": 5,
+      "position": 0.24,
+      "type": "service-door",
+      "width": 2.05,
+      "height": 2.25,
+      "recess": 0.2
+    },
+    {
+      "wall": 1,
+      "at": [
+        -182.053,
+        -39.745
+      ],
+      "position": 0.57,
+      "type": "glass-vestibule",
+      "width": 2.15,
+      "height": 2.57,
+      "recess": 0.3
+    }
+  ],
+  "attachments": [
+    {
+      "type": "ramp",
+      "walls": 8,
+      "path": [
+        [
+          -167.15,
+          -7.73
+        ],
+        [
+          -173.09,
+          -22.59
+        ]
+      ],
+      "width": 1.8,
+      "height": 0.83,
+      "material": "base"
+    }
+  ],
+  "notes": "The three wings have small differences in floor level. The bedroom windows sit in narrow vertical reveals, with spandrel panels below some openings. Bike shelters are separate footprints c2441 and c2465. The south tower has a square end above the lower outline. Glazing and balcony depth in the sheltered junction are approximate."
+}

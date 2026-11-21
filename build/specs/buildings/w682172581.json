@@ -1,0 +1,1231 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w682172581",
+  "name": "Health Sciences Addition",
+  "status": "refined",
+  "confidence": 0.76,
+  "summary": "Health Sciences Addition is a tall concrete corner block with recessed horizontal window ribbons between paired vertical cores above a broad low connecting wing.",
+  "style": "brutalist",
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#b5ab9c",
+      "secondaryColor": "#a99f91",
+      "unitSize": [
+        3.4,
+        4.2
+      ],
+      "variation": 0.03,
+      "roughness": 0.83
+    },
+    "roof": {
+      "kind": "gravel-ballast",
+      "color": "#908e7c"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3b39d"
+    },
+    "plant": {
+      "kind": "painted-metal",
+      "color": "#a3a6a3"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#454c4c"
+    },
+    "glazing": {
+      "kind": "glass-curtain",
+      "color": "#4e797b"
+    },
+    "louvres": {
+      "kind": "corrugated-metal",
+      "color": "#63594e",
+      "secondaryColor": "#504a43",
+      "unitSize": [
+        1.35,
+        0.14
+      ],
+      "roughness": 0.78
+    },
+    "upperRoof": {
+      "kind": "gravel-ballast",
+      "color": "#626055"
+    },
+    "terracePavers": {
+      "kind": "precast-panel",
+      "color": "#b3a094",
+      "unitSize": [
+        0.6,
+        0.6
+      ]
+    },
+    "rimRoof": {
+      "kind": "gravel-ballast",
+      "color": "#77796d"
+    }
+  },
+  "floors": {
+    "count": 6,
+    "groundFloorHeight": 4.8,
+    "typicalHeight": 4.2
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "base": {
+        "height": 0.55,
+        "material": "trim",
+        "projection": 0.045
+      },
+      "bays": {
+        "width": 3.38,
+        "pattern": "regular",
+        "edgeMargin": 0.25
+      },
+      "windows": {
+        "type": "ribbon",
+        "width": 3.26,
+        "height": 1.55,
+        "sill": 1.02,
+        "perBay": 1,
+        "recess": 0.5,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 0,
+          "width": 0.055
+        },
+        "frameColor": "#777065",
+        "glass": "tinted",
+        "surround": "none",
+        "glassColor": "#4a4841"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.45,
+        "material": "wall"
+      },
+      "bands": [
+        {
+          "at": "floor-lines",
+          "height": 1.76,
+          "depth": 0.33,
+          "material": "trim"
+        }
+      ],
+      "topFloor": {
+        "windows": {
+          "type": "slot",
+          "width": 2.8,
+          "height": 1.85,
+          "sill": 0.9,
+          "perBay": 1,
+          "recess": 0.16,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0
+          },
+          "frameColor": "#8f918d",
+          "glass": "tinted",
+          "surround": "none"
+        },
+        "material": "wall"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 3.85,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "1": {
+        "bays": {
+          "width": 3.92,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "2": {
+        "bays": {
+          "width": 3.5,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 3
+        }
+      },
+      "3": {
+        "bays": {
+          "width": 3.99,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "4": {
+        "bays": {
+          "width": 3.74,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "5": {
+        "bays": {
+          "width": 3.41,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 12
+        }
+      },
+      "6": {
+        "bays": {
+          "width": 3.58,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 3
+        }
+      },
+      "7": {
+        "groundFloor": {
+          "windows": {
+            "type": "curtain-wall",
+            "width": 3.1,
+            "height": 3.4,
+            "sill": 0.22,
+            "perBay": 1,
+            "recess": 0.16,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.055
+            },
+            "frameColor": "#8f918d",
+            "glass": "tinted",
+            "surround": "none"
+          }
+        },
+        "bays": {
+          "width": 3.46,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 4
+        }
+      },
+      "8": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "9": {
+        "groundFloor": {
+          "windows": {
+            "type": "curtain-wall",
+            "width": 3.1,
+            "height": 3.4,
+            "sill": 0.22,
+            "perBay": 1,
+            "recess": 0.16,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.055
+            },
+            "frameColor": "#8f918d",
+            "glass": "tinted",
+            "surround": "none"
+          }
+        },
+        "bays": {
+          "width": 3.59,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "10": {
+        "groundFloor": {
+          "windows": {
+            "type": "curtain-wall",
+            "width": 3.1,
+            "height": 3.4,
+            "sill": 0.22,
+            "perBay": 1,
+            "recess": 0.16,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.055
+            },
+            "frameColor": "#8f918d",
+            "glass": "tinted",
+            "surround": "none"
+          }
+        },
+        "bays": {
+          "width": 3.06,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "11": {
+        "groundFloor": {
+          "windows": {
+            "type": "curtain-wall",
+            "width": 3.1,
+            "height": 3.4,
+            "sill": 0.22,
+            "perBay": 1,
+            "recess": 0.16,
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 2,
+              "width": 0.055
+            },
+            "frameColor": "#8f918d",
+            "glass": "tinted",
+            "surround": "none"
+          }
+        },
+        "bays": {
+          "width": 3.49,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 1
+        }
+      },
+      "12": {
+        "windows": {
+          "type": "ribbon",
+          "width": 3.35,
+          "height": 1.55,
+          "sill": 1.02,
+          "perBay": 1,
+          "recess": 0.52,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 0
+          },
+          "frameColor": "#8f918d",
+          "glass": "tinted",
+          "surround": "none"
+        },
+        "bays": {
+          "width": 3.18,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 3
+        },
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 1.76,
+            "depth": 0.33,
+            "material": "trim"
+          }
+        ]
+      },
+      "13": {
+        "windows": {
+          "type": "ribbon",
+          "width": 3.35,
+          "height": 1.55,
+          "sill": 1.02,
+          "perBay": 1,
+          "recess": 0.52,
+          "mullions": {
+            "vertical": 1,
+            "horizontal": 0
+          },
+          "frameColor": "#8f918d",
+          "glass": "tinted",
+          "surround": "none"
+        },
+        "bays": {
+          "width": 3,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        },
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 1.76,
+            "depth": 0.33,
+            "material": "trim"
+          }
+        ]
+      },
+      "14": {
+        "windows": {
+          "type": "ribbon",
+          "width": 3.35,
+          "height": 1.55,
+          "sill": 1.02,
+          "perBay": 1,
+          "recess": 0.52,
+          "mullions": {
+            "vertical": 2,
+            "horizontal": 0
+          },
+          "frameColor": "#8f918d",
+          "glass": "tinted",
+          "surround": "none"
+        },
+        "bays": {
+          "width": 3.22,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 7
+        },
+        "bands": [
+          {
+            "at": "floor-lines",
+            "height": 1.76,
+            "depth": 0.33,
+            "material": "trim"
+          }
+        ]
+      },
+      "15": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "16": {
+        "bays": {
+          "width": 3.3,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "17": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "18": {
+        "bays": {
+          "width": 3.48,
+          "pattern": "regular",
+          "edgeMargin": 0.25,
+          "count": 2
+        }
+      },
+      "19": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      },
+      "20": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "edge": "parapet",
+    "material": "roof",
+    "features": [
+      {
+        "type": "hvac",
+        "center": [
+          238.8,
+          25.99
+        ],
+        "size": [
+          4,
+          3
+        ],
+        "height": 1.6,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          222.5,
+          52.5
+        ],
+        "size": [
+          1.05,
+          1.2
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          229.1,
+          48.6
+        ],
+        "size": [
+          0.9,
+          1.2
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          232,
+          43.2
+        ],
+        "size": [
+          1,
+          1
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          220.8,
+          45.8
+        ],
+        "size": [
+          1.1,
+          1.2
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          226.5,
+          39.2
+        ],
+        "size": [
+          0.85,
+          0.8
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          244,
+          22.6
+        ],
+        "size": [
+          1.2,
+          1.1
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "hvac",
+        "center": [
+          238.3,
+          21.6
+        ],
+        "size": [
+          1,
+          0.82
+        ],
+        "height": 0.62,
+        "material": "plant",
+        "rotation": -21
+      },
+      {
+        "type": "skylight",
+        "center": [
+          218.3,
+          20.9
+        ],
+        "size": [
+          2.15,
+          1.05
+        ],
+        "height": 0.24,
+        "rotation": -21,
+        "material": "glazing",
+        "style": "low framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          224.6,
+          18.7
+        ],
+        "size": [
+          2.15,
+          1.05
+        ],
+        "height": 0.24,
+        "rotation": -21,
+        "material": "glazing",
+        "style": "low framed rectangular rooflight"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          229.1,
+          16.8
+        ],
+        "size": [
+          2.15,
+          1.05
+        ],
+        "height": 0.24,
+        "rotation": -21,
+        "material": "glazing",
+        "style": "low framed rectangular rooflight"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          221.75,
+          44.15
+        ],
+        "size": [
+          5.89,
+          0.6
+        ],
+        "height": 0.65,
+        "rotation": -20.9,
+        "material": "plant",
+        "style": "duct"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          235.15,
+          27.4
+        ],
+        "size": [
+          8.9,
+          0.7
+        ],
+        "height": 0.65,
+        "rotation": -21.08,
+        "material": "plant",
+        "style": "duct"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface heights above inventory ground. Median 12.59 m, P90 30.10 m, highest return 31.04 m."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Original reference colour from a mean image patch centred at (153,124) on a 300 by 300 normalized grid in HSA. Raw sRGB #928675. Joint colours and unit sizes estimated."
+    },
+    {
+      "kind": "aerial",
+      "note": "2025 London orthophoto. Roof patch at local [235.07, 27.42] averages #908e7c."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/HSA.jpg",
+      "note": "Dark recessed window ribbons wrap below broad pale concrete spandrels. Twin blank vertical piers flank the taller section. Dark louvres top the block and lower wings enclose the sloping entry drive."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.schulich.uwo.ca/dentistry/dental-clinics/visiting-the-clinics/index.html",
+      "note": "Schulich locates the clinic approach up the driveway toward the Health Sciences Addition."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "73976377",
+      "walls": [
+        6
+      ],
+      "note": "Approach at the limit of the wider frame search. Foreground buildings hide the addition. Exterior detailing is from Western Facilities."
+    },
+    {
+      "kind": "lidar",
+      "note": "The north porch spans the narrow band of 8 m returns near (225,18) and (230,13). The well beyond it, around (225,12), returns below inventory datum."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Tall southwest block",
+        "footprint": {
+          "clip": [
+            [
+              222.87,
+              60.37
+            ],
+            [
+              217.22,
+              62.35
+            ],
+            [
+              209.25,
+              41.62
+            ],
+            [
+              232.77,
+              32.59
+            ],
+            [
+              240.56,
+              52.89
+            ],
+            [
+              237.86,
+              53.89
+            ],
+            [
+              239.25,
+              57.2
+            ],
+            [
+              235.98,
+              58.68
+            ],
+            [
+              234.86,
+              55.83
+            ],
+            [
+              231.66,
+              57.2
+            ],
+            [
+              232.37,
+              59
+            ],
+            [
+              223.37,
+              62.13
+            ]
+          ]
+        },
+        "height": 26,
+        "floors": 6,
+        "material": "wall",
+        "roof": {
+          "material": "upperRoof"
+        }
+      },
+      {
+        "name": "Low north rim",
+        "footprint": {
+          "clip": [
+            [
+              239.58,
+              10.51
+            ],
+            [
+              246.46,
+              7.56
+            ],
+            [
+              248.77,
+              13.6
+            ],
+            [
+              207.67,
+              29.37
+            ],
+            [
+              206.98,
+              27.59
+            ],
+            [
+              209.47,
+              26.61
+            ],
+            [
+              207.76,
+              22.43
+            ],
+            [
+              214.92,
+              19.61
+            ],
+            [
+              215.52,
+              20.96
+            ],
+            [
+              222.86,
+              18.18
+            ],
+            [
+              222.34,
+              16.93
+            ],
+            [
+              229.95,
+              13.89
+            ],
+            [
+              232.09,
+              13.04
+            ],
+            [
+              232.58,
+              14.53
+            ],
+            [
+              240.03,
+              11.67
+            ]
+          ]
+        },
+        "height": 8.15,
+        "floors": 2,
+        "material": "wall",
+        "roof": {
+          "material": "rimRoof"
+        }
+      },
+      {
+        "name": "Low connecting and entrance range",
+        "footprint": {
+          "clip": [
+            [
+              214.2,
+              39.36
+            ],
+            [
+              211.88,
+              33.18
+            ],
+            [
+              209.51,
+              34.09
+            ],
+            [
+              207.67,
+              29.37
+            ],
+            [
+              248.77,
+              13.6
+            ],
+            [
+              261.08,
+              45.84
+            ],
+            [
+              257.844,
+              47.132
+            ],
+            [
+              260.4,
+              45.8
+            ],
+            [
+              250.1,
+              26.1
+            ],
+            [
+              232.816,
+              32.711
+            ],
+            [
+              232.77,
+              32.59
+            ],
+            [
+              209.25,
+              41.62
+            ],
+            [
+              209.13,
+              41.32
+            ]
+          ]
+        },
+        "height": 12.45,
+        "floors": 3,
+        "material": "wall"
+      },
+      {
+        "name": "Setback louvred mechanical floor",
+        "footprint": {
+          "clip": [
+            [
+              223.565,
+              61.755
+            ],
+            [
+              223.065,
+              59.994
+            ],
+            [
+              220.373,
+              60.938
+            ],
+            [
+              212.571,
+              40.656
+            ],
+            [
+              232.603,
+              32.965
+            ],
+            [
+              240.184,
+              52.72
+            ],
+            [
+              237.475,
+              53.723
+            ],
+            [
+              238.873,
+              57.052
+            ],
+            [
+              236.138,
+              58.29
+            ],
+            [
+              235.021,
+              55.446
+            ],
+            [
+              231.287,
+              57.044
+            ],
+            [
+              231.989,
+              58.825
+            ]
+          ]
+        },
+        "baseOffset": 26,
+        "height": 30.05,
+        "floors": 1,
+        "facade": {
+          "material": "wall",
+          "bays": {
+            "width": 4.1,
+            "edgeMargin": 0.12
+          },
+          "windows": {
+            "type": "ribbon",
+            "width": 3.8,
+            "height": 3.2,
+            "sill": 0.3,
+            "glass": "dark",
+            "glassColor": "#474239",
+            "frameColor": "#615a50",
+            "mullions": {
+              "vertical": 0,
+              "horizontal": 0,
+              "width": 0.045
+            },
+            "shading": "louvres",
+            "recess": 0.21
+          },
+          "bands": [],
+          "piers": {
+            "every": 1,
+            "width": 0.13,
+            "depth": 0.09,
+            "material": "trim"
+          },
+          "topFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "ribbon",
+              "width": 3.8,
+              "height": 3.2,
+              "sill": 0.3,
+              "glass": "dark",
+              "glassColor": "#474239",
+              "frameColor": "#615a50",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "shading": "louvres",
+              "recess": 0.21
+            }
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "ribbon",
+              "width": 3.8,
+              "height": 3.2,
+              "sill": 0.3,
+              "glass": "dark",
+              "glassColor": "#474239",
+              "frameColor": "#615a50",
+              "mullions": {
+                "vertical": 0,
+                "horizontal": 0,
+                "width": 0.045
+              },
+              "shading": "louvres",
+              "recess": 0.21
+            }
+          }
+        }
+      },
+      {
+        "name": "Sunken paved terrace",
+        "footprint": {
+          "clip": [
+            [
+              240.56,
+              52.89
+            ],
+            [
+              236.06,
+              41.164
+            ],
+            [
+              248.7,
+              36.4
+            ],
+            [
+              253.984,
+              48.674
+            ],
+            [
+              251.09,
+              49.83
+            ],
+            [
+              250.82,
+              49.08
+            ]
+          ]
+        },
+        "height": 8.15,
+        "floors": 2,
+        "material": "wall",
+        "roof": {
+          "material": "terracePavers"
+        }
+      },
+      {
+        "name": "Low connecting and entrance range",
+        "footprint": {
+          "clip": [
+            [
+              236.06,
+              41.164
+            ],
+            [
+              235.778,
+              40.43
+            ],
+            [
+              245.2,
+              36.8
+            ],
+            [
+              245.531,
+              37.594
+            ]
+          ]
+        },
+        "height": 12.45,
+        "floors": 3,
+        "material": "wall"
+      },
+      {
+        "name": "Raised east L wing",
+        "footprint": {
+          "clip": [
+            [
+              235.778,
+              40.43
+            ],
+            [
+              232.816,
+              32.711
+            ],
+            [
+              250.1,
+              26.1
+            ],
+            [
+              260.4,
+              45.8
+            ],
+            [
+              257.844,
+              47.132
+            ],
+            [
+              253.984,
+              48.674
+            ],
+            [
+              248.7,
+              36.4
+            ],
+            [
+              245.531,
+              37.594
+            ],
+            [
+              245.2,
+              36.8
+            ]
+          ]
+        },
+        "height": 15.0,
+        "floors": 3,
+        "material": "wall"
+      },
+      {
+        "name": "Projecting stair core",
+        "footprint": [
+          [
+            232.185,
+            58.757
+          ],
+          [
+            232.549,
+            59.806
+          ],
+          [
+            231.019,
+            60.338
+          ],
+          [
+            230.655,
+            59.289
+          ]
+        ],
+        "height": 29.7,
+        "floors": 6,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0.25,
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "cornice": {
+            "height": 0
+          }
+        }
+      },
+      {
+        "name": "Projecting stair core",
+        "footprint": [
+          [
+            217.41,
+            62.036
+          ],
+          [
+            216.374,
+            62.434
+          ],
+          [
+            215.565,
+            60.331
+          ],
+          [
+            216.601,
+            59.933
+          ]
+        ],
+        "height": 29.7,
+        "floors": 6,
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "blank": true,
+          "windows": {
+            "type": "none"
+          },
+          "bands": [],
+          "parapet": {
+            "height": 0.25,
+            "material": "wall"
+          },
+          "topFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "none",
+              "perBay": 0
+            }
+          },
+          "cornice": {
+            "height": 0
+          }
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 7,
+      "position": 0.42,
+      "type": "glass-vestibule",
+      "width": 3.3,
+      "height": 2.8,
+      "recess": 1.6,
+      "canopy": {
+        "type": "flat",
+        "width": 5.8,
+        "depth": 2.6,
+        "material": "trim"
+      }
+    }
+  ],
+  "notes": "Mechanical storey includes tall dark louvred panels. The sloping paving makes the basement windows and entrance appear at different levels. Exact door bay is uncertain. Bay counts on obscured faces and dimensions of openings are estimates."
+}

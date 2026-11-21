@@ -1,0 +1,150 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w126668554",
+  "name": "Biotron Experimental Climate Change Research Centre",
+  "status": "auto",
+  "confidence": 0.32,
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "Roof elevations sampled within the footprint"
+    },
+    {
+      "kind": "osm",
+      "note": "Survey footprint"
+    }
+  ],
+  "style": "contemporary-glass",
+  "floors": {
+    "count": 5,
+    "typicalHeight": 4.1,
+    "groundFloorHeight": 4.1
+  },
+  "massing": {
+    "parts": [
+      {
+        "footprint": "inventory",
+        "height": 21.69,
+        "floors": 5
+      },
+      {
+        "footprint": {
+          "clip": [
+            [
+              380.014,
+              -9.307
+            ],
+            [
+              381.46,
+              8.04
+            ],
+            [
+              381.8,
+              9.31
+            ],
+            [
+              382.14,
+              10.59
+            ],
+            [
+              390.364,
+              9.903
+            ],
+            [
+              391.719,
+              9.774
+            ],
+            [
+              391.54,
+              7.0
+            ],
+            [
+              423.89,
+              3.47
+            ],
+            [
+              423.89,
+              3.47
+            ],
+            [
+              421.689,
+              -13.276
+            ]
+          ]
+        },
+        "height": 26.79,
+        "baseOffset": 21.69,
+        "floors": 1
+      }
+    ],
+    "source": "lidar"
+  },
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#8b9da0",
+      "variation": 0.28
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#444d4b"
+    },
+    "trim": {
+      "kind": "concrete-smooth",
+      "color": "#c3bbab"
+    }
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.7
+      },
+      "windows": {
+        "type": "curtain-wall",
+        "width": 2.6,
+        "height": 1.75,
+        "sill": 0.85,
+        "perBay": 1,
+        "recess": 0.19,
+        "mullions": {
+          "vertical": 1,
+          "horizontal": 1
+        },
+        "glassColor": "#557987",
+        "sillProjecting": true,
+        "lintel": false
+      },
+      "base": {
+        "height": 0.62,
+        "projection": 0.07,
+        "material": "trim"
+      },
+      "cornice": {
+        "height": 0.24,
+        "depth": 0.14,
+        "material": "trim"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.4,
+        "material": "wall"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet"
+  },
+  "entrances": [
+    {
+      "wall": 6,
+      "position": 0.5,
+      "width": 2.4,
+      "height": 2.6,
+      "type": "doors-double",
+      "recess": 0.32
+    }
+  ]
+}

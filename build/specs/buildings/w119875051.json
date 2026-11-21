@@ -1,0 +1,579 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w119875051",
+  "name": "Althouse west annex",
+  "status": "refined",
+  "confidence": 0.51,
+  "summary": "A low square annex stands along the west side of Althouse. A thin pale roof edge borders a flat roof marked by irregular dark patches, and a lower connection extends east towards the main building.",
+  "style": "mid-century-modern",
+  "evidence": [
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/FEB.jpg",
+      "note": "An oblique campus image shows a simple flat-roofed block beyond the courtyard wings. The main Althouse palette serves as a proxy for the unseen walls."
+    },
+    {
+      "kind": "aerial",
+      "note": "The west annex features a nearly square roof with dark weathering, a thin light edge and a link on the northeast side. No direct KartaView elevation was found."
+    },
+    {
+      "kind": "lidar",
+      "note": "Inventory P50 / P90 / maximum: 6.43 / 6.47 / 7.26 m above local ground."
+    }
+  ],
+  "materials": {
+    "wall": {
+      "kind": "precast-panel",
+      "color": "#c0b6a1",
+      "secondaryColor": "#9f9e92",
+      "unitSize": [
+        3,
+        6.4
+      ],
+      "variation": 0.06
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#d0d1c5",
+      "variation": 0.12
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#999b92",
+      "variation": 0.12,
+      "weathering": 0.79
+    },
+    "yardUnit": {
+      "kind": "corrugated-metal",
+      "color": "#9fafaa",
+      "unitSize": [
+        0.18,
+        3
+      ]
+    },
+    "dome": {
+      "kind": "glass-curtain",
+      "color": "#e1e4da"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 6.1,
+    "typicalHeight": 6.1
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 4.8,
+        "pattern": "regular",
+        "edgeMargin": 0.27
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "height": 0.22,
+        "type": "coped",
+        "material": "trim"
+      },
+      "blank": true,
+      "cornice": {
+        "height": 0.34,
+        "depth": 0.23,
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "width": 5.97,
+          "pattern": "regular",
+          "edgeMargin": 0.27,
+          "count": 5
+        }
+      },
+      "1": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "width": 2
+        },
+        "piers": {
+          "width": 0.2,
+          "depth": 0.14,
+          "material": "trim",
+          "every": 1,
+          "fullHeight": true,
+          "aboveRoof": 0.1
+        }
+      },
+      "2": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "segments": [
+          {
+            "range": [
+              0.3,
+              0.42
+            ],
+            "blank": false,
+            "piers": {
+              "every": 0
+            },
+            "base": {
+              "height": 0.14,
+              "material": "trim",
+              "projection": 0.03
+            }
+          }
+        ]
+      },
+      "3": {
+        "blank": true,
+        "windows": {
+          "type": "none",
+          "perBay": 0
+        },
+        "bays": {
+          "width": 2
+        },
+        "piers": {
+          "width": 0.2,
+          "depth": 0.14,
+          "material": "trim",
+          "every": 1,
+          "fullHeight": true,
+          "aboveRoof": 0.1
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "skylight",
+        "center": [
+          -179.002371,
+          1341.023277
+        ],
+        "size": [
+          0.93,
+          0.93
+        ],
+        "height": 0.3,
+        "material": "dome",
+        "rotation": -22,
+        "style": "circular dome"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -173.20044,
+          1338.032024
+        ],
+        "size": [
+          0.93,
+          0.93
+        ],
+        "height": 0.3,
+        "material": "dome",
+        "rotation": -22,
+        "style": "circular dome"
+      },
+      {
+        "type": "skylight",
+        "center": [
+          -166.986442,
+          1336.060673
+        ],
+        "size": [
+          0.93,
+          0.93
+        ],
+        "height": 0.3,
+        "material": "dome",
+        "rotation": -22,
+        "style": "circular dome"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -180.9,
+          1342
+        ],
+        "size": [
+          0.36,
+          0.36
+        ],
+        "height": 0.28,
+        "material": "trim",
+        "rotation": 0,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -174.1,
+          1339.3
+        ],
+        "size": [
+          0.36,
+          0.36
+        ],
+        "height": 0.28,
+        "material": "trim",
+        "rotation": 0,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -166.2,
+          1337
+        ],
+        "size": [
+          0.36,
+          0.36
+        ],
+        "height": 0.28,
+        "material": "trim",
+        "rotation": 0,
+        "style": "vent pipe"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          -161.1,
+          1338
+        ],
+        "size": [
+          0.36,
+          0.36
+        ],
+        "height": 0.28,
+        "material": "trim",
+        "rotation": 0,
+        "style": "vent pipe"
+      }
+    ]
+  },
+  "notes": "The wall finish, storey count and openings are provisional, whereas the roof height and shape are much better constrained.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "footprint": "inventory",
+        "height": 6.45,
+        "floors": 1
+      },
+      {
+        "name": "Service yard wall 1",
+        "footprint": [
+          [
+            -155.82,
+            1329.823
+          ],
+          [
+            -158.854,
+            1322.313
+          ],
+          [
+            -158.65,
+            1322.231
+          ],
+          [
+            -155.616,
+            1329.741
+          ]
+        ],
+        "height": 6.3,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Service yard wall 2",
+        "footprint": [
+          [
+            -158.711,
+            1322.374
+          ],
+          [
+            -163.585,
+            1324.344
+          ],
+          [
+            -163.667,
+            1324.14
+          ],
+          [
+            -158.793,
+            1322.17
+          ]
+        ],
+        "height": 6.3,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Service yard wall 3",
+        "footprint": [
+          [
+            -163.525,
+            1324.2
+          ],
+          [
+            -160.533,
+            1331.728
+          ],
+          [
+            -160.737,
+            1331.81
+          ],
+          [
+            -163.729,
+            1324.282
+          ]
+        ],
+        "height": 6.3,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Service yard wall 4",
+        "footprint": [
+          [
+            -160.675,
+            1331.666
+          ],
+          [
+            -155.759,
+            1329.68
+          ],
+          [
+            -155.677,
+            1329.884
+          ],
+          [
+            -160.593,
+            1331.87
+          ]
+        ],
+        "height": 6.3,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Mechanical yard deck",
+        "footprint": [
+          [
+            -155.717859,
+            1329.782214
+          ],
+          [
+            -158.752172,
+            1322.272025
+          ],
+          [
+            -163.626473,
+            1324.241371
+          ],
+          [
+            -160.634746,
+            1331.768766
+          ]
+        ],
+        "height": 3.67,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "wall"
+        }
+      },
+      {
+        "name": "Ribbed mechanical housing",
+        "footprint": [
+          [
+            -161.948,
+            1325.974
+          ],
+          [
+            -159.212,
+            1324.868
+          ],
+          [
+            -157.452,
+            1329.226
+          ],
+          [
+            -160.188,
+            1330.332
+          ]
+        ],
+        "height": 8.52,
+        "baseOffset": 3.67,
+        "floors": 1,
+        "material": "yardUnit",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "yardUnit"
+        }
+      },
+      {
+        "name": "Enclosed link to Althouse",
+        "footprint": [
+          [
+            -157.921,
+            1330.789
+          ],
+          [
+            -149.809,
+            1327.511
+          ],
+          [
+            -148.879,
+            1329.811
+          ],
+          [
+            -156.991,
+            1333.089
+          ]
+        ],
+        "height": 3.67,
+        "baseOffset": 0,
+        "floors": 1,
+        "material": "wall",
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof",
+          "features": []
+        },
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "material": "wall"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 0,
+      "position": 0.7,
+      "type": "service-door",
+      "width": 1.08,
+      "height": 2.2
+    },
+    {
+      "wall": 2,
+      "position": 0.36,
+      "type": "doors-double",
+      "width": 1.87,
+      "height": 2.22,
+      "canopy": {
+        "type": "flat",
+        "depth": 1.14,
+        "width": 2.62,
+        "material": "trim"
+      },
+      "recess": 0.31
+    }
+  ]
+}

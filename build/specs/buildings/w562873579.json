@@ -1,0 +1,306 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w562873579",
+  "name": "Unnamed service enclosure",
+  "style": "industrial-utility",
+  "confidence": 0.79,
+  "status": "refined",
+  "summary": "An unnamed service enclosure near Delaware Hall is a waist-to-head height low rectangular masonry enclosure with closed sides standing on a paved pad.",
+  "materials": {
+    "wall": {
+      "kind": "rubble-stone",
+      "color": "#b5a78f",
+      "unitSize": [
+        0.42,
+        0.2
+      ],
+      "secondaryColor": "#9f9179",
+      "variation": 0.23,
+      "bond": "coursed-rubble"
+    },
+    "roof": {
+      "kind": "limestone-smooth",
+      "color": "#aeac99",
+      "roughness": 0.74
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c7b9a1"
+    },
+    "metal": {
+      "kind": "painted-metal",
+      "color": "#8c9393"
+    },
+    "glass": {
+      "kind": "glass-curtain",
+      "color": "#85a5ae",
+      "unitSize": [
+        1.2,
+        1.65
+      ]
+    },
+    "pad": {
+      "kind": "concrete-smooth",
+      "color": "#b7b2a6",
+      "unitSize": [
+        1.5,
+        1.5
+      ]
+    },
+    "end": {
+      "kind": "ashlar-stone",
+      "color": "#b5a78f",
+      "secondaryColor": "#9f9179",
+      "unitSize": [
+        0.56,
+        0.23
+      ],
+      "variation": 0.085
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 1.64,
+    "typicalHeight": 1.64
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "bays": {
+        "width": 3,
+        "pattern": "regular"
+      },
+      "parapet": {
+        "type": "coped",
+        "height": 0.17,
+        "material": "trim"
+      },
+      "base": {
+        "height": 0.19,
+        "material": "trim"
+      },
+      "blank": true,
+      "cornice": {
+        "material": "trim",
+        "depth": 0.085,
+        "height": 0.1
+      }
+    },
+    "byWall": {
+      "0": {
+        "material": "end"
+      },
+      "2": {
+        "material": "end"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "lidar",
+      "note": "core-1m surface minus local ground: median 1.68 m, 90th percentile 1.75 m, maximum 1.76 m."
+    },
+    {
+      "kind": "kartaview",
+      "note": "Low freestanding stone rectangle closer to the curb than the residence. Coursing is visible along the broad face.",
+      "frame": "137134467",
+      "walls": [
+        1,
+        0
+      ]
+    },
+    {
+      "kind": "aerial",
+      "note": "Small long rectangle on a larger pale paved pad beside the sidewalk. Its long axis follows the curb."
+    },
+    {
+      "kind": "kartaview",
+      "note": "PIL mean from source-pixel rectangle (446, 782, 4, 4) gives #f9d071. Warm low-sun cast reduced for daylight rendering. Daylight wall value is an estimate based on the coursed stone and the pale coping visible in the orthophoto.",
+      "frame": "137134467",
+      "walls": [
+        1
+      ]
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Main volume",
+        "height": 1.66,
+        "floors": 1,
+        "footprint": [
+          [
+            608.45,
+            343.863
+          ],
+          [
+            614.295,
+            344.751
+          ],
+          [
+            613.737,
+            348.429
+          ],
+          [
+            607.893,
+            347.541
+          ]
+        ],
+        "wallProfiles": {
+          "0": {
+            "material": "end"
+          },
+          "2": {
+            "material": "end"
+          }
+        }
+      },
+      {
+        "name": "Low stone bench",
+        "footprint": [
+          [
+            608.781,
+            347.676
+          ],
+          [
+            609.984,
+            347.859
+          ],
+          [
+            609.903,
+            348.393
+          ],
+          [
+            608.7,
+            348.21
+          ]
+        ],
+        "height": 0.49,
+        "floors": 1,
+        "material": "end",
+        "facade": {
+          "blank": true,
+          "material": "end",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "end"
+        }
+      },
+      {
+        "name": "Low stone bench",
+        "footprint": [
+          [
+            611.531,
+            348.094
+          ],
+          [
+            612.735,
+            348.276
+          ],
+          [
+            612.654,
+            348.81
+          ],
+          [
+            611.45,
+            348.628
+          ]
+        ],
+        "height": 0.49,
+        "floors": 1,
+        "material": "end",
+        "facade": {
+          "blank": true,
+          "material": "end",
+          "windows": {
+            "type": "none",
+            "perBay": 0
+          },
+          "bands": [],
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "cornice": {
+            "height": 0,
+            "depth": 0
+          },
+          "base": {
+            "height": 0,
+            "projection": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "end"
+        }
+      }
+    ]
+  },
+  "notes": "The lidar samples stay below 1.8 m. The internal use and whether the coping conceals an opening cannot be established from road views.",
+  "attachments": [
+    {
+      "type": "terrace",
+      "path": [
+        [
+          607.462,
+          346.323
+        ],
+        [
+          615.283,
+          347.51
+        ]
+      ],
+      "width": 6.23,
+      "height": 0.105,
+      "material": "pad"
+    },
+    {
+      "type": "terrace",
+      "path": [
+        [
+          607.572,
+          346.178
+        ],
+        [
+          601.058,
+          345.067
+        ]
+      ],
+      "width": 1.95,
+      "height": 0.09,
+      "material": "pad"
+    }
+  ]
+}

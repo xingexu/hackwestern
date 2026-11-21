@@ -1,0 +1,1101 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "w626520018",
+  "name": "Amit Chakma Engineering Building",
+  "status": "refined",
+  "confidence": 0.93,
+  "style": "contemporary-glass",
+  "summary": "A copper-clad upper box hangs over a pale limestone base at the south entrance, with broad glass corners facing Western Road and two long photovoltaic fields covering the roof.",
+  "materials": {
+    "wall": {
+      "kind": "limestone-smooth",
+      "color": "#d2caba",
+      "unitSize": [
+        1.17,
+        0.55
+      ],
+      "secondaryColor": "#b9b2a5",
+      "bond": "running",
+      "variation": 0.15,
+      "roughness": 0.88
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#cacdbf"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c2b9a8"
+    },
+    "copper": {
+      "kind": "copper-new",
+      "color": "#a15c49",
+      "unitSize": [
+        1.3,
+        0.55
+      ],
+      "secondaryColor": "#784a39",
+      "metalness": 0.67
+    },
+    "pv": {
+      "kind": "spandrel-glass",
+      "color": "#363e46"
+    },
+    "corner": {
+      "kind": "glass-curtain",
+      "color": "#526d78"
+    },
+    "copperLip": {
+      "kind": "metal-panel",
+      "color": "#655045",
+      "surface": "opaque"
+    },
+    "baseRoof": {
+      "kind": "standing-seam-metal",
+      "color": "#a7a7a0",
+      "unitSize": [
+        0.54,
+        4.0
+      ],
+      "metalness": 0.24
+    }
+  },
+  "floors": {
+    "count": 4,
+    "groundFloorHeight": 4.9,
+    "typicalHeight": 4.0
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 5.35,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "curtain-wall",
+        "width": 4.45,
+        "height": 3.25,
+        "sill": 0.32,
+        "perBay": 1,
+        "recess": 0.12,
+        "mullions": {
+          "vertical": 2,
+          "horizontal": 1,
+          "width": 0.055
+        },
+        "glass": "tinted",
+        "frameColor": "#575751",
+        "glassColor": "#6f8389",
+        "shading": "fins"
+      },
+      "parapet": {
+        "height": 0.32,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {
+      "0": {
+        "bays": {
+          "count": 6,
+          "width": 5.34,
+          "pattern": "regular"
+        }
+      },
+      "1": {
+        "bays": {
+          "count": 18,
+          "width": 5.25,
+          "pattern": "regular"
+        }
+      },
+      "2": {
+        "bays": {
+          "count": 5,
+          "width": 6.4,
+          "pattern": "regular"
+        }
+      },
+      "3": {
+        "bays": {
+          "count": 18,
+          "width": 5.25,
+          "pattern": "regular"
+        }
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": [
+      {
+        "type": "solar-panels",
+        "center": [
+          37.94,
+          754.81
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          38.11,
+          757.34
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          38.29,
+          759.87
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          38.47,
+          762.4
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          38.65,
+          764.94
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          38.82,
+          767.47
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          39.0,
+          770.0
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          39.18,
+          772.53
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          39.35,
+          775.06
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          39.53,
+          777.6
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          39.71,
+          780.13
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          39.89,
+          782.66
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          40.06,
+          785.19
+        ],
+        "size": [
+          18,
+          2.08
+        ],
+        "height": 0.75,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          40.24,
+          791.25
+        ],
+        "size": [
+          18.8,
+          2.0
+        ],
+        "height": 0.3,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          40.41,
+          793.68
+        ],
+        "size": [
+          18.8,
+          2.0
+        ],
+        "height": 0.3,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          40.58,
+          796.12
+        ],
+        "size": [
+          18.8,
+          2.0
+        ],
+        "height": 0.3,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          40.75,
+          798.56
+        ],
+        "size": [
+          18.8,
+          2.0
+        ],
+        "height": 0.3,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          43.0,
+          801.0
+        ],
+        "size": [
+          23,
+          2.0
+        ],
+        "height": 0.3,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          43.17,
+          803.44
+        ],
+        "size": [
+          23,
+          2.0
+        ],
+        "height": 0.3,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          43.34,
+          805.88
+        ],
+        "size": [
+          23,
+          2.0
+        ],
+        "height": 0.3,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          43.51,
+          808.32
+        ],
+        "size": [
+          23,
+          2.0
+        ],
+        "height": 0.3,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          43.68,
+          810.75
+        ],
+        "size": [
+          23,
+          2.0
+        ],
+        "height": 0.3,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "hvac",
+        "center": [
+          33.2,
+          748
+        ],
+        "size": [
+          5.2,
+          6.2
+        ],
+        "height": 2.55,
+        "material": "trim",
+        "rotation": -4,
+        "fanGrid": [
+          2,
+          1
+        ],
+        "style": "paired condenser fans"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          39,
+          747.7
+        ],
+        "size": [
+          5,
+          6.6
+        ],
+        "height": 2.85,
+        "material": "trim",
+        "rotation": -4,
+        "fanGrid": [
+          2,
+          1
+        ],
+        "style": "paired condenser fans"
+      },
+      {
+        "type": "hvac",
+        "center": [
+          44.5,
+          748.5
+        ],
+        "size": [
+          4.5,
+          5
+        ],
+        "height": 2.15,
+        "material": "trim",
+        "rotation": -4,
+        "fanGrid": [
+          2,
+          1
+        ],
+        "style": "paired condenser fans"
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          43.85,
+          813.15
+        ],
+        "size": [
+          23,
+          2
+        ],
+        "height": 0.32,
+        "material": "pv",
+        "rotation": -4
+      },
+      {
+        "type": "solar-panels",
+        "center": [
+          44.02,
+          815.58
+        ],
+        "size": [
+          23,
+          2
+        ],
+        "height": 0.32,
+        "material": "pv",
+        "rotation": -4
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Two photovoltaic fields extend along the roof. Mechanical equipment occupies the north end. The roof stops short of the mapped footprint at both ends."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 5.09 m, 90th percentile 9.12 m, maximum 24.32 m."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "137106733",
+      "walls": [
+        2,
+        3
+      ],
+      "note": "Exposed diagonal trusses carry the upper corner well beyond the lower volume; temporary blue and yellow wrap."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "136656119",
+      "walls": 3,
+      "note": "The long Western Road elevation under construction."
+    },
+    {
+      "kind": "photo",
+      "url": "https://www.uwo.ca/fm/img/what_we_do/bldg/ACEB.jpg",
+      "note": "Finished south cantilever, copper perimeter and tall glass corners above a stepped limestone base."
+    },
+    {
+      "kind": "photo",
+      "url": "https://london.ca/sites/default/files/2021-04/2019%20Abstracts.pdf",
+      "note": "Design submission documents the limestone base, copper upper box and 30-foot cantilever."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Main wall colour sampled with PIL from Western Facilities exterior photograph. 300 × 300 pixel reference, patch centred at (120, 194), 7 × 7 pixels."
+    },
+    {
+      "kind": "aerial",
+      "note": "Two distinct PV arrays span the roof, separated by a maintenance aisle. The lower connector continues north between the teaching block and Spencer."
+    },
+    {
+      "kind": "aerial",
+      "note": "The two bright hipped monitor caps are paired on the north link. The first four rows of the south PV field stop short at the eastern service aisle."
+    }
+  ],
+  "lidarTrusted": false,
+  "lidarNote": "The regional surface predates the completed four-storey building. The aerial solar fields and university exterior establish the completed envelope.",
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Stone base set back from forecourt",
+        "height": 8.15,
+        "floors": 2,
+        "footprint": [
+          [
+            52.4,
+            736.0
+          ],
+          [
+            28.075,
+            736.0
+          ],
+          [
+            33.522,
+            808.623
+          ],
+          [
+            58.0,
+            806.0
+          ]
+        ],
+        "material": "wall",
+        "facade": {
+          "material": "wall",
+          "windows": {
+            "type": "punched",
+            "width": 3.5,
+            "height": 1.65,
+            "sill": 0.73,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 2,
+              "horizontal": 0,
+              "width": 0.065
+            },
+            "shading": "none"
+          },
+          "groundFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 2.55,
+              "height": 3.65,
+              "sill": 0.2,
+              "frameColor": "#565c5d",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              },
+              "shading": "none"
+            },
+            "height": 4.6
+          },
+          "topFloor": {
+            "material": "wall",
+            "windows": {
+              "type": "punched",
+              "width": 3.5,
+              "height": 1.65,
+              "sill": 0.73,
+              "frameColor": "#565c5d",
+              "mullions": {
+                "vertical": 2,
+                "horizontal": 0,
+                "width": 0.065
+              },
+              "shading": "none"
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          },
+          "bays": {
+            "width": 5.24
+          }
+        },
+        "wallProfiles": {
+          "2": {
+            "windows": {
+              "type": "storefront",
+              "width": 3.6,
+              "height": 3.7,
+              "sill": 0.1,
+              "frameColor": "#565c5d",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 1,
+                "width": 0.065
+              },
+              "shading": "none"
+            },
+            "groundFloor": {
+              "windows": {
+                "type": "storefront",
+                "width": 4.1,
+                "height": 4.1,
+                "sill": 0.08,
+                "frameColor": "#565c5d",
+                "mullions": {
+                  "vertical": 1,
+                  "horizontal": 1,
+                  "width": 0.065
+                },
+                "shading": "none"
+              }
+            },
+            "sections": [
+              {
+                "start": 0.05,
+                "end": 0.95,
+                "base": 0.35,
+                "top": 7.85,
+                "material": "corner",
+                "horizontalMullions": 1,
+                "verticalMullionSpacing": 1.65
+              }
+            ]
+          },
+          "1": {
+            "bays": {
+              "count": 18,
+              "edgeMargin": 0.3
+            }
+          },
+          "3": {
+            "bays": {
+              "count": 18,
+              "edgeMargin": 0.3
+            }
+          }
+        }
+      },
+      {
+        "name": "Cantilevered copper teaching floors",
+        "height": 17.6,
+        "floors": 2,
+        "footprint": [
+          [
+            52.412,
+            736.0
+          ],
+          [
+            26.075,
+            736.0
+          ],
+          [
+            32.282,
+            818.764
+          ],
+          [
+            59.0,
+            816.0
+          ]
+        ],
+        "baseOffset": 8.15,
+        "material": "copper",
+        "facade": {
+          "material": "copper",
+          "windows": {
+            "type": "punched",
+            "width": 3.23,
+            "height": 2.92,
+            "sill": 0.6,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 0,
+              "width": 0.065
+            },
+            "glassColor": "#526771",
+            "shading": "none",
+            "recess": 0.13
+          },
+          "bays": {
+            "width": 5.24
+          },
+          "groundFloor": {
+            "material": "copper",
+            "windows": {
+              "type": "punched",
+              "width": 3.23,
+              "height": 2.92,
+              "sill": 0.6,
+              "frameColor": "#565c5d",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.065
+              },
+              "glassColor": "#526771",
+              "shading": "none",
+              "recess": 0.13
+            },
+            "height": 4.6
+          },
+          "topFloor": {
+            "material": "copper",
+            "windows": {
+              "type": "punched",
+              "width": 3.23,
+              "height": 2.92,
+              "sill": 0.6,
+              "frameColor": "#565c5d",
+              "mullions": {
+                "vertical": 1,
+                "horizontal": 0,
+                "width": 0.065
+              },
+              "glassColor": "#526771",
+              "shading": "none",
+              "recess": 0.13
+            }
+          },
+          "parapet": {
+            "type": "plain",
+            "height": 0.19,
+            "material": "copperLip"
+          }
+        },
+        "wallProfiles": {
+          "1": {
+            "segments": [
+              {
+                "range": [
+                  0.82,
+                  1
+                ],
+                "material": "copper",
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "sections": [
+                  {
+                    "start": 0.82,
+                    "end": 1,
+                    "base": 8.56,
+                    "top": 17.1,
+                    "material": "corner",
+                    "horizontalMullions": 2,
+                    "verticalMullionSpacing": 1.52
+                  }
+                ]
+              }
+            ],
+            "bays": {
+              "count": 18,
+              "edgeMargin": 0.3
+            }
+          },
+          "3": {
+            "segments": [
+              {
+                "range": [
+                  0,
+                  0.17
+                ],
+                "material": "copper",
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "sections": [
+                  {
+                    "start": 0,
+                    "end": 0.17,
+                    "base": 8.56,
+                    "top": 17.1,
+                    "material": "corner",
+                    "horizontalMullions": 2,
+                    "verticalMullionSpacing": 1.52
+                  }
+                ]
+              }
+            ],
+            "bays": {
+              "count": 18,
+              "edgeMargin": 0.3
+            }
+          },
+          "2": {
+            "segments": [
+              {
+                "range": [
+                  0,
+                  1
+                ],
+                "material": "copper",
+                "blank": true,
+                "windows": {
+                  "type": "none",
+                  "perBay": 0
+                },
+                "sections": [
+                  {
+                    "start": 0,
+                    "end": 1,
+                    "base": 8.56,
+                    "top": 17.1,
+                    "material": "corner",
+                    "horizontalMullions": 2,
+                    "verticalMullionSpacing": 1.52
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Lower north connector",
+        "footprint": [
+          [
+            51.9,
+            725.45
+          ],
+          [
+            29.3,
+            727.02
+          ],
+          [
+            20.66,
+            729.86
+          ],
+          [
+            21.126,
+            736.0
+          ],
+          [
+            53.239,
+            736.0
+          ],
+          [
+            52.59,
+            727.43
+          ]
+        ],
+        "baseOffset": 0,
+        "height": 11.45,
+        "floors": 2,
+        "material": "wall",
+        "facade": {
+          "windows": {
+            "type": "punched",
+            "width": 1.5,
+            "height": 2.05,
+            "sill": 0.7,
+            "frameColor": "#565c5d",
+            "mullions": {
+              "vertical": 1,
+              "horizontal": 1,
+              "width": 0.065
+            }
+          },
+          "material": "wall",
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "baseRoof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "Raised north photovoltaic plant deck",
+        "footprint": [
+          [
+            47.358,
+            752.528
+          ],
+          [
+            49.695,
+            785.947
+          ],
+          [
+            30.742,
+            787.272
+          ],
+          [
+            28.405,
+            753.853
+          ]
+        ],
+        "baseOffset": 17.6,
+        "height": 19.28,
+        "floors": 1,
+        "material": "copperLip",
+        "facade": {
+          "blank": true
+        },
+        "roof": {
+          "form": "flat",
+          "edge": "none",
+          "material": "roof"
+        }
+      },
+      {
+        "name": "White north connector roof monitor",
+        "footprint": [
+          [
+            36.078,
+            726.775
+          ],
+          [
+            36.605,
+            733.956
+          ],
+          [
+            30.222,
+            734.425
+          ],
+          [
+            29.695,
+            727.244
+          ]
+        ],
+        "height": 11.86,
+        "baseOffset": 11.45,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "hip",
+          "rise": 1.35,
+          "material": "baseRoof",
+          "edge": "fascia"
+        }
+      },
+      {
+        "name": "White north connector roof monitor",
+        "footprint": [
+          [
+            43.378,
+            726.225
+          ],
+          [
+            43.905,
+            733.406
+          ],
+          [
+            37.522,
+            733.875
+          ],
+          [
+            36.995,
+            726.694
+          ]
+        ],
+        "height": 11.86,
+        "baseOffset": 11.45,
+        "floors": 1,
+        "material": "trim",
+        "facade": {
+          "blank": true,
+          "parapet": {
+            "type": "plain",
+            "height": 0
+          }
+        },
+        "roof": {
+          "form": "hip",
+          "rise": 1.35,
+          "material": "baseRoof",
+          "edge": "fascia"
+        }
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 2,
+      "position": 0.44,
+      "width": 4.2,
+      "height": 3.3,
+      "type": "glass-vestibule",
+      "steps": 0,
+      "recess": 8.9
+    },
+    {
+      "wall": 0,
+      "position": 0.63,
+      "width": 3,
+      "height": 3.1,
+      "type": "glass-vestibule",
+      "steps": 0
+    }
+  ],
+  "notes": "The cantilever has an exposed soffit above a column-free forecourt. Fritted glass fins and electrochromic panes vary in opacity. Internal university connections are omitted.",
+  "attachments": [
+    {
+      "type": "terrace",
+      "path": [
+        [
+          33.5,
+          807.5
+        ],
+        [
+          55.9,
+          805.8
+        ]
+      ],
+      "width": 7.9,
+      "height": 0.12,
+      "material": "wall"
+    }
+  ]
+}

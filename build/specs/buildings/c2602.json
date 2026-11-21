@@ -1,0 +1,104 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "c2602",
+  "name": "Health Sciences service kiosk",
+  "status": "refined",
+  "confidence": 0.75,
+  "style": "industrial-utility",
+  "summary": "A small square service enclosure stands behind Health Sciences, separated from the larger plant room, with a light rim enclosing a darker flat roof.",
+  "materials": {
+    "wall": {
+      "kind": "split-face-block",
+      "color": "#afa999",
+      "unitSize": [
+        0.4,
+        0.2
+      ],
+      "secondaryColor": "#a59f93",
+      "bond": "running",
+      "variation": 0.16
+    },
+    "roof": {
+      "kind": "membrane",
+      "color": "#8c8572"
+    },
+    "trim": {
+      "kind": "limestone-smooth",
+      "color": "#c2b9a8"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 3.35,
+    "typicalHeight": 3.35
+  },
+  "walls": {
+    "default": {
+      "material": "wall",
+      "bays": {
+        "width": 2.5,
+        "pattern": "regular"
+      },
+      "windows": {
+        "type": "none",
+        "perBay": 0
+      },
+      "parapet": {
+        "height": 0.18,
+        "type": "coped",
+        "material": "trim"
+      }
+    },
+    "byWall": {}
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "parapet",
+    "features": []
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Small square roof with light coping, immediately north of a larger dark service roof and west of the light-roofed service block."
+    },
+    {
+      "kind": "lidar",
+      "note": "Regional 2 m surface relative to local ground. Median 3.2 m, 90th percentile 3.41 m, maximum 3.47 m."
+    },
+    {
+      "kind": "kartaview",
+      "frame": "79749137",
+      "walls": [
+        2
+      ],
+      "note": "Pale buff utility masonry and large louvres in the service area. The little roof is clearest in the orthophoto."
+    },
+    {
+      "kind": "knowledge",
+      "note": "Main wall colour sampled with PIL from Nearby service masonry in KartaView 79749137. 800 × 600 pixel reference, patch centred at (107, 369), 7 × 7 pixels."
+    }
+  ],
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Service enclosure",
+        "height": 3.4,
+        "floors": 1,
+        "footprint": "inventory"
+      }
+    ]
+  },
+  "entrances": [
+    {
+      "wall": 1,
+      "position": 0.49,
+      "width": 0.95,
+      "height": 2.12,
+      "type": "service-door",
+      "steps": 0
+    }
+  ],
+  "notes": "Door position and cladding inferred from adjacent service fabric. The green equipment cabinet in the road photo is separate."
+}
