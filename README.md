@@ -1,6 +1,6 @@
 # Formula Western · Drive Western
 
-Drive Western University's campus in London, Ontario. Explore a landmark in free roam, race a right-lane circuit, or turn your phone into the steering wheel for a desktop race. No game account is required. **[Public game](https://fwestern.ca/) · [Test on your phone](#test-on-your-phone) · [Campus remodeling](#campus-remodeling) · [Theme and loading screen](#theme-and-loading-screen)**. The public domain and this branch can run different releases.
+Drive Western University's campus in London, Ontario. Explore a landmark in free roam, race a right-lane circuit, or turn your phone into the steering wheel for a desktop race. No game account is required. **[Public game](https://fwestern.ca/) · [Where to find the code](#where-to-find-the-code) · [Test on your phone](#test-on-your-phone) · [Campus remodeling](#campus-remodeling) · [Theme and loading screen](#theme-and-loading-screen)**. The public domain and this branch can run different releases.
 
 [![A car approaches the campus roundabout on Lambton Drive and follows the island counterclockwise](docs/roundabout.webp)](docs/roundabout.mp4)
 
@@ -9,6 +9,21 @@ Drive Western University's campus in London, Ontario. Explore a landmark in free
 Terrain is built from lidar elevation data. Roads, paths, and building outlines come from OpenStreetMap and City of London open data, using 2025 orthophotos and KartaView street-level photos as references. Each campus building is defined by a per-building JSON spec (`build/specs/buildings/*.json`, schema `build/specs/building-spec-v1.schema.json`), compiled by `build/compile_buildings.py`, and generated in the browser by `web/building-*.mjs`.
 
 See the [release handoff and live-site comparison](docs/DRIVING_HANDOFF.md) for the before/after comparison and [UI handoff](docs/UI_HANDOFF.md) for the design implementation.
+
+## Where to find the code
+
+Browse the latest source on [`xingexu/hackwestern` → `main`](https://github.com/xingexu/hackwestern/tree/main). The links below open the implementation on GitHub; links to specific lines are pinned to the documented release so they keep pointing at the right code after edits.
+
+| I want to… | Open this code |
+|---|---|
+| Start a race | [Enter driving mode](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/main.js#L649) → [set up the car, course and camera](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/drive.js#L247). |
+| Tune drifting and corner assist | [Look ahead for bends](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/drive-sim.mjs#L99) · [steering and drift entry](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/drive-sim.mjs#L112) · [rear-wheel handbrake torque](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/drive-sim.mjs#L225). |
+| Change phone controls | [Gas and Brake layout](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/server/pad.html#L130) · [recognize two Brake taps](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/phone/pad-wheel.js#L5) · [trigger the drift pulse](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/phone/pad-wheel.js#L28) · [turn phone rotation into steering](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/phone/pad-wheel.js#L59). |
+| Pair a phone on local Wi-Fi | [Start the LAN/HTTPS server](https://github.com/xingexu/hackwestern/blob/main/server/lan.mjs) · [desktop QR and pairing code](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/lobby/pair-phone.mjs#L5) · [test the input relay](https://github.com/xingexu/hackwestern/blob/main/server/verify-lan.mjs). |
+| Fix a road or turn | [One-way roads and roundabouts](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/build/traffic.py#L43) · [right-lane racing line](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/build/traffic.py#L53) · [enforce turn restrictions](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/build/traffic.py#L109). |
+| Restyle the game | [Purple palette and pixel theme](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/ui/components.css#L9) · [loader progress and timing](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/ui/components.mjs#L20) · [loader exit animation](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/ui/components.css#L163) · [driving HUD markup](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/web/index.html#L189). |
+| Remodel the campus | [Edit a building’s spec](https://github.com/xingexu/hackwestern/tree/main/build/specs/buildings) → [compile its geometry](https://github.com/xingexu/hackwestern/blob/e42081caec9954e311ed1b4bd1013e06a7b3c717/build/compile_buildings.py#L515) → [render the buildings](https://github.com/xingexu/hackwestern/blob/main/web/campus-buildings.mjs). [Terrain heights](https://github.com/xingexu/hackwestern/blob/main/web/campus-terrain.mjs) and [street furniture](https://github.com/xingexu/hackwestern/blob/main/build/street_detail.py) are separate. |
+| Follow an online race | [Lobby and invites](https://github.com/xingexu/hackwestern/tree/main/web/lobby) → [Worker request routing](https://github.com/xingexu/hackwestern/blob/main/server/worker.mjs) → [room state and messages](https://github.com/xingexu/hackwestern/blob/main/server/room.mjs). |
 
 ## Requirements & Setup
 
