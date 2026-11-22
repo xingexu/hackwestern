@@ -98,6 +98,8 @@ The compiler checks mapped motor-vehicle access, one-way and reverse-one-way str
 | Feedback | Gold/focus `#ffd166`, mint `#7ef0b0`, error `#ff6b7a`. Phone Gas `#9be8bd`, Brake `#ffb0bb`, pulse gold with `#fff1c9` inset. |
 | Type and edges | Locally bundled **Press Start 2P** for labels/buttons and **VT323** for copy/numbers. One design pixel is 3 CSS px: square notched edges, inset highlight and a hard shadow 6 px right / 9 px down. |
 
+The desktop course controls wrap inside a compact panel so the central checkpoint arrow stays clear. Touch screens keep speed, time and traction on one strip under 30 px high; the map and driving menu can expand without shrinking the pedal targets.
+
 **What appears, in order:**
 
 1. A dark ink gradient with violet glow and six pixel stars appears before the scene. The pixel logo pops in over 500 ms (6 steps), then bobs every 1.2 s (2 steps). On the 42 px road, gold dashes scroll every 600 ms (6 steps) behind a 16×6-pixel car bobbing every 300 ms. One play tip is chosen per load; short screens hide it.

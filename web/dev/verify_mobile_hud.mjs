@@ -66,7 +66,9 @@ try{
       }
       assert.ok(await page.locator('#checkpoint-direction').isVisible())
     }else{
-      assert.ok(Math.abs(area.share-15.075)<.15,'Desktop HUD moved from its measured 1280 × 720 footprint: '+area.share+'%')
+      assert.ok(area.share<=15.225,'Desktop HUD exceeded its 1280 × 720 footprint: '+area.share+'%')
+      const panel=await card.boundingBox(),cue=await page.locator('#checkpoint-direction').boundingBox()
+      assert.ok(panel && cue && panel.x+panel.width<cue.x,'Course controls overlap the checkpoint cue')
       assert.ok(await page.locator('#route-plan').isVisible() && await page.locator('#powertrain').isVisible() && await page.locator('#surface').isVisible())
       assert.equal(await map.isVisible(),false)
       assert.ok(await page.locator('.drive-help').isVisible())
