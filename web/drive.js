@@ -529,8 +529,8 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   online=await onlineMenu;
   online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car,gridPosition(slot){
     if(!slot || mode!=='circuit')return;
-    const grid=samples.findLast(s=>s.distance<=length-slot*5);
-    if(grid)Object.assign(car,{x:grid.x,y:grid.y,z:grid.z,heading:grid.heading});
+    sim.placeOnGrid(slot);
+    snapshotPose(previousPose,car);rig.reset(car);placement.reset();
   }});
   const look = new THREE.Vector3();
   function frame(timestamp) {

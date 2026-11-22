@@ -2,6 +2,8 @@ import assert from 'node:assert/strict'
 import {advanceZones,circuitGates,zoneProgress} from '../race/zones.mjs'
 import {command,newRoundRoom,observeRacePose} from '../../server/referee.mjs'
 import courses from '../race/courses.mjs'
+import {createRaceContext} from '../race/context.mjs'
+import {createDriveSim} from '../drive-sim.mjs'
 
 const samples=Array.from({length:73},(_,z)=>({x:0,y:0,z,distance:z,heading:0,halfWidth:5}))
 const gates=circuitGates(samples)
@@ -34,4 +36,19 @@ assert.equal(command(r,p,lap,200),false)
 for(const point of route)observeRacePose(r,p,{...point,epoch:1})
 assert.equal(command(r,p,lap,120000),true)
 assert.equal(r.results[0].finish,119999)
+for(const id of Object.keys(courses)){
+  const {samples,network}=createRaceContext(id)
+  for(let slot=1;slot<8;slot++){
+    const sim=createDriveSim(samples,{mode:'circuit',network})
+    sim.placeOnGrid(slot)
+    sim.step({})
+    assert.equal(sim.state.phase,'ready')
+    const i=samples.findLastIndex(s=>s.distance<=samples.at(-1).distance-slot*5)
+    for(const point of [...samples.slice(i+1,-1),...samples.slice(0,4)]){
+      Object.assign(sim.state,{x:point.x,z:point.z,y:point.y,heading:point.heading})
+      sim.step({})
+      assert.ok(!sim.state.offCourse && sim.state.distance<10 && !sim.state.checkpointsPassed,id+' grid slot '+slot)
+    }
+  }
+}
 console.log('Off-centre entry, seven-metre zone depth, one close miss, off-course detour, reverse, wrong elevation, out-of-order entry and server-observed finish verified.')

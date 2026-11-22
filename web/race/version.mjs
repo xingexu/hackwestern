@@ -1,1 +1,1 @@
-export const SIM_VERSION = 0xaaa041db
+export const SIM_VERSION = 0xdb0dac61

@@ -4,7 +4,7 @@
 
 ## Which builds are being compared?
 
-The **live** column is a snapshot of `/`, `/pad`, `/api/health`, and the published driving bundle and route assets fetched from fwestern.ca on **November 21, 2026 (Toronto)**. The **release** column describes this repository build. Live reported multiplayer protocol 2, rules 2, simulation `0x81013879`; the release simulation is `0xaaa041db`. The live pad HTML matched the earlier controller in git, but those observations do not identify the deployment's exact commit. A merge on GitHub does **not** establish which build the domain serves.
+The **live** column is a snapshot of `/`, `/pad`, `/api/health`, and the published driving bundle and route assets fetched from fwestern.ca on **November 21, 2026 (Toronto)**. The **release** column describes this repository build. Live reported multiplayer protocol 2, rules 2, simulation `0x81013879`; the release simulation is `0xdb0dac61`. The live pad HTML matched the earlier controller in git, but those observations do not identify the deployment's exact commit. A merge on GitHub does **not** establish which build the domain serves.
 
 | Player-facing area | Live at inspection | Release |
 |---|---|---|

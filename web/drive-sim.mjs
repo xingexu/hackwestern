@@ -384,7 +384,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
   const racing = mode === 'circuit'
   const last = samples.length - 1
   const gates = racing ? circuitGates(samples) : []
-  let progress
+  let progress, gridIndex=0
   const state = {}
   const wheels = new Float64Array(4)
   let ground
@@ -398,6 +398,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
     wheels.fill(0)
   }
   function reset() {
+    gridIndex=0
     spawn(samples[0])
     progress = zoneProgress()
     state.checkpointsPassed = 0
@@ -411,6 +412,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
       return
     }
     const elapsed = state.elapsed
+    gridIndex=0
     const checkpoint = state.checkpointsPassed > 0 ? gates[state.checkpointsPassed - 1] : 0
     spawn(samples[checkpoint])
     progress=zoneProgress(state.checkpointsPassed)
@@ -424,6 +426,13 @@ function createNetworkDrive(samples, network, mode, assisted) {
     for (let i = start + 1; i < end; i++) {
       const candidate = project(samples, i, state.x, state.z)
       if (candidate.error < nearest.error) nearest = candidate
+    }
+    if(gridIndex && nearest.distance>0) gridIndex=0
+    if(gridIndex){
+      for(let i=gridIndex;i<last;i++){
+        const grid=project(samples,i,state.x,state.z)
+        if(grid.error<nearest.error) nearest={...grid,distance:0}
+      }
     }
     state.distance = nearest.distance
     const lane = samples[nearest.index]
@@ -441,7 +450,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
     guideFromVerge(state)
     const forwardGrade = ground.grade * (dm.sin(state.heading) * ground.tangentX + dm.cos(state.heading) * ground.tangentZ)
     state.pitch = approach(state.pitch, dm.atan(forwardGrade), 1.5 * DT)
-    if (state.phase === 'ready' && dm.hypot(state.x - samples[0].x, state.z - samples[0].z) >= START_DISTANCE) {
+    if (state.phase === 'ready' && dm.hypot(state.x - samples[gridIndex].x, state.z - samples[gridIndex].z) >= START_DISTANCE) {
       state.phase = 'driving'
     }
     if (!racing) {
@@ -465,7 +474,12 @@ function createNetworkDrive(samples, network, mode, assisted) {
     sectorPosition()
   }
   reset()
-  return { state, wheels, step, reset, recover }
+  function placeOnGrid(slot){
+    if(!racing || !slot)return
+    gridIndex=Math.max(0,samples.findLastIndex(s=>s.distance<=samples[last].distance-slot*5))
+    spawn(samples[gridIndex])
+  }
+  return { state, wheels, step, reset, recover, placeOnGrid }
 }
 
 export function createDriveSim(samples, options = {}) {
