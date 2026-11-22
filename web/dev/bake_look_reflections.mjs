@@ -69,7 +69,7 @@ try{
     for(let row=0;row<high;row++)buffer.set(tile.subarray(row*wide*4,(row+1)*wide*4),4*((j*high+row)*wide*columns+i*wide));
   }
   if(errors.length)throw Error(errors.join('\n'));
-  const encoder=spawnSync(root+'.venv/bin/python',['-c',"import sys; from PIL import Image; Image.frombytes('RGBA',(int(sys.argv[1]),int(sys.argv[2])),sys.stdin.buffer.read()).convert('RGB').save(sys.argv[3],quality=94,method=6)",String(columns*wide),String(rows*high),root+'web/look/reflection-atlas.webp'],{input:buffer});
+  const encoder=spawnSync(root+'.venv/bin/python',['-c',"import sys; from PIL import Image; Image.frombytes('RGBA',(int(sys.argv[1]),int(sys.argv[2])),sys.stdin.buffer.read()).convert('RGB').save(sys.argv[3],quality=80,method=6)",String(columns*wide),String(rows*high),root+'web/look/reflection-atlas.webp'],{input:buffer});
   if(encoder.status!==0)throw Error(encoder.stderr.toString());
   const data={bounds:parcel.bounds,columns,rows,wide,high};
   await writeFile(new URL('../look/reflection-survey.mjs',import.meta.url),'export default '+JSON.stringify(data)+';\n');

@@ -35,7 +35,9 @@ export function createFleet(THREE,scene,coupe,audio){
       for(const [id,row] of cars)if(!players.some(p=>p.id===id && p.connected)){row.dispose();cars.delete(id)}
       for(const p of players)if(p.connected && p.id!==me){
         if(!cars.has(p.id))add(p)
-        else if(cars.get(p.id).nickname!==p.nickname)cars.get(p.id).rename(p.nickname)
+        const row=cars.get(p.id)
+        if(row.nickname!==p.nickname)row.rename(p.nickname)
+        row.finished=Boolean(p.finish || p.dnf)
       }
       localPaint.color.set(players.find(p=>p.id===me)?.color??originalColor)
     },
@@ -55,13 +57,13 @@ export function createFleet(THREE,scene,coupe,audio){
           }
           row.ghost=pose.ghost
         }
-        drawn.push({track,pose})
+        drawn.push({track,pose,finished:row.finished})
       }
       poses=drawn.map(v=>v.pose)
       if(clearing && poses.length && poses.every(p=>Math.hypot(p.x-car.x,p.z-car.z)>2.3 || Math.abs(p.y-car.y)>1.5))clearing=false
-      for(const {track,pose} of drawn){
+      for(const {track,pose,finished} of drawn){
         track.clearIfSeparated(pose,[car,...poses.filter(o=>o!==pose)])
-        if(collide && !clearing){
+        if(collide && !clearing && !finished){
           const speed=car.speed
           if(contact(car,pose,dt)){
             const sin=Math.sin(car.heading),cos=Math.cos(car.heading)

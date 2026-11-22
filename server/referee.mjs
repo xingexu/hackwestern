@@ -2,13 +2,20 @@ import {decode,encode,newer,HZ} from '../web/net/wire.mjs'
 import {StampMap} from '../web/net/timing.mjs'
 import {distance} from '../web/net/motion.mjs'
 
+import {ROAD_HALF_WIDTH} from '../web/drive-sim.mjs'
 import circuits from '../web/race/courses.mjs'
 import sprint from '../web/drive-route.json' with {type:'json'}
 import {advanceZones,circuitGates,zoneProgress} from '../web/race/zones.mjs'
 
 const courses={...circuits,sprint:{samples:sprint}}
-const onlineCourses=[...Object.keys(courses),'roam']
 const gates=Object.fromEntries(Object.entries(courses).map(([id,course])=>[id,circuitGates(course.samples)]))
+function atSprintFinish(point){
+  const end=sprint.at(-1),previous=sprint.at(-2)
+  const tx=end.x-previous.x,tz=end.z-previous.z,length=Math.hypot(tx,tz)
+  const dx=point.x-end.x,dz=point.z-end.z
+  return dx*tx+dz*tz>=0 && Math.abs(dx*tz-dz*tx)<=ROAD_HALF_WIDTH*length && Math.abs(point.y-end.y)<=2.2
+}
+
 export function observeRacePose(r,p,pose) {
   if (r.phase!=='playing' || p.dnf || p.finish) return false
   const samples=courses[r.settings.course].samples,indices=gates[r.settings.course]
@@ -16,7 +23,8 @@ export function observeRacePose(r,p,pose) {
   const {x,y,z,epoch}=pose,point={x,y,z,epoch}
   const prev=track.point
   if (!prev || epoch!==prev.epoch || Math.hypot(x-prev.x,z-prev.z)>12) {
-    const anchor=samples[indices[track.passed-1]??0]
+    const recovery=r.settings.course==='sprint' && prev && epoch!==prev.epoch && Math.hypot(x-prev.x,z-prev.z)<8
+    const anchor=recovery?prev:samples[indices[track.passed-1]??0]
     if (Math.hypot(x-anchor.x,z-anchor.z)>(track.passed?10:17) || Math.abs(y-anchor.y)>2.5) return false
     track.point=point
     track.near=true
@@ -52,7 +60,7 @@ export class Relay{
 }
 export const seatGrace=20000
 export const drainGrace=600000
-export const roomDefaults={course:'college',laps:1,collisions:true,limit:300}
+export const roomDefaults={course:'sprint',laps:1,collisions:true,limit:300}
 export function newRoundRoom(code){return {code,kind:'rooms',players:[],host:null,settings:{...roomDefaults},race:null,phase:'lobby',start:0,deadline:0,results:[],drain:0}}
 export function transition(r,now){
   const connected=r.players.filter(p=>p.connected)
@@ -83,15 +91,15 @@ export function removePlayer(r,id,now){
 export function command(r,p,m,now,raceId){
   const connected=r.players.filter(p=>p.connected)
   if(m.type==='loaded' && !p.loaded){p.loaded=true}
-  else if(m.type==='settings' && p.id===r.host && r.phase==='lobby' && onlineCourses.includes(m.course) && Number.isInteger(m.laps) && m.laps>=1 && m.laps<=5 && Number.isInteger(m.limit) && m.limit>=30 && m.limit<=900 && typeof m.collisions==='boolean'){
-    r.settings={course:m.course,laps:m.laps,collisions:m.collisions,limit:m.limit}
+  else if(m.type==='settings' && p.id===r.host && r.phase==='lobby' && (typeof m.course==='string' && Object.hasOwn(courses,m.course) || m.course==='roam') && Number.isInteger(m.laps) && m.laps>=1 && m.laps<=5 && Number.isInteger(m.limit) && m.limit>=30 && m.limit<=900 && typeof m.collisions==='boolean'){
+    r.settings={course:m.course,laps:m.course==='sprint'?1:m.laps,collisions:m.collisions,limit:m.limit}
     for(const player of r.players)player.ready=false
   }else if(m.type==='ready' && p.loaded && r.phase==='lobby' && typeof m.ready==='boolean' && m.ready!==p.ready)p.ready=m.ready
   else if(m.type==='start' && p.id===r.host && !r.drain && r.phase==='lobby' && r.settings.course!=='roam' && connected.length>=2 && connected.length===r.players.length && connected.every(p=>p.loaded && p.ready)){
     Object.assign(r,{race:raceId(),phase:'positioning',deadline:now+10000,results:[]})
     for(const player of r.players)Object.assign(player,{placed:false,lap:0,finish:0,dnf:false,vote:false,track:null})
   }else if(m.type==='placed' && !p.placed && r.phase==='positioning' && m.race===r.race)p.placed=true
-  else if(m.type==='lap' && r.phase==='playing' && m.race===r.race && !p.dnf && !p.finish && m.lap===p.lap+1 && p.track?.passed===gates[r.settings.course].length){
+  else if(m.type==='lap' && r.phase==='playing' && m.race===r.race && !p.dnf && !p.finish && m.lap===p.lap+1 && p.track?.passed===gates[r.settings.course].length && (r.settings.course!=='sprint' || atSprintFinish(p.track.point))){
     p.track=null
     p.lap++
     if(p.lap===r.settings.laps)p.finish=Math.max(1,now-r.start)

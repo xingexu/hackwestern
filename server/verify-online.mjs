@@ -9,6 +9,8 @@ import {chromium} from 'playwright'
 import {setTimeout as delay} from 'node:timers/promises'
 import {PROTOCOL,RULES} from '../web/net/wire.mjs'
 import {SIM_VERSION} from '../web/race/version.mjs'
+import sprintSamples from '../web/drive-route.json' with {type:'json'}
+import {createDriveSim} from '../web/drive-sim.mjs'
 import {decodeReplay} from '../web/race/replay.mjs'
 
 const root=fileURLToPath(new URL('../',import.meta.url))
@@ -103,9 +105,8 @@ try{
       const original=navigator.getGamepads.bind(navigator)
       Object.defineProperty(navigator,'getGamepads',{value:()=>{
         const metrics=window.driveMetrics
-        if(!window.racePilot || metrics?.mode!=='circuit')return original()
-        const samples=metrics.network.circuits.find(c=>c.id===metrics.course).samples
-        const {steer,throttle,brake}=driveInput(samples,metrics.car,7)
+        if(!window.racePilot || !metrics || metrics.mode==='roam')return original()
+        const {steer,throttle,brake}=driveInput(metrics.samples,metrics.car,metrics.mode==='circuit')
         return [{connected:true,mapping:'standard',axes:[-Math.sign(steer)*(.12+.88*Math.min(1,Math.abs(steer)))],buttons:Array.from({length:10},(_,i)=>({value:i===6?brake:i===7?throttle:0}))}]
       }})
     `})
@@ -163,6 +164,17 @@ try{
   await host.locator('#make-room').click()
   await host.locator('#room-label').waitFor()
   const roomCode=(await host.locator('#room-label').innerText()).split(' ').at(-1)
+  assert.equal(await host.locator('#race-course').inputValue(),'sprint')
+  assert.ok(await host.locator('#race-laps').isDisabled())
+  const sprintGrid=Array.from({length:8},(_,slot)=>{
+    const sim=createDriveSim(sprintSamples)
+    sim.placeOnGrid(slot)
+    return sim.state
+  })
+  assert.ok(await host.evaluate(grid=>grid.every(({x,y,z})=>{
+    const {network}=window.driveMetrics
+    return network.sample(x,z,y).surface==='road' && !network.blocked(x,z,y,.9)
+  }),sprintGrid))
   const guest=await desktop('Blake',roomCode)
   assert.equal(await guest.locator('#room-code').inputValue(),roomCode)
   await guest.locator('#room-code').fill(roomCode)
@@ -243,9 +255,68 @@ try{
   await host.locator('#race-again').click()
   await guest.locator('#race-again').click()
   await host.waitForFunction(()=>!document.querySelector('#race-ready').hidden)
+  console.log('Both clients completed a circuit with gamepad inputs and displayed identical finish order and times')
+  assert.ok(await host.locator('#race-laps').isEnabled())
+  await host.locator('#race-laps').fill('3')
+  await host.locator('#race-laps').press('Tab')
+  await guest.waitForFunction(()=>document.querySelector('#race-laps').value==='3')
+  await host.locator('#race-course').selectOption('sprint')
+  await Promise.all([host,guest].map(page=>page.waitForFunction(()=>document.querySelector('#race-course').value==='sprint' && document.querySelector('#race-laps').value==='1' && document.querySelector('#race-laps').disabled)))
+  assert.ok(await host.locator('#race-laps').isDisabled())
+  await host.locator('#race-contact').check()
+  await guest.waitForFunction(()=>document.querySelector('#race-contact').checked)
+  for(const page of [host,guest]){
+    await page.evaluate(()=>{window.racePilot=false})
+    await page.locator('#race-ready').click()
+  }
+  await host.locator('#race-start').click()
+  await Promise.all([host,guest].map(page=>page.waitForFunction(()=>window.driveMetrics.course==='sprint' && document.querySelector('#race-countdown').textContent==='2')))
+  const grid=await Promise.all([host,guest].map(page=>page.evaluate(()=>{
+    const {car}=window.driveMetrics
+    return {x:car.x,z:car.z,speed:car.speed,surface:car.surface}
+  })))
+  assert.ok(grid.every(car=>car.speed===0 && car.surface==='road'))
+  assert.ok(Math.hypot(grid[0].x-grid[1].x,grid[0].z-grid[1].z)>2.3)
+  await Promise.all([host,guest].map(page=>page.waitForFunction(()=>document.querySelector('#race-countdown').textContent==='GO')))
+  const checkSprintCheckpoint=(page,minimumPassed)=>page.waitForFunction(minimum=>{
+    const {car}=window.driveMetrics
+    const arch=window.driveMetrics.inspectLook().scene.getObjectByName('Next checkpoint arch')
+    const banner=document.querySelector('#race-banner')
+    const direction=document.querySelector('#checkpoint-direction')
+    const {nextGate}=car
+    return car.checkpointCount>1 && car.checkpointsPassed>=minimum && nextGate &&
+      arch?.parent.visible && arch.position.x===nextGate.x && arch.position.z===nextGate.z &&
+      !direction.hidden && !banner.hidden &&
+      banner.textContent==='Checkpoint '+(car.checkpointsPassed+1)+' / '+car.checkpointCount
+  },minimumPassed)
+  await Promise.all([host,guest].map(page=>checkSprintCheckpoint(page,0)))
+  await phone.mouse.down()
+  await host.waitForFunction(()=>window.driveMetrics.car.speed>2)
+  await phone.mouse.up()
+  await Promise.all([host,guest].map(page=>page.evaluate(()=>{window.racePilot=true})))
+  await Promise.all([host,guest].map(page=>checkSprintCheckpoint(page,1)))
+  console.log('Both Sprint racers saw the checkpoint count, direction and arch advance after crossing a gate')
+  await Promise.all([host,guest].map(page=>page.waitForFunction(()=>window.driveMetrics.car.speed>2 && window.driveMetrics.car.distance>24)))
+  await Promise.all([host,guest].map(page=>page.waitForFunction(()=>document.querySelector('#online-menu').open && document.querySelector('#room-roster').textContent.includes('2. '),null,{timeout:180000})))
+  for(const page of [host,guest]){
+    const end=await page.evaluate(()=>{
+      const {car,length}=window.driveMetrics
+      return car.phase==='finished' && car.distance>=length-.05 && car.checkpointsPassed===car.checkpointCount &&
+        document.querySelector('#trial-open').hidden
+    })
+    assert.ok(end)
+  }
+  assert.equal(await host.locator('#room-roster').innerText(),await guest.locator('#room-roster').innerText())
+  const rounds=await (await fetch(worker+'/api/rooms/'+roomCode+'/results')).json()
+  const sprint=rounds.find(round=>round.course==='sprint')
+  assert.equal(sprint.results.length,2)
+  assert.ok(sprint.results.every(row=>row.finish>0 && !row.dnf))
+  for(const method of ['GET','POST'])assert.equal((await fetch(worker+'/api/laps/sprint',{method})).status,404)
+  for(const page of [host,guest])await page.locator('#race-again').click()
+  await Promise.all([host,guest].map(page=>page.waitForFunction(()=>!document.querySelector('#race-ready').hidden && document.querySelector('#finish').hidden)))
+  console.log('Both racers drove UC Hill Sprint from the countdown to the finish line, recorded ranked results and voted back into the lobby')
   await mobile.close()
   assert.deepEqual(errors,[])
-  console.log('Both clients completed a circuit with gamepad inputs and displayed identical finish order and times')
 } catch(error){
   console.error(diagnostics)
   if(browser)for(const c of browser.contexts())for(const page of c.pages())console.error(await page.locator('#room-roster').allInnerTexts())

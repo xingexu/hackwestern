@@ -9,7 +9,7 @@ import {installPhoneControls} from './phone/controls.mjs';
 import {changedInput,speedKph} from './race/input.mjs';
 import {installAudio} from './audio/settings.mjs';
 import {installCountdown} from './race/countdown.mjs';
-import {zoneHalfWidth} from './race/zones.mjs';
+import {advanceZones,circuitGates,zoneHalfWidth,zoneProgress} from './race/zones.mjs';
 import {installTrial} from './race/trial.mjs';
 import {installLandmarkFlash} from './landmark-flash.mjs';
 import {adaptiveResolution,createCameraRig,interpolatePose,snapshotPose} from 'frame-pacing';
@@ -258,7 +258,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   const photoStart=starts.has('Street photograph');
   const requestedPlace=params.get('place') || (photoStart?'Street photograph':params.has('east')?'Map location':'University Drive');
   if(starts.has(requestedPlace)) spawn.value=requestedPlace;
-  let samples,length,sim,car,mode,routeMap;
+  let samples,length,sim,car,mode,routeMap,sprintGates,sprintProgress;
   const { geometries } = await collectMeshes(world, volume);
   const scene = new THREE.Scene();
   const terrain = campus.buildingMaterial;
@@ -333,6 +333,12 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   function reset() {
     audio.drive?.reset();
     sim.reset();
+    if(sprintGates){
+      sprintProgress=zoneProgress();
+      car.checkpointsPassed=0;
+      car.checkpointCount=sprintGates.length;
+      car.nextGate=samples[sprintGates[0]];
+    }
     car.assists=assists.checked;
     trial.begin(car.assists);
     phone.driving(false);phone.resetPedal();
@@ -350,29 +356,29 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   }
   function changeCourse(id,onlineRace=false) {
     const course=courses.find(c=>c.id===id)??courses[0];
-    const sprint=course.id==='sprint';
-    mode=sprint && !onlineRace?'sprint':course.id==='roam'?'roam':'circuit';
+    mode=course.id==='sprint'?'sprint':course.id==='roam'?'roam':'circuit';
     trial.course(course.id);
     samples=trial.context?.samples??course.samples??[starts.get(spawn.value)];
     length=samples.at(-1).distance;
-    sim=createDriveSim(samples,{mode,network:trial.context?.network??network,assists:assists.checked,pointToPoint:sprint});
+    sprintGates=mode==='sprint' && onlineRace ? circuitGates(samples) : null;
+    sim=createDriveSim(samples,{mode,network:trial.context?.network??network,assists:assists.checked});
     car=sim.state;
     routeMap=createRouteMap(samples,atlas,mode);
     byId('length').textContent=mode==='roam'?'Travelled':Math.round(length)+' m';
     byId('roam-start').hidden=mode!=='roam';
-    byId('recover').hidden=mode!=='circuit';
+    byId('recover').hidden=mode!=='circuit' && !online?.racing;
     progress.hidden=mode==='roam';
     progress.max=length||1;
     select.value=course.id;
     document.title=course.name+' · Western University';
     byId('finish').querySelector('small').textContent=course.name.toUpperCase();
     byId('view').setAttribute('aria-label',course.name+' driving view');
-    campus.sprintRoad.visible=sprintProps.visible=sprint;
+    campus.sprintRoad.visible=sprintProps.visible=mode==='sprint';
     if(params.has('diagnostics')) window.driveMetrics={
       get net(){return online?.details()??[];},
       get opponents(){return scene.children.filter(child=>child.name.startsWith('Racer ') && child.visible).map(({name,position})=>({name,x:position.x,z:position.z}));},
       get ghostVisible(){return Boolean(scene.getObjectByName('Time trial ghost')?.visible);},
-      car,sim,network,facades:campus.facades.group,buildingRecords:campus.buildingRecords,frames:0,length,mode,course:course.id,
+      car,sim,network,samples,facades:campus.facades.group,buildingRecords:campus.buildingRecords,frames:0,length,mode,course:course.id,
       surveyView(position){
         Object.assign(car,position);
         snapshotPose(previousPose,car);
@@ -395,7 +401,8 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     audio.drive?.reset();
     const spot=online?.recoverySpot(car),elapsed=car.elapsed;
     if(sim.recover)sim.recover();else sim.reset();
-    if(spot)Object.assign(car,spot,{elapsed});
+    if(sprintGates)sprintProgress=zoneProgress(car.checkpointsPassed);
+    if(spot && mode!=='sprint')Object.assign(car,spot,{elapsed});
     snapshotPose(previousPose,car);remaining=0;rig.reset(car);placement.reset();
   };
   for(const button of document.querySelectorAll('[data-key]')){
@@ -527,11 +534,10 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     landmarks.update(car,{quiet:paused || !finish.hidden || car.phase==='finished' || Boolean(online?.waiting) || byId('pixel-countdown')?.hidden===false});
   }
   changeCourse(params.get('course')||(photoStart?'roam':document.querySelector('meta[name=campus-course]')?.content));
+  await campus.focusRasters(car.x,car.z);
   online=await onlineMenu;
-  online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car,endRace(){
-    if(mode==='circuit' && select.value==='sprint')changeCourse('sprint');
-  },gridPosition(slot){
-    if(!slot || mode!=='circuit')return;
+  online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car,gridPosition(slot){
+    if(mode==='roam')return;
     sim.placeOnGrid(slot);
     snapshotPose(previousPose,car);rig.reset(car);placement.reset();
   }});
@@ -549,6 +555,12 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
         snapshotPose(previousPose,car);
         const beforeSpeed=car.speed,beforeSide=car.lateralSpeed,beforeLift=car.lift,beforeFall=car.liftSpeed;
         trial.step(sim,input);
+        if(sprintGates && car.nextGate && car.phase!=='ready' && advanceZones(samples,sprintGates,sprintProgress,
+          {x:previousPose.x,y:previousPose.y+previousPose.lift,z:previousPose.z},
+          {x:car.x,y:car.y+car.lift,z:car.z})){
+          car.checkpointsPassed=sprintProgress.passed;
+          car.nextGate=samples[sprintGates[sprintProgress.passed]]??null;
+        }
         audio.drive?.collision(car,beforeSpeed,beforeSide,timestamp/1000);
         if(beforeLift>0 && car.lift===0 && beforeFall<-.8)audio.mix?.impact('landing',-beforeFall*1.4);
         remaining -= 1 / 120;

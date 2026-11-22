@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
 import {once} from 'node:events'
+import {parseArgs} from 'node:util'
 import {spawn} from 'node:child_process'
 import {createServer} from 'node:net'
 import {mkdtemp,rm} from 'node:fs/promises'
@@ -8,6 +9,10 @@ import {join} from 'node:path'
 import {setTimeout as sleep} from 'node:timers/promises'
 import {chromium,devices} from 'playwright'
 
+const {values}=parseArgs({options:{'sprint-max-bytes':{type:'string',default:'12000000'}}})
+const sprintBudget=Number(values['sprint-max-bytes'])
+assert.ok(Number.isSafeInteger(sprintBudget) && sprintBudget>0)
+
 const listener=createServer().listen(0,'127.0.0.1')
 await once(listener,'listening')
 const port=listener.address().port
@@ -15,16 +20,7 @@ await new Promise(resolve=>listener.close(resolve))
 const base='https://127.0.0.1:'+port
 const temp=await mkdtemp(join(tmpdir(),'western-school-'))
 const child=spawn(process.execPath,['node_modules/wrangler/bin/wrangler.js','dev','--local','--local-protocol','https','--ip','127.0.0.1','--config','server/wrangler.jsonc','--var','MULTIPLAYER:1','--inspector-port','0','--port',String(port),'--persist-to',temp],{detached:true,stdio:['ignore','pipe','pipe']})
-let browser,logs=''
-for(const stream of [child.stdout,child.stderr])stream.on('data',b=>{logs=(logs+b).slice(-4000)})
-try{
-  browser=await chromium.launch({args:process.platform==='darwin'?['--use-angle=metal']:[]})
-  const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1024,height:700}})
-  for(let i=0;i<160;i++){
-    try{if((await context.request.get(base+'/api/health',{timeout:700})).ok())break}catch{}
-    if(i===159 || child.exitCode!==null)throw Error(logs)
-    await sleep(100)
-  }
+async function coldPage(context){
   const page=await context.newPage(),cdp=await context.newCDPSession(page),requests=new Map()
   await page.addInitScript(()=>{window.RTCPeerConnection=undefined;performance.setResourceTimingBufferSize(2500)})
   await cdp.send('Network.enable')
@@ -35,6 +31,20 @@ try{
   })
   cdp.on('Network.dataReceived',({requestId,encodedDataLength})=>{const r=requests.get(requestId);if(r)r.bytes+=encodedDataLength})
   cdp.on('Network.loadingFinished',({requestId,encodedDataLength})=>{const r=requests.get(requestId);if(r)r.bytes=encodedDataLength})
+  return {page,requests}
+}
+
+let browser,logs=''
+for(const stream of [child.stdout,child.stderr])stream.on('data',b=>{logs=(logs+b).slice(-4000)})
+try{
+  browser=await chromium.launch({args:process.platform==='darwin'?['--use-angle=metal']:[]})
+  const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1024,height:700}})
+  for(let i=0;i<160;i++){
+    try{if((await context.request.get(base+'/api/health',{timeout:700})).ok())break}catch{}
+    if(i===159 || child.exitCode!==null)throw Error(logs)
+    await sleep(100)
+  }
+  const {page,requests}=await coldPage(context)
   await page.goto(base+'/?diagnostics',{waitUntil:'commit'})
   await page.waitForFunction(()=>window.driveMetrics?.frames>=1,null,{timeout:300000})
   await page.keyboard.down('ArrowUp')
@@ -83,6 +93,18 @@ try{
   await pad.close()
   await page.waitForFunction(()=>window.driveMetrics.car.throttlePlate<.01)
   console.log('Isolated mobile context steered and accelerated over same-origin HTTPS/WSS, then released the pedals on disconnect')
+  await context.close()
+  const sprintContext=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1280,height:720}})
+  const sprint=await coldPage(sprintContext)
+  await sprint.page.goto(base+'/?mode=drive&course=sprint&diagnostics',{waitUntil:'commit'})
+  await sprint.page.waitForFunction(()=>window.driveMetrics?.course==='sprint' && window.driveMetrics.frames>=2,null,{timeout:120000})
+  const transferredBytes=[...sprint.requests.values()].reduce((sum,r)=>sum+r.bytes,0)
+  const seconds=await sprint.page.evaluate(()=>performance.now()/1000)
+  console.log(JSON.stringify({course:'sprint',mbps:5,latencyMs:100,seconds,transferredBytes,sprintBudget}))
+  assert.ok(transferredBytes>1000000 && transferredBytes<=sprintBudget,`Sprint transferred ${transferredBytes} bytes by its second frame (budget ${sprintBudget})`)
+  await sprint.page.keyboard.down('ArrowUp')
+  await sprint.page.waitForFunction(()=>window.driveMetrics.car.speed>1)
+  await sprintContext.close()
 }finally{
   await browser?.close();try{process.kill(-child.pid,'SIGTERM')}catch{}
   await Promise.race([once(child,'exit'),sleep(1500)]);await rm(temp,{recursive:true,force:true})

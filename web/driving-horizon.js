@@ -1,3 +1,4 @@
+import {surveyTexture} from './survey-raster.mjs';
 import {estateBoundary,joinTerrainEdges} from './look/ground-join.mjs';
 import {riverFinish} from './look/water.mjs';
 export function createDrivingHorizon(THREE,data,landscape){
@@ -127,7 +128,9 @@ export function anchoredHeight(vertices,bindings,i){
 }
 
 export async function createCampusContext(THREE,meta,landscape,unpack,groundDetail,contextTrees){
-  const [vertexBytes,indexBytes,coverBytes,treeBytes]=await Promise.all([meta.vertices,meta.indices,meta.coverage??meta.cover,meta.trees].map(unpack));
+  const [w,h]=meta.size;
+  const [vertexBytes,indexBytes,coverage,treeBytes]=await Promise.all([unpack(meta.vertices),unpack(meta.indices),
+    meta.coverage?surveyTexture(THREE,meta.coverage,w,h,meta.bounds,unpack):unpack(meta.cover),unpack(meta.trees)]);
   const source=new Float32Array(vertexBytes),indices=new Uint32Array(indexBytes);
   const positions=new Float32Array(source.length/4*3);
   for(let k=0;k<source.length;k+=4){
@@ -156,14 +159,12 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
     normal.fromBufferAttribute(normals,i).lerp(surveyNormal,1-distance/6).normalize();
     normals.setXYZ(i,normal.x,normal.y,normal.z);
   }
-  const [w,h]=meta.size;
-  let masks=new Uint8Array(coverBytes);
+  let cover=coverage;
   if(!meta.coverage){
-    const legacy=masks;
-    masks=new Uint8Array(w*h*4);
+    const legacy=new Uint8Array(coverage),masks=new Uint8Array(w*h*4);
     for(let k=0;k<legacy.length;k++)if(legacy[k])masks[k*4+legacy[k]-1]=255;
+    cover=new THREE.DataTexture(masks,w,h);
   }
-  const cover=new THREE.DataTexture(masks,w,h,THREE.RGBAFormat);
   cover.magFilter=THREE.LinearFilter;cover.minFilter=THREE.LinearMipmapLinearFilter;cover.generateMipmaps=true;
   cover.needsUpdate=true;
   const material=new THREE.MeshStandardMaterial({roughness:.94});
@@ -222,6 +223,7 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
   const vegetation=contextTrees(THREE,trees,landscape.permitsContextTree);
   group.add(vegetation);
   group.traverse(o=>o.layers.set(1));
+  group.userData.focusRaster=cover.userData.focus;
   group.userData.vertices=positions;
   group.userData.update=vegetation.userData.update;
   return group;

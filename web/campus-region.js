@@ -337,8 +337,42 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
   }
   const markingMaterial=observations?observedPaint(observations):paintMaterial;
   const paintQueue=[];
-  let paintScheduled=false;
-  group.userData.paintReady=()=>paintQueue.length===0;
+  let paintScheduled=false,pendingStrokes=0;
+  group.userData.paintReady=()=>paintQueue.length===0 && pendingStrokes===0;
+  function queuePaint(patch){
+    if(patch.paintReady)return;
+    patch.paintJob??=roadPaint(patch);
+    paintQueue.push(patch);
+  }
+  function schedulePaint(){
+    paintQueue.sort((a,b)=>b.paintDistance-a.paintDistance);
+    if(paintScheduled || !paintQueue.length)return;
+    paintScheduled=true;
+    if(landscape?.racing)requestAnimationFrame(preparePaint);
+    else preparePaint();
+  }
+  async function loadStrokes(patch){
+    if(patch.loadingStrokes)return;
+    patch.loadingStrokes=true;
+    pendingStrokes++;
+    try{
+      const response=await fetch(patch.strokes);
+      if(!response.ok)throw new Error('Could not load lane markings '+patch.strokes);
+      patch.strokes=await response.json();
+    }catch(error){
+      console.warn(error.message);
+      setTimeout(()=>{
+        patch.loadingStrokes=false;
+        if(Number.isFinite(patch.paintDistance))loadStrokes(patch);
+      },3000);
+      return;
+    }finally{pendingStrokes--;}
+    patch.loadingStrokes=false;
+    if(Number.isFinite(patch.paintDistance)){
+      queuePaint(patch);
+      schedulePaint();
+    }
+  }
   function attachPaint(patch){
     if(!patch.active || !patch.paint || patch.paint.parent)return;
     patch.mesh.add(patch.paint);
@@ -653,12 +687,11 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
       const near=distance<850 && range<(patch.active?420:330);
       if(patch.strokes){
         if(near || (landscape?.racing && distance<850 && range<460)){
-          if(!patch.paintReady){
-            patch.paintJob??=roadPaint(patch);
-            patch.paintDistance=range;
-            paintQueue.push(patch);
-          }
+          patch.paintDistance=range;
+          if(typeof patch.strokes==='string')loadStrokes(patch);
+          else queuePaint(patch);
         }else{
+          patch.paintDistance=Infinity;
           patch.paintJob=null;
           patch.paint?.removeFromParent();
           patch.paint?.geometry.dispose();
@@ -702,12 +735,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
         group.userData.onTextureReady?.();
       }).catch(error=>{if(patch.token===token){patch.active=false;focusX=NaN;console.warn(error.message);}});
     }
-    paintQueue.sort((a,b)=>b.paintDistance-a.paintDistance);
-    if(!paintScheduled && paintQueue.length){
-      paintScheduled=true;
-      if(landscape?.racing) requestAnimationFrame(preparePaint);
-      else preparePaint();
-    }
+    schedulePaint();
     return textureRevision;
   };
   return group;

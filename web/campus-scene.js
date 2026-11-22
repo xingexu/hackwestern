@@ -1,3 +1,4 @@
+import {rasterBytes,surveyTexture} from './survey-raster.mjs';
 import {prepareReflections} from './look/reflections.mjs';
 import {boundaryEcology,coveredCourts,weatheringSamples,weatheringSize} from './look/survey-weathering.mjs';
 import {landscapeBackground} from './look/landscape-background.mjs';
@@ -32,6 +33,7 @@ async function data(name) {
 }
 
 async function unpack(encoded) {
+  if(typeof encoded==='object')return rasterBytes(encoded);
   let stream;
   if(encoded.startsWith('./')){
     const response=await fetch(encoded);
@@ -47,13 +49,14 @@ async function unpack(encoded) {
 async function coreTerrain(world,volume,ground) {
   const {width,depth}=world;
   const heightBytes=await unpack(ground.heightMillimeters);
-  const heights=new Uint16Array(heightBytes),stride=width*depth;
-  if(heights.length!==stride) throw new Error('Campus terrain dimensions do not match the map.');
+  const heights=new Uint16Array(heightBytes),step=ground.heightStep??1;
+  const columns=Math.ceil((width-1)/step)+1,rows=Math.ceil((depth-1)/step)+1;
+  if(heights.length!==columns*rows) throw new Error('Campus terrain dimensions do not match the map.');
   if(volume) removeGround(volume,new Uint8Array(await unpack(ground.cut)));
   return (x,z) => {
     if(x<0||x>=width||z<0||z>=depth) return NaN;
     const ix=Math.floor(x/2)*2, iz=Math.floor(z/2)*2;
-    const at=(xx,zz)=>heights[Math.min(depth-1,zz)*width+Math.min(width-1,xx)]*.001;
+    const at=(xx,zz)=>heights[Math.ceil(Math.min(depth-1,zz)/step)*columns+Math.ceil(Math.min(width-1,xx)/step)]*.001;
     const u=(x-ix)/2, v=(z-iz)/2;
     return u+v<=1 ? at(ix,iz)*(1-u-v)+at(ix+2,iz)*u+at(ix,iz+2)*v :
       at(ix+2,iz+2)*(u+v-1)+at(ix+2,iz)*(1-v)+at(ix,iz+2)*(1-u);
@@ -158,8 +161,7 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
   }
   landscape.grassVigor=new THREE.DataTexture(surface,vigor.width,vigor.height,THREE.RGFormat);
   const surfaceDetail=land.pavementDetail;
-  const detailPixels=surfaceDetail?new Uint8Array(await unpack(surfaceDetail.samples)):new Uint8Array([0,0,128,128]);
-  landscape.pavementDetail=new THREE.DataTexture(detailPixels,surfaceDetail?.width??1,surfaceDetail?.height??1);
+  landscape.pavementDetail=surfaceDetail?await surveyTexture(THREE,surfaceDetail.samples,surfaceDetail.width,surfaceDetail.height,land.bounds??region.bounds,unpack):new THREE.DataTexture(new Uint8Array([0,0,128,128]),1,1);
   landscape.pavementDetail.minFilter=landscape.pavementDetail.magFilter=THREE.LinearFilter;
   landscape.pavementDetail.needsUpdate=true;
   const tone=land.pavingTone;
@@ -224,7 +226,10 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
   const context=racing&&land.context?await createCampusContext(THREE,land.context,landscape,unpack,groundDetailGLSL,createContextTrees):null;
   const backdrop=racing?await landscapeBackground(region,landscape,boundary,{...aerial.groundCover,data:coverSamples},unpack,land.context?.backdrop,context?.userData.vertices):null;
   extendEstateWays(roadData.ways);
-  const walkAt=walkwaySampler(await Promise.all(aerial.walkways.filter(t=>boundary.intersects(...t.bounds)).map(async t=>({...t,spans:new Uint16Array(await unpack(t.samples))}))));
+  const walkwayBuffer=aerial.walkwaySamples?await unpack(aerial.walkwaySamples):null;
+  const walkways=aerial.walkways.filter(tile=>boundary.intersects(...tile.bounds));
+  const walkAt=walkwaySampler(await Promise.all(walkways.map(async tile=>({...tile,spans:walkwayBuffer?
+    new Uint16Array(walkwayBuffer,tile.offset*2,tile.length):new Uint16Array(await unpack(tile.samples))}))));
   addBoundaryHousing(buildings,region);
   region.buildingSolids=fitArchitecture(buildings,landscape.heightAt,roadData.ways);
   if(includeBuildings)landscape.foundationLight=foundationLight(buildings);
@@ -349,6 +354,9 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
   const sprintRoad=racing ? createRoad(samples,network) : null;
   if(sprintRoad) scenery.add(sprintRoad);
   boundary.attach(scenery);
+  function focusRasters(x,z){
+    return Promise.all([landscape.pavementDetail.userData.focus?.(x,z),context?.userData.focusRaster?.(x,z)]);
+  }
   let lastX,lastZ,lastDistance,revision=-1;
   function updateDetail(x,z,distance,force=false) {
     const stamp=outer.userData.updateAerial(x,z,distance);
@@ -358,6 +366,7 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
     municipal.update(x,z,distance);
     edgeCanopy.update(x,z,distance);
     if(!force && previousCanopy===canopyRevision && Math.hypot(x-lastX,z-lastZ)<7 && Math.abs(distance-lastDistance)<12 && stamp===revision) return false;
+    focusRasters(x,z).catch(error=>console.warn(error.message));
     previousCanopy=canopyRevision;lastX=x; lastZ=z; lastDistance=distance; revision=stamp;
     vegetation.userData.updateLevels?.(x,z,distance);
     roads.update(x,z,distance);
@@ -366,7 +375,7 @@ export async function prepareCampus(world, volume, racing, includeBuildings=true
     return true;
   }
   const ambience=racing?campusAmbience(region.trees,trees.trees,municipalData,roadData):null;
-  return {ambience,scenery,backdrop,context,buildingMaterial:stone,boundary,bounds:boundary.bounds,labels:(region.labels??[]).filter(p=>boundary.contains(p.x,p.z)),samples,network,roadData,sprintRoad,...(new URLSearchParams(globalThis.location?.search).has('audit')?{auditSources:{region,survey,trees,municipalData,features,groundSettledNear:outer.userData.groundSettledNear}}:{}),photoFrames:facadeData.frames,buildingRecords:buildings,facades,updateDetail,
+  return {ambience,scenery,backdrop,context,focusRasters,buildingMaterial:stone,boundary,bounds:boundary.bounds,labels:(region.labels??[]).filter(p=>boundary.contains(p.x,p.z)),samples,network,roadData,sprintRoad,...(new URLSearchParams(globalThis.location?.search).has('audit')?{auditSources:{region,survey,trees,municipalData,features,groundSettledNear:outer.userData.groundSettledNear}}:{}),photoFrames:facadeData.frames,buildingRecords:buildings,facades,updateDetail,
     paintReady:outer.userData.paintReady,
     onTextureReady(fn){outer.userData.onTextureReady=fn;},setCanopyCoverage(fn){outer.userData.setCanopyCoverage(fn);}};
 }

@@ -5,8 +5,10 @@ import {Clock,StampMap,Lag} from '../web/net/timing.mjs'
 import {Track,contact} from '../web/net/motion.mjs'
 import {createHmac} from 'node:crypto'
 import {iceServers} from './ice.mjs'
-import {Relay,newRoundRoom,command,transition,removePlayer,observeRacePose} from './referee.mjs'
 import sprint from '../web/drive-route.json' with {type:'json'}
+import {createDriveSim} from '../web/drive-sim.mjs'
+import {driveInput} from '../web/dev/circuit_driver.mjs'
+import {observeRacePose,Relay,newRoundRoom,command,transition,removePlayer} from './referee.mjs'
 for(const name of ['wire','timing','motion']){
   const source=await readFile(new URL('../web/net/'+name+'.mjs',import.meta.url),'utf8')
   assert.doesNotMatch(source,/\b(window|document|navigator|Date|performance|fetch|WebSocket|RTCPeerConnection|setTimeout|setInterval|process|crypto|THREE)\b|Math\.random/)
@@ -86,22 +88,48 @@ voteRoom.players=[1,2,3].map(id=>({id,connected:true,vote:id!==3}))
 Object.assign(voteRoom,{race:'voted',phase:'playing',deadline:1000})
 removePlayer(voteRoom,3,300)
 assert.equal(voteRoom.phase,'lobby')
-const sprintRoom=newRoundRoom('SPR234')
-sprintRoom.players=[1,2].map(id=>({id,connected:true,loaded:true,ready:true}))
-sprintRoom.host=1
-const sprintHost=sprintRoom.players[0]
-assert.ok(command(sprintRoom,sprintHost,{type:'settings',course:'sprint',laps:1,limit:300,collisions:true},0))
-for(const player of sprintRoom.players) assert.ok(command(sprintRoom,player,{type:'ready',ready:true},0))
-assert.ok(command(sprintRoom,sprintHost,{type:'start'},0,()=>3))
-for(const player of sprintRoom.players) assert.ok(command(sprintRoom,player,{type:'placed',race:3},100))
-transition(sprintRoom,3100)
-for(const player of sprintRoom.players){
-  assert.equal(observeRacePose(sprintRoom,player,{...sprint.at(-1),epoch:1}),false)
-  assert.equal(command(sprintRoom,player,{type:'lap',race:3,lap:1},4000),false)
-  for(const sample of sprint) observeRacePose(sprintRoom,player,{...sample,epoch:1})
-  assert.ok(command(sprintRoom,player,{type:'lap',race:3,lap:1},50000+player.id))
-}
-assert.equal(sprintRoom.phase,'results')
-assert.deepEqual(sprintRoom.results.map(({id,dnf})=>({id,dnf})),[{id:1,dnf:false},{id:2,dnf:false}])
-console.log('UC Hill Sprint room start, checkpoints and finish order passed')
 console.log('Binary codec, pure-module boundary, clock, referee sanity checks, prediction, ghost lifetime and round timeout passed')
+
+const hill=newRoundRoom('HILL23')
+hill.host=0
+hill.players=Array.from({length:8},(_,slot)=>({id:slot,slot,connected:true,loaded:true}))
+assert.equal(hill.settings.course,'sprint')
+assert.ok(command(hill,hill.players[0],{...hill.settings,type:'settings',laps:5},0))
+assert.equal(hill.settings.laps,1)
+for(const driver of hill.players)command(hill,driver,{type:'ready',ready:true},1)
+assert.ok(command(hill,hill.players[0],{type:'start'},2,()=>1))
+for(const driver of hill.players)command(hill,driver,{type:'placed',race:1},3)
+transition(hill,hill.start)
+const cars=hill.players.map(({slot})=>{
+  const sim=createDriveSim(sprint)
+  sim.placeOnGrid(slot)
+  return sim
+})
+for(const [slot,sim] of cars.entries()){
+  const {x,z,heading}=sim.state
+  for(const other of cars.slice(0,slot)){
+    const dx=other.state.x-x,dz=other.state.z-z
+    assert.ok(Math.abs(dx*Math.sin(heading)+dz*Math.cos(heading))>4.5 || Math.abs(dx*Math.cos(heading)-dz*Math.sin(heading))>2.3)
+  }
+  const driver=hill.players[slot],lap={type:'lap',race:1,lap:1}
+  assert.equal(observeRacePose(hill,driver,{...sprint.at(-1),epoch:0}),false)
+  assert.equal(command(hill,driver,lap,hill.start+1),false)
+  let tick=0,epoch=1,recovered=false
+  while(sim.state.phase!=='finished' && tick<120*90){
+    if(tick%6===0)observeRacePose(hill,driver,{...sim.state,epoch})
+    if(!recovered && sim.state.distance>250){
+      sim.recover()
+      epoch++
+      recovered=true
+    }
+    sim.step(driveInput(sprint,sim.state,false))
+    tick++
+  }
+  assert.equal(sim.state.phase,'finished')
+  assert.equal(command(hill,driver,lap,hill.start+tick*1000/120),false)
+  observeRacePose(hill,driver,{...sim.state,epoch})
+  assert.ok(command(hill,driver,lap,hill.start+tick*1000/120))
+}
+assert.equal(hill.phase,'results')
+assert.ok(hill.results.every(row=>row.finish>0 && !row.dnf))
+console.log('All eight sprint grid slots drove to a validated finish, including mid-course recovery and rejection of early finish reports')

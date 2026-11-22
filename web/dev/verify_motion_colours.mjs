@@ -27,6 +27,7 @@ try{
     await page.goto(base+'/?mode=drive&course=stadium&diagnostics');
     await page.waitForFunction(()=>window.driveMetrics?.frames>8,null,{timeout:120000});
     await page.waitForFunction(()=>driveMetrics.inspectLook().scene.getObjectByName('Next checkpoint arch')?.parent.visible);
+    await page.locator('#loader').waitFor({state:'hidden'});
     for(const enabled of [false,true]){
       await drivingMenu(page);
       await page.selectOption('#look-quality','high');

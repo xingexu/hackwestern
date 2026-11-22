@@ -30,6 +30,7 @@ const r=newRoundRoom('TEST'),p={id:1,lap:0,connected:true}
 Object.assign(r,{race:'race',phase:'playing',start:1,deadline:300000,players:[p]})
 const lap={type:'lap',race:'race',lap:1}
 assert.equal(command(r,p,lap,100),false)
+r.settings.course='college'
 const route=courses.college.samples
 for(const point of route.slice(-20))observeRacePose(r,p,{...point,epoch:0})
 assert.equal(command(r,p,lap,200),false)
