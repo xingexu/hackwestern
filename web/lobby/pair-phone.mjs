@@ -82,6 +82,6 @@ export function pairPhone(onAction) {
       nextFeedback=performance.now()+200
     }
     const profile=activity>local.activity?input.profile:local.profile
-    return {...local,profile,digitalSteer:profile==='buttons' || profile==='keyboard',steer:Math.max(-1,Math.min(1,local.steer+input.steer)),brake:Math.max(local.brake,input.brake),throttle:Math.max(local.throttle,input.throttle)}
+    return {...local,profile,digitalSteer:profile==='buttons' || profile==='keyboard',steer:Math.max(-1,Math.min(1,local.steer+input.steer)),brake:Math.max(local.brake,input.brake),throttle:Math.max(local.throttle,input.throttle),handbrake:Math.max(local.handbrake??0,input.handbrake??0)}
   }}
 }

@@ -41,7 +41,6 @@ button{cursor:pointer;color:inherit;border:1px solid #71857a;background:#25382f;
 #options label{display:block}
 #sensitivity{width:100%}
 #deck{display:grid;flex:1;grid-template-columns:1fr 1fr;gap:clamp(20px,7vmax,80px);min-height:0;align-items:stretch}
-#deck:has(#arrows[hidden]){grid-template-columns:1fr}
 #deck:has(#arrows[hidden]) #pedals{gap:clamp(18px,3vmax,32px)}
 .group{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:stretch}
 .group button{min-width:0;display:grid;place-content:center;justify-items:center;gap:6px;border-radius:18px;font-weight:650;font-size:clamp(18px,3vmax,30px)}
@@ -93,7 +92,11 @@ button:focus-visible,input:focus-visible{outline:var(--px) solid var(--gold);out
 #play{color:var(--mist);font-size:20px}
 .tools button{font-size:9px}
 #tilt[aria-pressed=true]{background:var(--accent);color:var(--lav)}
-#wheel{border:var(--px) solid var(--btn);color:var(--btn)}
+#steering{display:grid;align-content:center;justify-items:center;gap:10px;background:var(--ink-2);box-shadow:inset 0 0 0 var(--px) var(--on)}
+#steering small{text-transform:uppercase;font:9px var(--display);color:var(--mist)}
+#wheel{position:relative;width:clamp(60px,13vmin,110px);height:auto;aspect-ratio:1;border:6px solid var(--btn);color:var(--btn)}
+#wheel::after{content:'';position:absolute;top:-6px;left:calc(50% - 4px);width:8px;height:12px;background:var(--gold)}
+#wheel-value{font:24px var(--body);color:var(--lav)}
 #options section{background:var(--lav);color:var(--on);border:0;border-radius:0;box-shadow:var(--frame)}
 #options section label{color:var(--on)}
 #options input[type=range]{accent-color:var(--accent)}
@@ -102,6 +105,8 @@ button:focus-visible,input:focus-visible{outline:var(--px) solid var(--gold);out
 .group button small{font:18px var(--body);opacity:.85}
 #left,#right{background:var(--btn);color:var(--on)}
 #gas{color:var(--on);background:#9be8bd}
+#brake[data-pulse]{box-shadow:inset 0 0 0 4px #fff1c9,var(--frame);background:var(--gold)}
+#brake[data-pulse] .brake-label,#brake:not([data-pulse]) .drift-label{display:none}
 #brake{color:var(--on);background:#ffb0bb}
 .group button[data-held]{filter:brightness(1.15);transform:translateY(var(--px))}
 #notice,#lock-hint{color:var(--gold);font-size:20px}
@@ -116,17 +121,17 @@ button:focus-visible,input:focus-visible{outline:var(--px) solid var(--gold);out
 <h1 id="setup-title">Lock rotation first</h1>
 <p>Hold your phone upright and lock the screen in portrait.</p>
 <ul><li><strong>iPhone</strong>Open Control Centre and turn on Portrait Orientation Lock.</li><li><strong>Android</strong>Open Quick Settings and turn off Auto-rotate.</li></ul>
-<p>Tap Start driving, then hold your phone sideways. Keep the ends level to drive straight and turn it like a steering wheel.</p>
+<p>Tap Start driving and allow motion access. Hold the phone sideways like a wheel: turn clockwise for right, counterclockwise for left. Double-tap Brake in a turn to drift.</p>
 <button id="start-drive">Start driving</button>
 </section>
 <section id="controls" hidden aria-label="Driving controls">
 <p id="lock-hint">For a steady layout, hold the phone upright, lock rotation, then turn it sideways again.</p>
-<div class="tools"><button id="tilt" aria-pressed="false">Enable tilt steering</button><span id="wheel" hidden aria-label="Steering wheel"></span><details id="options" hidden><summary>Settings</summary><section><label for="sensitivity">Steering sensitivity <output id="degrees">±32°</output><input id="sensitivity" type="range" min="0" max="24" value="12"></label><label><input id="haptics" type="checkbox"> Vibrate at full lock</label></section></details><button id="flip">Flip layout</button><div><button id="recover">Recover</button><button id="restart">Restart</button></div></div>
-<div id="deck"><div class="group" id="arrows"><button id="left" aria-label="Steer left"><b aria-hidden="true">←</b>Left</button><button id="right" aria-label="Steer right"><b aria-hidden="true">→</b>Right</button></div><div class="group" id="pedals"><button id="brake" aria-label="Brake or reverse">Brake<small>Reverse</small></button><button id="gas">Gas</button></div></div>
+<div class="tools"><button id="tilt" aria-pressed="false">Enable wheel steering</button><details id="options" hidden><summary>Settings</summary><section><label for="sensitivity">Steering sensitivity <output id="degrees">±32°</output><input id="sensitivity" type="range" min="0" max="24" value="12"></label><label><input id="haptics" type="checkbox"> Vibrate at full lock and drift</label></section></details><button id="flip">Flip layout</button><div><button id="recover">Recover</button><button id="restart">Restart</button></div></div>
+<div id="deck"><div id="steering" hidden><small>Rotate to steer</small><span id="wheel" aria-hidden="true"></span><span id="wheel-value">Straight</span></div><div class="group" id="arrows"><button id="left" aria-label="Steer left"><b aria-hidden="true">←</b>Left</button><button id="right" aria-label="Steer right"><b aria-hidden="true">→</b>Right</button></div><div class="group" id="pedals"><button id="brake" aria-label="Brake or reverse; double-tap to drift"><span class="brake-label">Brake</span><span class="drift-label">Drift</span><small>Double-tap to drift</small></button><button id="gas">Gas<small>Accelerate</small></button></div></div>
 </section>
 </main><output id="notice" role="status"></output>
 <script type="module">
-import {createWheel} from '/pad-wheel.js'
+import {createWheel,bindDriftBrake} from '/pad-wheel.js'
 const by=id=>document.getElementById(id)
 const landscape=matchMedia('(orientation: landscape)')
 const held=new Map()
@@ -140,12 +145,14 @@ function snapshot(){
   const keys=new Set(held.values())
   const steer=keys.has('left') || keys.has('right') ? Number(keys.has('left'))-Number(keys.has('right')) : tilt
   const profile=sensors && !keys.has('left') && !keys.has('right')?'wheel':'buttons'
-  send({type:'pad',input:{steer,profile,throttle:Number(keys.has('gas')),brake:Number(keys.has('brake'))}})
+  send({type:'pad',input:{steer,profile,throttle:Number(keys.has('gas')),brake:Number(keys.has('brake')),handbrake:Number(brakePedal.active && !keys.has('brake'))}})
 }
 function clear(){
   held.clear()
+  brakePedal.reset()
   lastVector=null;straightUntil=0;tilt=0;atLock=false
   by('wheel').style.setProperty('--steer','0deg')
+  by('wheel-value').textContent='Straight'
   for(const b of document.querySelectorAll('[data-held]'))b.removeAttribute('data-held')
   snapshot()
 }
@@ -165,6 +172,8 @@ for(const key of ['left','right','brake','gas']){
     snapshot()
   }
 }
+const brakePedal=bindDriftBrake(by('brake'),{enabled:()=>driving && socket?.readyState===1,change:snapshot,
+  feedback:()=>{if(by('haptics').checked)navigator.vibrate?.([15,25,25])}})
 for(const action of ['recover','restart'])by(action).onclick=()=>{clear();send({type:'pad-action',action})}
 for(const event of ['gesturestart','gesturechange','gestureend','contextmenu','selectstart']){
   document.addEventListener(event,e=>e.preventDefault(),{passive:false})
@@ -181,12 +190,12 @@ document.addEventListener('touchend',e=>{
   }
   previousTap={element:e.target,x:finger.clientX,y:finger.clientY,at:now}
 },{passive:false})
-if(!isSecureContext){by('tilt').disabled=true;by('tilt').textContent='Tilt needs HTTPS'}
+if(!isSecureContext){by('tilt').disabled=true;by('tilt').textContent='Wheel needs HTTPS'}
 function showTilt(enabled){
   sensors=enabled
-  by('tilt').textContent=!isSecureContext?'Tilt needs HTTPS':enabled?'Tilt on':'Enable tilt steering'
+  by('tilt').textContent=!isSecureContext?'Wheel needs HTTPS':enabled?'Wheel on':'Enable wheel steering'
   by('tilt').setAttribute('aria-pressed',String(enabled))
-  by('wheel').hidden=by('options').hidden=!enabled
+  by('steering').hidden=by('options').hidden=!enabled
   if(!enabled)by('options').open=false
   by('arrows').hidden=enabled
   by('flip').hidden=enabled
@@ -234,7 +243,8 @@ function sense(x,y){
   if(!wantTilt)return
   if(!sensors){showTilt(true);notice('')}
   tilt=steer
-  by('wheel').style.setProperty('--steer',(-steer*105).toFixed(1)+'deg')
+  by('wheel').style.setProperty('--steer',wheel.turnDegrees.toFixed(1)+'deg')
+  by('wheel-value').textContent=steer===0?'Straight':(steer>0?'Left ':'Right ')+Math.round(Math.abs(wheel.turnDegrees))+'°'
   if(!atLock && Math.abs(steer)>=.999){atLock=true;if(by('haptics').checked)navigator.vibrate?.(10)}
   if(Math.abs(steer)<.85)atLock=false
   snapshot()

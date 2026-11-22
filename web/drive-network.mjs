@@ -637,7 +637,7 @@ export function createRoadNetwork(data,region,ground,pavement,landClass) {
       tangentX=grade?parking.gx/grade:0;tangentZ=grade?parking.gz/grade:1;
       surface='road';street='Parking deck';curb=0;
     }
-    return {x,y,z,grade,tangentX,tangentZ,lateral,halfWidth,surface,street,material,curb,blocked:Boolean(obstructed(x,z,y,0,hit))}
+    return {x,y,z,grade,tangentX,tangentZ,lateral,halfWidth,surface,street,way:hit?.s.way,material,curb,blocked:Boolean(obstructed(x,z,y,0,hit))}
   }
 
   const circuits = data.circuits.map(({id,name,points,streets}) => {

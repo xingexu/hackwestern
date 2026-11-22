@@ -96,11 +96,27 @@ const handling={
   gamepad:{digital:false,turnIn:3.4,unwind:3.4,stability:.72,pedal:10,brake:15,curve:.12}
 }
 
-function integrateCar(car, wheels, input, road, contacts) {
+function cornerSpeed(samples, car, closed) {
+  const last=samples.length-1, length=samples[last].distance
+  if (!last || !length || !car.assists || car.speed<7 || car.offCourse) return Infinity
+  const at=d=>samples[Math.round((last/length)*(closed?d%length:Math.min(length,d)))].heading
+  let limit=Infinity
+  for (const ahead of [0,car.speed*.45,car.speed*.9]) {
+    const d=car.distance+ahead, angle=at(d+7)-at(d)
+    const curvature=Math.abs(dm.atan2(dm.sin(angle),dm.cos(angle)))/7
+    limit=Math.min(limit,Math.sqrt(6.8/Math.max(.001,curvature)+6*ahead))
+  }
+  return limit
+}
+
+function integrateCar(car, wheels, input, road, contacts, bendLimit=Infinity) {
   const assisted = car.assists
   const profile=car.profile=inputProfile(input), tune=handling[profile]
-  const throttleTarget = control(input.throttle, 0, 1)
-  const brakeTarget = control(input.brake, 0, 1)
+  const assist=assisted && input.throttle>0 && !input.handbrake && !car.drifting && !car.driftGripLoss ?
+    clamp((car.speed-bendLimit)/4,0,1) : 0
+  car.cornerAssist=assist>.12
+  const throttleTarget = control(input.throttle, 0, 1)*(1-assist)
+  const brakeTarget = Math.max(control(input.brake, 0, 1),assist*.34)
   const throttle = car.gasPedal = assisted ? approach(car.gasPedal, throttleTarget, DT*(throttleTarget>car.gasPedal?tune.pedal:18)) : throttleTarget
   const brake = car.brakePedal = assisted ? approach(car.brakePedal, brakeTarget, DT*(brakeTarget>car.brakePedal?tune.brake:18)) : brakeTarget
   const raw = control(input.steer, -1, 1)
@@ -114,11 +130,18 @@ function integrateCar(car, wheels, input, road, contacts) {
   const digital = assisted && tune.digital
   const range = digital ? Math.min(mechanicalRange, gripAngle) : assisted ? Math.min(mechanicalRange,gripAngle+.035) : .55
   const slipAngle = dm.atan2(car.lateralSpeed,Math.max(4,speed))
+  const handbrake = control(input.handbrake,0,1)
+  const entry = handbrake * clamp((car.speed-5)/5,0,1) * clamp(Math.abs(command)*3,0,1)
+  const catchSlide = assisted ? clamp((Math.abs(slipAngle)-.15)/.19,0,1)*clamp((car.speed-4)/4,0,1) : 0
+  car.driftGripLoss = approach(car.driftGripLoss,entry*(1-catchSlide),DT*(entry>car.driftGripLoss?5:3))
   const countersteer = assisted ? clamp(Math.sign(slipAngle)*Math.max(0,Math.abs(slipAngle)-.018)*.36,-.08,.08)*tune.stability*clamp((speed-9)/6,0,1) : 0
   const targetSteer = clamp(command*range+countersteer,-range,range)
   const unwind = Math.sign(command) !== Math.sign(car.steer) || Math.abs(command * range) < Math.abs(car.steer)
   const rackRate = digital ? (unwind?tune.unwind:tune.turnIn)/(1+speed/(unwind?42:18)) : 3.4
-  car.steer = approach(car.steer, targetSteer, rackRate * DT)
+  const nearTarget = digital ? clamp(Math.abs(targetSteer-car.steer)/Math.max(.01,range)*2,.22,1) : 1
+  car.steer = approach(car.steer, targetSteer, rackRate * DT * nearTarget)
+  car.slipDegrees = speed>4 ? Math.abs(slipAngle)*180/Math.PI : 0
+  car.drifting = car.speed>5 && car.surface==='road' && car.slipDegrees>(car.drifting?4:7) && (car.drifting || car.driftGripLoss>.08)
 
   if (speed < 0.22 && Math.abs(car.lateralSpeed) < 0.3) {
     if (throttle > 0.01) car.gear = Math.max(1, car.gear)
@@ -188,7 +211,7 @@ function integrateCar(car, wheels, input, road, contacts) {
       const scale = slip > 1e-6 ? peak * tyreCurve(slip) / slip : peak * 1.44 * 1.55
       const traction = longitudinal * scale
       const gripReserve = clamp((Math.abs(lateral) - .55) / .68, 0, 1)
-      const cornering = lateral * scale * (front ? 1.075 + .004 * gripReserve : 1.14 + .115 * gripReserve)
+      const cornering = lateral * scale * (front ? 1.075 + .004 * gripReserve : (1.14 + .115 * gripReserve)*(1-.48*car.driftGripLoss))
       const rolling = (paved ? .013 : .078) * load * dm.tanh(forward * 2)
       const wheelFx = (traction - rolling) * c - cornering * s
       const wheelFy = (traction - rolling) * s + cornering * c
@@ -199,7 +222,7 @@ function integrateCar(car, wheels, input, road, contacts) {
       const cornerThrottle = assisted && car.speed > 7 && torque > 0 ? 1 - .65 * clamp((Math.abs(lateral) - .65) / 1.10, 0, 1) : 1
       const driveTorque = front ? 0 : torque * tractionControl * cornerThrottle
       const abs = !assisted ? 1 : clamp(1 + (Math.sign(forward) * slipRatio + .09) * 12, .05, 1)
-      const brakeTorque = braking * (front ? 2090 : 1390) * abs + (front ? 0 : control(input.handbrake, 0, 1) * 1850)
+      const brakeTorque = braking * (front ? 2090 : 1390) * abs + (front ? 0 : handbrake * (1-.96*catchSlide) * 1850)
       wheels[i] = approach(wheels[i] + (driveTorque - traction * WHEEL_RADIUS) * substep / WHEEL_INERTIA, 0, brakeTorque * substep / WHEEL_INERTIA)
     }
     if (assisted && car.speed > 8) {
@@ -209,8 +232,9 @@ function integrateCar(car, wheels, input, road, contacts) {
       const counterYaw = excessYaw * car.yawRate > 0 ? Math.sign(excessYaw) * Math.max(0, Math.abs(excessYaw) - .075) : 0
       const slide = Math.sign(sideslip) * Math.max(0, Math.abs(sideslip) - .024)
       const authority = clamp((car.speed - 8) / 8, 0, 1) * clamp((Math.abs(sideslip) - .018) / .035, 0, 1)
-      const stabilityMoment = YAW_INERTIA * tune.stability * authority * clamp(9.5 * slide - 3.5 * counterYaw, -1.85, 1.85)
+      const stabilityMoment = YAW_INERTIA * tune.stability * authority * (1-.65*car.driftGripLoss) * clamp(9.5 * slide - 3.5 * counterYaw, -1.85, 1.85)
       moment += stabilityMoment
+      if (car.drifting) moment += YAW_INERTIA * catchSlide * clamp(13*slide - 6*car.yawRate,-6,6)
       fx -= Math.abs(stabilityMoment) / (TRACK * .5)
     }
     car.ax += (fx / MASS - car.ax) * substep * 13
@@ -232,6 +256,7 @@ function resetCar(state, start, grade, assisted) {
     pitch: dm.atan(grade), lateralSpeed: 0, yawRate: 0, ax: 0, ay: 0,
     assists: assisted, profile:'gamepad', filteredSteer:0, gasPedal: 0, brakePedal: 0, lift: 0, liftSpeed: 0, roadX:start.x, roadZ:start.z, vergeTime:0,
     bodyPitch: 0, roll: 0, gear: 1, rpm: 850, shiftRemaining: 0, throttlePlate: 0,
+    drifting:false, driftGripLoss:0, slipDegrees:0, cornerAssist:false,
   })
 }
 
@@ -240,6 +265,8 @@ function stopAtFinish(state, wheels) {
   state.speed = state.lateralSpeed = state.yawRate = state.ax = state.ay = 0
   state.bodyPitch = state.roll = state.throttlePlate = 0
   state.rpm = 850
+  state.cornerAssist = state.drifting = false
+  state.driftGripLoss = state.slipDegrees = 0
   wheels.fill(0)
 }
 
@@ -405,7 +432,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
   function step(input = {}) {
     if (state.phase === 'finished') return
     const oldX = state.x, oldZ = state.z, oldY = state.y, oldLift = state.lift
-    integrateCar(state, wheels, input, ground, wheelSurfaces(network, state))
+    integrateCar(state, wheels, input, ground, wheelSurfaces(network, state),racing?cornerSpeed(samples,state,true):Infinity)
     state.contact = moveThroughWorld(network, state)
     ground = network.sample(state.x, state.z, state.y)
     settleBody(state,ground.y-oldY)
@@ -487,7 +514,7 @@ export function createDriveSim(samples, options = {}) {
     if (state.phase === 'finished') return
 
     const oldHeading = state.heading
-    integrateCar(state,wheels,input,road,terrain ? wheelSurfaces(terrain,state) : null)
+    integrateCar(state,wheels,input,road,terrain ? wheelSurfaces(terrain,state) : null,cornerSpeed(samples,state,false))
     state.heading += state.yawRate * DT
     const midHeading = (oldHeading + state.heading) / 2
     let nextX = state.x + (dm.sin(midHeading) * state.speed + dm.cos(midHeading) * state.lateralSpeed) * DT

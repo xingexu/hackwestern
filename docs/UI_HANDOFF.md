@@ -1,5 +1,7 @@
 # UI handoff: Formula Western pixel theme
 
+**Current release:** Read the [driving and controller handoff](DRIVING_HANDOFF.md) for the live-site comparison, final two-pedal design, route changes, and rollout checks. This page remains the reference for the underlying pixel theme.
+
 This covers the UI work merged on 2026-11-21: the light purple pixel theme, the loading screen, transitions, the Formula Western logo, the phone controller restyle, and faster startup. It also explains how these fit with the pixel 3-2-1-GO countdown and the landmark popups.
 
 ## Where things live

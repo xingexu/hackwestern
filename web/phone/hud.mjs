@@ -78,6 +78,6 @@ export function installMobileHud(){
     const message=paired?'Steer with your paired phone':pad?'Left stick to steer · RT for gas':tilt.getAttribute('aria-pressed')==='true'?'Tilt to steer · Gas to drive':'Arrows to steer · Gas to drive'
     if(hint.textContent!==message)hint.textContent=message
     hint.classList.toggle('visible',now<hintUntil && !dialog.open && car.phase!=='finished')
-    root.classList.toggle('show-drive-warning',Boolean(car.offCourse || by('drive-message').textContent.includes('Paused') || by('drive-message').textContent.includes('Time limit')))
+    root.classList.toggle('show-drive-warning',Boolean(car.offCourse || /Paused|Time limit|Roundabout|Wrong way|Restricted road|Keep right/.test(by('drive-message').textContent)))
   }
 }

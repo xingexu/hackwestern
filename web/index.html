@@ -195,15 +195,16 @@
       <nav><a href="?mode=map">Campus map</a><button id="view-toggle" type="button" aria-pressed="false" aria-label="Driver view">Driver view</button><button id="recover" type="button" hidden>Recover</button><button id="restart" type="button">Restart <kbd>R</kbd></button></nav>
     </div>
     <div class="route-card"><canvas id="route-plan" width="328" height="206" aria-label="Route map with car position"></canvas><div><span id="meters">0 m</span><span id="length"></span></div><progress id="progress" aria-label="Course progress" value="0" max="1"></progress></div>
-    <div class="drive-help" id="input-hint">WASD or arrows · R to restart</div>
+    <div class="drive-help" id="input-hint">WASD / arrows to drive · Space to drift</div>
     <div class="instruments">
       <div><small>SPEED</small><strong id="speed">0</strong><span>km/h</span><small id="powertrain"></small></div>
       <div><small>RUN TIME</small><output id="time">0:00.00</output><span id="surface">On grid</span></div>
+      <span id="traction" aria-live="off">Grip</span><i id="rev-strip" aria-hidden="true"></i>
     </div>
     <output id="checkpoint-direction" hidden aria-label="Next checkpoint"><b aria-hidden="true">↑</b> <span></span></output>
     <output id="race-countdown" hidden aria-live="assertive"></output>
     <div id="drive-message" role="status"></div>
-    <div id="touch-drive"><button id="tilt" type="button" aria-pressed="false">Enable tilt steering</button><div><button data-key="ArrowLeft" aria-label="Steer left">←</button><button data-key="ArrowRight" aria-label="Steer right">→</button></div><div><button data-key="ArrowDown">Brake</button><button data-key="ArrowUp">Gas</button></div></div>
+    <div id="touch-drive"><button id="tilt" type="button" aria-pressed="false">Enable tilt steering</button><div><button data-key="ArrowLeft" aria-label="Steer left">←</button><button data-key="ArrowRight" aria-label="Steer right">→</button></div><div><button data-key="ArrowDown" aria-label="Brake; double-tap to drift">Brake<small>2× drift</small></button><button data-key="ArrowUp">Gas</button></div></div>
     <div id="finish" hidden><div><img class="finish-logo" src="./ui/logo-pixel.png" alt="Formula Western" width="176" height="73"><small>UC HILL SPRINT</small><h2>Finish</h2><output id="result"></output><button id="again" type="button">Drive again ↗</button></div></div>
   </section>
   <script type="module" src="./ui/components.mjs"></script>

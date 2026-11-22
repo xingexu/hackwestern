@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import {createWheel} from '../web/phone/pad-wheel.js'
+import {createWheel,createBrakeTap} from '../web/phone/pad-wheel.js'
 import {createDriveSim} from '../web/drive-sim.mjs'
 import {createRaceContext} from '../web/race/context.mjs'
 import {driveInput} from '../web/dev/circuit_driver.mjs'
@@ -8,6 +8,23 @@ function vector(turn,pitch,side=1){
   const rad=Math.PI/180
   return [Math.cos(turn*rad)*Math.cos(pitch*rad)*side,Math.sin(turn*rad)*Math.cos(pitch*rad)*side]
 }
+
+const brake=createBrakeTap()
+const tap=(n,start,end,x=50)=>{
+  brake.down(n,x,100,start)
+  return brake.up(n,x,100,end)
+}
+assert.equal(tap(1,0,70),false)
+assert.equal(tap(2,220,285),true)
+assert.equal(tap(3,310,350),false,'a third tap cannot retrigger')
+assert.equal(tap(4,720,800),false,'slow taps only brake')
+assert.equal(tap(5,900,1400),false,'holding brake must not drift')
+assert.equal(tap(6,1500,1570),false)
+brake.reset()
+assert.equal(tap(7,1600,1660),false,'lost focus cancels a pending tap')
+brake.down(8,50,100,1740)
+brake.move(8,100,100)
+assert.equal(brake.up(8,50,100,1800),false,'dragging is not a tap')
 
 for(const side of [1,-1]){
   const wheel=createWheel()
@@ -21,6 +38,11 @@ for(const side of [1,-1]){
   for(let i=0;i<1800;i++)sample(3+2*i/1800,50)
   assert.ok(Math.abs(wheel.neutral-5)<.55 && steer===0)
   const neutral=wheel.neutral
+  for(const clockwise of [true,false]){
+    for(let i=0;i<24;i++)sample(neutral+(clockwise?18:-18),45,false)
+    assert.equal(steer<0,clockwise,'clockwise commands a right turn in either landscape grip')
+    assert.equal(wheel.turnDegrees>0,clockwise)
+  }
   const start=t
   do{sample(neutral+32,65)}while(-steer<.5 && t-start<150)
   assert.ok(t-start<=50)

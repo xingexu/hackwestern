@@ -16,6 +16,7 @@ from building_access import resolve_drives, verify_drives
 import campus_region as region
 import geo
 from drive_route import resample
+from traffic import CarNetwork, accessible, direction, driving_line, lane_offset, surveyed_streets
 from voxelize import collect_layers
 
 WEB = region.OUT.parent
@@ -27,9 +28,9 @@ ROAD_WIDTHS = {"primary": 13, "secondary": 11, "secondary_link": 6, "tertiary": 
 PATH_WIDTHS = {"footway": 2.4, "path": 2.2, "cycleway": 3.2, "pedestrian": 4.4, "steps": 2.4,
                "track": 3.6, "bridleway": 2.6}
 CIRCUITS = [
-    ("college", "College Hill Circuit", [1558352448, 1558352521, 1558352517, 1557328179, 5292513911], {"Middlesex Drive","Elgin Drive","Oxford Drive","Lambton Drive"}),
+    ("college", "College Hill Circuit", [1558352448, 1558352521, 1558352517, 1557328179, 5292513911], {"Middlesex Drive","Elgin Drive","Western Road","Lambton Drive"}),
     ("stadium", "Stadium Circuit", [1558352330, 1558352319, 1558352354, 5292513911], {"Phillip Aziz Avenue","Western Road","Lambton Drive","Huron Drive"}),
-    ("campus", "Main Campus Circuit", [1558352521,1558352517,1558352373,1558352354,1558352319,1558352330,5292513911,1558352448], {"Middlesex Drive","Elgin Drive","Oxford Drive","Lambton Drive","Phillip Aziz Avenue","Western Road","Huron Drive"})
+    ("campus", "Main Campus Circuit", [1558352521,1558352517,1558352354,1558352319,1558352330,5292513911,1558352448], {"Middlesex Drive","Elgin Drive","Lambton Drive","Phillip Aziz Avenue","Western Road","Huron Drive"})
 ]
 
 
@@ -46,26 +47,6 @@ def rings(poly):
 def numeric(value, default):
     match = re.fullmatch(r"([0-9]+(?:\.[0-9]+)?)(?:\s*m)?", str(value))
     return float(match.group(1)) if match else default
-
-
-def route_nodes(graph, a, b, preferred):
-    queue, costs, parents = [(0, a)], {a: 0}, {}
-    while queue:
-        cost, key = heapq.heappop(queue)
-        if key == b:
-            chain = [b]
-            while chain[-1] != a:
-                chain.append(parents[chain[-1]])
-            return chain[::-1]
-        if cost != costs[key]:
-            continue
-        for nxt, length, name in graph[key]:
-            total = cost + length * (1 if name in preferred else 15)
-            if total >= costs.get(nxt, float("inf")):
-                continue
-            costs[nxt], parents[nxt] = total, key
-            heapq.heappush(queue, (total, nxt))
-    raise ValueError(f"Disconnected course between OSM nodes {a} and {b}")
 
 
 def paved_area_kind(tags):
@@ -266,7 +247,6 @@ def make_network():
 
     ground_survey=json.loads(WEB.parent.joinpath("build/survey_ground.json").read_bytes())
     roads = []
-    graph = defaultdict(list)
     for way in by_id.values():
         if way["id"] in ground_survey["absentServiceWays"]:continue
         tags = way.get("tags", {})
@@ -280,16 +260,6 @@ def make_network():
             groups[key].add(way["id"])
         name = tags.get("name", tags.get("ref",""))
         roads.append((way, tags, ids, h, name))
-        if h in ROAD_WIDTHS:
-            for a,b in zip(ids,ids[1:]):
-                if a == b:
-                    continue
-                length = np.hypot(nodes[a][0]-nodes[b][0], nodes[a][1]-nodes[b][1])
-                direction = tags.get("oneway")
-                if direction != "-1":
-                    graph[a].append((b,length,name))
-                if direction not in ("yes","1","true"):
-                    graph[b].append((a,length,name))
 
     ways = []
     for way,tags,ids,h,name in roads:
@@ -326,7 +296,7 @@ def make_network():
                 if err[index] < .02:
                     junctions.append(index)
             ways.append(dict(id=way["id"], name=name, width=width, kind="road" if h in ROAD_WIDTHS else "steps" if h=="steps" else "path",
-                             bridge=bridge, oneway=tags.get("oneway") in ("yes","1","true","-1"), covered=tags.get("covered")=="yes", level=numeric(tags.get("level"),0), material=tags.get("surface","asphalt" if h in ROAD_WIDTHS else "paving_stones"),
+                             bridge=bridge, oneway=bool(direction(tags)), **({"roundabout":True} if tags.get("junction")=="roundabout" else {}), **({"reverse":True} if direction(tags)<0 else {}), **({"noCars":True} if not accessible(tags) else {}), covered=tags.get("covered")=="yes", level=numeric(tags.get("level"),0), material=tags.get("surface","asphalt" if h in ROAD_WIDTHS else "paving_stones"),
                              lanes=lanes, junctions=sorted(set(junctions)), points=deck.tolist(), **{"class":h}))
 
     tiers=json.loads((WEB / "region-detail.json").read_bytes())["architecture"]["tiers"]
@@ -338,22 +308,22 @@ def make_network():
             covered=False,level=0,material='asphalt',lanes=1,junctions=[0,len(points)-1],
             points=np.stack([points[:,0],heights,points[:,1]],axis=1).round(3).tolist(),**{'class':'service'}))
     fit_bridge_decks(ways)
+    graph = CarNetwork(elements,nodes,[r for r in roads if r[3] in ROAD_WIDTHS])
+    widths = {w["id"]:lane_offset(w["width"],w["oneway"]) for w in ways}
+    radii = {w["id"]:w["width"]*.5 for w in ways}
     circuits = []
     for slug,name,waypoints,preferred in CIRCUITS:
-        path = []
-        for a,b in zip(waypoints,waypoints[1:]+waypoints[:1]):
-            leg = route_nodes(graph, a, b, preferred)
-            path.extend(leg[:-1])
-        if len(path) != len(set(path)):
-            raise ValueError(f"{name} retraces its route")
-        path.append(path[0])
+        edges = graph.path(waypoints,preferred)
+        path = [a for a,_,_ in edges] + [waypoints[0]]
         chain = np.array([nodes[k] for k in path])
         if not all(EXTENT.covers(Point(p)) for p in chain):
             raise ValueError(f"{name} exits the map")
-        tight,_ = resample(chain,.75)
-        rounded = ndimage.gaussian_filter1d(tight[:-1],sigma=2.3,axis=0,mode="wrap")
-        points, lengths = resample(np.vstack([rounded, rounded[0]]),1.6)
-        circuits.append(dict(id=slug,name=name,points=np.round(points,2).tolist(),streets=sorted(preferred)))
+        rounded = driving_line(chain,[widths[w] for _,_,w in edges],True)
+        points, lengths = resample(rounded,1.6)
+        pavement = unary_union([LineString((nodes[a],nodes[b])).buffer(radii[w]-.9) for a,b,w in edges])
+        if not pavement.union(surveyed_streets().buffer(-.75)).covers(LineString(points)):
+            raise ValueError(f"{name} racing line leaves the road")
+        circuits.append(dict(id=slug,name=name,points=np.round(points,2).tolist(),streets=sorted({by_id[w]["tags"].get("name","") for _,_,w in edges}-{""})))
         print(f"{name}: {lengths[-1]:.1f} m, {len(path)-1} distinct connected OSM nodes")
 
     footprints = []

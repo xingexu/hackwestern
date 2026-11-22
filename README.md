@@ -6,7 +6,13 @@ Feel free to play around.
 
 A browser driving game recreating Western University's campus in London, Ontario. The front end uses Three.js r170 and Vite 8 (`web/`), the asset pipeline is written in Python (`build/`), and multiplayer/phone relay runs on Cloudflare Workers and Durable Objects (`server/`).
 
+[![A car approaches the campus roundabout on Lambton Drive and follows the island counterclockwise](docs/roundabout.webp)](docs/roundabout.mp4)
+
+[Watch the 10-second gameplay clip (MP4)](docs/roundabout.mp4).
+
 Terrain is built from lidar elevation data. Roads, paths, and building outlines come from OpenStreetMap and City of London open data, using 2025 orthophotos and KartaView street-level photos as references. Each campus building is defined by a per-building JSON spec (`build/specs/buildings/*.json`, schema `build/specs/building-spec-v1.schema.json`), compiled by `build/compile_buildings.py`, and generated in the browser by `web/building-*.mjs`.
+
+See the [release handoff and live-site comparison](docs/DRIVING_HANDOFF.md) for the UI differences, controls, route changes, and deployment checks.
 
 ## Requirements & Setup
 
@@ -34,14 +40,16 @@ For front-end work without multiplayer or phone relay:
 npm run dev
 ```
 
-**Controls:** Arrow keys or WASD to drive, `R` to restart. Use "Start near" to pick a spawn point. Modes include Free roam and Time trial with ghost replays.
+**Controls:** Arrow keys or WASD to drive, Space to drift, `R` to restart. Choose **Free roam → Start near → Roundabout approach** to practise the entrance. On a circuit or the sprint, driving assists ease the throttle and brake before tight bends; the HUD shows **Bend assist** when active.
 
 ## Phone Controller
 
 1. On desktop, click **Phone controller**.
 2. On a phone connected to the same Wi-Fi, scan the QR code or open `/pad` and enter the 6-character code.
+3. Tap **Start driving**, allow motion access, and hold your phone sideways. Rotate it clockwise to steer right or counterclockwise to steer left; bring it level to straighten.
+4. While turning at speed, **double-tap Brake to drift**. Keep your other thumb on Gas to maintain throttle. A single press brakes normally; holding Brake at a stop reverses. The Brake pedal flashes gold during the handbrake pulse. There is no separate Drift button.
 
-The controller is landscape only (portrait displays a rotate prompt). Over plain LAN HTTP, steering uses on-screen buttons; tilt steering requires HTTPS and works on the deployed site. On networks with client isolation (such as schools), use the deployed site instead of LAN mode.
+Hold the controller sideways; it also supports portrait orientation lock with a rotated layout. Over plain LAN HTTP, use the steering arrows. Wheel steering requires a secure context and motion permission. On networks with client isolation (such as schools), use the deployed site instead of LAN mode.
 
 ## Multiplayer
 
@@ -60,7 +68,7 @@ npm run deploy
 
 This publishes to `https://drive-western.<your-subdomain>.workers.dev`.
 
-- **Enable multiplayer:** Off by default in production. Set `MULTIPLAYER` to `1` in `server/wrangler.jsonc` (`vars`) or the Cloudflare dashboard.
+- **Multiplayer:** Enabled in the checked-in Worker configuration (`MULTIPLAYER: "1"`).
 - **Optional TURN relay (TLS 443):** Set `TURN_URL` (e.g. `turns:relay.example:443?transport=tcp`) along with `TURN_SECRET` (coturn shared secret), or `TURN_USER` and `TURN_PASSWORD`.
 - **Custom domain:** Add `"routes": [{"pattern":"drive.example.org","custom_domain":true}]` to `server/wrangler.jsonc`.
 

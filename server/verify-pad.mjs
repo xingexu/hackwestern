@@ -72,6 +72,7 @@ try{
       const send=WebSocket.prototype.send
       WebSocket.prototype.send=function(data){
         if(JSON.parse(data).type==='pad'){
+          window.padSamples?.push({at:performance.now(),...JSON.parse(data).input})
           window.controllerSocket=this
           if(window.dropNextGas && JSON.parse(data).input.throttle){window.dropNextGas=false;return}
         }
@@ -99,7 +100,8 @@ try{
     assert.equal(await phone.locator('canvas,nav').count(),0)
     assert.equal(await phone.locator('#pair').isVisible(),false)
     assert.ok(await phone.getByRole('button',{name:'Steer right'}).isVisible())
-    if(!await phone.evaluate(()=>isSecureContext))assert.ok(await phone.getByRole('button',{name:'Tilt needs HTTPS'}).isDisabled())
+    assert.deepEqual(await phone.locator('#pedals button').evaluateAll(bs=>bs.map(b=>b.id)),['brake','gas'])
+    if(!await phone.evaluate(()=>isSecureContext))assert.ok(await phone.getByRole('button',{name:'Wheel needs HTTPS'}).isDisabled())
     else if(engine===webkit)await phone.getByText('Tilt unavailable · use the arrows').waitFor()
     const gasY=async page=>(await page.locator('#gas').boundingBox()).y
     const brakeY=async page=>(await page.locator('#brake').boundingBox()).y
@@ -116,6 +118,30 @@ try{
     await captureSideways(phone,'buttons','left')
     if(engine===chromium){
       const touch=await context.newCDPSession(phone)
+      const [gas,brake]=await Promise.all(['gas','brake'].map(async (key,id)=>{
+        const b=await phone.locator('#'+key).boundingBox()
+        return {id,x:b.x+b.width/2,y:b.y+b.height/2}
+      }))
+      const send=(type,touchPoints)=>touch.send('Input.dispatchTouchEvent',{type,touchPoints})
+      await phone.evaluate(()=>{window.padSamples=[]})
+      await send('touchStart',[gas,brake])
+      await sleep(300)
+      await send('touchEnd',[brake])
+      const single=await phone.evaluate(()=>window.padSamples)
+      assert.ok(single.some(p=>p.throttle && p.brake) && single.every(p=>!p.handbrake))
+      for(let i=0;i<2;i++){
+        await send('touchStart',[gas,brake])
+        await send('touchEnd',[brake])
+      }
+      await phone.waitForFunction(()=>window.padSamples.some(p=>p.handbrake))
+      await phone.waitForFunction(()=>!document.querySelector('#brake').hasAttribute('data-pulse'))
+      const packets=await phone.evaluate(()=>window.padSamples)
+      const pulse=packets.filter(p=>p.handbrake)
+      const released=packets.find(p=>p.at>pulse.at(-1).at && !p.handbrake)
+      assert.ok(pulse.every(p=>p.throttle===1 && p.brake===0))
+      assert.ok(released?.throttle && released.at-pulse[0].at>=350 && released.at-pulse[0].at<600)
+      await send('touchEnd',[])
+      await phone.locator('#restart').tap()
       const buttons=await Promise.all(['gas','right'].map(key=>phone.locator('#'+key).boundingBox()))
       const touchPoints=buttons.map((b,id)=>({x:b.x+b.width/2,y:b.y+b.height/2,id}))
       const heading=await host.evaluate(()=>window.driveMetrics.car.heading)

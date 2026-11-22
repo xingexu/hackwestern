@@ -1,5 +1,8 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
+import {inflateSync} from 'node:zlib'
+import * as THREE from 'three'
+import {createCarriageway} from '../campus-terrain.mjs'
 import { createRoadNetwork } from '../drive-network.mjs'
 
 const read = name => JSON.parse(fs.readFileSync(new URL('../'+name+'.json',import.meta.url)))
@@ -94,13 +97,16 @@ assert.equal(blocked(tree[0],tree[2],tree[1],.6),true,'Tree trunk')
 network.addPost(1061.11,365.9,groundAt(1061.11,365.9),.12,2)
 assert.equal(blocked(1061.85,365.9,groundAt(1061.11,365.9),.8),true,'Offset vehicle body hitting a placed post')
 
-for (const circuit of network.circuits) {
+const {carriageway}=read('surface-tiles')
+const streets=createCarriageway(THREE,carriageway,inflateSync(Buffer.from(carriageway.samples,'base64')),region.bounds)
+const racingNetwork=createRoadNetwork(data,region,null,streets.contains)
+for (const circuit of racingNetwork.circuits) {
   const pts = circuit.samples
   assert.ok(pts.length>700 && pts.at(-1).distance>1400)
   assert.equal(pts[0].x,pts.at(-1).x)
   assert.equal(pts[0].z,pts.at(-1).z)
   for (let i=0;i<pts.length;i++) {
-    const p = pts[i], road = sample(p.x,p.z,p.y)
+    const p = pts[i], road = racingNetwork.sample(p.x,p.z,p.y)
     assert.equal(road.surface,'road',circuit.name+' road coverage')
     assert.equal(blocked(p.x,p.z,p.y,.96),false,circuit.name+' car clearance at '+p.distance)
     assert.ok(Number.isFinite(p.heading) && Number.isFinite(p.y))
