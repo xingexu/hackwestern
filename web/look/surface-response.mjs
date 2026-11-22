@@ -18,15 +18,45 @@ export function surfaceCoverage(classes,width,height){
 
 const lightParking=new Set([142286129,126668541,147379466,142216973]);
 
-export function surveyedPavingTone(samples,field,bounds,areas,coveredCourts){
+function extendLotFinish(mapped,tone,mineral,width,height){
+  const visited=new Uint8Array(mapped.length),queue=new Int32Array(mapped.length);
+  let end=0;
+  for(let z=1;z<height-1;z++)for(let x=1;x<width-1;x++){
+    const i=z*width+x;
+    if(mapped[i]<128)continue;
+    visited[i]=1;
+    if(mapped[i-1]<128 || mapped[i+1]<128 || mapped[i-width]<128 || mapped[i+width]<128)queue[end++]=i;
+  }
+  let start=0;
+  function copy(from,to){
+    if(visited[to])return;
+    visited[to]=1;
+    tone[to]=tone[from];
+    mineral[4*to]=mineral[4*from];
+    queue[end++]=to;
+  }
+  for(let radius=0;radius<5 && start<end;radius++){
+    const ring=end;
+    while(start<ring){
+      const i=queue[start++],x=i%width;
+      if(x>0)copy(i,i-1);
+      if(x+1<width)copy(i,i+1);
+      if(i>=width)copy(i,i-width);
+      if(i+width<mapped.length)copy(i,i+width);
+    }
+  }
+}
+
+export function surveyedPavingTone(samples,field,bounds,areas,coveredCourts,mineral){
   const w=field.width,h=field.height,[l,t,r,b]=bounds;
   const mapped=new Uint8Array(samples.length);
   const covered=new Uint8Array(samples.length);
+  if(mineral)for(let i=0;i<samples.length;i++)mineral[4*i]=mineral[4*i+1];
   const surfaces=[...areas.filter(area=>area.kind==='parking'),...coveredCourts.map(ring=>({kind:'covered',rings:[ring]}))];
   for(const area of surfaces){
     const rings=area.rings.map(ring=>ring.map((v,i)=>i%2?(v-t)*h/(b-t):(v-l)*w/(r-l)));
     const rows=rings[0].filter((_,i)=>i%2),top=Math.max(0,Math.floor(Math.min(...rows))),end=Math.min(h,Math.ceil(Math.max(...rows)));
-    const spans=[],histogram=new Uint32Array(256);
+    const spans=[],histogram=new Uint32Array(256),aggregate=new Uint32Array(256);
     let count=0;
     const mask=area.kind==='covered'?covered:mapped;
     for(let row=top;row<end;row++)for(let sample=0;sample<3;sample++){
@@ -47,7 +77,10 @@ export function surveyedPavingTone(samples,field,bounds,areas,coveredCourts){
           const a=row*w+Math.ceil(left-.5),b=row*w+Math.ceil(right-.5);
           if(b<=a)continue;
           spans.push(a,b);count+=b-a;
-          for(let i=a;i<b;i++)histogram[samples[i]]++;
+          for(let i=a;i<b;i++){
+            histogram[samples[i]]++;
+            if(mineral)aggregate[mineral[4*i+1]]++;
+          }
         }
       }
     }
@@ -55,9 +88,18 @@ export function surveyedPavingTone(samples,field,bounds,areas,coveredCourts){
       let middle=0,seen=histogram[0];
       while(seen<count*.5)seen+=histogram[++middle];
       const tone=lightParking.has(area.id)?248:middle;
-      for(let i=0;i<spans.length;i+=2)samples.fill(tone,spans[i],spans[i+1]);
+      let gravel=0,support=aggregate[0];
+      if(mineral)while(support<count*.67)support+=aggregate[++gravel];
+      for(let i=0;i<spans.length;i+=2){
+        samples.fill(tone,spans[i],spans[i+1]);
+        if(mineral)for(let at=spans[i];at<spans[i+1];at++){
+          const k=4*at;
+          mineral[k]=Math.round(.88*gravel+.12*mineral[k+1]);
+        }
+      }
     }
   }
+  if(mineral)extendLotFinish(mapped,samples,mineral,w,h);
   const data=new Uint8Array(samples.length*4);
   for(let i=0;i<samples.length;i++){data[4*i]=samples[i];data[4*i+1]=mapped[i];data[4*i+2]=covered[i];}
   return data;
@@ -67,11 +109,6 @@ export const edgeGLSL=`
   float coverageEdge(float v){
     float aa=clamp(fwidth(v)*.64,.007,.48);
     return smoothstep(.5-aa,.5+aa,v);
-  }
-  float slabJoint(vec2 p,vec2 pitch){
-    vec2 q=p/pitch,foot=max(fwidth(q),vec2(.00001)),halfWidth=.009/pitch;
-    vec2 d=abs(fract(q+.5)-.5),cover=clamp((halfWidth+foot*.5-d)/foot,vec2(0.),min(vec2(1.),2.*halfWidth/foot));
-    return max(cover.x,cover.y);
   }`;
 
 export function walkwayGuide(tiles,coordinates,ways=[]){

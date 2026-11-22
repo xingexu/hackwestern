@@ -6,7 +6,7 @@ For a physical phone on a development machine, follow the [local HTTP drift test
 
 ## Which builds are being compared?
 
-The **live** column is a snapshot of `/`, `/pad`, `/api/health`, and the published driving bundle and route assets fetched from fwestern.ca on **November 21, 2026 (Toronto)**. The **release** column describes this repository build. Live reported multiplayer protocol 2, rules 2, simulation `0x81013879`; the release simulation is `0xc87be8ac`. The live pad HTML matched the earlier controller in git, but those observations do not identify the deployment's exact commit. A merge on GitHub does **not** establish which build the domain serves.
+The **live** column is a snapshot of `/`, `/pad`, `/api/health`, and the published driving bundle and route assets fetched from fwestern.ca on **November 21, 2026 (Toronto)**. The **release** column describes the fork before its integration into Drive Western. Live reported multiplayer protocol 2, rules 2, simulation `0x81013879`; the original fork used `0xc87be8ac`. The live pad HTML matched the earlier controller in git, but those observations do not identify the deployment's exact commit. A merge on GitHub does **not** establish which build the domain serves.
 
 | Player-facing area | Live at inspection | Release |
 |---|---|---|
@@ -17,7 +17,7 @@ The **live** column is a snapshot of `/`, `/pad`, `/api/health`, and the publish
 | Other inputs | On-device touch Gas and Brake; no double-tap gesture in the live pad. | Direct-touch Brake uses the same recognizer and flashes gold. Desktop keeps WASD/arrows plus Space; gamepad uses stick/RT/LT plus A (button 0). Driving hints follow the input type. |
 | Navigation | Minimap and checkpoint directions, with no roundabout practice spawn or named roundabout feedback found in the published drive bundle. | Lane-following arrows start just ahead of the car; the HUD points toward the upcoming line, with remaining distance along the route. Minimap arrows mark roundabout circulation. **Free roam → Start near → Roundabout approach** starts about 40 m before entry. |
 | Road feedback | Published bundle lacked the new traffic warnings. | Non-sprint HUD names the roundabout and prompts **keep the island on your left**. **Wrong way**, **Keep right** and **Restricted road** are warnings, not collisions or penalties. The car can still explore in free roam. |
-| Handling and grid | Steering assistance, grip physics and starting slots already existed. | Digital steering eases near the target. On the sprint/circuits, enabled assists ease throttle and apply gentle braking before sharp bends. Deliberate handbrake input reduces rear grip; countersteering and releasing the brake help catch the slide. Online circuit grid slots follow the lane at roughly 5 m intervals rather than straddling the centre line. |
+| Handling and grid | Steering assistance, grip physics and starting slots already existed. | Digital steering ramps according to speed and the active input profile. On the sprint/circuits, enabled assists ease throttle and apply gentle braking before sharp bends. Deliberate handbrake input reduces rear grip; countersteering and releasing the brake help catch the slide. Online circuit grid slots follow the lane at roughly 5 m intervals rather than straddling the centre line. |
 
 ## Course model
 

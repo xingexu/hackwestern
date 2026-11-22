@@ -153,6 +153,13 @@ def rectify_walks(frame,size,labels,slabs,road,parking,overhead):
     if ribbon is not None:
         labels[exposed&(ribbon==1)&(labels==0)]=1
         labels[exposed&(ribbon==2)&soft&~hard&(slabs==0)&(front==0)&(labels==1)]=0
+    from planting_verges import mask as planting_mask
+    labels[exposed&(planting_mask(frame,size)|surfaces.sample(frame,size,parking_bays=True))]=0
+    from site_frontages import mask as site_materials
+    chart=site_materials(frame,size)
+    if chart is not None:
+        labels[chart>0]=0
+        labels[chart==3]=1
     return labels
 
 
@@ -331,14 +338,20 @@ def paving_tone(bounds,network,classes,courts):
     transform=Affine.translation(left,top)*Affine.scale(dx,dz)
     lots=rasterize([lot_mask()],out_shape=value.shape,transform=transform,dtype='uint8')
     mineral*=lots
+    from service_materials import reflectance
+    service=reflectance(bounds,(w,h))
+    mineral=np.maximum(mineral,np.rint(service*.74).astype(np.uint8)*(lots==0))
     rivers=[Polygon(np.reshape(p,(-1,2)),[np.reshape(q,(-1,2)) for q in holes]) for p,*holes in network['water']]
     water=rasterize(rivers,out_shape=value.shape,transform=transform,dtype='uint8')
     bank=np.uint8(np.rint(255*np.clip((12-ndimage.distance_transform_edt(water==0,sampling=(dz,dx)))/4,0,1)))
     forest=Image.fromarray(np.uint8(classes==2)*255).resize((w,h),Image.Resampling.BOX)
     duff=np.rint(ndimage.gaussian_filter(np.asarray(forest).astype(np.float32),2.4/dx)).astype(np.uint8)
+    from site_frontages import finish_samples
     pixels=np.stack([value,mineral,bank,duff],axis=-1)
     shade=shaded_lawn(bounds,(w,h),classes,network)
+    frontages=finish_samples(bounds,(w,h),network['areas'])
     court=Image.fromarray(np.uint8(courts&(classes==3))*255).resize((w,h),Image.Resampling.BOX)
     return dict(width=w,height=h,samples=base64.b64encode(zlib.compress(value.tobytes(),8)).decode(),
                 courts=base64.b64encode(zlib.compress(court_finish(classes,court).tobytes(),8)).decode(),
+                frontages=base64.b64encode(zlib.compress(frontages.tobytes(),8)).decode(),
                 shadedLawn=base64.b64encode(zlib.compress(shade.tobytes(),8)).decode(),woodlandEdges=True,aggregate=base64.b64encode(zlib.compress(pixels.tobytes(),8)).decode())

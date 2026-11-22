@@ -5,7 +5,6 @@ import {lanAddresses} from './lan-address.mjs'
 const nic=address=>[{family:'IPv4',internal:false,address}]
 assert.deepEqual(lanAddresses({docker0:nic('172.17.0.1'),eth0:nic('10.0.0.2'),wlan1:nic('192.168.1.8'),
   utun1:nic('10.9.0.1'),en1:nic('169.254.1.1')}),['192.168.1.8','10.0.0.2'])
-// Run against a local Worker. Verify actual host/phone sockets rather than just the QR string.
 for(const base of process.argv.slice(2)){
   const url=new URL(base)
   const health=await (await fetch(new URL('/api/health',url))).json()

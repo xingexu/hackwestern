@@ -1,7 +1,7 @@
 {
  "campusArea": 1932957,
- "buildings": 207,
- "withStreetFrames": 108,
+ "buildings": 217,
+ "withStreetFrames": 110,
  "coordinateSystem": "local metres: x east, z south, y up; same frame as web/campus-region.json and data/streetview/frames.json",
  "cameraFovAssumed": 64.0,
  "buildingsList": [
@@ -106907,6 +106907,1350 @@
    "aerial": "data/buildings/evidence/survey-practice-wall/aerial.jpg",
    "aerialMetersPerPixel": 0.12,
    "framesUsable": 0
+  },
+  {
+   "id": "survey-cooling-store-north",
+   "name": "North cooling yard store",
+   "footprint": [
+    [
+     38.98,
+     -76.25
+    ],
+    [
+     41.48,
+     -75.23
+    ],
+    [
+     38.98,
+     -69.77
+    ],
+    [
+     36.7,
+     -70.8
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 10.62,
+   "groundAbsolute": 240.94,
+   "lidar": "regional-2m",
+   "heightP50": 0.42,
+   "heightP90": 0.95,
+   "heightMax": 0.99,
+   "roofSpread": 0.68,
+   "walls": [
+    {
+     "a": [
+      38.98,
+      -76.25
+     ],
+     "b": [
+      41.48,
+      -75.23
+     ],
+     "length": 2.7,
+     "normal": [
+      0.3778,
+      -0.9259
+     ],
+     "faces": "north",
+     "bearing": 22.2,
+     "index": 0,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      41.48,
+      -75.23
+     ],
+     "b": [
+      38.98,
+      -69.77
+     ],
+     "length": 6.01,
+     "normal": [
+      0.9092,
+      0.4163
+     ],
+     "faces": "southeast",
+     "bearing": 114.6,
+     "index": 1,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      38.98,
+      -69.77
+     ],
+     "b": [
+      36.7,
+      -70.8
+     ],
+     "length": 2.5,
+     "normal": [
+      -0.4117,
+      0.9113
+     ],
+     "faces": "southwest",
+     "bearing": 204.3,
+     "index": 2,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      36.7,
+      -70.8
+     ],
+     "b": [
+      38.98,
+      -76.25
+     ],
+     "length": 5.91,
+     "normal": [
+      -0.9225,
+      -0.3859
+     ],
+     "faces": "northwest",
+     "bearing": 292.7,
+     "index": 3,
+     "frames": [],
+     "frameCandidates": 0
+    }
+   ],
+   "centroid": [
+    39.05,
+    -73.05
+   ],
+   "area": 15.5,
+   "holes": [],
+   "framesUsable": 0,
+   "sheetFrames": [],
+   "aerial": "data/buildings/evidence/survey-cooling-store-north/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
+  },
+  {
+   "id": "survey-cooling-store-long",
+   "name": "Cooling yard east store",
+   "footprint": [
+    [
+     37.73,
+     -68.75
+    ],
+    [
+     40.23,
+     -67.95
+    ],
+    [
+     35.45,
+     -56.59
+    ],
+    [
+     33.07,
+     -57.5
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 10.68,
+   "groundAbsolute": 241.0,
+   "lidar": "regional-2m",
+   "heightP50": 2.47,
+   "heightP90": 2.66,
+   "heightMax": 2.7,
+   "roofSpread": 0.51,
+   "walls": [
+    {
+     "a": [
+      37.73,
+      -68.75
+     ],
+     "b": [
+      40.23,
+      -67.95
+     ],
+     "length": 2.62,
+     "normal": [
+      0.3048,
+      -0.9524
+     ],
+     "faces": "north",
+     "bearing": 17.7,
+     "index": 0,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      40.23,
+      -67.95
+     ],
+     "b": [
+      35.45,
+      -56.59
+     ],
+     "length": 12.32,
+     "normal": [
+      0.9217,
+      0.3878
+     ],
+     "faces": "southeast",
+     "bearing": 112.8,
+     "index": 1,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      35.45,
+      -56.59
+     ],
+     "b": [
+      33.07,
+      -57.5
+     ],
+     "length": 2.55,
+     "normal": [
+      -0.3571,
+      0.9341
+     ],
+     "faces": "south",
+     "bearing": 200.9,
+     "index": 2,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      33.07,
+      -57.5
+     ],
+     "b": [
+      37.73,
+      -68.75
+     ],
+     "length": 12.18,
+     "normal": [
+      -0.9239,
+      -0.3827
+     ],
+     "faces": "northwest",
+     "bearing": 292.5,
+     "index": 3,
+     "frames": [],
+     "frameCandidates": 0
+    }
+   ],
+   "centroid": [
+    36.63,
+    -62.72
+   ],
+   "area": 31.6,
+   "holes": [],
+   "framesUsable": 0,
+   "sheetFrames": [],
+   "aerial": "data/buildings/evidence/survey-cooling-store-long/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
+  },
+  {
+   "id": "survey-cooling-store-west",
+   "name": "Cooling yard west store",
+   "footprint": [
+    [
+     35.68,
+     -68.98
+    ],
+    [
+     37.61,
+     -68.18
+    ],
+    [
+     33.07,
+     -57.73
+    ],
+    [
+     30.8,
+     -58.64
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 10.73,
+   "groundAbsolute": 241.05,
+   "lidar": "regional-2m",
+   "heightP50": 2.65,
+   "heightP90": 2.93,
+   "heightMax": 3.1,
+   "roofSpread": 0.49,
+   "walls": [
+    {
+     "a": [
+      37.61,
+      -68.18
+     ],
+     "b": [
+      33.07,
+      -57.73
+     ],
+     "length": 11.39,
+     "normal": [
+      0.9172,
+      0.3985
+     ],
+     "faces": "southeast",
+     "bearing": 113.5,
+     "index": 0,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      30.8,
+      -58.64
+     ],
+     "b": [
+      35.68,
+      -68.98
+     ],
+     "length": 11.43,
+     "normal": [
+      -0.9043,
+      -0.4268
+     ],
+     "faces": "northwest",
+     "bearing": 295.3,
+     "index": 1,
+     "frames": [],
+     "frameCandidates": 0
+    }
+   ],
+   "centroid": [
+    34.23,
+    -63.25
+   ],
+   "area": 25.9,
+   "holes": [],
+   "framesUsable": 0,
+   "sheetFrames": [],
+   "aerial": "data/buildings/evidence/survey-cooling-store-west/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
+  },
+  {
+   "id": "survey-cooling-store-south",
+   "name": "Cooling yard south store",
+   "footprint": [
+    [
+     23.98,
+     -57.05
+    ],
+    [
+     29.55,
+     -54.66
+    ],
+    [
+     28.75,
+     -52.39
+    ],
+    [
+     23.07,
+     -54.66
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 10.75,
+   "groundAbsolute": 241.07,
+   "lidar": "regional-2m",
+   "heightP50": 0.24,
+   "heightP90": 0.94,
+   "heightMax": 1.22,
+   "roofSpread": 0.86,
+   "walls": [
+    {
+     "a": [
+      23.98,
+      -57.05
+     ],
+     "b": [
+      29.55,
+      -54.66
+     ],
+     "length": 6.06,
+     "normal": [
+      0.3943,
+      -0.919
+     ],
+     "faces": "northeast",
+     "bearing": 23.2,
+     "index": 0,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      28.75,
+      -52.39
+     ],
+     "b": [
+      23.07,
+      -54.66
+     ],
+     "length": 6.12,
+     "normal": [
+      -0.3711,
+      0.9286
+     ],
+     "faces": "south",
+     "bearing": 201.8,
+     "index": 1,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      23.07,
+      -54.66
+     ],
+     "b": [
+      23.98,
+      -57.05
+     ],
+     "length": 2.56,
+     "normal": [
+      -0.9345,
+      -0.3558
+     ],
+     "faces": "west",
+     "bearing": 290.8,
+     "index": 2,
+     "frames": [],
+     "frameCandidates": 0
+    }
+   ],
+   "centroid": [
+    26.31,
+    -54.7
+   ],
+   "area": 15.1,
+   "holes": [],
+   "framesUsable": 0,
+   "sheetFrames": [],
+   "aerial": "data/buildings/evidence/survey-cooling-store-south/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
+  },
+  {
+   "id": "survey-biomedical-service-west",
+   "name": "Biomedical west service enclosure",
+   "footprint": [
+    [
+     82.3,
+     20.05
+    ],
+    [
+     90.3,
+     19.65
+    ],
+    [
+     90.4,
+     22.3
+    ],
+    [
+     82.45,
+     22.7
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 25.08,
+   "groundAbsolute": 255.39,
+   "lidar": "core-1m",
+   "heightP50": 10.54,
+   "heightP90": 12.62,
+   "heightMax": 14.63,
+   "roofSpread": 3.55,
+   "walls": [
+    {
+     "a": [
+      82.3,
+      20.05
+     ],
+     "b": [
+      90.3,
+      19.65
+     ],
+     "length": 8.01,
+     "normal": [
+      -0.0499,
+      -0.9988
+     ],
+     "faces": "north",
+     "bearing": 357.1,
+     "index": 0,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      90.3,
+      19.65
+     ],
+     "b": [
+      90.4,
+      22.3
+     ],
+     "length": 2.65,
+     "normal": [
+      0.9993,
+      -0.0377
+     ],
+     "faces": "east",
+     "bearing": 87.8,
+     "index": 1,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      90.4,
+      22.3
+     ],
+     "b": [
+      82.45,
+      22.7
+     ],
+     "length": 7.96,
+     "normal": [
+      0.0503,
+      0.9987
+     ],
+     "faces": "south",
+     "bearing": 177.1,
+     "index": 2,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      82.45,
+      22.7
+     ],
+     "b": [
+      82.3,
+      20.05
+     ],
+     "length": 2.65,
+     "normal": [
+      -0.9984,
+      0.0565
+     ],
+     "faces": "west",
+     "bearing": 266.8,
+     "index": 3,
+     "frames": [],
+     "frameCandidates": 0
+    }
+   ],
+   "centroid": [
+    86.36,
+    21.17
+   ],
+   "area": 21.2,
+   "holes": [],
+   "framesUsable": 0,
+   "sheetFrames": [],
+   "aerial": "data/buildings/evidence/survey-biomedical-service-west/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
+  },
+  {
+   "id": "survey-biomedical-service-east",
+   "name": "Biomedical east service enclosure",
+   "footprint": [
+    [
+     93.9,
+     19.4
+    ],
+    [
+     101.5,
+     19.0
+    ],
+    [
+     101.6,
+     21.7
+    ],
+    [
+     94.05,
+     22.05
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 24.23,
+   "groundAbsolute": 254.55,
+   "lidar": "core-1m",
+   "heightP50": 9.03,
+   "heightP90": 14.75,
+   "heightMax": 15.5,
+   "roofSpread": 7.04,
+   "walls": [
+    {
+     "a": [
+      93.9,
+      19.4
+     ],
+     "b": [
+      101.5,
+      19.0
+     ],
+     "length": 7.61,
+     "normal": [
+      -0.0526,
+      -0.9986
+     ],
+     "faces": "north",
+     "bearing": 357.0,
+     "index": 0,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      101.5,
+      19.0
+     ],
+     "b": [
+      101.6,
+      21.7
+     ],
+     "length": 2.7,
+     "normal": [
+      0.9993,
+      -0.037
+     ],
+     "faces": "east",
+     "bearing": 87.9,
+     "index": 1,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      101.6,
+      21.7
+     ],
+     "b": [
+      94.05,
+      22.05
+     ],
+     "length": 7.56,
+     "normal": [
+      0.0463,
+      0.9989
+     ],
+     "faces": "south",
+     "bearing": 177.3,
+     "index": 2,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      94.05,
+      22.05
+     ],
+     "b": [
+      93.9,
+      19.4
+     ],
+     "length": 2.65,
+     "normal": [
+      -0.9984,
+      0.0565
+     ],
+     "faces": "west",
+     "bearing": 266.8,
+     "index": 3,
+     "frames": [],
+     "frameCandidates": 0
+    }
+   ],
+   "centroid": [
+    97.77,
+    20.54
+   ],
+   "area": 20.3,
+   "holes": [],
+   "framesUsable": 0,
+   "sheetFrames": [],
+   "aerial": "data/buildings/evidence/survey-biomedical-service-east/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
+  },
+  {
+   "id": "survey-plaza-cabinets",
+   "name": "Plaza service cabinets",
+   "footprint": [
+    [
+     -11.26,
+     90.59
+    ],
+    [
+     -3.17,
+     91.1
+    ],
+    [
+     -3.4,
+     94.3
+    ],
+    [
+     -11.5,
+     93.8
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 26.35,
+   "groundAbsolute": 256.67,
+   "lidar": "regional-2m",
+   "heightP50": 1.01,
+   "heightP90": 1.03,
+   "heightMax": 1.03,
+   "roofSpread": 0.1,
+   "walls": [
+    {
+     "a": [
+      -11.26,
+      90.59
+     ],
+     "b": [
+      -3.17,
+      91.1
+     ],
+     "length": 8.11,
+     "normal": [
+      0.0629,
+      -0.998
+     ],
+     "faces": "north",
+     "bearing": 3.6,
+     "index": 0,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      -3.17,
+      91.1
+     ],
+     "b": [
+      -3.4,
+      94.3
+     ],
+     "length": 3.21,
+     "normal": [
+      0.9974,
+      0.0717
+     ],
+     "faces": "east",
+     "bearing": 94.1,
+     "index": 1,
+     "frames": [
+      {
+       "frame": "127904699",
+       "path": "data/streetview/photos/127904699.jpg",
+       "distance": 42.8,
+       "headingOffset": 7.0,
+       "facingCosine": -0.96,
+       "date": "2017-09-21",
+       "buildingShare": 0.16,
+       "vegetationShare": 0.0,
+       "quality": "unknown",
+       "score": 0.432
+      },
+      {
+       "frame": "131414071",
+       "path": "data/streetview/photos/131414071.jpg",
+       "distance": 45.1,
+       "headingOffset": 7.5,
+       "facingCosine": -0.97,
+       "date": "2017-09-26",
+       "buildingShare": 0.14,
+       "vegetationShare": 0.01,
+       "quality": "unknown",
+       "score": 0.403
+      },
+      {
+       "frame": "138034457",
+       "path": "data/streetview/photos/138034457.jpg",
+       "distance": 35.9,
+       "headingOffset": 15.0,
+       "facingCosine": -0.96,
+       "date": "2017-10-05",
+       "buildingShare": 0.09,
+       "vegetationShare": 0.01,
+       "quality": "unknown",
+       "score": 0.366
+      },
+      {
+       "frame": "131414069",
+       "path": "data/streetview/photos/131414069.jpg",
+       "distance": 63.1,
+       "headingOffset": -0.3,
+       "facingCosine": -0.98,
+       "date": "2017-09-26",
+       "buildingShare": 0.15,
+       "vegetationShare": 0.05,
+       "quality": "unknown",
+       "score": 0.357
+      },
+      {
+       "frame": "39253203",
+       "path": "data/streetview/photos/39253203.jpg",
+       "distance": 55.9,
+       "headingOffset": 3.3,
+       "facingCosine": -0.97,
+       "date": "2017-05-26",
+       "buildingShare": 0.08,
+       "vegetationShare": 0.01,
+       "quality": "unknown",
+       "score": 0.355
+      },
+      {
+       "frame": "127904677",
+       "path": "data/streetview/photos/127904677.jpg",
+       "distance": 55.6,
+       "headingOffset": 2.4,
+       "facingCosine": -0.97,
+       "date": "2017-09-21",
+       "buildingShare": 0.13,
+       "vegetationShare": 0.12,
+       "quality": "unknown",
+       "score": 0.353
+      }
+     ],
+     "frameCandidates": 10
+    },
+    {
+     "a": [
+      -3.4,
+      94.3
+     ],
+     "b": [
+      -11.5,
+      93.8
+     ],
+     "length": 8.12,
+     "normal": [
+      -0.0616,
+      0.9981
+     ],
+     "faces": "south",
+     "bearing": 183.5,
+     "index": 2,
+     "frames": [
+      {
+       "frame": "127904699",
+       "path": "data/streetview/photos/127904699.jpg",
+       "distance": 46.3,
+       "headingOffset": 3.6,
+       "facingCosine": -0.23,
+       "date": "2017-09-21",
+       "buildingShare": 0.12,
+       "vegetationShare": 0.04,
+       "quality": "unknown",
+       "score": 0.412
+      },
+      {
+       "frame": "131413439",
+       "path": "data/streetview/photos/131413439.jpg",
+       "distance": 52.0,
+       "headingOffset": 3.1,
+       "facingCosine": -0.23,
+       "date": "2017-09-26",
+       "buildingShare": 0.17,
+       "vegetationShare": 0.02,
+       "quality": "unknown",
+       "score": 0.412
+      },
+      {
+       "frame": "127904677",
+       "path": "data/streetview/photos/127904677.jpg",
+       "distance": 59.2,
+       "headingOffset": -0.1,
+       "facingCosine": -0.23,
+       "date": "2017-09-21",
+       "buildingShare": 0.16,
+       "vegetationShare": 0.01,
+       "quality": "unknown",
+       "score": 0.402
+      },
+      {
+       "frame": "131413441",
+       "path": "data/streetview/photos/131413441.jpg",
+       "distance": 41.1,
+       "headingOffset": 9.2,
+       "facingCosine": -0.25,
+       "date": "2017-09-26",
+       "buildingShare": 0.11,
+       "vegetationShare": 0.01,
+       "quality": "unknown",
+       "score": 0.396
+      },
+      {
+       "frame": "131414071",
+       "path": "data/streetview/photos/131414071.jpg",
+       "distance": 48.7,
+       "headingOffset": 4.5,
+       "facingCosine": -0.2,
+       "date": "2017-09-26",
+       "buildingShare": 0.11,
+       "vegetationShare": 0.04,
+       "quality": "unknown",
+       "score": 0.385
+      },
+      {
+       "frame": "146586533",
+       "path": "data/streetview/photos/146586533.jpg",
+       "distance": 46.4,
+       "headingOffset": 11.0,
+       "facingCosine": -0.29,
+       "date": "2017-10-19",
+       "buildingShare": 0.08,
+       "vegetationShare": 0.11,
+       "quality": "unknown",
+       "score": 0.311
+      }
+     ],
+     "frameCandidates": 8
+    },
+    {
+     "a": [
+      -11.5,
+      93.8
+     ],
+     "b": [
+      -11.26,
+      90.59
+     ],
+     "length": 3.22,
+     "normal": [
+      -0.9972,
+      -0.0746
+     ],
+     "faces": "west",
+     "bearing": 274.3,
+     "index": 3,
+     "frames": [
+      {
+       "frame": "552818874",
+       "path": "data/streetview/photos/552818874.jpg",
+       "distance": 52.7,
+       "headingOffset": 26.8,
+       "facingCosine": -0.29,
+       "date": "2019-11-17",
+       "buildingShare": 0.21,
+       "vegetationShare": 0.41,
+       "quality": "unknown",
+       "score": 0.11
+      }
+     ],
+     "frameCandidates": 1
+    }
+   ],
+   "centroid": [
+    -7.33,
+    92.45
+   ],
+   "area": 26.1,
+   "holes": [],
+   "framesUsable": 13,
+   "sheetFrames": [
+    {
+     "n": 1,
+     "wall": 2,
+     "frame": "127904699",
+     "path": "data/streetview/photos/127904699.jpg"
+    },
+    {
+     "n": 2,
+     "wall": 3,
+     "frame": "552818874",
+     "path": "data/streetview/photos/552818874.jpg"
+    },
+    {
+     "n": 3,
+     "wall": 1,
+     "frame": "131414071",
+     "path": "data/streetview/photos/131414071.jpg"
+    },
+    {
+     "n": 4,
+     "wall": 2,
+     "frame": "131413439",
+     "path": "data/streetview/photos/131413439.jpg"
+    },
+    {
+     "n": 5,
+     "wall": 1,
+     "frame": "138034457",
+     "path": "data/streetview/photos/138034457.jpg"
+    },
+    {
+     "n": 6,
+     "wall": 2,
+     "frame": "127904677",
+     "path": "data/streetview/photos/127904677.jpg"
+    },
+    {
+     "n": 7,
+     "wall": 1,
+     "frame": "131414069",
+     "path": "data/streetview/photos/131414069.jpg"
+    },
+    {
+     "n": 8,
+     "wall": 2,
+     "frame": "131413441",
+     "path": "data/streetview/photos/131413441.jpg"
+    },
+    {
+     "n": 9,
+     "wall": 1,
+     "frame": "39253203",
+     "path": "data/streetview/photos/39253203.jpg"
+    },
+    {
+     "n": 10,
+     "wall": 2,
+     "frame": "146586533",
+     "path": "data/streetview/photos/146586533.jpg"
+    }
+   ],
+   "aerial": "data/buildings/evidence/survey-plaza-cabinets/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
+  },
+  {
+   "id": "survey-studio-yard-cabinet",
+   "name": "John Labatt east service cabinet",
+   "footprint": [
+    [
+     613.0,
+     32.82
+    ],
+    [
+     615.22,
+     31.21
+    ],
+    [
+     616.03,
+     32.35
+    ],
+    [
+     613.82,
+     33.96
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 11.72,
+   "groundAbsolute": 242.04,
+   "lidar": "core-1m",
+   "heightP50": 9.59,
+   "heightP90": 11.45,
+   "heightMax": 11.85,
+   "roofSpread": 4.73,
+   "walls": [
+    {
+     "a": [
+      613.0,
+      32.82
+     ],
+     "b": [
+      615.22,
+      31.21
+     ],
+     "length": 2.74,
+     "normal": [
+      -0.5871,
+      -0.8095
+     ],
+     "faces": "northwest",
+     "bearing": 324.0,
+     "index": 0,
+     "frames": [
+      {
+       "frame": "89741055",
+       "path": "data/streetview/photos/89741055.jpg",
+       "distance": 9.7,
+       "headingOffset": 7.1,
+       "facingCosine": -0.86,
+       "date": "2017-08-06",
+       "buildingShare": 0.36,
+       "vegetationShare": 0.0,
+       "quality": "unknown",
+       "score": 0.698
+      },
+      {
+       "frame": "89741049",
+       "path": "data/streetview/photos/89741049.jpg",
+       "distance": 25.3,
+       "headingOffset": 27.6,
+       "facingCosine": -0.29,
+       "date": "2017-08-06",
+       "buildingShare": 0.47,
+       "vegetationShare": 0.47,
+       "quality": "unknown",
+       "score": 0.347
+      },
+      {
+       "frame": "89741053",
+       "path": "data/streetview/photos/89741053.jpg",
+       "distance": 12.5,
+       "headingOffset": 34.7,
+       "facingCosine": -0.45,
+       "date": "2017-08-06",
+       "buildingShare": 0.23,
+       "vegetationShare": 0.68,
+       "quality": "unknown",
+       "score": 0.185
+      }
+     ],
+     "frameCandidates": 3
+    },
+    {
+     "a": [
+      616.03,
+      32.35
+     ],
+     "b": [
+      613.82,
+      33.96
+     ],
+     "length": 2.73,
+     "normal": [
+      0.5888,
+      0.8083
+     ],
+     "faces": "southeast",
+     "bearing": 143.9,
+     "index": 1,
+     "frames": [
+      {
+       "frame": "89741045",
+       "path": "data/streetview/photos/89741045.jpg",
+       "distance": 55.3,
+       "headingOffset": 19.0,
+       "facingCosine": -0.18,
+       "date": "2017-08-06",
+       "buildingShare": 0.81,
+       "vegetationShare": 0.03,
+       "quality": "clear",
+       "score": 0.545
+      }
+     ],
+     "frameCandidates": 1
+    }
+   ],
+   "centroid": [
+    614.52,
+    32.59
+   ],
+   "area": 3.8,
+   "holes": [],
+   "framesUsable": 4,
+   "sheetFrames": [
+    {
+     "n": 1,
+     "wall": 0,
+     "frame": "89741055",
+     "path": "data/streetview/photos/89741055.jpg"
+    },
+    {
+     "n": 2,
+     "wall": 1,
+     "frame": "89741045",
+     "path": "data/streetview/photos/89741045.jpg"
+    },
+    {
+     "n": 3,
+     "wall": 0,
+     "frame": "89741049",
+     "path": "data/streetview/photos/89741049.jpg"
+    },
+    {
+     "n": 4,
+     "wall": 0,
+     "frame": "89741053",
+     "path": "data/streetview/photos/89741053.jpg"
+    }
+   ],
+   "aerial": "data/buildings/evidence/survey-studio-yard-cabinet/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
+  },
+  {
+   "id": "survey-ballfield-store",
+   "name": "South ballfield equipment store",
+   "footprint": [
+    [
+     139.73,
+     1416.15
+    ],
+    [
+     141.41,
+     1416.37
+    ],
+    [
+     141.12,
+     1418.46
+    ],
+    [
+     139.46,
+     1418.24
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 5.28,
+   "groundAbsolute": 235.59,
+   "lidar": "regional-2m",
+   "heightP50": 1.84,
+   "heightP90": 1.95,
+   "heightMax": 1.96,
+   "roofSpread": 0.2,
+   "walls": [],
+   "centroid": [
+    140.43,
+    1417.3
+   ],
+   "area": 3.6,
+   "holes": [],
+   "framesUsable": 0,
+   "sheetFrames": [],
+   "aerial": "data/buildings/evidence/survey-ballfield-store/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
+  },
+  {
+   "id": "survey-tennis-bleachers",
+   "name": "Tennis court spectator bleachers",
+   "footprint": [
+    [
+     289.88,
+     1400.99
+    ],
+    [
+     280.27,
+     1406.3
+    ],
+    [
+     282.89,
+     1411.05
+    ],
+    [
+     292.5,
+     1405.73
+    ]
+   ],
+   "source": "london-2025-orthophoto",
+   "ground": 5.41,
+   "groundAbsolute": 235.73,
+   "lidar": "regional-2m",
+   "heightP50": 1.8,
+   "heightP90": 2.1,
+   "heightMax": 2.18,
+   "roofSpread": 0.61,
+   "walls": [
+    {
+     "a": [
+      289.88,
+      1400.99
+     ],
+     "b": [
+      280.27,
+      1406.3
+     ],
+     "length": 10.98,
+     "normal": [
+      -0.4836,
+      -0.8753
+     ],
+     "faces": "northwest",
+     "bearing": 331.1,
+     "index": 0,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      280.27,
+      1406.3
+     ],
+     "b": [
+      282.89,
+      1411.05
+     ],
+     "length": 5.42,
+     "normal": [
+      -0.8756,
+      0.483
+     ],
+     "faces": "southwest",
+     "bearing": 241.1,
+     "index": 1,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      282.89,
+      1411.05
+     ],
+     "b": [
+      292.5,
+      1405.73
+     ],
+     "length": 10.98,
+     "normal": [
+      0.4843,
+      0.8749
+     ],
+     "faces": "southeast",
+     "bearing": 151.0,
+     "index": 2,
+     "frames": [],
+     "frameCandidates": 0
+    },
+    {
+     "a": [
+      292.5,
+      1405.73
+     ],
+     "b": [
+      289.88,
+      1400.99
+     ],
+     "length": 5.42,
+     "normal": [
+      0.8752,
+      -0.4838
+     ],
+     "faces": "northeast",
+     "bearing": 61.1,
+     "index": 3,
+     "frames": [],
+     "frameCandidates": 0
+    }
+   ],
+   "centroid": [
+    286.38,
+    1406.02
+   ],
+   "area": 59.5,
+   "holes": [],
+   "framesUsable": 0,
+   "sheetFrames": [],
+   "aerial": "data/buildings/evidence/survey-tennis-bleachers/aerial-source.jpg",
+   "aerialMetersPerPixel": 0.12,
+   "streetSheet": null
   }
  ]
 }

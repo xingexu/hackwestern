@@ -1,4 +1,3 @@
-"""Regression checks for passenger-car turns and the campus roundabout."""
 import json
 import unittest
 from pathlib import Path
@@ -45,7 +44,6 @@ class RoadRules(unittest.TestCase):
             if near.any():
                 used.add(c["id"])
                 step=np.diff(pts,axis=0)
-                # East/south coordinates: counterclockwise circulation has negative signed area.
                 self.assertTrue(np.all((r[:,0]*step[:,1]-r[:,1]*step[:,0])[near]<0),c["id"])
         self.assertEqual(used,{"college","stadium"})
 

@@ -1,3 +1,4 @@
+import json
 import math
 
 import numpy as np
@@ -40,6 +41,7 @@ def survey(site,city):
                         line=LineString(points[a:b+1]).simplify(.10)
                         geometry.append(line)
                         records.append([np.array(line.coords).round(2).ravel().tolist(),inward])
+    extend_parking_kerbs(site,existing,geometry,records)
     kept=[]
     tree=shapely.STRtree(geometry)
     for i,line in enumerate(geometry):
@@ -47,3 +49,40 @@ def survey(site,city):
         if any(j<i and geometry[j].buffer(.24).intersection(line).length>.62*line.length for j in overlaps):continue
         kept.append(records[i])
     return kept
+
+
+
+def extend_parking_kerbs(site,existing,geometry,records):
+    import campus_region as region
+    from parcel_surfaces import cartography
+    from parking_bays import registered_aprons
+
+    network=json.loads(region.OUT.with_name('drive-network.json').read_bytes())
+    layers=cartography(network,site)
+    aprons=registered_aprons(network)
+    if aprons.is_empty:
+        return
+    surveyed=layers['rim']
+    filled=shapely.union_all([existing,shapely.union_all(geometry).buffer(.3)])
+    envelope=aprons.boundary.buffer(.22).difference(filled)
+    for idx in surveyed.query(envelope,predicate='intersects'):
+        for line in shapely.get_parts(surveyed.geometries[idx].intersection(envelope)):
+            if line.geom_type!='LineString' or line.length<1.9:
+                continue
+            stations=np.linspace(0,line.length,math.ceil(line.length/.75)+1)
+            points=shapely.get_coordinates(shapely.line_interpolate_point(line,stations))
+            delta=np.diff(points,axis=0)
+            length=np.linalg.norm(delta,axis=1)
+            normals=delta[:,[1,0]]*[1,-1]/np.maximum(.01,length)[:,None]
+            centers=(points[:-1]+points[1:])*.5
+            for sign in [-1,1]:
+                inner=centers+normals*sign*.48
+                outer=centers-normals*sign*.48
+                separates=shapely.contains_xy(aprons,*inner.T)&~shapely.contains_xy(aprons,*outer.T)
+                cuts=np.flatnonzero(np.diff(np.r_[False,separates,False])).reshape(-1,2)
+                for start,end in cuts:
+                    if sum(length[start:end])<1.9:
+                        continue
+                    edge=LineString(points[start:end+1]).simplify(.04)
+                    geometry.append(edge)
+                    records.append([np.asarray(edge.coords).round(2).ravel().tolist(),sign])

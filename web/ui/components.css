@@ -1,7 +1,3 @@
-/* Formula Western UI components.
-   Pixel design tokens, panels, buttons, inputs, dialogs, the loading screen and transitions.
-   drive.css / lobby.css / the inline map styles keep layout; this file owns the look.
-   Loaded after them, and dialog rules use :root so lazily loaded lobby.css cannot override them. */
 
 @font-face { font-family: "Press Start 2P"; src: url(./fonts/press-start-2p.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: "VT323"; src: url(./fonts/vt323.woff2) format("woff2"); font-display: swap; }
@@ -22,7 +18,6 @@
   --panel-bg: var(--lav);
   --display: "Press Start 2P", ui-monospace, Menlo, monospace;
   --body: "VT323", ui-monospace, Menlo, monospace;
-  /* Light purple theme for buttons, panels and dialogs */
   --lav: rgb(240 233 255 / 95%);
   --lav-solid: #f0e9ff;
   --lav-2: #ddd0ff;
@@ -33,7 +28,6 @@
   --on-soft: #5a3c96;
   --accent: #6c34d6;
   --edge: #2a0f4d;
-  /* Notched pixel border plus a hard drop shadow. */
   --frame:
     0 calc(-1 * var(--px)) 0 0 var(--edge), 0 var(--px) 0 0 var(--edge),
     calc(-1 * var(--px)) 0 0 0 var(--edge), var(--px) 0 0 0 var(--edge),
@@ -45,12 +39,10 @@
   --button-face: inset 0 calc(-1 * var(--px)) 0 0 rgb(42 15 77 / 30%), inset 0 var(--px) 0 0 rgb(255 255 255 / 55%);
 }
 
-/* ---------- Motion primitives (chunky stepped timing reads as pixel animation) ---------- */
 @keyframes px-pop { 0% { transform: scale(.7); opacity: 0; } 70% { transform: scale(1.04); opacity: 1; } 100% { transform: none; opacity: 1; } }
 @keyframes px-pop-centered { 0% { transform: translateX(-50%) scale(.7); opacity: 0; } 70% { transform: translateX(-50%) scale(1.04); opacity: 1; } 100% { transform: translateX(-50%); opacity: 1; } }
 @keyframes px-in-left { from { transform: translateX(-130%); } to { transform: none; } }
 @keyframes px-in-right { from { transform: translateX(130%); } to { transform: none; } }
-@keyframes px-in-up { from { transform: translateY(160%); } to { transform: none; } }
 @keyframes px-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes px-bob { 50% { transform: translateY(calc(-1 * var(--px))); } }
 @keyframes px-blink { 50% { opacity: 0; } }
@@ -64,7 +56,6 @@ html[data-ui-instant] ::backdrop { animation: none !important; transition: none 
   *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition: none !important; }
 }
 
-/* ---------- Buttons: light purple with pixel text ---------- */
 .px-button,
 #map-ui button, #drive-link, #roam-link, #region-view,
 #finish button, #touch-drive button,
@@ -94,7 +85,6 @@ html[data-ui-instant] ::backdrop { animation: none !important; transition: none 
 :is(button, a, summary, select, input):focus-visible { outline: var(--px) solid var(--accent) !important; outline-offset: var(--px) !important; }
 :root :is(#trial-setup, #online-menu, #phone-pair) button:disabled, #drive-ui button:disabled { filter: grayscale(.6) opacity(.6); cursor: default; }
 .loader-retry { padding: 12px 18px; }
-/* ---------- Loading screen ---------- */
 #loader {
   position: fixed; inset: 0; z-index: 50;
   display: grid; place-items: center;
@@ -107,7 +97,7 @@ html[data-ui-instant] ::backdrop { animation: none !important; transition: none 
   overflow: hidden;
 }
 #loader[hidden] { display: none; }
-#loader::before { /* pixel star field */
+#loader::before {
   content: ""; position: absolute; inset: 0; opacity: .5; pointer-events: none;
   background-image:
     linear-gradient(var(--mist) 0 0), linear-gradient(var(--mist) 0 0), linear-gradient(var(--lilac) 0 0),
@@ -122,7 +112,7 @@ html[data-ui-instant] ::backdrop { animation: none !important; transition: none 
   image-rendering: pixelated;
   animation: px-pop .5s steps(6) both, px-bob 1.2s steps(2) .5s infinite;
 }
-.loader-road { /* scrolling dashed road with a pixel car */
+.loader-road {
   position: relative; width: 100%; height: 42px; overflow: hidden;
   background: var(--ink); box-shadow: var(--frame-flat);
 }
@@ -134,7 +124,6 @@ html[data-ui-instant] ::backdrop { animation: none !important; transition: none 
 .loader-car {
   position: absolute; left: 50%; top: 50%; width: var(--px); height: var(--px);
   margin: -9px 0 0 -24px; color: var(--lilac);
-  /* 16x6 pixel side-on race car drawn with box-shadows */
   box-shadow:
     9px 0 var(--lilac), 12px 0 var(--lilac), 15px 0 var(--lilac), 18px 0 var(--lilac), 21px 0 var(--lilac), 24px 0 var(--lilac),
     6px 3px var(--lilac), 9px 3px var(--cream), 12px 3px var(--cream), 15px 3px var(--lilac), 18px 3px var(--lilac), 21px 3px var(--lilac), 24px 3px var(--lilac), 27px 3px var(--lilac),
@@ -159,15 +148,16 @@ html[data-ui-instant] ::backdrop { animation: none !important; transition: none 
 }
 #loader #status::after { content: "_"; animation: px-blink 1s steps(1) infinite; }
 .loader-tip { margin: 0; color: var(--mist); font: 20px/1.2 var(--body); text-align: center; min-height: 1.2em; }
+#loader.is-done { pointer-events: none; }
+#loader.is-done #status { visibility: hidden; }
 #loader.is-done .loader-percent { animation: px-blink .25s steps(1) 2; }
-#loader.is-leaving { animation: px-loader-out .55s steps(8) forwards; pointer-events: none; }
+#loader.is-leaving { animation: px-loader-out .55s steps(8) forwards; }
 #loader.is-error .loader-fill { background: var(--red); }
 #loader.is-error #status { color: var(--red); }
 #loader.is-error #status::after, #loader.is-error .loader-road { display: none; }
 #loader.is-error .loader-logo { animation: none; }
 @media (max-height: 520px) { .loader-panel { gap: 10px; } .loader-logo { width: min(352px, 70vw); } .loader-tip { display: none; } }
 
-/* ---------- Page wipe and change flash ---------- */
 .px-wipe {
   position: fixed; inset: 0; z-index: 60; pointer-events: none;
   background: var(--ink);
@@ -182,7 +172,6 @@ html[data-ui-instant] ::backdrop { animation: none !important; transition: none 
 }
 
 
-/* ---------- Drive HUD ---------- */
 html[data-mode="drive"] #drive-ui { color: var(--on); font: 20px/1.15 var(--body); --ink: #12082a; --cream: #fbf6ea; --gold: #ffd166; }
 #drive-ui small { font: 8px/1.6 var(--display); letter-spacing: .08em; color: var(--on-soft); }
 .course-card, .route-card, .instruments, .drive-help, #drive-message:not(:empty), #race-banner {
@@ -240,14 +229,12 @@ html[data-mode="drive"] #drive-ui { color: var(--on); font: 20px/1.15 var(--body
 }
 #race-banner { font: 14px/1.4 var(--display) !important; color: var(--accent) !important; animation: px-pop-centered .3s steps(5) both; }
 
-/* HUD panels slide in once the loader leaves. */
 .ui-ready .course-card, .ui-ready .drive-help { animation: px-in-left .42s steps(7) both; }
 .ui-ready .route-card { animation: px-in-right .42s steps(7) .08s both; }
 .ui-ready .instruments { animation: px-in-right .42s steps(7) .16s both; }
 .ui-ready .drive-help { animation-delay: .12s; }
-.ui-ready #touch-drive { animation: px-in-up .4s steps(6) .1s both; }
+.ui-ready #touch-drive { animation: px-fade .4s steps(6) both; }
 
-/* Finish screen */
 #finish:not([hidden]) {
   background: repeating-conic-gradient(rgb(42 15 77 / 45%) 0 25%, rgb(42 15 77 / 18%) 0 50%) 0 0 / 48px 48px;
   animation: px-fade .25s steps(3) both;
@@ -262,7 +249,6 @@ html[data-mode="drive"] #drive-ui { color: var(--on); font: 20px/1.15 var(--body
 #finish h2 { font: 26px/1.1 var(--display); color: var(--accent); text-shadow: var(--px) var(--px) 0 var(--btn-hover); }
 #finish output { font: 34px/1 var(--body); }
 #finish button { padding: 12px 18px; }
-/* Credits sit above the HUD layer, so keep them out of the way of the finish panel's buttons. */
 html:has(#finish:not([hidden])) #map-sources { display: none; }
 @media (max-height: 520px) {
   #finish > div { gap: 4px; padding: 10px 18px; }
@@ -272,7 +258,6 @@ html:has(#finish:not([hidden])) #map-sources { display: none; }
   #finish button { padding: 9px 14px; }
 }
 
-/* Phone / touch controls (the on-screen fallback for tilt steering) */
 #touch-drive button { font: 10px/1.2 var(--display); }
 @media (pointer: coarse) {
   #touch-drive [data-key] { border-radius: 0; font-size: 12px; }
@@ -286,7 +271,6 @@ html:has(#finish:not([hidden])) #map-sources { display: none; }
 #phone-settings summary { font: 9px/1.2 var(--display); background: var(--btn); border-radius: 0; box-shadow: var(--button-face), var(--frame); }
 #phone-settings section { background: var(--lav-solid); border-radius: 0; box-shadow: var(--frame); animation: px-pop .2s steps(4) both; }
 
-/* ---------- Dialogs: time trial, online lobby, phone pairing ---------- */
 :root :is(#trial-setup, #online-menu, #phone-pair) {
   color: var(--on); background: var(--lav-solid);
   border: 0; border-radius: 0; box-shadow: var(--frame);
@@ -308,7 +292,6 @@ html:has(#finish:not([hidden])) #map-sources { display: none; }
 #trial-setup { border-top: 0; }
 #trial-splits { color: var(--accent); }
 
-/* ---------- Map mode ---------- */
 html[data-mode="map"] body { background: var(--ink); }
 .map-logo { display: block; width: 132px; height: auto; margin: 0 0 8px; image-rendering: pixelated; }
 #map-ui h1 { font: 16px/1.3 var(--display); letter-spacing: 0; color: var(--on); }
@@ -322,7 +305,6 @@ html[data-mode="map"] body { background: var(--ink); }
 }
 #map-ui #scale-panel input { accent-color: var(--accent); }
 #map-ui #fps { color: var(--on-soft); font-size: 16px; }
-/* The logo makes the map header taller, so the mode links sit below it. */
 #drive-link { top: 172px; padding: 11px 14px; }
 #drive-link span { color: var(--accent); }
 #roam-link { top: 218px; padding: 9px 12px; }
@@ -337,14 +319,10 @@ html[data-mode="map"] body { background: var(--ink); }
 .ui-ready #map-ui #reset, .ui-ready #map-ui #scale-panel { animation: px-in-right .42s steps(7) .1s both; }
 #labels .tag { background: var(--ink-2); box-shadow: var(--px) var(--px) 0 rgb(8 3 20 / 45%); }
 
-/* ---------- Credits ---------- */
 #map-sources { font: 15px/1.2 var(--body); color: var(--on); background: var(--panel-bg); border-radius: 0; box-shadow: var(--frame-flat); }
 #map-sources summary { font: 6px/1.6 var(--display); padding: 3px 6px; }
 #map-sources a { color: var(--on-soft); }
 
-/* ---------- Race start countdown, landmark flash and driving settings ---------- */
-/* The pixel 3·2·1·GO canvas sits over #race-countdown, which keeps its box (and text for
-   screen readers and audio cues) but goes transparent while the pixel version is showing. */
 #race-countdown:not([hidden]) { border: 0; border-radius: 0; background: var(--lav); color: var(--on); box-shadow: var(--frame); font-family: var(--display); }
 #drive-ui:has(#pixel-countdown:not([hidden])) #race-countdown { background: none; color: transparent; box-shadow: none; }
 #pixel-countdown:not([hidden]) { top: 50%; transform: translate(-50%, -50%) scale(var(--pop, 1)); }
@@ -353,7 +331,6 @@ html[data-mode="map"] body { background: var(--ink); }
   font: clamp(12px, 1.8vw, 18px)/1.4 var(--display); color: var(--lav-solid);
   text-shadow: var(--px) var(--px) 0 var(--edge), calc(-1 * var(--px)) 0 0 var(--edge), 0 calc(-1 * var(--px)) 0 var(--edge);
 }
-/* The landmark flash needs its own (opacity-only) animation to stay visible under reduced motion. */
 @media (prefers-reduced-motion: reduce) { #landmark-flash.play { animation: landmark-flash 1.2s ease-out forwards !important; } }
 #checkpoint-direction:not([hidden]) { border-radius: 0; background: var(--panel-bg); color: var(--on); box-shadow: var(--frame); }
 #checkpoint-direction b { color: var(--accent); }
@@ -385,11 +362,18 @@ html[data-mode="map"] body { background: var(--ink); }
   #touch-drive [data-key], #touch-drive #thumb-wheel { border: 0; border-radius: 0; color: var(--on); background: var(--btn); }
   #touch-drive [data-key=ArrowUp] { background: #9be8bd; }
   #touch-drive [data-key=ArrowDown] { background: #ffb0bb; }
-  .instruments { border-radius: 0; padding-bottom: 3px; }
+  .instruments { border-radius: 0; gap: 3px; padding: 1px 5px 2px; height: 22px; box-sizing: border-box; }
   .instruments #time { font-size: 18px; line-height: 18px; }
-  .instruments #traction { font-size: 13px; min-width: 4ch; padding: 1px 3px; }
+  .instruments #traction { font-size: 13px; min-width: 0; padding: 1px 3px; }
   #rev-strip { height: 2px; }
-  #touch-drive [data-key=ArrowDown] small { display:block; font:16px/1 var(--body); }
+  #touch-drive [data-key] { width:44px; padding:1px; font:20px/18px var(--body); }
+  #touch-drive [data-key=ArrowDown] small { display:block; font:13px/12px var(--body); }
+  .route-card[data-expanded="false"] { width:54px; height:44px; }
+  .instruments > div + div { gap:2px; }
+  .instruments span { font-size:13px; }
+  .instruments #drive-message:not(:empty) { position:static; padding:1px 3px; border:0; font:15px/15px var(--body); box-shadow:none; animation:none; background:var(--gold); color:var(--on); }
+  #drive-ui.show-drive-warning .instruments #traction:not([data-drifting]) { display:none; }
+  #map-sources summary { font:13px/14px var(--body); padding:1px 4px; }
   #touch-drive [data-pulse] { background: var(--gold); }
   .instruments strong { font: 22px/18px var(--body); text-shadow: none; }
   #mobile-drive-hint { border-radius: 0; color: var(--on); background: var(--panel-bg); box-shadow: var(--frame-flat); font: 16px/18px var(--body); }

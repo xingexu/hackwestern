@@ -82,7 +82,8 @@ export async function verifyGroundMaterials(page,manifest,out){
 }
 
 export async function verifyStadiumVerge(page){
-  // The reference crop is from this fixed Athletics road viewpoint, not the player's grid lane.
+  await page.locator('#loader').waitFor({state:'hidden'})
+  await page.locator('.px-wipe').evaluate(wipe=>Promise.all(wipe.getAnimations().map(animation=>animation.finished)))
   await page.evaluate(()=>{
     const {surveyView,network}=window.driveMetrics,x=208.01,z=1137.7
     surveyView({x,z,y:network.sample(x,z,7.37).y,heading:6.1443778410969845,pitch:0})

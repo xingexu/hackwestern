@@ -4,6 +4,29 @@ import {fileURLToPath} from 'node:url'
 import {engines,serve} from './race_browser.mjs'
 import {recordCircuit} from './verify_replay.mjs'
 
+async function driftTrace(base) {
+  const {createRecorder,encodeReplay,decodeReplay,createPlayback,stateHash}=await import(new URL('race/replay.mjs',base))
+  const {createRaceContext}=await import(new URL('race/context.mjs',base))
+  const course='stadium',recorder=createRecorder({course})
+  for(let tick=0;tick<720;tick++){
+    const turn=tick>=320 && tick<408
+    recorder.record({profile:'keyboard',throttle:tick<320?1:.5,steer:turn?1:0,handbrake:Number(turn && tick>=332)})
+  }
+  const replay=decodeReplay(encodeReplay(recorder.finish({timeMs:6000,checkpointsMs:[]})))
+  const ghost=createPlayback(replay,createRaceContext(course))
+  const samples=[]
+  let sliding=0,peak=0
+  while(ghost.step()){
+    if(ghost.sim.state.drifting)sliding++
+    peak=Math.max(peak,ghost.sim.state.slipDegrees)
+    if(ghost.tick%12===0)samples.push(stateHash(ghost.sim))
+  }
+  return {sliding,peak,samples,recovered:!ghost.sim.state.drifting}
+}
+
+const drift=await driftTrace(new URL('../',import.meta.url).href)
+assert.ok(drift.sliding>15 && drift.peak>7 && drift.recovered,'The replay must enter and recover from a real drift')
+
 const server=await serve(true)
 try {
   const fixtures=new URL('./fixtures/replays/',import.meta.url)
@@ -27,6 +50,8 @@ try {
     try {
       const page=await browser.newPage()
       await page.goto(server.base+'/race/version.mjs')
+      assert.deepEqual(await page.evaluate(driftTrace,server.base+'/'),drift)
+      console.log(engine,'handbrake replay',drift.sliding,'sliding ticks;',drift.samples.length,'matching hashes')
       for (const {course,hashes,result} of circuits) {
         const actual=await page.evaluate(async course=>{
           const {createPlayback,decodeReplay,stateHash,simulateReplay}=await import('/race/replay.mjs')

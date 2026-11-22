@@ -17,8 +17,8 @@ from ground_observations import parcel,survey_tile
 OUT=region.OUT.parents[1]/'build'/'survey_parking.json'
 
 
-def lot_mask(extra=None):
-    data=json.loads(region.OUT.with_name('drive-network.json').read_bytes())
+def lot_mask(extra=None,network=None):
+    data=network if network is not None else json.loads(region.OUT.with_name('drive-network.json').read_bytes())
     shapes=[]
     for area in data['areas']:
         if area['kind']=='parking':
@@ -28,7 +28,7 @@ def lot_mask(extra=None):
         extra=json.loads(OUT.read_bytes()).get('surveyedLots',[]) if OUT.exists() else []
     for shell,*holes in extra:
         shapes.append(Polygon(np.reshape(shell,(-1,2)),[np.reshape(h,(-1,2)) for h in holes]))
-    return union_all(shapes).buffer(-.28).intersection(parcel())
+    return union_all(shapes,grid_size=.00001).buffer(-.28).intersection(parcel())
 
 
 def rows(lots):

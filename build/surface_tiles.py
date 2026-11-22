@@ -228,8 +228,9 @@ def terrain_relief(network):
     blend=influence*influence*(3.-2.*influence)
     follow=ground+(grade+.15-ground)*blend
     ground=np.minimum(follow,low+.16)
+    from site_frontages import exposed_rows
     packed=np.rint(ground*32).astype('<i2')
-    return dict(width=cols,height=rows,scale=32,samples=base64.b64encode(zlib.compress(packed.tobytes(),8)).decode())
+    return dict(width=cols,height=rows,scale=32,exposedCore=exposed_rows(),samples=base64.b64encode(zlib.compress(packed.tobytes(),8)).decode())
 
 
 def verge_cover(image):
@@ -337,4 +338,6 @@ if __name__ == "__main__":
     import sys
     if "--check" not in sys.argv:
         build()
+        from street_projection import reproject
+        reproject()
     check()

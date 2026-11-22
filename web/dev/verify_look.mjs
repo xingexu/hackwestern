@@ -111,12 +111,13 @@ try {
       }
       const {renderScale,drawCalls,triangles,car}=driveMetrics;
       times.sort((a,b)=>a-b);
-      return {p50:times[75],p95:times[142],fps:150000/times.reduce((a,b)=>a+b),renderScale,drawCalls,triangles,distance:car.distance};
+      return {p50:times[75],p95:times[142],worst:times.at(-1),fps:150000/times.reduce((a,b)=>a+b),renderScale,drawCalls,triangles,distance:car.distance};
     });
     await page.keyboard.up('ArrowUp');
     console.log(JSON.stringify({phone,baseline,...perf}));
     if(!baseline){
       assert.ok(perf.distance>5);
+      assert.ok(perf.worst<68,'Drive frame stalled for '+perf.worst+' ms');
       assert.ok(perf.fps>=(phone?30:57) && perf.p95<=(phone?36:24),JSON.stringify(perf));
     }
     if(!phone){

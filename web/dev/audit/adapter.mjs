@@ -192,7 +192,7 @@ export async function adapter({scene,campus,renderer,camera:gameCamera,renderVie
         understory.push(...(entry.understory??[]));
       }
       for(const [x,y,z,r,height,,,,form] of trees.trees)stems.push(['core',x,z,height-y+.8*r,r,form]);
-      for(const [x,,z,h,,diam] of region.trees)stems.push(['regional',x,z,h,diam*.5]);
+      for(const [x,,z,h,,diam] of region.trees)stems.push(['regional',x,z,h,diam*.5,region.regionalHabits?.get(x+','+z)]);
       for(const entry of Object.values(survey.tiles))for(const [x,z,h] of entry.stems??[])stems.push(['survey',x,z,h,h*.30]);
       for(const entry of Object.values(features.tiles))for(const [kind,id,x,,z,yaw] of entry.p??[]){
         props.push([kind,x,z,yaw,id]);
@@ -207,8 +207,8 @@ export async function adapter({scene,campus,renderer,camera:gameCamera,renderVie
       collision.invalidate()
       campus.updateDetail(cell.x+25,cell.z+25,95,true)
       const deadline=performance.now()+60000
-      while(!campus.facades.settledNear(120)){
-        if(performance.now()>deadline) throw new Error('Building LOD did not settle in '+cell.id)
+      while(!campus.facades.settledNear(120) || !campus.auditSources.groundSettledNear(cell.x+25,cell.z+25,120)){
+        if(performance.now()>deadline) throw new Error('Building or ground detail did not settle in '+cell.id)
         await new Promise(resolve=>setTimeout(resolve,20))
       }
     },

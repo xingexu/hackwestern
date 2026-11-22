@@ -160,6 +160,11 @@ function elevatedSegment(batch,way,frames,i,distance,groundAt,panel,network) {
     network.addFace?.([skirt[0],skirt[1],skirt[2]],'bridge approach');
     network.addFace?.([skirt[0],skirt[2],skirt[3]],'bridge approach');
   }
+  for(const wall of panel.abutments){
+    quad(batch,...wall,colors.stone);
+    network.addFace?.([wall[0],wall[1],wall[2]],'bridge abutment');
+    network.addFace?.([wall[0],wall[2],wall[3]],'bridge abutment');
+  }
   const railStart=batch.positions.length;
   if(way.bridge) band(-half,-half,half,half,-.56,colors.stone);
   const roadBounds=[[],[]];

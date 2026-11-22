@@ -13,7 +13,7 @@ from building_camera import main as camera_poses
 ROOT=Path(__file__).resolve().parents[1]
 with tempfile.TemporaryDirectory(dir=ROOT/".agent") as folder:
     start=time.monotonic()
-    result=subprocess.run(["node","web/dev/building_preview.mjs","--id","w118764099","--spec","build/specs/buildings/w118764099.json","--out",folder],cwd=ROOT,check=True,text=True,capture_output=True)
+    result=subprocess.run(["node","web/dev/building_preview.mjs","--id","w118764099","--spec","build/specs/buildings/w118764099.json","--out",folder],cwd=ROOT,check=True,text=True,stdout=subprocess.PIPE)
     assert time.monotonic()-start<20,"Single offline building preview exceeded 20 seconds"
     poses=json.loads((Path(folder)/"w118764099-camera-poses.json").read_text())
     assert sum(p["result"]=="paired" for p in poses)==6
@@ -47,7 +47,7 @@ with tempfile.TemporaryDirectory(dir=ROOT/".agent") as folder:
     assert road["33519595"]["registrationScore"]>.85 and road["33519595"]["registeredPixels"]>100
     assert "registrationScore" not in road["131415165"] and 9<road["131415165"]["laneDisplacement"]<12
     print("Four photo horizons aligned to independent airborne roof returns",[(k,p["skylineResidualDegrees"]) for k,p in references.items()])
-    subprocess.run(["node","web/dev/building_preview.mjs","--id","w147379460","--shadow-reference","--out",folder],cwd=ROOT,check=True,capture_output=True)
+    subprocess.run(["node","web/dev/building_preview.mjs","--id","w147379460","--shadow-reference","--out",folder],cwd=ROOT,check=True,stdout=subprocess.PIPE)
     def luminance(suffix):
         return np.asarray(Image.open(Path(folder)/f"w147379460-ne{suffix}.jpg").convert("L"),dtype=float)
     actual_shadow=luminance("")-luminance("-unshadowed")
@@ -69,7 +69,7 @@ with tempfile.TemporaryDirectory(dir=ROOT/".agent") as folder:
     spec.update(massing={"parts":[{"footprint":"inventory","height":11.2,"roof":roof_spec}]},roof=roof_spec,attachments=[],towers=[],entrances=[],lidarTrusted=False,lidarNote="Flat roof calibration surface at the central roof elevation.")
     path=Path(folder)/"calibration-spec.json"
     path.write_text(json.dumps(spec))
-    subprocess.run(["node","web/dev/building_preview.mjs","--id","w147379460","--spec",str(path),"--shadow-reference","--out",folder],cwd=ROOT,check=True,capture_output=True)
+    subprocess.run(["node","web/dev/building_preview.mjs","--id","w147379460","--spec",str(path),"--shadow-reference","--out",folder],cwd=ROOT,check=True,stdout=subprocess.PIPE)
     roof=luminance("-shadow-control")
     shadows=luminance("")-luminance("-unshadowed")
     shadow_patches=[shadows[y:y+8,x:x+16].std() for x,y in [(407,287),(427,301),(417,281),(454,309),(468,290)]]
@@ -81,7 +81,7 @@ with tempfile.TemporaryDirectory(dir=ROOT/".agent") as folder:
     def concurrent_preview(building):
         out=Path(folder)/building
         command=["node","web/dev/building_preview.mjs","--id",building,"--out",str(out)]
-        response=subprocess.run(command,cwd=ROOT,check=True,capture_output=True,text=True)
+        response=subprocess.run(command,cwd=ROOT,check=True,stdout=subprocess.PIPE,text=True)
         observed=json.loads((out/f"{building}-camera-poses.json").read_bytes())
         assert len(list(out.glob("*.jpg")))==5+sum(p["result"]=="paired" for p in observed)
         assert all((out/f"{building}-{pose}.jpg").is_file() for pose in ("nw","ne","sw","se","aerial"))

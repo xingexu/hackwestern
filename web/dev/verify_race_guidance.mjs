@@ -42,6 +42,10 @@ try{
     const cue=page.locator('#race-countdown')
     await page.waitForFunction(()=>document.querySelector('#race-countdown').textContent==='2')
     await cue.evaluate(e=>Promise.all(e.getAnimations().map(animation=>animation.finished)))
+    await page.waitForFunction(()=>{
+      const canvas=document.querySelector('#pixel-countdown')
+      return canvas && !canvas.hidden && canvas.getContext('2d').getImageData(0,14,72,34).data.some((n,i)=>i%4===3 && n>128)
+    })
     const bounds=await cue.boundingBox(),viewport=page.viewportSize()
     assert.ok(bounds.height>=78 && Math.abs(bounds.x+bounds.width/2-viewport.width/2)<2 && Math.abs(bounds.y+bounds.height/2-viewport.height/2)<2)
     await page.screenshot({path:fileURLToPath(new URL('countdown-'+name+'.png',shots))})

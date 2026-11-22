@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import {createDriveSim} from '../drive-sim.mjs'
-import {speedKph} from '../race/input.mjs'
+import {profiles,speedKph} from '../race/input.mjs'
+import noviceRecording from './fixtures/novice-keyboard.json' with {type:'json'}
 import {recordCircuit} from './verify_replay.mjs'
 
 const origin={x:0,y:0,z:0,heading:0,distance:0}
@@ -9,7 +10,7 @@ const network={
   blocked(){return false}
 }
 const responses={}
-for(const profile of ['keyboard','buttons','gamepad','tilt','wheel']){
+for(const profile of profiles){
   const sim=createDriveSim([origin],{mode:'roam',network})
   sim.step({profile,steer:.2})
   const first=sim.state.filteredSteer
@@ -51,11 +52,21 @@ function novice(profile,assists,inputs){
   return {road,peak,forward:sim.state.z}
 }
 console.log('Ten seconds of lane changes on an 8.6 m road, recorded with the default keyboard setup. Full-lock decisions every 200 ms. Identical commands replayed in each mode.')
-for(const profile of ['keyboard','buttons','gamepad','tilt']){
+for(const profile of profiles){
   const on=novice(profile,true,trace),off=novice(profile,false,trace)
   console.log(profile, 'on/off asphalt ticks',on.road,off.road,'of 1200, peak offset',on.peak.toFixed(2),off.peak.toFixed(2),'m')
   assert.ok(on.road>off.road && on.peak<off.peak)
   if(profile==='keyboard')assert.ok(on.road>off.road+240 && on.forward>off.forward && on.peak<4.3)
+}
+const {straightTicks,ticksPerCommand,steering}=noviceRecording
+const recorded=Array.from({length:straightTicks+steering.length*ticksPerCommand},(_,tick)=>({
+  throttle:1,
+  steer:tick<straightTicks?0:steering[Math.floor((tick-straightTicks)/ticksPerCommand)]
+}))
+for(const profile of profiles){
+  const result=novice(profile,true,recorded)
+  assert.ok(result.road>=1080,profile+' stayed on asphalt for '+result.road+' of 1200 frames')
+  console.log('Recorded novice trace:',profile,result.road+'/1200 ticks on asphalt, peak offset '+result.peak.toFixed(2)+' m')
 }
 const alternating=trace.map((_,i)=>{
   const t=i-480

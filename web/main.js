@@ -570,6 +570,7 @@ function createViewer(world, campus) {
       steadyDrawCalls: 0
     };
     if (new URLSearchParams(location.search).has('diagnostics')) {
+      metrics.paintReady=()=>campus?.paintReady()??true;
       metrics.inspectScene=()=>({THREE,scene,renderer});
       metrics.countUncovered=(left,top,width,height)=>{
         const gl=renderer.getContext();
@@ -588,7 +589,7 @@ function createViewer(world, campus) {
       };
       window.campusMetrics=metrics;
     }
-    status.hidden = true;
+    status.dataset.ready = '';
 
     let start = performance.now();
     let frames = 0;

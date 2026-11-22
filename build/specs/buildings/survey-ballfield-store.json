@@ -1,0 +1,74 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-ballfield-store",
+  "name": "South ballfield equipment store",
+  "status": "authored",
+  "confidence": 0.83,
+  "style": "industrial-utility",
+  "lidarTrusted": false,
+  "lidarNote": "Local dimensions and wall height estimated from the 2025 roof perimeter and cast shadow.",
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#d6d7c8",
+      "unitSize": [
+        0.28,
+        1.88
+      ],
+      "roughness": 0.71
+    },
+    "roof": {
+      "kind": "standing-seam-metal",
+      "color": "#d6d7c8",
+      "unitSize": [
+        0.34,
+        5
+      ],
+      "roughness": 0.7
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#d6d7c8"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#757975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 1.88,
+    "typicalHeight": 1.88
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none",
+    "features": []
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "South ballfield equipment store",
+        "footprint": "inventory",
+        "height": 1.88,
+        "floors": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof edges and finish traced from the City of London 2025 orthophoto."
+    }
+  ]
+}

@@ -24,7 +24,6 @@ export function createBrakeTap(){
   }
 }
 
-// Track only the brake finger: the other thumb can keep holding Gas.
 export function bindDriftBrake(button,{enabled=()=>true,change=()=>{},feedback=()=>{}}={}){
   const taps=createBrakeTap(), down=new Set()
   let until=0,timer

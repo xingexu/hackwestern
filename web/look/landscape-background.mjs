@@ -68,7 +68,11 @@ export async function landscapeBackground(region,landscape,boundary,cover,unpack
         vec3 land=mix(summerLawn(site,surveyTone.r,particle.r),forestFloor(site,particle),groundCover.r);
         land=mix(land,vec3(.125,.119,.101)*(1.+particle.b*.36),groundCover.g);
         land=riverColour(land,site,water);
-        diffuseColor.rgb=mix(land,vec3(.061,.062,.061)*(1.+particle.g*.44+.55*(surveyTone.g-.502)),smoothstep(.5-aa,.5+aa,pavement));`);
+        float chips=riverNoise(site*2.6)-.5;
+        float ageing=riverNoise(site*.091)-.5;
+        float repair=texture2D(groundGrain,mat2(.90,-.43,.43,.90)*site*.051+ageing*.06).a;
+        vec3 asphalt=vec3(.068,.067,.063)*(1.+particle.g*.55+.17*chips+.21*ageing+.55*(surveyTone.g-.502)-.09*repair);
+        diffuseColor.rgb=mix(land,asphalt,smoothstep(.5-aa,.5+aa,pavement));`);
     riverFinish(shader,'site','water');
   };
   boundary.coatExterior(material);
@@ -106,15 +110,16 @@ export async function landscapeBackground(region,landscape,boundary,cover,unpack
   mesh.name='Surrounding landscape';
   mesh.receiveShadow=true;
   mesh.layers.set(1);
-  addTreeline(mesh,new Int16Array(treeData),grade,boundary,stems);
+  addTreeline(mesh,new Int16Array(treeData),grade,boundary,stems,landscape.permitsContextTree);
   return mesh;
 }
 
-function addTreeline(ground,records,grade,boundary,anchors){
+function addTreeline(ground,records,grade,boundary,anchors,permitted){
   const tiles=new Map();
   for(let i=0;i<records.length;i+=5){
-    if(boundary.contains(records[i],records[i+1])||(anchors && !anchors.has(i/5)))continue;
-    const key=Math.floor(records[i]/256)+','+Math.floor(records[i+1]/256);
+    const x=records[i]*.5,z=records[i+1]*.5;
+    if(boundary.contains(x,z)||!permitted(x,z)||(anchors && !anchors.has(i/5)))continue;
+    const key=Math.floor(x/128)+','+Math.floor(z/128);
     if(!tiles.has(key))tiles.set(key,[]);
     tiles.get(key).push(i);
   }

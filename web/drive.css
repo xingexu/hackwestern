@@ -175,7 +175,7 @@ html[data-mode="drive"],html[data-mode="drive"] body { overscroll-behavior:none;
   #mobile-drive-menu .course-card { position:static; max-width:none; border-radius:0; background:transparent; box-shadow:none; }
   #mobile-drive-menu .course-title { padding:12px 48px 10px 12px; }
   #mobile-drive-menu #drive-course { max-width:100%; font-size:19px; }
-  .close-drive-menu { position:absolute; right:6px; top:6px; width:40px; height:40px; border:0; background:transparent; color:inherit; font:26px/1 system-ui,sans-serif; }
+  .close-drive-menu { position:absolute; z-index:1; right:6px; top:6px; width:40px; height:40px; border:0; background:transparent; color:inherit; font:26px/1 system-ui,sans-serif; }
   #mobile-drive-menu nav { display:grid; grid-template-columns:repeat(2,1fr); }
   #mobile-drive-menu nav > * { padding:9px; min-height:40px; box-sizing:border-box; border:1px solid #516557; font-size:12px; align-content:center; }
   .mobile-steering { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; padding:5px 12px 10px; }
@@ -214,7 +214,6 @@ html[data-mode="drive"],html[data-mode="drive"] body { overscroll-behavior:none;
   .instruments { left:calc(max(8px,env(safe-area-inset-left)) + 50px); top:calc(max(8px,env(safe-area-inset-top)) + 10px); }
 }
 
-/* Pixel-art 3 · 2 · 1 · GO! start sequence, hovering above the track */
 #pixel-countdown:not([hidden]) {
   position:absolute; top:clamp(70px,15vh,150px); left:50%;
   width:min(44vw,340px); height:auto; aspect-ratio:72 / 48;
@@ -224,7 +223,6 @@ html[data-mode="drive"],html[data-mode="drive"] body { overscroll-behavior:none;
 }
 @media (max-height:550px) { #pixel-countdown:not([hidden]) { top:max(54px,12vh); width:min(32vw,240px); } }
 
-/* Landmark name flash: brief white caption just above the car's roof */
 #landmark-flash:not([hidden]) {
   position:absolute; top:49%; left:50%; transform:translate(-50%,-50%);
   max-width:min(78vw,620px); text-align:center; pointer-events:none;

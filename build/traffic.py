@@ -1,4 +1,3 @@
-"""Passenger-car routes in the campus OSM extract. World X is east, Z is south."""
 import heapq
 import math
 from collections import defaultdict
@@ -19,8 +18,6 @@ def surveyed_streets():
 
 
 def surveyed_offsets(axis, right, nominal):
-    # OSM centre lines can run through a splitter island. Locate the right-hand
-    # carriageway between the city's surveyed kerbs, not through its median.
     spans=np.arange(-14,14.01,.5)
     samples=axis[:,None,:]+spans[None,:,None]*right
     on_road=shapely.contains_xy(surveyed_streets(),samples[:,:,0],samples[:,:,1])
@@ -32,7 +29,6 @@ def surveyed_offsets(axis, right, nominal):
         if not candidates: continue
         l,r=min(candidates,key=lambda s:(max(0,s[0]-nominal,nominal-s[1]),-s[0]))
         if nominal and len(candidates)>1 and candidates[-1][0]<nominal+3.5: l,r=candidates[-1]
-        # At a junction stay on the OSM trajectory rather than following a side street.
         if r-l>18: continue
         divided=len(lanes)>1 and nominal and l>-3 and any(b<l and l-b<7 for a,b in lanes)
         goal=(l+r)/2 if divided or not nominal else (l+3*r)/4
@@ -55,7 +51,6 @@ def lane_offset(width, one_way):
 
 
 def driving_line(points, offsets, closed):
-    # Offset each directed segment BEFORE rounding the corner. A northbound lane is east of its median.
     parts = []
     for a, b, offset in zip(points, points[1:], offsets):
         delta = b - a

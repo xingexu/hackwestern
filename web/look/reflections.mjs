@@ -3,11 +3,13 @@ import survey from './reflection-survey.mjs';
 
 let atlas;
 
-export async function prepareReflections(unpack){
+export async function prepareReflections(){
   if(atlas || new URLSearchParams(globalThis.location?.search).has('bakeReflections'))return;
-  const bytes=await unpack(survey.samples);
+  const image=await new THREE.ImageLoader().loadAsync(new URL('./reflection-atlas.webp',import.meta.url).href);
   if(atlas)return;
-  atlas=new THREE.DataTexture(new Uint8Array(bytes),survey.wide*survey.columns,survey.high*survey.rows);
+  atlas=new THREE.Texture(image);
+  atlas.flipY=false;
+  atlas.generateMipmaps=false;
   atlas.colorSpace=THREE.SRGBColorSpace;
   atlas.minFilter=atlas.magFilter=THREE.LinearFilter;atlas.needsUpdate=true;
 }
@@ -23,7 +25,7 @@ export function reflectedCampus(shader){
     const vec2 probeTile=vec2(${survey.wide}.,${survey.high}.);
     vec3 localReflection(vec2 world,vec3 ray){
       vec2 grid=clamp((world-glazingBounds.xy)/(glazingBounds.zw-glazingBounds.xy),0.,1.)*(probeGrid-1.);
-      vec2 cell=floor(grid),blend=smoothstep(vec2(.15),vec2(.85),fract(grid));
+      vec2 cell=floor(grid),blend=smoothstep(vec2(.32),vec2(.68),fract(grid));
       float azimuth=fract(atan(ray.x,-ray.z)/6.2831853+.9999999);
       float elevation=clamp((degrees(asin(clamp(ray.y,-1.,1.)))+28.)/68.,.5/probeTile.y,1.-.5/probeTile.y);
       vec2 uv=vec2((1.+azimuth*(probeTile.x-2.))/probeTile.x,elevation);
@@ -38,7 +40,7 @@ export function reflectedCampus(shader){
         float fresnel=pow(1.-abs(dot(normalize(vViewPosition),normal)),3.);
         vec3 reflection=localReflection(campusP.xz,ray);
         float reflectance=mix(.33+.36*fresnel,.14+.28*fresnel,coating);
-        outgoingLight=mix(outgoingLight,reflection,latitude*reflectance);
+        outgoingLight=mix(outgoingLight,reflection,latitude*reflectance*(1.-glassFrame));
       }
     }
     #include <opaque_fragment>`);

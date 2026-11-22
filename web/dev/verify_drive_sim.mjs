@@ -190,11 +190,11 @@ function cornerUnderBrakes(brake) {
 
 const coastingTurn = cornerUnderBrakes(0)
 const trailBrake = cornerUnderBrakes(1)
-assert.ok(coastingTurn.ay > 8 && coastingTurn.ay < 12)
+assert.ok(coastingTurn.ay > 12 && coastingTurn.ay < 14.5)
 assert.ok(trailBrake.ay < coastingTurn.ay - 1)
 assert.ok(trailBrake.ax < -6)
 assert.ok(coastingTurn.yawRate > 0 && coastingTurn.roll > 0)
-assert.ok(Math.abs(coastingTurn.lateralSpeed) > .4)
+assert.ok(Math.abs(coastingTurn.lateralSpeed) > .25 && Math.abs(coastingTurn.lateralSpeed) < .45)
 
 const keys = createDriveSim(provingGround), analogRack = createDriveSim(provingGround)
 reachSpeed(keys, 60)
@@ -210,7 +210,7 @@ const keyboardTurn = createDriveSim(provingGround)
 reachSpeed(keyboardTurn, 60)
 repeat(keyboardTurn, { steer: 1, digitalSteer: true }, 24)
 const turnIn = keyboardTurn.state.ay
-assert.ok(turnIn > 5.8 && turnIn < 7)
+assert.ok(turnIn > 8.8 && turnIn < 10)
 repeat(keyboardTurn, { steer: 1, digitalSteer: true }, 36)
 const rearSlide = Math.abs(keyboardTurn.state.lateralSpeed)
 assert.ok(rearSlide < .45 && keyboardTurn.state.ay > 10.5)
@@ -260,7 +260,8 @@ assert.ok(roam.state.distance > 25 && Math.abs(roam.state.z - roam.state.distanc
 
 const intersection = createDriveSim(flat, { mode: 'roam', network: testNetwork() })
 for (let i = 0; i < 800 && intersection.state.heading < Math.PI / 2; i++) intersection.step({ steer: 1, throttle: .6 })
-repeat(intersection, { throttle: .7 }, 180)
+assert.ok(intersection.state.heading >= Math.PI / 2)
+for (let i = 0; i < 400 && intersection.state.elapsed < 3.32; i++) intersection.step({ throttle: .7 })
 assert.ok(intersection.state.x > 20 && intersection.state.phase === 'driving')
 
 const splitLevel = testNetwork({

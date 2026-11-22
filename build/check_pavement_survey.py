@@ -126,3 +126,31 @@ assert all(any(walks.geometries[k].contains(Point(p)) for k in walks.query(Point
 assert list(survey.classes(*controls.T))==[2,2,2,2]
 assert land['observations']['sports']==read(region.OUT.parents[1]/'build/survey_sports.json')
 print('Paired kerb-edge footways',len(walks.geometries),'continuous pavement at four independently registered surveyed breaks.')
+
+from building_access import polygon
+network=read(region.OUT.with_name('drive-network.json'))
+aprons=shapely.union_all([polygon(area['rings']) for area in network['areas'] if str(area['id']).startswith('city-parking-kerb-')])
+assert all(aprons.covers(Point(x,z)) for x,z in [(-182,75),(-186.1,85.8),(-67,90.1),(-172.2,1302.3)])
+assert all(aprons.distance(Point(x,z))>.65 for x,z in [(-184.2,66.4),(-173,87)])
+print('Four municipal parking forecourts follow their kerbs and retain the planted island and verge.')
+
+from parcel_surfaces import municipal_lines
+from planting_verges import YEARS,aerial_samples,planting_polygons
+
+verges=planting_polygons()
+for row,pixel in [(62,437),(100,429),(126,424),(148,420),(180,414)]:
+    x,z=150+pixel/20,350+row/20
+    offsets=np.arange(-.80,.81,.05)
+    strip=np.column_stack([x+offsets,np.full(len(offsets),z)])
+    colors=aerial_samples(strip)
+    gradient=np.linalg.norm(colors[3:]-colors[:-3],axis=2)
+    distance=offsets[np.argmax(gradient,axis=0)]+.075
+    assert abs(distance[0])<=.20 and np.count_nonzero(abs(distance)<=.30)>=3,(x,z,distance)
+    boundary=verges.geometries[verges.nearest(Point(x,z))]
+    assert boundary.boundary.distance(Point(x,z))<.25
+    assert boundary.covers(Point(x+.65,z)) and not boundary.covers(Point(x-.65,z))
+municipal_walks=shapely.STRtree(municipal_lines('sidewalk',domain))
+for x,z in [(-168.7,1108.92),(-164.7,1107.32),(-160.7,1105.73)]:
+    point=Point(x,z)
+    assert municipal_walks.geometries[municipal_walks.nearest(point)].distance(point)<.04
+print(f'Five cycleway cross sections on {len(YEARS)} flights and three independent municipal boulevard kerb positions.')

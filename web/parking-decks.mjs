@@ -92,6 +92,7 @@ export function fitParkingDecks(building,heightAt){
     if(!open)continue;
     p.openSoffit=building.ground+Math.min(p.high-.16,p.facade?.groundFloor?.height??spec.walls.default.groundFloor?.height??p.high/p.floors);
     fitDeckStructure(p,heightAt);
+    if(garageEntrance)p.apronParkingAngle=p.deckStructure.angle;
     decks.push(...p.garageApron);
   }
   if(spec.style!=='parking-structure')return decks;

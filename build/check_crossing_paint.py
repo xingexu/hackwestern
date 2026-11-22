@@ -14,13 +14,13 @@ def polygon(ring):
     return Polygon(np.reshape(ring,(-1,2)))
 
 
-def paint_index():
+def paint_index(channel=0):
     terrain=json.loads(region.OUT.read_bytes())
     strokes=json.loads(region.OUT.with_name('surface-tiles.json').read_bytes())['strokes']
     triangles=[]
-    for key,(white,*_) in strokes.items():
+    for key,channels in strokes.items():
         i,j=map(int,key.split(','))
-        vertices=np.frombuffer(base64.b64decode(white),'<u2').reshape(-1,3,2)/128
+        vertices=np.frombuffer(base64.b64decode(channels[channel]),'<u2').reshape(-1,3,2)/128
         triangles.extend(shapely.polygons(vertices+[terrain['xs'][i],terrain['zs'][j]]))
     return shapely.STRtree(triangles)
 
@@ -65,3 +65,17 @@ for x,z,minimum,heading in controls:
     assert np.median(coverages)>.97 and np.mean(coverages)>.93,(x,z,coverages)
     assert np.median(pigment_gain)>10,(x,z,pigment_gain)
 print('Photographed crossing angles, painted rails and bar coverage passed at five campus junctions.')
+
+
+from painted_gores import markings as channelizing_paint
+
+gold=paint_index(1)
+center=Point(-72,609)
+bars=[line for line,ink in channelizing_paint()[0] if line.distance(center)<25 and line.length<10]
+assert len(bars)>=8
+for line in bars:
+    mark=line.buffer(.055,cap_style='flat')
+    covered=shapely.union_all(gold.geometries[gold.query(mark)]).intersection(mark)
+    assert covered.area>.88*mark.area,(line.centroid.coords[:],covered.area/mark.area)
+    assert sampled_stripe(mark)[1]>6,line.centroid.coords[:]
+print(len(bars),'yellow road hatches traced to the source and present in the compiled roadway.')

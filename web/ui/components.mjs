@@ -1,11 +1,7 @@
-// Formula Western UI components: loading screen, screen transitions and pixel effects.
-// Loaded as a classic module before main.js so the loader paints and animates immediately.
-// Game code keeps owning #status (text, hidden, role=alert); this module only observes it.
 
 const root=document.documentElement
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches
-// Automated runs (Playwright sets navigator.webdriver) compare screenshots, so skip motion there.
-const instant=reduced || navigator.webdriver
+const instant=reduced
 if(instant) root.dataset.uiInstant=''
 
 const TIPS=[
@@ -26,8 +22,6 @@ function mountLoader() {
   const tip=loader.querySelector('.loader-tip')
   if(tip) tip.textContent='TIP · '+TIPS[Math.floor(Math.random()*TIPS.length)]
 
-  // Real progress: preloaded assets finishing (from <link rel=preload> in the built page),
-  // then the scene-building phase, then the first rendered frame.
   const expected=new Set([...document.querySelectorAll('link[rel=preload],link[rel=modulepreload]')].map(link=>link.href))
   const total=Math.max(expected.size,24)
   let fetched=0,shown=0,target=0,phase=0,done=false
@@ -38,9 +32,11 @@ function mountLoader() {
       seen.add(entry.name); fetched++
     }
   }
+  let resources
   try {
     count(performance.getEntriesByType('resource'))
-    new PerformanceObserver(list=>count(list.getEntries())).observe({type:'resource',buffered:true})
+    resources=new PerformanceObserver(list=>count(list.getEntries()))
+    resources.observe({type:'resource',buffered:true})
   } catch {}
 
   function tick() {
@@ -52,7 +48,6 @@ function mountLoader() {
     requestAnimationFrame(tick)
   }
   function render(value) {
-    // Quantize to 20 blocks so the bar fills in chunky pixel steps.
     const blocks=Math.round(Math.min(1,value)*20)
     fill.style.setProperty('--blocks',blocks)
     if(percent) percent.textContent=String(blocks*5).padStart(3,' ')+'%'
@@ -60,18 +55,19 @@ function mountLoader() {
   function finish() {
     if(done) return
     done=true
+    resources?.disconnect()
     render(1)
     loader.classList.add('is-done')
     const leave=()=>{
       loader.classList.add('is-leaving')
       root.classList.add('ui-ready')
-      // Hide rather than remove: game code and tests keep reading #status, which lives inside the loader.
-      setTimeout(()=>{loader.hidden=true},instant?0:700)
+      setTimeout(()=>{loader.hidden=true;status.hidden=true},instant?0:700)
     }
     if(instant) leave(); else setTimeout(leave,260)
   }
   function fail() {
     done=true
+    resources?.disconnect()
     loader.classList.add('is-error')
     if(!loader.querySelector('.loader-retry')){
       const retry=document.createElement('button')
@@ -82,7 +78,7 @@ function mountLoader() {
   }
   function sync() {
     if(status.getAttribute('role')==='alert') return fail()
-    if(status.hidden) return finish()
+    if(status.hasAttribute('data-ready')) return finish()
     if(/preparing/i.test(status.textContent)) phase=1
   }
   new MutationObserver(sync).observe(status,{attributes:true,childList:true,characterData:true,subtree:true})
@@ -90,7 +86,6 @@ function mountLoader() {
   requestAnimationFrame(tick)
 }
 
-// Pixel wipe between pages: links that reload the game play a short block wipe first.
 function mountWipe() {
   const wipe=document.createElement('div')
   wipe.className='px-wipe'; wipe.setAttribute('aria-hidden','true')
@@ -108,7 +103,6 @@ function mountWipe() {
   return wipe
 }
 
-// Short pixel flash when the course or spawn point changes without a page load.
 function mountFlash(wipe) {
   const flash=()=>{
     if(instant) return
@@ -118,7 +112,6 @@ function mountFlash(wipe) {
   document.addEventListener('click',event=>{ if(event.target.closest?.('#restart,#again')) flash() })
 }
 
-// Buttons get a short pixel "press" class so taps register visually on touch screens too.
 function mountPress() {
   document.addEventListener('pointerdown',event=>{
     const button=event.target.closest?.('button,summary,.px-button')

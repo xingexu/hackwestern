@@ -117,3 +117,16 @@ for(const w of driveData.ways.filter(w=>!w.bridge)){
 }
 assert.ok(connected>=20);
 console.log(sidewalkProbes+' parallel sidewalk probes, '+positions+' rendered deck/contact probes, '+connected+' welded abutments, '+groundJoins+' terrain contacts and '+approaches+' approach segments.');
+
+let shoulder=network.sample(72.45,169.5).y;
+for(let i=1;i<=24;i++){
+  const x=72.45+.05*i,contact=network.sample(x,169.5).y;
+  assert.ok(Math.abs(contact-shoulder)<.09,'Pedestrian abutment has a step at '+x);
+  assert.ok(crossings(x,169.5).some(y=>Math.abs(y-contact)<.04) || Math.abs(grid.heightAt(x,169.5)-contact)<.04);
+  shoulder=contact;
+}
+
+for(const [x,z] of [[345.5,-306.3],[758.5,405.5]]){
+  const ground=network.groundAt(x,z),contact=network.sample(x,z,ground);
+  assert.ok(Math.abs(ground-contact.y)<.21,'Bridge fill intrudes on a steep river bank at '+x+','+z);
+}

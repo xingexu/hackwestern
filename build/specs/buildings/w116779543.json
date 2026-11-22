@@ -51,7 +51,8 @@
       "kind": "green-roof",
       "color": "#4c5439",
       "variation": 0.32,
-      "secondaryColor": "#3b432e"
+      "secondaryColor": "#84915c",
+      "surface": "climbing ivy"
     }
   },
   "floors": {

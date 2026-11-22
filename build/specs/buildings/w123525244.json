@@ -32,7 +32,7 @@
     },
     "accent": {
       "kind": "stucco",
-      "color": "#bfa48c",
+      "color": "#d8c09c",
       "secondaryColor": "#ae9582",
       "variation": 0.035,
       "roughness": 0.82
@@ -65,13 +65,13 @@
     },
     "endField": {
       "kind": "precast-panel",
-      "color": "#af927d",
-      "secondaryColor": "#a38a78",
+      "color": "#c3a78b",
+      "secondaryColor": "#b69a7b",
       "unitSize": [
         12,
         8
       ],
-      "variation": 0.02
+      "variation": 0.09
     },
     "flashing": {
       "kind": "painted-metal",

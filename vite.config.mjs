@@ -22,7 +22,6 @@ const tileSources=['ground-materials.json','surface-tiles.json','canopy-survey.j
 const [boundary,terrain]=await Promise.all(['campus-boundary.json','campus-region.json'].map(async file=>JSON.parse(await readFile(join(web,file)))));
 const scope=campusAssets(boundary,terrain);
 
-// `startup` (optional Set) collects unpacked assets the game fetches before its first frame, for preload hints.
 function mappedAssets(file,source,startup) {
   const data=scope(file.replace('.json',''),JSON.parse(source));
   const assets=new Map();
@@ -55,6 +54,7 @@ function mappedAssets(file,source,startup) {
   }else if(file==='surface-tiles.json'){
     delete data.core;
     for(const tile of data.walkways) tile.samples=unpack(tile.samples,'bin',true);
+    if(data.walkwayOutlines)data.walkwayOutlines.coordinates=unpack(data.walkwayOutlines.coordinates,'bin',true);
     for(const section of [data.relief,data.groundCover,data.carriageway]) if(section) section.samples=unpack(section.samples,'bin',true);
     for(const key of ['preview']) if(typeof data[key]==='string') data[key]=unpack(data[key],'webp');
     for(const [key,image] of Object.entries(data.tiles)) data.tiles[key]=unpack(image,'webp');
@@ -72,7 +72,6 @@ function mappedAssets(file,source,startup) {
   return assets;
 }
 
-// Modules the drive page imports dynamically on startup; their chunks get <link rel=modulepreload>.
 const startupModules=/[\\/]web[\\/](drive\.js|campus-scene\.js|scene-pack\.mjs)$/;
 
 function gameContent() {
@@ -151,10 +150,6 @@ function gameContent() {
     async writeBundle(){
       const htmlFile=join(staging,'index.html');
       const html=await readFile(htmlFile,'utf8');
-      // Preload hints flatten the startup waterfall (HTML → JS → world.json → data JSON → binary samples)
-      // into one round of parallel requests. `crossorigin` matches the same-origin fetch() the game uses.
-      // The data URLs already sit in the campus-assets manifest, so a small script adds their preload links
-      // (keeps the hosted page small); binary samples are listed by file name.
       const samples=[...startupAssets].map(name=>name.slice('assets/'.length));
       const preloads=[...startupChunks].map(file=>'<link rel="modulepreload" href="./'+file+'">').join('')+
         '<script>for(const url of [...Object.values(JSON.parse(document.getElementById("campus-assets").textContent)),...'+JSON.stringify(samples)+'.map(name=>"./assets/"+name)]){'+
@@ -176,7 +171,6 @@ function gameContent() {
         await writeFile(join(staging,file),await readFile(join(web,'phone',file)));
         await publish(file);
       }
-      // The phone pad page (server/pad.html) is served outside Vite, so it uses stable /ui/ paths.
       await mkdir(join(staging,'ui','fonts'),{recursive:true});
       await mkdir(join(output,'ui','fonts'),{recursive:true});
       for(const file of padAssets){
@@ -194,7 +188,6 @@ export default defineConfig({
   root:web,base:'./',publicDir:false,resolve:{alias:aliases},
   server:{host:'127.0.0.1'},
   build:{target:'es2022',outDir:staging,emptyOutDir:true,reportCompressedSize:false,
-    // Hosted HTML must stay free of base64 payloads, so UI images are always emitted as files.
     assetsInlineLimit:file=>file.includes('/web/ui/')?false:undefined},
   plugins:[gameContent()]
 });

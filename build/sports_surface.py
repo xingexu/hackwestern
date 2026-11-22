@@ -77,6 +77,15 @@ def stadium_lanes(sports):
     return ends.tolist(),lanes
 
 
+def running_surface(rings,basis):
+    from shapely.geometry import LineString
+    centers=LineString([basis[:2],basis[2:4]])
+    inside=centers.buffer(basis[4]-.45,quad_segs=80)
+    outside=centers.buffer(basis[4]+8*1.22+.45,quad_segs=80)
+    lanes=outside.difference(inside)
+    return [rings[0],*[ring for ring in rings[1:] if not lanes.covers(Polygon(ring))]]
+
+
 def practice_areas(sports):
     import cv2
     import shapely
@@ -168,6 +177,7 @@ def practice_areas(sports):
 if __name__=='__main__':
     data=surveyed_sports()
     data['laneBasis'],data['lanes']=stadium_lanes(data)
+    data['track']=running_surface(data['track'],data['laneBasis'])
     data['practice']=practice_areas(data)
     from gridiron_survey import surveyed_gridiron
     data['gridiron']=surveyed_gridiron()

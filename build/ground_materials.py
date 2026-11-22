@@ -76,8 +76,15 @@ def game_cover(domain,network):
         elif t.get('leisure')=='track':
             kind=7
         elif t.get('leisure')=='pitch':
-            kind=9 if t.get('sport') in ('tennis','basketball') else 8
-            if t.get('surface')=='grass' or (not t.get('sport') and t.get('surface') not in ('artificial_turf','tartan')):kind=1
+            sport_surface=t.get('surface')
+            if sport_surface=='sand':
+                kind=10
+            elif t.get('sport') in ('tennis','basketball'):
+                kind=9
+            elif sport_surface in ('artificial_turf','tartan') or t.get('sport')=='athletics' and not sport_surface:
+                kind=8
+            else:
+                kind=1
         elif t.get('amenity')=='parking':
             kind=5
         elif t.get('landuse') in ('construction','brownfield') or t.get('surface') in ('gravel','sand','compacted'):
@@ -126,6 +133,11 @@ def game_cover(domain,network):
     from sidewalk_ribbons import masks as sidewalk_ribbons
     ribbon=sidewalk_ribbons((left,top,right,bottom),(width,height))
     if ribbon is not None:classes[revisable&(ribbon==1)]=3
+    from planting_verges import mask as planting_mask
+    verges=planting_mask((left,top,right,bottom),(width,height))
+    classes[revisable&verges]=1
+    bays=surfaces.sample((left,top,right,bottom),(width,height),parking_bays=True)
+    classes[revisable&bays]=5
     for patch in ground_survey['patches']:
         shell,*holes=patch['rings']
         surveyed=geometry_mask([Polygon(shell,holes)],out_shape=classes.shape,transform=transform,invert=True)
@@ -157,6 +169,12 @@ def game_cover(domain,network):
     beds=ndimage.binary_closing(beds,iterations=1)&garden&(classes<=2)
     classes[beds]=11
     shrubs=[[round(px,2),round(pz,2),round(float(h),2)] for px,pz,h,keep,row,col in zip(x,z,canopy,shrub,rr,cc) if keep and row%2==0 and col%4==0]
+    from site_frontages import mask as site_materials
+    chart=site_materials((left,top,right,bottom),(width,height))
+    if chart is not None:
+        registered=inside&(chart>0)
+        classes[registered]=chart[registered]
+        courts[registered]=chart[registered]==3
     from river_banks import exposed_shore
     exposed_shore(classes,(left,top,right,bottom))
     best=np.zeros(classes.shape,np.float32)

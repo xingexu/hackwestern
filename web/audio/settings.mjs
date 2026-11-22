@@ -13,16 +13,31 @@ export function installAudio(panel, campus) {
   }
   let ctx, mix, drive
   const apply=()=>mix?.settings(values,document.hidden)
+  function connect(context) {
+    ctx=context
+    mix=createMixer(ctx)
+    drive=drivingSounds(mix,campus)
+    apply()
+    if (ctx.state!=='running') void ctx.resume().catch(()=>{})
+  }
   function unlock() {
+    if (ctx) {
+      if (ctx.state!=='running') void ctx.resume().catch(()=>{})
+      return
+    }
     const Context=window.AudioContext??window.webkitAudioContext
     if (!Context) return
-    if (!ctx) {
-      ctx=new Context({latencyHint:'interactive'})
-      mix=createMixer(ctx)
-      drive=drivingSounds(mix,campus)
-      apply()
+    const options={latencyHint:'interactive'}
+    if (!Context.prototype.setSinkId) {
+      connect(new Context(options))
+      return
     }
-    if (ctx.state!=='running') void ctx.resume().catch(()=>{})
+    const context=new Context({...options,sinkId:{type:'none'}})
+    connect(context)
+    context.setSinkId('').catch(()=>{
+      void context.close().catch(()=>{})
+      connect(new Context(options))
+    })
   }
   for (const event of ['pointerdown','pointerup','keydown']) document.addEventListener(event,unlock,{capture:true,passive:true})
   document.addEventListener('visibilitychange',apply)

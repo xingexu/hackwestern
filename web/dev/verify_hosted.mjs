@@ -59,6 +59,8 @@ try {
     await page.waitForFunction(()=>window.driveMetrics?.frames>=5 || document.querySelector('#status[role=alert]'),{},{timeout:45000});
     assert.equal(await page.locator('#status').isHidden(),true,await page.locator('#status').textContent());
     await page.waitForLoadState('networkidle');
+    await page.locator('#loader').waitFor({state:'hidden'});
+    await page.locator('.px-wipe').evaluate(wipe=>Promise.all(wipe.getAnimations().map(animation=>animation.finished)));
   }
   await page.goto(base+'/?diagnostics');
   await ready();

@@ -54,6 +54,73 @@ try{
     assert.equal(r.source,r.kind,JSON.stringify(r))
     assert.ok(r.heights.some(h=>Math.abs(h-r.h)<.09),JSON.stringify(r))
   }
+  const plantings=await page.evaluate(async()=>{
+    const {network:n}=driveMetrics,{stems,props,lamps}=campusAudit.vegetation()
+    const height=(x,z)=>n.groundAt(x,z)
+    const owner=(x,z,y,r)=>n.solidSource(x,z,height(x,z)+y,r)?.owner
+    const tables=props.filter(([kind,x,z])=>kind==='picnic_table'&&Math.hypot(x-383,z-215)<7)
+    const bins=props.filter(([kind])=>kind==='collection_bin')
+    const lampsPresent=[[-286.95,707.38],[-264.26,473.54],[231.31,531.55],[248.43,537.55],[229.38,514.25],[-330.02,781.96],[-317.96,813.32],[269.08,1418.06]].map(([x,z])=>
+      lamps.some(([X,Z])=>Math.hypot(X-x,Z-z)<5&&owner(X,Z,1,.12)==='municipal wood or mast'))
+    const {scene,THREE}=driveMetrics.inspectLook()
+    async function highest(x,z){
+      const col=Math.floor(x/50),row=Math.floor(z/50)
+      await campusAudit.focus({id:'x'+col+'z'+row,x:col*50,z:row*50})
+      scene.updateMatrixWorld(true)
+      const ray=new THREE.Raycaster(new THREE.Vector3(x,height(x,z)+65,z),new THREE.Vector3(0,-1,0))
+      ray.layers.enableAll()
+      const meshes=[]
+      scene.traverseVisible(o=>{if(o.isMesh)meshes.push(o)})
+      return ray.intersectObjects(meshes,false)[0].point.y-height(x,z)
+    }
+    return {
+      lampsPresent,
+      tableBases:tables.map(([,x,z])=>n.solidAt(x,z,height(x,z)+.77,.035,.025)?.owner),
+      roadClear:[[383,213],[380,216]].map(([x,z])=>!owner(x,z,.45,.55)),
+      bins:bins.map(([,x,z])=>[owner(x,z,.6,.05),owner(x+.55,z,.55,.035),owner(x+.88,z,.6,.035)]),
+      lotTree:stems.some(([,x,z,height])=>Math.hypot(x+278.15,z-808.55)<2.4&&height>3),
+      roots:stems.filter(([,x,z])=>Math.hypot(x-529.4,z+318.1)<11.4),
+      clearHeights:[await highest(369.2,-573.2),await highest(-261,928)]
+    }
+  })
+  assert.ok(plantings.lampsPresent.every(Boolean),JSON.stringify(plantings))
+  assert.deepEqual(plantings.tableBases,['picnic_table','picnic_table'])
+  assert.ok(plantings.roadClear.every(Boolean))
+  assert.equal(plantings.bins.length,3)
+  for(const [centre,rim,outside] of plantings.bins){
+    assert.deepEqual([centre,rim],['collection_bin','collection_bin'])
+    assert.notEqual(outside,'collection_bin')
+  }
+  assert.ok(plantings.lotTree)
+  assert.equal(plantings.roots.length,1,JSON.stringify(plantings.roots))
+  assert.ok(plantings.roots[0][3]>24&&plantings.roots[0][5]===10)
+  assert.ok(plantings.clearHeights.every(h=>Math.abs(h)<.10),JSON.stringify(plantings.clearHeights))
+  const soil=await page.evaluate(async()=>{
+    const cell={id:'x-4z0',x:-200,z:0},n=driveMetrics.network
+    await campusAudit.focus(cell)
+    return [[-172.5,17.5],[-175.5,18.5],[-174.5,18.5],[-176.5,19.5]].map(([x,z])=>{
+      const ground=n.groundAt(x,z)
+      return campusAudit.inspect(cell,x,ground,z).hits.map(h=>[h.kind,h.y-ground])
+    })
+  })
+  assert.ok(soil.every(hits=>hits.length&&hits.filter(([kind])=>kind==='field').every(([,h])=>Math.abs(h-.019)<.012)),JSON.stringify(soil))
+  assert.ok(soil.slice(0,3).every(hits=>hits.some(([kind])=>kind==='field')))
+  const bareRegional=await page.evaluate(async()=>{
+    const x=126.5,z=1477,cell={id:'x2z29',x:100,z:1450}
+    await campusAudit.focus(cell)
+    const {scene,THREE}=driveMetrics.inspectLook(),matrix=new THREE.Matrix4(),parts=[]
+    scene.traverseVisible(mesh=>{
+      if(!mesh.isInstancedMesh||!mesh.geometry.attributes.leaf)return
+      for(let i=0;i<mesh.count;i++){
+        mesh.getMatrixAt(i,matrix)
+        if(Math.hypot(x-matrix.elements[12],z-matrix.elements[14])>.15)continue
+        const leaf=mesh.geometry.attributes.leaf
+        parts.push({wood:leaf.count,foliage:leaf.array.some(v=>v>.5)})
+      }
+    })
+    return parts
+  })
+  assert.ok(bareRegional.some(p=>p.wood>90&&!p.foliage),JSON.stringify(bareRegional))
   const goals=furniture.siteStructures.filter(p=>p[0]==='survey_goal')
   assert.ok(goals.length>=6)
   const frames=await page.evaluate(async goals=>{
@@ -149,7 +216,7 @@ try{
   assert.ok(overhead.length,JSON.stringify(overhead))
   const streetTree=await page.evaluate(()=>{
     const n=driveMetrics.network
-    return campusAudit.vegetation().stems.filter(([kind,x,z])=>kind==='municipal'&&Math.hypot(x-315,z-123)<1.6).some(([,x,z])=>n.plantable(x,z)&&n.solidSource(x,z,n.groundAt(x,z)+.02,.10)?.owner==='municipal wood or mast')
+    return campusAudit.vegetation().stems.filter(([kind,x,z])=>kind==='municipal'&&Math.hypot(x-315,z-123)<1.6).some(([,x,z])=>n.plantable(x,z)&&n.solidSource(x,z,n.groundAt(x,z)+.02,.10)?.owner==='municipal tree')
   })
   assert.ok(streetTree)
   const thicket=await page.evaluate(()=>{
@@ -171,12 +238,12 @@ try{
   });
   assert.equal(woodlandRoot.count,1);
   assert.ok(woodlandRoot.height>25);
-  assert.equal(woodlandRoot.owner,'municipal wood or mast');
+  assert.equal(woodlandRoot.owner,'municipal tree');
   const fringe=await page.evaluate(()=>{
     const n=driveMetrics.network
     return [[-108.5,-320.5],[-126.5,-314.5]].map(([x,z])=>n.solidSource(x,z,n.groundAt(x,z)+.04,.13)?.owner)
   })
-  assert.ok(fringe.every(owner=>owner==='municipal wood or mast'),JSON.stringify(fringe))
+  assert.ok(fringe.every(owner=>owner==='municipal tree'),JSON.stringify(fringe))
   const retired=await page.evaluate(()=>[[-14.718,307.722],[396.326,210.706]].map(([x,z])=>driveMetrics.network.solidSource(x,z,driveMetrics.network.groundAt(x,z)+1,.07)?.owner))
   assert.ok(retired.every(r=>!['gate','lift_gate','parking_arm'].includes(r)),JSON.stringify(retired))
   console.log('Verified independent survey positions, barrier arms, enclosure roofs and walls in the driving scene.',results)

@@ -53,6 +53,10 @@ try{
   if(hosted)assert.equal(manual.origin,new URL(hosted).origin)
   if(advertised)assert.equal(manual.href,advertised)
   const desktopShot=fileURLToPath(new URL('desktop-pairing.png',shots))
+  await host.locator('#phone-pair').evaluate(async dialog=>{
+    await Promise.all(dialog.getAnimations().map(animation=>animation.finished))
+    await dialog.querySelector('#pad-qr').decode()
+  })
   await host.screenshot({path:desktopShot})
   const scanned=execFileSync('.venv/bin/python',['-c','import cv2,sys; print(cv2.QRCodeDetector().detectAndDecode(cv2.imread(sys.argv[1]))[0])',desktopShot],{cwd:root,encoding:'utf8'}).trim()
   const qrURL=new URL(scanned)

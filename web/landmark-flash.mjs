@@ -1,7 +1,3 @@
-// Briefly flashes a landmark's name above the car as you drive past it.
-// Each landmark gets its own trigger radius based on how close the nearest
-// road passes, so set-back buildings (the stadium, Huron) still register
-// while tightly packed central buildings don't all fire at once.
 
 const COOLDOWN=60000,GAP=2500
 
@@ -38,13 +34,12 @@ export function installLandmarkFlash({parent,labels,ways}) {
     flash.textContent=name
     flash.hidden=false
     flash.classList.remove('play')
-    void flash.offsetWidth // restart the CSS animation
-    flash.classList.add('play') // the animationend handler hides it again
+    void flash.offsetWidth
+    flash.classList.add('play')
   }
   return {
     update(car,{quiet=false}={}) {
       const now=performance.now()
-      // Leave the current landmark only once clearly outside it (hysteresis).
       if (current && Math.hypot(car.x-current.x,car.z-current.z)>current.radius*1.25) current=null
       let best=null,score=1
       for (const landmark of landmarks) {

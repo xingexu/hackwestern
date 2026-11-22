@@ -49,14 +49,17 @@ export function installMobileHud(){
     if(e.target===dialog && (e.clientX<r.left || e.clientX>r.right || e.clientY<r.top || e.clientY>r.bottom))dialog.close()
     if(e.target.closest('nav button,nav a'))dialog.close()
   })
+  const instruments=root.querySelector('.instruments'),warning=by('drive-message')
   const originalControls=tilt.nextElementSibling
   function layout(){
     if(coarse.matches){
+      instruments.append(warning)
       dialog.append(card)
       card.querySelector('nav').before(options)
       options.append(tilt,settings)
     }else{
       if(dialog.open)dialog.close()
+      root.insertBefore(warning,touch)
       root.insertBefore(card,map)
       touch.insertBefore(tilt,originalControls)
       touch.append(settings)
@@ -78,6 +81,9 @@ export function installMobileHud(){
     const message=paired?'Steer with your paired phone':pad?'Left stick to steer · RT for gas':tilt.getAttribute('aria-pressed')==='true'?'Tilt to steer · Gas to drive':'Arrows to steer · Gas to drive'
     if(hint.textContent!==message)hint.textContent=message
     hint.classList.toggle('visible',now<hintUntil && !dialog.open && car.phase!=='finished')
-    root.classList.toggle('show-drive-warning',Boolean(car.offCourse || /Paused|Time limit|Roundabout|Wrong way|Restricted road|Keep right/.test(by('drive-message').textContent)))
+    const notice=warning.textContent
+    if(notice.startsWith('Roundabout'))warning.textContent='Island on left'
+    else if(notice==='Return to the marked route')warning.textContent='Rejoin route'
+    root.classList.toggle('show-drive-warning',Boolean(car.offCourse || /Paused|Time limit|Roundabout|Wrong way|Restricted road|Keep right/.test(notice)))
   }
 }

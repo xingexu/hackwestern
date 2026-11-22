@@ -30,24 +30,26 @@ export function pressureCapProfile(shader){
     if(instanceProfile==2.)objectNormal.z-=.14*abs(normal.y);`);
 }
 export function surveyMaterial(rows,instanced=false,alpha=false){
-  const values=new Float32Array(Math.max(rows.length,1)*44);
+  const repairsPerRoof=Math.min(6,rows.reduce((max,m)=>Math.max(max,m.repairs?.length??0),0));
+  const width=11+2*Math.max(0,repairsPerRoof-2),stride=width*4;
+  const values=new Float32Array(Math.max(rows.length,1)*stride);
   for(const [i,m] of rows.entries()){
     const family=Math.max(0,families.findIndex(v=>v.includes(m.kind)));
     const size=m.unitSize??units[family]??[1,1],glazed=family===8||family===9||family===13;
     const second=glazed?m.frameColor??'#a7a6a0':family===10?m.glassColor:m.secondaryColor;
     const treatment=m.surface??'';
-    const profile=treatment==='drain-grate'?18:/welded fabric/.test(treatment)?17:m.doorSlats?16:m.kind==='wood-siding' && !/vertical board/.test(treatment)?15:treatment==='coffered-soffit'?14:/louvre/.test(treatment)?11:/vertical board/.test(treatment)?12:/vertic.*(rib|scor|corrug)|ribbed-metal/.test(treatment)?13:/rock-faced/.test(treatment)?3:0;
+    const profile=treatment==='tinted polycarbonate'?21:treatment==='scored precast'?20:treatment==='climbing ivy'?19:treatment==='drain-grate'?18:/welded fabric/.test(treatment)?17:m.doorSlats?16:m.kind==='wood-siding' && !/vertical board/.test(treatment)?15:treatment==='coffered-soffit'?14:/louvre/.test(treatment)?11:/vertical board/.test(treatment)?12:/vertic.*(rib|scor|corrug)|ribbed-metal/.test(treatment)?13:/rock-faced/.test(treatment)?3:0;
     const metallic=family===5||['metal-panel','painted-metal','spandrel-glass','glass-curtain'].includes(m.kind);
     const a=rgb(m.color).map(c=>c*(m.reveal?.66:1)),other=second?rgb(second):a.map(c=>c*(family===1?1.3:.64));
-    values.set([...a,family,...other,m.variation??.22,Math.max(.015,size[0]),Math.max(.015,size[1]),m.roughness??(m.kind==='spandrel-glass'?.31:metallic?.49:.85),m.metalness??(metallic?.48:.015),m.weathering??.16,Math.max(0,bonds.indexOf(m.bond??(family===1||family===2?'running':'stack'))),m.vertical??1,m.horizontal??1,m.line??.026,m.tracery?1:0,m.coverage??.5,m.glass==='frosted'?1:m.glass==='leaded'?2:0,m.opacity??(m.kind==='glass-curtain'?.39:1),profile|| (m.surface==='ribbed-concrete'?1:m.surface==='bush-hammered'?2:m.kind==='rubble-stone'?3:m.kind==='ashlar-stone'?4:m.kind==='split-face-block'?5:m.opaqueLeaf?10:m.kind==='membrane'?6:m.kind==='concrete-board-formed'?7:m.kind==='precast-panel'?(m.plainElevation?9:8):0),m.roofSurface?1:0,m.parkingMarkings??0],44*i);
-    for(const [j,[x,z,w,d,angle,tone]] of (m.repairs??[]).slice(0,2).entries())values.set([x,z,w,d,Math.cos(angle),Math.sin(angle),tone,1],44*i+24+j*8);
-    values.set([Math.cos(m.roofAxis??0),Math.sin(m.roofAxis??0),m.glass==='reflective'?1:0,m.surface==='vertical-slats'?1:m.surface==='picket'?2:0],44*i+40);
+    values.set([...a,family,...other,m.variation??.22,Math.max(.015,size[0]),Math.max(.015,size[1]),m.roughness??(m.kind==='spandrel-glass'?.31:metallic?.49:.85),m.metalness??(metallic?.48:.015),m.weathering??.16,Math.max(0,bonds.indexOf(m.bond??(family===1||family===2?'running':'stack'))),m.vertical??1,m.horizontal??1,m.line??.026,m.tracery?1:0,m.coverage??.5,m.glass==='frosted'?1:m.glass==='leaded'?2:0,m.opacity??(m.kind==='glass-curtain'?.39:1),profile|| (m.surface==='ribbed-concrete'?1:m.surface==='bush-hammered'?2:m.kind==='rubble-stone'?3:m.kind==='ashlar-stone'?4:m.kind==='split-face-block'?5:m.opaqueLeaf?10:m.kind==='membrane'?6:m.kind==='concrete-board-formed'?7:m.kind==='precast-panel'?(m.plainElevation?9:8):0),m.roofSurface?1+Math.min(6,m.repairs?.length??0):0,m.parkingMarkings??0],stride*i);
+    for(const [j,[x,z,w,d,angle,tone]] of (m.repairs??[]).slice(0,6).entries())values.set([x,z,w,d,Math.cos(angle),Math.sin(angle),tone,1],stride*i+(j<2?24+j*8:44+(j-2)*8));
+    values.set([Math.cos(m.roofAxis??0),Math.sin(m.roofAxis??0),m.glass==='reflective'?1:0,m.surface==='vertical-slats'?1:m.surface==='picket'?2:0],stride*i+40);
   }
-  const tex=new THREE.DataTexture(values,11,Math.max(rows.length,1),THREE.RGBAFormat,THREE.FloatType);
+  const tex=new THREE.DataTexture(values,width,Math.max(rows.length,1),THREE.RGBAFormat,THREE.FloatType);
   tex.needsUpdate=true;
   const material=new THREE.MeshStandardMaterial({side:THREE.DoubleSide,transparent:alpha,depthWrite:!alpha});
   material.forceSinglePass=true;
-  material.customProgramCacheKey=()=>`western-envelope-13-${instanced}-${alpha}`;
+  material.customProgramCacheKey=()=>`western-envelope-17-${instanced}-${alpha}`;
   material.userData.styles=tex;
   material.userData.coverage={value:new THREE.Vector2(0,1)};
   material.onBeforeCompile=shader=>{
@@ -108,10 +110,14 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
         vec3 albedo=sw.rgb;
         vec2 texel=abs(campusN.y)>.7?campusP.xz:vec2(dot(campusP.xz,normalize(vec2(campusN.z,-campusN.x)+vec2(.00001))),campusP.y);
         ${instanced?'':'if(abs(campusN.y)<.7)texel=faceUV;'}
-        float stoneBump=0.,roughVariation=0.,farGlass=0.;
+        float stoneBump=0.,roughVariation=0.,farGlass=0.,glassFrame=0.;
         vec4 assembly=texelFetch(finishes,ivec2(10,finishIndex),0);
-        if(family==8 || family==9 || family==13){
-          vec2 uv=family==13?fract(texel/max(physical.xy,vec2(1.2,2.7))):faceUV;
+        if(surface.y==17.)texel=vec2(campusP.x,.62*campusP.y+campusP.z);
+        if(surface.y==21.){
+          albedo=sw.rgb*(1.+.085*(noiseField(campusP.xz*.83)-.5));
+        }else if(family==8 || family==9 || family==13){
+          vec2 frameUV=family==13?texel/max(physical.xy,vec2(1.2,2.7)):faceUV;
+          vec2 uv=family==13?fract(frameUV):frameUV;
           vec3 view=normalize(cameraPosition-campusP);
           float angle=1.-abs(dot(view,normalize(campusN)));
           vec2 glassUnit=max(physical.xy,vec2(1.2,2.7));
@@ -123,9 +129,19 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
           vec2 cell=family==13?floor(texel/glassUnit)+floor(campusN.xz*31.):floor(planeOrigin*.65+.13)+floor(campusN.xz*31.);
           float room=hashCell(cell);
           float shade=clamp(.16+room*.6+.27*abs(view.y),0.,1.);
-          vec2 roomUV=uv+.12*vec2(dot(view.xz,vec2(campusN.z,-campusN.x)),view.y);
-          float blinds=(1.-smoothstep(.025,.075,abs(fract(roomUV.y*16.)-.5)))*(1.-smoothstep(.022,.1,fwidth(roomUV.y)))*step(.55,room)*smoothstep(.25,.68,uv.y);
-          albedo=mix(sw.rgb*(.6+shade*.7),vec3(.35,.42,.43),blinds*.42);
+          albedo=sw.rgb*(.6+shade*.7);
+          if(family!=9 && room>.55 && pane.w==0. && surface.z<.5){
+            float depth=.12/max(.38,abs(dot(view,normalize(campusN))));
+            vec2 recessed=uv+depth*vec2(dot(view.xz,normalize(vec2(campusN.z,-campusN.x)+vec2(.00001))),view.y);
+            float cutoff=.24+.54*hashCell(cell+vec2(2.,5.));
+            float pixel=max(.002,fwidth(recessed.y));
+            float cover=smoothstep(cutoff-pixel,cutoff+pixel,recessed.y);
+            float slat=screened(recessed.y*31.,.13);
+            vec3 blind=mix(vec3(.36,.35,.31),vec3(.53,.53,.48),room);
+            albedo=mix(albedo,blind*(1.-.26*slat),cover*.46);
+            float hem=1.-smoothstep(.004,.009+pixel,abs(recessed.y-cutoff));
+            albedo*=1.-.13*hem;
+          }
           if(family!=9){
             vec3 glassNormal=normalize(campusN);
             vec3 tangent=normalize(vec3(glassNormal.z+.000001,0.,-glassNormal.x));
@@ -144,7 +160,7 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
           vec2 paneEdge=min(uv,1.-uv);
           float occlusion=.74+.26*smoothstep(0.,.075,min(paneEdge.x,paneEdge.y));
           albedo*=occlusion;
-          if(pane.w==1.)albedo=mix(albedo,vec3(.49,.60,.61),.44);
+          if(pane.w==1.)albedo=mix(albedo,vec3(.39,.49,.53),.33);
           if(family==9)albedo=surface.y==10.?sw.rgb*(.91+.09*occlusion):mix(sw.rgb*.72,albedo,smoothstep(.30,.315,uv.y));
           if(family==9 && surface.y==16.){
             float slat=screened(campusP.y/physical.y,.10);
@@ -152,11 +168,12 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
             stoneBump=.005*slat;
           }
           float vn=finish.z+1.,hn=finish.w+1.;
-          float bars=pane.x>0.?max(ruled(uv.x*vn,pane.x*vn*.5),ruled(uv.y*hn,pane.x*hn*.36)):0.;
+          float bars=pane.x>0.?max(ruled(frameUV.x*vn,pane.x*vn*.5),ruled(frameUV.y*hn,pane.x*hn*.36)):0.;
           if(family==9 && surface.y==16.)bars=0.;
           if(pane.w==2.)bars=max(bars,.47*max(ruled((uv.x+uv.y)*6.,.023),ruled((uv.x-uv.y)*6.,.023)));
           if(pane.y>.5 && uv.y>.62)bars=max(bars,.85*ruled((uv.y+abs(uv.x-.5)*.8)*4.,.048));
-          albedo=mix(albedo,joint.rgb,bars);transmissionAlpha=mix(transmissionAlpha,1.,bars);
+          glassFrame=bars;
+          albedo=mix(albedo,joint.rgb*.84,bars);transmissionAlpha=mix(transmissionAlpha,1.,bars);
         }else if(family==11){
           vec2 grid=texel/physical.xy;
           float pickets=screened(grid.x,assembly.w==1.?.43:assembly.w==2.?.16:.13);
@@ -264,6 +281,25 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
             variation=(weather-.5)*.065+(sampleTone-.5)*.022*visibility;
           }
           if((family==0 && (surface.y==0. || surface.y==6.)) || family==7)variation=0.;
+          if(surface.y==20.){
+            vec2 edge=abs(fract(q+.5)-.5)*physical.xy;
+            vec2 aa=max(fwidth(texel),vec2(.003));
+            vec2 scored=1.-smoothstep(vec2(.009)-aa*.5,vec2(.009)+aa*.5,edge);
+            float groove=max(scored.x,scored.y);
+            mortar=0.;
+            variation=-.46*groove+.14*(weather-.5)+.07*(sampleTone-.5)*visibility;
+            stoneBump=-.009*groove;
+          }
+          if(surface.y==19.){
+            float clusters=noiseField(texel*vec2(.64,.46)+vec2(.15,.41));
+            float sprigs=noiseField(texel*vec2(2.9,2.2)+clusters);
+            float leaves=noiseField(texel*vec2(12.,9.)+sprigs*1.7);
+            float detail=1.-smoothstep(.024,.14,max(fwidth(texel.x),fwidth(texel.y)));
+            float light=smoothstep(.30,.78,.59*clusters+.41*sprigs);
+            albedo=mix(sw.rgb*.68,joint.rgb,light);
+            variation=(leaves-.5)*.54*detail;
+            stoneBump=.027*(sprigs-.5)+.009*leaves*detail;
+          }
           if(surface.y==11.){
             float phase=fract(texel.y/.14),visible=1.-smoothstep(.025,.15,fwidth(texel.y));
             mortar=0.;
@@ -305,30 +341,38 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
             float wave=.5+.5*cos(texel.x*6.283185/pitch);
             float visible=1.-smoothstep(.022,.15,fwidth(texel.x));
             mortar=jointLine*.54;
-            variation=(surface.y==12.?(noiseField(texel*vec2(17.,.65))-.5)*.12:(wave-.5)*.14)*visible;
-            stoneBump=(surface.y==12.?-.003*jointLine:.007*wave)*visible;
+            variation=(surface.y==12.?(noiseField(texel*vec2(17.,.65))-.5)*.12:(wave-.5)*.095)*visible;
+            stoneBump=(surface.y==12.?-.003*jointLine:.0044*wave)*visible;
           }
           albedo=mix(albedo*(1.+variation),joint.rgb*(family==2?.74:.96),mortar*(family==1?.94:.80));
           albedo*=1.+grain*(family==7?.39:.085)*(1.-smoothstep(.016,.12,max(fwidth(texel.x),fwidth(texel.y))));
           albedo*=1.+(weather-.5)*finish.x*(family==7?.32:.19);
         }
-        bool glazing=family==8 || family==13 || (family==4 && surface.x<1.);
+        bool glazing=family==8 || (family==13 && surface.y!=21.) || (family==4 && surface.x<1.);
         if(glazing && transmissionAlpha<1.){
           float facing=abs(dot(normalize(cameraPosition-campusP),normalize(campusN)));
-          transmissionAlpha=mix(.53+.47*transmissionAlpha,1.,.7*pow(1.-facing,3.));
+          transmissionAlpha=mix(.70+.30*transmissionAlpha,1.,.7*pow(1.-facing,3.));
         }
-        if(surface.z>.5 && campusN.y>.25 && gl_FrontFacing){
+        if(surface.z>.5 && surface.y!=17. && campusN.y>.25 && gl_FrontFacing){
           vec2 pt=campusP.xz;
           float patchTone=0.;
-          for(int i=0;i<2;i++){
-            vec4 rect=texelFetch(finishes,ivec2(6+2*i,finishIndex),0),rotation=texelFetch(finishes,ivec2(7+2*i,finishIndex),0);
+          for(int i=0;i<6;i++){
+            if(float(i+1)>=surface.z)break;
+            int slot=i<2?6+2*i:11+2*(i-2);
+            vec4 rect=texelFetch(finishes,ivec2(slot,finishIndex),0),rotation=texelFetch(finishes,ivec2(slot+1,finishIndex),0);
             vec2 q=pt-rect.xy,edge=abs(vec2(dot(q,rotation.xy),dot(q,vec2(-rotation.y,rotation.x))))-rect.zw;
             float signedEdge=max(edge.x,edge.y),aa=max(.07,fwidth(signedEdge));
             float mask=1.-smoothstep(-aa-.18,aa+.18,signedEdge);
             if(rotation.z<0. && rotation.w>.5){
               vec2 local=vec2(dot(q,rotation.xy),dot(q,vec2(-rotation.y,rotation.x)))/max(rect.zw,vec2(.2));
-              float moisture=length(local)+.35*(noiseField(pt*.44)-.5)+.21*(noiseField(pt*.17)-.5);
-              mask=(1.-smoothstep(.56,1.16,moisture))*(.62+.38*noiseField(pt*.56));
+              vec2 flow=vec2(dot(pt,assembly.xy),dot(pt,assembly.yx*vec2(-1.,1.)));
+              float wet=noiseField(flow*vec2(.35,.89))*.66+noiseField(flow*vec2(.095,.21))*.34;
+              float moisture=sqrt(length(local*local))+.19*(noiseField(pt*.44)-.5);
+              float basin=1.-smoothstep(.55,1.14,moisture);
+              float pooling=smoothstep(.32,.83,wet);
+              float aspect=max(rect.z,rect.w)/max(.2,min(rect.z,rect.w));
+              float drainage=smoothstep(2.3,4.8,aspect);
+              mask=basin*mix(.74*pooling*pooling,mix(.20,.86,pooling),drainage);
             }
             patchTone+=rotation.w*rotation.z*mask;
           }
@@ -346,14 +390,17 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
           vec2 dir=assembly.xy;
           vec2 roll=vec2(dot(pt,dir),dot(pt,vec2(-dir.y,dir.x)));
           float runoff=noiseField(roll*vec2(.070,.21))-.5;
-          albedo*=1.+patchTone+runoff*finish.x*.34;
+          vec2 wearPoint=surface.y==6.?roll*.095+vec2(runoff*.45,0.):roll*.33+vec2(runoff,0.);
+          float wear=noiseField(wearPoint)-.5;
+          albedo*=max(.28,1.+patchTone+finish.x*(runoff*.58+wear*.39));
           if(surface.y==6.){
             float strip=floor(roll.y/1.35);
             float seam=max(ruled(roll.y/1.35,.006),ruled(roll.x/9.7+hashCell(vec2(strip,23.)),.002));
             float visible=1.-smoothstep(.15,.95,fwidth(roll.y)/1.35);
             float sheetTone=noiseField(roll*.165+vec2(runoff*2.1,runoff))-.5;
             float seep=noiseField(roll*.047+vec2(1.7,3.8))-.5;
-            albedo*=1.+finish.x*(sheetTone*.19+seep*.16)-.11*seam*visible;
+            albedo*=1.+finish.x*(sheetTone*.22+seep*.20)-.11*seam*visible;
+            albedo*=1.-smoothstep(.67,.96,max(sw.r,max(sw.g,sw.b)))*finish.x*(.21+.17*seep);
           }
         }
         diffuseColor.rgb*=albedo;diffuseColor.a*=transmissionAlpha;`).replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
@@ -362,10 +409,10 @@ export function surveyMaterial(rows,instanced=false,alpha=false){
           vec3 a=cross(vy,normal),b=cross(normal,vx);
           float det=dot(vx,a);
           normal=normalize(abs(det)*normal+sign(det)*(dFdx(stoneBump)*a+dFdy(stoneBump)*b));
-        }`).replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=glazing?clamp(physical.z,.12,.32):mix(clamp(physical.z+roughVariation,.06,1.),.30,farGlass);').replace('#include <metalnessmap_fragment>','#include <metalnessmap_fragment>\nmetalnessFactor=glazing?max(.3,physical.w):mix(physical.w,.32,farGlass);');
+        }`).replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=glazing?mix(clamp(physical.z,.12,mix(.32,.48,smoothstep(.25,.70,campusN.y))),.60,glassFrame):mix(clamp(physical.z+roughVariation,.06,1.),.30,farGlass);').replace('#include <metalnessmap_fragment>','#include <metalnessmap_fragment>\nmetalnessFactor=glazing?max(.3,physical.w):mix(physical.w,.32,farGlass);');
     shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>',`#include <lights_fragment_end>
       float soffit=smoothstep(.35,.85,-campusN.y);
-      reflectedLight.indirectDiffuse+=diffuseColor.rgb*vec3(.24,.204,.157)*soffit;`);
+      reflectedLight.indirectDiffuse+=diffuseColor.rgb*vec3(.23,.225,.215)*soffit;`);
     reflectedCampus(shader);
   };
   return material;
@@ -382,7 +429,7 @@ export function glazingShadow(styles){
       .replace('#include <alphatest_fragment>',`#include <alphatest_fragment>
         float opacity=texelFetch(finishes,ivec2(5,glassStyle),0).x;
         float family=texelFetch(finishes,ivec2(0,glassStyle),0).a;
-        float shade=family==11.?.17:clamp(.32+.38*opacity,.32,.68);
+        float shade=family==11.?.17:clamp(.34+.42*opacity,.34,.71);
         float rank=fract(52.9829189*fract(dot(floor(gl_FragCoord.xy),vec2(.06711056,.00583715))));
         if(rank>=shade)discard;`);
   };

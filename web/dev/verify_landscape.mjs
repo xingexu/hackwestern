@@ -1,4 +1,4 @@
-import {conformPlantings} from "../campus-terrain.mjs";
+import {conformPlantings,vergeCrownRadius} from "../campus-terrain.mjs";
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
 import {createRoadNetwork} from '../drive-network.mjs';
@@ -18,6 +18,12 @@ const streets=createCarriageway(THREE,surface.carriageway,new Uint8Array(decode(
 const grid=createLandscapeGrid(region,world,coreAt,surface.relief,new Int16Array(decode(surface.relief.samples)),streets.contains);
 const driveData=read('drive-network');
 const network=createRoadNetwork(driveData,region,grid.heightAt,streets.contains);
+const entranceLevels=[[203.789,1.334,16.118],[202.695,1.499,16.122],[203.016,.716,16.089],[206.262,.959,16.122],[202.452,-.894,16.025],[202.371,-2.04,15.989]];
+for(const [x,z,lidar] of entranceLevels){
+  const ground=grid.heightAt(x,z),contact=network.sample(x,z,ground);
+  const delta=Math.max(Math.abs(ground-lidar),Math.abs(contact.y-lidar));
+  assert.ok(delta<.20,'Arts entrance paving must follow the bare-earth survey at '+[x,z,lidar,ground,contact.y]);
+}
 const grosvenorLoop=driveData.ways.find(way=>way.id===258791963);
 assert.ok(grosvenorLoop.points.every(([x,,z])=>streets.contains(x,z)),'The whole Grosvenor service loop must have a continuous paved surface');
 for(const [x,z] of [[-945,1516],[-919,1516],[1484.61,586.26],[1381.49,1422.32],[1377.34,1422.51],[1374.26,1420.95]]) {
@@ -79,9 +85,18 @@ const boundary=await import('../campus-clip.js').then(m=>m.campusFootprint(read(
 const land=read('ground-materials').landcover;
 const classAt=surfaceOwnership(land,new Uint8Array(decode(land.samples)),new Uint8Array(decode(land.transitions)));
 const walkway=walkwaySampler(surface.walkways.map(t=>({...t,spans:new Uint16Array(decode(t.samples))})));
+driveData.pavementSurvey=surface.pavementSurvey;
 const actual=createRoadNetwork(driveData,region,grid.heightAt,streets.contains,(x,z)=>walkway(x,z)?13:classAt(x,z));
 const {createCampusRoads}=await import('../campus-roads.js');
 createCampusRoads(driveData,actual,streets);
+const stadiumCurb=[[251.94,1116.53],[254.44,1115.42],[257.36,1114.58],[260.28,1114.03],[263.33,1114.03],[266.25,1114.31],[269.31,1115.0],[272.36,1116.25]];
+for(let i=1;i<stadiumCurb.length;i++){
+  const [x,z]=stadiumCurb[i-1],[u,v]=stadiumCurb[i];
+  const length=Math.hypot(u-x,v-z),nx=(v-z)/length,nz=(x-u)/length;
+  const midX=(x+u)/2,midZ=(z+v)/2;
+  const shoulder=actual.sample(midX-nx*.09,midZ-nz*.09),road=actual.sample(midX+nx*.7,midZ+nz*.7);
+  assert.ok(shoulder.curb>.09 && shoulder.curb<.13 && road.curb<.01,'Stadium crescent tyre profile disagrees with the photographed kerb at '+[midX,midZ,shoulder.curb,road.curb]);
+}
 let inspected=0,kerbs=0,paths=0,worst=0;
 for(let j=0;j<grid.zs.length-1;j++)for(let i=0;i<grid.xs.length-1;i++){
   const x0=grid.xs[i],x1=grid.xs[i+1],z0=grid.zs[j],z1=grid.zs[j+1];
@@ -108,3 +123,10 @@ for(let j=0;j<grid.zs.length-1;j++)for(let i=0;i<grid.xs.length-1;i++){
 }
 assert.ok(inspected>200000&&kerbs>200&&paths>500);
 console.log(inspected+' campus facet contacts, '+kerbs+' raised kerbs, '+paths+' sidewalk contacts, max facet residual '+worst.toFixed(6)+' m.');
+
+
+const roadEdge=(x,z)=>x>=2&&Math.abs(z)<6;
+const vergeRadius=vergeCrownRadius(0,0,4,2.9,roadEdge);
+assert.ok(vergeRadius>1.5&&vergeRadius<2);
+assert.equal(vergeCrownRadius(0,0,4,6.5,roadEdge),4);
+assert.equal(vergeCrownRadius(-12,0,4,2.9,roadEdge),4);

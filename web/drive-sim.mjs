@@ -96,6 +96,18 @@ const handling={
   gamepad:{digital:false,turnIn:3.4,unwind:3.4,stability:.72,pedal:10,brake:15,curve:.12}
 }
 
+function shoulderSteer(car, network) {
+  if (!network || !car.assists || car.speed < 12 || car.surface !== 'road') return 0
+  const ahead = car.speed * .55
+  const direction = car.heading + car.yawRate * .25
+  const forwardX = dm.sin(direction), forwardZ = dm.cos(direction)
+  const x = car.x + ahead * forwardX, z = car.z + ahead * forwardZ
+  const margin = 2.2
+  const left = network.sample(x + margin * forwardZ, z - margin * forwardX, car.y).surface === 'road'
+  const right = network.sample(x - margin * forwardZ, z + margin * forwardX, car.y).surface === 'road'
+  return (Number(left) - Number(right)) * .17
+}
+
 function cornerSpeed(samples, car, closed) {
   const last=samples.length-1, length=samples[last].distance
   if (!last || !length || !car.assists || car.speed<7 || car.offCourse) return Infinity
@@ -109,7 +121,7 @@ function cornerSpeed(samples, car, closed) {
   return limit
 }
 
-function integrateCar(car, wheels, input, road, contacts, bendLimit=Infinity) {
+function integrateCar(car, wheels, input, road, contacts, network, bendLimit=Infinity) {
   const assisted = car.assists
   const profile=car.profile=inputProfile(input), tune=handling[profile]
   const assist=assisted && input.throttle>0 && !input.handbrake && !car.drifting && !car.driftGripLoss ?
@@ -125,21 +137,29 @@ function integrateCar(car, wheels, input, road, contacts, bendLimit=Infinity) {
   car.filteredSteer=assisted && profile==='tilt' ? car.filteredSteer+(response-car.filteredSteer)*.34 : response
   const command=car.filteredSteer
   const speed = Math.abs(car.speed)
-  const mechanicalRange = .55 / (1 + dm.steeringPower(speed))
-  const gripAngle = dm.atan(WHEELBASE * 11.7 / Math.max(1, speed * speed)) + .06
+  const mechanicalRange = .68 / (1 + dm.steeringPower(speed))
+  const highSpeedStability = clamp((speed - 31) / 19, 0, 1)
+  const gripAngle = dm.atan(WHEELBASE * 15.2 / Math.max(1, speed * speed)) + .06 - .042 * highSpeedStability
   const digital = assisted && tune.digital
-  const range = digital ? Math.min(mechanicalRange, gripAngle) : assisted ? Math.min(mechanicalRange,gripAngle+.035) : .55
+  const highSpeedBlend = assisted ? clamp((speed - 15) / 5, 0, 1) : 0
+  const rackGain = 1 + .13 * clamp((26 - speed) / 12, 0, 1)
+  const analogTravel = digital ? 0 : .035 * (1 - .75 * highSpeedBlend)
+  const range = rackGain * (assisted ? Math.min(mechanicalRange, gripAngle + analogTravel) : .55)
   const slipAngle = dm.atan2(car.lateralSpeed,Math.max(4,speed))
   const handbrake = control(input.handbrake,0,1)
   const entry = handbrake * clamp((car.speed-5)/5,0,1) * clamp(Math.abs(command)*3,0,1)
   const catchSlide = assisted ? clamp((Math.abs(slipAngle)-.15)/.19,0,1)*clamp((car.speed-4)/4,0,1) : 0
   car.driftGripLoss = approach(car.driftGripLoss,entry*(1-catchSlide),DT*(entry>car.driftGripLoss?5:3))
   const countersteer = assisted ? clamp(Math.sign(slipAngle)*Math.max(0,Math.abs(slipAngle)-.018)*.36,-.08,.08)*tune.stability*clamp((speed-9)/6,0,1) : 0
-  const targetSteer = clamp(command*range+countersteer,-range,range)
+  car.edgeSteer = approach(car.edgeSteer, shoulderSteer(car,network), 1.8 * DT)
+  const targetSteer = clamp(command*range+countersteer+(assisted?car.edgeSteer:0),-range,range)
   const unwind = Math.sign(command) !== Math.sign(car.steer) || Math.abs(command * range) < Math.abs(car.steer)
-  const rackRate = digital ? (unwind?tune.unwind:tune.turnIn)/(1+speed/(unwind?42:18)) : 3.4
-  const nearTarget = digital ? clamp(Math.abs(targetSteer-car.steer)/Math.max(.01,range)*2,.22,1) : 1
-  car.steer = approach(car.steer, targetSteer, rackRate * DT * nearTarget)
+  const ramp = digital ? tune : handling.keyboard
+  const limitedRate = (unwind ? ramp.unwind : ramp.turnIn) / (1 + speed / (unwind ? 42 : 18))
+  const tapGain = 1 + .60 * clamp((22 - speed) / 9, 0, 1)
+  const analogRate = assisted ? 4.2 + (limitedRate - 4.2) * clamp((speed - 17) / 5, 0, 1) : 3.4
+  const rackRate = digital ? limitedRate * tapGain : analogRate
+  car.steer = approach(car.steer, targetSteer, rackRate * DT)
   car.slipDegrees = speed>4 ? Math.abs(slipAngle)*180/Math.PI : 0
   car.drifting = car.speed>5 && car.surface==='road' && car.slipDegrees>(car.drifting?4:7) && (car.drifting || car.driftGripLoss>.08)
 
@@ -184,6 +204,8 @@ function integrateCar(car, wheels, input, road, contacts, bendLimit=Infinity) {
   const roadNormalLeft = cos * road.tangentZ + sin * road.tangentX
   const gradeForce = -MASS * GRAVITY * dm.sin(dm.atan(road.grade))
   const weight = MASS * GRAVITY * dm.cos(dm.atan(road.grade))
+  const frontGrip = assisted ? 1.49 : 1.19
+  const rearGrip = assisted ? 1.53 : 1.25
   const substep = DT / 6
   for (let sub = 0; sub < 6; sub++) {
     const frontLoad = clamp(weight * REAR_ARM / WHEELBASE - MASS * car.ax * CG_HEIGHT / WHEELBASE, weight * .15, weight * .80)
@@ -206,12 +228,12 @@ function integrateCar(car, wheels, input, road, contacts, bendLimit=Infinity) {
       const slipSpeed = Math.max(3, Math.abs(forward))
       const slipRatio = (wheels[i] * WHEEL_RADIUS - forward) / slipSpeed
       const longitudinal = slipRatio / (paved ? .12 : .20)
-      const lateral = -dm.atan2(side, slipSpeed) / (paved ? .089 : .16)
+      const lateral = -dm.atan2(side, slipSpeed) / (paved ? .095 : .16)
       const slip = dm.hypot(longitudinal, lateral)
       const scale = slip > 1e-6 ? peak * tyreCurve(slip) / slip : peak * 1.44 * 1.55
       const traction = longitudinal * scale
       const gripReserve = clamp((Math.abs(lateral) - .55) / .68, 0, 1)
-      const cornering = lateral * scale * (front ? 1.075 + .004 * gripReserve : (1.14 + .115 * gripReserve)*(1-.48*car.driftGripLoss))
+      const cornering = lateral * scale * (front ? frontGrip + .008 * gripReserve : (rearGrip + .115 * gripReserve)*(1-.48*car.driftGripLoss))
       const rolling = (paved ? .013 : .078) * load * dm.tanh(forward * 2)
       const wheelFx = (traction - rolling) * c - cornering * s
       const wheelFy = (traction - rolling) * s + cornering * c
@@ -227,12 +249,15 @@ function integrateCar(car, wheels, input, road, contacts, bendLimit=Infinity) {
     }
     if (assisted && car.speed > 8) {
       const sideslip = dm.atan2(car.lateralSpeed, car.speed)
-      const yawDemand = clamp(car.speed * dm.tan(car.steer) / WHEELBASE, -11.3 / car.speed, 11.3 / car.speed)
+      const yawDemand = clamp(car.speed * dm.tan(car.steer) / WHEELBASE, -15.0 / car.speed, 15.0 / car.speed)
       const excessYaw = car.yawRate - yawDemand
       const counterYaw = excessYaw * car.yawRate > 0 ? Math.sign(excessYaw) * Math.max(0, Math.abs(excessYaw) - .075) : 0
       const slide = Math.sign(sideslip) * Math.max(0, Math.abs(sideslip) - .024)
       const authority = clamp((car.speed - 8) / 8, 0, 1) * clamp((Math.abs(sideslip) - .018) / .035, 0, 1)
-      const stabilityMoment = YAW_INERTIA * tune.stability * authority * (1-.65*car.driftGripLoss) * clamp(9.5 * slide - 3.5 * counterYaw, -1.85, 1.85)
+      const stabilityMoment = YAW_INERTIA * tune.stability * authority * (1-.65*car.driftGripLoss) * clamp(14 * slide - 5.5 * counterYaw, -2.8, 2.8)
+      const returning = clamp(1 - Math.abs(command) * 5, 0, 1)
+      moment -= YAW_INERTIA * returning * clamp((speed - 18) / 8, 0, 1) * car.yawRate * 7
+      moment -= YAW_INERTIA * highSpeedStability * 18 * excessYaw
       moment += stabilityMoment
       if (car.drifting) moment += YAW_INERTIA * catchSlide * clamp(13*slide - 6*car.yawRate,-6,6)
       fx -= Math.abs(stabilityMoment) / (TRACK * .5)
@@ -254,7 +279,7 @@ function resetCar(state, start, grade, assisted) {
     x: start.x, y: start.y, z: start.z, heading: start.heading, speed: 0,
     distance: start.distance, elapsed: 0, phase: 'ready', surface: 'road', steer: 0,
     pitch: dm.atan(grade), lateralSpeed: 0, yawRate: 0, ax: 0, ay: 0,
-    assists: assisted, profile:'gamepad', filteredSteer:0, gasPedal: 0, brakePedal: 0, lift: 0, liftSpeed: 0, roadX:start.x, roadZ:start.z, vergeTime:0,
+    assists: assisted, profile:'gamepad', filteredSteer:0, gasPedal: 0, brakePedal: 0, lift: 0, liftSpeed: 0, roadX:start.x, roadZ:start.z, vergeTime:0, edgeSteer:0,
     bodyPitch: 0, roll: 0, gear: 1, rpm: 850, shiftRemaining: 0, throttlePlate: 0,
     drifting:false, driftGripLoss:0, slipDegrees:0, cornerAssist:false,
   })
@@ -329,8 +354,16 @@ function moveThroughWorld(network, state) {
       nx /= length
       nz /= length
       const inward = Math.min(0, vx * nx + vz * nz)
+      const impactSpeed = dm.hypot(vx, vz)
       vx -= inward * nx
       vz -= inward * nz
+      const along = dm.hypot(vx, vz)
+      if (along > 2 && along > .65 * impactSpeed) {
+        const direction = dm.atan2(vx, vz) + (state.speed < 0 ? Math.PI : 0)
+        const error = dm.atan2(dm.sin(direction - state.heading), dm.cos(direction - state.heading))
+        const aligned = state.heading + clamp(error, -.16, .16)
+        if (!contact(state.x, state.z, aligned)) state.heading = aligned
+      }
     }
     state.yawRate *= .72
     const sx = vx * DT / steps, sz = vz * DT / steps
@@ -441,7 +474,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
   function step(input = {}) {
     if (state.phase === 'finished') return
     const oldX = state.x, oldZ = state.z, oldY = state.y, oldLift = state.lift
-    integrateCar(state, wheels, input, ground, wheelSurfaces(network, state),racing?cornerSpeed(samples,state,true):Infinity)
+    integrateCar(state, wheels, input, ground, wheelSurfaces(network, state), network,racing?cornerSpeed(samples,state,true):Infinity)
     state.contact = moveThroughWorld(network, state)
     ground = network.sample(state.x, state.z, state.y)
     settleBody(state,ground.y-oldY)
@@ -529,7 +562,7 @@ export function createDriveSim(samples, options = {}) {
     if (state.phase === 'finished') return
 
     const oldHeading = state.heading
-    integrateCar(state,wheels,input,road,terrain ? wheelSurfaces(terrain,state) : null,cornerSpeed(samples,state,false))
+    integrateCar(state,wheels,input,road,terrain ? wheelSurfaces(terrain,state) : null, terrain,cornerSpeed(samples,state,false))
     state.heading += state.yawRate * DT
     const midHeading = (oldHeading + state.heading) / 2
     let nextX = state.x + (dm.sin(midHeading) * state.speed + dm.cos(midHeading) * state.lateralSpeed) * DT
