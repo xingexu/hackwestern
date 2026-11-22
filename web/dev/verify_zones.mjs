@@ -43,6 +43,7 @@ for(const id of Object.keys(courses)){
     sim.placeOnGrid(slot)
     sim.step({})
     assert.equal(sim.state.phase,'ready')
+    assert.equal(sim.state.distance,0)
     const i=samples.findLastIndex(s=>s.distance<=samples.at(-1).distance-slot*5)
     for(const point of [...samples.slice(i+1,-1),...samples.slice(0,4)]){
       Object.assign(sim.state,{x:point.x,z:point.z,y:point.y,heading:point.heading})

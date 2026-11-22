@@ -427,12 +427,12 @@ function createNetworkDrive(samples, network, mode, assisted) {
       const candidate = project(samples, i, state.x, state.z)
       if (candidate.error < nearest.error) nearest = candidate
     }
-    if(gridIndex && nearest.distance>0) gridIndex=0
     if(gridIndex){
       for(let i=gridIndex;i<last;i++){
         const grid=project(samples,i,state.x,state.z)
         if(grid.error<nearest.error) nearest={...grid,distance:0}
       }
+      if(nearest.distance>0) gridIndex=0
     }
     state.distance = nearest.distance
     const lane = samples[nearest.index]
@@ -478,6 +478,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
     if(!racing || !slot)return
     gridIndex=Math.max(0,samples.findLastIndex(s=>s.distance<=samples[last].distance-slot*5))
     spawn(samples[gridIndex])
+    state.distance=0
   }
   return { state, wheels, step, reset, recover, placeOnGrid }
 }
