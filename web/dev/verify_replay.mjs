@@ -10,11 +10,11 @@ export function recordCircuit(course,setup='stock') {
   const sim=createDriveSim(context.samples,{mode:'circuit',network:context.network,assists:setup==='stock'})
   const recorder=createRecorder({course,setup})
   const hashes=[],checkpointsMs=[]
-  let steps=0
+  let steps=0,digitalSteps=0
   while (sim.state.phase!=='finished' && steps<MAX_STEPS) {
     const input=driveInput(context.samples,sim.state)
     const digital=Math.abs(input.steer)>=1 || input.steer===0
-    input.profile=digital?(Math.floor(steps/600)%2?'keyboard':'buttons'):(Math.floor(steps/480)%2?'tilt':'gamepad')
+    input.profile=digital?(Math.floor(digitalSteps++/12)%2?'keyboard':'buttons'):(Math.floor(steps/480)%2?'tilt':'gamepad')
     input.digitalSteer=digital
     sim.step(recorder.record(input))
     assert.equal(sim.state.contact,false,course+' fixture made contact at '+sim.state.distance.toFixed(2)+' m')

@@ -41,7 +41,8 @@ def compile_detail():
     dtm = geo.lidar_surfaces()
     terrain = ndimage.gaussian_filter(dtm[0] if dtm else geo.elevation(), 1.2 if dtm else 4)
     ground = terrain - terrain.min() + GROUND_FLOOR + 1
-    route = json.loads((WEB / "drive-route.json").read_text())
+    # Furniture and crosswalk offsets reference the surveyed street axis, not the player's lane.
+    route = json.loads((DATA / "street" / "core-survey-axis.json").read_text())
     coords = np.array([(s["x"], s["z"]) for s in route])
     tree = cKDTree(coords)
     items = []

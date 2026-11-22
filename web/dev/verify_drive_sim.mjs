@@ -368,6 +368,47 @@ for(const direction of [-1,1]){
 }
 
 const sprintTerrain=testNetwork({heightAt:(x,z)=>3+z*.04})
+function driftCorner(direction,handbrake) {
+  const sim=createDriveSim([flat[0]],{mode:'roam',network:testNetwork()})
+  reachSpeed(sim,58)
+  let peak=0, slidingTicks=0
+  for(let i=0;i<330;i++){
+    sim.step({profile:'keyboard',steer:direction*(i<90?1:i<115?-.55:0),
+      throttle:.5,handbrake:Number(handbrake && i>=12 && i<90)})
+    peak=Math.max(peak,sim.state.slipDegrees)
+    slidingTicks+=Number(sim.state.drifting)
+  }
+  assert.ok(sim.state.slipDegrees<1 && !sim.state.drifting && sim.state.speed>8,'Recover moving forward')
+  if(handbrake) assert.ok(peak>10 && peak<28 && slidingTicks>30,'Sustained, recoverable slide')
+  else assert.ok(!slidingTicks && peak<7,'Normal turns keep grip')
+  return peak
+}
+for(const direction of [-1,1]){
+  driftCorner(direction,false)
+  assert.equal(driftCorner(direction,true),driftCorner(direction,true))
+}
+for(const profile of ['wheel','buttons']){
+  for(const pulse of [false,true]){
+    const sim=createDriveSim([flat[0]],{mode:'roam',network:testNetwork()})
+    reachSpeed(sim,58)
+    let peak=0, sliding=0
+    for(let i=0;i<330;i++){
+      sim.step({profile,steer:i<90?.84:i<115?-.55:0,throttle:1,
+        brake:Number(i>=12 && i<18 || i>=30 && i<36),handbrake:Number(pulse && i>=36 && i<85)})
+      peak=Math.max(peak,sim.state.slipDegrees)
+      sliding+=Number(sim.state.drifting)
+    }
+    assert.ok(pulse ? peak>10 && peak<28 && sliding>30 : peak<7 && !sliding,profile+' brake versus drift')
+    assert.ok(!sim.state.drifting && sim.state.slipDegrees<1 && sim.state.speed>8)
+  }
+}
+for(const [assists,handbrake,expected] of [[true,0,true],[false,0,false],[true,1,false]]){
+  const sim=createDriveSim(bend,{assists})
+  Object.assign(sim.state,{distance:25,speed:22})
+  sim.step({throttle:1,handbrake})
+  assert.equal(sim.state.cornerAssist,expected)
+  assert.equal(sim.state.brakePedal>0,expected)
+}
 const surveyedSprint=createDriveSim(flat,{network:sprintTerrain})
 assert.equal(surveyedSprint.state.y,3)
 repeat(surveyedSprint,{throttle:1},240)

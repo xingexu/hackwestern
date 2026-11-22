@@ -53,6 +53,11 @@ function streetAtlas(data) {
     }
     pen.stroke();
   }
+  for(const way of data.ways.filter(w=>w.roundabout)){
+    const i=Math.floor(way.points.length/2), [x,,z]=way.points[i], [ax,,az]=way.points[i-1];
+    pen.save();pen.translate(x,z);pen.rotate(Math.atan2(z-az,x-ax)+(way.reverse?Math.PI:0));
+    pen.fillStyle='#f9c35c';pen.beginPath();pen.moveTo(4,0);pen.lineTo(-3,3);pen.lineTo(-3,-3);pen.closePath();pen.fill();pen.restore();
+  }
   return {paper,left,top,scale};
 }
 
@@ -94,12 +99,16 @@ function createRouteMap(samples, atlas, mode) {
   };
 }
 
+function spawnLane(way,cx,cz,heading){
+  const offset=way.oneway?0:Math.max(0,Math.min(way.width*.25,way.width*.5-1.2,3.2));
+  return [cx-offset*Math.cos(heading),cz+offset*Math.sin(heading)];
+}
 function photoSpawn(frame,campus){
   const heading=Math.PI-frame.heading*Math.PI/180;
   const faceX=Math.sin(heading),faceZ=Math.cos(heading);
   let best=Infinity,location;
   for(const way of campus.roadData.ways){
-    if(way.kind!=='road' || way.onDeck) continue;
+    if(way.kind!=='road' || way.onDeck || way.noCars) continue;
     for(let i=1;i<way.points.length;i++){
       const [ax,ay,az]=way.points[i-1],[bx,by,bz]=way.points[i];
       const dx=bx-ax,dz=bz-az,sq=dx*dx+dz*dz;
@@ -107,15 +116,16 @@ function photoSpawn(frame,campus){
       const t=THREE.MathUtils.clamp(((frame.x-ax)*dx+(frame.z-az)*dz)/sq,0,1);
       const cx=ax+t*dx,cz=az+t*dz,offset=Math.hypot(frame.x-cx,frame.z-cz);
       if(offset>65) continue;
-      const reach=Math.min(1,Math.max(0,way.width*.5-1.4)/Math.max(.01,offset));
-      const x=cx+(frame.x-cx)*reach,z=cz+(frame.z-cz)*reach;
-      const alignment=Math.abs(dx*faceX+dz*faceZ)/Math.sqrt(sq);
+      const forward=way.oneway?!way.reverse:dx*faceX+dz*faceZ>=0;
+      const roadHeading=Math.atan2(dx,dz)+(forward?0:Math.PI);
+      const [x,z]=spawnLane(way,cx,cz,roadHeading);
+      const alignment=Math.cos(roadHeading-heading);
       const score=Math.hypot(frame.x-x,frame.z-z)+3*(1-alignment);
       if(score>=best) continue;
       const surface=campus.network.sample(x,z,ay+t*(by-ay));
       if(surface.surface!=='road' || [-1.5,0,1.5,4].some(d=>
-        campus.network.blocked(x+d*faceX,z+d*faceZ,surface.y,1.05))) continue;
-      best=score;location={x,y:surface.y,z,distance:0,heading};
+        campus.network.blocked(x+d*Math.sin(roadHeading),z+d*Math.cos(roadHeading),surface.y,1.05))) continue;
+      best=score;location={x,y:surface.y,z,distance:0,heading:roadHeading};
     }
   }
   return location;
@@ -123,7 +133,13 @@ function photoSpawn(frame,campus){
 
 function landmarkSpawns(campus,coreLabels) {
   const choices=new Map([['University Drive',campus.samples[0]]]);
-  const streets=campus.roadData.ways.filter(w=>w.kind==='road' && w.width>=4);
+  const circuit=campus.network.circuits.find(c=>c.id==='stadium');
+  const entry=circuit?.samples.find(s=>campus.network.sample(s.x,s.z,s.y).way?.roundabout);
+  if(entry){
+    const approach=circuit.samples.find(s=>s.distance>=Math.max(0,entry.distance-40));
+    choices.set('Roundabout approach',{...approach,distance:0});
+  }
+  const streets=campus.roadData.ways.filter(w=>w.kind==='road' && !w.noCars && w.width>=4);
   const destinations=[...new Map([...coreLabels,...campus.labels].map(label=>[label.name,label])).values()];
   const pin=params.has('east') && params.has('south') ? {x:Number(params.get('east')),z:Number(params.get('south')),name:'Map location'} : null;
   if(pin && Number.isFinite(pin.x) && Number.isFinite(pin.z) && campus.network.withinCampus(pin.x,pin.z)) destinations.push(pin);
@@ -141,7 +157,8 @@ function landmarkSpawns(campus,coreLabels) {
         const d=label===pin?range:Math.abs(range-68)+95*(1-Math.abs(cosine));
         if(d>=closest || campus.network.blocked(x,z,y,1.25)) continue;
         let heading=Math.atan2(ex-x,ez-z)+(cosine<0?Math.PI:0);
-        if(label===pin){
+        if(way.oneway) heading=Math.atan2(ex-x,ez-z)+(way.reverse?Math.PI:0);
+        if(label===pin && !way.oneway){
           const clearDistance=angle=>{
             let length=0;
             for(let step=3;step<=30;step+=3){
@@ -154,8 +171,10 @@ function landmarkSpawns(campus,coreLabels) {
           };
           if(clearDistance(heading+Math.PI)>clearDistance(heading)) heading+=Math.PI;
         }
-        if([-1.4,1.4].some(offset=>campus.network.blocked(x+offset*Math.sin(heading),z+offset*Math.cos(heading),y,.93))) continue;
-        location={x,y,z,distance:0,heading};
+        const [laneX,laneZ]=spawnLane(way,x,z,heading);
+        const surface=campus.network.sample(laneX,laneZ,y);
+        if(surface.surface!=='road'||[-1.4,0,1.4].some(offset=>campus.network.blocked(laneX+offset*Math.sin(heading),laneZ+offset*Math.cos(heading),surface.y,.93))) continue;
+        location={x:laneX,y:surface.y,z:laneZ,distance:0,heading};
         closest=d;
       }
     }
@@ -199,11 +218,11 @@ function circuitGuidance() {
   const lintel=new THREE.Mesh(block,amber);
   arch.add(lintel);
   group.add(arch);
-  function update(samples,gate,network) {
+  function update(samples,gate,network,distance) {
     group.visible=Boolean(gate);
     if(!gate) return;
     const spacing=samples.at(-1).distance/(samples.length-1);
-    const index=Math.min(samples.length-1,Math.round(gate.distance/spacing));
+    const index=Math.min(samples.length-1,Math.round((distance+4)/spacing));
     arch.position.set(gate.x,gate.y,gate.z);
     arch.rotation.y=gate.heading;
     const width=zoneHalfWidth(gate);
@@ -279,6 +298,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   const meters = byId('meters'), speed = byId('speed'), time = byId('time'), surface = byId('surface');
   const progress = byId('progress'), message = byId('drive-message'), finish = byId('finish');
   const hint=byId('input-hint');
+  const traction=byId('traction'), revStrip=byId('rev-strip');
   const keys = new Set(), touchKeys=new Set();
   let activeProfile='keyboard',activity=0,previousPad=null;
   function useProfile(profile){activeProfile=profile;activity=performance.now();}
@@ -315,7 +335,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     sim.reset();
     car.assists=assists.checked;
     trial.begin(car.assists);
-    phone.driving(false);
+    phone.driving(false);phone.resetPedal();
     snapshotPose(previousPose,car);
     keys.clear();touchKeys.clear();
     remaining = 0;
@@ -444,7 +464,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     }
     const down = (a, b) => keys.has(a) || keys.has(b) || touchKeys.has(b);
     return {
-      handbrake: Number(keys.has('Space') || pad?.buttons[0]?.pressed || false),
+      handbrake: Number(down('Space','Space') || phone.handbrake || input.handbrake),
       profile:activeProfile,activity,
       digitalSteer:activeProfile==='keyboard' || activeProfile==='buttons',
       throttle: Math.max(input.throttle, Number(down('KeyW', 'ArrowUp'))),
@@ -457,28 +477,42 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     lastHud = timestamp;
     speed.textContent = Math.round(speedKph(car));
     byId('powertrain').textContent = (car.gear === -1 ? 'R' : 'D' + car.gear) + ' · ' + Math.round(car.rpm / 50) * 50 + ' RPM';
+    revStrip.style.setProperty('--revs',Math.min(100,car.rpm/67.5)+'%');
+    revStrip.toggleAttribute('data-shift',car.rpm>6000);
+    traction.toggleAttribute('data-drifting',car.drifting);
+    traction.textContent=car.drifting?'Drift '+Math.round(car.slipDegrees)+'°':car.driftGripLoss>.12?'Slide entry':car.cornerAssist?'Bend assist':'Grip';
     time.textContent = clockTime(car.elapsed);
     meters.textContent = Math.round(car.distance) + ' m';
     progress.value = car.distance;
     surface.textContent = car.phase === 'ready' ? 'On grid' : car.speed < -.1 ? 'Reverse' : car.surface === 'grass' ? 'Grass' : 'Asphalt';
+    const ground=network.sample(car.x,car.z,car.y);
     if(mode!=='sprint' && car.speed>=-.1){
-      const ground=network.sample(car.x,car.z,car.y);
-      surface.textContent=ground.street || ({road:'Asphalt',path:'Campus path',grass:'Grass'}[ground.surface]);
+      surface.textContent=ground.way?.roundabout?'Roundabout':ground.street || ({road:'Asphalt',path:'Campus path',grass:'Grass'}[ground.surface]);
     }
+    const alignment=Math.sin(car.heading)*ground.tangentX+Math.cos(car.heading)*ground.tangentZ;
+    const nearby=samples[Math.min(samples.length-1,Math.max(0,Math.round(car.distance*(samples.length-1)/(length||1))))];
+    const onLine=mode!=='roam' && Math.hypot(car.x-nearby.x,car.z-nearby.z)<2;
+    const roadWarning=car.speed>3 && ground.surface==='road' && ground.way && (ground.way.noCars?'Restricted road':
+      ground.way.oneway?(alignment*(ground.way.reverse?-1:1)<-.8?'Wrong way':''):
+      !onLine && Math.abs(alignment)>.85 && ground.lateral*Math.sign(alignment)>.9?'Keep right':'');
     if (paused && !online?.active && !online?.padConnected && car.phase === 'driving') message.textContent = 'Paused';
     else if (car.phase === 'ready') message.textContent = padConnected ? 'RT to start' : matchMedia('(pointer:coarse)').matches ? 'Touch Gas to start' : '↑ or W to start';
+    else if(roadWarning) message.textContent=roadWarning;
+    else if(ground.way?.roundabout) message.textContent='Roundabout · keep the island on your left';
     else if(car.offCourse) message.textContent='Return to the marked route';
     else if(mode==='circuit' && car.nextGate) message.textContent='Checkpoint '+(car.checkpointsPassed+1)+' / '+car.checkpointCount;
     else message.textContent = '';
-    hint.textContent = padConnected ? 'RT gas · LT brake / reverse · Left stick steer · Menu restart' : '↑ Gas · ↓ Brake / reverse · ← → Steer · WASD';
+    hint.textContent = (online?.padConnected || matchMedia('(pointer:coarse)').matches) ? 'Double-tap Brake in a turn to drift' : padConnected ? 'RT gas · LT brake · Stick steer · A drift' : 'WASD / arrows to drive · Space to drift';
     byId('assists-pending').hidden=car.assists===assists.checked;
     direction.hidden=!car.nextGate;
     if(car.nextGate){
-      const dx=car.nextGate.x-car.x,dz=car.nextGate.z-car.z;
+      const lookAhead=Math.min(car.distance+6,car.nextGate.distance);
+      const target=samples[Math.max(0,Math.min(samples.length-1,Math.round(lookAhead*(samples.length-1)/length)))];
+      const dx=target.x-car.x,dz=target.z-car.z;
       direction.firstElementChild.style.transform='rotate('+(car.heading-Math.atan2(dx,dz))+'rad)';
-      direction.lastElementChild.textContent=Math.round(Math.hypot(dx,dz))+' m';
+      direction.lastElementChild.textContent=Math.max(0,Math.round(car.nextGate.distance-car.distance))+' m';
     }
-    guidance.update(samples,car.nextGate,network);
+    guidance.update(samples,car.nextGate,network,car.distance);
     routeMap(car);
     phone.driving(!paused && car.phase==='driving');
     if (car.phase === 'finished' && !finished && !online?.racing) {
@@ -493,7 +527,11 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   }
   changeCourse(params.get('course')||(photoStart?'roam':document.querySelector('meta[name=campus-course]')?.content));
   online=await onlineMenu;
-  online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car});
+  online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car,gridPosition(slot){
+    if(!slot || mode!=='circuit')return;
+    sim.placeOnGrid(slot);
+    snapshotPose(previousPose,car);rig.reset(car);placement.reset();
+  }});
   const look = new THREE.Vector3();
   function frame(timestamp) {
     const elapsed = previous === null ? 0 : Math.min(.12, (timestamp - previous) / 1000);

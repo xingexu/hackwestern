@@ -5,6 +5,7 @@ import numpy as np
 from scipy import ndimage
 
 import geo
+from traffic import CarNetwork, accessible, direction, driving_line, lane_offset
 
 
 ROAD_SECTIONS = (
@@ -12,24 +13,34 @@ ROAD_SECTIONS = (
     (142399224, "Middlesex Drive", slice(None)),
     (142399222, "Elgin Drive", slice(None)),
     (561637296, "Elgin Drive", slice(None)),
-    (142399225, "Oxford Drive", slice(0, 5)),
-    (35578876, "Kent Drive", slice(None, 2, -1)),
 )
 
 
-def street_centerline(elements):
+def street_centerline():
+    elements = json.loads((geo.DATA/"region/map.json").read_bytes())["elements"]
+    nodes = {e["id"]:geo.to_grid(e["lat"],e["lon"]) for e in elements if e["type"]=="node"}
     by_id = {way["id"]: way for way in elements if way["type"] == "way"}
-    points = []
+    rules = CarNetwork(elements, {}, [])
+    history = ()
+    points, offsets = [], []
     for way_id, name, section in ROAD_SECTIONS:
         way = by_id[way_id]
         tags = way["tags"]
         if name not in (tags.get("name"), tags.get("ref")):
             raise ValueError(f"Way {way_id} no longer identifies {name}")
-        street = geo.way_rings(way)[0][0][section]
+        street = [nodes[n] for n in way["nodes"][section]]
+        travel = -1 if section.step == -1 else 1
+        if not accessible(tags) or direction(tags) not in (0, travel):
+            raise ValueError(f"Illegal sprint segment on {name}")
+        if not rules.allowed(way["nodes"][section][0], history, way_id):
+            raise ValueError(f"Restricted sprint turn onto {name}")
+        history = (*history,way_id)[-rules.memory:]
+        width = float(tags.get("width", 3.25 * int(tags.get("lanes", 2)) + .4))
+        offsets.extend([lane_offset(width, direction(tags))] * (len(street)-1))
         if points and points[-1] != street[0]:
             raise ValueError(f"Disconnected course at {name}, way {way_id}")
         points.extend(street[1:] if points else street)
-    return np.array(points)
+    return driving_line(np.array(points), offsets, False)
 
 
 def resample(points, spacing):
@@ -43,8 +54,7 @@ def compile_route():
     from voxelize import GROUND_FLOOR, collect_layers, building_rasters
 
     elements = geo.load_osm()
-    streets, _ = resample(street_centerline(elements), 0.25)
-    streets = ndimage.gaussian_filter1d(streets, sigma=32, axis=0, mode="nearest")
+    streets, _ = resample(street_centerline(), 0.25)
     points, distances = resample(streets, 0.95)
     x, z = points.T
     tangent = np.gradient(points, axis=0)
@@ -59,7 +69,7 @@ def compile_route():
     clearance = ndimage.map_coordinates(ndimage.distance_transform_edt(~solid), [z, x], order=1)
     if clearance.min() < 5 or min(x.min(), z.min(), geo.WIDTH - x.max(), geo.DEPTH - z.max()) < 15:
         raise ValueError(f"Course too close to a building or map edge, building clearance {clearance.min():.1f} m")
-    if not 580 < distances[-1] < 700 or np.abs(np.diff(y) / np.diff(distances)).max() > 0.2:
+    if not 540 < distances[-1] < 580 or np.abs(np.diff(y) / np.diff(distances)).max() > 0.2:
         raise ValueError("Course length or grade falls outside the expected UC Hill profile")
     samples = [
         {"x": round(px, 3), "y": round(float(py), 3), "z": round(pz, 3), "heading": round(yaw, 6), "distance": round(s, 3)}

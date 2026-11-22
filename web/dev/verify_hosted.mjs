@@ -73,7 +73,7 @@ try {
     assert.ok(shot.length>85000,'A street view should have resolved scenery at '+name);
     const entry=await page.evaluate(()=>{const {car,drawCalls,triangles,renderScale}=window.driveMetrics;return {x:Math.round(car.x),z:Math.round(car.z),drawCalls,triangles,renderScale};});
     assert.ok(entry.triangles>15000 && entry.drawCalls>5);
-    if(name==='stadium') await verifyStadiumVerge(page,shot);
+    if(name==='stadium') await verifyStadiumVerge(page);
     if(name==='university-drive'){
       const sky=await page.evaluate(async encoded=>{
         const bytes=Uint8Array.from(atob(encoded),c=>c.charCodeAt(0));

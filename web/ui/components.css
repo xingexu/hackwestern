@@ -229,6 +229,11 @@ html[data-mode="drive"] #drive-ui { color: var(--on); font: 20px/1.15 var(--body
 #time { font: 28px/1 var(--body); color: var(--on); }
 #surface { color: var(--accent); }
 #powertrain { color: var(--accent); font: 8px/1.6 var(--display) !important; letter-spacing: .04em; }
+.instruments { padding-bottom: 17px; }
+.instruments #traction { min-width: 8ch; margin: 0; padding: 4px 6px; color: var(--on); background: var(--lav-2); text-align: center; text-transform: uppercase; font: 18px/1 var(--body); }
+.instruments #traction[data-drifting] { background: var(--gold); }
+#rev-strip { position: absolute; inset: auto 0 0; height: 5px; background: repeating-linear-gradient(90deg, transparent 0 8px,var(--lav-solid) 8px 10px),linear-gradient(90deg,var(--accent) var(--revs,0%),var(--lav-2) 0); }
+#rev-strip[data-shift] { --accent: #ba3163; }
 #drive-message:not(:empty) {
   border-bottom: 0; border-left: calc(2 * var(--px)) solid var(--accent);
   font-size: 20px; animation: px-in-left .28s steps(5) both;
@@ -372,6 +377,10 @@ html[data-mode="map"] body { background: var(--ink); }
   #touch-drive [data-key=ArrowUp] { background: #9be8bd; }
   #touch-drive [data-key=ArrowDown] { background: #ffb0bb; }
   .instruments { border-radius: 0; }
+  .instruments #traction { font-size: 13px; min-width: 4ch; padding: 1px 3px; }
+  #rev-strip { height: 2px; }
+  #touch-drive [data-key=ArrowDown] small { display:block; font:16px/1 var(--body); }
+  #touch-drive [data-pulse] { background: var(--gold); }
   .instruments strong { font: 22px/18px var(--body); text-shadow: none; }
   #mobile-drive-hint { border-radius: 0; color: var(--on); background: var(--panel-bg); box-shadow: var(--frame-flat); font: 16px/18px var(--body); }
 }

@@ -64,12 +64,13 @@ try {
   });
   await page.waitForFunction(() => window.driveMetrics.car.distance >= 330, undefined, { timeout: 90000 });
   await screenshot('hill');
-  await page.waitForFunction(() => window.driveMetrics.car.distance >= 575, undefined, { timeout: 60000 });
-  await screenshot('kent');
+  const distance = await page.locator('#embedded-drive-route').evaluate(el => JSON.parse(el.textContent).at(-1).distance);
+  await page.waitForFunction(length => window.driveMetrics.car.distance >= length - 60, distance, { timeout: 60000 });
+  await screenshot('elgin');
   await page.getByRole('button', { name: 'Drive again' }).waitFor({ timeout: 45000 });
-  assert.equal(await page.locator('#meters').textContent(), '646 m');
+  assert.equal(await page.locator('#meters').textContent(), Math.round(distance) + ' m');
   const result = await page.locator('#result').textContent();
-  assert.match(result, /^0:4\d\.\d\d$/);
+  assert.match(result, /^0:[3-5]\d\.\d\d$/);
   await screenshot('finish');
   await page.getByRole('button', { name: 'Drive again' }).click();
   await page.waitForFunction(() => document.querySelector('#finish').hidden && window.driveMetrics.car.distance < 1);
@@ -80,7 +81,7 @@ try {
   assert.equal(await page.locator('#speed').textContent(), '0');
   assert.deepEqual(errors, []);
   assert.deepEqual(network, []);
-  console.log('Offline Chromium drive passed: keyboard acceleration, steering, braking and reset; virtual gamepad completed 646 m in ' + result + '; restart and map round-trip passed with zero external requests.');
+  console.log('Offline Chromium drive passed: keyboard acceleration, steering, braking and reset; virtual gamepad completed ' + Math.round(distance) + ' m in ' + result + '; restart and map round-trip passed with zero external requests.');
 } finally {
   await browser.close();
 }

@@ -81,7 +81,14 @@ export async function verifyGroundMaterials(page,manifest,out){
   console.log('Verified road material classes from survey '+result.id+' across '+result.changed+' visible pavement samples.');
 }
 
-export async function verifyStadiumVerge(page,shot){
+export async function verifyStadiumVerge(page){
+  // The reference crop is from this fixed Athletics road viewpoint, not the player's grid lane.
+  await page.evaluate(()=>{
+    const {surveyView,network}=window.driveMetrics,x=208.01,z=1137.7
+    surveyView({x,z,y:network.sample(x,z,7.37).y,heading:6.1443778410969845,pitch:0})
+  })
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))))
+  const shot=await page.screenshot()
   const reference=await readFile(new URL('../../data/audit/ortho-2025/150_1050.jpg',import.meta.url));
   const result=await page.evaluate(async ([capture,aerial])=>{
     async function rgb(encoded,type){

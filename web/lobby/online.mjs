@@ -90,9 +90,7 @@ export function mountOnline(health){
     if(room.settings.course==='roam' && before?.settings.course!=='roam'){game.changeCourse('roam');session.reset()}
     if(room.race && positioned!==room.race){
       game.changeCourse(room.settings.course)
-      const car=game.carState(),side=(p.slot%2?1:-1)*1.25,back=Math.floor(p.slot/2)*4.8
-      car.x+=Math.cos(car.heading)*side-Math.sin(car.heading)*back
-      car.z-=Math.sin(car.heading)*side+Math.cos(car.heading)*back
+      game.gridPosition(p.slot)
       positioned=room.race;reportAt=0;session.reset();fleet.respawn()
       menu.close()
     }

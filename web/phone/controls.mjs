@@ -1,3 +1,5 @@
+import {bindDriftBrake} from './pad-wheel.js'
+
 export function installPhoneControls(root,useProfile) {
   const tilt=root.querySelector('#tilt')
   const settings=document.createElement('details')
@@ -13,6 +15,7 @@ export function installPhoneControls(root,useProfile) {
   wheel.hidden=true
   steering.append(wheel)
   let wheelInput=0, active=false, enabled=false, neutral=null, target=0, marked=0, reading=null, timeout, generation=0
+  const brakePedal=bindDriftBrake(root.querySelector('[data-key=ArrowDown]'))
   let lease=null, waiting=false
   async function wake() {
     if (waiting || lease || !active || document.hidden || !navigator.wakeLock) return
@@ -44,6 +47,7 @@ export function installPhoneControls(root,useProfile) {
   }
   settings.querySelector('[data-center]').onclick=center
   function clear() {
+    brakePedal.reset()
     reading=null
     wheelInput=0
     center()
@@ -104,7 +108,7 @@ export function installPhoneControls(root,useProfile) {
     wheel.style.setProperty('--angle',(-wheelInput*80)+'deg')
   }
   wheel.onlostpointercapture=()=>{wheelInput=0;wheel.style.removeProperty('--angle')}
-  return {clear,driving,get tilting(){return enabled || !wheel.hidden},steer(){
+  return {clear,driving,resetPedal:brakePedal.reset,get handbrake(){return brakePedal.active},get tilting(){return enabled || !wheel.hidden},steer(){
     return wheelInput+(enabled?target:0)
   },vibrate(ms){if (matchMedia('(pointer:coarse)').matches) navigator.vibrate?.(ms)}}
 }

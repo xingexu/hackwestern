@@ -8,7 +8,7 @@ export function pairPhone(onAction) {
   dialog.setAttribute('aria-labelledby','pad-title')
   dialog.innerHTML=`<form method="dialog"><h2 id="pad-title">Phone controller</h2><button aria-label="Close" autofocus>×</button></form>
     <div id="pad-info" hidden><img id="pad-qr" alt="Scan to pair your phone"><div><label for="pad-code">Join code</label><output id="pad-code"></output><p>Scan the QR code or open <a id="pad-url"></a> on your phone and enter the code.</p></div></div>
-    <p id="pad-state" role="status"></p><button id="end-pad" hidden>End pairing</button>`
+    <p id="pad-network" hidden></p><p id="pad-state" role="status"></p><button id="end-pad" hidden>End pairing</button>`
   document.body.append(dialog)
   const field=id=>dialog.querySelector('#'+id)
   const button=document.createElement('button')
@@ -22,7 +22,7 @@ export function pairPhone(onAction) {
     session?.close()
     session=null
     sessionStorage.removeItem('western-pad-host')
-    field('pad-info').hidden=field('end-pad').hidden=true
+    field('pad-network').hidden=field('pad-info').hidden=field('end-pad').hidden=true
     dialog.close()
   }
   function connect(ticket){
@@ -30,6 +30,11 @@ export function pairPhone(onAction) {
     const link=field('pad-url')
     link.href=url.href
     link.textContent=url.host+url.pathname
+    const help=field('pad-network')
+    help.hidden=url.protocol==='https:'
+    help.textContent=['localhost','127.0.0.1','[::1]'].includes(url.hostname)
+      ? 'This address only works on this computer. Restart the LAN server with your Wi-Fi IP, then end pairing and get a new code.'
+      : 'Use the same Wi-Fi or personal hotspot. Arrows and double-tap Brake work over HTTP; wheel steering needs trusted HTTPS.'
     url.searchParams.set('code',ticket.code)
     const image=qr(0,'M')
     image.addData(url.href)
@@ -82,6 +87,6 @@ export function pairPhone(onAction) {
       nextFeedback=performance.now()+200
     }
     const profile=activity>local.activity?input.profile:local.profile
-    return {...local,profile,digitalSteer:profile==='buttons' || profile==='keyboard',steer:Math.max(-1,Math.min(1,local.steer+input.steer)),brake:Math.max(local.brake,input.brake),throttle:Math.max(local.throttle,input.throttle)}
+    return {...local,profile,digitalSteer:profile==='buttons' || profile==='keyboard',steer:Math.max(-1,Math.min(1,local.steer+input.steer)),brake:Math.max(local.brake,input.brake),throttle:Math.max(local.throttle,input.throttle),handbrake:Math.max(local.handbrake??0,input.handbrake??0)}
   }}
 }
