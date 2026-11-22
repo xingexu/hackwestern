@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict'
+import * as THREE from 'three'
+import {createFleet} from '../web/lobby/remote.mjs'
 import {readFile} from 'node:fs/promises'
 import {decode,encode,Cadence,BYTES} from '../web/net/wire.mjs'
 import {Clock,StampMap,Lag} from '../web/net/timing.mjs'
@@ -7,8 +9,10 @@ import {createHmac} from 'node:crypto'
 import {iceServers} from './ice.mjs'
 import sprint from '../web/drive-route.json' with {type:'json'}
 import {createDriveSim} from '../web/drive-sim.mjs'
+import circuits from '../web/race/courses.mjs'
+import {carsOverlap,finishDuration,finishPose,gridPosition} from '../web/race/online-race.mjs'
 import {driveInput} from '../web/dev/circuit_driver.mjs'
-import {observeRacePose,Relay,newRoundRoom,command,transition,removePlayer} from './referee.mjs'
+import {observeRacePose,standings,Relay,newRoundRoom,command,transition,removePlayer} from './referee.mjs'
 for(const name of ['wire','timing','motion']){
   const source=await readFile(new URL('../web/net/'+name+'.mjs',import.meta.url),'utf8')
   assert.doesNotMatch(source,/\b(window|document|navigator|Date|performance|fetch|WebSocket|RTCPeerConnection|setTimeout|setInterval|process|crypto|THREE)\b|Math\.random/)
@@ -133,3 +137,68 @@ for(const [slot,sim] of cars.entries()){
 assert.equal(hill.phase,'results')
 assert.ok(hill.results.every(row=>row.finish>0 && !row.dnf))
 console.log('All eight sprint grid slots drove to a validated finish, including mid-course recovery and rejection of early finish reports')
+
+for(const [id,{samples}] of Object.entries({...circuits,sprint:{samples:sprint}})){
+  const grid=Array.from({length:8},(_,spot)=>gridPosition(samples,spot,id==='sprint'))
+  for(const [i,pose] of grid.entries())for(const other of grid.slice(0,i))assert.ok(!carsOverlap(pose,other),id+' grid slot '+i)
+}
+const start={x:0,y:0,z:0,heading:0}
+const sampleGround=()=>({y:0,grade:0,tangentX:0,tangentZ:1})
+const middle=finishPose(start,finishDuration/2,0,false,sampleGround)
+const stopped=finishPose(start,finishDuration,0,false,sampleGround)
+assert.ok(middle.z>0 && middle.z<stopped.z && middle.heading<-.4 && middle.x<0)
+assert.equal(stopped.heading,0)
+assert.deepEqual(stopped,finishPose(start,finishDuration+1000,0,false,sampleGround))
+assert.ok(carsOverlap(middle,{...middle,heading:middle.heading-.5}))
+assert.ok(!carsOverlap(middle,{...middle,x:middle.x+7}))
+
+const full=newRoundRoom('GRID23')
+full.host=0
+full.players=Array.from({length:8},(_,slot)=>({id:slot,slot,connected:true,loaded:true,ready:true}))
+const pole=[]
+for(let heat=0;heat<8;heat++){
+  assert.ok(command(full,full.players[0],{type:'start'},heat,()=>heat+1))
+  assert.equal(new Set(full.players.map(p=>p.grid)).size,8)
+  pole.push(full.players.find(p=>p.grid===0).id)
+  for(const p of full.players)command(full,p,{type:'vote',race:heat+1},heat)
+  for(const p of full.players)p.ready=true
+}
+assert.equal(new Set(pole).size,8)
+Object.assign(full,{phase:'playing',results:[]})
+Object.assign(full.players[0],{lap:1,track:{distance:500}})
+Object.assign(full.players[1],{lap:2,track:{distance:5}})
+Object.assign(full.players[2],{lap:2,track:{distance:10}})
+Object.assign(full.players[3],{finish:3000})
+Object.assign(full.players[4],{finish:2999})
+Object.assign(full.players[5],{dnf:true})
+assert.deepEqual(standings(full).slice(0,5).map(p=>p.id),[4,3,2,1,0])
+assert.equal(standings(full).at(-1).id,5)
+console.log('Eight-car grids, rotating pole, live priority and settle-to-stop finish poses passed')
+
+// Render both finishers from identical crossing locations, then let them separate.
+const scene=new THREE.Scene(),coupe=new THREE.Group()
+coupe.add(new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial()))
+const fleet=createFleet(THREE,scene,coupe,{},sampleGround)
+const arrival=10000
+const finishers=[1,2].map(slot=>({slot,id:slot,nickname:'Racer '+slot,connected:true,color:'#ffffff',finish:1000,
+  finishStart:{...start,at:arrival+slot}}))
+const observer={...start,x:30}
+const session={tracks:new Map(),clock:{synced:true}}
+globalThis.document={createElement:()=>({getContext:()=>({fillRect(){},fillText(){}})})}
+try{
+  fleet.roster(finishers,0)
+  fleet.update(session,observer,false,1/60,arrival+25,false)
+  fleet.separate(observer,false)
+  assert.equal(scene.children.filter(model=>model.visible).length,1)
+  fleet.separate(start,true)
+  assert.equal(scene.children.filter(model=>model.visible).length,0)
+  finishers[1].finishStart={...finishers[1].finishStart,x:8}
+  fleet.roster(finishers,0)
+  fleet.update(session,observer,false,1/60,arrival+25,false)
+  fleet.separate(observer,false)
+  assert.equal(scene.children.filter(model=>model.visible).length,2)
+}finally{
+  fleet.roster([],0)
+  delete globalThis.document
+}
+console.log('Simultaneous finish models were separated from each other and the local car')

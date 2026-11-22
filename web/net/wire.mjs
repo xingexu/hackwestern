@@ -2,7 +2,7 @@ export const PROTOCOL=3
 export const HZ=60
 export const CAPACITY=8
 export const BYTES=64
-export const RULES=2
+export const RULES=3
 
 const bits=new DataView(new ArrayBuffer(4))
 function half(x){

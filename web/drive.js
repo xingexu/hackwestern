@@ -283,6 +283,20 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   coupe.rotation.order = 'YXZ';
   const { interior, instruments } = createDriverInterior(THREE, coupe.children[0]);
   scene.add(coupe, interior);
+  const smokeCanvas=document.createElement('canvas');
+  smokeCanvas.width=smokeCanvas.height=32;
+  const smokeContext=smokeCanvas.getContext('2d');
+  const smokeGradient=smokeContext.createRadialGradient(16,16,2,16,16,16);
+  smokeGradient.addColorStop(0,'#f5eaff');
+  smokeGradient.addColorStop(1,'#f5eaff00');
+  smokeContext.fillStyle=smokeGradient;
+  smokeContext.fillRect(0,0,32,32);
+  const smokeTexture=new THREE.CanvasTexture(smokeCanvas);
+  const finishSmoke=Array.from({length:14},()=>{
+    const puff=new THREE.Sprite(new THREE.SpriteMaterial({map:smokeTexture,depthWrite:false}));
+    puff.visible=false;scene.add(puff);
+    return puff;
+  });
   byId('drive-graphics').append(byId('graphics-control'));
   const graphics=qualityControl(true);
   const motion=cameraTravel();
@@ -361,7 +375,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     samples=trial.context?.samples??course.samples??[starts.get(spawn.value)];
     length=samples.at(-1).distance;
     sprintGates=mode==='sprint' && onlineRace ? circuitGates(samples) : null;
-    sim=createDriveSim(samples,{mode,network:trial.context?.network??network,assists:assists.checked});
+    sim=createDriveSim(samples,{mode,network:trial.context?.network??network,assists:assists.checked,online:onlineRace});
     car=sim.state;
     routeMap=createRouteMap(samples,atlas,mode);
     byId('length').textContent=mode==='roam'?'Travelled':Math.round(length)+' m';
@@ -536,7 +550,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   changeCourse(params.get('course')||(photoStart?'roam':document.querySelector('meta[name=campus-course]')?.content));
   await campus.focusRasters(car.x,car.z);
   online=await onlineMenu;
-  online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car,gridPosition(slot){
+  online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car,sampleGround:(x,z,y)=>network.sample(x,z,y),gridPosition(slot){
     if(mode==='roam')return;
     sim.placeOnGrid(slot);
     snapshotPose(previousPose,car);rig.reset(car);placement.reset();
@@ -584,7 +598,8 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     const targetFov=55+(reducedMotion.matches?0:7*THREE.MathUtils.smoothstep(speedKph(car),45,175));
     const fov=camera.fov+(targetFov-camera.fov)*(1-Math.exp(-elapsed*4));
     if(Math.abs(fov-camera.fov)>.001){camera.fov=fov;camera.updateProjectionMatrix();}
-    const pose=interpolatePose(visiblePose,previousPose,car,remaining*120);
+    const finishView=online?.finishView(timestamp);
+    const pose=finishView?.pose??interpolatePose(visiblePose,previousPose,car,remaining*120);
     if (trial.context) pose.y=visualHeight(pose);
     pose.y+=pose.lift;
     trial.render(remaining*120);
@@ -596,11 +611,12 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     const detailChanged=campus.updateDetail(car.x,car.z,100);
     if(detailChanged) collision.invalidate();
     const radius=nearPlaneClearance(camera);
-    if(!driverView) placement.chase(camera.position,pose,view,elapsed,radius);
+    const chase=!driverView || Boolean(finishView);
+    if(chase) placement.chase(camera.position,pose,view,elapsed,radius);
     look.set(camera.position.x+sin*14,camera.position.y+14*(slope-.131),camera.position.z+cos*14);
-    coupe.visible = !driverView;
-    interior.visible = driverView;
-    if (driverView) {
+    coupe.visible = chase;
+    interior.visible = !chase;
+    if (!chase) {
       interior.position.set(pose.x,view.height+.012,pose.z);
       interior.rotation.set(-view.pitch*.60-view.bodyPitch*.3,view.eyeYaw,view.roll*.25,'YXZ');
       instruments(car);
@@ -613,9 +629,21 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
       look.y += (Math.tan(view.pitch*.60)+.20*view.bodyPitch-.035)*14;
       look.z += dz * 14;
     }
+    for(const [i,puff] of finishSmoke.entries()){
+      const emitted=255+Math.floor(i/2)*105;
+      const age=(finishView?.age??0)-emitted;
+      puff.visible=Boolean(finishView && !reducedMotion.matches && age>=0 && age<1050);
+      if(!puff.visible)continue;
+      const tire=finishView.at(emitted),side=i%2?.78:-.78;
+      const sin=Math.sin(tire.heading),cos=Math.cos(tire.heading),t=age/1050;
+      puff.position.set(tire.x-1.52*sin+side*cos,tire.y+.23+t*.66,tire.z-1.52*cos-side*sin);
+      puff.scale.setScalar(.64+t*1.70);
+      puff.material.opacity=.36*(1-t)**2;
+    }
+    online?.separateSprites(pose);
     camera.lookAt(look);
     updateShadow(pose,detailChanged);
-    motion.update(camera,interval,paused?0:car.speed,driverView);
+    motion.update(camera,interval,paused?0:car.speed,!chase);
     renderView(camera,motion.displacement);
     updateHud(timestamp);
     if (window.driveMetrics) {

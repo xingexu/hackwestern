@@ -90,25 +90,24 @@ html[data-ui-instant] ::backdrop { animation: none !important; transition: none 
   display: grid; place-items: center;
   padding: 24px 16px;
   color: var(--cream);
-  background:
-    radial-gradient(circle at 50% 38%, rgb(108 52 214 / 35%), transparent 60%),
-    linear-gradient(var(--ink-2), var(--ink));
+  background: #110d24 url('./loading-campus.png') center / cover no-repeat;
+  image-rendering: pixelated;
   font: 22px/1.25 var(--body);
   overflow: hidden;
 }
 #loader[hidden] { display: none; }
 #loader::before {
-  content: ""; position: absolute; inset: 0; opacity: .5; pointer-events: none;
-  background-image:
-    linear-gradient(var(--mist) 0 0), linear-gradient(var(--mist) 0 0), linear-gradient(var(--lilac) 0 0),
-    linear-gradient(var(--mist) 0 0), linear-gradient(var(--lilac) 0 0), linear-gradient(var(--mist) 0 0);
-  background-size: var(--px) var(--px);
-  background-repeat: no-repeat;
-  background-position: 12% 18%, 82% 12%, 68% 32%, 25% 44%, 90% 52%, 8% 70%;
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: #100a1c38;
 }
-.loader-panel { position: relative; display: grid; justify-items: center; gap: 18px; width: min(560px, 100%); }
+.loader-panel {
+  position: relative; display: grid; justify-items: center; gap: 14px;
+  box-sizing: border-box; width: min(510px, 100%); padding: clamp(15px, 4vw, 26px);
+  background: #150e29ec; border-block: 3px solid #af8cd8;
+  box-shadow: 6px 6px #0e091bd9;
+}
 .loader-logo {
-  width: min(528px, 88vw); height: auto;
+  width: min(410px, 100%); height: auto;
   image-rendering: pixelated;
   animation: px-pop .5s steps(6) both, px-bob 1.2s steps(2) .5s infinite;
 }
@@ -156,7 +155,7 @@ html[data-ui-instant] ::backdrop { animation: none !important; transition: none 
 #loader.is-error #status { color: var(--red); }
 #loader.is-error #status::after, #loader.is-error .loader-road { display: none; }
 #loader.is-error .loader-logo { animation: none; }
-@media (max-height: 520px) { .loader-panel { gap: 10px; } .loader-logo { width: min(352px, 70vw); } .loader-tip { display: none; } }
+@media (max-height: 520px) { .loader-panel { gap: 10px; } .loader-logo { width: min(352px, 100%); } .loader-tip { display: none; } }
 
 .px-wipe {
   position: fixed; inset: 0; z-index: 60; pointer-events: none;

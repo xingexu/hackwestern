@@ -1,6 +1,7 @@
+import {carsOverlap,finishDuration,finishHold,finishPose} from '../race/online-race.mjs'
 import {contact} from '../net/motion.mjs'
 
-export function createFleet(THREE,scene,coupe,audio){
+export function createFleet(THREE,scene,coupe,audio,sampleGround){
   const cars=new Map(),localPaint=coupe.children[0].material,originalColor=localPaint.color.clone()
   let clearing=true, poses=[]
   function add(p){
@@ -38,18 +39,39 @@ export function createFleet(THREE,scene,coupe,audio){
         const row=cars.get(p.id)
         if(row.nickname!==p.nickname)row.rename(p.nickname)
         row.finished=Boolean(p.finish || p.dnf)
+        row.finishStart=p.finishStart
+        row.grid=p.grid??p.slot
       }
       localPaint.color.set(players.find(p=>p.id===me)?.color??originalColor)
     },
-    update(session,car,collide,dt){
+    separate(local,finishing){
+      const visible=[{pose:local,finishing}]
+      // Give active racers the road. Occlude a conflicting finish model until footprints separate.
+      const painted=[...cars.values()].filter(row=>row.model.visible).sort((a,b)=>Number(!!a.finishStart)-Number(!!b.finishStart)
+        || (a.finishStart?.at??0)-(b.finishStart?.at??0) || a.slot-b.slot)
+      for(const row of painted){
+        const finishing=Boolean(row.finishStart)
+        if(visible.some(other=>(finishing || other.finishing) && carsOverlap(row.pose,other.pose)))row.model.visible=false
+        else visible.push({pose:row.pose,finishing})
+      }
+    },
+    update(session,car,collide,dt,serverNow,reducedMotion){
       const now=performance.now(),drawn=[]
       for(const row of cars.values()){
-        const track=session.tracks.get(row.slot),pose=session.clock.synced && track?.draw(now)
+        const track=session.tracks.get(row.slot)
+        const finishAge=serverNow-row.finishStart?.at
+        const pose=row.finishStart
+          ? finishAge<=finishDuration+finishHold && finishPose(row.finishStart,finishAge,row.grid,reducedMotion,sampleGround)
+          : session.clock.synced && track?.draw(now)
+        row.pose=pose
         row.model.visible=!!pose
         if(!pose)continue
         row.model.position.set(pose.x,pose.y+.012,pose.z)
-        row.model.quaternion.fromArray(pose.q)
-        row.model.rotation.reorder('YXZ');row.model.rotation.y=pose.heading
+        if(row.finishStart)row.model.rotation.set(-pose.pitch,pose.heading,pose.roll,'YXZ')
+        else{
+          row.model.quaternion.fromArray(pose.q)
+          row.model.rotation.reorder('YXZ');row.model.rotation.y=pose.heading
+        }
         if(pose.ghost!==row.ghost){
           for(const [src,m] of row.materials){
             m.transparent=src.transparent || pose.ghost;m.opacity=src.opacity*(pose.ghost?.4:1)
@@ -57,7 +79,7 @@ export function createFleet(THREE,scene,coupe,audio){
           }
           row.ghost=pose.ghost
         }
-        drawn.push({track,pose,finished:row.finished})
+        if(!row.finishStart)drawn.push({track,pose,finished:row.finished})
       }
       poses=drawn.map(v=>v.pose)
       if(clearing && poses.length && poses.every(p=>Math.hypot(p.x-car.x,p.z-car.z)>2.3 || Math.abs(p.y-car.y)>1.5))clearing=false

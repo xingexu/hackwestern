@@ -1,3 +1,4 @@
+import {finishAlong,gridPosition} from './race/online-race.mjs'
 import {advanceZones,circuitGates,zoneProgress} from './race/zones.mjs'
 import {inputProfile} from './race/input.mjs'
 import * as dm from './race/math.mjs'
@@ -413,7 +414,7 @@ function guideFromVerge(car) {
   car.lateralSpeed+=clamp(side*2,-1.9,1.9)*(1-car.vergeTime/.55)*DT
 }
 
-function createNetworkDrive(samples, network, mode, assisted) {
+function createNetworkDrive(samples, network, mode, assisted, online) {
   const racing = mode === 'circuit'
   const last = samples.length - 1
   const gates = racing ? circuitGates(samples) : []
@@ -495,22 +496,22 @@ function createNetworkDrive(samples, network, mode, assisted) {
     if (advanceZones(samples,gates,progress,{x:oldX,y:oldY+oldLift,z:oldZ},{x:state.x,y:state.y+state.lift,z:state.z})) {
       state.checkpointsPassed=progress.passed
       state.lastGateDistance=samples[gates[progress.passed-1]].distance
-      if (state.checkpointsPassed === gates.length) {
-        state.nextGate = null
-        state.distance = samples[last].distance
-        state.offCourse = false
-        stopAtFinish(state, wheels)
-        return
-      }
-      state.nextGate = samples[gates[state.checkpointsPassed]]
+      state.nextGate = samples[gates[progress.passed]] ?? null
+    }
+    if (progress.passed === gates.length && (!online || finishAlong(samples,state)>=0)) {
+      state.distance = samples[last].distance
+      state.offCourse = false
+      stopAtFinish(state, wheels)
+      return
     }
     sectorPosition()
   }
   reset()
   function placeOnGrid(slot){
-    if(!racing || !slot)return
-    gridIndex=Math.max(0,samples.findLastIndex(s=>s.distance<=samples[last].distance-slot*5))
-    spawn(samples[gridIndex])
+    if(!racing)return
+    const pose=gridPosition(samples,slot,false)
+    gridIndex=pose.index
+    spawn({...pose,distance:0})
     state.distance=0
   }
   return { state, wheels, step, reset, recover, placeOnGrid }
@@ -518,7 +519,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
 
 export function createDriveSim(samples, options = {}) {
   if (options.mode === 'roam' || options.mode === 'circuit') {
-    return createNetworkDrive(samples, options.network, options.mode, options.assists !== false)
+    return createNetworkDrive(samples, options.network, options.mode, options.assists !== false, options.online)
   }
   const start = samples[0]
   const finish = samples.at(-1)

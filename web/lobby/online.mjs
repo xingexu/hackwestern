@@ -2,9 +2,13 @@ import {pairPhone} from './pair-phone.mjs'
 import {RaceSession,seat} from '../net/race-session.mjs'
 import {createFleet} from './remote.mjs'
 import {pixelCountdown} from '../race/pixel-countdown.mjs'
+import {finishDuration,finishHold,finishPose} from '../race/online-race.mjs'
 import './lobby.css'
 
 const by=id=>document.getElementById(id)
+const ordinal=place=>place+(['','st','nd','rd'][place]??'th')
+const medals=['','gold','silver','bronze']
+
 export function mountOnline(health){
   const menu=document.createElement('dialog')
   menu.id='online-menu'
@@ -26,6 +30,15 @@ export function mountOnline(health){
   by('online-close').onclick=()=>menu.close()
   const banner=document.createElement('output')
   banner.id='race-banner';banner.hidden=true;by('drive-ui').append(banner)
+  const tower=document.createElement('section')
+  tower.id='race-standings';tower.hidden=true;tower.setAttribute('aria-label','Live standings')
+  tower.innerHTML='<h2>Live standings</h2><ol></ol>'
+  const finishCard=document.createElement('div')
+  finishCard.id='race-placement';finishCard.hidden=true;finishCard.setAttribute('role','status')
+  finishCard.innerHTML='<span></span><strong></strong><time></time>'
+  by('drive-ui').append(tower,finishCard)
+  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)')
+  let liveRows=[],standingKey='',finishKey='',standingsAt=0,resultsShown=null,finishScene=null
   const q=new URLSearchParams(location.search),invite=q.get('room')?.toUpperCase()
   const debug=q.has('netdebug')?document.createElement('pre'):null
   if(debug){debug.id='net-debug';by('drive-ui').append(debug)}
@@ -46,7 +59,8 @@ export function mountOnline(health){
     by('drive-course').disabled=false
     if(game)by('trial-open').disabled=false
     if(sprint)game?.changeCourse('sprint')
-    banner.hidden=true
+    banner.hidden=tower.hidden=finishCard.hidden=true
+    liveRows=[];standingKey=finishKey='';standingsAt=0;resultsShown=finishScene=null
     pixelCountdown().hide()
     if(debug)debug.textContent=''
   }
@@ -84,6 +98,36 @@ export function mountOnline(health){
     fleet?.roster(room.players,p.id)
     status(room.drain?'Server updating':connection)
   }
+  function updateStandings(rows){
+    liveRows=rows
+    const keyed=rows.map(({id,nickname,finish,dnf,lap})=>[id,nickname,Boolean(finish),Boolean(dnf),lap])
+    const key=JSON.stringify(keyed)
+    if(key===standingKey)return
+    standingKey=key
+    tower.querySelector('ol').replaceChildren(...rows.map((row,i)=>{
+      const line=document.createElement('li')
+      const place=document.createElement('b'),name=document.createElement('span'),detail=document.createElement('small')
+      place.textContent=String(i+1).padStart(2,'0');name.textContent=row.nickname
+      detail.textContent=row.finish?'✓':row.dnf?'DNF':room.settings.course==='sprint'?'':'L'+((row.lap??0)+1)
+      line.dataset.medal=row.finish?medals[i+1]??'':''
+      if(row.id===session.ticket.id){line.dataset.self='';line.setAttribute('aria-current','true')}
+      line.append(place,name,detail)
+      return line
+    }))
+  }
+  function placementCard(p,now){
+    const place=liveRows.findIndex(row=>row.id===p.id)+1
+    const visible=Boolean(room.race && p.finish && place && now-(p.finishStart?.at??0)>=320)
+    finishCard.hidden=!visible
+    if(!visible){finishKey='';return}
+    const key=room.race+'/'+place
+    if(key===finishKey)return
+    finishKey=key
+    finishCard.dataset.medal=medals[place]??'field'
+    finishCard.children[0].textContent=place===1?'Race winner':'Race finish'
+    finishCard.children[1].textContent=ordinal(place)+' place'
+    finishCard.children[2].textContent=(p.finish/1000).toFixed(2)+' s'
+  }
   function apply(before){
     render()
     if(!game || !room || !session?.connected)return
@@ -93,8 +137,8 @@ export function mountOnline(health){
     if(room.settings.course==='roam' && before?.settings.course!=='roam'){game.changeCourse('roam');session.reset()}
     if(room.race && positioned!==room.race){
       game.changeCourse(room.settings.course,true)
-      game.gridPosition(p.slot)
-      positioned=room.race;reportAt=0;session.reset();fleet.respawn()
+      game.gridPosition(p.grid??p.slot)
+      positioned=room.race;reportAt=0;finishScene=null;session.reset();fleet.respawn()
       menu.close()
     }
     if(room.phase==='positioning' && !p.placed && !placementSent){placementSent=true;send({type:'placed',race:room.race})}
@@ -104,14 +148,24 @@ export function mountOnline(health){
     if(before?.race===room.race && room.race && p.finish && !before.players.find(v=>v.id===p.id)?.finish)game.audio.cue('finish')
     if(!room.race){
       if(positioned){game.changeCourse(room.settings.course);session.reset();fleet.respawn()}
-      positioned=null;placementSent=false
+      positioned=finishScene=null;placementSent=false
     }
-    if(room.phase==='results' && before?.phase!=='results' && !menu.open)menu.showModal()
+    tower.hidden=!room.race
+    updateStandings(room.standings??[])
   }
   let placementSent=false,safeSpot=null
   function connect(ticket,profile){
     sessionStorage.setItem('western-room',JSON.stringify({ticket,profile}))
-    session=new RaceSession(ticket,profile,m=>{const before=room;room=m;apply(before)},s=>{
+    session=new RaceSession(ticket,profile,m=>{
+      if(m.type==='standings'){
+        if(room?.race===m.race && room.phase==='playing' && m.at>standingsAt){
+          standingsAt=m.at
+          updateStandings(m.rows)
+        }
+        return
+      }
+      const before=room;room=m;apply(before)
+    },s=>{
       connection=s
       if(s==='Connected'){loaded=false;placementSent=false;reportAt=0}
       if(session?.closed)clear()
@@ -163,7 +217,7 @@ export function mountOnline(health){
   if(health.multiplayer && prev?.ticket && (!invite || prev.ticket.code===invite))connect(prev.ticket,prev.profile)
   else if(invite && health.multiplayer){by('room-code').value=invite;menu.showModal()}
   return {
-    attach(deps){game=deps;fleet=createFleet(deps.THREE,deps.scene,deps.coupe,deps.audio);apply(null)},
+    attach(deps){game=deps;fleet=createFleet(deps.THREE,deps.scene,deps.coupe,deps.audio,deps.sampleGround);apply(null)},
     get racing(){return !!room?.race},
     get active(){return !!room},
     get opponents(){return room?fleet?.poses:undefined},
@@ -173,6 +227,16 @@ export function mountOnline(health){
       return left>0?String(Math.min(3,Math.ceil(left/1000))):left> -800?'GO':null
     },
     get waiting(){return room?.race && (room.phase==='positioning' || (room.phase==='countdown' && (!session.clock.synced || session.clock.server(performance.now())<room.start)) || room.phase==='results' || state()?.dnf || !!state()?.finish)},
+    finishView(stamp){
+      const p=state(),car=game?.carState()
+      if(!room?.race || !p || p.dnf || (!p.finishStart && (car.phase!=='finished' || p.lap+1!==room.settings.laps)))return null
+      finishScene??={start:p.finishStart??{x:car.x,y:car.y,z:car.z,heading:car.heading},
+        at:p.finishStart?session.clock.local(p.finishStart.at):stamp}
+      const age=stamp-finishScene.at
+      const at=elapsed=>finishPose(finishScene.start,elapsed,p.grid??p.slot,reduceMotion.matches,game.sampleGround)
+      return {pose:at(age),age,at}
+    },
+    separateSprites(pose){fleet?.separate(pose,Boolean(room?.race && (state()?.finish || game.carState().phase==='finished')))},
     get padConnected(){return phone.connected},
     controls(local){return phone.controls(local,game?.carState())},
     recoverySpot(car){
@@ -188,7 +252,15 @@ export function mountOnline(health){
         safeSpot={car,at:stamp,gates:car.checkpointsPassed,pose:{x:car.x,y:car.y,z:car.z,heading:car.nextGate?Math.atan2(car.nextGate.x-car.x,car.nextGate.z-car.z):car.heading,distance:car.distance,phase:car.phase}}
       }
       session.frame(car,input,stamp)
-      fleet.update(session,car,room.settings.collisions && (!room.race || room.phase==='playing') && !p.finish && car.phase!=='finished',dt)
+      fleet.update(session,car,room.settings.collisions && (!room.race || room.phase==='playing') && !p.finish && car.phase!=='finished',dt,now,reduceMotion.matches)
+      placementCard(p,now)
+      if(room.phase==='results' && resultsShown!==room.race){
+        const lastFinish=Math.max(0,...room.players.map(player=>player.finishStart?.at??0))
+        if(now>=lastFinish+finishDuration+finishHold){
+          resultsShown=room.race
+          if(!menu.open)menu.showModal()
+        }
+      }
       const seconds=Math.ceil((room.start-now)/1000),left=Math.ceil((room.deadline-now)/1000)
       const untilStart=(room.start-now)/1000
       if(room.race && session.clock.synced && (room.phase==='countdown' || room.phase==='playing') && untilStart>-1 && untilStart<=3.2)pixelCountdown().sync(untilStart)
@@ -197,7 +269,7 @@ export function mountOnline(health){
       const raceProgress=room.settings.course==='sprint'
         ? car.nextGate ? 'Checkpoint '+(car.checkpointsPassed+1)+' / '+car.checkpointCount : 'UC Hill Sprint'
         : 'Lap '+(p.lap+1)+' / '+room.settings.laps
-      const label=!session.connected?connection:room.drain?'Server updating':room.phase==='positioning'?'Taking starting positions…':room.phase==='countdown' && seconds>0?'Starting in '+seconds:stuck>2?'Stuck? '+(phone.connected || matchMedia('(pointer:coarse)').matches?'Tap Recover':pad?'Press Menu to recover':'Press R to recover'):p.finish?'Finished':room.phase==='playing'?raceProgress+(left<=30?' · '+left+' s left':''):''
+      const label=!session.connected?connection:room.drain?'Server updating':room.phase==='positioning'?'Taking starting positions…':room.phase==='countdown' && seconds>0?'Starting in '+seconds:stuck>2?'Stuck? '+(phone.connected || matchMedia('(pointer:coarse)').matches?'Tap Recover':pad?'Press Menu to recover':'Press R to recover'):p.finish?'':room.phase==='playing'?raceProgress+(left<=30?' · '+left+' s left':''):''
       banner.hidden=!label
       if(banner.textContent!==label)banner.textContent=label
       if(session.connected && room.phase==='playing' && !p.finish && !p.dnf && car.phase==='finished' && stamp>=reportAt){

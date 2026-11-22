@@ -74,6 +74,7 @@ export class RaceSession{
         this.revision=m.revision
         this.roster(m.players);this.receive(m)
       }
+      else if(m.type==='standings' && m.revision===this.revision)this.receive(m)
       else if(m.type==='signal')this.signal(m.from,m.data)
     },typeof data==='string')
     ws.onclose=e=>{

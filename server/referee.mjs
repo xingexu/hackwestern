@@ -2,6 +2,7 @@ import {decode,encode,newer,HZ} from '../web/net/wire.mjs'
 import {StampMap} from '../web/net/timing.mjs'
 import {distance} from '../web/net/motion.mjs'
 
+import {finishAlong,gridPosition} from '../web/race/online-race.mjs'
 import {ROAD_HALF_WIDTH} from '../web/drive-sim.mjs'
 import circuits from '../web/race/courses.mjs'
 import sprint from '../web/drive-route.json' with {type:'json'}
@@ -16,17 +17,40 @@ function atSprintFinish(point){
   return dx*tx+dz*tz>=0 && Math.abs(dx*tz-dz*tx)<=ROAD_HALF_WIDTH*length && Math.abs(point.y-end.y)<=2.2
 }
 
-export function observeRacePose(r,p,pose) {
+const finishOrder=(a,b)=>(a.finish||Infinity)-(b.finish||Infinity) || (a.slot??0)-(b.slot??0)
+
+export function standings(r) {
+  if(r.phase==='results')return r.results
+  const active=r.players.map(p=>({id:p.id,nickname:p.nickname,slot:p.slot,finish:p.finish,dnf:p.dnf,lap:p.lap,
+    distance:p.track?.distance??0,grid:p.grid??p.slot??0}))
+  return [...r.results,...active].sort((a,b)=>((a.finish||Infinity)-(b.finish||Infinity)) || Number(!!a.dnf)-Number(!!b.dnf) ||
+    (b.lap??0)-(a.lap??0) || (b.distance??0)-(a.distance??0) || (a.grid??a.slot??0)-(b.grid??b.slot??0))
+}
+
+function measureProgress(samples,indices,track,point) {
+  const first=indices[track.passed-1]??0, last=indices[track.passed]??samples.length-1
+  let distance=samples[first].distance, nearest=Infinity
+  for(let i=first;i<last;i++){
+    const a=samples[i],b=samples[i+1],dx=b.x-a.x,dz=b.z-a.z
+    const t=Math.min(1,Math.max(0,((point.x-a.x)*dx+(point.z-a.z)*dz)/(dx*dx+dz*dz || 1)))
+    const error=(point.x-a.x-t*dx)**2+(point.z-a.z-t*dz)**2
+    if(error<nearest){nearest=error;distance=a.distance+t*(b.distance-a.distance)}
+  }
+  return distance
+}
+
+export function observeRacePose(r,p,pose,stamp) {
   if (r.phase!=='playing' || p.dnf || p.finish) return false
   const samples=courses[r.settings.course].samples,indices=gates[r.settings.course]
   const track=p.track??={...zoneProgress(),point:null}
-  const {x,y,z,epoch}=pose,point={x,y,z,epoch}
+  const {x,y,z,epoch,heading}=pose,point={x,y,z,epoch,heading,stamp}
   const prev=track.point
   if (!prev || epoch!==prev.epoch || Math.hypot(x-prev.x,z-prev.z)>12) {
     const recovery=r.settings.course==='sprint' && prev && epoch!==prev.epoch && Math.hypot(x-prev.x,z-prev.z)<8
-    const anchor=recovery?prev:samples[indices[track.passed-1]??0]
+    const anchor=recovery?prev:track.passed?samples[indices[track.passed-1]]:gridPosition(samples,p.grid??p.slot??0,r.settings.course==='sprint')
     if (Math.hypot(x-anchor.x,z-anchor.z)>(track.passed?10:17) || Math.abs(y-anchor.y)>2.5) return false
     track.point=point
+    track.distance=measureProgress(samples,indices,track,point)
     track.near=true
     track.missed=false
     return true
@@ -34,6 +58,11 @@ export function observeRacePose(r,p,pose) {
   const near=track.near,missed=track.missed
   const credited=advanceZones(samples,indices,track,prev,point)
   track.point=point
+  track.distance=measureProgress(samples,indices,track,point)
+  if(track.passed===indices.length && !track.crossing && Number.isFinite(prev.stamp) && Number.isFinite(stamp)){
+    const from=finishAlong(samples,prev),to=finishAlong(samples,point)
+    if(from<0 && to>=0)track.crossing=prev.stamp+(stamp-prev.stamp)*(-from/(to-from))
+  }
   return Boolean(credited || near!==track.near || missed!==track.missed)
 }
 
@@ -72,7 +101,7 @@ export function transition(r,now){
   if(r.phase==='countdown' && now>=r.start){r.phase='playing';r.deadline=r.start+r.settings.limit*1000}
   if(r.phase==='playing' && (now>=r.deadline || (connected.length && connected.every(p=>p.finish || p.dnf)) || !r.players.length)){
     for(const p of r.players)if(!p.finish)p.dnf=true
-    r.results=[...r.results,...r.players.map(p=>({id:p.id,nickname:p.nickname,finish:p.finish,dnf:!p.finish}))].sort((a,b)=>(a.finish||Infinity)-(b.finish||Infinity))
+    r.results=[...r.results,...r.players.map(p=>({id:p.id,nickname:p.nickname,slot:p.slot,finish:p.finish,dnf:!p.finish}))].sort(finishOrder)
     r.phase='results';r.deadline=0
   }
 }
@@ -83,7 +112,7 @@ export function lobby(r){
 export function removePlayer(r,id,now){
   const p=r.players.find(p=>p.id===id)
   if(!p)return
-  if(r.race && r.phase!=='results')r.results.push({id,nickname:p.nickname,finish:p.finish,dnf:!p.finish})
+  if(r.race && r.phase!=='results')r.results.push({id,nickname:p.nickname,slot:p.slot,finish:p.finish,dnf:!p.finish})
   r.players=r.players.filter(p=>p.id!==id)
   r.host=r.players[0]?.id??null
   transition(r,now)
@@ -97,12 +126,20 @@ export function command(r,p,m,now,raceId){
   }else if(m.type==='ready' && p.loaded && r.phase==='lobby' && typeof m.ready==='boolean' && m.ready!==p.ready)p.ready=m.ready
   else if(m.type==='start' && p.id===r.host && !r.drain && r.phase==='lobby' && r.settings.course!=='roam' && connected.length>=2 && connected.length===r.players.length && connected.every(p=>p.loaded && p.ready)){
     Object.assign(r,{race:raceId(),phase:'positioning',deadline:now+10000,results:[]})
-    for(const player of r.players)Object.assign(player,{placed:false,lap:0,finish:0,dnf:false,vote:false,track:null})
+    const offset=r.gridRotation??0
+    r.players.forEach((player,i)=>Object.assign(player,{grid:(i+offset)%r.players.length,placed:false,
+      lap:0,finish:0,dnf:false,vote:false,track:null,finishStart:null}))
+    r.gridRotation=(offset+r.players.length-1)%r.players.length
   }else if(m.type==='placed' && !p.placed && r.phase==='positioning' && m.race===r.race)p.placed=true
-  else if(m.type==='lap' && r.phase==='playing' && m.race===r.race && !p.dnf && !p.finish && m.lap===p.lap+1 && p.track?.passed===gates[r.settings.course].length && (r.settings.course!=='sprint' || atSprintFinish(p.track.point))){
+  else if(m.type==='lap' && r.phase==='playing' && m.race===r.race && !p.dnf && !p.finish && m.lap===p.lap+1 && p.track?.passed===gates[r.settings.course].length && (r.settings.course==='sprint' ? atSprintFinish(p.track.point) : finishAlong(courses[r.settings.course].samples,p.track.point)>=0)){
+    const {point,crossing}=p.track
     p.track=null
     p.lap++
-    if(p.lap===r.settings.laps)p.finish=Math.max(1,now-r.start)
+    if(p.lap===r.settings.laps){
+      p.finish=Math.max(1,Math.min(now,crossing??now)-r.start)
+      const {x,y,z,heading}=point
+      p.finishStart={x,y,z,heading:heading??courses[r.settings.course].samples.at(-1).heading,at:now}
+    }
   }else if(m.type==='vote' && !p.vote && r.race && m.race===r.race){
     p.vote=true
   }else return false

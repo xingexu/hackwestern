@@ -9,8 +9,9 @@ import {chromium} from 'playwright'
 import {setTimeout as delay} from 'node:timers/promises'
 import {PROTOCOL,RULES} from '../web/net/wire.mjs'
 import {SIM_VERSION} from '../web/race/version.mjs'
+import courses from '../web/race/courses.mjs'
+import {gridPosition} from '../web/race/online-race.mjs'
 import sprintSamples from '../web/drive-route.json' with {type:'json'}
-import {createDriveSim} from '../web/drive-sim.mjs'
 import {decodeReplay} from '../web/race/replay.mjs'
 
 const root=fileURLToPath(new URL('../',import.meta.url))
@@ -166,15 +167,14 @@ try{
   const roomCode=(await host.locator('#room-label').innerText()).split(' ').at(-1)
   assert.equal(await host.locator('#race-course').inputValue(),'sprint')
   assert.ok(await host.locator('#race-laps').isDisabled())
-  const sprintGrid=Array.from({length:8},(_,slot)=>{
-    const sim=createDriveSim(sprintSamples)
-    sim.placeOnGrid(slot)
-    return sim.state
-  })
-  assert.ok(await host.evaluate(grid=>grid.every(({x,y,z})=>{
-    const {network}=window.driveMetrics
-    return network.sample(x,z,y).surface==='road' && !network.blocked(x,z,y,.9)
-  }),sprintGrid))
+  for(const [id,{samples}] of Object.entries({...courses,sprint:{samples:sprintSamples}})){
+    const grid=Array.from({length:8},(_,spot)=>gridPosition(samples,spot,id==='sprint'))
+    const blocked=await host.evaluate(grid=>grid.flatMap(({x,y,z},slot)=>{
+      const {network}=window.driveMetrics
+      return network.sample(x,z,y).surface==='road' && !network.blocked(x,z,y,.9)?[]:[slot]
+    }),grid)
+    assert.deepEqual(blocked,[],id+' starting grid road clearance')
+  }
   const guest=await desktop('Blake',roomCode)
   assert.equal(await guest.locator('#room-code').inputValue(),roomCode)
   await guest.locator('#room-code').fill(roomCode)
@@ -215,7 +215,12 @@ try{
   await Promise.all([host,guest].map(p=>p.locator('#race-ready').click()))
   await host.locator('#race-start').click()
   for(const p of [host,guest]) await p.waitForFunction(()=>window.driveMetrics.course==='stadium' && !document.querySelector('#race-banner').hidden)
-  for(const p of [host,guest]) assert.ok(await p.locator('#trial-open').isDisabled())
+  for(const p of [host,guest]){
+    assert.ok(await p.locator('#trial-open').isDisabled())
+    assert.ok(await p.locator('#race-standings').isVisible())
+    assert.equal(await p.locator('#race-standings li').count(),2)
+    assert.equal(await p.locator('#race-standings li[data-self]').count(),1)
+  }
   await Promise.all([host,guest].map(p=>p.waitForFunction(()=>document.querySelector('#race-countdown').textContent==='2' && !document.querySelector('#race-countdown').hidden,null,{timeout:10000})))
   const cues=await Promise.all([host,guest].map(p=>p.locator('#race-countdown').innerText()))
   assert.deepEqual(cues,['2','2'])
@@ -248,7 +253,17 @@ try{
     if(stats.every(s=>s.phase==='finished'))break
     await delay(1000)
   }
-  for(const page of [host,guest])await page.waitForFunction(()=>document.querySelector('#room-roster').textContent.includes('2. '),null,{timeout:3000})
+  for(const page of [host,guest])await page.waitForFunction(()=>document.querySelector('#online-menu').open && document.querySelector('#room-roster').textContent.includes('2. '),null,{timeout:12000})
+  const medals=await Promise.all([host,guest].map(page=>page.locator('#race-placement').getAttribute('data-medal')))
+  assert.deepEqual(medals.sort(),['gold','silver'])
+  for(const page of [host,guest]){
+    const coast=await page.evaluate(()=>{
+      const {car}=window.driveMetrics
+      const {position}=window.driveMetrics.inspectLook().scene.getObjectByName('Sports coupe')
+      return Math.hypot(position.x-car.x,position.z-car.z)
+    })
+    assert.ok(coast>=6 && coast<=13,'finish camera should follow a separate, settled pose')
+  }
   assert.equal(await host.locator('#room-roster').innerText(),await guest.locator('#room-roster').innerText())
   const saved=await (await fetch(worker+'/api/rooms/'+roomCode+'/results')).json()
   assert.equal(saved.at(-1).results.filter(r=>r.finish>0).length,2)

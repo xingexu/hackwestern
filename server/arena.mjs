@@ -1,5 +1,5 @@
 import {json,nicknameOK,readBytes} from './common.mjs'
-import {observeRacePose,Relay,newRoundRoom,command,transition,removePlayer,seatGrace,drainGrace} from './referee.mjs'
+import {observeRacePose,standings,Relay,newRoundRoom,command,transition,removePlayer,seatGrace,drainGrace} from './referee.mjs'
 import {CAPACITY,PROTOCOL,RULES} from '../web/net/wire.mjs'
 import {iceServers} from './ice.mjs'
 import {SIM_VERSION} from '../web/race/version.mjs'
@@ -56,7 +56,7 @@ export class Arena{
   send(ws,m){if(ws.readyState===1)ws.send(JSON.stringify(m))}
   view(){
     const r=this.r
-    return {...r,type:'room',players:r.players.map(({token,account,until,arrival,track,...p})=>p)}
+    return {...r,type:'room',standings:r.race?standings(r):[],players:r.players.map(({token,account,until,arrival,track,...p})=>p)}
   }
   event(p,name){
     console.log(JSON.stringify({event:name,room:this.r.code,mode:this.r.settings.course,arrival:p.arrival,player:p.id,playerCount:this.r.players.length,phase:this.r.phase}))
@@ -155,7 +155,12 @@ export class Arena{
       if(!p.loaded || r.phase==='results')return
       const packet=this.relay.receive(p.slot,msg,now,c.rtt,!!c.allowReset)
       if(!packet)return
-      const advanced=observeRacePose(r,p,this.relay.sources.get(p.slot).state)
+      const advanced=observeRacePose(r,p,this.relay.sources.get(p.slot).state,this.relay.sources.get(p.slot).serverStamp)
+      if(r.phase==='playing' && now>=(this.standingsAt??0)){
+        this.standingsAt=now+250
+        const update={type:'standings',race:r.race,revision:r.revision,at:now,rows:standings(r)}
+        for(const peer of this.sockets())this.send(peer,update)
+      }
       if(advanced || (r.phase==='playing' && p.track?.point && now>=(c.snapshotAt??0))){
         c.snapshotAt=now+300
         ws.serializeAttachment({id:p.id,race:r.race,lap:p.lap,track:p.track})
