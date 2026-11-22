@@ -6,6 +6,8 @@ export const horizonHaze = new THREE.Color(0xd4dce0);
 const autumnDisplay=THREE.ShaderChunk.tonemapping_fragment+`
   #ifdef TONE_MAPPING
     vec3 printRGB=gl_FragColor.rgb;
+    float luminance=dot(printRGB,vec3(.2126,.7152,.0722));
+    gl_FragColor.rgb*=1.+.72*(1.-smoothstep(.010,.061,luminance))*smoothstep(0.,.006,luminance);
     float green=printRGB.g-max(printRGB.r,printRGB.b);
     float chroma=smoothstep(.035,.19,green);
     float shoulder=1.-smoothstep(.60,.95,printRGB.g);
@@ -95,7 +97,7 @@ export function daylight(renderer,scene,background){
   renderer.toneMapping=THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure=.91;
   renderer.shadowMap.enabled=true;
-  renderer.shadowMap.type=THREE.PCFShadowMap;
+  renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   renderer.shadowMap.autoUpdate=false;
   const skyScene=new THREE.Scene();
   const sky=daylightSky();
@@ -115,7 +117,7 @@ export function daylight(renderer,scene,background){
   sky.material.dispose();
   const sun=new THREE.DirectionalLight(0xffefda,3.12);
   sun.castShadow=true;
-  scene.add(sun,sun.target,new THREE.HemisphereLight(0xd6e1ee,0x958674,1.05));
+  scene.add(sun,sun.target,new THREE.HemisphereLight(0xdae4ec,0xa49a86,1.32));
   return sun;
 }
 
@@ -130,7 +132,6 @@ export function followShadows(renderer,sun,quality){
     sun.shadow.mapSize.setScalar(Math.min(mapSize,renderer.capabilities.maxTextureSize));
     Object.assign(sun.shadow.camera,{left:-reach,right:reach,bottom:-reach,top:reach,near:1,far:360});
     const texel=2*reach/sun.shadow.mapSize.x;
-    sun.shadow.radius=Math.min(2.55,.18/texel);
     sun.shadow.normalBias=1.64*texel;
     sun.shadow.bias=-.55*texel/(sun.shadow.camera.far-sun.shadow.camera.near);
     sun.shadow.camera.updateProjectionMatrix();

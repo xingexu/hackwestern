@@ -48,6 +48,7 @@ async function load(page, url) {
   }, undefined, { timeout: 15000 });
   const state=await result.jsonValue();
   assert.equal(state,'ready',[state,...failures].join('\n'));
+  await page.waitForFunction(() => window.campusMetrics.paintReady(), undefined, { timeout: 30000 });
   assert.ok(await page.locator('#view').evaluate(canvas => canvas.getContext('webgl2')));
 }
 

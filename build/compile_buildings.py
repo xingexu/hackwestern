@@ -197,6 +197,18 @@ def automatic(b,p,legacy,cloud,regional):
 
 def roof_surface(poly,roof):
     form="suspended" if roof.get("suspension") else roof.get("form","flat")
+    stations=roof.get("ribStations")
+    if form=="barrel" and stations and all(poly.buffer(.025).covers(Point(point)) for pair in stations for point in pair):
+        vertices=[];indices=[]
+        for station,(left,right) in enumerate(stations):
+            for j in range(9):
+                u=j/8
+                x,z=np.array(left)*(1-u)+np.array(right)*u
+                vertices.append([round(x,4),round(roof.get("rise",.38)*4*u*(1-u),4),round(z,4)])
+                if station and j:
+                    k=len(vertices)-1
+                    indices.extend([k-10,k-9,k,k-10,k,k-1])
+        return [vertices,indices]
     rect=np.array(poly.minimum_rotated_rectangle.exterior.coords)[:4]
     sides=np.roll(rect,-1,axis=0)-rect
     axis=sides[np.argmax(np.linalg.norm(sides,axis=1))]
@@ -553,7 +565,7 @@ def assemble(b,spec,p,portals):
                                 eligible.append((gap+2.5*(1-direction),int(k)))
                         ids.append(min(eligible)[1] if eligible else -1)
                     selectors.append(ids)
-                curves=[[0]*len(loop) if roof.get("suspension") else curved_edges(loop) for loop in loops]
+                curves=[[0]*len(loop) if roof.get("suspension") or roof.get("ribStations") else curved_edges(loop) for loop in loops]
                 rounded=curved_outline(loops,curves)
                 if rounded.is_valid:shell=rounded
                 else:curves=[[0]*len(loop) for loop in loops]

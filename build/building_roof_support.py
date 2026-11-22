@@ -132,10 +132,14 @@ def measured_plant(record,surface,origin,ortho):
                 if np.mean(body)-np.mean(rgb)>18 and min(w,d)>2.2:
                     row["housing"]="fan"
             candidates.append((n*height,i,footprint,row))
-    for _,i,shape,row in sorted(candidates,key=lambda e:-e[0])[:6]:
-        point=shape.centroid
+    limit=max(6,min(24,math.ceil(unary_union(plates).area/350)))
+    accepted=0
+    for _,i,shape,row in sorted(candidates,key=lambda e:-e[0]):
+        if accepted>=limit:
+            break
         if any(geom.intersects(shape) for geom in occupied):
             continue
+        accepted+=1
         occupied.append(shape.buffer(.5))
         roof=record["parts"][i]["roof"]
         roof["features"]=[*roof.get("features",[]),row]

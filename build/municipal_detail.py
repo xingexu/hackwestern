@@ -358,7 +358,7 @@ def build():
     data["surveyFences"]=fences
     data["furniture"]=furniture
     platform_furniture(data["furniture"],network,amenities,json.loads(OUT.with_name("street-detail.json").read_bytes()))
-    data["woodlots"]=woodlots(outer,core,tiles)
+    data["woodlots"]=woodlots(outer,core,tiles,data["furniture"]["datedTrees"])
     data["woodlots"]["estates"]=estate_crowns()
     estate=data["woodlots"]["estates"]
     estate_index=cKDTree([p[:2] for p in estate])

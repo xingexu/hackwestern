@@ -132,7 +132,11 @@ if __name__=='__main__':
 def measured_tracks():
     raw=json.loads(OUT.read_bytes())
     records=[(LineString(np.reshape(flat,(-1,2))),gold) for flat,gold in raw]
-    zones=[[],[]]
+    from painted_gores import markings as gore_markings
+    channel,certified=gore_markings()
+    records=[(piece,gold) for line,gold in records for piece in shapely.get_parts(line if gold else line.difference(certified)) if piece.geom_type=='LineString' and piece.length>.12]
+    records+=channel
+    zones=[[certified],[]]
     for ink in [0,1]:
         marks=[g for g,k in records if k==ink]
         tree=shapely.STRtree(marks)

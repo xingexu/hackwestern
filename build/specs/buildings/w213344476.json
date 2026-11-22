@@ -422,12 +422,12 @@
       {
         "type": "hvac",
         "center": [
-          247.5,
-          553.25
+          248.0,
+          558.73
         ],
         "size": [
-          8.9,
-          4.5
+          8.36,
+          6.75
         ],
         "height": 2.4,
         "material": "steel",
@@ -435,18 +435,18 @@
         "style": "cooling tower fans",
         "fanGrid": [
           2,
-          2
+          1
         ]
       },
       {
         "type": "hvac",
         "center": [
-          258,
-          550.6
+          259.65,
+          555.89
         ],
         "size": [
-          9.2,
-          4.5
+          8.2,
+          6.9
         ],
         "height": 2.4,
         "material": "steel",
@@ -454,7 +454,7 @@
         "style": "cooling tower fans",
         "fanGrid": [
           2,
-          2
+          1
         ]
       },
       {

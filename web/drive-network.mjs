@@ -107,7 +107,7 @@ function facetHeight(triangles,x,z){
 }
 
 function deckPanel(way,cross,next,groundAt){
-  const half=way.width/2, faces=[],carriage=[],walks=[],banks=[],skirts=[];
+  const half=way.width/2, faces=[],carriage=[],walks=[],banks=[],skirts=[],abutments=[];
   let reach=0;
   const a=cross(0),b=next(0),length=Math.hypot(b[0]-a[0],b[2]-a[2]);
   const rows=way.bridge?1:Math.ceil(length/.9);
@@ -145,22 +145,52 @@ function deckPanel(way,cross,next,groundAt){
       const ux=edge[0]-center[0],uz=edge[2]-center[2],span=Math.hypot(ux,uz);
       const curb=mix(cross.sides[i].walk,next.sides[i].walk,t)>.01 || way.kind==='path';
       edge[1]+=curb?.12*mix(cross.weight,next.weight,t):0;
+      const limit=way.kind==='path'?Math.min(1.25,way.width*.43):19;
       let toe,d=.26;
       do{
         const x=edge[0]+d*ux/span,z=edge[2]+d*uz/span;
         toe=[x,groundAt(x,z)-.008,z];
-        if(edge[1]-toe[1]<.36*d || d>=19)break;
-        d+=.5;
+        if(edge[1]-toe[1]<.36*d || d>=limit)break;
+        d=Math.min(limit,d+.5);
       }while(true);
       reach=Math.max(reach,span+d);
       return [edge,toe];
     }
-    let row=bankRow(0);
-    for(let j=1;j<=rows;j++){
-      const nextRow=bankRow(j/rows),quad=[row[0],nextRow[0],nextRow[1],row[1]];
+    function addBank(inner,outer){
+      const quad=[inner[0],outer[0],outer[1],inner[1]];
       skirts.push(quad);
       banks.push([quad[0],quad[1],quad[2]],[quad[0],quad[2],quad[3]]);
+    }
+    let row=bankRow(0);
+    for(let j=1;j<=rows;j++){
+      const nextRow=bankRow(j/rows);
+      addBank(row,nextRow);
       row=nextRow;
+    }
+    for(const end of [0,1]){
+      if((end?next:cross).weight!==1)continue;
+      const mouth=bankRow(end),center=end?b:a,other=end?a:b;
+      const edge=mouth[0],rise=edge[1]-groundAt(edge[0],edge[2]);
+      if(rise<.14)continue;
+      const toe=mouth[1],ground=groundAt(edge[0],edge[2]);
+      if(toe[1]<ground-.08){
+        const base=[edge[0],ground-.02,edge[2]];
+        abutments.push([edge,toe,[toe[0],toe[1]-.02,toe[2]],base]);
+        continue;
+      }
+      const run=Math.min(way.kind==='path'?1.25:4,rise/.32);
+      const dx=(center[0]-other[0])/length*run,dz=(center[2]-other[2])/length*run;
+      let previous=mouth;
+      const steps=Math.ceil(run/.55);
+      for(let j=1;j<=steps;j++){
+        const t=j/steps,section=mouth.map(([px,py,pz])=>{
+          const x=px+t*dx,z=pz+t*dz;
+          return [x,groundAt(x,z)+(1-t)*(py-groundAt(px,pz)),z];
+        });
+        if(end)addBank(previous,section);else addBank(section,previous);
+        for(const [x,,z] of section)reach=Math.max(reach,Math.hypot(x-center[0],z-center[2]));
+        previous=section;
+      }
     }
   }
   function layerAt(x,z){
@@ -173,7 +203,7 @@ function deckPanel(way,cross,next,groundAt){
     const walk=facetHeight(walks,x,z);
     return walk>road ? {y:walk,walk:true} : {y:road,walk:false};
   }
-  return {at,faces,skirts,reach,layerAt};
+  return {at,faces,skirts,abutments,reach,layerAt};
 }
 
 function bridgeProfiles(ways,groundAt,pavement) {
@@ -500,9 +530,9 @@ export function createRoadNetwork(data,region,ground,pavement,landClass) {
       }
       const terrain=groundAt(x,z);
       const parking=region.buildingSolids.parkingSurface?.(x,z,y,terrain);
-      const wheel=Math.abs(terrain-y)<1.2?terrain:y;
-      const low=parking?parking.y:Math.min(y,wheel),high=parking?parking.y:Math.max(y,wheel);
-      if(region.buildingSolids.surfaceContact(x,z,low+.16,high+height-.04,r))return true;
+      const wheel=parking?.y??terrain;
+      const base=Math.abs(wheel-bodyY)<.8?Math.max(wheel,bodyY):bodyY;
+      if(region.buildingSolids.surfaceContact(x,z,base+.16,base+height-.04,r))return true;
     }else for (const p of buildings.at(x,z)) {
       if (y+height>=p.low && y<=p.high && touchesPolygon(p,x,z,r)) return p
     }

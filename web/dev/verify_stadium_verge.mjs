@@ -1,16 +1,20 @@
-import {spawn} from 'node:child_process'
+import {execFileSync,spawn} from 'node:child_process'
+import {mkdtemp,rm} from 'node:fs/promises'
+import {tmpdir} from 'node:os'
+import {join} from 'node:path'
 import {once} from 'node:events'
 import {chromium} from 'playwright'
 import {verifyStadiumVerge} from './verify_ground_materials.mjs'
 
-const server=spawn(process.execPath,['serve.mjs','--port','0'],{stdio:['ignore','pipe','inherit']})
-let browser
+const bundle=await mkdtemp(join(tmpdir(),'western-stadium-'))
+let server,browser
 try{
+  execFileSync(process.execPath,['node_modules/vite/bin/vite.js','build'],{env:{...process.env,CAMPUS_RACE_PREVIEW:bundle},stdio:'pipe'})
+  server=spawn(process.execPath,['serve.mjs','--root',bundle,'--port','0'],{stdio:['ignore','pipe','inherit']})
   const [ready]=await once(server.stdout,'data')
   const base=ready.toString().match(/http:\/\/127\.0\.0\.1:\d+/)[0]
   browser=await chromium.launch({args:process.platform==='darwin'?['--use-angle=metal']:[]})
   const page=await browser.newPage({viewport:{width:1100,height:680}})
-  page.setDefaultTimeout(120000)
   await page.goto(base+'/?diagnostics')
   await page.waitForFunction(()=>window.driveMetrics?.frames>=5)
   await page.selectOption('#spawn','Western Alumni Stadium')
@@ -19,5 +23,6 @@ try{
   await verifyStadiumVerge(page)
 }finally{
   await browser?.close()
-  server.kill()
+  server?.kill()
+  await rm(bundle,{recursive:true,force:true})
 }

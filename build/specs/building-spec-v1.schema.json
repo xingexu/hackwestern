@@ -808,6 +808,16 @@
           "type": "number",
           "description": "Ridge height above the eaves, metres. Use pitch or rise."
         },
+        "ribStations": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {"$ref": "#/$defs/point"}
+          }
+        },
         "ridge": {
           "oneOf": [
             {
@@ -1412,6 +1422,9 @@
                 "minimum": 0
               }
             }
+          },
+          "material": {
+            "$ref": "#/$defs/materialRef"
           },
           "surround": {
             "$ref": "#/$defs/materialRef"

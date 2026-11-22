@@ -233,6 +233,12 @@ def make_network():
     core = json.loads((WEB / "campus-ground.json").read_text())
     near = np.frombuffer(zlib.decompress(base64.b64decode(core["heightMillimeters"])), dtype="<u2").reshape(geo.DEPTH,geo.WIDTH) * .001
 
+    from site_frontages import exposed_core
+    exposure=exposed_core().astype(float)/255
+    lidar=ndimage.gaussian_filter(geo.lidar_surfaces()[0],1.2)
+    surveyed=lidar-lidar.min()+4
+    near=near+(surveyed-near)*exposure
+
     def elevation(points):
         x,z = points.T
         ix = np.maximum(0, np.minimum(len(xs)-2, xs.searchsorted(x, side="right")-1))
@@ -369,7 +375,14 @@ def make_network():
                 barriers.append([t,np.round(np.asarray(line.coords),2).ravel().tolist()])
         elif e["type"]=="node" and t in ("bollard","block","cycle_barrier"):
             barriers.append([t,np.round(nodes[e["id"]],2).tolist()])
-    return dict(bounds=BOUNDS, ways=ways, buildingBases=building_bases, areas=mapped_areas(elements,by_id,nodes), circuits=circuits, water=water, coreBuildings=footprints, barriers=barriers)
+    network=dict(bounds=BOUNDS, ways=ways, buildingBases=building_bases, areas=mapped_areas(elements,by_id,nodes), circuits=circuits, water=water, coreBuildings=footprints, barriers=barriers)
+    from parking_perimeters import surveyed_perimeters
+    for index,apron in enumerate(surveyed_perimeters(network)):
+        network['areas'].append(dict(id=f'city-parking-kerb-{index}',kind='parking',material='asphalt',name='',rings=rings(apron)))
+    from parking_bays import painted_frontages
+    for index,apron in enumerate(components(painted_frontages(network),'Polygon')):
+        network['areas'].append(dict(id=f'city-painted-parking-{index}',kind='parking',material='asphalt',name='',rings=rings(apron)))
+    return network
 
 
 def check(data):

@@ -43,6 +43,15 @@ const [bx,bz]=deck.deckStructure.spans[0];
 assert.ok(!contacts.surfaceContact(bx,bz,.55,1.4,.1),'Beam bay must have clear driving space');
 const steel=buildArchitecture([garage],2);
 assert.ok(faces(steel,m=>m.surface==='picket').some(t=>Math.max(...t.map(v=>v[1]))-Math.min(...t.map(v=>v[1]))>.4),'Curved upper picket fence missing');
+const concretePiers=garage.parts.filter(p=>/concrete pier/i.test(p.name));
+assert.equal(concretePiers.length,3);
+const pierMesh=architectureMesh(steel);
+pierMesh.updateMatrixWorld(true);
+for(const pier of concretePiers){
+  const [x,z]=pier.center;
+  const probe=new Raycaster(new Vector3(x,-1,z),new Vector3(0,1,0),0,1.2);
+  assert.ok(probe.intersectObject(pierMesh,true).some(hit=>Math.abs(hit.point.y+.1)<.01),'Concrete stair pier lacks its footing at grade');
+}
 const hospital=byId.get('r21319537-0');
 const contact=solids(hospital),front=hospital.parts.find(p=>p.openSoffit),door=hospital.spec.entrances.find(e=>e.type==='garage' && e.boundEdge.startsWith(hospital.parts.indexOf(front)+':'));
 assert.ok(front && door);
@@ -84,6 +93,16 @@ stackMesh.updateMatrixWorld(true);
 const intoFacade=(x,y)=>new Raycaster(new Vector3(x,y,-1),new Vector3(0,0,1),0,3).intersectObject(stackMesh,true)[0]?.distance;
 assert.ok(Math.abs(intoFacade(4.15,.45)-1.24)<.005,'Spandrel must sit 24 cm inside the masonry opening');
 assert.ok(Math.abs(intoFacade(3.25,.45)-1)<.005,'Masonry pier must remain at the surveyed face');
+const narrow=rectangle(0);
+narrow.rings[0]=[[0,0],[9,0],[9,1.1],[0,1.1]];
+narrow.facade={...stack.facade,verticalSpandrels:undefined,windows:{...stack.facade.windows,recess:.33}};
+const narrowModel=architectureMesh(buildArchitecture([{...stackRecord,parts:[narrow]}],2));
+narrowModel.updateMatrixWorld(true);
+for(const [z,direction] of [[-1,1],[2.1,-1]]){
+  const sight=new Raycaster(new Vector3(4.27,1.54,z),new Vector3(0,0,direction));
+  const hits=sight.intersectObject(narrowModel,true).filter(h=>!h.object.isInstancedMesh);
+  assert.ok(hits.length>1 && hits[0].object.material.transparent && !hits[1].object.material.transparent,'A thin projecting bay must present glazing before its interior lining on both elevations');
+}
 const upperGalleries=gallery.parts.filter(p=>p.name.includes('standing-seam slope'));
 assert.ok(upperGalleries.filter(p=>p.courtyardEdges?.length).length>=2,'Terraced courtyard must expose glazing on both upper galleries');
 const supply=rectangle(0,21);
@@ -124,10 +143,26 @@ const library=audited.get('w118764108');
 assert.ok(library.parts.reduce((count,p)=>count+(p.soffitRibs?.length??0),0)>15,'Cantilever must cast individual coffer shadows');
 const socialScience=audited.get('w141710484');
 fitArchitecture([socialScience],(x,z)=>.004*x+.008*z);
+const roofGlazing=faces(buildArchitecture([socialScience],2),m=>m.kind==='glass-block' && m.color===socialScience.spec.materials.roofglass.color);
+assert.ok(roofGlazing.some(t=>t.every(([x,,z])=>x>138 && x<151 && z>190 && z<202)),'SSC rooflight must retain its surveyed opal block finish');
 const ramp=socialScience.spec.attachments.find(a=>a.type==='ramp');
 const toeGrade=.004*ramp.path[0][0]+.008*ramp.path[0][1];
 assert.ok(Math.abs(ramp.stairLevels[0]-toeGrade-.035)<.001);
 assert.ok(Math.abs(ramp.stairLevels.at(-1)-ramp.stairLevels[0]-ramp.height)<.001);
+const bikeShelter=byId.get('w778714547'),canopy=bikeShelter.parts[0];
+const stations=canopy.roof.ribStations;
+assert.ok(stations.length>=5);
+for(const [i,[left,right]] of stations.entries()){
+  const [x,h,z]=canopy.surface[0][i*9+4];
+  assert.ok(Math.hypot(x-(left[0]+right[0])/2,z-(left[1]+right[1])/2)<.01 && Math.abs(h-canopy.roof.rise)<.005,'Each shelter rib must follow the curved centreline');
+}
+const power=byId.get('w213344476');
+solids(power);
+const fans=architectureMesh(buildArchitecture([power],2));fans.updateMatrixWorld(true);
+for(const [x,z] of [[246.0,559.3],[250.0,558.2],[257.7,556.4],[261.6,555.35]]){
+  ray.set(new Vector3(x,25,z),new Vector3(0,-1,0));
+  assert.ok(ray.intersectObject(fans,true)[0]?.point.y>14.32,'Northern cooling fan bank missing from its surveyed roof');
+}
 const lodge=byId.get('w119875065'),teal=lodge.spec.materials.coping.color;
 const mansard=lodge.parts.find(p=>p.roof.form==='mansard');
 for(const level of [0,2]){

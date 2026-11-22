@@ -12,10 +12,11 @@
       "color": "#e3cd9e",
       "secondaryColor": "#c9b991",
       "unitSize": [
-        7.8,
-        1.4
+        4.05,
+        1.18
       ],
-      "variation": 0.045
+      "variation": 0.045,
+      "surface": "scored precast"
     },
     "roof": {
       "kind": "gravel-ballast",
@@ -107,11 +108,12 @@
         "material": "wall"
       },
       "piers": {
-        "width": 0.56,
-        "depth": 0.29,
+        "width": 0.38,
+        "depth": 0.23,
         "every": 2,
         "material": "wall",
-        "fullHeight": true
+        "fullHeight": true,
+        "height": 3.85
       }
     },
     "byWall": {
@@ -409,6 +411,28 @@
             "material": "trim"
           }
         ]
+      },
+      "0": {
+        "bays": {
+          "count": 2,
+          "edgeMargin": 0.44
+        },
+        "windows": {
+          "type": "punched",
+          "width": 0.52,
+          "height": 0.67,
+          "sill": 4.08,
+          "perBay": 4,
+          "spacing": 0.23,
+          "recess": 0.22,
+          "frameColor": "#a49e88",
+          "glassColor": "#4c5551",
+          "mullions": {
+            "vertical": 0,
+            "horizontal": 0
+          },
+          "surround": "none"
+        }
       }
     }
   },

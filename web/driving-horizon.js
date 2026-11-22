@@ -167,7 +167,7 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
   cover.magFilter=THREE.LinearFilter;cover.minFilter=THREE.LinearMipmapLinearFilter;cover.generateMipmaps=true;
   cover.needsUpdate=true;
   const material=new THREE.MeshStandardMaterial({roughness:.94});
-  material.customProgramCacheKey=()=>'surveyed-campus-surroundings';
+  material.customProgramCacheKey=()=>'surveyed-campus-surroundings-2';
   material.onBeforeCompile=shader=>{
     shader.uniforms.contextCover={value:cover};
     shader.uniforms.regionalPavement={value:landscape.pavement};
@@ -189,7 +189,10 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
       vec2 surveyTone=texture2D(surveyColour,clamp(regionalUV,0.,1.)).rg;
       vec3 land=summerLawn(contextXZ,surveyTone.r,grain.r);
       vec3 woodland=forestFloor(contextXZ,grain);
-      land=mix(land,woodland,smoothstep(.04,.96,textureLod(contextCover,uv,2.25).g));
+      float trees=textureLod(contextCover,uv,2.25).g;
+      float canopy=textureLod(contextCover,uv,4.25).g;
+      float litter=max(trees,.77*smoothstep(.19,.75,canopy));
+      land=mix(land,woodland,smoothstep(.04,.96,litter+.10*(grain.b-.05)));
       land=mix(land,vec3(.094,.093,.087)*(1.+.44*grain.g+.55*(surveyTone.g-.502)),edge.r);
       land=mix(land,vec3(.286,.270,.240)*(1.+.37*grain.b),edge.b);
       float shore=smoothstep(.04,.46,weights.a);
@@ -199,7 +202,9 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
       if(all(greaterThanEqual(regionalUV,vec2(0.)))&&all(lessThanEqual(regionalUV,vec2(1.)))){
         float street=texture2D(regionalPavement,regionalUV).r;
         float aa=clamp(fwidth(street),.025,.44);
-        land=mix(land,vec3(.061,.062,.061)*(1.+.42*grain.g+.55*(surveyTone.g-.502)),smoothstep(.5-aa,.5+aa,street)*(1.-edge.a));
+        float aggregate=riverNoise(contextXZ*2.6)-.5,wear=riverNoise(contextXZ*.091)-.5;
+        vec3 bitumen=vec3(.061,.062,.061)*(1.+.46*grain.g+.17*aggregate+.21*wear+.55*(surveyTone.g-.502));
+        land=mix(land,bitumen,smoothstep(.5-aa,.5+aa,street)*(1.-edge.a));
       }
       diffuseColor.rgb*=land;`);
     riverFinish(shader,'contextXZ','edge.a');
@@ -214,7 +219,7 @@ export async function createCampusContext(THREE,meta,landscape,unpack,groundDeta
     const bindings=new Float32Array(await unpack(meta.backdrop.nearStems));
     for(let i=0;i<bindings.length;i+=6)trees[bindings[i]*4+3]=anchoredHeight(positions,bindings,i);
   }
-  const vegetation=contextTrees(THREE,trees);
+  const vegetation=contextTrees(THREE,trees,landscape.permitsContextTree);
   group.add(vegetation);
   group.traverse(o=>o.layers.set(1));
   group.userData.vertices=positions;

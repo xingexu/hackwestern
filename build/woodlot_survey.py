@@ -14,7 +14,7 @@ from campus_bounds import footprint
 from ground_observations import orthophoto, survey_tile
 
 
-def woodlots(outer,core,tiles):
+def woodlots(outer,core,tiles,observations):
     land=json.loads(region.OUT.with_name('ground-materials.json').read_bytes())['landcover']
     cover=np.frombuffer(zlib.decompress(base64.b64decode(land['samples'])),np.uint8).reshape(land['height'],land['width'])
     left,top,right,bottom=land['bounds']
@@ -27,13 +27,23 @@ def woodlots(outer,core,tiles):
     classes=cover[np.ix_(v,u)]
     campus=contains_xy(site,xs[None,:],zs[:,None])
     woods=(classes==2)&campus
+    islands,_=ndimage.label(heights>4)
+    areas=np.bincount(islands.ravel())*(xs[1]-xs[0])*(zs[1]-zs[0])
+    measured=set()
+    for x,z,height,radius,form in observations:
+        col,row=map(int,region.pix(x,z))
+        if 0<=row<len(zs) and 0<=col<len(xs):
+            component=islands[row,col]
+            if component and height>=8 and areas[component]<=math.pi*(1.5*radius)**2:
+                measured.add(component)
+    isolated=np.isin(islands,list(measured))
     closed=ndimage.uniform_filter(((heights>4)&woods).astype(np.float32),5)>.66
     stems=[(p[0],p[2]) for p in outer['trees']+core['trees']]
     stems.extend(p[:2] for tile in tiles.values() for p in tile.get('trees',[]))
     stems.extend(p[:2] for p in land['observations']['trees'])
     survey=json.loads(region.OUT.with_name('canopy-survey.json').read_bytes())
     stems.extend(p[:2] for tile in survey['tiles'].values() for p in tile['stems'])
-    row,col=np.where(woods&closed&(heights>4)&(heights<33))
+    row,col=np.where(woods&closed&~isolated&(heights>4)&(heights<33))
     clear=cKDTree(stems).query(np.column_stack([xs[col],zs[row]]))[0]
     spacing=np.clip(heights[row,col]*.13+3.6,5.45,6.6)
     peaks=ndimage.gaussian_filter(heights,.65)[row,col]
@@ -85,19 +95,49 @@ def woodlots(outer,core,tiles):
                 if brown>.71 and g.std()>10:
                     dormant.append([x,z,h,round(min(8.2,max(1.8,h*.33)),2),10])
     lawn=np.isin(classes,[0,1])&campus
-    park=park_crowns(heights,lawn,xs,zs,stems+[p[:2] for p in trees])
+    park=park_crowns(heights,lawn&~isolated,xs,zs,stems+[p[:2] for p in trees])
     established=stems+[p[:2] for p in trees+park]
-    recruits,understory=woodland_structure(heights,classes,campus,xs,zs,established)
-    return dict(trees=trees,bare=bare,park=park,recruits=recruits,understory=understory,dormantSurvey=dormant)
+    recruits,understory=woodland_structure(heights,classes,campus,xs,zs,established,isolated)
+    inventory=json.loads(region.OUT.parents[1].joinpath('build/survey_ground.json').read_bytes())
+    surveyed={tuple(p[:2]) for p in inventory['trees']}
+    redundant=[]
+    for x,z,*_ in land['observations']['trees']:
+        if (x,z) in surveyed:continue
+        col,row=map(int,region.pix(x,z))
+        if 0<=row<len(zs) and 0<=col<len(xs) and isolated[row,col]:redundant.append([x,z])
+    regional=regional_habits(outer['trees'],classes,campus)
+    return dict(regionalHabits=regional,trees=trees,bare=bare,park=park,recruits=recruits,understory=understory,dormantSurvey=dormant,redundantPeaks=redundant)
 
 
-def woodland_structure(heights,classes,campus,xs,zs,established):
+def regional_habits(trees,classes,campus):
+    tiles={}
+    for x,_,z,h,*_ in trees:
+        u,v=map(int,region.pix(x,z))
+        if not (0<=u<campus.shape[1] and 0<=v<campus.shape[0] and campus[v,u] and classes[v,u] in (0,1,2,11) and h>4):continue
+        key=math.floor(x/150)*150,math.floor(z/150)*150
+        tiles.setdefault(key,[]).append((x,z,h))
+    habits=[]
+    for (tx,tz),stems in sorted(tiles.items()):
+        photo=np.asarray(survey_tile(tx,tz),dtype=np.int16)
+        for x,z,h in stems:
+            u,v=int((x-tx)*4),int((z-tz)*4)
+            radius=round(np.clip(h*.5,6,15))
+            patch=photo[max(0,v-radius):v+radius+1,max(0,u-radius):u+radius+1]
+            red,green,blue=patch.transpose(2,0,1)
+            branches=(red>green+3)&(red>blue+12)&(green>38)&(green<155)
+            needles=(green>red+4)&(green>blue+3)&(green<122)
+            if branches.mean()>.72 and green.std()>9 and needles.mean()<.07:habits.append([x,z,10])
+            elif needles.mean()>.63 and green.std()>6:habits.append([x,z,1])
+    return habits
+
+
+def woodland_structure(heights,classes,campus,xs,zs,established,isolated):
     smooth=ndimage.gaussian_filter(heights,.64)
     vegetation=campus&np.isin(classes,[0,1,2,11])
     in_woods=classes==2
     texture=ndimage.maximum_filter(smooth,5)-ndimage.minimum_filter(smooth,5)
     peaks=(smooth==ndimage.maximum_filter(smooth,3))&(heights>=3)&(heights<33)&(texture>1.45)
-    row,col=np.where(vegetation&peaks)
+    row,col=np.where(vegetation&peaks&~isolated)
     xy=np.column_stack((xs[col],zs[row]))
     clear=cKDTree(established).query(xy)[0]
     candidates={}
@@ -131,7 +171,7 @@ def woodland_structure(heights,classes,campus,xs,zs,established):
             recruits.append([round(x,2),round(z,2),round(h,2),round(width,2),form])
             planted.setdefault(key,[]).append((x,z))
     canopy=ndimage.uniform_filter((heights>3.5).astype(np.float32),5)
-    wooded=campus&in_woods&(canopy>.48)&(heights>2.)&(heights<34.)
+    wooded=campus&in_woods&~isolated&(canopy>.48)&(heights>2.)&(heights<34.)
     spacing=(zs[1]-zs[0],xs[1]-xs[0])
     river=ndimage.distance_transform_edt(classes!=6,sampling=spacing)
     wooded_margin=ndimage.distance_transform_edt(in_woods,sampling=spacing)

@@ -22,6 +22,18 @@ function top(object,x,z){
   return ray.intersectObject(object)[0]?.point.y??-Infinity;
 }
 for(const entry of measured)assert.ok(byId.get(entry.id)?.parts.length,entry.name+' has no compiled geometry');
+for(const [id,x,z,h] of [['cooling-store-north',39.05,-73.05,2.55],['cooling-store-long',36.63,-62.72,2.55],['cooling-store-west',34.23,-63.25,2.55],['cooling-store-south',26.31,-54.7,2.55],['biomedical-service-west',86.36,21.17,2.75],['biomedical-service-east',97.77,20.54,2.75]]){
+  const enclosure=model('survey-'+id);
+  assert.ok(Math.abs(top(enclosure,x,z)-10-h)<.12,'Missing surveyed service enclosure '+id);
+  assert.ok(top(enclosure,92,21)<10,'Equipment blocks the Biomedical service aisle');
+}
+const stands=model('survey-tennis-bleachers');
+const frontSeat=top(stands,287.15,1408.35),backSeat=top(stands,285.5,1404.36);
+assert.ok(frontSeat>10 && backSeat>frontSeat+.7,'Tennis seating must rise away from the court');
+const cabinets=model('survey-plaza-cabinets');
+assert.ok(top(cabinets,-9.4,92.7)>11.3 && top(cabinets,-5.5,92.7)>11.2 && top(cabinets,-7.33,92.6)<10,'Switchgear housings must leave their service joint open');
+assert.ok(top(model('survey-ballfield-store'),140.42,1417.32)>11.8);
+assert.ok(top(model('survey-studio-yard-cabinet'),614.52,32.55)>11.7);
 const housing=structuredClone(records);addBoundaryHousing(housing,region);
 assert.equal(housing.filter(b=>b.id==='w123525237').length,1);
 assert.equal(byId.get('w123525237').parts.filter(p=>p.roof.form==='gable').length,5);
@@ -56,6 +68,26 @@ for(const id of ['survey-glasshouse','survey-hoophouse']){
   const growingRoom=buildArchitecture([byId.get(id)],2);
   assert.ok(growingRoom.styles.every(style=>growingRoom.palette[style].kind!=='interior'),'Opaque wall inside '+id);
 }
+const researchRoof=model('survey-glasshouse');
+const [ga,gb,gc,gd]=byId.get('survey-glasshouse').parts[0].rings[0];
+const roofPanel=t=>[0,1].map(k=>(ga[k]*.75+gb[k]*.25)*(1-t)+(gd[k]*.75+gc[k]*.25)*t);
+for(let i=1;i<6;i++){
+  const bar=top(researchRoof,...roofPanel(i/6)),pane=top(researchRoof,...roofPanel((i+.5)/6));
+  assert.ok(bar>pane+.035 && bar<pane+.16,'Measured greenhouse crossbar must follow the gable slope');
+}
+const stadiumClub=structuredClone(byId.get('w142216960')),portal=stadiumClub.spec.entrances[0];
+fitArchitecture([stadiumClub],ground);
+for(const lod of [1,2]){
+  const packet=buildArchitecture([stadiumClub],lod);
+  const glazed=packet.palette.flatMap((finish,id)=>finish.color===portal.doorColor && finish.kind==='glazing' && finish.glass==='reflective'?[id]:[]);
+  assert.ok(packet.styles.some((style,i)=>glazed.includes(style) && Math.hypot(packet.positions[3*i]-portal.at[0],packet.positions[3*i+2]-portal.at[1])<3.3),'Stadium portal must contain reflective glass');
+}
+const chemistry=model('r7932252');
+for(const [x,z] of [[328.83,-68.74],[324.05,-67.58],[315.54,-66.67],[325.32,-63.07]]){
+  assert.ok(top(chemistry,x,z)>23.3 && top(chemistry,x,z)<23.8,'Chemistry air handler must sit above its raised service deck');
+}
+for(const [x,z] of [[323,-74],[333,-65],[327,-66.5]])assert.ok(Math.abs(top(chemistry,x,z)-21.8)<.1,'Chemistry plant roof must leave service aisles between the units');
+assert.ok(Math.abs(top(chemistry,340,-63)-18.65)<.1,'Chemistry east membrane sits below the service deck');
 const condo=structuredClone(byId.get('w123525238'));
 const grade=(x,z)=>8+.05*x+.035*z;
 const solids=fitArchitecture([condo],grade);

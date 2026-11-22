@@ -57,7 +57,7 @@ try{
     assert.equal(await page.evaluate(()=>driveMetrics.car.offCourse),false)
     const area=await page.evaluate(hudArea)
     if(phone){
-      assert.ok(area.share<=15,kind+' HUD covered '+area.share+'%')
+      assert.ok(area.share<=5.865,kind+' HUD covered '+area.share+'%')
       assert.ok(!await card.isVisible() && !await page.locator('#mobile-drive-hint').isVisible())
       assert.ok((await page.locator('.instruments').boundingBox()).height<30)
       for(const b of await page.locator('#touch-drive [data-key]').all()){
@@ -66,7 +66,7 @@ try{
       }
       assert.ok(await page.locator('#checkpoint-direction').isVisible())
     }else{
-      assert.ok(area.share<=15.225,'Desktop HUD exceeded its 1280 × 720 footprint: '+area.share+'%')
+      assert.ok(Math.abs(area.share-14.75)<.15,'Desktop HUD changed its compact 1280 × 720 footprint: '+area.share+'%')
       const panel=await card.boundingBox(),cue=await page.locator('#checkpoint-direction').boundingBox()
       assert.ok(panel && cue && panel.x+panel.width<cue.x,'Course controls overlap the checkpoint cue')
       assert.ok(await page.locator('#route-plan').isVisible() && await page.locator('#powertrain').isVisible() && await page.locator('#surface').isVisible())

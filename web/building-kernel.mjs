@@ -183,7 +183,7 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
     const left=u-width/2,right=u+width/2,peak=sill+height;
     const clearance=near?wallDepth(f,left,right):3.4;
     const projection=opening.projection??(type==='oriel'?.55:0);
-    const back=near && projection===0?-Math.min(clearance*.80,Math.max(.11,depth)+.045):.015;
+    const back=near && projection===0?-Math.min(clearance*.38,Math.max(.11,depth)+.045):.015;
     const profile=openingProfile(type,width,height);
     const inner=profile.map(([x,y])=>[u+x*width,sill+y*height]);
     if(near && opening.spandrel){
@@ -244,7 +244,7 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
     }
     const pane=near?trimmed:outline;
     if(near && palette[glass].opacity<1 && !win.openBack){
-      const innerDepth=Math.max(-clearance,back-Math.min(2.3,Math.max(.72,width*.54),Math.max(.72,Math.min(left,f.len-right))));
+      const innerDepth=Math.max(clearance<3.4?-clearance*.495:-clearance,back-Math.min(2.3,Math.max(.72,width*.54),Math.max(.72,Math.min(left,f.len-right))));
       const rear=material('#727063',{kind:'interior'});
       f.rect(left,sill,right,sill+height,rear,innerDepth);
       for(const [a,c] of [[outline[0],outline[1]],[outline[0],outline.at(-1)],[outline[1],outline[2]]])face([f.at(...a,back),f.at(...c,back),f.at(...c,innerDepth),f.at(...a,innerDepth)],rear);
@@ -314,6 +314,13 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
     }
     face(high,mat,null,[0,1,0]);
     return low.map(p=>[p[0],p[2]]);
+  }
+  function entranceLeaf(e){
+    const dType=e.type??'doors-double',finish=s.materials[e.material];
+    if(finish?.kind==='glass-curtain' || dType==='glass-vestibule' || dType==='revolving'){
+      return material(e.material??'frame',{kind:'glazing',color:e.doorColor??finish?.color??'#788e94',frameColor:s.materials.frame?.color??'#9c9486',glass:'reflective',roughness:.20,opacity:near?.91:1,vertical:1,horizontal:1,line:.021});
+    }
+    return material('frame',{kind:'door',opaqueLeaf:dType==='doors-single',doorSlats:['garage','loading-dock'].includes(dType),unitSize:[1,e.doorSlatHeight??(dType==='garage'?.245:.115)],color:e.doorColor??s.materials[e.material??'door']?.color??(dType.includes('portal')?'#594437':'#50636a'),vertical:['doors-single','garage','loading-dock'].includes(dType)?0:1,horizontal:['garage','loading-dock'].includes(dType)?0:1,frameColor:'#9c9486',line:.035});
   }
   function entrance(f,e,u,y){
     const w=e.width??2.3,h=e.height??2.7,steps=Math.min(40,e.steps??0),trim=material(e.surround??'trim');
@@ -593,7 +600,7 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
         let left=0;
         for(const {e,l,r,u,width,sill,head} of accesses){
           f.rect(left,lo,l,top,wall);f.rect(l,lo,r,sill,wall);f.rect(l,head,r,top,wall);
-          opening(f,{l,r,bot:sill,top:head},{u,width,sill,height:head-sill,type:e.type,depth:e.recess??.28,frameWidth:.09,glass:material('frame',{kind:'door',color:e.doorColor??'#536976'}),trim:material('frame'),win:{}},wall);
+          opening(f,{l,r,bot:sill,top:head},{u,width,sill,height:head-sill,type:e.type,depth:e.recess??.28,frameWidth:.09,glass:entranceLeaf(e),trim:material('frame'),win:{}},wall);
           left=Math.max(left,r);
         }
         f.rect(left,lo,len,top,wall);
@@ -806,7 +813,7 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
           windows.splice(i,1,...spans.map(([l,r])=>({...window,slotL:l,slotR:r,u:(l+r)/2,width:Math.min(window.width,r-l)})));
         }
         const dType=e.type??'doors-double';
-        windows.push({u,width,sill:Math.max(j===0?lo:floor,y),height:Math.max(.01,Math.min(ceiling,y+(e.height??2.7))-Math.max(startFloor===0?lo:floor,y)),type:'punched',cutOnly:true,doorType:dType,fanlight:e.fanlight??(dType==='doors-single' && s.style==='residential-brick'),sidelights:e.sidelights,depth:e.recess??.28,glass:material('frame',{kind:'door',opaqueLeaf:dType==='doors-single',doorSlats:['garage','loading-dock'].includes(dType),unitSize:[1,e.doorSlatHeight??(dType==='garage'?.245:.115)],color:e.doorColor??s.materials[e.material??'door']?.color??(dType.includes('portal')?'#594437':'#50636a'),vertical:['doors-single','garage','loading-dock'].includes(dType)?0:1,horizontal:['garage','loading-dock'].includes(dType)?0:1,frameColor:'#9c9486',line:.035}),trim:material(e.surround??'trim'),frameWidth:.11,win:{hoodMould:dType.includes('portal'),surround:'stone'}});
+        windows.push({u,width,sill:Math.max(j===0?lo:floor,y),height:Math.max(.01,Math.min(ceiling,y+(e.height??2.7))-Math.max(startFloor===0?lo:floor,y)),type:'punched',cutOnly:true,doorType:dType,fanlight:e.fanlight??(dType==='doors-single' && s.style==='residential-brick'),sidelights:e.sidelights,depth:e.recess??.28,glass:entranceLeaf(e),trim:material(e.surround??'trim'),frameWidth:.11,win:{hoodMould:dType.includes('portal'),surround:'stone'}});
       }
       if(medium)for(const w of windows){
         if(multi || w.cutOnly)continuous.push([w.u-w.width/2-.035,w.u+w.width/2+.035,w.sill,w.sill+w.height]);
@@ -1163,7 +1170,7 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
     }
     if(t.flagpole)block(x,top+3.2,z,.09,6.4,.09,0,trim);
   }
-  function curvedRoofNormals(vertices,index){
+  function curvedRoofNormals(vertices,index,fabric){
     const sums=vertices.map(()=>[0,0,0]);
     for(let i=0;i<index.length;i+=3){
       const ids=index.slice(i,i+3),[a,c,d]=ids.map(i=>vertices[i]);
@@ -1171,7 +1178,11 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
       const n=[ay*bz-az*by,az*bx-ax*bz,ax*by-ay*bx],orientation=n[1]<0?-1:1;
       for(const vi of ids)for(let j=0;j<3;j++)sums[vi][j]+=orientation*n[j];
     }
-    return sums.map(n=>{const k=127/Math.max(.00001,Math.hypot(...n));return n.map(v=>Math.round(v*k));});
+    return sums.map((n,i)=>{
+      if(fabric)n[1]*=Math.min(1,Math.max(0,vertices[i][1])/1.3);
+      const k=127/Math.max(.00001,Math.hypot(...n));
+      return n.map(v=>Math.round(v*k));
+    });
   }
   function mansardFinish(part){
     const roof=part.roof,edgeMaterials=[part.facade,...Object.values(part.wallProfiles??{})].map(p=>p?.parapet?.material??p?.cornice?.material);
@@ -1361,15 +1372,23 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
           }
           continue;
         }
+        const sectional=!fan && /sectional|packaged air handler/.test(style) && long>3 && short>1;
         const body=long,along=0;
         const sample=/^#[0-9a-f]{6}$/i.test(row.material)?[1,3,5].map(i=>parseInt(row.material.slice(i,i+2),16)):null;
         const shadedSample=style==='measured roof plant' && sample && Math.max(...sample)<102;
         const coating=shadedSample?'#929692':palette[m].color;
-        const casing=material(row.material??'#a6aca7',{kind:'metal-panel',color:coating,roughness:.57});
-        block(...at(along,hh*.535,0),body,hh*.89,short,rot,casing);
+        const casing=material(row.material??'#a6aca7',{kind:'painted-metal',color:coating,opacity:1,roughness:.57});
+        if(sectional){
+          block(...at(-body*.14,hh*.54,0),body*.72,hh*.90,short,rot,casing);
+          block(...at(body*.36,hh*.435,0),body*.28,hh*.69,short*.96,rot,casing);
+        }else block(...at(along,hh*.535,0),body,hh*.89,short,rot,casing);
         if(medium){
           block(...at(0,hh*.06,0),body*.94,hh*.12,short*.91,rot,dark);
-          block(...at(0,hh*.98,0),body+.06,Math.min(.075,hh*.07),short+.06,rot,casing);
+          block(...at(sectional?-body*.14:0,hh*.98,0),body*(sectional?.72:1)+.06,Math.min(.075,hh*.07),short+.06,rot,casing);
+          if(sectional){
+            block(...at(body*.36,hh*.79,0),body*.28+.04,Math.min(.065,hh*.06),short*.96+.04,rot,casing);
+            if(near)for(const u of [-.26,-.02,.21])block(...at(body*u,hh*.94,0),.055,.11,short+.03,rot,frameMat);
+          }
         }
         if(medium){
           const vents=Math.max(2,Math.min(7,Math.round(body/.8)));
@@ -1391,7 +1410,8 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
           }
         }
       }else if(['skylight','clerestory','solar-panels'].includes(type)){
-        const frameFinish=material('frame'),panel=type==='solar-panels'?material('#344354',{kind:'spandrel-glass',roughness:.24}):material(row.material??'#99b2b7',{kind:'glass-curtain',opacity:.74});
+        const opal=type==='skylight' && palette[m].kind==='glass-block';
+        const frameFinish=material('frame'),panel=opal?material(row.material,{kind:'glass-block',roughness:.32,metalness:.04,opacity:1}):type==='solar-panels'?material('#344354',{kind:'spandrel-glass',roughness:.24}):material(row.material??'#99b2b7',{kind:'glass-curtain',opacity:.74});
         const ridge=type==='skylight'?0:d*.48,curb=Math.min(.25,hh*.35);
         const hipped=type==='skylight' && (Math.max(w,d)/Math.min(w,d)>1.75 || /linear|ridge|hip/.test(style));
         if(hipped){
@@ -1415,8 +1435,15 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
           face([p(-w*.5,low,edge),p(w*.5,low,edge),p(w*.5,hh,ridge),p(-w*.5,hh,ridge)],panel,null,[0,1,0]);
           for(const end of [-1,1])face([p(end*w*.5,low,edge),p(end*w*.5,low,ridge),p(end*w*.5,hh,ridge)],m);
           if(near){
-            const bays=Math.max(1,Math.round(w/1.25));
+            const bays=Math.max(1,Math.round(w/(row.bayWidth??1.25)));
             for(let j=0;j<=bays;j++)beam(p(w*(j/bays-.5),low,edge),p(w*(j/bays-.5),hh,ridge),.055,frameFinish);
+            if(opal){
+              const courses=Math.max(1,Math.round(Math.abs(edge-ridge)/(row.bayWidth??1.25)));
+              for(let j=1;j<courses;j++){
+                const v=edge+(ridge-edge)*j/courses,h=low+(hh-low)*j/courses;
+                beam(p(-w*.5,h,v),p(w*.5,h,v),.05,frameFinish);
+              }
+            }
           }
         }
         beam(p(-w*.5,hh,ridge),p(w*.5,hh,ridge),.09,frameFinish);
@@ -1857,6 +1884,9 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
       }else solid(part.solidRings??part.rings,lo,top);
       const finish=part.roof.material??'roof';
       const rm=material(finish,{...part.roofFinish,roofSurface:true,parkingMarkings:part.parkingAngle===undefined?0:part.parkingAngle+4,drivingSurface:garage?'parking':undefined}),wall=material(part.material??'wall');
+      if(medium && part.low===0 && part.grade && part.rings.length===1 && part.rings[0].length===4 && /concrete pier/i.test(part.name??'')){
+        face(part.rings[0].map(([x,z],i)=>[x,part.grade[0][i]-.10,z]),wall,null,[0,-1,0]);
+      }
       const stairShaft=s.style==='parking-structure' && /(?:stair|lift).*shaft/i.test(part.name??'');
       if(stairShaft && medium){
         const ring=part.rings[0],edges=ring.map((a,j)=>frame(a,ring[(j+1)%ring.length])).sort((a,b)=>b.len-a.len),f=edges[0];
@@ -1877,9 +1907,11 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
         }
       }
       const roofGlass=medium && s.materials[finish]?.kind==='glass-curtain';
-      const deck=garage?material(part.roof.material??'roof',{kind:'concrete-smooth',roughness:.93,drivingSurface:'parking'}):wall;
+      const paintedDeck=part.parkingAngle===undefined?{}:{roofSurface:true,parkingMarkings:part.parkingAngle+4};
+      const deck=garage?material(part.roof.material??'roof',{kind:'concrete-smooth',roughness:.93,drivingSurface:'parking',...paintedDeck}):wall;
       if(part.garageApron && medium){
-        const baseSlab=material('#98978e',{kind:'concrete-smooth',roughness:.92,drivingSurface:'parking'});
+        const angle=part.apronParkingAngle??part.parkingAngle;
+        const baseSlab=material('#98978e',{kind:'concrete-smooth',roughness:.92,drivingSurface:'parking',roofSurface:angle!==undefined,parkingMarkings:angle===undefined?0:angle+4});
         for(const tri of part.garageApron)face(tri,baseSlab,null,[0,1,0]);
       }
       if(medium && part.soffitRibs){
@@ -1923,12 +1955,12 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
         if(sides.length>=2){
           const f=sides[0],g=sides[1],span=Math.abs((g.a[0]-f.a[0])*f.nx+(g.a[1]-f.a[1])*f.nz),frameMat=material('frame');
           const central=s.seating?.centralSection,section=Math.max(1,b.parts.filter(p=>/^seating row/i.test(p.name??'')).length),rowIndex=Math.max(0,Number(part.name.match(/row\s+(\d+)/i)?.[1]??pi+1)-1),row=rowIndex/section;
-          const modules=Math.max(1,Math.round(f.len/8));
+          const modules=Math.max(1,Math.round(f.len/(s.seating?.sectionWidth??8)));
           if(level===0)f.box(f.len/2,top+.14,-span*.55,f.len,.12,span*.43,material('wall'));
           for(let k=0;k<modules && level!==0;k++){
             const a=(k+.5)/modules,u=f.len*a;
             const color=central&&a>central.alongStand[0]&&a<central.alongStand[1]&&row>central.acrossRake[0]&&row<central.acrossRake[1]?material(central.material):material('wall');
-            f.box(u,top+.14,-span*.55,f.len/modules-.72,.12,span*.43,color);
+            f.box(u,top+.14,-span*.55,Math.max(.10,f.len/modules-(s.seating?.aisleWidth??.72)),.12,span*.43,color);
             if(medium && k>0 && k%2===0 && rowIndex%3===0){
               const aisle=k*f.len/modules;
               const a=f.at(aisle,top+.86,-span*.14),c=f.at(aisle,top+1.12,-span*.91);
@@ -1972,9 +2004,19 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
         }
       }
       if(!collisionOnly){
+        const stations=part.roof.ribStations;
+        if(medium && stations?.length && vertices.length===stations.length*9){
+          const tube=material('trim'),point=(i,j,drop)=>{const [x,h,z]=vertices[i*9+j];return [x,top+h-drop,z];};
+          for(let i=0;i<stations.length;i++){
+            for(let j=1;j<=8;j++)beam(point(i,j-1,.05),point(i,j,.05),.072,tube);
+            if(i===0)continue;
+            for(const j of [0,4,8])beam(point(i-1,j,.075),point(i,j,.075),.072,tube);
+            if(near)beam(point(i-1,0,.10),point(i,4,.10),.05,tube);
+          }
+        }
         const boundary=new Map();
         const curved=part.roof.suspension?.profile?.roofPoints || ['dome','barrel','upswept'].includes(part.roof.form);
-        const smooth=!contacts && curved?curvedRoofNormals(vertices,idx):null;
+        const smooth=!contacts && curved?curvedRoofNormals(vertices,idx,palette[rm].surface==='welded fabric seams'):null;
         for(let i=0;i<idx.length;i+=3){
           const ids=idx.slice(i,i+3);
           const roofPoints=ids.map(k=>[vertices[k][0],top+vertices[k][1],vertices[k][2]]);
@@ -2002,14 +2044,25 @@ export function buildArchitecture(records, level=1, audit=false, contacts=null) 
             if(!boundary.delete(key))boundary.set(key,[vertices[a],vertices[c]]);
           }
         }
-        if(roofGlass && part.roof.form==='flat' && part.rings[0].length===4){
+        if(roofGlass && ['flat','gable','barrel'].includes(part.roof.form) && part.rings[0].length===4 && !part.roof.ribStations){
           const ring=part.rings[0];
           const long=Math.hypot(ring[0][0]-ring[1][0],ring[0][1]-ring[1][1])>=Math.hypot(ring[1][0]-ring[2][0],ring[1][1]-ring[2][1])?0:1;
           const [a,c,d,e]=[0,1,2,3].map(i=>ring[(i+long)%4]);
-          const bays=Math.max(1,Math.round(Math.hypot(c[0]-a[0],c[1]-a[1])/1.08));
-          const bar=material('frame'),at=(a,b,t)=>[a[0]+(b[0]-a[0])*t,top+.036,a[1]+(b[1]-a[1])*t];
-          for(let k=0;k<=bays;k++)beam(at(a,c,k/bays),at(e,d,k/bays),.075,bar);
-          beam(at(a,e,.5),at(c,d,.5),.065,bar);
+          const flat=part.roof.form==='flat',spacing=flat?1.08:s.materials[finish].unitSize?.[0]??1.35;
+          const bays=Math.max(1,Math.round(Math.hypot(c[0]-a[0],c[1]-a[1])/spacing));
+          const bar=material('frame'),slices=flat?1:part.roof.form==='gable'?2:8;
+          const station=(t,u)=>{
+            const leftX=a[0]+(c[0]-a[0])*t,leftZ=a[1]+(c[1]-a[1])*t;
+            const rightX=e[0]+(d[0]-e[0])*t,rightZ=e[1]+(d[1]-e[1])*t;
+            const x=leftX+(rightX-leftX)*u,z=leftZ+(rightZ-leftZ)*u;
+            return [x,(flat?top:roofAt(part,x,z))+.036,z];
+          };
+          for(let k=0;k<=bays;k++)for(let j=0;j<slices;j++){
+            const start=station(k/bays,j/slices),end=station(k/bays,(j+1)/slices);
+            if(Number.isFinite(start[1]) && Number.isFinite(end[1]))beam(start,end,flat?.075:.10,bar);
+          }
+          const ridgeStart=station(0,.5),ridgeEnd=station(1,.5);
+          if(Number.isFinite(ridgeStart[1]) && Number.isFinite(ridgeEnd[1]))beam(ridgeStart,ridgeEnd,.065,bar);
         }
         const apertures=[part.atticAperture,...(part.atticApertures??[])].filter(Boolean);
         if(medium)for(const aperture of apertures){

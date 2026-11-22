@@ -1,6 +1,6 @@
 import {terminalTwigs,budSprig,barkFinish,barkGrainGLSL,foliageCluster,leafSprayTexture,lightLeafBacks,leafPatchGLSL} from 'leaf-sprays';
 
-export function createMunicipalDetail(THREE,data,region,network) {
+export function createMunicipalDetail(THREE,data,region,network,landscape) {
   const group=new THREE.Group();
   group.name='London municipal survey';
   const {size,tiles}=data;
@@ -180,8 +180,10 @@ export function createMunicipalDetail(THREE,data,region,network) {
             for(const split of [-1,1]){
               const dir=angle+.56*split,twig=new THREE.Vector3(end.x+Math.sin(dir)*len*.48,end.y+h*(.04+.035*Math.sin(dir)),end.z+Math.cos(dir)*len*.48);
               shaft(mesh,end,twig,.018,.0045,0x92816b,3);
-              if(split>0)crown(mesh,twig.x,twig.y,twig.z,Math.max(.65,r*.44),Math.max(.7,h*.13),Math.max(.83,r*.52),dir,0x766750,4);
-              else crown(mesh,end.x,end.y,end.z,Math.max(.60,r*.36),Math.max(.71,h*.12),Math.max(.68,r*.44),dir,0x877762,4);
+              if(split===(i%2?side:-side)){
+                const lift=.22+.12*Math.sin(dir+seed);
+                crown(mesh,twig.x,twig.y,twig.z,Math.max(.51,r*.40),Math.max(.68,h*lift),Math.max(.60,r*.39),dir,side>0?0x675746:0x887866,4);
+              }
               if(budded||((seed+i)%3===0&&split>0))crown(mesh,twig.x,twig.y,twig.z,.22+.33*r,.17+.094*h,.22+.27*r,dir,phases[(seed+i)%4],3);
             }
           }
@@ -275,13 +277,30 @@ export function createMunicipalDetail(THREE,data,region,network) {
       shaft(mesh,fork,end,.053,.024,0x655742,5);
       crown(mesh,end.x,end.y,end.z,r*(i===2?.65:.83),h*(i===2?.43:.49),r*.70,a,finish?bedColors[finish][Math.abs(Math.floor(turn+i))%3]:bedWidth?(h<.43?0xae9677:0x715746):conifer[Math.abs(Math.floor(turn+i))%4],true);
     }
-    if(!mesh)return;
-    const point=(a)=>{
-      const dx=Math.cos(a)*(bedWidth?bedWidth*.55:r*1.33),dz=Math.sin(a)*.79;
-      const px=x+dx*Math.cos(yaw)+dz*Math.sin(yaw),pz=z-dx*Math.sin(yaw)+dz*Math.cos(yaw);
-      return [px,network.groundAt(px,pz)+.014,pz];
-    };
-    for(let i=0;i<8;i++)mesh.mulch.push(x,y+.014,z,...point((i+1)*Math.PI/4),...point(i*Math.PI/4));
+  }
+  function bedSoil(mesh,plants){
+    function section(x,z,tx,tz,half){
+      const pair=[];
+      for(const side of [-1,1]){
+        const X=x+side*tz*half,Z=z-side*tx*half;
+        pair.push([X,Z]);
+      }
+      return pair;
+    }
+    function join(a,b){
+      landscape.projectPolygon([a[0],b[0],b[1],a[1]],(x,y,z)=>mesh.mulch.push(x,y+.019,z));
+    }
+    let previous=null;
+    for(let i=0;i<plants.length;i++){
+      const [x,z,,,yaw,width]=plants[i],tx=Math.sin(yaw),tz=Math.cos(yaw),half=width*.51;
+      const next=plants[i+1],last=plants[i-1];
+      const joined=last&&Math.hypot(x-last[0],z-last[1])<1.45;
+      const ends=!next||Math.hypot(x-next[0],z-next[1])>=1.45;
+      const edge=section(x,z,tx,tz,half);
+      join(joined?previous:section(x-tx*.38,z-tz*.38,tx,tz,half*.65),edge);
+      if(ends)join(edge,section(x+tx*.38,z+tz*.38,tx,tz,half*.65));
+      previous=edge;
+    }
   }
   function brush(mesh,[x,z,h,form,deadfall=form===2]){
     const y=network.groundAt(x,z),phase=x*.61+z*.37,root=new THREE.Vector3(x,y-.045,z);
@@ -376,8 +395,9 @@ export function createMunicipalDetail(THREE,data,region,network) {
   const plantsByTile=new Map();
   for(const tile of Object.values(tiles)){
     const plants=(tile.hedge??[]).flatMap(row=>hedgePlants(row));
-    for(const [line,w,h,finish] of tile.beds??[])plants.push(...hedgePlants([line,h],w,finish));
-    plantsByTile.set(tile,plants);
+    const beds=(tile.beds??[]).map(([line,w,h,finish])=>hedgePlants([line,h],w,finish));
+    for(const bed of beds)plants.push(...bed);
+    plantsByTile.set(tile,{plants,beds});
     if(tile.understory)tile.understory=tile.understory.filter(([x,z,h])=>region.campusBoundary.containsDisc(x,z,h*.8)&&network.plantable(x,z,.3)&&network.crownClear(x,network.groundAt(x,z)+h*.5,z,h*.59));
     for(const row of tile.understory??[])brush(null,row);
     for(const bed of tile.planters??[])raisedSurface(null,bed);
@@ -395,7 +415,9 @@ export function createMunicipalDetail(THREE,data,region,network) {
     buf.woody=1;
     for(const record of tile.trees??[]) tree(buf,record);
     for(const row of tile.shrubs??[])shrub(buf,row);
-    for(const row of plantsByTile.get(tile)) hedge(buf,row);
+    const {plants,beds}=plantsByTile.get(tile);
+    for(const bed of beds)bedSoil(buf,bed);
+    for(const row of plants)hedge(buf,row);
     for(const row of tile.understory??[])brush(buf,row);
     const geometry=new THREE.BufferGeometry();
     geometry.setAttribute('position',new THREE.Float32BufferAttribute(buf.positions,3));
@@ -692,7 +714,9 @@ export function addSurveyedGround(observed,municipal,features){
   for(const entry of Object.values(municipal.tiles)){
     for(const tree of entry.trees??[])if(bare.has(tree[0]+','+tree[1])){tree[7]=tree[5];tree[5]=10;}
   }
-  for(const [x,z,h,r,form] of [...observed.trees,...(municipal.woodlots?.trees??[]),...(municipal.woodlots?.estates??[]),...(municipal.woodlots?.park??[]),...(municipal.woodlots?.recruits??[]),...(fixture?.conifers??[])]){
+  const redundant=new Set((municipal.woodlots?.redundantPeaks??[]).map(p=>p.join(',')));
+  const peaks=observed.trees.filter(([x,z])=>!redundant.has(x+','+z));
+  for(const [x,z,h,r,form] of [...peaks,...(municipal.woodlots?.trees??[]),...(municipal.woodlots?.estates??[]),...(municipal.woodlots?.park??[]),...(municipal.woodlots?.recruits??[]),...(fixture?.conifers??[])]){
     const seed=Math.abs(Math.round(x*7+z*13))%1009;
     (tile(municipal,municipal.size,x,z).trees??=[]).push([x,z,h,r,Math.max(.055,h*.014),bare.has(x+','+z)?10:form,seed]);
   }
@@ -713,7 +737,7 @@ export function addSurveyedGround(observed,municipal,features){
 }
 
 
-export function createContextTrees(THREE,records){
+export function createContextTrees(THREE,records,permitted){
   const group=new THREE.Group(),cells=new Map(),size=125;
   const foliage=new THREE.MeshStandardMaterial({map:leafSprayTexture(),alphaTest:.39,side:THREE.DoubleSide,roughness:.94});
   foliage.onBeforeCompile=lightLeafBacks;
@@ -721,7 +745,9 @@ export function createContextTrees(THREE,records){
   const wood=new THREE.MeshStandardMaterial({color:0x736451,roughness:.93});
   wood.onBeforeCompile=barkFinish;
   for(let i=0;i<records.length;i+=4){
-    const x=records[i],z=records[i+1],key=Math.floor(x/size)+','+Math.floor(z/size);
+    const x=records[i],z=records[i+1];
+    if(!permitted(x,z))continue;
+    const key=Math.floor(x/size)+','+Math.floor(z/size);
     if(!cells.has(key))cells.set(key,[]);
     cells.get(key).push(records.subarray(i,i+4));
   }

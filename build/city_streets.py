@@ -100,6 +100,8 @@ def mapped_network(network,registered_crossings=True):
     islands=unary_union([poly for poly,_ in observed_islands()])
     from parking_bays import bay_floors
     road=road.difference(islands.union(bay_floors().difference(city.buffer(.12))))
+    from site_frontages import geometry as site_geometry
+    road=road.union(site_geometry('traffic')).difference(site_geometry('planting')).difference(site_geometry('walk')).difference(site_geometry('gravel'))
     floors=solid_ground_floors(network)
     index=STRtree(floors)
     adjacent=index.query(road,predicate='intersects')

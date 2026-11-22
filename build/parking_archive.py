@@ -78,6 +78,14 @@ def registration(historic,current,mask):
     return np.median(consistent,axis=0)
 
 
+def aligned_photo(year,x,z,current,mask):
+    historic=archive(year,x,z)
+    shift=registration(historic,current,mask)
+    if shift is None:return
+    transform=np.float32([[1,0,shift[0]],[0,1,shift[1]]])
+    return cv2.warpAffine(historic,transform,(1500,1500),borderMode=cv2.BORDER_REPLICATE)
+
+
 def frame_records(year,x,z,lots):
     from affine import Affine
     from rasterio.features import rasterize
@@ -86,10 +94,10 @@ def frame_records(year,x,z,lots):
     if area.area<14:return []
     mask=rasterize([(area.buffer(3),255)],out_shape=(1500,1500),transform=Affine.translation(x,z)*Affine.scale(.1),dtype='uint8')
     current=rgb_tile(x,z)
-    historic=archive(year,x,z)
-    shift=registration(historic,current,mask)
-    if shift is None:return []
-    aligned=cv2.warpAffine(historic,np.float32([[1.,0.,shift[0]],[0.,1.,shift[1]]]),(1500,1500),borderMode=cv2.BORDER_REPLICATE)
+    aligned=current
+    if year!=2025:
+        aligned=aligned_photo(year,x,z,current,mask)
+        if aligned is None:return []
     rgb=aligned.astype(np.float32);r,g,b=rgb.transpose(2,0,1)
     gold=(r+g)*.5-b
     grey=.29*r+.55*g+.16*b
@@ -156,15 +164,22 @@ def scan_epochs():
     cv2.setNumThreads(1)
     lots=lot_mask()
     epochs={}
-    for year in (2020,2021):
+    for year in (2020,2021,2024,2025):
         output=region.CACHE.parent/'audit/frozen-parking'/f'registered-{year}.json'
+        with ThreadPoolExecutor(3) as pool:
+            parts=pool.map(lambda tile:frame_records(year,*tile,lots),lot_tiles(lots))
+            epochs[year]=reduce_records([r for part in parts for r in part])
         if not output.exists():
-            with ThreadPoolExecutor(3) as pool:
-                parts=pool.map(lambda tile:frame_records(year,*tile,lots),lot_tiles(lots))
-                records=reduce_records([r for part in parts for r in part])
             output.parent.mkdir(parents=True,exist_ok=True)
-            output.write_text(json.dumps(records,separators=(',',':')))
-        epochs[year]=json.loads(output.read_bytes())
+            with NamedTemporaryFile(dir=output.parent,suffix='.pending',delete=False) as stream:
+                stream.write(json.dumps(epochs[year],separators=(',',':')).encode())
+                pending=Path(stream.name)
+            try:
+                output.hardlink_to(pending)
+            except FileExistsError:
+                pass
+            finally:
+                pending.unlink()
     return epochs
 
 
@@ -208,36 +223,48 @@ def present_day(points,years=(2025,2024)):
 
 
 def registered_dividers(epochs):
-    a,b=epochs[2020],epochs[2021]
-    secondary=[LineString(np.reshape(record[0],(-1,2))) for record in b]
-    idx=shapely.STRtree(secondary)
     previous=json.loads(OUT.with_name('survey_parking.json').read_bytes())
     earlier=[*previous['lines'],*previous['amber'],*[p for p,k,source in json.loads(OUT.with_name('survey_bays.json').read_bytes())['rows']],*[p for p,k in json.loads(OUT.with_name('survey_lot_markings.json').read_bytes())['dividers']],*[p for p,k in json.loads(OUT.with_name('survey_parking_ink.json').read_bytes())]]
     stock=[LineString(np.reshape(p,(-1,2))) for p in earlier]
     paint=shapely.STRtree(stock)
     islands=shapely.union_all([shapely.Polygon(p['outer']) for p in json.loads(OUT.with_name('survey_islands.json').read_bytes())]).buffer(.15)
     offers=[]
-    for flat,amber,contrast in a:
-        end=np.reshape(flat,(-1,2));axis=end[1]-end[0];axis/=np.linalg.norm(axis)
-        normal=np.array([-axis[1],axis[0]])
-        line=LineString(end)
-        for i in idx.query(line,predicate='dwithin',distance=.20):
-            ends=np.asarray(secondary[i].coords);other=ends[1]-ends[0];other/=np.linalg.norm(other)
-            if abs(axis@other)<.995:continue
-            d=(ends-end[0])@normal
-            if np.abs(d).max()>.33:continue
-            t=(ends-end[0])@axis
-            lo=max(0.,t.min());hi=min(line.length,t.max())
-            if hi-lo<2.4:continue
-            ends=end[0]+np.array([lo,hi])[:,None]*axis+np.median(d)*.5*normal
-            signals,occupied,flanked=present_day(ends)
-            visible=max(s[0] for s in signals)
-            paired=flanked>.32 and hi-lo>3.1 and min(contrast,b[i][2])>6.1
-            if not paired and visible<.27 and (occupied<.27 or visible<.13 or max(s[2] for s in signals)<.31):continue
+    for modern,reference in [(2020,2021),(2025,2024)]:
+        a,b=epochs[modern],epochs[reference]
+        secondary=[LineString(np.reshape(record[0],(-1,2))) for record in b]
+        idx=shapely.STRtree(secondary)
+        for flat,amber,contrast in a:
+            end=np.reshape(flat,(-1,2));axis=end[1]-end[0];axis/=np.linalg.norm(axis)
+            normal=np.array([-axis[1],axis[0]])
+            line=LineString(end)
+            for i in idx.query(line,predicate='dwithin',distance=.20):
+                ends=np.asarray(secondary[i].coords);other=ends[1]-ends[0];other/=np.linalg.norm(other)
+                if abs(axis@other)<.995:continue
+                d=(ends-end[0])@normal
+                if np.abs(d).max()>.33:continue
+                t=(ends-end[0])@axis
+                lo=max(0.,t.min());hi=min(line.length,t.max())
+                if hi-lo<2.4:continue
+                ends=end[0]+np.array([lo,hi])[:,None]*axis+np.median(d)*.5*normal
+                signals,occupied,flanked=present_day(ends)
+                visible=max(s[0] for s in signals)
+                paired=flanked>.32 and hi-lo>3.1 and min(contrast,b[i][2])>6.1
+                if not paired and visible<.27 and (occupied<.27 or visible<.13 or max(s[2] for s in signals)<.31):continue
+                certificate=[round(signals[0][0],2),round(signals[1][0],2),round(occupied,2)]
+                gold=int(max(signals,key=lambda s:s[0])[1]>.48) if visible>.46 else int(amber+b[i][1]>0)
+                offers.append((visible+min(contrast,b[i][2])/55+(hi-lo)*.055,LineString(ends),gold,certificate))
+    for year in (2024,2025):
+        for flat,gold,contrast in epochs[year]:
+            ends=np.reshape(flat,(-1,2))
+            line=LineString(ends)
+            if not 2.9<line.length<7.8 or contrast<6:continue
+            signals,occupied,_=present_day(ends)
+            source,other=signals if year==2025 else signals[::-1]
+            if source[0]<.65 or other[0]<.35 or other[2]<.45:continue
+            ink=int(max(signals,key=lambda s:s[0])[1]>.46)
             certificate=[round(signals[0][0],2),round(signals[1][0],2),round(occupied,2)]
-            gold=int(max(signals,key=lambda s:s[0])[1]>.48) if visible>.46 else int(amber+b[i][1]>0)
-            offers.append((visible+min(contrast,b[i][2])/55+(hi-lo)*.055,LineString(ends),gold,certificate))
-    single_pass=[(record,year) for year,collection in epochs.items() for record in collection]
+            offers.append((min(s[0] for s in signals)+contrast/80+line.length*.035,line,ink,certificate))
+    single_pass=[(record,year) for year in (2020,2021) for record in epochs[year]]
     for (flat,gold,contrast),year in single_pass:
         end=np.reshape(flat,(-1,2))
         line=LineString(end)
@@ -255,10 +282,36 @@ def registered_dividers(epochs):
     for score,line,gold,certificate in sorted(offers,key=lambda item:-item[0]):
         covered=list(paint.geometries[paint.query(line,predicate='dwithin',distance=.46)])
         covered.extend([old for old in stock[len(paint.geometries):] if old.distance(line)<.46])
-        if covered:line=line.difference(shapely.union_all(covered).buffer(.46,quad_segs=2))
+        surveyed=line.difference(islands)
+        candidates=[]
+        axis=np.asarray(line.coords[-1])-line.coords[0]
+        axis/=line.length
+        points=np.asarray(line.coords)
+        for divider in covered:
+            ends=np.asarray(divider.coords)
+            direction=ends[-1]-ends[0]
+            if abs(direction@axis)<.987*divider.length:continue
+            offset=(ends-points[0])@np.array([-axis[1],axis[0]])
+            if max(abs(offset))>.095:continue
+            candidates.append(divider)
+        confirmed=bool(candidates) and certificate[0]>.42 and certificate[1]>.42
+        if covered:
+            caps=[g.buffer(.36,cap_style='flat') if confirmed and g in candidates else g.buffer(.46,quad_segs=2) for g in covered]
+            line=line.difference(shapely.union_all(caps))
         line=line.difference(islands)
+        accepted=[]
         for part in shapely.get_parts(line):
-            if part.geom_type!='LineString' or part.length<2.1:continue
+            if part.geom_type!='LineString':continue
+            if part.length>=2.1:
+                accepted.append(part)
+            elif confirmed and part.length>=.6:
+                trace,_,_=present_day(np.asarray([part.coords[0],part.coords[-1]]))
+                if max(r[0] for r in trace)<.72 or min(r[0] for r in trace)<.46:continue
+                full=next((span for span in shapely.get_parts(surveyed) if span.geom_type=='LineString' and span.length>=2.1 and span.distance(part.centroid)<.03),None)
+                if full is not None:
+                    accepted=[full]
+                    break
+        for part in accepted:
             kept.append([np.asarray([part.coords[0],part.coords[-1]]).round(2).ravel().tolist(),gold,certificate])
             stock.append(part)
         if len(stock)-len(paint.geometries)>80:paint=shapely.STRtree(stock)

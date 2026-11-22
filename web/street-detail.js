@@ -1,8 +1,12 @@
-export function roadsidePosition(x,z,heading,side,paved,allowed,clearance=.65){
-  const clear=(px,pz)=>allowed(px,pz)&&[[0,0],[clearance,0],[-clearance,0],[0,clearance],[0,-clearance],[clearance*.71,clearance*.71],[-clearance*.71,clearance*.71],[clearance*.71,-clearance*.71],[-clearance*.71,-clearance*.71]].every(([dx,dz])=>!paved(px+dx,pz+dz));
+export function clearOfPavement(x,z,paved,clearance){
+  return [[0,0],[1,0],[-1,0],[0,1],[0,-1],[.71,.71],[-.71,.71],[.71,-.71],[-.71,-.71]].every(([dx,dz])=>!paved(x+dx*clearance,z+dz*clearance));
+}
+
+export function roadsidePosition(x,z,heading,side,paved,allowed,clearance=.65,maxDistance=26){
+  const clear=(px,pz)=>allowed(px,pz)&&clearOfPavement(px,pz,paved,clearance);
   if(clear(x,z))return [x,z,heading];
   let best=null,score=Infinity;
-  for(let distance=.75;distance<=26&&distance<score;distance+=.75){
+  for(let distance=.75;distance<=maxDistance&&distance<score;distance+=.75){
     for(let i=0;i<24;i++){
       const angle=i*Math.PI/12,dx=Math.cos(angle),dz=Math.sin(angle);
       const cost=distance*(1.20-.20*side*(dx*Math.cos(heading)-dz*Math.sin(heading)));

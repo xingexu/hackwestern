@@ -4,7 +4,7 @@ import json
 import numpy as np
 import shapely
 from shapely import STRtree
-from shapely.geometry import box
+from shapely.geometry import Polygon,box
 
 import campus_region as region
 import street_finishes as finish
@@ -50,3 +50,14 @@ for key,(left,top,right,bottom) in finish.patches(terrain['xs'],terrain['zs']):
     paints+=len(w)+len(a)
 assert paints>20000 and forbidden>150 and accessible_area>6
 print(f'{paints:,} packed road triangles, {forbidden:,} junction and crossing exclusions, zero conflicting white/yellow paint area.')
+
+arrows=[Polygon(np.reshape(points,(-1,2))) for points in json.loads((region.OUT.parents[1]/'build/survey_access_arrows.json').read_bytes())]
+assert len(arrows)==9
+ink=[]
+for key,(left,top,right,bottom) in finish.patches(terrain['xs'],terrain['zs']):
+    if any(arrow.intersects(box(left,top,right,bottom)) for arrow in arrows):
+        ink.extend(triangles(surface['strokes'][key][0],left,top))
+white=shapely.union_all(ink)
+coverage=[arrow.intersection(white).area/arrow.area for arrow in arrows]
+assert min(coverage)>.74 and np.median(coverage)>.95,coverage
+print('Nine photographed garage arrows, minimum painted silhouette coverage',round(min(coverage),3))

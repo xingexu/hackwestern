@@ -26,6 +26,8 @@ export function createLandscapeGrid(region,world,coreAt,relief,terrain,pavement)
   const xs=xAxis.values, zs=zAxis.values, count=xs.length;
   const heights=new Float32Array(count*zs.length);
   const [left,top,right,bottom]=region.bounds;
+  const exposed=new Uint8Array(world.width*world.depth);
+  for(const [row,start,end,weight] of relief.exposedCore??[])exposed.fill(weight,row*world.width+start,row*world.width+end);
   function regionalHeight(x,z) {
     const u=Math.max(0,Math.min(relief.width-1,(x-left)/(right-left)*relief.width-.5));
     const v=Math.max(0,Math.min(relief.height-1,(z-top)/(bottom-top)*relief.height-.5));
@@ -40,7 +42,8 @@ export function createLandscapeGrid(region,world,coreAt,relief,terrain,pavement)
     if(border>0) {
       const amount=Math.min(1,border/24), smooth=amount*amount*(3-2*amount);
       const coverage=pavement ? [pavement(x,z),pavement(x-2,z),pavement(x+2,z),pavement(x,z-2),pavement(x,z+2)].reduce((sum,paved)=>sum+Number(paved),0)/5 : 0;
-      y+=(coreAt(x,z)-coarse)*smooth*(1-coverage);
+      const survey=exposed[Math.floor(z)*world.width+Math.floor(x)]/255;
+      y+=(coreAt(x,z)-coarse)*smooth*(1-coverage)*(1-survey);
     }
     heights[iz*count+ix]=y;
   }
@@ -129,10 +132,10 @@ export function createVergeDetail(THREE,landscape,cover) {
   group.name='Surveyed grass verges and riverbank sedges';
   const positions=[], colors=[], normals=[];
   for(let k=0;k<7;k++) {
-    const a=k*2.4, length=.075+.064*(1+Math.sin(k*3.7)), lean=.025+.048*(k%3);
-    const x=Math.sin(a)*k*.012, z=Math.cos(a)*k*.012;
+    const a=k*2.4+.51*Math.sin(k), length=.058+.054*(1+Math.sin(k*3.7)), lean=.027+.035*(k%3);
+    const x=Math.sin(a)*k*.023, z=Math.cos(a)*k*.019;
     const dx=Math.sin(a)*lean,dz=Math.cos(a)*lean;
-    const width=.016+(k%3)*.004, wx=Math.cos(a)*width,wz=-Math.sin(a)*width;
+    const width=.006+(k%3)*.0027, wx=Math.cos(a)*width,wz=-Math.sin(a)*width;
     positions.push(x-wx,0,z-wz,x+wx,0,z+wz,x+dx+wx*.43,length*.63,z+dz+wz*.43,
       x-wx,0,z-wz,x+dx+wx*.43,length*.63,z+dz+wz*.43,x+dx*1.43,length,z+dz*1.43);
     for(const shade of [.62,.69,.92,.62,.92,1.12]) {
@@ -254,15 +257,40 @@ export function walkwaySampler(tiles){
   };
 }
 
-export function conformPlantings(region,core,municipal,survey,network){
+export function vergeCrownRadius(x,z,radius,clearance,paved){
+  if(clearance>=4.5||!paved||!radius)return radius;
+  let limit=radius;
+  for(let spoke=0;spoke<12;spoke++){
+    const angle=spoke*Math.PI/6,dx=Math.cos(angle),dz=Math.sin(angle);
+    for(let r=.45;r<=limit+.45;r+=.45){
+      const distance=Math.min(r,limit);
+      if(paved(x+dx*distance,z+dz*distance)){
+        limit=Math.max(.24,distance-.45);
+        break;
+      }
+    }
+  }
+  return Math.min(radius,limit);
+}
+
+export function conformPlantings(region,core,municipal,survey,network,paved){
   const {groundAt,plantable}=network;
-  region.trees=region.trees.filter(([x,,z,h])=>plantable(x,z,h*.019)).map(([x,,z,...rest])=>[x,groundAt(x,z),z,...rest]);
+  region.trees=region.trees.filter(([x,,z,h])=>plantable(x,z,h*.019)).map(row=>{
+    const [x,,z,h,,diameter]=row;
+    const planted=[...row];
+    planted[1]=groundAt(x,z);
+    if(diameter)planted[5]=2*vergeCrownRadius(x,z,diameter*.5,h*.36,paved);
+    return planted;
+  });
   core.trees=core.trees.filter(([x,,z,r])=>plantable(x,z,.12+r*.044)).map(([x,y,z,r,center,...rest])=>{
     const ground=groundAt(x,z);
-    return [x,ground,z,r,ground+center-y,...rest];
+    return [x,ground,z,vergeCrownRadius(x,z,r,center-y-r*.75,paved),ground+center-y,...rest];
   });
   for(const tile of Object.values(municipal.tiles)){
-    if(tile.trees) tile.trees=tile.trees.filter(([x,z,,,r])=>plantable(x,z,r));
+    if(tile.trees){
+      tile.trees=tile.trees.filter(([x,z,,,r])=>plantable(x,z,r));
+      for(const stem of tile.trees)stem[3]=vergeCrownRadius(stem[0],stem[1],stem[3],stem[2]*(stem[5]===1||stem[5]===3?.19:.39),paved);
+    }
     if(tile.shrubs)tile.shrubs=tile.shrubs.filter(([x,z])=>plantable(x,z));
   }
   for(const tile of Object.values(survey.tiles)){
@@ -338,14 +366,13 @@ export const groundDetailGLSL=`
     return mix(land,mix(lawn,litter,transition.y),transition.x*weight);
   }
   vec3 summerLawn(vec2 p,float moisture,float blade){
-    vec2 swale=p*.039+vec2(sin(p.y*.023),cos(p.x*.027));
-    float moisturePatch=sin(swale.x+swale.y*1.3)*.17+sin(swale.y*1.6-swale.x*.51)*.11;
-    float dry=clamp(.63-moisture*.43+moisturePatch,0.,1.);
-    float cut=.5+.5*cos(dot(p,vec2(.339,.233))+.48*sin(dot(p,vec2(.034,-.026))));
+    vec2 swale=mat2(.91,-.41,.41,.91)*p*.0081;
+    vec2 stand=texture2D(groundGrain,swale+sin(swale.yx)*.19).rg-.46;
+    float dry=clamp(.62-moisture*.40+.39*stand.r,0.,1.);
     float footprint=length(fwidth(p));
     float clump=.5+(.28*sin(p.x*1.8+sin(p.y*2.24))+.22*sin(dot(p,vec2(4.2,-2.11))))*(1.-smoothstep(.12,.8,footprint));
-    vec3 turf=mix(vec3(.050,.111,.032),vec3(.167,.148,.062),dry);
-    return turf*(.897+.103*cut+.085*clump+blade*1.04);
+    vec3 turf=mix(vec3(.047,.125,.038),vec3(.149,.158,.073),dry);
+    return turf*(.97+.11*stand.g+.062*clump+blade*.91);
   }`;
 
 export function installEstateSurfaces(THREE,landscape,carriageway,meta,pixels){

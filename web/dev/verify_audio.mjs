@@ -6,6 +6,25 @@ const browser=await engines.chromium.launch()
 try {
   const page=await browser.newPage()
   await page.goto(server.base+'/audio/mixer.mjs')
+  await page.evaluate(async()=>{
+    const {installAudio}=await import('/audio/settings.mjs')
+    const NativeContext=window.AudioContext
+    window.AudioContext=class extends NativeContext {
+      constructor(options){super(options);window.playback=this}
+    }
+    installAudio(document.createElement('div'),{})
+  })
+  assert.equal(await page.evaluate(()=>!!window.playback),false)
+  await page.keyboard.press('ArrowUp')
+  await page.waitForFunction(()=>playback.state==='running' && playback.sinkId==='')
+  await page.evaluate(()=>{
+    Object.defineProperty(playback,'state',{value:'interrupted'})
+    playback.resume=async()=>{window.resumed=true}
+  })
+  await page.keyboard.press('ArrowUp')
+  assert.equal(await page.evaluate(()=>window.resumed),true)
+  await page.evaluate(()=>playback.close())
+  await page.reload()
   const proof=await page.evaluate(async()=>{
     const {createMixer,defaults}=await import('/audio/mixer.mjs')
     const {drivingSounds}=await import('/audio/world.mjs')

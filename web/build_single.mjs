@@ -1,4 +1,5 @@
 import {campusAssets} from '../build/campus_assets.mjs';
+import {assetTypes} from '../build/asset_types.mjs';
 import { deflateSync } from 'node:zlib';
 import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { dirname, resolve, posix } from 'node:path';
@@ -33,7 +34,7 @@ const aliasByFile=new Map(Object.entries(importMap).map(([key,url])=>[posix.norm
 const gameModules = Object.values(importMap).filter(url => url.startsWith('./')).map(url => url.slice(2));
 const embeddedMap={...importMap};
 for(const file of gameModules){
-  const source=(await readFile(resolve(root,file),'utf8')).replace(/(from\s+['"])(\.{1,2}\/[^'"]+)(['"])/g,(match,start,path,end)=>{
+  let source=(await readFile(resolve(root,file),'utf8')).replace(/(from\s+['"])(\.{1,2}\/[^'"]+)(['"])/g,(match,start,path,end)=>{
     const target=posix.normalize(posix.join(posix.dirname(file),path));
     if(!aliasByFile.has(target)){
       aliasByFile.set(target,'embedded/'+target);
@@ -41,16 +42,20 @@ for(const file of gameModules){
     }
     return start+aliasByFile.get(target)+end;
   });
+  for(const [expression,,relative] of source.matchAll(/new URL\(\s*(['"])(\.{1,2}\/[^'"]+)\1\s*,\s*import\.meta\.url\s*\)/g)){
+    const path=posix.join(posix.dirname(file),relative);
+    const bytes=await readFile(resolve(root,path));
+    const type=assetTypes[posix.extname(path)]??'application/octet-stream';
+    source=source.replace(expression,()=>'new URL("data:'+type+';base64,'+bytes.toString('base64')+'")');
+  }
   embeddedMap[aliasByFile.get(file)]='data:text/javascript;base64,'+Buffer.from(source).toString('base64');
 }
 const css = await readFile(resolve(root, 'drive.css'), 'utf8');
-// UI components (web/ui): inline the stylesheet, script, fonts and logo images as data URIs.
 const uiMime = { '.png': 'image/png', '.woff2': 'font/woff2' };
 async function uiDataUrl(path) {
   const extension = path.slice(path.lastIndexOf('.'));
   return `data:${uiMime[extension]};base64,${(await readFile(resolve(root, 'ui', path))).toString('base64')}`;
 }
-// Replace every `prefix + file` reference matched by `pattern` (capture group 1 = file in web/ui) with a data URI.
 async function inlineUiAssets(text, pattern, prefix) {
   for (const path of new Set([...text.matchAll(pattern)].map(match => match[1]))) text = text.replaceAll(prefix + path, await uiDataUrl(path));
   return text;

@@ -70,7 +70,7 @@ try {
   await page.getByRole('button', { name: 'Drive again' }).waitFor({ timeout: 45000 });
   assert.equal(await page.locator('#meters').textContent(), Math.round(distance) + ' m');
   const result = await page.locator('#result').textContent();
-  assert.match(result, /^0:[3-5]\d\.\d\d$/);
+  assert.match(result, /^0:3\d\.\d\d$/);
   await screenshot('finish');
   await page.getByRole('button', { name: 'Drive again' }).click();
   await page.waitForFunction(() => document.querySelector('#finish').hidden && window.driveMetrics.car.distance < 1);

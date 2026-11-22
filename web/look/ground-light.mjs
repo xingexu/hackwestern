@@ -33,7 +33,7 @@ export function foundationLight(buildings){
     shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nuniform sampler2D footprintShade;uniform vec4 footprintTransform;')
       .replace('#include <aomap_fragment>',`#include <aomap_fragment>
         float foundation=texture2D(footprintShade,(surveyPoint-footprintTransform.xy)*footprintTransform.zw).r;
-        reflectedLight.indirectDiffuse*=1.-.57*foundation;
-        reflectedLight.indirectSpecular*=1.-.42*foundation;`);
+        reflectedLight.indirectDiffuse*=1.-.34*foundation;
+        reflectedLight.indirectSpecular*=1.-.30*foundation;`);
   };
 }

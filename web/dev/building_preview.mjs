@@ -9,6 +9,7 @@ import {createHash} from 'node:crypto';
 import {resolve,join,extname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {openBrowser} from './building_browser.mjs';
+import {assetTypes} from '../../build/asset_types.mjs';
 
 const root=fileURLToPath(new URL('../../',import.meta.url)),local=fileURLToPath(import.meta.url);
 const options=parseArgs({options:{id:{type:'string'},spec:{type:'string'},out:{type:'string'},'shadow-reference':{type:'boolean'},daemon:{type:'boolean'}}}).values;
@@ -17,7 +18,7 @@ const override=options.spec?resolve(options.spec):null;
 process.chdir(root);
 const recipeFiles=readdirSync('build').filter(f=>f.startsWith('building_') && f.endsWith('.py') || ['compile_buildings.py','validate_specs.py','geo.py','campus_region.py'].includes(f)).map(f=>join('build',f));
 const recipeInputs=[...recipeFiles,'data/buildings/inventory.json','data/buildings/lidar/roof-grid.npz','web/drive-network.json','build/specs/building-spec-v1.schema.json'];
-const revision=createHash('sha1').update(['web/dev/building_preview.mjs','web/dev/building_preview_scene.mjs','web/dev/building_sightlines.mjs','web/campus-buildings.mjs','web/building-materials.mjs','web/building-kernel.mjs','web/building-contacts.mjs','web/parking-decks.mjs','web/campus-scene.js'].concat(['data/buildings/inventory.json']).map(p=>statSync(p).mtimeMs).join(',')).digest('hex').slice(0,8);
+const revision=createHash('sha1').update(['build/asset_types.mjs','web/dev/building_preview.mjs','web/dev/building_preview_scene.mjs','web/dev/building_sightlines.mjs','web/campus-buildings.mjs','web/building-materials.mjs','web/building-kernel.mjs','web/building-contacts.mjs','web/parking-decks.mjs','web/campus-scene.js'].concat(['data/buildings/inventory.json']).map(p=>statSync(p).mtimeMs).join(',')).digest('hex').slice(0,8);
 const socket='.agent/building-preview-'+revision+'.sock';
 const json=async p=>JSON.parse(await readFile(join(root,p)));
 async function load(){
@@ -25,13 +26,12 @@ async function load(){
   const pageSource=await readFile(join(root,'web/index.html'),'utf8');
   const imports=JSON.parse(pageSource.match(/<script type="importmap">([\s\S]*?)<\/script>/)[1]).imports;
   for(const key of Object.keys(imports))imports[key]='/web/'+imports[key].slice(2);
-  const types={'.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.png':'image/png','.jpg':'image/jpeg'};
   const page='<link rel="icon" href="data:,"><script type="importmap">'+JSON.stringify({imports})+'</script>';
   const assets=httpServer(async(req,res)=>{
     try{
       const path=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
       if(path==='/'){res.writeHead(200,{'Content-Type':'text/html'}).end(page);return;}
-      const type=types[extname(path)];
+      const type=assetTypes[extname(path)];
       const dataset=/^\/[\w-]+\.json$/.test(path);
       const file=dataset?resolve(root,'web',path.slice(1)):resolve(root,'.'+path);
       const web=file.startsWith(join(root,'web')+'/');
@@ -111,12 +111,19 @@ async function render(state,job,config){
   const page=state.page??await state.context.newPage();
   try{
     if(!state.page){
-    state.errors=[];page.on('console',m=>{if(m.type()==='error')state.errors.push(m.text());});
-    await page.goto(state.url);
-    state.page=page;
+      state.errors=[];
+      page.on('pageerror',error=>state.errors.push(error.stack??error.message));
+      page.on('console',message=>{
+        if(message.type()==='error')state.errors.push([message.text(),message.location().url].filter(Boolean).join(' '));
+      });
+      page.on('response',response=>{
+        if(response.status()>=400)state.errors.push('HTTP '+response.status()+' '+response.url());
+      });
+      await page.goto(state.url);
+      state.page=page;
     }
     const result=await page.evaluate(async encoded=>(await import('/web/dev/building_preview_scene.mjs')).renderBuilding(JSON.parse(encoded)),JSON.stringify(config));
-    if(state.errors.length)throw new Error(state.errors.splice(0).join('\n').slice(0,7000));
+    if(state.errors.length)throw new Error(state.errors[0]);
     await mkdir(out,{recursive:true});
     const paths=[];
     for(const [name,encoded] of result.pictures){const path=join(out,id+'-'+name+'.jpg');await writeFile(path,Buffer.from(encoded,'base64'));paths.push(path);}
@@ -128,7 +135,12 @@ async function render(state,job,config){
     const obliqueFile=join(out,id+'-obliques.json');
     await writeFile(obliqueFile,JSON.stringify(result.obliques,null,2)+'\n');paths.push(obliqueFile);
     return {paths,...result.stats};
-  }catch(error){await page.close();state.page=null;throw error;}
+  }catch(error){
+    const messages=new Set([error.message,...state.errors]);
+    state.page=null;
+    await page.close();
+    throw new Error([...messages].join('\n').slice(0,7000),{cause:error});
+  }
 }
 async function daemon(){
   let init,timer,outstanding=0;

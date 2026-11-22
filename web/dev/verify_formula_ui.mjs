@@ -1,0 +1,65 @@
+import assert from 'node:assert/strict'
+import {mkdir} from 'node:fs/promises'
+import {fileURLToPath} from 'node:url'
+import {engines,serve} from './race_browser.mjs'
+
+const server=await serve()
+const browser=await engines.chromium.launch({args:process.platform==='darwin'?['--use-angle=metal']:[]})
+const shots=new URL('./shots/formula/',import.meta.url)
+await mkdir(shots,{recursive:true})
+try{
+  const page=await browser.newPage({viewport:{width:1280,height:720}})
+  let release
+  const gate=new Promise(resolve=>{release=resolve})
+  await page.route(/\/assets\/core-[^/]+\.bin$/,async route=>{await gate;await route.continue()})
+  await page.goto(server.base+'/?course=roam&place=Roundabout+approach&diagnostics',{waitUntil:'domcontentloaded'})
+  await page.locator('#loader .loader-logo').waitFor()
+  await page.waitForFunction(()=>document.querySelector('.loader-logo').naturalWidth && Number.parseInt(document.querySelector('.loader-percent').textContent)>0)
+  await page.evaluate(()=>document.fonts.ready)
+  assert.ok(await page.evaluate(()=>[...document.fonts].filter(f=>f.status==='loaded').length>=2))
+  await page.screenshot({path:fileURLToPath(new URL('loading.png',shots))})
+  const firstInput=page.evaluate(()=>new Promise(resolve=>{
+    const loader=document.querySelector('#loader')
+    const observer=new MutationObserver(()=>{
+      if(!loader.classList.contains('is-done'))return
+      observer.disconnect()
+      resolve(document.elementFromPoint(innerWidth/2,innerHeight/2)?.id)
+    })
+    observer.observe(loader,{attributes:true,attributeFilter:['class']})
+  }))
+  release()
+  assert.equal(await firstInput,'view')
+  await page.locator('#loader').waitFor({state:'hidden',timeout:90000})
+  await page.waitForFunction(()=>window.driveMetrics?.frames>15)
+  assert.equal(await page.locator('#spawn').inputValue(),'Roundabout approach')
+  await page.screenshot({path:fileURLToPath(new URL('desktop.png',shots))})
+  await page.keyboard.down('w')
+  await page.waitForFunction(()=>driveMetrics.car.speed>12)
+  await page.keyboard.down('d')
+  await page.keyboard.down('Space')
+  await page.waitForFunction(()=>driveMetrics.car.drifting && /^Drift \d+°$/.test(document.querySelector('#traction').textContent),null,{timeout:4000})
+  await page.screenshot({path:fileURLToPath(new URL('drift.png',shots))})
+  await page.keyboard.up('Space')
+  await page.keyboard.up('d')
+  await page.keyboard.up('w')
+  await page.waitForFunction(()=>!driveMetrics.car.drifting)
+  await page.emulateMedia({reducedMotion:'reduce'})
+  await page.goto(server.base+'/?course=roam&place=University+Drive+Bridge&diagnostics')
+  await page.waitForFunction(()=>window.driveMetrics?.frames>0)
+  await page.keyboard.down('w')
+  await page.waitForFunction(()=>document.querySelector('#landmark-flash').textContent.includes('Bridge'),null,{timeout:15000})
+  await page.keyboard.up('w')
+  assert.equal(await page.locator('#landmark-flash').isVisible(),true)
+  assert.equal(await page.locator('html').getAttribute('data-ui-instant'),'')
+  const world=/\/assets\/world-[a-f0-9]+\.json$/
+  await page.route(world,route=>route.fulfill({status:503,body:'Unavailable'}))
+  await page.reload()
+  const retry=page.getByRole('button',{name:'Retry',exact:true})
+  await retry.waitFor()
+  assert.ok(await page.locator('#loader.is-error [role="alert"]').isVisible())
+  await page.unroute(world)
+  await retry.click()
+  await page.waitForFunction(()=>window.driveMetrics?.frames>0,null,{timeout:90000})
+  await page.locator('#loader').waitFor({state:'hidden'})
+  console.log('Pixel loading, failure and retry, bundled fonts, desktop cockpit, deliberate drift and recovery, reduced-motion landmark verified.')
+}finally{await browser.close();server.close()}

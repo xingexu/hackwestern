@@ -55,6 +55,11 @@
       "kind": "glass-curtain",
       "color": "#879b9c",
       "secondaryColor": "#718184"
+    },
+    "plantCasing": {
+      "kind": "painted-metal",
+      "color": "#adb0aa",
+      "roughness": 0.64
     }
   },
   "floors": {
@@ -256,53 +261,61 @@
       {
         "type": "hvac",
         "center": [
-          -88,
-          362
+          -87.9,
+          360.8
         ],
         "size": [
           7.4,
           3.7
         ],
         "height": 1.65,
-        "rotation": -20
+        "rotation": -20,
+        "style": "sectional air handler",
+        "material": "plantCasing"
       },
       {
         "type": "hvac",
         "center": [
-          -81,
-          356
+          -79.8,
+          354.4
         ],
         "size": [
           7.4,
           3.7
         ],
         "height": 1.65,
-        "rotation": -20
+        "rotation": -20,
+        "style": "sectional air handler",
+        "material": "plantCasing"
       },
       {
         "type": "hvac",
         "center": [
-          -76,
-          361
+          -75.1,
+          359.5
         ],
         "size": [
           7.4,
           3.7
         ],
         "height": 1.65,
-        "rotation": -20
+        "rotation": -20,
+        "style": "sectional air handler",
+        "material": "plantCasing"
       },
       {
         "type": "hvac",
         "center": [
-          -74,
-          366
+          -73.4,
+          365.7
         ],
         "size": [
           3,
           3
         ],
-        "height": 1.15
+        "height": 1.15,
+        "style": "sectional air handler",
+        "material": "plantCasing"
       }
     ]
   },

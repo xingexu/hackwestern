@@ -45,12 +45,13 @@
     },
     "roofglass": {
       "kind": "glass-block",
-      "color": "#b8c3c2",
-      "secondaryColor": "#767d83",
+      "color": "#d9dbcd",
+      "secondaryColor": "#8f938b",
       "unitSize": [
         1,
         1
-      ]
+      ],
+      "roughness": 0.32
     },
     "brickBase": {
       "kind": "brick",
@@ -595,7 +596,10 @@
           8.8
         ],
         "height": 0.7,
-        "material": "roofglass"
+        "material": "roofglass",
+        "style": "opal grid skylight",
+        "rotation": 10,
+        "bayWidth": 1.24
       },
       {
         "type": "penthouse",

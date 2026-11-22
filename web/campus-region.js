@@ -107,8 +107,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
             if(kind==10.) return vec3(.48,.421,.289);
             return vec3(.1785,.278,.114);
           }
-          vec4 surfaceColor(vec2 pixel){
-            vec4 c=texture2D(landTransitions,(pixel+.5)/coverSize);
+          vec4 surfaceColor(vec4 c){
             float a=mod(floor(c.r*255.+.5),16.),b=floor(c.g*255.+.5);
             vec3 under=mix(groundTint(b==5.?a:b),groundTint(a==5.?b:a),c.b);
             return vec4(under,c.a);
@@ -142,15 +141,21 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           float grainFine=particle.g,grainCoarse=broadNoise(mat2(2.7,-1.1,1.1,2.7)*surveyPoint);
           float growth=broadNoise(surveyPoint*.085);
           vec2 cell=coverUV*coverSize-.5,low=floor(cell),part=fract(cell);
-          vec4 ground=mix(mix(surfaceColor(low),surfaceColor(low+vec2(1.,0.)),part.x),
-                        mix(surfaceColor(low+vec2(0.,1.)),surfaceColor(low+vec2(1.)),part.x),part.y);
+          vec4 sw=texture2D(landTransitions,(low+.5)/coverSize),se=texture2D(landTransitions,(low+vec2(1.5,.5))/coverSize);
+          vec4 nw=texture2D(landTransitions,(low+vec2(.5,1.5))/coverSize),ne=texture2D(landTransitions,(low+1.5)/coverSize);
+          vec4 ground=mix(mix(surfaceColor(sw),surfaceColor(se),part.x),mix(surfaceColor(nw),surfaceColor(ne),part.x),part.y);
+          vec4 classes=floor((vec4(sw.r,se.r,nw.r,ne.r)*255.+.5)/16.);
+          vec4 natural=1.-step(2.5,classes)+1.-step(.5,abs(classes-11.));
+          float naturalCover=mix(mix(natural.x,natural.y,part.x),mix(natural.z,natural.w,part.x),part.y);
+          vec4 sand=1.-step(.5,abs(classes-10.));
+          float sandCover=mix(mix(sand.x,sand.y,part.x),mix(sand.z,sand.w,part.x),part.y);
           vec2 profileUv=coverUV*coverSize/(2.*vec2(textureSize(surfaceCoverage,0)));
           vec4 profile=texture2D(surfaceCoverage,profileUv);
           vec4 pavingSurvey=texture(pavingTone,vec3(coverUV,0.));
           vec4 mappedMaterials=texture(pavingTone,vec3(coverUV,1.));
           float mappedLot=coverageEdge(pavingSurvey.g);
-          float lot=mappedLot;
           float pavedLot=max(coverageEdge(ground.a),mappedLot*max(carriage,smoothstep(.025,.24,textureLod(surfaceCoverage,profileUv,2.).a)));
+          float lot=pavedLot*max(mappedLot,smoothstep(.006,.10,textureLod(pavingTone,vec3(coverUV,0.),3.).g));
           road=max(road,pavedLot);
           vec3 land=ground.rgb;
           if(cover==6.) road=0.;
@@ -164,13 +169,13 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           vec3 litter=forestFloor(surveyPoint,particle);
           float duff=${landscape.pavingTone?.userData.woodlandEdges?'smoothstep(.05,.94,mappedMaterials.a+.13*growth+.045*particle.r)':'1.'};
           land=mix(land,litter,.55*smoothstep(.02,.98,forest)*duff);
-          land=groundEdge(land,blades,litter,surveyPoint,(cover<=2. || cover==11.)?1.:0.);
+          land=groundEdge(land,blades,litter,surveyPoint,naturalCover*(1.-mappedMaterials.b));
           float sport=1.-smoothstep(.012,.078,distance(ground.rgb,groundTint(8.)));
           float fieldCut=cos(dot(surveyPoint,vec2(-.099,.680))+.35*growth);
-          vec3 fieldGrass=vec3(.055,.129,.054)*(1.+.029*fieldCut+particle.r*.65+growth*.08);
+          vec3 fieldGrass=vec3(.055,.129,.054)*(1.+.016*fieldCut+particle.r*.65+growth*.08);
           land=mix(land,fieldGrass,sport);
           if(cover==4.) land*=1.+particle.b*.72;
-          if(cover==10.) land=mix(land,vec3(.18,.16,.112)*(1.+particle.b*.74+.15*grainCoarse),mappedMaterials.b);
+          land=mix(land,vec3(.18,.16,.112)*(1.+particle.b*.74+.15*grainCoarse),sandCover*mappedMaterials.b);
           land*=1.+growth*.07+nearDetail*(grainFine*(.10+.11*lawn)+grainCoarse*.12*lawn);
           float waterAA=clamp(fwidth(waterCoverage),.04,.42);
           float waterWeight=smoothstep(.5-waterAA,.5+waterAA,waterCoverage);
@@ -189,15 +194,15 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
           bitumen=mix(bitumen,vec3(.142,.135,.120),lot*.82);
           float paleLot=smoothstep(.83,.92,pale)*lot;
           bitumen*=.86+.32*smoothstep(.08,.74,pale);
-          bitumen=mix(bitumen,vec3(.286,.268,.226),paleLot);
-          bitumen=mix(bitumen,vec3(.523,.501,.341),mappedMaterials.g*.89*road);
+          bitumen=mix(bitumen,vec3(.266,.261,.243),paleLot);
+          float mineral=mappedMaterials.g*smoothstep(.24,.49,textureLod(pavingTone,vec3(coverUV,1.),2.2).g);
+          bitumen=mix(bitumen,vec3(.478,.459,.385),mix(mineral,mappedMaterials.r,lot)*.89*road);
           float repairs=broadNoise(surveyPoint*.048+vec2(growth,-growth)*.26);
-          bitumen*=1.+.55*(surveyTone.g-.502)+ground.a*(repairs*.14+.035*broadNoise(surveyPoint*.19));
-          bitumen*=1.+particle.g*.52+nearDetail*(grainFine*(.17+coarse*.21)+grainCoarse*(.068+coarse*.08))+.03*broadNoise(surveyPoint*.72);
+          bitumen*=1.+.55*(surveyTone.g-.502)+road*(repairs*.14+.055*broadNoise(surveyPoint*.19));
+          bitumen*=1.+particle.g*.40+nearDetail*(grainFine*(.13+coarse*.16)+grainCoarse*(.068+coarse*.08))+.03*broadNoise(surveyPoint*.72);
           vec2 lotUV=mat2(.90,-.43,.43,.90)*surveyPoint*.051+vec2(repairs,growth)*.08;
           float seal=texture2D(groundGrain,lotUV).a;
-          bitumen*=1.-seal*lot*(.025+.05*coarse)*smoothstep(-.14,.29,repairs);
-          bitumen*=1.-.39*paleLot*slabJoint(mat2(.961,-.276,.276,.961)*surveyPoint,vec2(5.7,6.2));
+          bitumen*=1.-seal*lot*(.085+.065*coarse)*smoothstep(-.14,.29,repairs);
           vec4 measured=texture2D(pavementDetail,coverUV);
           bitumen*=1.-.13*measured.r-.23*measured.g;
           vec3 surface=mix(land,bitumen,road);
@@ -224,7 +229,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
               float delta=abs(fract(station+.5)-.5);
               jointDepth=clamp((.0035+width*.5-delta)/width,0.,min(1.,.007/width));
             }
-            slab*=1.-.36*jointDepth;
+            slab*=1.-.36*jointDepth*(1.-asphaltPath);
             vec2 paving=vec2(0.);
             if(pedestrian>.001 && finish.a<.995)paving=walkwayWeights(vMapUv);
             vec2 block=surveyPoint/vec2(.22,.40);
@@ -241,7 +246,9 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
       if(gameGround){
         riverFinish(shader,'surveyPoint','waterWeight');
         shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
-          normal=normalize(mix(normal,mat3(viewMatrix)*vec3(0.,1.,0.),max(lot,carriage)*.70*(1.-waterWeight)));`);
+          vec3 level=mat3(viewMatrix)*vec3(0.,1.,0.);
+          float levelPaving=smoothstep(.83,.985,dot(normal,level))*max(lot,carriage);
+          normal=normalize(mix(normal,level,.70*levelPaving*(1.-waterWeight)));`);
         landscape.foundationLight?.(shader);
       }
     };
@@ -281,7 +288,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     };
     return material;
   }
-  function roadPaint(patch){
+  function* roadPaint(patch){
     const positions=[],colors=[];
     for(const [kind,packed] of patch.strokes.entries()){
       if(!packed) continue;
@@ -291,6 +298,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
         colors.push(tint.r,tint.g,tint.b);
       }
       for(let i=0;i<coords.length;i+=6){
+        if(i%72===0) yield;
         const points=[];
         for(let k=0;k<3;k++){
           const x=patch.left+coords[i+k*2]/128,z=patch.top+coords[i+k*2+1]/128;
@@ -322,10 +330,37 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     g.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));
     g.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));
     g.computeVertexNormals();
-    const mesh=new THREE.Mesh(g,paintMaterial);
+    const mesh=new THREE.Mesh(g,markingMaterial);
     mesh.name='Surveyed lane markings';
     mesh.receiveShadow=true;
     return mesh;
+  }
+  const markingMaterial=observations?observedPaint(observations):paintMaterial;
+  const paintQueue=[];
+  let paintScheduled=false;
+  group.userData.paintReady=()=>paintQueue.length===0;
+  function attachPaint(patch){
+    if(!patch.active || !patch.paint || patch.paint.parent)return;
+    patch.mesh.add(patch.paint);
+    group.userData.onTextureReady?.();
+  }
+  function preparePaint(){
+    const deadline=landscape?.racing?performance.now()+2:Infinity;
+    while(paintQueue.length){
+      const patch=paintQueue.at(-1);
+      let result;
+      do {result=patch.paintJob.next();} while(!result.done && performance.now()<deadline);
+      if(result.done){
+        paintQueue.pop();
+        patch.paintJob=null;
+        patch.paint=result.value;
+        patch.paintReady=true;
+        attachPaint(patch);
+      }
+      if(performance.now()>=deadline)break;
+    }
+    paintScheduled=paintQueue.length>0;
+    if(paintScheduled)requestAnimationFrame(preparePaint);
   }
   const patches=[];
   const tile = 24;
@@ -453,6 +488,24 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     }
     return parts;
   }
+  function dormant(fine){
+    const wood=stem(fine?6:4),base=[0,-.02,0],fork=[.03,.38,-.02],leader=[-.04,.79,.04];
+    const parts=[limb(wood,base,fork,.061,.044),limb(wood,fork,leader,.044,.014),limb(wood,leader,[.06,.98,-.03],.015,.002)];
+    const arms=fine?8:5;
+    for(let i=0;i<arms;i++){
+      const t=i/arms,a=i*2.4+.19*Math.sin(i*3.1),reach=(.88-.48*t)*(.91+.09*Math.cos(i));
+      const start=[.03-.07*t,.38+.38*t,-.02+.06*t];
+      const elbow=[Math.sin(a)*reach*.58,start[1]+.075+.04*t,Math.cos(a)*reach*.58];
+      const end=[Math.sin(a+.18)*reach,elbow[1]+.10+.06*t,Math.cos(a+.18)*reach];
+      parts.push(limb(wood,start,elbow,.032-.018*t,.014),limb(wood,elbow,end,.014,.003));
+      if(fine)for(const side of [-1,1]){
+        const angle=a+side*(.73+.12*Math.sin(i)),length=reach*(side>0?.42:.36);
+        const joint=side>0?elbow:end,tip=[joint[0]+Math.sin(angle)*length,joint[1]+.10+.04*Math.cos(angle),joint[2]+Math.cos(angle)*length];
+        parts.push(limb(wood,joint,tip,.009,.0018));
+      }
+    }
+    return parts;
+  }
   const bark=new THREE.Color(0x5c4b3b), sunlit=new THREE.Color();
   function treeGeometry(parts,woodOnly=false) {
     const position=[],normal=[],color=[],leaf=[],uv=[],cameraSolid=[];
@@ -482,7 +535,9 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
             normal.push(n.getX(i+k),n.getY(i+k),n.getZ(i+k));
             uv.push(u.getX(i+k),u.getY(i+k));
           }else{
-            normal.push(face.x,face.y,face.z);
+            const n=part.branch?faces.attributes.normal:null;
+            if(n)normal.push(n.getX(i+k),n.getY(i+k),n.getZ(i+k));
+            else normal.push(face.x,face.y,face.z);
             uv.push(.985,.986);
           }
           color.push(sunlit.r,sunlit.g,sunlit.b);
@@ -505,6 +560,8 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
     return {branches:fine.flatMap(p=>p.branch?[p.branch]:[]),far:treeGeometry(build(false)),near:treeGeometry(fine),bare:treeGeometry(fine,true)};
   }
   const forms=[species(fine=>broadleaf(71,true,fine)),species(fine=>broadleaf(5233,false,fine)),species(fine=>conifer(fine)),species(fine=>broadleaf(2261,true,fine)),species(fine=>broadleaf(743,false,fine))];
+  const springForm=forms.length;
+  forms.push(species(dormant));
   const vegetation=new THREE.MeshStandardMaterial({vertexColors:true,map:leafSprayTexture(),alphaTest:.36,side:THREE.DoubleSide});
   vegetation.customProgramCacheKey=()=>'campus-leaf-flecks';
   vegetation.onBeforeCompile=shader=>{
@@ -523,6 +580,9 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
   const transform=new THREE.Object3D(), color=new THREE.Color();
   function pick([x,,z,h,rgb]) {
     const hash=Math.abs(Math.sin(x*12.9898+z*78.233)*43758.5453)%1;
+    const habit=region.regionalHabits?.get(x+','+z);
+    if(habit===10)return springForm;
+    if(habit===1)return 2;
     const value=Math.max(...rgb)/255;
     if(h>7 && (value<.27 || hash<.06)) return 2;
     return h<9 || hash>.62 ? (hash>.80?4:1) : (hash>.31?3:0);
@@ -567,6 +627,10 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
   let focusX,focusZ,focusDistance,canopyCoverage;
   const roadCredit=document.getElementById('road-credit');
   group.userData.setCanopyCoverage=fn=>{canopyCoverage=fn;focusX=NaN;};
+  group.userData.groundSettledNear=(x,z,radius)=>patches.every(patch=>{
+    const dx=Math.max(patch.left-x,0,x-patch.right),dz=Math.max(patch.top-z,0,z-patch.bottom);
+    return Math.hypot(dx,dz)>radius || (patch.active && patch.mesh.material!==terrain && (!patch.strokes || patch.paintReady));
+  });
   group.userData.updateAerial=(x,z,distance)=>{
     if(Math.hypot(x-focusX,z-focusZ)<10 && Math.abs(distance-focusDistance)<10) return textureRevision;
     focusX=x;focusZ=z;focusDistance=distance;
@@ -582,14 +646,31 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
       const near=distance<420 && Math.hypot(x-tile.x,z-tile.z)<285;
       tile.mesh.geometry=!near?tile.form.far:canopyCoverage?.(tile.x,tile.z,145)?tile.form.bare:tile.form.near;
     }
+    paintQueue.length=0;
     for(const patch of patches){
       const dx=Math.max(patch.left-x,0,x-patch.right), dz=Math.max(patch.top-z,0,z-patch.bottom);
-      const near=distance<850 && Math.hypot(dx,dz)<(patch.active?420:330);
+      const range=Math.hypot(dx,dz);
+      const near=distance<850 && range<(patch.active?420:330);
+      if(patch.strokes){
+        if(near || (landscape?.racing && distance<850 && range<460)){
+          if(!patch.paintReady){
+            patch.paintJob??=roadPaint(patch);
+            patch.paintDistance=range;
+            paintQueue.push(patch);
+          }
+        }else{
+          patch.paintJob=null;
+          patch.paint?.removeFromParent();
+          patch.paint?.geometry.dispose();
+          patch.paint=null;
+          patch.paintReady=false;
+        }
+      }
       if(near===Boolean(patch.active)) continue;
       patch.active=near;
       if(!near){
         patch.token=null;
-        if(patch.paint){patch.mesh.remove(patch.paint);patch.paint.geometry.dispose();if(patch.paint.material!==paintMaterial) patch.paint.material.dispose();patch.paint=null;}
+        patch.paint?.removeFromParent();
         if(patch.mesh.material!==terrain) {
           patch.mesh.material.userData.walkGuide?.dispose();
           patch.mesh.material.map.dispose();
@@ -600,7 +681,7 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
         }
         continue;
       }
-      if(patch.strokes){patch.paint=roadPaint(patch);if(patch.paint) patch.mesh.add(patch.paint);}
+      attachPaint(patch);
       const token=patch.token={};
       function load(source,type){
         return loader.loadAsync(/^(?:https?:|data:|blob:|\/|\.\.?\/)/.test(source)?source:'data:image/'+type+';base64,'+source);
@@ -610,7 +691,6 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
         if(patch.token!==token){map.dispose();return;}
         if(finish){finish.flipY=false;finish.anisotropy=8;}
         const conditions=observations;
-        if(conditions && patch.paint) patch.paint.material=observedPaint(conditions);
         map.flipY=false;
         map.colorSpace=finish?THREE.NoColorSpace:THREE.SRGBColorSpace;
         map.magFilter=THREE.LinearFilter;
@@ -621,6 +701,12 @@ export function createCampusRegion(THREE, region, world, aerial, stoneMaterial, 
         textureRevision++;
         group.userData.onTextureReady?.();
       }).catch(error=>{if(patch.token===token){patch.active=false;focusX=NaN;console.warn(error.message);}});
+    }
+    paintQueue.sort((a,b)=>b.paintDistance-a.paintDistance);
+    if(!paintScheduled && paintQueue.length){
+      paintScheduled=true;
+      if(landscape?.racing) requestAnimationFrame(preparePaint);
+      else preparePaint();
     }
     return textureRevision;
   };

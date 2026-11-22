@@ -1,12 +1,8 @@
-"""Generate the pixel-art Formula Western logo, FW mark and favicon used by web/ui.
-Usage: .venv/bin/python build/pixel_logo.py [source.png web/ui preview.png]"""
-
 import sys
 from PIL import Image
 src,out,prev=(sys.argv[1:4]+[None]*3)[:3] if len(sys.argv)>1 else ("build/assets/formula-western-logo.png","web/ui",None)
 im=Image.open(src).convert('RGBA')
 im=im.crop(im.split()[3].point(lambda v:255 if v>60 else 0).getbbox())
-# split mark (FW) from wordmark: find widest fully-transparent row gap in lower half
 a=im.split()[3].point(lambda v:255 if v>60 else 0)
 rows=[any(a.crop((0,y,im.width,y+1)).get_flattened_data()) for y in range(im.height)]
 gap=[y for y in range(im.height//2,im.height) if not rows[y]]

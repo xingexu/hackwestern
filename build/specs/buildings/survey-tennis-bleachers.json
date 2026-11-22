@@ -1,0 +1,306 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-tennis-bleachers",
+  "name": "Tennis court spectator bleachers",
+  "status": "authored",
+  "confidence": 0.83,
+  "style": "athletic",
+  "lidarTrusted": false,
+  "lidarNote": "Local dimensions and wall height estimated from the 2025 roof perimeter and cast shadow.",
+  "materials": {
+    "wall": {
+      "kind": "painted-metal",
+      "color": "#c9cdca",
+      "metalness": 0.52,
+      "roughness": 0.52
+    },
+    "roof": {
+      "kind": "painted-metal",
+      "color": "#c3c6be",
+      "roughness": 0.63
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#c7c9c3"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#757975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 1.58,
+    "typicalHeight": 1.58
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none",
+    "features": []
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Seating row 1 from court",
+        "footprint": [
+          [
+            292.492,
+            1405.716
+          ],
+          [
+            282.882,
+            1411.036
+          ],
+          [
+            282.581,
+            1410.49
+          ],
+          [
+            292.191,
+            1405.171
+          ]
+        ],
+        "height": 0.2,
+        "baseOffset": 0.13,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Seating row 2 from court",
+        "footprint": [
+          [
+            292.165,
+            1405.123
+          ],
+          [
+            282.555,
+            1410.442
+          ],
+          [
+            282.253,
+            1409.896
+          ],
+          [
+            291.863,
+            1404.578
+          ]
+        ],
+        "height": 0.385,
+        "baseOffset": 0.315,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Seating row 3 from court",
+        "footprint": [
+          [
+            291.837,
+            1404.531
+          ],
+          [
+            282.227,
+            1409.848
+          ],
+          [
+            281.926,
+            1409.302
+          ],
+          [
+            291.536,
+            1403.986
+          ]
+        ],
+        "height": 0.57,
+        "baseOffset": 0.5,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Seating row 4 from court",
+        "footprint": [
+          [
+            291.51,
+            1403.938
+          ],
+          [
+            281.9,
+            1409.254
+          ],
+          [
+            281.598,
+            1408.708
+          ],
+          [
+            291.208,
+            1403.393
+          ]
+        ],
+        "height": 0.755,
+        "baseOffset": 0.685,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Seating row 5 from court",
+        "footprint": [
+          [
+            291.182,
+            1403.346
+          ],
+          [
+            281.572,
+            1408.661
+          ],
+          [
+            281.271,
+            1408.114
+          ],
+          [
+            290.881,
+            1402.801
+          ]
+        ],
+        "height": 0.94,
+        "baseOffset": 0.87,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Seating row 6 from court",
+        "footprint": [
+          [
+            290.855,
+            1402.753
+          ],
+          [
+            281.245,
+            1408.067
+          ],
+          [
+            280.943,
+            1407.521
+          ],
+          [
+            290.553,
+            1402.208
+          ]
+        ],
+        "height": 1.125,
+        "baseOffset": 1.055,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Seating row 7 from court",
+        "footprint": [
+          [
+            290.527,
+            1402.161
+          ],
+          [
+            280.917,
+            1407.473
+          ],
+          [
+            280.616,
+            1406.927
+          ],
+          [
+            290.226,
+            1401.616
+          ]
+        ],
+        "height": 1.31,
+        "baseOffset": 1.24,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none",
+          "overhang": 0
+        }
+      },
+      {
+        "name": "Seating row 8 from court",
+        "footprint": [
+          [
+            290.2,
+            1401.568
+          ],
+          [
+            280.59,
+            1406.88
+          ],
+          [
+            280.288,
+            1406.333
+          ],
+          [
+            289.898,
+            1401.023
+          ]
+        ],
+        "height": 1.495,
+        "baseOffset": 1.425,
+        "floors": 1,
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "none",
+          "overhang": 0
+        }
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof edges and finish traced from the City of London 2025 orthophoto."
+    }
+  ],
+  "seating": {
+    "sectionWidth": 5.2,
+    "aisleWidth": 0.91,
+    "fieldFacingWall": 2
+  }
+}

@@ -39,8 +39,15 @@ assert (survey.classes(*drive_samples.T)==1).all() and land_at(-325,727.5)<=2
 absent=np.array([[-245,660],[-307,720]])
 assert not survey.classes(*absent.T).any() and all(land_at(*p)<=2 for p in absent)
 assert land_at(232.5,1450)==8 and land_at(12,-58)==5
-shaded_verges=np.array([(-230.7,917.5),(-232.5,912.7),(-139.3,122.7)])
+shaded_verges=np.array([(-230.7,917.5),(-232.5,912.7),(-116,126),(-120,133),(-114,132)])
 assert not survey.classes(*shaded_verges.T).any() and all(land_at(*p)<=2 for p in shaded_verges)
+from parking_archive import dated_pigment
+huron_yard=np.array([[-139.3,122.7]])
+assert survey.classes(*huron_yard.T)[0]==0 and land_at(*huron_yard[0])==4
+for year in (2020,2021,2024,2025):
+    yard=dated_pigment(huron_yard,year).mean()
+    grove=dated_pigment(shaded_verges[-3:],year).mean(axis=1)
+    assert (yard>grove+26).all(),(year,yard,grove)
 forecourts=np.array([(305.9,1322.7),(312.7,135.1),(324.3,121.7),(127.7,159.9)])
 assert (survey.classes(*forecourts.T)==2).all() and all(land_at(*p)==3 for p in forecourts)
 tone=land['pavingTone']
@@ -103,6 +110,10 @@ for west,north in [(-350,550),(350,-500),(-550,900)]:
     assert np.count_nonzero((centers[:,0]>=west)&(centers[:,0]<west+50)&(centers[:,1]>=north)&(centers[:,1]<north+50))>=8
 lots=lot_mask().buffer(.008)
 assert len(lines)>250 and all(lots.covers(shapely.LineString(np.reshape(s,(2,2)))) for s in lines)
+network=load('drive-network')
+before_aprons={**network,'areas':[a for a in network['areas'] if not str(a['id']).startswith('city-painted-parking-')]}
+assert lot_mask(network=before_aprons).difference(lots).area<.001
+
 winter_lawns=np.array([(-309,869),(-311,882),(-323,865),(15,615),(18,620)])
 assert all(land_at(x,z)<=2 for x,z in winter_lawns)
 assert not survey.classes(*winter_lawns.T).any()
@@ -181,3 +192,15 @@ print(f'{walk_pixels:,} antialiased walk texels reproduced exactly. Verified {le
 
 assert join(land['context'])==land['context']['backdrop']
 print('The surrounding landscape shares its inner rim heights with the surveyed parcel belt and uses each exterior tree once.')
+
+obstruction=shapely.Polygon([(239.60,1338.84),(241.58,1338.72),(241.55,1339.20),(239.65,1339.25)])
+assert track.covers(obstruction) and surface.covers(obstruction)
+western_kerb=shapely.LineString([(2.65,1726.6),(3.35,1728.6)])
+kerbs=[shapely.LineString(np.reshape(flat,(-1,2))) for flat,side in data['pavementSurvey']['kerbs']]
+assert western_kerb.difference(shapely.union_all(kerbs).buffer(.19)).length==0
+observed_ink=json.loads((region.OUT.parents[1]/'build/parking_paint_observations.json').read_bytes())['lines']
+assert all(shapely.LineString(row).distance(western_kerb)>1 for row in observed_ink)
+for a,b in [([17.2,1719.45],[18.3,1722.15]),([20.05,1718.8],[20.95,1721.2])]:
+    assert all(land_at(*p)==5 for p in np.linspace(a,b,9)[1:-1])
+assert land_at(39.5,1713)<=2 and land_at(32.3,1731.1)<=2 and land_at(12.3,1720.3)==3
+print('The western parking bay ends at its municipal kerb, both dividers sit on pavement and the stadium bend has continuous rubber.')

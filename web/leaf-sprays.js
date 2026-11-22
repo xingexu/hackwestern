@@ -1,14 +1,28 @@
 import * as THREE from 'three';
 
 export const barkGrainGLSL=`
+  float barkHash(vec2 p){
+    vec3 h=fract(vec3(p.xyx)*vec3(.1031,.11369,.13787));
+    h+=dot(h,h.yzx+19.19);
+    return fract((h.x+h.y)*h.z);
+  }
+  float barkNoise(vec2 p){
+    vec2 cell=floor(p),f=fract(p);
+    f=f*f*(3.-2.*f);
+    return mix(mix(barkHash(cell),barkHash(cell+vec2(1.,0.)),f.x),
+               mix(barkHash(cell+vec2(0.,1.)),barkHash(cell+1.),f.x),f.y);
+  }
   float barkGrain(vec3 p){
-    vec2 grain=vec2(19.1*p.x+13.7*p.z,15.2*p.z-11.4*p.x);
-    grain+=vec2(.41*sin(p.y*3.4+sin(p.z*2.8)),.46*sin(p.y*2.2+p.x*1.3));
-    vec2 relief=abs(sin(grain*1.8+sin(grain*.63+p.y*.72)));
-    float fissure=1.-smoothstep(.045,.34,min(relief.x,relief.y));
-    float flakes=sin(p.y*37.+sin(dot(p.xz,vec2(11.3,19.7))))*.035;
-    float detail=1.-smoothstep(.012,.13,length(fwidth(p)));
-    return 1.+detail*(.09-.33*fissure+flakes);
+    float footprint=length(fwidth(p));
+    vec2 grain=vec2(dot(p.xz,vec2(.86,.71)),p.y);
+    float drift=barkNoise(grain*vec2(2.4,.8));
+    vec2 q=grain*vec2(15.1,3.4)+vec2(2.4*drift,drift);
+    float plate=barkNoise(q);
+    float fissure=1.-smoothstep(.024,.129,abs(plate-.49));
+    float weather=barkNoise(grain*vec2(29.,9.)+plate);
+    float detail=1.-smoothstep(.015,.13,footprint);
+    float ridges=sin(dot(p.xz,vec2(5.7,4.1))+.51*sin(p.y*1.6+p.x*.7));
+    return 1.+detail*(.12*ridges+(plate-.5)*.22-.38*fissure*(.35+.65*weather)+(weather-.40)*.19);
   }`;
 
 export function barkFinish(shader){
@@ -109,19 +123,26 @@ export function budSprig(){
 
 export function terminalTwigs(depth=3){
   const vertices=[],uv=[];
-  function shoot(x,y,z,angle,length,width,level){
+  function shoot(base,angle,length,width,rise,level){
     const dx=Math.sin(angle),dz=Math.cos(angle);
-    const tx=x+dx*length,ty=y+length*(.49+.20*Math.cos(angle*1.3)),tz=z+dz*length;
-    const ox=dz*width,oz=-dx*width;
-    vertices.push(x+ox,y,z+oz,x-ox,y,z-oz,tx,ty,tz);
-    vertices.push(x,y+width,z,x,y-width,z,tx,ty,tz);
-    for(let i=0;i<6;i++)uv.push(.985,.986);
-    if(level>0)for(const side of [-1,1]){
-      const t=side<0?.62:.85;
-      shoot(x+(tx-x)*t,y+(ty-y)*t,z+(tz-z)*t,angle+side*(.53+.23*Math.sin(angle+level)),length*(.66+.13*side),width*.62,level-1);
+    const tip=base.clone().add(new THREE.Vector3(dx*length,rise*length,dz*length));
+    const ring=[];
+    for(let j=0;j<3;j++){
+      const phase=j*2*Math.PI/3;
+      ring.push(base.clone().add(new THREE.Vector3(dz*Math.cos(phase),Math.sin(phase),-dx*Math.cos(phase)).multiplyScalar(width)));
     }
+    for(let j=0;j<3;j++){
+      vertices.push(...ring[j].toArray(),...ring[(j+1)%3].toArray(),...tip.toArray());
+      uv.push(.985,.986,.985,.986,.985,.986);
+    }
+    if(level===0)return;
+    const bend=.23*Math.sin(angle*2.7+level);
+    shoot(base.clone().lerp(tip,.81),angle+bend,length*.76,width*.66,rise+.17,level-1);
+    const side=level%2?1:-1;
+    shoot(base.clone().lerp(tip,.47),angle+side*(.78+bend),length*.57,width*.49,rise*.52+.08,level-1);
   }
-  for(const [bearing,length] of [[0,.91],[-.93,.74],[1.18,.81]])shoot(0,0,0,bearing,length*(depth===1?1.23:1),depth===1?.053:.036,depth);
+  shoot(new THREE.Vector3(),0,depth===1?1.06:.88,depth===1?.036:.027,.52,depth);
+  shoot(new THREE.Vector3(),-1.04,.53,.021,.94,Math.max(0,depth-1));
   const geometry=new THREE.BufferGeometry();
   geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
   geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
@@ -177,6 +198,7 @@ export function foliageCluster(lift=.35){
 export const leafPatchGLSL=`
   float smallLeaves(sampler2D sprays,vec3 p){
     vec2 uv=p.xz*mat2(.48,-.70,.70,.48)+p.y*vec2(.59,-.47);
+    uv+=.24*vec2(sin(dot(p,vec3(.83,.51,.26))),cos(dot(p,vec3(-.32,.47,.72))));
     vec2 scale=vec2(.214,.89);
     return textureGrad(sprays,vec2(.762,.051)+scale*fract(uv),scale*dFdx(uv),scale*dFdy(uv)).g;
   }`;
@@ -194,7 +216,8 @@ export function lightLeafBacks(shader){
       #ifdef USE_MAP
         if(vMapUv.x>.75 && vMapUv.x<.979){
           float leaf=smallLeaves(map,leafSite);
-          diffuseColor.rgb=diffuse*(.24+.77*leaf);
+          float sunlit=.5+.5*sin(dot(leafSite,vec3(.47,.75,-.36))+sin(leafSite.z*.81));
+          diffuseColor.rgb=diffuse*mix(vec3(.53,.56,.51),vec3(1.,.97,.87),.79*leaf+.21*sunlit);
         }
       #endif`);
   shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_begin>',`#include <normal_fragment_begin>

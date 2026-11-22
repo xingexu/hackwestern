@@ -93,33 +93,69 @@ def survey_roofs(record,building):
             target=.65*median+.35*daylight
             calibrated=np.clip((target-12)/.93+np.maximum(target-165,0)*.24,0,255)
             colour=base*.17+calibrated*.83
+            brightness=float(colour.mean())
+            daylight_lift=max(0,min((brightness-34)*.14,(232-brightness)*.39,18))
+            colour-=daylight_lift
         rectangle=np.array(shape.minimum_rotated_rectangle.exterior.coords)[:4]
         edges=np.roll(rectangle,-1,axis=0)-rectangle
         axis=edges[np.argmax(np.linalg.norm(edges,axis=1))]
         finish=part['roofFinish']=dict(color=hex_color(colour),roofAxis=round(math.atan2(axis[1],axis[0])%math.pi,4),weathering=round(float(np.clip(np.std(values.mean(axis=1))/98,.10,.45)),3))
         if kind not in ('membrane','gravel-ballast','concrete-smooth') or roof.area<160:
             continue
-        grey=pixels.mean(axis=2)
+        step=.5
+        z,x=np.mgrid[math.floor(t):math.ceil(b)+1:step,math.floor(l):math.ceil(r)+1:step]
+        x=x+step/2;z=z+step/2
+        grid=sample(x,z).astype(float)
+        red,green,blue=grid.transpose(2,0,1)
+        grey=grid.mean(axis=2)
+        exposed=shapely.contains_xy(roof,x,z)&(grey>37)&~((green>red*1.15+5)&(green>blue*1.32+4))
+        for feature in part['roof'].get('features',[]):
+            center=feature.get('at',feature.get('center'))
+            if center is None or not feature.get('size'):
+                continue
+            w,d=feature['size'][:2]
+            if w*d<2.5:
+                continue
+            angle=math.radians(feature.get('rotation',0))
+            co,si=math.cos(angle),math.sin(angle)
+            dx=x-center[0];dz=z-center[1]
+            exposed&=(abs(dx*co+dz*si)>w/2+.5)|(abs(dz*co-dx*si)>d/2+.5)
+        if exposed.sum()<40:
+            continue
+        center_grey=float(np.median(grey[exposed]))
+        threshold=max(18,np.std(grey[exposed])*.84)
         found=[]
         for sign in (1,-1):
-            marked=valid&(sign*(grey-np.median(grey[valid]))>max(23,np.std(grey[valid])*.9))
-            marked=ndimage.binary_opening(marked,structure=np.ones((2,2)))
-            components,count=ndimage.label(marked)
+            marked=exposed&(sign*(grey-center_grey)>threshold)
+            marked=ndimage.binary_closing(marked,structure=np.ones((3,3)))&exposed
+            components,_=ndimage.label(ndimage.binary_opening(marked,structure=np.ones((2,2))))
             for label,sl in enumerate(ndimage.find_objects(components),1):
                 if sl is None:continue
                 hit=components[sl]==label
-                n=hit.sum()
-                if n<14 or n>roof.area*.32:continue
+                area=hit.sum()*step**2
+                if area<8 or area>roof.area*.32:continue
                 coords=np.stack([x[sl][hit],z[sl][hit]],axis=1)
                 rect=MultiPoint(coords).minimum_rotated_rectangle
-                if rect.geom_type!='Polygon' or not roof.covers(rect) or n<rect.area*.73:continue
-                a,v,c=list(rect.exterior.coords)[:3]
-                w=math.dist(a,v);d=math.dist(v,c)
-                if min(w,d)<2 or max(w,d)/min(w,d)>7:continue
-                contrast=float(np.median(grey[sl][hit])-np.median(grey[valid]))
-                center=rect.centroid
-                found.append((n,[round(center.x,2),round(center.y,2),round(w*.5,2),round(d*.5,2),round(math.atan2(v[1]-a[1],v[0]-a[0]),4),round(float(np.clip(contrast/140,-.32,.30)),3)]))
-        if found:finish['repairs']=[row for _,row in sorted(found,key=lambda v:-v[0])[:2]]
+                if rect.geom_type!='Polygon' or rect.area<=0 or roof.intersection(rect).area<rect.area*.93:continue
+                points=np.asarray(rect.exterior.coords)
+                edges=np.diff(points[:3],axis=0);lengths=np.linalg.norm(edges,axis=1)
+                long=max(lengths);short=min(lengths)
+                elongated=sign<0 and long>10 and long>short*3
+                if short<1.3 or area<rect.area*(.47 if elongated else .72):continue
+                axis=edges[np.argmax(lengths)]/long
+                projection=coords[:,0]*axis[0]+coords[:,1]*axis[1]
+                segments=min(4,max(2,round(long/8))) if elongated else 1
+                for strip in np.array_split(np.argsort(projection),segments):
+                    band=MultiPoint(coords[strip]).minimum_rotated_rectangle
+                    if band.geom_type!='Polygon':continue
+                    a,v,c=list(band.exterior.coords)[:3]
+                    w=math.dist(a,v)+step;d=math.dist(v,c)+step
+                    if min(w,d)<1.15:continue
+                    contrast=float(np.median(grey[sl][hit][strip])-center_grey)
+                    tone=np.clip((1+contrast/max(45,center_grey))**2.1-1,-.68,.54)
+                    center=band.centroid
+                    found.append((area*abs(contrast),[round(center.x,2),round(center.y,2),round(w*.5,2),round(d*.5,2),round(math.atan2(v[1]-a[1],v[0]-a[0]),4),round(float(tone),3)]))
+        if found:finish['repairs']=[row for _,row in sorted(found,key=lambda v:-v[0])[:6]]
     return lambda x,z: sample(np.asarray(x),np.asarray(z)).astype(float)
 
 
@@ -167,7 +203,7 @@ def register_rooftop_units(record, sample):
                 continue
             mask = labels[sl] == label
             count = mask.sum()
-            if not 11 <= count <= 365:
+            if not 4 <= count <= 365:
                 continue
             points = np.column_stack((x[sl][mask],z[sl][mask]))
             rect = MultiPoint(points).minimum_rotated_rectangle
@@ -177,7 +213,10 @@ def register_rooftop_units(record, sample):
             axis,across = b-a,c-b
             w,d = np.linalg.norm(axis)+step,np.linalg.norm(across)+step
             fill = count*step**2/(w*d)
-            if min(w,d)<.85 or max(w,d)>17 or fill<.79 or max(w,d)>min(w,d)*9:
+            vent=count<11 and .63<=min(w,d) and max(w,d)<=1.8 and max(w,d)/min(w,d)<1.7
+            if count<11 and not vent:
+                continue
+            if min(w,d)<(.63 if vent else .85) or max(w,d)>17 or fill<.79 or max(w,d)>min(w,d)*9:
                 continue
             if any(shape.intersects(rect) for shape in occupied):
                 continue
@@ -193,12 +232,12 @@ def register_rooftop_units(record, sample):
                     continue
                 edge = center + normal*span/2 + np.linspace(-.36,.36,7)[:,None]*length*tangent
                 near = edge + normal*.61
-                far = edge + normal*2.4
+                far = edge + normal*(1.65 if vent else 2.4)
                 if not shapely.contains_xy(area,far[:,0],far[:,1]).all():
                     continue
                 shadow = sample(near[:,0],near[:,1]).mean(axis=1)
                 surround = sample(far[:,0],far[:,1]).mean(axis=1)
-                if np.count_nonzero((surround-shadow>16)&(colour.mean()-shadow>25))>=5:
+                if np.count_nonzero((surround-shadow>(23 if vent else 16))&(colour.mean()-shadow>(32 if vent else 25)))>=5:
                     shadow_depth = max(shadow_depth,float(np.median(surround-shadow)))
             if shadow_depth == 0:
                 continue
@@ -208,10 +247,13 @@ def register_rooftop_units(record, sample):
             height = np.clip(d*.44,.38,1.65)
             style = 'sheet metal duct' if w/d>2.65 else 'packaged air handler'
             row = dict(type='hvac',at=center.round(2).tolist(),size=[round(w,2),round(d,2),round(float(height),2)],rotation=round(math.degrees(math.atan2(axis[1],axis[0])),2),material=hex_color(colour),style=style)
+            if vent:
+                row.update(type='chimney',style='round metal vent',size=[round(d,2),round(d,2),round(np.clip(d*.87,.48,1.3),2)])
             candidates.append((fill*shadow_depth*min(12,rect.area),part,rect,row))
+    limit = max(6,min(24,math.ceil(shapely.union_all(plates).area/350)))
     accepted = 0
     for _,part,rect,row in sorted(candidates,key=lambda item:-item[0]):
-        if accepted >= 6:
+        if accepted >= limit:
             break
         if not any(shape.intersects(rect) for shape in occupied):
             part['roof']['features'] = [*part['roof'].get('features',[]),row]

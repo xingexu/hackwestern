@@ -1,9 +1,3 @@
-// Pixel-art "3 · 2 · 1 · GO!" start sequence drawn above the track.
-// The canvas is rendered at a tiny logical resolution and upscaled with
-// `image-rendering: pixelated`, so every block on screen is a real pixel.
-// Callers feed it the seconds left until the start (negative once racing);
-// it runs its own animation frame loop so the motion stays smooth even
-// though the HUD only refreshes every ~60 ms.
 
 const W=72,H=48,CELL=4,GLYPH_TOP=17,MID=W/2
 
@@ -25,7 +19,6 @@ function hash(i,j,seed=0) {
 }
 const clamp=v=>Math.max(0,Math.min(1,v))
 
-// Lay a string out as a list of lit cells in canvas pixel coordinates.
 function layout(text) {
   const glyphs=[...text].map(ch=>GLYPHS[ch])
   const width=glyphs.reduce((sum,g)=>sum+g[0].length,0)+glyphs.length-1
@@ -64,13 +57,9 @@ function createCountdown(parent) {
       const p=place(cell)
       if (p && p.alpha>0) placed.push({...p,cell})
     }
-    // Outline, drop shadow, then bevelled face: three passes keep the
-    // outlines from painting over neighbouring cells.
     for (const p of placed) {ctx.globalAlpha=p.alpha;block(p.x-1,p.y-1,CELL+2,INK)}
     for (const p of placed) {ctx.globalAlpha=p.alpha;block(p.x+1,p.y+1,CELL,SHADOW)}
     for (const p of placed) {
-      // Cells that have drifted off the glyph get a full bevel; settled ones
-      // only bevel their outer edges so strokes read as solid pixels.
       const x=Math.round(p.x),y=Math.round(p.y),loose=p.x!==p.cell.x || p.y!==p.cell.y
       ctx.globalAlpha=p.alpha
       block(x,y,CELL,colors[1])
@@ -82,8 +71,6 @@ function createCountdown(parent) {
     }
     ctx.globalAlpha=1
   }
-  // A small start gantry: three pixel lamps that light red one by one,
-  // then all switch to green on GO.
   function drawGantry(lit,green,alpha) {
     ctx.globalAlpha=alpha
     ctx.fillStyle=INK
@@ -146,7 +133,6 @@ function createCountdown(parent) {
     frame=0
   }
   return {
-    // Seconds until the start: 3 → 0 counts down, 0 → -1 plays the GO burst.
     sync(remaining) {
       if (!(remaining>-1)) {if (base) hide();return}
       if (base?.remaining!==remaining) {base={remaining};syncedAt=performance.now()}

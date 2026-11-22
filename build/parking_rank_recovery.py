@@ -37,13 +37,13 @@ def color_samples(year,points):
     return values.reshape(shape+(3,))
 
 
-def scan_rank(center,axis):
+def scan_rank(center,axis,years):
     side=np.array([-axis[1],axis[0]])
     along=np.arange(-8.4,8.41,.12)
     across=np.arange(-10.,10.01,.075)
     world=center+along[None,:,None]*axis+across[:,None,None]*side
     captures=[]
-    for year in [2021,2020,2025]:
+    for year in dict.fromkeys((*years,2025)):
         value,lum,color=color_samples(year,world).transpose(2,0,1)
         lower=np.roll(value,4,0);upper=np.roll(value,-4,0)
         clear=(lum>107)&(np.abs(np.roll(lum,4,0)-np.roll(lum,-4,0))<28)
@@ -73,14 +73,14 @@ def scan_rank(center,axis):
             if np.abs(np.mean(along[a:b]))>3.6:continue
             support=float((persistent[j,a:b]>3.8).mean())
             if support<.65:continue
-            direct=max(float((gain[2][j,a:b]>3).mean()),0.)
+            direct=float((gain[-1][j,a:b]>3).mean())
             local=world[j,a:b]
             cars=color_samples(2025,(local[None,:,:]+np.array([-1.35,-.9,.9,1.35])[:,None,None]*side))[:,:,1]
             occupied=float(np.min((cars<116).reshape(2,-1).mean(axis=1)))
             if direct<.22 and occupied<.20:continue
-            weight=np.array([.35,.35,.30])
+            weight=[.35,.35,.30] if len(captures)==3 else [.5,.5]
             chroma=[]
-            for (signal,tint,_),band in zip(captures,gain):
+            for signal,tint,_ in captures:
                 m=signal[j-2:j+3,a:b]>3.6
                 chroma.append((tint[j-2:j+3,a:b]&m).sum()/max(1,m.sum()))
             hue=int(np.dot(chroma,weight)>.40)
@@ -110,7 +110,8 @@ def surveyed_ranks():
     islands=shapely.union_all([shapely.Polygon(p['outer']) for p in json.loads(OUT.with_name('survey_islands.json').read_bytes())]).buffer(.16)
     offers=[]
     for length,center,axis in seeds.values():
-        offers.extend(scan_rank(center,axis))
+        offers.extend(scan_rank(center,axis,(2021,2020)))
+        offers.extend(scan_rank(center,axis,(2024,2025)))
     result=[]
     for score,ends,gold,cert in sorted(offers,key=lambda v:-v[0]):
         line=LineString(ends)

@@ -27,7 +27,8 @@ const fragmentShader=`
     float sampleZ=viewDistance(texture2D(sceneDepth,(samplePixel+.5)*texel).r);
     float expected=viewDistance(clamp(depth+dot(samplePixel-pixel,gradient),0.,1.));
     float diff=expected-sampleZ;
-    return smoothstep(.06,.55,diff)*(1.-smoothstep(.75,2.4,abs(sampleZ-z)));
+    float withinRadius=1.-smoothstep(.60,1.35,max(abs(expected-z),abs(sampleZ-z)));
+    return withinRadius*smoothstep(.065,.55,diff)*(1.-smoothstep(.70,1.4,diff));
   }
   void main(){
     vec4 center=texture2D(sceneColor,uvScreen);
@@ -60,7 +61,9 @@ const fragmentShader=`
       vec2 a=radius*vec2(.93,.36),b=radius*vec2(-.36,.93);
       float shade=obscurance(a,pixel,depth,z,gradient)+obscurance(-a,pixel,depth,z,gradient)
                 +obscurance(b,pixel,depth,z,gradient)+obscurance(-b,pixel,depth,z,gradient);
-      c*=1.-ao*.25*shade*(1.-smoothstep(55.,95.,z));
+      float metresPerPixel=(orthographic?1.:z)*sampleScale/focalLength;
+      float facing=1.-smoothstep(1.3,2.8,length(discontinuity)/metresPerPixel);
+      c*=1.-ao*.25*shade*facing*(1.-smoothstep(55.,95.,z));
     }
     vec3 glow=vec3(0.);
     for(int i=0;i<4;i++){

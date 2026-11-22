@@ -16,14 +16,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def contours(tile):
     image = np.asarray(Image.open(io.BytesIO(base64.b64decode(tile))).getchannel('B'), dtype=np.float32)
-    coverage = gaussian_filter(image, .95, mode='nearest') > 127
+    coverage = gaussian_filter(image, .65, mode='nearest') > 127
     output = []
     for item, _ in shapes(coverage.astype(np.uint8), mask=coverage):
         original = shape(item)
         if original.area < 6:
             continue
-        polygon = original.simplify(1.35).buffer(4, quad_segs=3).buffer(-4, quad_segs=3)
-        for part in get_parts(polygon.simplify(3.25, preserve_topology=True)):
+        polygon = original.simplify(.8).buffer(1.5, quad_segs=3).buffer(-1.5, quad_segs=3)
+        for part in get_parts(polygon.simplify(.8, preserve_topology=True)):
             if not isinstance(part, Polygon):
                 continue
             for ring in [part.exterior, *part.interiors]:
@@ -34,19 +34,26 @@ def contours(tile):
     return np.asarray(output, dtype='<u2').tobytes()
 
 
-def build():
-    terrain = json.loads((ROOT / 'web/surface-tiles.json').read_bytes())
-    region = json.loads((ROOT / 'web/campus-region.json').read_bytes())
+def outline_pack(finishes, region):
     ends, chunks, offset = [], [], 0
-    for key, tile in terrain['finishes'].items():
+    for key, tile in finishes.items():
         i, j = map(int, key.split(','))
         paths = contours(tile)
         ends.append([region['xs'][i], region['zs'][j], offset, len(paths) // 2])
         chunks.append(paths)
         offset += len(paths) // 2
     packed = base64.b64encode(zlib.compress(b''.join(chunks), 9)).decode()
-    return 'export const pathTiles=' + json.dumps(ends, separators=(',', ':')) + ';\nexport const pathContours=\'' + packed + '\';\n'
+    return dict(tiles=ends,coordinates=packed)
 
 
 if __name__ == '__main__':
-    (ROOT / 'web/look/walkway-outlines.mjs').write_text(build())
+    from tempfile import NamedTemporaryFile
+    tiles=ROOT/'web/surface-tiles.json'
+    data=json.loads(tiles.read_bytes())
+    region=json.loads((ROOT/'web/campus-region.json').read_bytes())
+    data['walkwayOutlines']=outline_pack(data['finishes'],region)
+    with NamedTemporaryFile(dir=tiles.parent,suffix='.pending',delete=False,mode='w') as target:
+        json.dump(data,target,separators=(',',':'))
+    produced=Path(target.name)
+    produced.chmod(tiles.stat().st_mode)
+    produced.replace(tiles)

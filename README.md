@@ -1,14 +1,30 @@
 # Formula Western · Drive Western
 
-Drive Western University's campus in London, Ontario. Explore a landmark in free roam, race a right-lane circuit, or turn your phone into the steering wheel for a desktop race. No game account is required. **[Public game](https://fwestern.ca/) · [Test on your phone](#test-on-your-phone) · [Campus remodeling](#campus-remodeling) · [Theme and loading screen](#theme-and-loading-screen)**. The public domain and this branch can run different releases.
+Drive Western University's campus in London, Ontario. Explore a landmark in free roam, race a right-lane circuit, or turn your phone into the steering wheel for a desktop race. No game account is required. **[Public game](https://fwestern.ca/) · [Where to find the code](#where-to-find-the-code) · [Test on your phone](#test-on-your-phone) · [Campus remodeling](#campus-remodeling) · [Theme and loading screen](#theme-and-loading-screen)**. The public domain and this branch can run different releases.
 
 [![A car approaches the campus roundabout on Lambton Drive and follows the island counterclockwise](docs/roundabout.webp)](docs/roundabout.mp4)
 
-[Watch the 10-second gameplay clip (MP4)](docs/roundabout.mp4).
+[Watch the 10-second gameplay clip (MP4)](docs/roundabout.mp4)
+
 
 Terrain is built from lidar elevation data. Roads, paths, and building outlines come from OpenStreetMap and City of London open data, using 2025 orthophotos and KartaView street-level photos as references. Each campus building is defined by a per-building JSON spec (`build/specs/buildings/*.json`, schema `build/specs/building-spec-v1.schema.json`), compiled by `build/compile_buildings.py`, and generated in the browser by `web/building-*.mjs`.
 
 See the [release handoff and live-site comparison](docs/DRIVING_HANDOFF.md) for the before/after comparison and [UI handoff](docs/UI_HANDOFF.md) for the design implementation.
+
+## Where to find the code
+
+The implementation links below follow the version of [Drive Western](https://github.com/rohanthmarem/drive-western) you are reading.
+
+| I want to… | Open this code |
+|---|---|
+| Start a race | [Enter driving mode](web/main.js) → [set up the car, course and camera](web/drive.js). |
+| Tune drifting and corner assist | [Look ahead for bends](web/drive-sim.mjs) · [steering and drift entry](web/drive-sim.mjs) · [rear-wheel handbrake torque](web/drive-sim.mjs). |
+| Change phone controls | [Gas and Brake layout](server/pad.html) · [recognize two Brake taps](web/phone/pad-wheel.js) · [trigger the drift pulse](web/phone/pad-wheel.js) · [turn phone rotation into steering](web/phone/pad-wheel.js). |
+| Pair a phone on local Wi-Fi | [Start the LAN/HTTPS server](server/lan.mjs) · [desktop QR and pairing code](web/lobby/pair-phone.mjs) · [test the input relay](server/verify-lan.mjs). |
+| Fix a road or turn | [One-way roads and roundabouts](build/traffic.py) · [right-lane racing line](build/traffic.py) · [enforce turn restrictions](build/traffic.py). |
+| Restyle the game | [Purple palette and pixel theme](web/ui/components.css) · [loader progress and timing](web/ui/components.mjs) · [loader exit animation](web/ui/components.css) · [driving HUD markup](web/index.html). |
+| Remodel the campus | [Edit a building’s spec](build/specs/buildings) → [compile its geometry](build/compile_buildings.py) → [render the buildings](web/campus-buildings.mjs). [Terrain heights](web/campus-terrain.mjs) and [street furniture](build/street_detail.py) are separate. |
+| Follow an online race | [Lobby and invites](web/lobby) → [Worker request routing](server/worker.mjs) → [room state and messages](server/room.mjs). |
 
 ## Requirements & Setup
 
@@ -146,7 +162,7 @@ This publishes to `https://drive-western.<your-subdomain>.workers.dev`.
 - **Existing custom domain:** The checked-in `domain` environment targets fwestern.ca and www.fwestern.ca. An authorized site maintainer runs `npm run deploy:domain` from the intended revision. A GitHub merge or static Vercel preview does not update the phone relay.
 - **Verify rollout:** Compare `sim` at [live health](https://fwestern.ca/api/health) with `node --input-type=module -e "import {SIM_VERSION} from './web/race/version.mjs';console.log(SIM_VERSION)"`. Also check the live pad says **Double-tap to drift**: a sim match alone doesn't identify a UI-only change.
 
-**Cost estimate (Cloudflare Workers Paid plan, $5/month minimum):** Durable Object incoming WebSocket messages are billed 20:1 at $0.15/M requests and duration at $12.50/M GB-s (1M requests and 400k GB-s included). One full 8-player room costs about $0.02/hour; 8 full rooms for 3 hours/day is about $14/month; 8 full rooms 24/7 is about $107/month. The free plan's request allowance runs out after roughly one hour of a single full room.
+This 30-day USD estimate includes the $5 Workers Paid minimum and assumes no other account usage. Over the WebSocket relay, a full eight-player room at 60 updates per second per player generates 86,400 billable Durable Object requests per hour after the 20-to-1 WebSocket discount. With the included quotas and rounded units, eight full rooms at three hours per day cost about $14/month, and eight full rooms running nonstop cost about $117/month. Direct WebRTC packets bypass the relay, and storage and optional TURN can add charges. Figures follow [Cloudflare Durable Objects pricing](https://developers.cloudflare.com/durable-objects/platform/pricing/).
 
 ## Building Workflow
 
@@ -197,7 +213,7 @@ node server/verify-pad.mjs
 node server/verify-lan.mjs http://192.168.1.42:4173
 ```
 
-The LAN check joins both sockets and verifies a Gas + handbrake packet at the host. The pad journey exercises manual entry, QR, normal braking, steering, reconnect and double-tap feedback in emulated browsers. Neither replaces a real handset on the target Wi-Fi. On Linux, browser checks may need `npx playwright install --with-deps chromium webkit`.
+The LAN check joins both sockets and verifies a Gas + handbrake packet at the host. The pad journey exercises manual entry, QR, normal braking, steering, reconnect and double-tap feedback in emulated browsers. Neither replaces a real handset on the target Wi-Fi. On Linux, browser checks may need `npx playwright install --with-deps chromium firefox webkit`.
 
 ## Repository Layout
 

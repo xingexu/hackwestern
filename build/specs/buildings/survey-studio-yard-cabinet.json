@@ -1,0 +1,74 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-studio-yard-cabinet",
+  "name": "John Labatt east service cabinet",
+  "status": "authored",
+  "confidence": 0.83,
+  "style": "industrial-utility",
+  "lidarTrusted": false,
+  "lidarNote": "Local dimensions and wall height estimated from the 2025 roof perimeter and cast shadow.",
+  "materials": {
+    "wall": {
+      "kind": "corrugated-metal",
+      "color": "#e2dccc",
+      "unitSize": [
+        0.28,
+        1.73
+      ],
+      "roughness": 0.71
+    },
+    "roof": {
+      "kind": "standing-seam-metal",
+      "color": "#e2dccc",
+      "unitSize": [
+        0.34,
+        5
+      ],
+      "roughness": 0.7
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#e2dccc"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#757975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 1.73,
+    "typicalHeight": 1.73
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none",
+    "features": []
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "John Labatt east service cabinet",
+        "footprint": "inventory",
+        "height": 1.73,
+        "floors": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof edges and finish traced from the City of London 2025 orthophoto."
+    }
+  ]
+}

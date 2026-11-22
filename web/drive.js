@@ -464,7 +464,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     }
     const down = (a, b) => keys.has(a) || keys.has(b) || touchKeys.has(b);
     return {
-      handbrake: Number(down('Space','Space') || phone.handbrake || input.handbrake),
+      handbrake: Number(keys.has('Space') || phone.handbrake || input.handbrake),
       profile:activeProfile,activity,
       digitalSteer:activeProfile==='keyboard' || activeProfile==='buttons',
       throttle: Math.max(input.throttle, Number(down('KeyW', 'ArrowUp'))),
@@ -617,5 +617,5 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     const {install}=await import('./dev/audit/browser.mjs');
     await install({scene,campus,renderer,camera,renderView,updateShadow,coupe,interior,sprintProps,collision});
   } else frame(performance.now());
-  byId('status').hidden = true;
+  byId('status').dataset.ready = '';
 }

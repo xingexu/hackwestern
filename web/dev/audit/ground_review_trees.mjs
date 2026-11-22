@@ -41,7 +41,7 @@ try{
         const crown=data.hits.filter(p=>p.kind==='municipal'||p.kind==='leaves').map(p=>p.y-y)
         const above=Math.max(0,...crown)
         return {x,z,height,body,blocker:source?.owner??null,base:source?.low??null,ground:y,above,
-          grounded:source?.owner==='municipal wood or mast'&&Math.abs(source.low-y)<.65&&body==='municipal'&&above>height*.22}
+          grounded:source?.owner==='municipal tree'&&Math.abs(source.low-y)<.65&&body==='municipal'&&above>height*.22}
       })
     },{cell,points:[...points.values()]})
     for(const hit of hits)measured.set([hit.x,hit.z].join(','),hit)

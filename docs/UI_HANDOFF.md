@@ -52,9 +52,9 @@ Or just add `class="px-button"` to a button and it picks up the shared style, ho
 ## Loading screen
 
 - The markup is `#loader` at the top of `<body>` in `web/index.html`. `#status` (the loading text) now lives **inside** the loader.
-- Game code still owns `#status`: it sets the text, sets `hidden` when ready, and sets `role="alert"` on error. `components.mjs` only watches it:
+- The game reports scene readiness on `#status`. The loader observes three changes.
   - text containing "Preparing" moves the bar into its second phase;
-  - `hidden` plays the exit animation and then hides the loader;
+  - `data-ready` releases pointer input to the scene and starts the exit sequence. The loader and status become hidden together when the exit ends.
   - `role="alert"` shows the error state and a Retry button.
 - **Do not delete `#loader` or `#status` from the page.** Tests and game code read `#status` after loading. The loader is hidden, never removed.
 - The progress bar is real: it counts preload links and finished asset downloads, then creeps through the "Preparing" phase.
@@ -64,7 +64,7 @@ Or just add `class="px-button"` to a button and it picks up the shared style, ho
 - Motion uses stepped timing (`steps(n)`) so it reads as pixel animation. The keyframes are prefixed `px-` in `components.css`.
 - HUD panels slide in when `html` gets the `ui-ready` class (added as the loader leaves).
 - Links to another mode of the same page (for example `?mode=map`) play a block wipe before navigating. Course or spawn changes and Restart play a checker flash.
-- **Animations are switched off** when the user prefers reduced motion, and when `navigator.webdriver` is true (Playwright), via `html[data-ui-instant]`. That keeps screenshot and pixel tests stable. If something must stay visible under reduced motion (like the landmark flash), give it an explicit exception, as at the bottom of `components.css`.
+- **Animations are switched off** when the user prefers reduced motion, via `html[data-ui-instant]`. If something must stay visible under reduced motion (like the landmark flash), give it an explicit exception, as at the bottom of `components.css`.
 
 ## Countdown and landmark popups
 

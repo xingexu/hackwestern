@@ -35,7 +35,7 @@ def draw_faces():
     network=json.loads(region.OUT.with_name('drive-network.json').read_bytes())
     layers=cartography(network,site)
     walks=civic_walks(site)
-    records=[]
+    records=json.loads(OUT.with_name('survey_seasonal_frontages.json').read_bytes())
     for face in layers['faces'].geometries:
         if not 5<face.area<8600:continue
         if face.area<45 and face.length*face.length/face.area>150:continue

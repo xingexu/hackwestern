@@ -1,0 +1,114 @@
+{
+  "schema": "western-building-spec/1",
+  "id": "survey-plaza-cabinets",
+  "name": "Plaza service cabinets",
+  "status": "authored",
+  "confidence": 0.83,
+  "style": "industrial-utility",
+  "lidarTrusted": false,
+  "lidarNote": "Local dimensions and wall height estimated from the 2025 roof perimeter and cast shadow.",
+  "materials": {
+    "wall": {
+      "kind": "metal-panel",
+      "color": "#c6c1b0",
+      "unitSize": [
+        0.88,
+        1.38
+      ],
+      "roughness": 0.71
+    },
+    "roof": {
+      "kind": "standing-seam-metal",
+      "color": "#c6c1b0",
+      "unitSize": [
+        0.34,
+        5
+      ],
+      "roughness": 0.7
+    },
+    "trim": {
+      "kind": "painted-metal",
+      "color": "#c6c1b0"
+    },
+    "frame": {
+      "kind": "painted-metal",
+      "color": "#757975"
+    }
+  },
+  "floors": {
+    "count": 1,
+    "groundFloorHeight": 1.38,
+    "typicalHeight": 1.38
+  },
+  "walls": {
+    "default": {
+      "blank": true,
+      "windows": {
+        "type": "none"
+      }
+    }
+  },
+  "roof": {
+    "form": "flat",
+    "material": "roof",
+    "edge": "none",
+    "features": []
+  },
+  "massing": {
+    "source": "parts",
+    "parts": [
+      {
+        "name": "Switchgear cabinet 1",
+        "footprint": [
+          [
+            -11.26,
+            90.59
+          ],
+          [
+            -7.296,
+            90.84
+          ],
+          [
+            -7.531,
+            94.045
+          ],
+          [
+            -11.5,
+            93.8
+          ]
+        ],
+        "height": 1.4,
+        "floors": 1
+      },
+      {
+        "name": "Switchgear cabinet 2",
+        "footprint": [
+          [
+            -7.114,
+            90.851
+          ],
+          [
+            -3.17,
+            91.1
+          ],
+          [
+            -3.4,
+            94.3
+          ],
+          [
+            -7.349,
+            94.056
+          ]
+        ],
+        "height": 1.26,
+        "floors": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "aerial",
+      "note": "Roof edges and finish traced from the City of London 2025 orthophoto."
+    }
+  ]
+}

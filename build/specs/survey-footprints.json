@@ -350,5 +350,225 @@
         -83.73
       ]
     ]
+  },
+  {
+    "id": "survey-cooling-store-north",
+    "name": "North cooling yard store",
+    "footprint": [
+      [
+        38.98,
+        -76.25
+      ],
+      [
+        41.48,
+        -75.23
+      ],
+      [
+        38.98,
+        -69.77
+      ],
+      [
+        36.7,
+        -70.8
+      ]
+    ]
+  },
+  {
+    "id": "survey-cooling-store-long",
+    "name": "Cooling yard east store",
+    "footprint": [
+      [
+        37.73,
+        -68.75
+      ],
+      [
+        40.23,
+        -67.95
+      ],
+      [
+        35.45,
+        -56.59
+      ],
+      [
+        33.07,
+        -57.5
+      ]
+    ]
+  },
+  {
+    "id": "survey-cooling-store-west",
+    "name": "Cooling yard west store",
+    "footprint": [
+      [
+        35.68,
+        -68.98
+      ],
+      [
+        37.61,
+        -68.18
+      ],
+      [
+        33.07,
+        -57.73
+      ],
+      [
+        30.8,
+        -58.64
+      ]
+    ]
+  },
+  {
+    "id": "survey-cooling-store-south",
+    "name": "Cooling yard south store",
+    "footprint": [
+      [
+        23.98,
+        -57.05
+      ],
+      [
+        29.55,
+        -54.66
+      ],
+      [
+        28.75,
+        -52.39
+      ],
+      [
+        23.07,
+        -54.66
+      ]
+    ]
+  },
+  {
+    "id": "survey-biomedical-service-west",
+    "name": "Biomedical west service enclosure",
+    "footprint": [
+      [
+        82.3,
+        20.05
+      ],
+      [
+        90.3,
+        19.65
+      ],
+      [
+        90.4,
+        22.3
+      ],
+      [
+        82.45,
+        22.7
+      ]
+    ]
+  },
+  {
+    "id": "survey-biomedical-service-east",
+    "name": "Biomedical east service enclosure",
+    "footprint": [
+      [
+        93.9,
+        19.4
+      ],
+      [
+        101.5,
+        19.0
+      ],
+      [
+        101.6,
+        21.7
+      ],
+      [
+        94.05,
+        22.05
+      ]
+    ]
+  },
+  {
+    "id": "survey-plaza-cabinets",
+    "name": "Plaza service cabinets",
+    "footprint": [
+      [
+        -11.26,
+        90.59
+      ],
+      [
+        -3.17,
+        91.1
+      ],
+      [
+        -3.4,
+        94.3
+      ],
+      [
+        -11.5,
+        93.8
+      ]
+    ]
+  },
+  {
+    "id": "survey-studio-yard-cabinet",
+    "name": "John Labatt east service cabinet",
+    "footprint": [
+      [
+        613.0,
+        32.82
+      ],
+      [
+        615.22,
+        31.21
+      ],
+      [
+        616.03,
+        32.35
+      ],
+      [
+        613.82,
+        33.96
+      ]
+    ]
+  },
+  {
+    "id": "survey-ballfield-store",
+    "name": "South ballfield equipment store",
+    "footprint": [
+      [
+        139.73,
+        1416.15
+      ],
+      [
+        141.41,
+        1416.37
+      ],
+      [
+        141.12,
+        1418.46
+      ],
+      [
+        139.46,
+        1418.24
+      ]
+    ]
+  },
+  {
+    "id": "survey-tennis-bleachers",
+    "name": "Tennis court spectator bleachers",
+    "footprint": [
+      [
+        289.88,
+        1400.99
+      ],
+      [
+        280.27,
+        1406.3
+      ],
+      [
+        282.89,
+        1411.05
+      ],
+      [
+        292.5,
+        1405.73
+      ]
+    ]
   }
 ]

@@ -17,6 +17,7 @@ from campus_bounds import footprint
 
 
 CONFIRMED_CONCRETE=14
+PARKING_BAY=15
 
 
 def municipal_lines(kind,site):
@@ -157,9 +158,15 @@ class Surfaces:
     def __init__(self):
         cv2.setNumThreads(1)
         self.site=footprint()
-        self.layers=cartography(json.loads(region.OUT.with_name('drive-network.json').read_bytes()),self.site)
+        network=json.loads(region.OUT.with_name('drive-network.json').read_bytes())
+        self.layers=cartography(network,self.site)
         from parking_stripes import lot_mask
         self.layers['surveyed_parking']=shapely.STRtree(shapely.get_parts(lot_mask()))
+        from parking_bays import bay_floors,registered_aprons
+        self.paint_lots=lot_mask().buffer(.28)
+        aprons=registered_aprons(network)
+        self.paint_lots=self.paint_lots.union(aprons)
+        self.layers['parking_bay']=shapely.STRtree(shapely.get_parts(bay_floors().union(aprons)))
         self.faces=self.layers['faces'].geometries
         self.canopy=region.lidar('dsm')-region.lidar('dtm')
         self.bounds=[math.floor(self.site.bounds[0]/150)*150,math.floor(self.site.bounds[1]/150)*150,
@@ -269,7 +276,17 @@ class Surfaces:
         apron=outdoor&~near_road&drive&~near_lot&(faces==0)&(labels==5)
         light_apron=apron&(daylight>.17)&(daylight>mineral_samples*.63)&(planted_samples<.075)
         labels[court|light_apron]=CONFIRMED_CONCRETE
+        from planting_verges import mask as planting_mask
+        labels[planting_mask(frame,(labels.shape[1],labels.shape[0]))]=1
+        labels[(layer('parking_bay')>0)&~planted]=PARKING_BAY
         labels[floor|(lum==0)|(layer('fixed')>0)]=0
+        from site_frontages import mask as site_materials
+        chart=site_materials(frame,(labels.shape[1],labels.shape[0]))
+        if chart is not None:
+            labels[chart==1]=1
+            labels[chart==5]=5
+            labels[chart==3]=CONFIRMED_CONCRETE
+            labels[chart==4]=0
         return labels[halo:-halo,halo:-halo]
 
     def unpaved_service(self,line,width):
@@ -294,7 +311,7 @@ class Surfaces:
             removals.append(segment)
         return removals
 
-    def sample(self,frame,size,offset=(.5,.5),confirmed_concrete=False):
+    def sample(self,frame,size,offset=(.5,.5),confirmed_concrete=False,parking_bays=False):
         l,t,r,b=frame
         x=np.floor((l+(np.arange(size[0])+offset[0])*(r-l)/size[0]-self.bounds[0])*4).astype(int)
         z=np.floor((t+(np.arange(size[1])+offset[1])*(b-t)/size[1]-self.bounds[1])*4).astype(int)
@@ -302,6 +319,8 @@ class Surfaces:
         result[(z<0)|(z>=self.labels.shape[0])]=0
         result[:,(x<0)|(x>=self.labels.shape[1])]=0
         if confirmed_concrete:return result==CONFIRMED_CONCRETE
+        if parking_bays:return result==PARKING_BAY
+        result[result==PARKING_BAY]=5
         result[result==CONFIRMED_CONCRETE]=3
         return result
 

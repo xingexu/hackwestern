@@ -77,6 +77,23 @@
       "color": "#d1d2ce",
       "roughness": 0.49,
       "metalness": 0.34
+    },
+    "ductJacket": {
+      "kind": "painted-metal",
+      "color": "#c8c8bd",
+      "roughness": 0.64
+    },
+    "northPlantCasing": {
+      "kind": "painted-metal",
+      "color": "#aaaba3",
+      "roughness": 0.52,
+      "metalness": 0.38
+    },
+    "northDuctJacket": {
+      "kind": "painted-metal",
+      "color": "#b5b6ad",
+      "roughness": 0.52,
+      "metalness": 0.38
     }
   },
   "floors": {
@@ -721,20 +738,6 @@
         "style": "round metal exhaust stack"
       },
       {
-        "type": "penthouse",
-        "center": [
-          329.8,
-          -66.5
-        ],
-        "size": [
-          19.4,
-          7.7
-        ],
-        "height": 4.1,
-        "material": "labPlantCladding",
-        "rotation": 24
-      },
-      {
         "type": "stair-tower",
         "center": [
           344.61,
@@ -804,20 +807,6 @@
         "material": "stack",
         "rotation": 0,
         "style": "round"
-      },
-      {
-        "type": "penthouse",
-        "center": [
-          339.6,
-          -62.2
-        ],
-        "size": [
-          4,
-          6.1
-        ],
-        "height": 3.55,
-        "material": "labPlantCladding",
-        "rotation": 24
       },
       {
         "type": "hvac",
@@ -1334,6 +1323,252 @@
           ]
         ],
         "material": "exhaustPipeJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "insulated elbow duct",
+        "housing": "duct",
+        "diameter": 0.62,
+        "height": 0.77,
+        "pipePath": [
+          [
+            305.85,
+            -76.1
+          ],
+          [
+            307.0,
+            -75.6
+          ],
+          [
+            305.8,
+            -72.1
+          ],
+          [
+            308.0,
+            -71.2
+          ]
+        ],
+        "material": "ductJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "insulated elbow duct",
+        "housing": "duct",
+        "diameter": 0.54,
+        "height": 0.72,
+        "pipePath": [
+          [
+            310.1,
+            -74.1
+          ],
+          [
+            311.2,
+            -73.6
+          ],
+          [
+            310.3,
+            -71.3
+          ],
+          [
+            312.1,
+            -70.7
+          ],
+          [
+            313.5,
+            -74
+          ]
+        ],
+        "material": "ductJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "insulated elbow duct",
+        "housing": "duct",
+        "diameter": 0.66,
+        "height": 0.81,
+        "pipePath": [
+          [
+            313.8,
+            -70
+          ],
+          [
+            316.9,
+            -68.7
+          ],
+          [
+            317.7,
+            -70.8
+          ],
+          [
+            319.2,
+            -70.2
+          ]
+        ],
+        "material": "ductJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "insulated elbow duct",
+        "housing": "duct",
+        "diameter": 0.52,
+        "height": 0.68,
+        "pipePath": [
+          [
+            321.1,
+            -67
+          ],
+          [
+            322.8,
+            -66.2
+          ],
+          [
+            324.2,
+            -69.2
+          ],
+          [
+            326.1,
+            -68.4
+          ]
+        ],
+        "material": "ductJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "insulated elbow duct",
+        "housing": "duct",
+        "diameter": 0.58,
+        "height": 0.72,
+        "pipePath": [
+          [
+            338.1,
+            -64.2
+          ],
+          [
+            339.2,
+            -66.8
+          ],
+          [
+            340.8,
+            -66.2
+          ],
+          [
+            342.5,
+            -70.3
+          ]
+        ],
+        "material": "ductJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "insulated elbow duct",
+        "housing": "duct",
+        "diameter": 0.57,
+        "height": 0.74,
+        "pipePath": [
+          [
+            342.9,
+            -62.4
+          ],
+          [
+            345,
+            -61.5
+          ],
+          [
+            346.8,
+            -66.1
+          ],
+          [
+            348.8,
+            -65.2
+          ]
+        ],
+        "material": "ductJacket"
+      },
+      {
+        "type": "hvac",
+        "style": "sectional air handler",
+        "center": [
+          328.83,
+          -68.74
+        ],
+        "size": [
+          4.1,
+          2.35
+        ],
+        "height": 1.87,
+        "rotation": 24,
+        "material": "northPlantCasing"
+      },
+      {
+        "type": "hvac",
+        "style": "sectional air handler",
+        "center": [
+          324.05,
+          -67.58
+        ],
+        "size": [
+          3.9,
+          2.55
+        ],
+        "height": 1.65,
+        "rotation": 24,
+        "material": "northPlantCasing"
+      },
+      {
+        "type": "hvac",
+        "style": "sectional air handler",
+        "center": [
+          315.54,
+          -66.67
+        ],
+        "size": [
+          2.4,
+          2.0
+        ],
+        "height": 1.66,
+        "rotation": 24,
+        "material": "northPlantCasing"
+      },
+      {
+        "type": "hvac",
+        "style": "sectional air handler",
+        "center": [
+          325.32,
+          -63.07
+        ],
+        "size": [
+          3.5,
+          2.1
+        ],
+        "height": 1.68,
+        "rotation": 24,
+        "material": "northPlantCasing"
+      },
+      {
+        "type": "hvac",
+        "style": "insulated supply duct",
+        "housing": "duct",
+        "diameter": 1.15,
+        "height": 1.14,
+        "pipePath": [
+          [
+            310.33,
+            -66.52
+          ],
+          [
+            320.29,
+            -62.09
+          ],
+          [
+            320.71,
+            -63.05
+          ],
+          [
+            330.4,
+            -58.74
+          ]
+        ],
+        "material": "northDuctJacket"
       }
     ]
   },
@@ -1381,6 +1616,10 @@
     {
       "kind": "aerial",
       "note": "Continuous silver duct runs follow the long axes of the three laboratory roofs. At the north they cross to the central plant rooms. The orthophoto and roof grid support the low north block behind its tall equipment."
+    },
+    {
+      "kind": "lidar",
+      "note": "The 1 m surface grid resolves the north laboratory deck at 11.8 m above grade with separate supply runs and casings at 13.3–13.7 m. The registered 2025 aerial resolves the gaps between these casings."
     }
   ],
   "massing": {
@@ -1663,6 +1902,55 @@
             5.824
           ]
         ]
+      },
+      {
+        "name": "North laboratory raised service deck",
+        "footprint": [
+          [
+            322,
+            -78
+          ],
+          [
+            313,
+            -71
+          ],
+          [
+            310,
+            -67
+          ],
+          [
+            310,
+            -62
+          ],
+          [
+            330,
+            -53
+          ],
+          [
+            338,
+            -72
+          ],
+          [
+            328,
+            -77
+          ]
+        ],
+        "height": 11.8,
+        "baseOffset": 8.64,
+        "floors": 1,
+        "material": "labPlantCladding",
+        "facade": {
+          "blank": true,
+          "windows": {
+            "type": "none"
+          }
+        },
+        "roof": {
+          "form": "flat",
+          "material": "roof",
+          "edge": "parapet",
+          "features": []
+        }
       }
     ]
   },
