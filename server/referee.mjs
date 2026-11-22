@@ -2,9 +2,12 @@ import {decode,encode,newer,HZ} from '../web/net/wire.mjs'
 import {StampMap} from '../web/net/timing.mjs'
 import {distance} from '../web/net/motion.mjs'
 
-import courses from '../web/race/courses.mjs'
+import circuits from '../web/race/courses.mjs'
+import sprint from '../web/drive-route.json' with {type:'json'}
 import {advanceZones,circuitGates,zoneProgress} from '../web/race/zones.mjs'
 
+const courses={...circuits,sprint:{samples:sprint}}
+const onlineCourses=[...Object.keys(courses),'roam']
 const gates=Object.fromEntries(Object.entries(courses).map(([id,course])=>[id,circuitGates(course.samples)]))
 export function observeRacePose(r,p,pose) {
   if (r.phase!=='playing' || p.dnf || p.finish) return false
@@ -80,7 +83,7 @@ export function removePlayer(r,id,now){
 export function command(r,p,m,now,raceId){
   const connected=r.players.filter(p=>p.connected)
   if(m.type==='loaded' && !p.loaded){p.loaded=true}
-  else if(m.type==='settings' && p.id===r.host && r.phase==='lobby' && ['college','stadium','campus','roam'].includes(m.course) && Number.isInteger(m.laps) && m.laps>=1 && m.laps<=5 && Number.isInteger(m.limit) && m.limit>=30 && m.limit<=900 && typeof m.collisions==='boolean'){
+  else if(m.type==='settings' && p.id===r.host && r.phase==='lobby' && onlineCourses.includes(m.course) && Number.isInteger(m.laps) && m.laps>=1 && m.laps<=5 && Number.isInteger(m.limit) && m.limit>=30 && m.limit<=900 && typeof m.collisions==='boolean'){
     r.settings={course:m.course,laps:m.laps,collisions:m.collisions,limit:m.limit}
     for(const player of r.players)player.ready=false
   }else if(m.type==='ready' && p.loaded && r.phase==='lobby' && typeof m.ready==='boolean' && m.ready!==p.ready)p.ready=m.ready

@@ -413,15 +413,16 @@ function guideFromVerge(car) {
   car.lateralSpeed+=clamp(side*2,-1.9,1.9)*(1-car.vergeTime/.55)*DT
 }
 
-function createNetworkDrive(samples, network, mode, assisted) {
+function createNetworkDrive(samples, network, mode, assisted, pointToPoint) {
   const racing = mode === 'circuit'
   const last = samples.length - 1
   const gates = racing ? circuitGates(samples) : []
-  let progress, gridIndex=0
+  let progress, gridIndex=0, gridStart
   const state = {}
   const wheels = new Float64Array(4)
   let ground
   function spawn(sample) {
+    gridStart = sample
     ground = network.sample(sample.x, sample.z, sample.y)
     resetCar(state, sample, ground.grade, state.assists??assisted)
     state.y = ground.y
@@ -474,7 +475,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
   function step(input = {}) {
     if (state.phase === 'finished') return
     const oldX = state.x, oldZ = state.z, oldY = state.y, oldLift = state.lift
-    integrateCar(state, wheels, input, ground, wheelSurfaces(network, state), network,racing?cornerSpeed(samples,state,true):Infinity)
+    integrateCar(state, wheels, input, ground, wheelSurfaces(network, state), network,racing?cornerSpeed(samples,state,!pointToPoint):Infinity)
     state.contact = moveThroughWorld(network, state)
     ground = network.sample(state.x, state.z, state.y)
     settleBody(state,ground.y-oldY)
@@ -483,7 +484,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
     guideFromVerge(state)
     const forwardGrade = ground.grade * (dm.sin(state.heading) * ground.tangentX + dm.cos(state.heading) * ground.tangentZ)
     state.pitch = approach(state.pitch, dm.atan(forwardGrade), 1.5 * DT)
-    if (state.phase === 'ready' && dm.hypot(state.x - samples[gridIndex].x, state.z - samples[gridIndex].z) >= START_DISTANCE) {
+    if (state.phase === 'ready' && dm.hypot(state.x - gridStart.x, state.z - gridStart.z) >= START_DISTANCE) {
       state.phase = 'driving'
     }
     if (!racing) {
@@ -509,6 +510,12 @@ function createNetworkDrive(samples, network, mode, assisted) {
   reset()
   function placeOnGrid(slot){
     if(!racing || !slot)return
+    if(pointToPoint){
+      const start=samples[0],back=Math.floor(slot/2)*5,side=(slot%2)*2.5
+      const s=dm.sin(start.heading),c=dm.cos(start.heading)
+      spawn({...start,x:start.x-back*s-side*c,z:start.z-back*c+side*s})
+      return
+    }
     gridIndex=Math.max(0,samples.findLastIndex(s=>s.distance<=samples[last].distance-slot*5))
     spawn(samples[gridIndex])
     state.distance=0
@@ -518,7 +525,7 @@ function createNetworkDrive(samples, network, mode, assisted) {
 
 export function createDriveSim(samples, options = {}) {
   if (options.mode === 'roam' || options.mode === 'circuit') {
-    return createNetworkDrive(samples, options.network, options.mode, options.assists !== false)
+    return createNetworkDrive(samples, options.network, options.mode, options.assists !== false, options.pointToPoint)
   }
   const start = samples[0]
   const finish = samples.at(-1)

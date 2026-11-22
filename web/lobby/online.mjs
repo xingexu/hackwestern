@@ -13,7 +13,7 @@ export function mountOnline(health){
     <div id="online-entry"><div class="profile"><label>Nickname<input id="race-name" maxlength="18" value="Driver"></label><label>Colour<input id="race-color" type="color" value="#d94a28"></label></div>
     <button id="make-room">Create room</button><label>Room code<input id="room-code" maxlength="6" autocomplete="off"></label><button id="join-room">Join room</button></div>
     <div id="online-room" hidden><button id="room-label" title="Copy room code"></button><div class="actions"><button id="share-room">Share invite</button><button id="copy-room">Copy link</button></div>
-    <ul id="room-roster"></ul><label>Nickname<input id="room-name" maxlength="18"></label><fieldset id="race-settings"><label>Course<select id="race-course"><option value="college">College Hill</option><option value="stadium">Stadium</option><option value="campus">Thames Bridges</option><option value="roam">Free roam</option></select></label>
+    <ul id="room-roster"></ul><label>Nickname<input id="room-name" maxlength="18"></label><fieldset id="race-settings"><label>Course<select id="race-course"><option value="college">College Hill</option><option value="sprint">UC Hill Sprint</option><option value="stadium">Stadium</option><option value="campus">Thames Bridges</option><option value="roam">Free roam</option></select></label>
     <label>Laps<input id="race-laps" type="number" min="1" max="5" value="1"></label><label>Time limit (seconds)<input id="race-limit" type="number" min="30" max="900" value="300"></label><label><span><input id="race-contact" type="checkbox"> Car collisions</span></label></fieldset>
     <div class="actions"><button id="race-ready">Ready</button><button id="race-start">Start race</button><button id="race-again" hidden>Vote to restart</button><button id="race-leave">Leave</button></div></div>
     <p><button id="make-pad">Pair phone controller</button></p><output id="online-status" aria-live="polite"></output>`
@@ -43,7 +43,10 @@ export function mountOnline(health){
     fleet?.roster([],null)
     by('online-entry').hidden=false;by('online-room').hidden=true
     by('drive-course').disabled=false
-    if(game)by('trial-open').disabled=false
+    if(game){
+      game.endRace()
+      by('trial-open').disabled=false
+    }
     banner.hidden=true
     pixelCountdown().hide()
     if(debug)debug.textContent=''
@@ -89,7 +92,7 @@ export function mountOnline(health){
     if(!loaded){loaded=true;send({type:'loaded'})}
     if(room.settings.course==='roam' && before?.settings.course!=='roam'){game.changeCourse('roam');session.reset()}
     if(room.race && positioned!==room.race){
-      game.changeCourse(room.settings.course)
+      game.changeCourse(room.settings.course,true)
       game.gridPosition(p.slot)
       positioned=room.race;reportAt=0;session.reset();fleet.respawn()
       menu.close()

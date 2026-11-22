@@ -5,7 +5,8 @@ import {Clock,StampMap,Lag} from '../web/net/timing.mjs'
 import {Track,contact} from '../web/net/motion.mjs'
 import {createHmac} from 'node:crypto'
 import {iceServers} from './ice.mjs'
-import {Relay,newRoundRoom,command,transition,removePlayer} from './referee.mjs'
+import {Relay,newRoundRoom,command,transition,removePlayer,observeRacePose} from './referee.mjs'
+import sprint from '../web/drive-route.json' with {type:'json'}
 for(const name of ['wire','timing','motion']){
   const source=await readFile(new URL('../web/net/'+name+'.mjs',import.meta.url),'utf8')
   assert.doesNotMatch(source,/\b(window|document|navigator|Date|performance|fetch|WebSocket|RTCPeerConnection|setTimeout|setInterval|process|crypto|THREE)\b|Math\.random/)
@@ -85,4 +86,22 @@ voteRoom.players=[1,2,3].map(id=>({id,connected:true,vote:id!==3}))
 Object.assign(voteRoom,{race:'voted',phase:'playing',deadline:1000})
 removePlayer(voteRoom,3,300)
 assert.equal(voteRoom.phase,'lobby')
+const sprintRoom=newRoundRoom('SPR234')
+sprintRoom.players=[1,2].map(id=>({id,connected:true,loaded:true,ready:true}))
+sprintRoom.host=1
+const sprintHost=sprintRoom.players[0]
+assert.ok(command(sprintRoom,sprintHost,{type:'settings',course:'sprint',laps:1,limit:300,collisions:true},0))
+for(const player of sprintRoom.players) assert.ok(command(sprintRoom,player,{type:'ready',ready:true},0))
+assert.ok(command(sprintRoom,sprintHost,{type:'start'},0,()=>3))
+for(const player of sprintRoom.players) assert.ok(command(sprintRoom,player,{type:'placed',race:3},100))
+transition(sprintRoom,3100)
+for(const player of sprintRoom.players){
+  assert.equal(observeRacePose(sprintRoom,player,{...sprint.at(-1),epoch:1}),false)
+  assert.equal(command(sprintRoom,player,{type:'lap',race:3,lap:1},4000),false)
+  for(const sample of sprint) observeRacePose(sprintRoom,player,{...sample,epoch:1})
+  assert.ok(command(sprintRoom,player,{type:'lap',race:3,lap:1},50000+player.id))
+}
+assert.equal(sprintRoom.phase,'results')
+assert.deepEqual(sprintRoom.results.map(({id,dnf})=>({id,dnf})),[{id:1,dnf:false},{id:2,dnf:false}])
+console.log('UC Hill Sprint room start, checkpoints and finish order passed')
 console.log('Binary codec, pure-module boundary, clock, referee sanity checks, prediction, ghost lifetime and round timeout passed')

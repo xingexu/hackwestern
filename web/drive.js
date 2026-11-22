@@ -348,13 +348,14 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     landmarks.hide();
     document.activeElement?.blur();
   }
-  function changeCourse(id) {
+  function changeCourse(id,onlineRace=false) {
     const course=courses.find(c=>c.id===id)??courses[0];
-    mode=course.id==='sprint'?'sprint':course.id==='roam'?'roam':'circuit';
+    const sprint=course.id==='sprint';
+    mode=sprint && !onlineRace?'sprint':course.id==='roam'?'roam':'circuit';
     trial.course(course.id);
     samples=trial.context?.samples??course.samples??[starts.get(spawn.value)];
     length=samples.at(-1).distance;
-    sim=createDriveSim(samples,{mode,network:trial.context?.network??network,assists:assists.checked});
+    sim=createDriveSim(samples,{mode,network:trial.context?.network??network,assists:assists.checked,pointToPoint:sprint});
     car=sim.state;
     routeMap=createRouteMap(samples,atlas,mode);
     byId('length').textContent=mode==='roam'?'Travelled':Math.round(length)+' m';
@@ -366,7 +367,7 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
     document.title=course.name+' · Western University';
     byId('finish').querySelector('small').textContent=course.name.toUpperCase();
     byId('view').setAttribute('aria-label',course.name+' driving view');
-    campus.sprintRoad.visible=sprintProps.visible=mode==='sprint';
+    campus.sprintRoad.visible=sprintProps.visible=sprint;
     if(params.has('diagnostics')) window.driveMetrics={
       get net(){return online?.details()??[];},
       get opponents(){return scene.children.filter(child=>child.name.startsWith('Racer ') && child.visible).map(({name,position})=>({name,x:position.x,z:position.z}));},
@@ -527,7 +528,9 @@ export async function startDrive(world, volume, collectMeshes, campus, onlineMen
   }
   changeCourse(params.get('course')||(photoStart?'roam':document.querySelector('meta[name=campus-course]')?.content));
   online=await onlineMenu;
-  online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car,gridPosition(slot){
+  online?.attach({audio,THREE,scene,coupe,changeCourse,reset,carState:()=>car,endRace(){
+    if(mode==='circuit' && select.value==='sprint')changeCourse('sprint');
+  },gridPosition(slot){
     if(!slot || mode!=='circuit')return;
     sim.placeOnGrid(slot);
     snapshotPose(previousPose,car);rig.reset(car);placement.reset();
